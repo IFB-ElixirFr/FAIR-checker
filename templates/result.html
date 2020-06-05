@@ -1,0 +1,39 @@
+{% extends "layout.html" %}
+
+{% block nav %}
+{% include 'nav.html' %}
+{% endblock %}
+
+{% block body %}
+
+<h1 class="title">How FAIR is my resource</h1>
+
+<h2 class="title">FAIRness result for: {{ test_url }}</h2>
+
+<table class="display" id="summary_table">
+    <thead>
+        <tr>
+            <th></th>
+            <th>Principle</th>
+            <th>Score</th>
+            <th>Time</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for elem in results_list %}
+        <tr data-child-value='{{ elem | tojson | safe }}'>
+            <td></td>
+            <td>{{ elem.header }}</td>
+            {% if elem.score == "0" %}
+            <td><span class="tag is-danger">{{ elem.score }}</span></td>
+            {% else %}
+            <td><span class="tag is-success">{{ elem.score }}</span></td>
+            {% endif %}
+            <td>{{ elem.time }}</td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
+
+{% endblock %}

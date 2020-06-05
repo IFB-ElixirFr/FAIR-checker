@@ -1,0 +1,118 @@
+<!-- <button id="update">Update</button> -->
+<div id="chart-radar" class="columns is-mobile is-centered"></div>
+
+<script type="text/javascript" charset="utf-8">
+
+
+  var chart = RadarChart.chart();
+  chart.config({
+    color: function() {},
+    w: 400,
+    h: 400,
+    levels: 5,
+    maxValue: 1,
+    minValue: 0,
+    factor: 0.7,
+  });
+
+
+
+
+  var data = [
+    {
+      className: 'success', // optional can be used for styling
+      axes: [
+        {axis: "Findable", value: 0},
+        {axis: "Accessible", value: 0},
+        {axis: "Interoperable", value: 0},
+        {axis: "Reusable", value: 0},
+      ]
+    },
+    // {
+    //   className: 'failure',
+    //   axes: [
+    //     {axis: "Findable", value: 0},
+    //     {axis: "Accessible", value: 0},
+    //     {axis: "Interoperable", value: 0},
+    //     {axis: "Reusable", value: 0},
+    //
+    //   ]
+    // }
+  ];
+
+
+  var cfg = chart.config(); // retrieve default config
+  var svg = d3.select('#chart-radar').append('svg')
+    .attr('width', cfg.w)
+    .attr('height', cfg.h);
+  svg.append('g').classed('single', 1).datum(data).call(chart);
+
+
+  function update_radar_chart() {
+      console.log("updated !");
+
+      fs_count = {
+        success: {},
+        failure: {},
+      };
+      element = $('[id^=score_metric_]');
+      element.each(function( id ) {
+        value = parseInt($(this).text());
+        category = $(this).data("category");
+
+        if (!(category in fs_count['success'])){
+          fs_count['success'][category] = 0;
+        }
+        if (!(category in fs_count['failure'])){
+          fs_count['failure'][category] = 0;
+        }
+
+        size = $('[name=checkbox_' + category + ']').length;
+        console.log(size);
+
+        if (value == 1) {
+          fs_count['success'][category] += 1/size;
+
+          console.log( id + ": " + value );
+          console.log( id + ": " + category );
+        } else if (value == 0){
+          fs_count['failure'][category] += 1/size;
+          console.log( id + ": " + value );
+          console.log( id + ": " + category );
+        }
+
+
+      });
+
+      console.log(fs_count);
+
+      var data = [
+        {
+          className: 'success', // optional can be used for styling
+          axes: [
+            {axis: "Findable", value: fs_count['success']['F']},
+            {axis: "Accessible", value: fs_count['success']['A']},
+            {axis: "Interoperable", value: fs_count['success']['I']},
+            {axis: "Reusable", value: fs_count['success']['R']},
+          ]
+        },
+        // {
+        //   className: 'failure',
+        //   axes: [
+        //     {axis: "Findable", value: fs_count['failure']['F']},
+        //     {axis: "Accessible", value: fs_count['failure']['A']},
+        //     {axis: "Interoperable", value: fs_count['failure']['I']},
+        //     {axis: "Reusable", value: fs_count['failure']['R']},
+        //
+        //   ]
+        // }
+      ];
+
+      d3.selectAll("svg > *").remove();
+
+      svg.append('g').classed('single', 1).datum(data).call(chart);
+  };
+
+
+  d3.select("#update").on("click", update_radar_chart);
+</script>

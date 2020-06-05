@@ -1,0 +1,72 @@
+html{
+  font-family: 'Raleway', sans-serif;
+
+}
+
+/* table#summary_table.dataTable tbody tr:hover {
+  background-color: #ffa;
+}
+
+table#summary_table.dataTable thead:hover {
+  background-color: #ffa;
+} */
+
+td.details-control {
+   background: url('http://www.datatables.net/examples/resources/details_open.png') no-repeat center center;
+   cursor: pointer;
+}
+tr.shown td.details-control {
+   background: url('http://www.datatables.net/examples/resources/details_close.png') no-repeat center center;
+}
+
+span.tag.is-success {
+  display: grid;
+  text-align: center;
+}
+
+span.tag.is-danger {
+  display: grid;
+  text-align: center;
+}
+
+article.message.is-info > div:first-child.message-header {
+    background-color: #417da7;
+}
+
+/* article.message.is-primary > div:first-child.message-header {
+    background-color: #50c3b2;
+} */
+
+/* table#metrics_checkboxes {
+	display: inline-block;
+} */
+
+/* radar chart style */
+.radar-chart .area {
+  fill-opacity: 0.4;
+}
+
+.radar-chart.focus .area {
+  fill-opacity: 0.3;
+}
+
+.radar-chart.focus .area.focused {
+  fill-opacity: 0.9;
+}
+
+.radar-chart .axis .legend {
+  font-size: 16px;
+}
+
+.area.failure,
+.failure .circle {
+  fill: #f13;
+  stroke: none;
+}
+
+.area.success,
+.success .circle {
+
+  fill: #3a4;
+  stroke: none;
+}

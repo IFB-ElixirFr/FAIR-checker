@@ -1,0 +1,81 @@
+{% extends "layout.html" %}
+
+{% block nav %}
+{% include 'nav.html' %}
+{% endblock %}
+
+{% block body %}
+
+<h1 class="title">Finding and Reusing specific content</h1>
+<p>In this demo, we show how we can use the BioImaging EDAM ontology to filter specific tools from the Neubias catalog. COMULIS is a scientific community interested in the field of correlative multimodal imaging. Several image processing and analysis tasks are involved such as image registration, segmentation or visualisation. </p>
+
+<section class="section">
+<h2 class="subtitle">Segmentation softwares</h2>
+<table class="table is-striped">
+         <tbody>
+         {% for item in seg_entries %}
+             <tr>
+                 <td><a target="_blank" href="{{ item.url }}">{{ item.title }}</a></td>
+                 <td>
+                 {% for t in item.topics %}
+                     <span class="tag is-link">{{ t }}</span>
+                 {% endfor %}
+                 </td>
+                 <td>
+                 {% for t in item.operations %}
+                     <span class="tag is-primary">{{ t }}</span>
+                 {% endfor %}
+                 </td>
+             </tr>
+         {% endfor %}
+         </tbody>
+</table>
+</section>
+
+<section class="section">
+<h2 class="subtitle">Registration softwares</h2>
+<table class="table is-striped">
+         <tbody>
+         {% for item in reg_entries %}
+             <tr>
+                 <td><a target="_blank" href="{{ item.url }}">{{ item.title }}</a></td>
+                 <td>
+                 {% for t in item.topics %}
+                     <span class="tag is-link">{{ t }}</span>
+                 {% endfor %}
+                 </td>
+                 <td>
+                 {% for t in item.operations %}
+                     <span class="tag is-primary">{{ t }}</span>
+                 {% endfor %}
+                 </td>
+             </tr>
+         {% endfor %}
+         </tbody>
+</table>
+</section>
+
+<section class="section">
+<h2 class="subtitle">Visualisation softwares</h2>
+<table class="table is-striped">
+         <tbody>
+         {% for item in vis_entries %}
+             <tr>
+                 <td><a target="_blank" href="{{ item.url }}">{{ item.title }}</a></td>
+                 <td>
+                 {% for t in item.topics %}
+                     <span class="tag is-link">{{ t }}</span>
+                 {% endfor %}
+                 </td>
+                 <td>
+                 {% for t in item.operations %}
+                     <span class="tag is-primary">{{ t }}</span>
+                 {% endfor %}
+                 </td>
+             </tr>
+         {% endfor %}
+         </tbody>
+</table>
+</section>
+
+{% endblock %}

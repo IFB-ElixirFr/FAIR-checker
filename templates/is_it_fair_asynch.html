@@ -1,0 +1,63 @@
+{% extends "layout.html" %}
+
+{% block nav %}
+{% include 'nav.html' %}
+{% endblock %}
+
+{% block body %}
+Test
+
+<script type="text/javascript" charset="utf-8">
+    $( document ).ready(function() {
+        console.log( "ready!" );
+
+
+        console.log('trying to connect...');
+        var socket = io.connect('http://127.0.0.1:5000');
+        //var socket = io();
+        console.log('connected');
+
+
+
+        socket.on('connect', function() {
+            socket.emit('hello', {data: 'I\'m connected!'});
+            console.log('hello message sent');
+        });
+
+        socket.on('message', function(value) {
+            console.log('received message from server: ');
+            console.log(value);
+        });
+
+        socket.on('ack', function(value) {
+            console.log('received ack from server: ');
+            console.log(value);
+
+        });
+
+
+        // socket.on('p1.value', function(value) {
+        //     console.log('received '+value.toString()+' for p1');
+        //     $("#p1").attr("value",value);
+        // });
+        //
+        // socket.on('p2.value', function(value) {
+        //     console.log('received '+value.toString()+' for p2');
+        //     $("#p2").attr("value",value);
+        // });
+
+        socket.on('p3.value', function(value) {
+            console.log('received '+value.toString()+' for p2');
+            $("#p3").attr("value",value);
+        });
+
+        socket.emit('hello', {data: 'hello again'});
+
+        socket.emit('start_FAIR_test');
+
+    });
+</script>
+
+<progress id="p3" class="progress is-primary"  value="0" max="100"></progress>
+
+{% endblock %}

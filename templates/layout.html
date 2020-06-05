@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>FAIRness checks</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--<link rel="stylesheet" href="css/uikit.min.css" />-->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js"></script>
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/responsive/2.2.3/js/dataTables.responsive.min.js"></script>
+<!--    <script src="//cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.js" integrity="sha256-yr4fRk/GU1ehYJPAs8P4JlTgu0Hdsp4ZKrx8bDEDC3I=" crossorigin="anonymous"></script>-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.32.0/codemirror.min.js"></script>
+    <!-- radar_chart -->
+    <script src="https://d3js.org/d3.v3.js"></script>
+    <script src="https://rawgit.com/tpreusse/radar-chart-d3/master/src/radar-chart.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://rawgit.com/tpreusse/radar-chart-d3/master/src/radar-chart.css">
+
+    <script src="{{ url_for('static',filename='js/main.js') }}"></script>
+    <!--<script src="{{ url_for('static',filename='js/uikit-icons.min.js') }}"></script>-->
+
+    <!--<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/uikit.min.css') }}">-->
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/responsive/2.2.3/css/responsive.dataTables.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.32.0/codemirror.min.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/bulma.min.css') }}" />
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/app.css')}}">
+
+    <!-- JSONLD -->
+    <script type="application/ld+json">
+        {{ jld|safe }}
+    </script>
+</head>
+
+<body>
+<div class="columns">
+
+    <div class="column is-2">
+        <section class="section">
+            <!--<div class="container">-->
+        {% block nav %}
+        {% endblock %}
+            <!--</div>-->
+        </section>
+    </div>
+
+    <div class="column">
+        <section class="section">
+            <!--<div class="container">-->
+        {% block body %}
+        {% endblock %}
+            <!--</div>-->
+        </section>
+    </div>
+</div>
+
+</body>
+</html>

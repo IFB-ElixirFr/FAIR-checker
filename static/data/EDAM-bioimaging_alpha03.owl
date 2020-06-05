@@ -1,0 +1,3906 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY foaf "http://xmlns.com/foaf/0.1/" >
+    <!ENTITY doap "http://usefulinc.com/ns/doap#" >
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY oboOther "http://purl.obolibrary.org/obo/" >
+    <!ENTITY dc "http://purl.org/dc/elements/1.1/" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY edam "http://purl.obolibrary.org/obo/edam#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY oboInOwl "http://www.geneontology.org/formats/oboInOwl#" >
+]>
+
+
+<rdf:RDF xmlns="http://edamontology.org/"
+     xml:base="http://edamontology.org/"
+     xmlns:dc="http://purl.org/dc/elements/1.1/"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:foaf="http://xmlns.com/foaf/0.1/"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:oboOther="http://purl.obolibrary.org/obo/"
+     xmlns:oboInOwl="http://www.geneontology.org/formats/oboInOwl#"
+     xmlns:doap="http://usefulinc.com/ns/doap#"
+     xmlns:edam="&oboOther;edam#">
+    <owl:Ontology rdf:about="http://edamontology.org">
+        <oboOther:idspace>EDAM_topic http://edamontology.org/topic_ &quot;EDAM topics&quot;</oboOther:idspace>
+        <oboOther:idspace>EDAM_operation http://edamontology.org/operation_ &quot;EDAM operations&quot;</oboOther:idspace>
+        <oboInOwl:hasSubset>formats &quot;EDAM data formats&quot;</oboInOwl:hasSubset>
+        <oboOther:default-relationship-id-prefix>EDAM</oboOther:default-relationship-id-prefix>
+        <oboInOwl:savedBy>Jon Ison</oboInOwl:savedBy>
+        <oboInOwl:hasSubset>identifiers &quot;EDAM types of identifiers&quot;</oboInOwl:hasSubset>
+        <oboInOwl:hasSubset>data &quot;EDAM types of data&quot;</oboInOwl:hasSubset>
+        <oboInOwl:hasSubset>relations &quot;EDAM relations&quot;</oboInOwl:hasSubset>
+        <oboInOwl:hasSubset>edam &quot;EDAM&quot;</oboInOwl:hasSubset>
+        <oboInOwl:hasSubset>operations &quot;EDAM_operation&quot;</oboInOwl:hasSubset>
+        <oboInOwl:hasSubset>bioimaging &quot;EDAM-bioimaging&quot;</oboInOwl:hasSubset>
+        <oboOther:idspace>EDAM http://edamontology.org/ &quot;EDAM relations and concept properties&quot;</oboOther:idspace>
+        <dc:format>application/rdf+xml</dc:format>
+        <oboOther:date>15.01.2018 21:46 GMT</oboOther:date>
+        <oboOther:idspace>EDAM_data http://edamontology.org/data_ &quot;EDAM types of data&quot;</oboOther:idspace>
+        <oboInOwl:hasSubset>concept_properties &quot;EDAM concept properties&quot;</oboInOwl:hasSubset>
+        <dc:creator>Jon Ison</dc:creator>
+		<dc:contributor>Aaron Ponti</dc:contributor>
+		<dc:contributor>Petter Ranefall</dc:contributor>
+		<dc:contributor>Jeremy Pike</dc:contributor>
+		<dc:contributor>Gabriella Rustici</dc:contributor>
+		<dc:contributor>Joshua Moore</dc:contributor>
+		<dc:creator>Hervé Ménager</dc:creator>
+		<dc:creator>Matúš Kalaš</dc:creator>
+		<dc:contributor>Alexandre Dufour</dc:contributor>
+		<dc:creator>Moritz Kirschmann</dc:creator>
+		<dc:creator>Anatole Chessel</dc:creator>
+		<dc:creator>Laure Plantard</dc:creator>
+		<dc:creator>Joakim Lindblad</dc:creator>
+		<dc:contributor>Chong Zhang</dc:contributor>
+		<dc:contributor>Nataša Sladoje-Matić</dc:contributor>
+		<dc:contributor>Jean-Baptiste Sibarita</dc:contributor>
+		<dc:contributor>David Rousseau</dc:contributor>
+		<dc:contributor>Romain Guiet</dc:contributor>
+		<dc:contributor>Kota Miura</dc:contributor>
+		<dc:contributor>Lassi Paavolainen</dc:contributor>
+		<dc:contributor>Ofra Golani</dc:contributor>
+		<dc:contributor>Leandro Scholz</dc:contributor>
+		<dc:contributor>Julien Colombelli</dc:contributor>
+		<dc:contributor>NEUBIAS taggers and members of NEUBIAS WG4 lead by Perrine Paul-Gilloteaux and WG5 lead by Sébastien Tosi</dc:contributor>
+        <dc:title>EDAM-bioimaging: An ontology of bioimage informatics operations, types of data, data formats, and bioimaging topics</dc:title>
+        <oboOther:idspace>EDAM_format http://edamontology.org/format_ &quot;EDAM data formats&quot;</oboOther:idspace>
+        <next_id>!NB.:NO_STABLE_IDS-YET!</next_id>
+        <oboInOwl:hasSubset>topics &quot;EDAM topics&quot;</oboInOwl:hasSubset>
+        <oboOther:remark>EDAM-bioimaging is an extension to the EDAM ontology (edamontology.org) for bioimage analysis, bioimage informatics, and bioimaging, developed in collaboration with partners from NEUBIAS Cost Action CA15124 (neubias.org) and EuroBioImaging PP2.</oboOther:remark>
+        <doap:Version>alpha03</doap:Version>
+        <rdfs:isDefinedBy rdf:resource="http://edamontology.org/EDAM-bioimaging.owl"/>
+        <foaf:page rdf:resource="https://github.com/edamontology/edam-bioimaging"/>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://edamontology.org/citation -->
+
+    <owl:AnnotationProperty rdf:about="http://edamontology.org/citation">
+        <rdfs:label>Citation</rdfs:label>
+        <oboInOwl:inSubset>concept_properties</oboInOwl:inSubset>
+        <created_in>1.13</created_in>
+        <oboInOwl:hasBroadSynonym>Publication reference</oboInOwl:hasBroadSynonym>
+        <oboInOwl:hasRelatedSynonym>Publication</oboInOwl:hasRelatedSynonym>
+        <oboInOwl:hasDefinition>&apos;Citation&apos; concept property (&apos;citation&apos; metadata tag) contains a dereferenceable URI, preferrably including a DOI, pointing to a citeable publication of the given data format.</oboInOwl:hasDefinition>
+        <oboOther:is_metadata_tag>true</oboOther:is_metadata_tag>
+    </owl:AnnotationProperty>
+    
+
+
+    <!-- http://edamontology.org/created_in -->
+
+    <owl:AnnotationProperty rdf:about="http://edamontology.org/created_in">
+        <rdfs:label>Created in</rdfs:label>
+        <oboInOwl:hasDefinition>Version in which a concept was created.</oboInOwl:hasDefinition>
+        <oboOther:is_metadata_tag>true</oboOther:is_metadata_tag>
+        <oboInOwl:inSubset>concept_properties</oboInOwl:inSubset>
+    </owl:AnnotationProperty>
+    
+
+
+    <!-- http://edamontology.org/documentation -->
+
+    <owl:AnnotationProperty rdf:about="http://edamontology.org/documentation">
+        <rdfs:label>Documentation</rdfs:label>
+        <oboInOwl:hasRelatedSynonym>Specification</oboInOwl:hasRelatedSynonym>
+        <oboInOwl:hasDefinition>&apos;Documentation&apos; trailing modifier (qualifier, &apos;documentation&apos;) of &apos;xref&apos; links of &apos;Format&apos; concepts. When &apos;true&apos;, the link is pointing to a page with explanation, description, documentation, or specification of the given data format.</oboInOwl:hasDefinition>
+        <oboOther:is_metadata_tag>true</oboOther:is_metadata_tag>
+        <oboInOwl:inSubset>concept_properties</oboInOwl:inSubset>
+    </owl:AnnotationProperty>
+    
+
+
+    <!-- http://edamontology.org/example -->
+
+    <owl:AnnotationProperty rdf:about="http://edamontology.org/example">
+        <rdfs:label>Example</rdfs:label>
+        <oboInOwl:hasDefinition>&apos;Example&apos; concept property (&apos;example&apos; metadata tag) lists examples of valid values of types of identifiers (accessions). Applicable to some other types of data, too.</oboInOwl:hasDefinition>
+        <oboOther:is_metadata_tag>true</oboOther:is_metadata_tag>
+        <rdfs:comment>Separated by bar (&apos;|&apos;).</rdfs:comment>
+        <oboInOwl:inSubset>concept_properties</oboInOwl:inSubset>
+    </owl:AnnotationProperty>
+    
+
+
+    <!-- http://edamontology.org/file_extension -->
+
+    <owl:AnnotationProperty rdf:about="http://edamontology.org/file_extension">
+        <rdfs:label>File extension</rdfs:label>
+        <oboInOwl:hasDefinition>&apos;File extension&apos; concept property (&apos;file_extension&apos; metadata tag) lists examples of usual file extensions of formats.</oboInOwl:hasDefinition>
+        <rdfs:comment>Separated by bar (&apos;|&apos;), without a dot (&apos;.&apos;) prefix, preferrably not all capital characters.</rdfs:comment>
+        <oboInOwl:inSubset>concept_properties</oboInOwl:inSubset>
+        <oboOther:is_metadata_tag>true</oboOther:is_metadata_tag>
+    </owl:AnnotationProperty>
+    
+
+
+    <!-- http://edamontology.org/hide_in_subset -->
+
+    <owl:AnnotationProperty rdf:about="http://edamontology.org/hide_in_subset">
+        <rdfs:label>Hide in subset</rdfs:label>
+        <oboInOwl:hasDefinition>&apos;Hide in subset&apos; concept property (&apos;hide_in_subset&apos; metadata tag) is a temporary property in EDAM-bioimaging that declares a subset in which the given concept may (or should) be hidden from users.</oboInOwl:hasDefinition>
+        <oboOther:is_metadata_tag>true</oboOther:is_metadata_tag>
+        <rdfs:comment>N.B.: In full mature EDAM, this will be implicit by not including the given concepts in the given subset.
+N.B.: In generated subsets, these concepts should be omitted, and their children re-rooted (while omitting unneccessary|uninteresting paths to root!!).</rdfs:comment>
+        <oboInOwl:inSubset>concept_properties</oboInOwl:inSubset>
+    </owl:AnnotationProperty>
+    
+
+
+    <!-- http://edamontology.org/isdebtag -->
+
+    <owl:AnnotationProperty rdf:about="http://edamontology.org/isdebtag">
+        <rdfs:label>isdebtag</rdfs:label>
+        <oboInOwl:hasDefinition>When &apos;true&apos;, the term has been proposed or is supported within Debian Med as a tag.</oboInOwl:hasDefinition>
+        <oboInOwl:inSubset>concept_properties</oboInOwl:inSubset>
+        <oboOther:is_metadata_tag>true</oboOther:is_metadata_tag>
+    </owl:AnnotationProperty>
+    
+
+
+    <!-- http://edamontology.org/media_type -->
+
+    <owl:AnnotationProperty rdf:about="http://edamontology.org/media_type">
+        <rdfs:label>Media type</rdfs:label>
+        <oboInOwl:hasNarrowSynonym>MIME type</oboInOwl:hasNarrowSynonym>
+        <oboInOwl:hasDefinition>&apos;Media type&apos; trailing modifier (qualifier, &apos;media_type&apos;) of &apos;xref&apos; links of &apos;Format&apos; concepts. When &apos;true&apos;, the link is pointing to a page specifying a media type of the given data format.</oboInOwl:hasDefinition>
+        <oboOther:is_metadata_tag>true</oboOther:is_metadata_tag>
+        <oboInOwl:inSubset>concept_properties</oboInOwl:inSubset>
+    </owl:AnnotationProperty>
+    
+
+
+    <!-- http://edamontology.org/noClue -->
+
+    <owl:AnnotationProperty rdf:about="http://edamontology.org/noClue"/>
+    
+
+
+    <!-- http://edamontology.org/obsolete_since -->
+
+    <owl:AnnotationProperty rdf:about="http://edamontology.org/obsolete_since">
+        <rdfs:label>Obsolete since</rdfs:label>
+        <oboOther:is_metadata_tag>true</oboOther:is_metadata_tag>
+        <oboInOwl:inSubset>concept_properties</oboInOwl:inSubset>
+        <oboInOwl:hasDefinition>Version in which a concept was made obsolete.</oboInOwl:hasDefinition>
+    </owl:AnnotationProperty>
+    
+
+
+    <!-- http://edamontology.org/regex -->
+
+    <owl:AnnotationProperty rdf:about="http://edamontology.org/regex">
+        <rdfs:label>Regular expression</rdfs:label>
+        <oboInOwl:hasDefinition>&apos;Regular expression&apos; concept property (&apos;regex&apos; metadata tag) specifies the allowed values of types of identifiers (accessions). Applicable to some other types of data, too.</oboInOwl:hasDefinition>
+        <oboInOwl:inSubset>concept_properties</oboInOwl:inSubset>
+        <oboOther:is_metadata_tag>true</oboOther:is_metadata_tag>
+    </owl:AnnotationProperty>
+    
+
+
+    <!-- http://edamontology.org/related_term -->
+
+    <owl:AnnotationProperty rdf:about="http://edamontology.org/related_term">
+        <rdfs:label>Related term</rdfs:label>
+        <rdfs:subPropertyOf rdf:resource="&oboInOwl;hasRelatedSynonym"/>
+        <oboInOwl:hasDefinition>&apos;Related term&apos; concept property (&apos;related_term&apos;; supposedly a synonym modifier in OBO format) states a related term - not necessarily closely semantically related - that an uninformed user may use when searching for the given concept.</oboInOwl:hasDefinition>
+        <oboInOwl:inSubset>concept_properties</oboInOwl:inSubset>
+    </owl:AnnotationProperty>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/is_anti_symmetric -->
+
+    <owl:AnnotationProperty rdf:about="&oboOther;is_anti_symmetric"/>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/is_metadata_tag -->
+
+    <owl:AnnotationProperty rdf:about="&oboOther;is_metadata_tag"/>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/is_reflexive -->
+
+    <owl:AnnotationProperty rdf:about="&oboOther;is_reflexive"/>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/is_symmetric -->
+
+    <owl:AnnotationProperty rdf:about="&oboOther;is_symmetric"/>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/namespace -->
+
+    <owl:AnnotationProperty rdf:about="&oboOther;namespace"/>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/transitive_over -->
+
+    <owl:AnnotationProperty rdf:about="&oboOther;transitive_over"/>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/edam#bioimaging -->
+
+    <!-- <owl:AnnotationProperty rdf:about="&oboOther;edam#bioimaging"> -->
+        <!-- <rdfs:subPropertyOf rdf:resource="&oboInOwl;SubsetProperty"/> -->
+    <!-- </owl:AnnotationProperty> -->
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/edam#data -->
+
+    <owl:AnnotationProperty rdf:about="&oboOther;edam#data">
+        <rdfs:subPropertyOf rdf:resource="&oboInOwl;SubsetProperty"/>
+    </owl:AnnotationProperty>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/edam#edam -->
+
+    <owl:AnnotationProperty rdf:about="&oboOther;edam#edam">
+        <rdfs:subPropertyOf rdf:resource="&oboInOwl;SubsetProperty"/>
+    </owl:AnnotationProperty>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/edam#events -->
+
+    <owl:AnnotationProperty rdf:about="&oboOther;edam#events">
+        <rdfs:subPropertyOf rdf:resource="&oboInOwl;SubsetProperty"/>
+    </owl:AnnotationProperty>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/edam#formats -->
+
+    <owl:AnnotationProperty rdf:about="&oboOther;edam#formats">
+        <rdfs:subPropertyOf rdf:resource="&oboInOwl;SubsetProperty"/>
+    </owl:AnnotationProperty>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/edam#identifiers -->
+
+    <owl:AnnotationProperty rdf:about="&oboOther;edam#identifiers">
+        <rdfs:subPropertyOf rdf:resource="&oboInOwl;SubsetProperty"/>
+    </owl:AnnotationProperty>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/edam#obsolete -->
+
+    <owl:AnnotationProperty rdf:about="&oboOther;edam#obsolete">
+        <rdfs:subPropertyOf rdf:resource="&oboInOwl;SubsetProperty"/>
+    </owl:AnnotationProperty>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/edam#operations -->
+
+    <owl:AnnotationProperty rdf:about="&oboOther;edam#operations">
+        <rdfs:subPropertyOf rdf:resource="&oboInOwl;SubsetProperty"/>
+    </owl:AnnotationProperty>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/edam#topics -->
+
+    <owl:AnnotationProperty rdf:about="&oboOther;edam#topics">
+        <rdfs:subPropertyOf rdf:resource="&oboInOwl;SubsetProperty"/>
+    </owl:AnnotationProperty>
+    
+
+
+    <!-- http://www.geneontology.org/formats/oboInOwl#SubsetProperty -->
+
+    <owl:AnnotationProperty rdf:about="&oboInOwl;SubsetProperty"/>
+    
+
+
+    <!-- http://www.geneontology.org/formats/oboInOwl#consider -->
+
+    <owl:AnnotationProperty rdf:about="&oboInOwl;consider"/>
+    
+
+
+    <!-- http://www.geneontology.org/formats/oboInOwl#hasAlternativeId -->
+
+    <owl:AnnotationProperty rdf:about="&oboInOwl;hasAlternativeId"/>
+    
+
+
+    <!-- http://www.geneontology.org/formats/oboInOwl#hasBroadSynonym -->
+
+    <owl:AnnotationProperty rdf:about="&oboInOwl;hasBroadSynonym"/>
+    
+
+
+    <!-- http://www.geneontology.org/formats/oboInOwl#hasDbXref -->
+
+    <owl:AnnotationProperty rdf:about="&oboInOwl;hasDbXref"/>
+    
+
+
+    <!-- http://www.geneontology.org/formats/oboInOwl#hasDefinition -->
+
+    <owl:AnnotationProperty rdf:about="&oboInOwl;hasDefinition"/>
+    
+
+
+    <!-- http://www.geneontology.org/formats/oboInOwl#hasExactSynonym -->
+
+    <owl:AnnotationProperty rdf:about="&oboInOwl;hasExactSynonym"/>
+    
+
+
+    <!-- http://www.geneontology.org/formats/oboInOwl#hasNarrowSynonym -->
+
+    <owl:AnnotationProperty rdf:about="&oboInOwl;hasNarrowSynonym"/>
+    
+
+
+    <!-- http://www.geneontology.org/formats/oboInOwl#hasRelatedSynonym -->
+
+    <owl:AnnotationProperty rdf:about="&oboInOwl;hasRelatedSynonym"/>
+    
+
+
+    <!-- http://www.geneontology.org/formats/oboInOwl#hasSubset -->
+
+    <owl:AnnotationProperty rdf:about="&oboInOwl;hasSubset"/>
+    
+
+
+    <!-- http://www.geneontology.org/formats/oboInOwl#inSubset -->
+
+    <owl:AnnotationProperty rdf:about="&oboInOwl;inSubset"/>
+    
+
+
+    <!-- http://www.geneontology.org/formats/oboInOwl#isCyclic -->
+
+    <owl:AnnotationProperty rdf:about="&oboInOwl;isCyclic"/>
+    
+
+
+    <!-- http://www.geneontology.org/formats/oboInOwl#replacedBy -->
+
+    <owl:AnnotationProperty rdf:about="&oboInOwl;replacedBy"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://edamontology.org/has_format -->
+
+    <owl:ObjectProperty rdf:about="http://edamontology.org/has_format">
+        <rdfs:label>has format</rdfs:label>
+        <rdfs:seeAlso>&quot;http://purl.obolibrary.org/obo/OBI_0000298&quot;</rdfs:seeAlso>
+        <rdfs:comment>Subject A can be any concept or entity outside of an ontology (or an ontology concept in a role of an entity being semantically annotated) that is (or is in a role of) &apos;Data&apos;, or an input, output, input or output argument of an &apos;Operation&apos;. Object B can either be a concept that is a &apos;Format&apos;, or in unexpected cases an entity outside of an ontology that is a &apos;Format&apos; or is in the role of a &apos;Format&apos;. In EDAM, &apos;has_format&apos; is not explicitly defined between EDAM concepts, only the inverse &apos;is_format_of&apos;.</rdfs:comment>
+        <oboInOwl:isCyclic>false</oboInOwl:isCyclic>
+        <oboOther:transitive_over>OBO_REL:is_a</oboOther:transitive_over>
+        <oboInOwl:inSubset>relations</oboInOwl:inSubset>
+        <rdfs:seeAlso>http://www.loa-cnr.it/ontologies/DOLCE-Lite.owl#has-quality&quot;</rdfs:seeAlso>
+        <oboOther:is_reflexive>false</oboOther:is_reflexive>
+        <oboOther:is_symmetric>false</oboOther:is_symmetric>
+        <oboInOwl:inSubset>edam</oboInOwl:inSubset>
+        <oboInOwl:hasDefinition>&apos;A has_format B&apos; defines for the subject A, that it has the object B as its data format.</oboInOwl:hasDefinition>
+        <oboOther:is_anti_symmetric>false</oboOther:is_anti_symmetric>
+        <rdfs:domain rdf:resource="http://edamontology.org/data_0006"/>
+        <rdfs:range rdf:resource="http://edamontology.org/format_1915"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://edamontology.org/has_function -->
+
+    <owl:ObjectProperty rdf:about="http://edamontology.org/has_function">
+        <rdfs:label>has function</rdfs:label>
+        <rdfs:seeAlso>http://wsio.org/has_function</rdfs:seeAlso>
+        <oboOther:is_anti_symmetric>false</oboOther:is_anti_symmetric>
+        <oboOther:transitive_over>OBO_REL:is_a</oboOther:transitive_over>
+        <oboInOwl:hasRelatedSynonym>OBO_REL:bearer_of</oboInOwl:hasRelatedSynonym>
+        <oboInOwl:inSubset>edam</oboInOwl:inSubset>
+        <rdfs:comment>Subject A can be any concept or entity outside of an ontology (or an ontology concept in a role of an entity being semantically annotated). Object B can either be a concept that is (or is in a role of) a function, or an entity outside of an ontology that is (or is in a role of) a function specification. In the scope of EDAM, &apos;has_function&apos; serves only for relating annotated entities outside of EDAM with &apos;Operation&apos; concepts.</rdfs:comment>
+        <oboOther:is_symmetric>false</oboOther:is_symmetric>
+        <rdfs:seeAlso>http://www.loa-cnr.it/ontologies/DOLCE-Lite.owl#has-quality&quot;</rdfs:seeAlso>
+        <oboInOwl:isCyclic>true</oboInOwl:isCyclic>
+        <oboInOwl:hasDefinition>&apos;A has_function B&apos; defines for the subject A, that it has the object B as its function.</oboInOwl:hasDefinition>
+        <rdfs:seeAlso>&quot;http://purl.obolibrary.org/obo/OBI_0000306&quot;</rdfs:seeAlso>
+        <oboInOwl:inSubset>relations</oboInOwl:inSubset>
+        <oboOther:is_reflexive>false</oboOther:is_reflexive>
+        <rdfs:range rdf:resource="http://edamontology.org/operation_0004"/>
+    </owl:ObjectProperty>
+    <owl:Axiom>
+        <rdfs:comment>Is defined anywhere? Not in the &apos;unknown&apos; version of RO. &apos;OBO_REL:bearer_of&apos; is narrower in the sense that it only relates ontological categories (concepts) that are an &apos;independent_continuant&apos; (snap:IndependentContinuant) with ontological categories that are a &apos;specifically_dependent_continuant&apos; (snap:SpecificallyDependentContinuant), and broader in the sense that it relates with any borne objects not just functions of the subject.</rdfs:comment>
+        <owl:annotatedTarget>OBO_REL:bearer_of</owl:annotatedTarget>
+        <owl:annotatedSource rdf:resource="http://edamontology.org/has_function"/>
+        <owl:annotatedProperty rdf:resource="&oboInOwl;hasRelatedSynonym"/>
+    </owl:Axiom>
+    <owl:Axiom>
+        <rdfs:comment>In very unusual cases.</rdfs:comment>
+        <owl:annotatedTarget>true</owl:annotatedTarget>
+        <owl:annotatedSource rdf:resource="http://edamontology.org/has_function"/>
+        <owl:annotatedProperty rdf:resource="&oboInOwl;isCyclic"/>
+    </owl:Axiom>
+    
+
+
+    <!-- http://edamontology.org/has_identifier -->
+
+    <owl:ObjectProperty rdf:about="http://edamontology.org/has_identifier">
+        <rdfs:label>has identifier</rdfs:label>
+        <oboOther:is_reflexive>false</oboOther:is_reflexive>
+        <rdfs:comment>Subject A can be any concept or entity outside of an ontology (or an ontology concept in a role of an entity being semantically annotated). Object B can either be a concept that is an &apos;Identifier&apos;, or an entity outside of an ontology that is an &apos;Identifier&apos; or is in the role of an &apos;Identifier&apos;. In EDAM, &apos;has_identifier&apos; is not explicitly defined between EDAM concepts, only the inverse &apos;is_identifier_of&apos;.</rdfs:comment>
+        <oboInOwl:isCyclic>false</oboInOwl:isCyclic>
+        <oboOther:is_anti_symmetric>false</oboOther:is_anti_symmetric>
+        <oboInOwl:inSubset>relations</oboInOwl:inSubset>
+        <oboOther:is_symmetric>false</oboOther:is_symmetric>
+        <oboOther:transitive_over>OBO_REL:is_a</oboOther:transitive_over>
+        <oboInOwl:hasDefinition>&apos;A has_identifier B&apos; defines for the subject A, that it has the object B as its identifier.</oboInOwl:hasDefinition>
+        <oboInOwl:inSubset>edam</oboInOwl:inSubset>
+        <rdfs:domain rdf:resource="http://edamontology.org/data_0006"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://edamontology.org/has_input -->
+
+    <owl:ObjectProperty rdf:about="http://edamontology.org/has_input">
+        <rdfs:label>has input</rdfs:label>
+        <oboInOwl:hasRelatedSynonym>OBO_REL:has_participant</oboInOwl:hasRelatedSynonym>
+        <rdfs:seeAlso>&quot;http://purl.obolibrary.org/obo/OBI_0000293&quot;</rdfs:seeAlso>
+        <oboOther:is_anti_symmetric>false</oboOther:is_anti_symmetric>
+        <rdfs:seeAlso>http://wsio.org/has_input</rdfs:seeAlso>
+        <rdfs:comment>Subject A can either be concept that is or has an &apos;Operation&apos; function, or an entity outside of an ontology (or an ontology concept in a role of an entity being semantically annotated) that has an &apos;Operation&apos; function or is an &apos;Operation&apos;. Object B can be any concept or entity. In EDAM, only &apos;has_input&apos; is explicitly defined between EDAM concepts (&apos;Operation&apos; &apos;has_input&apos; &apos;Data&apos;). The inverse, &apos;is_input_of&apos;, is not explicitly defined.</rdfs:comment>
+        <oboInOwl:inSubset>relations</oboInOwl:inSubset>
+        <oboOther:transitive_over>OBO_REL:is_a</oboOther:transitive_over>
+        <oboOther:is_symmetric>false</oboOther:is_symmetric>
+        <oboInOwl:hasDefinition>&apos;A has_input B&apos; defines for the subject A, that it has the object B as a necessary or actual input or input argument.</oboInOwl:hasDefinition>
+        <oboOther:is_reflexive>false</oboOther:is_reflexive>
+        <oboInOwl:isCyclic>true</oboInOwl:isCyclic>
+        <oboInOwl:inSubset>edam</oboInOwl:inSubset>
+        <rdfs:range rdf:resource="http://edamontology.org/data_0006"/>
+        <rdfs:domain rdf:resource="http://edamontology.org/operation_0004"/>
+    </owl:ObjectProperty>
+    <owl:Axiom>
+        <rdfs:comment>&apos;OBO_REL:has_participant&apos; is narrower in the sense that it only relates ontological categories (concepts) that are a &apos;process&apos; (span:Process) with ontological categories that are a &apos;continuant&apos; (snap:Continuant), and broader in the sense that it relates with any participating objects not just inputs or input arguments of the subject.</rdfs:comment>
+        <owl:annotatedTarget>OBO_REL:has_participant</owl:annotatedTarget>
+        <owl:annotatedSource rdf:resource="http://edamontology.org/has_input"/>
+        <owl:annotatedProperty rdf:resource="&oboInOwl;hasRelatedSynonym"/>
+    </owl:Axiom>
+    <owl:Axiom>
+        <rdfs:comment>In very unusual cases.</rdfs:comment>
+        <owl:annotatedTarget>true</owl:annotatedTarget>
+        <owl:annotatedSource rdf:resource="http://edamontology.org/has_input"/>
+        <owl:annotatedProperty rdf:resource="&oboInOwl;isCyclic"/>
+    </owl:Axiom>
+    
+
+
+    <!-- http://edamontology.org/has_output -->
+
+    <owl:ObjectProperty rdf:about="http://edamontology.org/has_output">
+        <rdfs:label>has output</rdfs:label>
+        <rdfs:seeAlso>http://wsio.org/has_output</rdfs:seeAlso>
+        <rdfs:comment>Subject A can either be concept that is or has an &apos;Operation&apos; function, or an entity outside of an ontology (or an ontology concept in a role of an entity being semantically annotated) that has an &apos;Operation&apos; function or is an &apos;Operation&apos;. Object B can be any concept or entity. In EDAM, only &apos;has_output&apos; is explicitly defined between EDAM concepts (&apos;Operation&apos; &apos;has_output&apos; &apos;Data&apos;). The inverse, &apos;is_output_of&apos;, is not explicitly defined.</rdfs:comment>
+        <oboInOwl:inSubset>edam</oboInOwl:inSubset>
+        <rdfs:seeAlso>&quot;http://purl.obolibrary.org/obo/OBI_0000299&quot;</rdfs:seeAlso>
+        <oboOther:transitive_over>OBO_REL:is_a</oboOther:transitive_over>
+        <oboInOwl:inSubset>relations</oboInOwl:inSubset>
+        <oboInOwl:hasRelatedSynonym>OBO_REL:has_participant</oboInOwl:hasRelatedSynonym>
+        <oboInOwl:isCyclic>true</oboInOwl:isCyclic>
+        <oboInOwl:hasDefinition>&apos;A has_output B&apos; defines for the subject A, that it has the object B as a necessary or actual output or output argument.</oboInOwl:hasDefinition>
+        <oboOther:is_symmetric>false</oboOther:is_symmetric>
+        <oboOther:is_reflexive>false</oboOther:is_reflexive>
+        <oboOther:is_anti_symmetric>false</oboOther:is_anti_symmetric>
+        <rdfs:range rdf:resource="http://edamontology.org/data_0006"/>
+        <rdfs:domain rdf:resource="http://edamontology.org/operation_0004"/>
+    </owl:ObjectProperty>
+    <owl:Axiom>
+        <rdfs:comment>&apos;OBO_REL:has_participant&apos; is narrower in the sense that it only relates ontological categories (concepts) that are a &apos;process&apos; (span:Process) with ontological categories that are a &apos;continuant&apos; (snap:Continuant), and broader in the sense that it relates with any participating objects not just outputs or output arguments of the subject. It is also not clear whether an output (result) actually participates in the process that generates it.</rdfs:comment>
+        <owl:annotatedTarget>OBO_REL:has_participant</owl:annotatedTarget>
+        <owl:annotatedSource rdf:resource="http://edamontology.org/has_output"/>
+        <owl:annotatedProperty rdf:resource="&oboInOwl;hasRelatedSynonym"/>
+    </owl:Axiom>
+    <owl:Axiom>
+        <rdfs:comment>In very unusual cases.</rdfs:comment>
+        <owl:annotatedTarget>true</owl:annotatedTarget>
+        <owl:annotatedSource rdf:resource="http://edamontology.org/has_output"/>
+        <owl:annotatedProperty rdf:resource="&oboInOwl;isCyclic"/>
+    </owl:Axiom>
+    
+
+
+    <!-- http://edamontology.org/has_topic -->
+
+    <owl:ObjectProperty rdf:about="http://edamontology.org/has_topic">
+        <rdfs:label>has topic</rdfs:label>
+        <oboInOwl:inSubset>relations</oboInOwl:inSubset>
+        <oboInOwl:isCyclic>true</oboInOwl:isCyclic>
+        <rdfs:comment>Subject A can be any concept or entity outside of an ontology (or an ontology concept in a role of an entity being semantically annotated). Object B can either be a concept that is a &apos;Topic&apos;, or in unexpected cases an entity outside of an ontology that is a &apos;Topic&apos; or is in the role of a &apos;Topic&apos;. In EDAM, only &apos;has_topic&apos; is explicitly defined between EDAM concepts (&apos;Operation&apos; or &apos;Data&apos; &apos;has_topic&apos; &apos;Topic&apos;). The inverse, &apos;is_topic_of&apos;, is not explicitly defined.</rdfs:comment>
+        <oboOther:is_symmetric>false</oboOther:is_symmetric>
+        <oboInOwl:hasDefinition>&apos;A has_topic B&apos; defines for the subject A, that it has the object B as its topic (A is in the scope of a topic B).</oboInOwl:hasDefinition>
+        <oboInOwl:inSubset>edam</oboInOwl:inSubset>
+        <oboOther:transitive_over>OBO_REL:is_a</oboOther:transitive_over>
+        <rdfs:seeAlso>http://annotation-ontology.googlecode.com/svn/trunk/annotation-core.owl#hasTopic</rdfs:seeAlso>
+        <oboOther:is_anti_symmetric>false</oboOther:is_anti_symmetric>
+        <rdfs:seeAlso>&quot;http://purl.obolibrary.org/obo/IAO_0000136&quot;</rdfs:seeAlso>
+        <oboOther:is_reflexive>false</oboOther:is_reflexive>
+        <rdfs:seeAlso>http://www.loa-cnr.it/ontologies/DOLCE-Lite.owl#has-quality</rdfs:seeAlso>
+        <rdfs:seeAlso>&quot;http://purl.obolibrary.org/obo/OBI_0000298&quot;</rdfs:seeAlso>
+        <rdfs:range rdf:resource="http://edamontology.org/topic_0003"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://edamontology.org/data_0006"/>
+                    <rdf:Description rdf:about="http://edamontology.org/operation_0004"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:ObjectProperty>
+    <owl:Axiom>
+        <owl:annotatedTarget>true</owl:annotatedTarget>
+        <rdfs:comment>In very unusual cases.</rdfs:comment>
+        <owl:annotatedSource rdf:resource="http://edamontology.org/has_topic"/>
+        <owl:annotatedProperty rdf:resource="&oboInOwl;isCyclic"/>
+    </owl:Axiom>
+    
+
+
+    <!-- http://edamontology.org/is_format_of -->
+
+    <owl:ObjectProperty rdf:about="http://edamontology.org/is_format_of">
+        <rdfs:label>is format of</rdfs:label>
+        <oboOther:is_anti_symmetric>false</oboOther:is_anti_symmetric>
+        <oboOther:transitive_over>OBO_REL:is_a</oboOther:transitive_over>
+        <oboOther:is_reflexive>false</oboOther:is_reflexive>
+        <oboOther:is_symmetric>false</oboOther:is_symmetric>
+        <oboInOwl:isCyclic>false</oboInOwl:isCyclic>
+        <oboInOwl:hasDefinition>&apos;A is_format_of B&apos; defines for the subject A, that it is a data format of the object B.</oboInOwl:hasDefinition>
+        <oboInOwl:inSubset>edam</oboInOwl:inSubset>
+        <oboInOwl:inSubset>relations</oboInOwl:inSubset>
+        <rdfs:comment>Subject A can either be a concept that is a &apos;Format&apos;, or in unexpected cases an entity outside of an ontology (or an ontology concept in a role of an entity being semantically annotated) that is a &apos;Format&apos; or is in the role of a &apos;Format&apos;. Object B can be any concept or entity outside of an ontology that is (or is in a role of) &apos;Data&apos;, or  an input, output, input or output argument of an &apos;Operation&apos;. In EDAM, only &apos;is_format_of&apos; is explicitly defined between EDAM concepts (&apos;Format&apos; &apos;is_format_of&apos; &apos;Data&apos;). The inverse, &apos;has_format&apos;, is not explicitly defined.</rdfs:comment>
+        <oboInOwl:hasRelatedSynonym>OBO_REL:quality_of</oboInOwl:hasRelatedSynonym>
+        <rdfs:seeAlso>http://www.loa-cnr.it/ontologies/DOLCE-Lite.owl#inherent-in</rdfs:seeAlso>
+        <rdfs:range rdf:resource="http://edamontology.org/data_0006"/>
+        <rdfs:domain rdf:resource="http://edamontology.org/format_1915"/>
+        <owl:inverseOf rdf:resource="http://edamontology.org/has_format"/>
+    </owl:ObjectProperty>
+    <owl:Axiom>
+        <rdfs:comment>Is defined anywhere? Not in the &apos;unknown&apos; version of RO. &apos;OBO_REL:quality_of&apos; might be seen narrower in the sense that it only relates subjects that are a &apos;quality&apos; (snap:Quality) with objects that are an &apos;independent_continuant&apos; (snap:IndependentContinuant), and is broader in the sense that it relates any qualities of the object.</rdfs:comment>
+        <owl:annotatedTarget>OBO_REL:quality_of</owl:annotatedTarget>
+        <owl:annotatedSource rdf:resource="http://edamontology.org/is_format_of"/>
+        <owl:annotatedProperty rdf:resource="&oboInOwl;hasRelatedSynonym"/>
+    </owl:Axiom>
+    
+
+
+    <!-- http://edamontology.org/is_function_of -->
+
+    <owl:ObjectProperty rdf:about="http://edamontology.org/is_function_of">
+        <rdfs:label>is function of</rdfs:label>
+        <rdfs:comment>Subject A can either be concept that is (or is in a role of) a function, or an entity outside of an ontology (or an ontology concept in a role of an entity being semantically annotated) that is (or is in a role of) a function specification. Object B can be any concept or entity. Within EDAM itself, &apos;is_function_of&apos; is not used.</rdfs:comment>
+        <oboInOwl:hasRelatedSynonym>OBO_REL:inheres_in</oboInOwl:hasRelatedSynonym>
+        <oboInOwl:isCyclic>true</oboInOwl:isCyclic>
+        <oboOther:transitive_over>OBO_REL:is_a</oboOther:transitive_over>
+        <oboOther:is_reflexive>false</oboOther:is_reflexive>
+        <oboInOwl:hasDefinition>&apos;A is_function_of B&apos; defines for the subject A, that it is a function of the object B.</oboInOwl:hasDefinition>
+        <oboInOwl:hasNarrowSynonym>OBO_REL:function_of</oboInOwl:hasNarrowSynonym>
+        <oboInOwl:inSubset>edam</oboInOwl:inSubset>
+        <rdfs:seeAlso>http://wsio.org/is_function_of</rdfs:seeAlso>
+        <oboInOwl:inSubset>relations</oboInOwl:inSubset>
+        <rdfs:seeAlso>http://www.loa-cnr.it/ontologies/DOLCE-Lite.owl#inherent-in</rdfs:seeAlso>
+        <oboOther:is_anti_symmetric>false</oboOther:is_anti_symmetric>
+        <oboOther:is_symmetric>false</oboOther:is_symmetric>
+        <owl:inverseOf rdf:resource="http://edamontology.org/has_function"/>
+        <rdfs:domain rdf:resource="http://edamontology.org/operation_0004"/>
+    </owl:ObjectProperty>
+    <owl:Axiom>
+        <owl:annotatedTarget>OBO_REL:function_of</owl:annotatedTarget>
+        <rdfs:comment>Is defined anywhere? Not in the &apos;unknown&apos; version of RO. &apos;OBO_REL:function_of&apos; only relates subjects that are a &apos;function&apos; (snap:Function) with objects that are an &apos;independent_continuant&apos; (snap:IndependentContinuant), so for example no processes. It does not define explicitly that the subject is a function of the object.</rdfs:comment>
+        <owl:annotatedSource rdf:resource="http://edamontology.org/is_function_of"/>
+        <owl:annotatedProperty rdf:resource="&oboInOwl;hasNarrowSynonym"/>
+    </owl:Axiom>
+    <owl:Axiom>
+        <owl:annotatedTarget>true</owl:annotatedTarget>
+        <rdfs:comment>In very unusual cases.</rdfs:comment>
+        <owl:annotatedSource rdf:resource="http://edamontology.org/is_function_of"/>
+        <owl:annotatedProperty rdf:resource="&oboInOwl;isCyclic"/>
+    </owl:Axiom>
+    <owl:Axiom>
+        <rdfs:comment>Is defined anywhere? Not in the &apos;unknown&apos; version of RO. &apos;OBO_REL:inheres_in&apos; is narrower in the sense that it only relates ontological categories (concepts) that are a &apos;specifically_dependent_continuant&apos; (snap:SpecificallyDependentContinuant) with ontological categories that are an &apos;independent_continuant&apos; (snap:IndependentContinuant), and broader in the sense that it relates any borne subjects not just functions.</rdfs:comment>
+        <owl:annotatedTarget>OBO_REL:inheres_in</owl:annotatedTarget>
+        <owl:annotatedSource rdf:resource="http://edamontology.org/is_function_of"/>
+        <owl:annotatedProperty rdf:resource="&oboInOwl;hasRelatedSynonym"/>
+    </owl:Axiom>
+    
+
+
+    <!-- http://edamontology.org/is_identifier_of -->
+
+    <owl:ObjectProperty rdf:about="http://edamontology.org/is_identifier_of">
+        <rdfs:label>is identifier of</rdfs:label>
+        <oboOther:is_anti_symmetric>false</oboOther:is_anti_symmetric>
+        <oboOther:is_reflexive>false</oboOther:is_reflexive>
+        <oboInOwl:inSubset>edam</oboInOwl:inSubset>
+        <oboInOwl:isCyclic>false</oboInOwl:isCyclic>
+        <oboInOwl:inSubset>relations</oboInOwl:inSubset>
+        <rdfs:comment>Subject A can either be a concept that is an &apos;Identifier&apos;, or an entity outside of an ontology (or an ontology concept in a role of an entity being semantically annotated) that is an &apos;Identifier&apos; or is in the role of an &apos;Identifier&apos;. Object B can be any concept or entity outside of an ontology. In EDAM, only &apos;is_identifier_of&apos; is explicitly defined between EDAM concepts (only &apos;Identifier&apos; &apos;is_identifier_of&apos; &apos;Data&apos;). The inverse, &apos;has_identifier&apos;, is not explicitly defined.</rdfs:comment>
+        <oboInOwl:hasDefinition>&apos;A is_identifier_of B&apos; defines for the subject A, that it is an identifier of the object B.</oboInOwl:hasDefinition>
+        <oboOther:transitive_over>OBO_REL:is_a</oboOther:transitive_over>
+        <oboOther:is_symmetric>false</oboOther:is_symmetric>
+        <rdfs:range rdf:resource="http://edamontology.org/data_0006"/>
+        <owl:inverseOf rdf:resource="http://edamontology.org/has_identifier"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://edamontology.org/is_input_of -->
+
+    <owl:ObjectProperty rdf:about="http://edamontology.org/is_input_of">
+        <rdfs:label>is input of</rdfs:label>
+        <oboOther:is_anti_symmetric>false</oboOther:is_anti_symmetric>
+        <rdfs:seeAlso>http://wsio.org/is_input_of</rdfs:seeAlso>
+        <oboInOwl:inSubset>relations</oboInOwl:inSubset>
+        <oboInOwl:isCyclic>true</oboInOwl:isCyclic>
+        <oboOther:is_reflexive>false</oboOther:is_reflexive>
+        <oboInOwl:hasRelatedSynonym>OBO_REL:participates_in</oboInOwl:hasRelatedSynonym>
+        <oboOther:transitive_over>OBO_REL:is_a</oboOther:transitive_over>
+        <rdfs:seeAlso>&quot;http://purl.obolibrary.org/obo/OBI_0000295&quot;</rdfs:seeAlso>
+        <oboInOwl:inSubset>edam</oboInOwl:inSubset>
+        <rdfs:comment>Subject A can be any concept or entity outside of an ontology (or an ontology concept in a role of an entity being semantically annotated). Object B can either be a concept that is or has an &apos;Operation&apos; function, or an entity outside of an ontology that has an &apos;Operation&apos; function or is an &apos;Operation&apos;. In EDAM, &apos;is_input_of&apos; is not explicitly defined between EDAM concepts, only the inverse &apos;has_input&apos;.</rdfs:comment>
+        <oboOther:is_symmetric>false</oboOther:is_symmetric>
+        <oboInOwl:hasDefinition>&apos;A is_input_of B&apos; defines for the subject A, that it as a necessary or actual input or input argument of the object B.</oboInOwl:hasDefinition>
+        <rdfs:domain rdf:resource="http://edamontology.org/data_0006"/>
+        <owl:inverseOf rdf:resource="http://edamontology.org/has_input"/>
+        <rdfs:range rdf:resource="http://edamontology.org/operation_0004"/>
+    </owl:ObjectProperty>
+    <owl:Axiom>
+        <rdfs:comment>In very unusual cases.</rdfs:comment>
+        <owl:annotatedTarget>true</owl:annotatedTarget>
+        <owl:annotatedSource rdf:resource="http://edamontology.org/is_input_of"/>
+        <owl:annotatedProperty rdf:resource="&oboInOwl;isCyclic"/>
+    </owl:Axiom>
+    <owl:Axiom>
+        <rdfs:comment>&apos;OBO_REL:participates_in&apos; is narrower in the sense that it only relates ontological categories (concepts) that are a &apos;continuant&apos; (snap:Continuant) with ontological categories that are a &apos;process&apos; (span:Process), and broader in the sense that it relates any participating subjects not just inputs or input arguments.</rdfs:comment>
+        <owl:annotatedTarget>OBO_REL:participates_in</owl:annotatedTarget>
+        <owl:annotatedSource rdf:resource="http://edamontology.org/is_input_of"/>
+        <owl:annotatedProperty rdf:resource="&oboInOwl;hasRelatedSynonym"/>
+    </owl:Axiom>
+    
+
+
+    <!-- http://edamontology.org/is_output_of -->
+
+    <owl:ObjectProperty rdf:about="http://edamontology.org/is_output_of">
+        <rdfs:label>is output of</rdfs:label>
+        <oboOther:transitive_over>OBO_REL:is_a</oboOther:transitive_over>
+        <oboOther:is_reflexive>false</oboOther:is_reflexive>
+        <oboOther:is_symmetric>false</oboOther:is_symmetric>
+        <rdfs:comment>Subject A can be any concept or entity outside of an ontology (or an ontology concept in a role of an entity being semantically annotated). Object B can either be a concept that is or has an &apos;Operation&apos; function, or an entity outside of an ontology that has an &apos;Operation&apos; function or is an &apos;Operation&apos;. In EDAM, &apos;is_output_of&apos; is not explicitly defined between EDAM concepts, only the inverse &apos;has_output&apos;.</rdfs:comment>
+        <oboInOwl:inSubset>edam</oboInOwl:inSubset>
+        <oboOther:is_anti_symmetric>false</oboOther:is_anti_symmetric>
+        <oboInOwl:hasDefinition>&apos;A is_output_of B&apos; defines for the subject A, that it as a necessary or actual output or output argument of the object B.</oboInOwl:hasDefinition>
+        <oboInOwl:hasRelatedSynonym>OBO_REL:participates_in</oboInOwl:hasRelatedSynonym>
+        <rdfs:seeAlso>http://wsio.org/is_output_of</rdfs:seeAlso>
+        <oboInOwl:isCyclic>true</oboInOwl:isCyclic>
+        <oboInOwl:inSubset>relations</oboInOwl:inSubset>
+        <rdfs:seeAlso>&quot;http://purl.obolibrary.org/obo/OBI_0000312&quot;</rdfs:seeAlso>
+        <rdfs:domain rdf:resource="http://edamontology.org/data_0006"/>
+        <owl:inverseOf rdf:resource="http://edamontology.org/has_output"/>
+        <rdfs:range rdf:resource="http://edamontology.org/operation_0004"/>
+    </owl:ObjectProperty>
+    <owl:Axiom>
+        <rdfs:comment>&apos;OBO_REL:participates_in&apos; is narrower in the sense that it only relates ontological categories (concepts) that are a &apos;continuant&apos; (snap:Continuant) with ontological categories that are a &apos;process&apos; (span:Process), and broader in the sense that it relates any participating subjects not just outputs or output arguments. It is also not clear whether an output (result) actually participates in the process that generates it.</rdfs:comment>
+        <owl:annotatedTarget>OBO_REL:participates_in</owl:annotatedTarget>
+        <owl:annotatedSource rdf:resource="http://edamontology.org/is_output_of"/>
+        <owl:annotatedProperty rdf:resource="&oboInOwl;hasRelatedSynonym"/>
+    </owl:Axiom>
+    <owl:Axiom>
+        <rdfs:comment>In very unusual cases.</rdfs:comment>
+        <owl:annotatedTarget>true</owl:annotatedTarget>
+        <owl:annotatedSource rdf:resource="http://edamontology.org/is_output_of"/>
+        <owl:annotatedProperty rdf:resource="&oboInOwl;isCyclic"/>
+    </owl:Axiom>
+    
+
+
+    <!-- http://edamontology.org/is_topic_of -->
+
+    <owl:ObjectProperty rdf:about="http://edamontology.org/is_topic_of">
+        <rdfs:label>is topic of</rdfs:label>
+        <oboInOwl:hasDefinition>&apos;A is_topic_of B&apos; defines for the subject A, that it is a topic of the object B (a topic A is the scope of B).</oboInOwl:hasDefinition>
+        <oboInOwl:inSubset>relations</oboInOwl:inSubset>
+        <oboInOwl:hasRelatedSynonym>OBO_REL:quality_of</oboInOwl:hasRelatedSynonym>
+        <oboOther:is_reflexive>false</oboOther:is_reflexive>
+        <oboInOwl:isCyclic>true</oboInOwl:isCyclic>
+        <oboOther:is_anti_symmetric>false</oboOther:is_anti_symmetric>
+        <rdfs:comment>Subject A can either be a concept that is a &apos;Topic&apos;, or in unexpected cases an entity outside of an ontology (or an ontology concept in a role of an entity being semantically annotated) that is a &apos;Topic&apos; or is in the role of a &apos;Topic&apos;. Object B can be any concept or entity outside of an ontology. In EDAM, &apos;is_topic_of&apos; is not explicitly defined between EDAM concepts, only the inverse &apos;has_topic&apos;.</rdfs:comment>
+        <rdfs:seeAlso>http://www.loa-cnr.it/ontologies/DOLCE-Lite.owl#inherent-in</rdfs:seeAlso>
+        <oboOther:is_symmetric>false</oboOther:is_symmetric>
+        <oboOther:transitive_over>OBO_REL:is_a</oboOther:transitive_over>
+        <oboInOwl:inSubset>edam</oboInOwl:inSubset>
+        <owl:inverseOf rdf:resource="http://edamontology.org/has_topic"/>
+        <rdfs:domain rdf:resource="http://edamontology.org/topic_0003"/>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://edamontology.org/data_0006"/>
+                    <rdf:Description rdf:about="http://edamontology.org/operation_0004"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    <owl:Axiom>
+        <rdfs:comment>Is defined anywhere? Not in the &apos;unknown&apos; version of RO. &apos;OBO_REL:quality_of&apos; might be seen narrower in the sense that it only relates subjects that are a &apos;quality&apos; (snap:Quality) with objects that are an &apos;independent_continuant&apos; (snap:IndependentContinuant), and is broader in the sense that it relates any qualities of the object.</rdfs:comment>
+        <owl:annotatedTarget>OBO_REL:quality_of</owl:annotatedTarget>
+        <owl:annotatedSource rdf:resource="http://edamontology.org/is_topic_of"/>
+        <owl:annotatedProperty rdf:resource="&oboInOwl;hasRelatedSynonym"/>
+    </owl:Axiom>
+    <owl:Axiom>
+        <rdfs:comment>In very unusual cases.</rdfs:comment>
+        <owl:annotatedTarget>true</owl:annotatedTarget>
+        <owl:annotatedSource rdf:resource="http://edamontology.org/is_topic_of"/>
+        <owl:annotatedProperty rdf:resource="&oboInOwl;isCyclic"/>
+    </owl:Axiom>
+    
+
+
+<!-- Generated by the OWL API (version 3.4.2) http://owlapi.sourceforge.net -->
+
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://edamontology.org/data_0006 -->
+
+    <owl:Class rdf:about="http://edamontology.org/data_0006">
+        <owl:disjointWith rdf:resource="http://edamontology.org/format_1915"/>
+        <owl:disjointWith rdf:resource="http://edamontology.org/operation_0004"/>
+        <owl:disjointWith rdf:resource="http://edamontology.org/topic_0003"/>
+        <created_in>beta12orEarlier</created_in>
+        <oboInOwl:hasDefinition>Information, represented in an information artefact (data record) that is &apos;understandable&apos; by dedicated computational tools that can use the data as input or produce it as output.</oboInOwl:hasDefinition>
+        <oboInOwl:hasExactSynonym>Data record</oboInOwl:hasExactSynonym>
+        <oboInOwl:hasNarrowSynonym>Data set</oboInOwl:hasNarrowSynonym>
+        <oboInOwl:hasNarrowSynonym>Datum</oboInOwl:hasNarrowSynonym>
+        <oboInOwl:inSubset rdf:resource="http://purl.obolibrary.org/obo/edam#data"/>
+        <oboInOwl:inSubset rdf:resource="http://purl.obolibrary.org/obo/edam#edam"/>
+        <oboInOwl:inSubset rdf:resource="http://purl.obolibrary.org/obo/edam#bioimaging"/>
+        <oboInOwl:inSubset>navigation</oboInOwl:inSubset>
+        <rdfs:label>Data</rdfs:label>
+        <rdfs:seeAlso>&quot;http://purl.obolibrary.org/obo/IAO_0000027&quot;</rdfs:seeAlso>
+        <rdfs:seeAlso>&quot;http://purl.obolibrary.org/obo/IAO_0000030&quot;</rdfs:seeAlso>
+        <rdfs:seeAlso>http://purl.org/biotop/biotop.owl#DigitalEntity</rdfs:seeAlso>
+        <rdfs:seeAlso>http://semanticscience.org/resource/SIO_000069</rdfs:seeAlso>
+        <rdfs:seeAlso>http://semanticscience.org/resource/SIO_000088</rdfs:seeAlso>
+        <rdfs:seeAlso>http://wsio.org/data_002</rdfs:seeAlso>
+        <rdfs:seeAlso>http://www.ifomis.org/bfo/1.1/snap#Continuant</rdfs:seeAlso>
+        <rdfs:seeAlso>http://www.onto-med.de/ontologies/gfo.owl#Perpetuant</rdfs:seeAlso>
+    </owl:Class>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://edamontology.org/data_0006"/>
+        <owl:annotatedProperty rdf:resource="http://www.geneontology.org/formats/oboInOwl#hasExactSynonym"/>
+        <owl:annotatedTarget>Data record</owl:annotatedTarget>
+        <rdfs:comment>EDAM does not distinguish a data record (a tool-understandable information artefact) from data or datum (its content, the tool-understandable encoding of an information).</rdfs:comment>
+    </owl:Axiom>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://edamontology.org/data_0006"/>
+        <owl:annotatedProperty rdf:resource="http://www.geneontology.org/formats/oboInOwl#hasNarrowSynonym"/>
+        <owl:annotatedTarget>Data set</owl:annotatedTarget>
+        <rdfs:comment>EDAM does not distinguish the multiplicity of data, such as one data item (datum) versus a collection of data (data set).</rdfs:comment>
+    </owl:Axiom>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://edamontology.org/data_0006"/>
+        <owl:annotatedProperty rdf:resource="http://www.geneontology.org/formats/oboInOwl#hasNarrowSynonym"/>
+        <owl:annotatedTarget>Datum</owl:annotatedTarget>
+        <rdfs:comment>EDAM does not distinguish the multiplicity of data, such as one data item (datum) versus a collection of data (data set).</rdfs:comment>
+    </owl:Axiom>
+    
+
+
+    <!-- http://edamontology.org/data_1D_dataset -->
+
+    <owl:Class rdf:about="http://edamontology.org/data_1D_dataset">
+        <rdfs:subClassOf rdf:resource="http://edamontology.org/data_Image_geometry"/>
+        <oboInOwl:inSubset>bioimaging</oboInOwl:inSubset>
+        <oboInOwl:inSubset>data</oboInOwl:inSubset>
+        <oboInOwl:inSubset>edam</oboInOwl:inSubset>
+        <rdfs:label>1D image</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://edamontology.org/data_2D_dataset -->
+
+    <owl:Class rdf:about="http://edamontology.org/data_2D_dataset">
+        <rdfs:subClassOf rdf:resource="http://edamontology.org/data_Image"/>
+        <rdfs:subClassOf rdf:resource="http://edamontology.org/data_Image_geometry"/>
+        <oboInOwl:inSubset>bioimaging</oboInOwl:inSubset>
+        <oboInOwl:inSubset>data</oboInOwl:inSubset>
+        <oboInOwl:inSubset>edam</oboInOwl:inSubset>
+        <rdfs:label>2D image</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://edamontology.org/data_3D_dataset -->
+
+    <owl:Class rdf:about="http://edamontology.org/data_3D_dataset">
+        <rdfs:subClassOf rdf:resource="http://edamontology.org/data_Image"/>
+        <rdfs:subClassOf rdf:resource="http://edamontology.org/data_Image_geometry"/>
+        <oboInOwl:hasRelatedSynonym>Image stack</oboInOwl:hasRelatedSynonym>
+        <oboInOwl:inSubset>bioimaging</oboInOwl:inSubset>
+        <oboInOwl:inSubset>data</oboInOwl:inSubset>
+        <oboInOwl:inSubset>edam</oboInOwl:inSubset>
+        <rdfs:label>3D image</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://edamontology.org/data_4D_dataset -->
+
+    <owl:Class rdf:about="http://edamontology.org/data_4D_dataset">
+        <rdfs:subClassOf rdf:resource="http://edamontology.org/data_Image_geometry"/>
+        <oboInOwl:inSubset>bioimaging</oboInOwl:inSubset>
+        <oboInOwl:inSubset>data</oboInOwl:inSubset>
+        <oboInOwl:inSubset>edam</oboInOwl:inSubset>
+        <rdfs:label>nD image</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://edamontology.org/data_Colour -->
+
+    <owl:Class rdf:about="http://edamontology.org/data_Colour">
+        <rdfs:subClassOf rdf:resource="http://edamontology.org/data__RCDMkOl5gzD23OFsPf6vr4a"/>
+        <oboInOwl:hasNarrowSynonym>channel</oboInOwl:hasNarrowSynonym>
+        <oboInOwl:hasNarrowSynonym>rgb</oboInOwl:hasNarrowSynonym>
+        <oboInOwl:inSubset>bioimaging</oboInOwl:inSubset>
+        <oboInOwl:inSubset>data</oboInOwl:inSubset>
+        <oboInOwl:inSubset>edam</oboInOwl:inSubset>
+        <rdfs:label>Colour</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://edamontology.org/data_Greyscale -->
+
+    <owl:Class rdf:about="http://edamontology.org/data_Greyscale">
+        <rdfs:subClassOf rdf:resource="http://edamontology.org/data__RCDMkOl5gzD23OFsPf6vr4a"/>
+        <oboInOwl:inSubset>bioimaging</oboInOwl:inSubset>
+        <oboInOwl:inSubset>data</oboInOwl:inSubset>
+        <oboInOwl:inSubset>edam</oboInOwl:inSubset>
+        <rdfs:label>Greyscale</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://edamontology.org/data_Image -->
+
+    <owl:Class rdf:about="http://edamontology.org/data_Image">
+        <rdfs:subClassOf rdf:resource="http://edamontology.org/data_0006"/>
+        <oboInOwl:hasExactSynonym>Image data</oboInOwl:hasExactSynonym>
+        <oboInOwl:hasNarrowSynonym>Image set</oboInOwl:hasNarrowSynonym>
+        <oboInOwl:hasNarrowSynonym>Set of images</oboInOwl:hasNarrowSynonym>
+        <oboInOwl:inSubset>bioimaging</oboInOwl:inSubset>
+        <oboInOwl:inSubset>data</oboInOwl:inSubset>
+        <oboInOwl:inSubset>edam</oboInOwl:inSubset>
+        <rdfs:label>Image</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://edamontology.org/data_Image_geometry -->
+
+    <owl:Class rdf:about="http://edamontology.org/data_Image_geometry">
+        <rdfs:subClassOf rdf:resource="http://edamontology.org/data__R80aNLt4YY02ByptWQa2yrY"/>
+        <oboInOwl:inSubset>bioimaging</oboInOwl:inSubset>
+        <oboInOwl:inSubset>data</oboInOwl:inSubset>
+        <oboInOwl:inSubset>edam</oboInOwl:inSubset>
+        <rdfs:label>Image data properties</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://edamontology.org/data_Image_histogram -->
+
+    <owl:Class rdf:about="http://edamontology.org/data_Image_histogram">
+        <rdfs:subClassOf rdf:resource="http://edamontology.org/data_0006"/>
+        <oboInOwl:inSubset>bioimaging</oboInOwl:inSubset>
+        <oboInOwl:inSubset>data</oboInOwl:inSubset>
+        <oboInOwl:inSubset>edam</oboInOwl:inSubset>
+        <rdfs:label>Image histogram</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://edamontology.org/data_Intensity -->
+
+    <owl:Class rdf:about="http://edamontology.org/data_Intensity">
+        <rdfs:subClassOf rdf:resource="http://edamontology.org/data__RCjZhkavxxifpvdNiasVVCc"/>
+        <oboInOwl:inSubset>bioimaging</oboInOwl:inSubset>
+        <oboInOwl:inSubset>data</oboInOwl:inSubset>
+        <oboInOwl:inSubset>edam</oboInOwl:inSubset>
+        <rdfs:label>Intensity</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://edamontology.org/data_Time -->
+
+    <owl:Class rdf:about="http://edamontology.org/data_Time">
+        <rdfs:subClassOf rdf:resource="http://edamontology.org/data__R7sy3JByrUsyKaGNYQ1eSQF"/>
+        <oboInOwl:inSubset>bioimaging</oboInOwl:inSubset>
+        <oboInOwl:inSubset>data</oboInOwl:inSubset>
+        <oboInOwl:inSubset>edam</oboInOwl:inSubset>
+        <rdfs:label>Time</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://edamontology.org/data_Time-lapse_data -->
+
+    <owl:Class rdf:about="http://edamontology.org/data_Time-lapse_data">
+        <rdfs:subClassOf rdf:resource="http://edamontology.org/data__R7sy3JByrUsyKaGNYQ1eSQF"/>
+        <oboInOwl:inSubset>bioimaging</oboInOwl:inSubset>
+        <oboInOwl:inSubset>data</oboInOwl:inSubset>
+        <oboInOwl:inSubset>edam</oboInOwl:inSubset>
+        <rdfs:label>Time-lapse data</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://edamontology.org/data_Trajectory -->
+
+    <owl:Class rdf:about="http://edamontology.org/data_Trajectory">
+        <rdfs:subClassOf rdf:resource="http://edamontology.org/data__Rj7rpnkJ6SPPwWkQ4x3Wik"/>
+        <oboInOwl:inSubset>bioimaging</oboInOwl:inSubset>
+        <oboInOwl:inSubset>data</oboInOwl:inSubset>
+        <oboInOwl:inSubset>edam</oboInOwl:inSubset>
+        <rdfs:label>Object trajectory</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://edamontology.org/data_Volume -->
+
+    <owl:Class rdf:about="http://edamontology.org/data_Volume">
+        <rdfs:subClassOf rdf:resource="http://edamontology.org/data__R7Xr4YLUfGpHoI3FnAzgMnA"/>
+        <oboInOwl:inSubset>bioimaging</oboInOwl:inSubset>
+        <oboInOwl:inSubset>data</oboInOwl:inSubset>
+        <oboInOwl:inSubset>edam</oboInOwl:inSubset>
+        <rdfs:label>Volume</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://edamontology.org/data__R0uFIvsA9tQJYZz8NM3Smk -->
+
+    <owl:Class rdf:about="http://edamontology.org/data__R0uFIvsA9tQJYZz8NM3Smk">
+        <rdfs:subClassOf rdf:resource="http://edamontology.org/data_Image"/>
+        <oboInOwl:inSubset>bioimaging</oboInOwl:inSubset>
+        <oboInOwl:inSubset>data</oboInOwl:inSubset>
+        <oboInOwl:inSubset>edam</oboInOwl:inSubset>
+        <rdfs:label>Multi-channel image</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://edamontology.org/data__R7Vdp7H5PzNJiqA7JaEEPrJ -->
+
+    <owl:Class rdf:about="http://edamontology.org/data__R7Vdp7H5PzNJiqA7JaEEPrJ">
+        <rdfs:subClassOf rdf:resource="http://edamontology.org/data__RDr5D5pOVdnB8hASL1LG8HH"/>
+        <oboInOwl:inSubset>bioimaging</oboInOwl:inSubset>
+        <oboInOwl:inSubset>data</oboInOwl:inSubset>
+        <oboInOwl:inSubset>edam</oboInOwl:inSubset>
+        <rdfs:label>Image radiometric noise characteristics</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://edamontology.org/data__R7Xr4YLUfGpHoI3FnAzgMnA -->
+
+    <owl:Class rdf:about="http://edamontology.org/data__R7Xr4YLUfGpHoI3FnAzgMnA">
+        <rdfs:subClassOf rdf:resource="http://edamontology.org/data__R80aNLt4YY02ByptWQa2yrY"/>
+        <oboInOwl:inSubset>bioimaging</oboInOwl:inSubset>
+        <oboInOwl:inSubset>data</oboInOwl:inSubset>
+        <oboInOwl:inSubset>edam</oboInOwl:inSubset>
+        <rdfs:label>Spatial properties</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://edamontology.org/data__R7sy3JByrUsyKaGNYQ1eSQF -->
+
+    <owl:Class rdf:about="http://edamontology.org/data__R7sy3JByrUsyKaGNYQ1eSQF">
+        <rdfs:subClassOf rdf:resource="http://edamontology.org/data__R80aNLt4YY02ByptWQa2yrY"/>
+        <oboInOwl:inSubset>bioimaging</oboInOwl:inSubset>
+        <oboInOwl:inSubset>data</oboInOwl:inSubset>
+        <oboInOwl:inSubset>edam</oboInOwl:inSubset>
+        <rdfs:label>Temporal properties</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://edamontology.org/data__R80aNLt4YY02ByptWQa2yrY -->
+
+    <owl:Class rdf:about="http://edamontology.org/data__R80aNLt4YY02ByptWQa2yrY">
+        <rdfs:subClassOf rdf:resource="http://edamontology.org/data_0006"/>
+        <oboInOwl:hasNarrowSynonym>Image metadata</oboInOwl:hasNarrowSynonym>
+        <oboInOwl:inSubset>bioimaging</oboInOwl:inSubset>
+        <oboInOwl:inSubset>data</oboInOwl:inSubset>
+        <oboInOwl:inSubset>edam</oboInOwl:inSubset>
+        <rdfs:label>Image characteristics</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://edamontology.org/data__R9P4sScuriz9yN8l827hrLo -->
+
+    <owl:Class rdf:about="http://edamontology.org/data__R9P4sScuriz9yN8l827hrLo">
+        <rdfs:subClassOf rdf:resource="http://edamontology.org/data__Rj7rpnkJ6SPPwWkQ4x3Wik"/>
+        <oboInOwl:hasExactSynonym>Object speed</oboInOwl:hasExactSynonym>
+        <oboInOwl:inSubset>bioimaging</oboInOwl:inSubset>
+        <oboInOwl:inSubset>data</oboInOwl:inSubset>
+        <oboInOwl:inSubset>edam</oboInOwl:inSubset>
+        <rdfs:label>Object velocity</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://edamontology.org/data__R9yc0jq1eJBgmvEQwMcRSUS -->
+
+    <owl:Class rdf:about="http://edamontology.org/data__R9yc0jq1eJBgmvEQwMcRSUS">
+        <rdfs:subClassOf rdf:resource="http://edamontology.org/data__R7Xr4YLUfGpHoI3FnAzgMnA"/>
+        <oboInOwl:inSubset>bioimaging</oboInOwl:inSubset>
+        <oboInOwl:inSubset>data</oboInOwl:inSubset>
+        <oboInOwl:inSubset>edam</oboInOwl:inSubset>
+        <rdfs:label>Spatial image resolution</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://edamontology.org/data__RCDMkOl5gzD23OFsPf6vr4a -->
+
+    <owl:Class rdf:about="http://edamontology.org/data__RCDMkOl5gzD23OFsPf6vr4a">
+        <rdfs:subClassOf rdf:resource="http://edamontology.org/data__R80aNLt4YY02ByptWQa2yrY"/>
+        <oboInOwl:inSubset>bioimaging</oboInOwl:inSubset>
+        <oboInOwl:inSubset>data</oboInOwl:inSubset>
+        <oboInOwl:inSubset>edam</oboInOwl:inSubset>
+        <rdfs:label>Spectral properties</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://edamontology.org/data__RCMgLYJyn9WJyCc3bA23xT1 -->
+
+    <owl:Class rdf:about="http://edamontology.org/data__RCMgLYJyn9WJyCc3bA23xT1">
+        <rdfs:subClassOf rdf:resource="http://edamontology.org/data_Image"/>
+        <rdfs:subClassOf rdf:resource="http://edamontology.org/data_Time-lapse_data"/>
+        <oboInOwl:hasExactSynonym>Time-series image</oboInOwl:hasExactSynonym>
+        <oboInOwl:hasNarrowSynonym>Movie</oboInOwl:hasNarrowSynonym>
+        <oboInOwl:hasNarrowSynonym>Time-lapse image</oboInOwl:hasNarrowSynonym>
+        <oboInOwl:hasNarrowSynonym>Video sequence</oboInOwl:hasNarrowSynonym>
+        <oboInOwl:inSubset>bioimaging</oboInOwl:inSubset>
+        <oboInOwl:inSubset>data</oboInOwl:inSubset>
+        <oboInOwl:inSubset>edam</oboInOwl:inSubset>
+        <rdfs:label>Image time series</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://edamontology.org/data__RCOwaNKaK3gFcUhkjBq7aor -->
+
+    <owl:Class rdf:about="http://edamontology.org/data__RCOwaNKaK3gFcUhkjBq7aor">
+        <rdfs:subClassOf rdf:resource="http://edamontology.org/data_0006"/>
+        <oboInOwl:hasExactSynonym>Image</oboInOwl:hasExactSynonym>
+        <oboInOwl:inSubset>bioimaging</oboInOwl:inSubset>
+        <oboInOwl:inSubset>data</oboInOwl:inSubset>
+        <oboInOwl:inSubset>edam</oboInOwl:inSubset>
+        <rdfs:comment>So far consensus: Primary term Image data, exact synonym Image, meaning image or a set of (related) images (forming e.g. a stack or a time-lapse). No synonyms for stacks and &quot;movies&quot;, these should be specialised concepts.</rdfs:comment>
+        <rdfs:label>Image data</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://edamontology.org/data__RCRp3XI62rYeU9aZHw4yBvj -->
+
+    <owl:Class rdf:about="http://edamontology.org/data__RCRp3XI62rYeU9aZHw4yBvj">
+        <rdfs:subClassOf rdf:resource="http://edamontology.org/data_0006"/>
+        <oboInOwl:inSubset>bioimaging</oboInOwl:inSubset>
+        <oboInOwl:inSubset>data</oboInOwl:inSubset>
+        <oboInOwl:inSubset>edam</oboInOwl:inSubset>
+        <rdfs:label>Region properties</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://edamontology.org/data__RCjZhkavxxifpvdNiasVVCc -->
+
+    <owl:Class rdf:about="http://edamontology.org/data__RCjZhkavxxifpvdNiasVVCc">
+        <rdfs:subClassOf rdf:resource="http://edamontology.org/data__R80aNLt4YY02ByptWQa2yrY"/>
+        <oboInOwl:inSubset>bioimaging</oboInOwl:inSubset>
+        <oboInOwl:inSubset>data</oboInOwl:inSubset>
+        <oboInOwl:inSubset>edam</oboInOwl:inSubset>
+        <rdfs:label>Radiometric properties</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://edamontology.org/data__RDLZjniM2p9bxNi1Md2Vqv3 -->
+
+    <owl:Class rdf:about="http://edamontology.org/data__RDLZjniM2p9bxNi1Md2Vqv3">
+        <rdfs:subClassOf rdf:resource="http://edamontology.org/data__RCDMkOl5gzD23OFsPf6vr4a"/>
+        <oboInOwl:inSubset>bioimaging</oboInOwl:inSubset>
+        <oboInOwl:inSubset>data</oboInOwl:inSubset>
+        <oboInOwl:inSubset>edam</oboInOwl:inSubset>
+        <rdfs:label>Spectral image resolution</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://edamontology.org/data__RDcwcMJia2DgGNXx2JKa8Oc -->
+
+    <owl:Class rdf:about="http://edamontology.org/data__RDcwcMJia2DgGNXx2JKa8Oc">
+        <rdfs:subClassOf rdf:resource="http://edamontology.org/data_Image_geometry"/>
+        <oboInOwl:inSubset>bioimaging</oboInOwl:inSubset>
+        <oboInOwl:inSubset>data</oboInOwl:inSubset>
+        <oboInOwl:inSubset>edam</oboInOwl:inSubset>
+        <rdfs:label>Image bit depth</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://edamontology.org/data__RDr5D5pOVdnB8hASL1LG8HH -->
+
+    <owl:Class rdf:about="http://edamontology.org/data__RDr5D5pOVdnB8hASL1LG8HH">
+        <rdfs:subClassOf rdf:resource="http://edamontology.org/data__RCjZhkavxxifpvdNiasVVCc"/>
+        <oboInOwl:inSubset>bioimaging</oboInOwl:inSubset>
+        <oboInOwl:inSubset>data</oboInOwl:inSubset>
+        <oboInOwl:inSubset>edam</oboInOwl:inSubset>
+        <rdfs:label>Image radiometric noise</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://edamontology.org/data__RDz7WLs6GBWl7rPjqfjKBT0 -->
+
+    <owl:Class rdf:about="http://edamontology.org/data__RDz7WLs6GBWl7rPjqfjKBT0">
+        <rdfs:subClassOf rdf:resource="http://edamontology.org/data__RCRp3XI62rYeU9aZHw4yBvj"/>
+        <oboInOwl:inSubset>bioimaging</oboInOwl:inSubset>
+        <oboInOwl:inSubset>data</oboInOwl:inSubset>
+        <oboInOwl:inSubset>edam</oboInOwl:inSubset>
+        <rdfs:label>Region texture</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://edamontology.org/data__RPhipiN98zgq3wqXj4ESkT -->
+
+    <owl:Class rdf:about="http://edamontology.org/data__RPhipiN98zgq3wqXj4ESkT">
+        <rdfs:subClassOf rdf:resource="http://edamontology.org/data__Rj7rpnkJ6SPPwWkQ4x3Wik"/>
+        <oboInOwl:inSubset>bioimaging</oboInOwl:inSubset>
+        <oboInOwl:inSubset>data</oboInOwl:inSubset>
+        <oboInOwl:inSubset>edam</oboInOwl:inSubset>
+        <rdfs:label>Object shape</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://edamontology.org/data__Rj7rpnkJ6SPPwWkQ4x3Wik -->
+
+    <owl:Class rdf:about="http://edamontology.org/data__Rj7rpnkJ6SPPwWkQ4x3Wik">
+        <rdfs:subClassOf rdf:resource="http://edamontology.org/data_0006"/>
+        <oboInOwl:hasBroadSynonym>Object data</oboInOwl:hasBroadSynonym>
+        <oboInOwl:hasExactSynonym>Object feature</oboInOwl:hasExactSynonym>
+        <oboInOwl:hasNarrowSynonym>Object measurement</oboInOwl:hasNarrowSynonym>
+        <oboInOwl:inSubset>bioimaging</oboInOwl:inSubset>
+        <oboInOwl:inSubset>data</oboInOwl:inSubset>
+        <oboInOwl:inSubset>edam</oboInOwl:inSubset>
+        <rdfs:label>Object characteristics</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://edamontology.org/format_1915 -->
+
+    <owl:Class rdf:about="http://edamontology.org/format_1915">
+        <oboInOwl:inSubset>formats</oboInOwl:inSubset>
+        <oboInOwl:inSubset>edam</oboInOwl:inSubset>
+        <oboInOwl:inSubset>bioimaging</oboInOwl:inSubset>
+        <oboInOwl:inSubset>navigation</oboInOwl:inSubset>
+        <owl:disjointWith rdf:resource="http://edamontology.org/operation_0004"/>
+        <owl:disjointWith rdf:resource="http://edamontology.org/topic_0003"/>
+        <oboInOwl:hasBroadSynonym>Data model</oboInOwl:hasBroadSynonym>
+        <oboInOwl:hasNarrowSynonym>File format</oboInOwl:hasNarrowSynonym>
+        <rdfs:label>Format</rdfs:label>
+    </owl:Class>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://edamontology.org/format_1915"/>
+        <owl:annotatedProperty rdf:resource="http://www.geneontology.org/formats/oboInOwl#hasBroadSynonym"/>
+        <owl:annotatedTarget>Data model</owl:annotatedTarget>
+        <rdfs:comment>A defined data format has its implicit or explicit data model, and EDAM does not distinguish the two. Some data models however do not have any standard way of serialisation into an exchange format, and those are thus not considered formats in EDAM. (Remark: even broader - or closely related - term to &apos;Data model&apos; would be an &apos;Information model&apos;.)</rdfs:comment>
+    </owl:Axiom>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://edamontology.org/format_1915"/>
+        <owl:annotatedProperty rdf:resource="http://www.geneontology.org/formats/oboInOwl#hasNarrowSynonym"/>
+        <owl:annotatedTarget>File format</owl:annotatedTarget>
+        <rdfs:comment>File format denotes only formats of a computer file, but the same formats apply also to data blobs or exchanged messages.</rdfs:comment>
+    </owl:Axiom>
+    
+
+
+    <!-- http://edamontology.org/format_Binary_format -->
+
+    <owl:Class rdf:about="http://edamontology.org/format_Binary_format">
+        <rdfs:subClassOf rdf:resource="http://edamontology.org/format_1915"/>
+        <oboInOwl:inSubset>bioimaging</oboInOwl:inSubset>
+        <oboInOwl:inSubset>edam</oboInOwl:inSubset>
+        <oboInOwl:inSubset>formats</oboInOwl:inSubset>
+        <rdfs:label>Binary format</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://edamontology.org/format_avi -->
+
+    <owl:Class rdf:about="http://edamontology.org/format_avi">
+        <rdfs:subClassOf rdf:resource="http://edamontology.org/format_1915"/>
+        <oboInOwl:hasExactSynonym>.avi</oboInOwl:hasExactSynonym>
+        <oboInOwl:inSubset>bioimaging</oboInOwl:inSubset>
+        <oboInOwl:inSubset>edam</oboInOwl:inSubset>
+        <oboInOwl:inSubset>formats</oboInOwl:inSubset>
+        <rdfs:label>avi</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://edamontology.org/format_csv -->
+
+    <owl:Class rdf:about="http://edamontology.org/format_csv">
+        <rdfs:subClassOf rdf:resource="http://edamontology.org/format_1915"/>
+        <oboInOwl:inSubset>bioimaging</oboInOwl:inSubset>
+        <oboInOwl:inSubset>edam</oboInOwl:inSubset>
+        <oboInOwl:inSubset>formats</oboInOwl:inSubset>
+        <rdfs:label>csv</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://edamontology.org/format_dat -->
+
+    <owl:Class rdf:about="http://edamontology.org/format_dat">
+        <rdfs:subClassOf rdf:resource="http://edamontology.org/format_1915"/>
+        <oboInOwl:hasExactSynonym>.dat</oboInOwl:hasExactSynonym>
+        <oboInOwl:inSubset>bioimaging</oboInOwl:inSubset>
+        <oboInOwl:inSubset>edam</oboInOwl:inSubset>
+        <oboInOwl:inSubset>formats</oboInOwl:inSubset>
+        <rdfs:label>dat</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://edamontology.org/format_hdf5 -->
+
+    <owl:Class rdf:about="http://edamontology.org/format_hdf5">
+        <rdfs:subClassOf rdf:resource="http://edamontology.org/format_1915"/>
+        <oboInOwl:inSubset>bioimaging</oboInOwl:inSubset>
+        <oboInOwl:inSubset>edam</oboInOwl:inSubset>
+        <oboInOwl:inSubset>formats</oboInOwl:inSubset>
+        <rdfs:label>hdf5</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://edamontology.org/format_hdr -->
+
+    <owl:Class rdf:about="http://edamontology.org/format_hdr">
+        <rdfs:subClassOf rdf:resource="http://edamontology.org/format_1915"/>
+        <oboInOwl:hasExactSynonym>.hdr</oboInOwl:hasExactSynonym>
+        <oboInOwl:inSubset>bioimaging</oboInOwl:inSubset>
+        <oboInOwl:inSubset>edam</oboInOwl:inSubset>
+        <oboInOwl:inSubset>formats</oboInOwl:inSubset>
+        <rdfs:label>hdr</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://edamontology.org/format_img -->
+
+    <owl:Class rdf:about="http://edamontology.org/format_img">
+        <rdfs:subClassOf rdf:resource="http://edamontology.org/format_1915"/>
+        <oboInOwl:hasExactSynonym>.img</oboInOwl:hasExactSynonym>
+        <oboInOwl:inSubset>bioimaging</oboInOwl:inSubset>
+        <oboInOwl:inSubset>edam</oboInOwl:inSubset>
+        <oboInOwl:inSubset>formats</oboInOwl:inSubset>
+        <rdfs:label>img</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://edamontology.org/format_ims -->
+
+    <owl:Class rdf:about="http://edamontology.org/format_ims">
+        <rdfs:subClassOf rdf:resource="http://edamontology.org/format_1915"/>
+        <oboInOwl:hasExactSynonym>.ims</oboInOwl:hasExactSynonym>
+        <oboInOwl:inSubset>bioimaging</oboInOwl:inSubset>
+        <oboInOwl:inSubset>edam</oboInOwl:inSubset>
+        <oboInOwl:inSubset>formats</oboInOwl:inSubset>
+        <rdfs:label>ims</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://edamontology.org/format_ism -->
+
+    <owl:Class rdf:about="http://edamontology.org/format_ism">
+        <rdfs:subClassOf rdf:resource="http://edamontology.org/format_1915"/>
+        <oboInOwl:inSubset>bioimaging</oboInOwl:inSubset>
+        <oboInOwl:inSubset>edam</oboInOwl:inSubset>
+        <oboInOwl:inSubset>formats</oboInOwl:inSubset>
+        <rdfs:label>ism</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://edamontology.org/format_jpg -->
+
+    <owl:Class rdf:about="http://edamontology.org/format_jpg">
+        <rdfs:subClassOf rdf:resource="http://edamontology.org/format_1915"/>
+        <oboInOwl:hasExactSynonym>.jpg</oboInOwl:hasExactSynonym>
+        <oboInOwl:inSubset>bioimaging</oboInOwl:inSubset>
+        <oboInOwl:inSubset>edam</oboInOwl:inSubset>
+        <oboInOwl:inSubset>formats</oboInOwl:inSubset>
+        <rdfs:label>jpg</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://edamontology.org/format_mpeg -->
+
+    <owl:Class rdf:about="http://edamontology.org/format_mpeg">
+        <rdfs:subClassOf rdf:resource="http://edamontology.org/format_1915"/>
+        <oboInOwl:inSubset>bioimaging</oboInOwl:inSubset>
+        <oboInOwl:inSubset>edam</oboInOwl:inSubset>
+        <oboInOwl:inSubset>formats</oboInOwl:inSubset>
+        <rdfs:label>mpeg</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://edamontology.org/format_raw -->
+
+    <owl:Class rdf:about="http://edamontology.org/format_raw">
+        <rdfs:subClassOf rdf:resource="http://edamontology.org/format_1915"/>
+        <oboInOwl:hasExactSynonym>.raw</oboInOwl:hasExactSynonym>
+        <oboInOwl:inSubset>bioimaging</oboInOwl:inSubset>
+        <oboInOwl:inSubset>edam</oboInOwl:inSubset>
+        <oboInOwl:inSubset>formats</oboInOwl:inSubset>
+        <rdfs:label>raw</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://edamontology.org/format_roi -->
+
+    <owl:Class rdf:about="http://edamontology.org/format_roi">
+        <rdfs:subClassOf rdf:resource="http://edamontology.org/data_0006"/>
+        <oboInOwl:hasExactSynonym>ROI</oboInOwl:hasExactSynonym>
+        <oboInOwl:inSubset>bioimaging</oboInOwl:inSubset>
+        <oboInOwl:inSubset>edam</oboInOwl:inSubset>
+        <oboInOwl:inSubset>formats</oboInOwl:inSubset>
+        <rdfs:label>Region of interest</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://edamontology.org/format_scn -->
+
+    <owl:Class rdf:about="http://edamontology.org/format_scn">
+        <rdfs:subClassOf rdf:resource="http://edamontology.org/format_1915"/>
+        <oboInOwl:hasExactSynonym>.scn</oboInOwl:hasExactSynonym>
+        <oboInOwl:inSubset>bioimaging</oboInOwl:inSubset>
+        <oboInOwl:inSubset>edam</oboInOwl:inSubset>
+        <oboInOwl:inSubset>formats</oboInOwl:inSubset>
+        <rdfs:label>scn</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://edamontology.org/format_sm2 -->
+
+    <owl:Class rdf:about="http://edamontology.org/format_sm2">
+        <rdfs:subClassOf rdf:resource="http://edamontology.org/format_1915"/>
+        <oboInOwl:hasExactSynonym>.sm2</oboInOwl:hasExactSynonym>
+        <oboInOwl:inSubset>bioimaging</oboInOwl:inSubset>
+        <oboInOwl:inSubset>edam</oboInOwl:inSubset>
+        <oboInOwl:inSubset>formats</oboInOwl:inSubset>
+        <rdfs:label>sm2</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://edamontology.org/format_sm3 -->
+
+    <owl:Class rdf:about="http://edamontology.org/format_sm3">
+        <rdfs:subClassOf rdf:resource="http://edamontology.org/format_1915"/>
+        <oboInOwl:hasExactSynonym>.sm3</oboInOwl:hasExactSynonym>
+        <oboInOwl:inSubset>bioimaging</oboInOwl:inSubset>
+        <oboInOwl:inSubset>edam</oboInOwl:inSubset>
+        <oboInOwl:inSubset>formats</oboInOwl:inSubset>
+        <rdfs:label>sm3</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://edamontology.org/format_stk -->
+
+    <owl:Class rdf:about="http://edamontology.org/format_stk">
+        <rdfs:subClassOf rdf:resource="http://edamontology.org/format_1915"/>
+        <oboInOwl:hasExactSynonym>.stk</oboInOwl:hasExactSynonym>
+        <oboInOwl:inSubset>bioimaging</oboInOwl:inSubset>
+        <oboInOwl:inSubset>edam</oboInOwl:inSubset>
+        <oboInOwl:inSubset>formats</oboInOwl:inSubset>
+        <rdfs:label>stk</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://edamontology.org/format_tif -->
+
+    <owl:Class rdf:about="http://edamontology.org/format_tif">
+        <rdfs:subClassOf rdf:resource="http://edamontology.org/format_1915"/>
+        <oboInOwl:inSubset>bioimaging</oboInOwl:inSubset>
+        <oboInOwl:inSubset>edam</oboInOwl:inSubset>
+        <oboInOwl:inSubset>formats</oboInOwl:inSubset>
+        <rdfs:label>tif</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://edamontology.org/format_tiff -->
+
+    <owl:Class rdf:about="http://edamontology.org/format_tiff">
+        <rdfs:subClassOf rdf:resource="http://edamontology.org/format_1915"/>
+        <oboInOwl:hasExactSynonym>.tiff</oboInOwl:hasExactSynonym>
+        <oboInOwl:inSubset>bioimaging</oboInOwl:inSubset>
+        <oboInOwl:inSubset>edam</oboInOwl:inSubset>
+        <oboInOwl:inSubset>formats</oboInOwl:inSubset>
+        <rdfs:label>tiff</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://edamontology.org/format_txt -->
+
+    <owl:Class rdf:about="http://edamontology.org/format_txt">
+        <rdfs:subClassOf rdf:resource="http://edamontology.org/format_1915"/>
+        <oboInOwl:hasExactSynonym>.txt</oboInOwl:hasExactSynonym>
+        <oboInOwl:inSubset>bioimaging</oboInOwl:inSubset>
+        <oboInOwl:inSubset>edam</oboInOwl:inSubset>
+        <oboInOwl:inSubset>formats</oboInOwl:inSubset>
+        <rdfs:label>txt</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://edamontology.org/format_vsi -->
+
+    <owl:Class rdf:about="http://edamontology.org/format_vsi">
+        <rdfs:subClassOf rdf:resource="http://edamontology.org/format_1915"/>
+        <oboInOwl:hasExactSynonym>.vsi</oboInOwl:hasExactSynonym>
+        <oboInOwl:inSubset>bioimaging</oboInOwl:inSubset>
+        <oboInOwl:inSubset>edam</oboInOwl:inSubset>
+        <oboInOwl:inSubset>formats</oboInOwl:inSubset>
+        <rdfs:label>vsi</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://edamontology.org/format_xml -->
+
+    <owl:Class rdf:about="http://edamontology.org/format_xml">
+        <rdfs:subClassOf rdf:resource="http://edamontology.org/format_1915"/>
+        <oboInOwl:hasExactSynonym>.xml</oboInOwl:hasExactSynonym>
+        <oboInOwl:inSubset>bioimaging</oboInOwl:inSubset>
+        <oboInOwl:inSubset>edam</oboInOwl:inSubset>
+        <oboInOwl:inSubset>formats</oboInOwl:inSubset>
+        <rdfs:label>xml</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://edamontology.org/operation_0004 -->
+
+    <owl:Class rdf:about="http://edamontology.org/operation_0004">
+        <owl:disjointWith rdf:resource="http://edamontology.org/topic_0003"/>
+        <created_in>beta12orEarlier</created_in>
+        <oboInOwl:hasBroadSynonym>Function</oboInOwl:hasBroadSynonym>
+        <oboInOwl:hasDefinition>A function that processes a set of inputs and results in a set of outputs, or associates arguments (inputs) with values (outputs).</oboInOwl:hasDefinition>
+        <oboInOwl:hasNarrowSynonym>Computational method</oboInOwl:hasNarrowSynonym>
+        <oboInOwl:hasNarrowSynonym>Computational operation</oboInOwl:hasNarrowSynonym>
+        <oboInOwl:hasNarrowSynonym>Computational procedure</oboInOwl:hasNarrowSynonym>
+        <oboInOwl:hasNarrowSynonym>Computational subroutine</oboInOwl:hasNarrowSynonym>
+        <oboInOwl:hasNarrowSynonym>Function (programming)</oboInOwl:hasNarrowSynonym>
+        <oboInOwl:hasNarrowSynonym>Lambda abstraction</oboInOwl:hasNarrowSynonym>
+        <oboInOwl:hasNarrowSynonym>Mathematical function</oboInOwl:hasNarrowSynonym>
+        <oboInOwl:hasNarrowSynonym>Mathematical operation</oboInOwl:hasNarrowSynonym>
+        <oboInOwl:hasRelatedSynonym>Computational tool</oboInOwl:hasRelatedSynonym>
+        <oboInOwl:hasRelatedSynonym>Process</oboInOwl:hasRelatedSynonym>
+        <oboInOwl:hasRelatedSynonym>sumo:Function</oboInOwl:hasRelatedSynonym>
+        <oboInOwl:inSubset>edam</oboInOwl:inSubset>
+        <oboInOwl:inSubset rdf:resource="http://purl.obolibrary.org/obo/edam#operations"/>
+        <oboInOwl:inSubset rdf:resource="http://purl.obolibrary.org/obo/edam#bioimaging"/>
+        <oboInOwl:inSubset>navigation</oboInOwl:inSubset>
+        <rdfs:comment>Special cases are: a) An operation that consumes no input (has no input arguments). Such operation is either a constant function, or an operation depending only on the underlying state. b) An operation that may modify the underlying state but has no output. c) The singular-case operation with no input or output, that still may modify the underlying state.</rdfs:comment>
+        <rdfs:label>Operation</rdfs:label>
+        <rdfs:seeAlso rdf:resource="http://en.wikipedia.org/wiki/Function_(computer_science)"/>
+        <rdfs:seeAlso rdf:resource="http://en.wikipedia.org/wiki/Function_(mathematics)"/>
+        <rdfs:seeAlso rdf:resource="http://en.wikipedia.org/wiki/Subroutine"/>
+        <rdfs:seeAlso>http://onto.eva.mpg.de/ontologies/gfo-bio.owl#Method</rdfs:seeAlso>
+        <rdfs:seeAlso>http://purl.org/biotop/biotop.owl#Function</rdfs:seeAlso>
+        <rdfs:seeAlso>http://semanticscience.org/resource/SIO_000017</rdfs:seeAlso>
+        <rdfs:seeAlso>http://semanticscience.org/resource/SIO_000649</rdfs:seeAlso>
+        <rdfs:seeAlso>http://wsio.org/operation_001</rdfs:seeAlso>
+        <rdfs:seeAlso>http://www.ebi.ac.uk/swo/SWO_0000003</rdfs:seeAlso>
+        <rdfs:seeAlso>http://www.ifomis.org/bfo/1.1/snap#Continuant</rdfs:seeAlso>
+        <rdfs:seeAlso>http://www.ifomis.org/bfo/1.1/snap#Function</rdfs:seeAlso>
+        <rdfs:seeAlso>http://www.ifomis.org/bfo/1.1/snap#Quality</rdfs:seeAlso>
+        <rdfs:seeAlso>http://www.ifomis.org/bfo/1.1/span#Process</rdfs:seeAlso>
+        <rdfs:seeAlso>http://www.loa-cnr.it/ontologies/DOLCE-Lite.owl#process</rdfs:seeAlso>
+        <rdfs:seeAlso>http://www.loa-cnr.it/ontologies/DOLCE-Lite.owl#quality</rdfs:seeAlso>
+        <rdfs:seeAlso>http://www.onto-med.de/ontologies/gfo.owl#Function</rdfs:seeAlso>
+        <rdfs:seeAlso>http://www.onto-med.de/ontologies/gfo.owl#Perpetuant</rdfs:seeAlso>
+        <rdfs:seeAlso>http://www.onto-med.de/ontologies/gfo.owl#Process</rdfs:seeAlso>
+    </owl:Class>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://edamontology.org/operation_0004"/>
+        <owl:annotatedProperty rdf:resource="http://www.geneontology.org/formats/oboInOwl#hasBroadSynonym"/>
+        <owl:annotatedTarget>Function</owl:annotatedTarget>
+        <rdfs:comment>Operation is a function that is computational. It typically has input(s) and output(s), which are always data.</rdfs:comment>
+    </owl:Axiom>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://edamontology.org/operation_0004"/>
+        <owl:annotatedProperty rdf:resource="http://www.geneontology.org/formats/oboInOwl#hasRelatedSynonym"/>
+        <owl:annotatedTarget>Computational tool</owl:annotatedTarget>
+        <rdfs:comment>Computational tool provides one or more operations.</rdfs:comment>
+    </owl:Axiom>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://edamontology.org/operation_0004"/>
+        <owl:annotatedProperty rdf:resource="http://www.geneontology.org/formats/oboInOwl#hasRelatedSynonym"/>
+        <owl:annotatedTarget>Process</owl:annotatedTarget>
+        <rdfs:comment>Process can have a function (as its quality/attribute), and can also perform an operation with inputs and outputs.</rdfs:comment>
+    </owl:Axiom>
+    
+
+
+    <!-- http://edamontology.org/operation_0226 -->
+
+    <owl:Class rdf:about="http://edamontology.org/operation_0226">
+        <rdfs:subClassOf rdf:resource="http://edamontology.org/operation_0004"/>
+        <hide_in_subset>bioimaging?</hide_in_subset>
+        <oboInOwl:inSubset>edam</oboInOwl:inSubset>
+        <oboInOwl:inSubset>operations</oboInOwl:inSubset>
+        <rdfs:label>Annotation</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://edamontology.org/operation_0337 -->
+
+    <owl:Class rdf:about="http://edamontology.org/operation_0337">
+        <rdfs:subClassOf rdf:resource="http://edamontology.org/operation_0004"/>
+        <hide_in_subset>bioimaging?</hide_in_subset>
+        <oboInOwl:hasNarrowSynonym>Plotting</oboInOwl:hasNarrowSynonym>
+        <oboInOwl:inSubset>edam</oboInOwl:inSubset>
+        <oboInOwl:inSubset>operations</oboInOwl:inSubset>
+        <rdfs:comment>Re-occurs among biii.info tags (visualisation, rendering, viewer, classification, ...)</rdfs:comment>
+        <rdfs:label>Visualisation</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://edamontology.org/operation_2409 -->
+
+    <owl:Class rdf:about="http://edamontology.org/operation_2409">
+        <rdfs:subClassOf rdf:resource="http://edamontology.org/operation_0004"/>
+        <hide_in_subset>bioimaging</hide_in_subset>
+        <oboInOwl:inSubset>edam</oboInOwl:inSubset>
+        <oboInOwl:inSubset>operations</oboInOwl:inSubset>
+        <rdfs:label>Data handling</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://edamontology.org/operation_2423 -->
+
+    <owl:Class rdf:about="http://edamontology.org/operation_2423">
+        <rdfs:subClassOf rdf:resource="http://edamontology.org/operation_0004"/>
+        <hide_in_subset>bioimaging</hide_in_subset>
+        <oboInOwl:inSubset>edam</oboInOwl:inSubset>
+        <oboInOwl:inSubset>operations</oboInOwl:inSubset>
+        <rdfs:comment>ToDo: Clear up relation between Classification, Clustering, and Prediction and recognition (also in main EDAM)</rdfs:comment>
+        <rdfs:label>Prediction and recognition</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://edamontology.org/operation_2928 -->
+
+    <owl:Class rdf:about="http://edamontology.org/operation_2928">
+        <rdfs:subClassOf rdf:resource="http://edamontology.org/operation_0004"/>
+        <hide_in_subset>bioimaging</hide_in_subset>
+        <oboInOwl:inSubset>edam</oboInOwl:inSubset>
+        <oboInOwl:inSubset>operations</oboInOwl:inSubset>
+        <rdfs:label>Alignment construction</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://edamontology.org/operation_2945 -->
+
+    <owl:Class rdf:about="http://edamontology.org/operation_2945">
+        <rdfs:subClassOf rdf:resource="http://edamontology.org/operation_0004"/>
+        <hide_in_subset>bioimaging</hide_in_subset>
+        <oboInOwl:inSubset>edam</oboInOwl:inSubset>
+        <oboInOwl:inSubset>operations</oboInOwl:inSubset>
+        <rdfs:label>Analysis</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://edamontology.org/operation_2990 -->
+
+    <owl:Class rdf:about="http://edamontology.org/operation_2990">
+        <rdfs:subClassOf rdf:resource="http://edamontology.org/operation_0004"/>
+        <hide_in_subset>bioimaging?</hide_in_subset>
+        <oboInOwl:inSubset>edam</oboInOwl:inSubset>
+        <oboInOwl:inSubset>operations</oboInOwl:inSubset>
+        <rdfs:comment>Re-occurs among biii.info tags (visualisation, rendering, viewer, classification, ...)</rdfs:comment>
+        <rdfs:comment>ToDo: Clear up relation between Classification, Clustering, and Prediction and recognition (also in main EDAM)</rdfs:comment>
+        <rdfs:label>Classification</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://edamontology.org/operation_3096 -->
+
+    <owl:Class rdf:about="http://edamontology.org/operation_3096">
+        <rdfs:subClassOf rdf:resource="http://edamontology.org/operation_2409"/>
+        <hide_in_subset>bioimaging</hide_in_subset>
+        <oboInOwl:inSubset>edam</oboInOwl:inSubset>
+        <oboInOwl:inSubset>operations</oboInOwl:inSubset>
+        <rdfs:label>Editing</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://edamontology.org/operation_3429 -->
+
+    <owl:Class rdf:about="http://edamontology.org/operation_3429">
+        <rdfs:subClassOf rdf:resource="http://edamontology.org/operation_0004"/>
+        <hide_in_subset>bioimaging</hide_in_subset>
+        <oboInOwl:inSubset>edam</oboInOwl:inSubset>
+        <oboInOwl:inSubset>operations</oboInOwl:inSubset>
+        <rdfs:label>Generation</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://edamontology.org/operation_3434 -->
+
+    <owl:Class rdf:about="http://edamontology.org/operation_3434">
+        <rdfs:subClassOf rdf:resource="http://edamontology.org/operation_0004"/>
+        <hide_in_subset>bioimaging</hide_in_subset>
+        <oboInOwl:inSubset>edam</oboInOwl:inSubset>
+        <oboInOwl:inSubset>operations</oboInOwl:inSubset>
+        <rdfs:label>Conversion</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://edamontology.org/operation_3441 -->
+
+    <owl:Class rdf:about="http://edamontology.org/operation_3441">
+        <rdfs:subClassOf rdf:resource="http://edamontology.org/operation_0337"/>
+        <hide_in_subset>bioimaging</hide_in_subset>
+        <oboInOwl:inSubset>edam</oboInOwl:inSubset>
+        <oboInOwl:inSubset>operations</oboInOwl:inSubset>
+        <rdfs:comment>Visualisation vs Plotting vs Image generation. Should these be merged? Which of these should be the top concept, and which sub-concepts, and which narrow synonyms?</rdfs:comment>
+        <rdfs:label>Plotting</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://edamontology.org/operation_3443 -->
+
+    <owl:Class rdf:about="http://edamontology.org/operation_3443">
+        <rdfs:subClassOf rdf:resource="http://edamontology.org/operation_2945"/>
+        <oboInOwl:hasNarrowSynonym>General image analysis</oboInOwl:hasNarrowSynonym>
+        <oboInOwl:inSubset>bioimaging</oboInOwl:inSubset>
+        <oboInOwl:inSubset>edam</oboInOwl:inSubset>
+        <oboInOwl:inSubset>operations</oboInOwl:inSubset>
+        <rdfs:label>Image analysis</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://edamontology.org/operation_3553 -->
+
+    <owl:Class rdf:about="http://edamontology.org/operation_3553">
+        <rdfs:subClassOf rdf:resource="http://edamontology.org/operation_0226"/>
+        <oboInOwl:inSubset>bioimaging</oboInOwl:inSubset>
+        <oboInOwl:inSubset>edam</oboInOwl:inSubset>
+        <oboInOwl:inSubset>operations</oboInOwl:inSubset>
+        <rdfs:label>Image annotation</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://edamontology.org/operation_Active_contours -->
+
+    <owl:Class rdf:about="http://edamontology.org/operation_Active_contours">
+        <rdfs:subClassOf rdf:resource="http://edamontology.org/operation_Image_segmentation"/>
+        <oboInOwl:hasExactSynonym>Active contour model</oboInOwl:hasExactSynonym>
+        <oboInOwl:hasExactSynonym>Active contour models</oboInOwl:hasExactSynonym>
+        <oboInOwl:hasNarrowSynonym>Snakes</oboInOwl:hasNarrowSynonym>
+        <oboInOwl:inSubset>bioimaging</oboInOwl:inSubset>
+        <oboInOwl:inSubset>edam</oboInOwl:inSubset>
+        <oboInOwl:inSubset>operations</oboInOwl:inSubset>
+        <rdfs:label>Active contours</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://edamontology.org/operation_Adaptative_thresholding -->
+
+    <owl:Class rdf:about="http://edamontology.org/operation_Adaptative_thresholding">
+        <rdfs:subClassOf rdf:resource="http://edamontology.org/operation_Image_segmentation"/>
+        <oboInOwl:inSubset>bioimaging</oboInOwl:inSubset>
+        <oboInOwl:inSubset>edam</oboInOwl:inSubset>
+        <oboInOwl:inSubset>operations</oboInOwl:inSubset>
+        <rdfs:label>Adaptative thresholding</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://edamontology.org/operation_Anaglyph -->
+
+    <owl:Class rdf:about="http://edamontology.org/operation_Anaglyph">
+        <rdfs:subClassOf rdf:resource="http://edamontology.org/operation_Image_visualisation"/>
+        <oboInOwl:inSubset>bioimaging</oboInOwl:inSubset>
+        <oboInOwl:inSubset>edam</oboInOwl:inSubset>
+        <oboInOwl:inSubset>operations</oboInOwl:inSubset>
+        <rdfs:label>Anaglyph</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://edamontology.org/operation_Cell_counting -->
+
+    <owl:Class rdf:about="http://edamontology.org/operation_Cell_counting">
+        <rdfs:subClassOf rdf:resource="http://edamontology.org/operation_3443"/>
+        <oboInOwl:inSubset>bioimaging</oboInOwl:inSubset>
+        <oboInOwl:inSubset>edam</oboInOwl:inSubset>
+        <oboInOwl:inSubset>operations</oboInOwl:inSubset>
+        <rdfs:label>Object counting</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://edamontology.org/operation_Cell_segmentation -->
+
+    <owl:Class rdf:about="http://edamontology.org/operation_Cell_segmentation">
+        <rdfs:subClassOf rdf:resource="http://edamontology.org/operation_Image_segmentation"/>
+        <oboInOwl:inSubset>bioimaging</oboInOwl:inSubset>
+        <oboInOwl:inSubset>edam</oboInOwl:inSubset>
+        <oboInOwl:inSubset>operations</oboInOwl:inSubset>
+        <rdfs:label>Cell segmentation</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://edamontology.org/operation_Cell_tracking -->
+
+    <owl:Class rdf:about="http://edamontology.org/operation_Cell_tracking">
+        <rdfs:subClassOf rdf:resource="http://edamontology.org/operation__RDsrmC9l0bZw9kGJzGMCyY8"/>
+        <oboInOwl:inSubset>bioimaging</oboInOwl:inSubset>
+        <oboInOwl:inSubset>edam</oboInOwl:inSubset>
+        <oboInOwl:inSubset>operations</oboInOwl:inSubset>
+        <rdfs:label>Cell tracking</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://edamontology.org/operation_Closing -->
+
+    <owl:Class rdf:about="http://edamontology.org/operation_Closing">
+        <rdfs:subClassOf rdf:resource="http://edamontology.org/operation_Morphological_operations"/>
+        <oboInOwl:inSubset>bioimaging</oboInOwl:inSubset>
+        <oboInOwl:inSubset>edam</oboInOwl:inSubset>
+        <oboInOwl:inSubset>operations</oboInOwl:inSubset>
+        <rdfs:label>Closing</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://edamontology.org/operation_Dilation -->
+
+    <owl:Class rdf:about="http://edamontology.org/operation_Dilation">
+        <rdfs:subClassOf rdf:resource="http://edamontology.org/operation_Morphological_operations"/>
+        <oboInOwl:inSubset>bioimaging</oboInOwl:inSubset>
+        <oboInOwl:inSubset>edam</oboInOwl:inSubset>
+        <oboInOwl:inSubset>operations</oboInOwl:inSubset>
+        <rdfs:label>Dilation</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://edamontology.org/operation_Distance_transform -->
+
+    <owl:Class rdf:about="http://edamontology.org/operation_Distance_transform">
+        <rdfs:subClassOf rdf:resource="http://edamontology.org/operation_Morphological_operations"/>
+        <oboInOwl:inSubset>bioimaging</oboInOwl:inSubset>
+        <oboInOwl:inSubset>edam</oboInOwl:inSubset>
+        <oboInOwl:inSubset>operations</oboInOwl:inSubset>
+        <rdfs:label>Distance transform</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://edamontology.org/operation_Edge_detection -->
+
+    <owl:Class rdf:about="http://edamontology.org/operation_Edge_detection">
+        <rdfs:subClassOf rdf:resource="http://edamontology.org/operation_Image_enhancement"/>
+        <related_term>Edge detection</related_term>
+        <oboInOwl:hasNarrowSynonym>Edge enhancement</oboInOwl:hasNarrowSynonym>
+        <oboInOwl:inSubset>bioimaging</oboInOwl:inSubset>
+        <oboInOwl:inSubset>edam</oboInOwl:inSubset>
+        <oboInOwl:inSubset>operations</oboInOwl:inSubset>
+        <rdfs:label>Feature enhancement</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://edamontology.org/operation_Erosion -->
+
+    <owl:Class rdf:about="http://edamontology.org/operation_Erosion">
+        <rdfs:subClassOf rdf:resource="http://edamontology.org/operation_Morphological_operations"/>
+        <oboInOwl:inSubset>bioimaging</oboInOwl:inSubset>
+        <oboInOwl:inSubset>edam</oboInOwl:inSubset>
+        <oboInOwl:inSubset>operations</oboInOwl:inSubset>
+        <rdfs:label>Erosion</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://edamontology.org/operation_Feature_extraction -->
+
+    <owl:Class rdf:about="http://edamontology.org/operation_Feature_extraction">
+        <rdfs:subClassOf rdf:resource="http://edamontology.org/operation_3443"/>
+        <oboInOwl:hasExactSynonym>Feature detection</oboInOwl:hasExactSynonym>
+        <oboInOwl:hasExactSynonym>Image labeling</oboInOwl:hasExactSynonym>
+        <oboInOwl:hasNarrowSynonym>SURF</oboInOwl:hasNarrowSynonym>
+        <oboInOwl:inSubset>bioimaging</oboInOwl:inSubset>
+        <oboInOwl:inSubset>edam</oboInOwl:inSubset>
+        <oboInOwl:inSubset>operations</oboInOwl:inSubset>
+        <rdfs:label>Object feature extraction</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://edamontology.org/operation_Geometrical_transform -->
+
+    <owl:Class rdf:about="http://edamontology.org/operation_Geometrical_transform">
+        <rdfs:subClassOf rdf:resource="http://edamontology.org/operation_Image_processing"/>
+        <oboInOwl:inSubset>bioimaging</oboInOwl:inSubset>
+        <oboInOwl:inSubset>edam</oboInOwl:inSubset>
+        <oboInOwl:inSubset>operations</oboInOwl:inSubset>
+        <rdfs:label>Geometrical transform</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://edamontology.org/operation_Homogeneity -->
+
+    <owl:Class rdf:about="http://edamontology.org/operation_Homogeneity">
+        <rdfs:subClassOf rdf:resource="http://edamontology.org/operation_Feature_extraction"/>
+        <oboInOwl:inSubset>bioimaging</oboInOwl:inSubset>
+        <oboInOwl:inSubset>edam</oboInOwl:inSubset>
+        <oboInOwl:inSubset>operations</oboInOwl:inSubset>
+        <rdfs:label>Homogeneity</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://edamontology.org/operation_Illumination_correction -->
+
+    <owl:Class rdf:about="http://edamontology.org/operation_Illumination_correction">
+        <rdfs:subClassOf rdf:resource="http://edamontology.org/operation__R7MFwdgojfmkZ07yWbdcda0"/>
+        <oboInOwl:hasExactSynonym>Flat field correction</oboInOwl:hasExactSynonym>
+        <oboInOwl:inSubset>bioimaging</oboInOwl:inSubset>
+        <oboInOwl:inSubset>edam</oboInOwl:inSubset>
+        <oboInOwl:inSubset>operations</oboInOwl:inSubset>
+        <rdfs:label>Illumination correction</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://edamontology.org/operation_Image_classification -->
+
+    <owl:Class rdf:about="http://edamontology.org/operation_Image_classification">
+        <rdfs:subClassOf rdf:resource="http://edamontology.org/operation_2990"/>
+        <rdfs:subClassOf rdf:resource="http://edamontology.org/operation_3443"/>
+        <oboInOwl:hasExactSynonym>Classification</oboInOwl:hasExactSynonym>
+        <oboInOwl:hasExactSynonym>Object classification</oboInOwl:hasExactSynonym>
+        <oboInOwl:hasNarrowSynonym>Image clustering</oboInOwl:hasNarrowSynonym>
+        <oboInOwl:inSubset>bioimaging</oboInOwl:inSubset>
+        <oboInOwl:inSubset>edam</oboInOwl:inSubset>
+        <oboInOwl:inSubset>operations</oboInOwl:inSubset>
+        <rdfs:label>Image classification</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://edamontology.org/operation_Image_colocalization -->
+
+    <owl:Class rdf:about="http://edamontology.org/operation_Image_colocalization">
+        <rdfs:subClassOf rdf:resource="http://edamontology.org/operation___Colocalisation_analysis"/>
+        <oboInOwl:hasExactSynonym>Object-based colocalization</oboInOwl:hasExactSynonym>
+        <oboInOwl:inSubset>bioimaging</oboInOwl:inSubset>
+        <oboInOwl:inSubset>edam</oboInOwl:inSubset>
+        <oboInOwl:inSubset>operations</oboInOwl:inSubset>
+        <rdfs:label>Object-based colocalisation</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://edamontology.org/operation_Image_deconvolution -->
+
+    <owl:Class rdf:about="http://edamontology.org/operation_Image_deconvolution">
+        <rdfs:subClassOf rdf:resource="http://edamontology.org/operation_Image_reconstruction"/>
+        <oboInOwl:inSubset>bioimaging</oboInOwl:inSubset>
+        <oboInOwl:inSubset>edam</oboInOwl:inSubset>
+        <oboInOwl:inSubset>operations</oboInOwl:inSubset>
+        <rdfs:label>Image deconvolution</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://edamontology.org/operation_Image_enhancement -->
+
+    <owl:Class rdf:about="http://edamontology.org/operation_Image_enhancement">
+        <rdfs:subClassOf rdf:resource="http://edamontology.org/operation_Image_processing"/>
+        <oboInOwl:hasNarrowSynonym>Image restoration</oboInOwl:hasNarrowSynonym>
+        <oboInOwl:inSubset>bioimaging</oboInOwl:inSubset>
+        <oboInOwl:inSubset>edam</oboInOwl:inSubset>
+        <oboInOwl:inSubset>operations</oboInOwl:inSubset>
+        <rdfs:comment>Image enhancement moves further away from the &quot;reality&quot;, as opposed to Image reconstruction that moves closer to the &quot;reality&quot;.</rdfs:comment>
+        <rdfs:label>Image enhancement</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://edamontology.org/operation_Image_measurement -->
+
+    <owl:Class rdf:about="http://edamontology.org/operation_Image_measurement">
+        <rdfs:subClassOf rdf:resource="http://edamontology.org/operation_3443"/>
+        <oboInOwl:hasExactSynonym>Image measurement</oboInOwl:hasExactSynonym>
+        <oboInOwl:inSubset>bioimaging</oboInOwl:inSubset>
+        <oboInOwl:inSubset>edam</oboInOwl:inSubset>
+        <oboInOwl:inSubset>operations</oboInOwl:inSubset>
+        <rdfs:label>Image feature extraction</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://edamontology.org/operation_Image_processing -->
+
+    <owl:Class rdf:about="http://edamontology.org/operation_Image_processing">
+        <rdfs:subClassOf rdf:resource="http://edamontology.org/operation_0004"/>
+        <oboInOwl:hasBroadSynonym>Image manipulation??</oboInOwl:hasBroadSynonym>
+        <oboInOwl:hasNarrowSynonym>Image postprocessing</oboInOwl:hasNarrowSynonym>
+        <oboInOwl:inSubset>bioimaging</oboInOwl:inSubset>
+        <oboInOwl:inSubset>edam</oboInOwl:inSubset>
+        <oboInOwl:inSubset>operations</oboInOwl:inSubset>
+        <rdfs:label>Image processing</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://edamontology.org/operation_Image_reconstruction -->
+
+    <owl:Class rdf:about="http://edamontology.org/operation_Image_reconstruction">
+        <rdfs:subClassOf rdf:resource="http://edamontology.org/operation_Image_processing"/>
+        <rdfs:subClassOf rdf:resource="http://edamontology.org/operation__RDFFD5jBfUw74a3vJeBAGB1"/>
+        <oboInOwl:hasNarrowSynonym>Image restoration</oboInOwl:hasNarrowSynonym>
+        <oboInOwl:inSubset>bioimaging</oboInOwl:inSubset>
+        <oboInOwl:inSubset>edam</oboInOwl:inSubset>
+        <oboInOwl:inSubset>operations</oboInOwl:inSubset>
+        <rdfs:comment>Image enhancement moves further away from the &quot;reality&quot;, as opposed to Image reconstruction that moves closer to the &quot;reality&quot;.</rdfs:comment>
+        <rdfs:label>Image reconstruction</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://edamontology.org/operation_Image_registration -->
+
+    <owl:Class rdf:about="http://edamontology.org/operation_Image_registration">
+        <rdfs:subClassOf rdf:resource="http://edamontology.org/operation_2928"/>
+        <rdfs:subClassOf rdf:resource="http://edamontology.org/operation_Image_processing"/>
+        <oboInOwl:hasExactSynonym>Image alignment</oboInOwl:hasExactSynonym>
+        <oboInOwl:inSubset>bioimaging</oboInOwl:inSubset>
+        <oboInOwl:inSubset>edam</oboInOwl:inSubset>
+        <oboInOwl:inSubset>operations</oboInOwl:inSubset>
+        <rdfs:label>Image registration</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://edamontology.org/operation_Image_segmentation -->
+
+    <owl:Class rdf:about="http://edamontology.org/operation_Image_segmentation">
+        <rdfs:subClassOf rdf:resource="http://edamontology.org/operation_3443"/>
+        <oboInOwl:inSubset>bioimaging</oboInOwl:inSubset>
+        <oboInOwl:inSubset>edam</oboInOwl:inSubset>
+        <oboInOwl:inSubset>operations</oboInOwl:inSubset>
+        <rdfs:label>Image segmentation</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://edamontology.org/operation_Image_smoothing -->
+
+    <owl:Class rdf:about="http://edamontology.org/operation_Image_smoothing">
+        <rdfs:subClassOf rdf:resource="http://edamontology.org/operation_Image_enhancement"/>
+        <oboInOwl:hasNarrowSynonym>Gaussian blurring</oboInOwl:hasNarrowSynonym>
+        <oboInOwl:hasNarrowSynonym>Gaussian filtering</oboInOwl:hasNarrowSynonym>
+        <oboInOwl:hasNarrowSynonym>Gaussian smoothing</oboInOwl:hasNarrowSynonym>
+        <oboInOwl:hasRelatedSynonym>Blurring</oboInOwl:hasRelatedSynonym>
+        <oboInOwl:inSubset>bioimaging</oboInOwl:inSubset>
+        <oboInOwl:inSubset>edam</oboInOwl:inSubset>
+        <oboInOwl:inSubset>operations</oboInOwl:inSubset>
+        <rdfs:label>Smoothing</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://edamontology.org/operation_Image_stitching -->
+
+    <owl:Class rdf:about="http://edamontology.org/operation_Image_stitching">
+        <rdfs:subClassOf rdf:resource="http://edamontology.org/operation_Image_reconstruction"/>
+        <oboInOwl:inSubset>bioimaging</oboInOwl:inSubset>
+        <oboInOwl:inSubset>edam</oboInOwl:inSubset>
+        <oboInOwl:inSubset>operations</oboInOwl:inSubset>
+        <rdfs:label>Image stitching</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://edamontology.org/operation_Image_thresholding -->
+
+    <owl:Class rdf:about="http://edamontology.org/operation_Image_thresholding">
+        <rdfs:subClassOf rdf:resource="http://edamontology.org/operation_Image_segmentation"/>
+        <oboInOwl:hasExactSynonym>Thresholding</oboInOwl:hasExactSynonym>
+        <oboInOwl:hasNarrowSynonym>Clustering-based image thresholding</oboInOwl:hasNarrowSynonym>
+        <oboInOwl:inSubset>bioimaging</oboInOwl:inSubset>
+        <oboInOwl:inSubset>edam</oboInOwl:inSubset>
+        <oboInOwl:inSubset>operations</oboInOwl:inSubset>
+        <rdfs:label>Image thresholding</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://edamontology.org/operation_Image_tracking -->
+
+    <owl:Class rdf:about="http://edamontology.org/operation_Image_tracking">
+        <rdfs:subClassOf rdf:resource="http://edamontology.org/operation_3443"/>
+        <oboInOwl:hasExactSynonym>Tracking</oboInOwl:hasExactSynonym>
+        <oboInOwl:inSubset>bioimaging</oboInOwl:inSubset>
+        <oboInOwl:inSubset>edam</oboInOwl:inSubset>
+        <oboInOwl:inSubset>operations</oboInOwl:inSubset>
+        <rdfs:label>Object tracking</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://edamontology.org/operation_Image_visualisation -->
+
+    <owl:Class rdf:about="http://edamontology.org/operation_Image_visualisation">
+        <rdfs:subClassOf rdf:resource="http://edamontology.org/operation_0337"/>
+        <oboInOwl:hasExactSynonym>Rendering</oboInOwl:hasExactSynonym>
+        <oboInOwl:hasNarrowSynonym>Lookup table</oboInOwl:hasNarrowSynonym>
+        <oboInOwl:inSubset>bioimaging</oboInOwl:inSubset>
+        <oboInOwl:inSubset>edam</oboInOwl:inSubset>
+        <oboInOwl:inSubset>operations</oboInOwl:inSubset>
+        <rdfs:comment>Visualisation vs Plotting vs Image generation. Should these be merged? Which of these should be the top concept, and which sub-concepts, and which narrow synonyms?</rdfs:comment>
+        <rdfs:label>Image visualisation</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://edamontology.org/operation_Interactive_segmentation -->
+
+    <owl:Class rdf:about="http://edamontology.org/operation_Interactive_segmentation">
+        <rdfs:subClassOf rdf:resource="http://edamontology.org/operation_Image_segmentation"/>
+        <oboInOwl:hasExactSynonym>Manual segmentation</oboInOwl:hasExactSynonym>
+        <oboInOwl:inSubset>bioimaging</oboInOwl:inSubset>
+        <oboInOwl:inSubset>edam</oboInOwl:inSubset>
+        <oboInOwl:inSubset>operations</oboInOwl:inSubset>
+        <rdfs:label>Interactive segmentation</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://edamontology.org/operation_Linear_transformation -->
+
+    <owl:Class rdf:about="http://edamontology.org/operation_Linear_transformation">
+        <rdfs:subClassOf rdf:resource="http://edamontology.org/operation__R8ANfLkuHu47r739AkhxrId"/>
+        <oboInOwl:inSubset>bioimaging</oboInOwl:inSubset>
+        <oboInOwl:inSubset>edam</oboInOwl:inSubset>
+        <oboInOwl:inSubset>operations</oboInOwl:inSubset>
+        <rdfs:label>Linear transformation</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://edamontology.org/operation_Local_thresholding -->
+
+    <owl:Class rdf:about="http://edamontology.org/operation_Local_thresholding">
+        <rdfs:subClassOf rdf:resource="http://edamontology.org/operation_Image_segmentation"/>
+        <oboInOwl:inSubset>bioimaging</oboInOwl:inSubset>
+        <oboInOwl:inSubset>edam</oboInOwl:inSubset>
+        <oboInOwl:inSubset>operations</oboInOwl:inSubset>
+        <rdfs:comment>Concrete algorithm?</rdfs:comment>
+        <rdfs:label>Local thresholding</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://edamontology.org/operation_Montage -->
+
+    <owl:Class rdf:about="http://edamontology.org/operation_Montage">
+        <rdfs:subClassOf rdf:resource="http://edamontology.org/operation_Image_visualisation"/>
+        <oboInOwl:inSubset>bioimaging</oboInOwl:inSubset>
+        <oboInOwl:inSubset>edam</oboInOwl:inSubset>
+        <oboInOwl:inSubset>operations</oboInOwl:inSubset>
+        <rdfs:label>Montage</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://edamontology.org/operation_Morphological_operations -->
+
+    <owl:Class rdf:about="http://edamontology.org/operation_Morphological_operations">
+        <rdfs:subClassOf rdf:resource="http://edamontology.org/operation_Image_processing"/>
+        <oboInOwl:hasExactSynonym>Morphological image processing</oboInOwl:hasExactSynonym>
+        <oboInOwl:inSubset>bioimaging</oboInOwl:inSubset>
+        <oboInOwl:inSubset>edam</oboInOwl:inSubset>
+        <oboInOwl:inSubset>operations</oboInOwl:inSubset>
+        <rdfs:label>Morphological operation</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://edamontology.org/operation_Neuron_image_analysis -->
+
+    <owl:Class rdf:about="http://edamontology.org/operation_Neuron_image_analysis">
+        <rdfs:subClassOf rdf:resource="http://edamontology.org/operation_3443"/>
+        <oboInOwl:inSubset>bioimaging</oboInOwl:inSubset>
+        <oboInOwl:inSubset>edam</oboInOwl:inSubset>
+        <oboInOwl:inSubset>operations</oboInOwl:inSubset>
+        <rdfs:label>Neuron image analysis</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://edamontology.org/operation_Object_detection -->
+
+    <owl:Class rdf:about="http://edamontology.org/operation_Object_detection">
+        <rdfs:subClassOf rdf:resource="http://edamontology.org/operation_3443"/>
+        <oboInOwl:hasNarrowSynonym>Particle detection</oboInOwl:hasNarrowSynonym>
+        <oboInOwl:inSubset>bioimaging</oboInOwl:inSubset>
+        <oboInOwl:inSubset>edam</oboInOwl:inSubset>
+        <oboInOwl:inSubset>operations</oboInOwl:inSubset>
+        <rdfs:label>Object detection</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://edamontology.org/operation_Opening -->
+
+    <owl:Class rdf:about="http://edamontology.org/operation_Opening">
+        <rdfs:subClassOf rdf:resource="http://edamontology.org/operation_Morphological_operations"/>
+        <oboInOwl:inSubset>bioimaging</oboInOwl:inSubset>
+        <oboInOwl:inSubset>edam</oboInOwl:inSubset>
+        <oboInOwl:inSubset>operations</oboInOwl:inSubset>
+        <rdfs:label>Opening</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://edamontology.org/operation_Optical_flow_analysis -->
+
+    <owl:Class rdf:about="http://edamontology.org/operation_Optical_flow_analysis">
+        <rdfs:subClassOf rdf:resource="http://edamontology.org/operation_3443"/>
+        <oboInOwl:inSubset>bioimaging</oboInOwl:inSubset>
+        <oboInOwl:inSubset>edam</oboInOwl:inSubset>
+        <oboInOwl:inSubset>operations</oboInOwl:inSubset>
+        <rdfs:label>Optical flow analysis</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://edamontology.org/operation_Overlay -->
+
+    <owl:Class rdf:about="http://edamontology.org/operation_Overlay">
+        <rdfs:subClassOf rdf:resource="http://edamontology.org/operation_Image_visualisation"/>
+        <oboInOwl:inSubset>bioimaging</oboInOwl:inSubset>
+        <oboInOwl:inSubset>edam</oboInOwl:inSubset>
+        <oboInOwl:inSubset>operations</oboInOwl:inSubset>
+        <rdfs:label>Overlay</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://edamontology.org/operation_Particle_tracking -->
+
+    <owl:Class rdf:about="http://edamontology.org/operation_Particle_tracking">
+        <rdfs:subClassOf rdf:resource="http://edamontology.org/operation__RDsrmC9l0bZw9kGJzGMCyY8"/>
+        <oboInOwl:inSubset>bioimaging</oboInOwl:inSubset>
+        <oboInOwl:inSubset>edam</oboInOwl:inSubset>
+        <oboInOwl:inSubset>operations</oboInOwl:inSubset>
+        <rdfs:label>Particle tracking</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://edamontology.org/operation_Pixel_classification -->
+
+    <owl:Class rdf:about="http://edamontology.org/operation_Pixel_classification">
+        <rdfs:subClassOf rdf:resource="http://edamontology.org/operation_2990"/>
+        <rdfs:subClassOf rdf:resource="http://edamontology.org/operation_3443"/>
+        <oboInOwl:inSubset>bioimaging</oboInOwl:inSubset>
+        <oboInOwl:inSubset>edam</oboInOwl:inSubset>
+        <oboInOwl:inSubset>operations</oboInOwl:inSubset>
+        <rdfs:label>Pixel classification</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://edamontology.org/operation_Projection -->
+
+    <owl:Class rdf:about="http://edamontology.org/operation_Projection">
+        <rdfs:subClassOf rdf:resource="http://edamontology.org/operation_Image_reconstruction"/>
+        <oboInOwl:hasExactSynonym>Maximum projection</oboInOwl:hasExactSynonym>
+        <oboInOwl:hasExactSynonym>Minimum projection</oboInOwl:hasExactSynonym>
+        <oboInOwl:hasNarrowSynonym>Maximum intensity projection</oboInOwl:hasNarrowSynonym>
+        <oboInOwl:hasNarrowSynonym>Mean projection</oboInOwl:hasNarrowSynonym>
+        <oboInOwl:inSubset>bioimaging</oboInOwl:inSubset>
+        <oboInOwl:inSubset>edam</oboInOwl:inSubset>
+        <oboInOwl:inSubset>operations</oboInOwl:inSubset>
+        <rdfs:label>Image projection</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://edamontology.org/operation_Rotation -->
+
+    <owl:Class rdf:about="http://edamontology.org/operation_Rotation">
+        <rdfs:subClassOf rdf:resource="http://edamontology.org/operation__R8ANfLkuHu47r739AkhxrId"/>
+        <oboInOwl:inSubset>bioimaging</oboInOwl:inSubset>
+        <oboInOwl:inSubset>edam</oboInOwl:inSubset>
+        <oboInOwl:inSubset>operations</oboInOwl:inSubset>
+        <rdfs:label>Rotation</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://edamontology.org/operation_Shape_features -->
+
+    <owl:Class rdf:about="http://edamontology.org/operation_Shape_features">
+        <rdfs:subClassOf rdf:resource="http://edamontology.org/operation_Feature_extraction"/>
+        <oboInOwl:hasRelatedSynonym>Area</oboInOwl:hasRelatedSynonym>
+        <oboInOwl:inSubset>bioimaging</oboInOwl:inSubset>
+        <oboInOwl:inSubset>edam</oboInOwl:inSubset>
+        <oboInOwl:inSubset>operations</oboInOwl:inSubset>
+        <rdfs:label>Shape features</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://edamontology.org/operation_Skeletonization -->
+
+    <owl:Class rdf:about="http://edamontology.org/operation_Skeletonization">
+        <rdfs:subClassOf rdf:resource="http://edamontology.org/operation_Morphological_operations"/>
+        <oboInOwl:hasNarrowSynonym>Medial axis</oboInOwl:hasNarrowSynonym>
+        <oboInOwl:inSubset>bioimaging</oboInOwl:inSubset>
+        <oboInOwl:inSubset>edam</oboInOwl:inSubset>
+        <oboInOwl:inSubset>operations</oboInOwl:inSubset>
+        <rdfs:label>Skeletonisation</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://edamontology.org/operation_Spot_extraction -->
+
+    <owl:Class rdf:about="http://edamontology.org/operation_Spot_extraction">
+        <rdfs:subClassOf rdf:resource="http://edamontology.org/operation_Object_detection"/>
+        <oboInOwl:inSubset>bioimaging</oboInOwl:inSubset>
+        <oboInOwl:inSubset>edam</oboInOwl:inSubset>
+        <oboInOwl:inSubset>operations</oboInOwl:inSubset>
+        <rdfs:label>Spot detection</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://edamontology.org/operation_Texture_extraction -->
+
+    <owl:Class rdf:about="http://edamontology.org/operation_Texture_extraction">
+        <rdfs:subClassOf rdf:resource="http://edamontology.org/operation_Feature_extraction"/>
+        <oboInOwl:hasExactSynonym>Texture feature extraction</oboInOwl:hasExactSynonym>
+        <oboInOwl:hasNarrowSynonym>Inverse Difference Moment</oboInOwl:hasNarrowSynonym>
+        <oboInOwl:inSubset>bioimaging</oboInOwl:inSubset>
+        <oboInOwl:inSubset>edam</oboInOwl:inSubset>
+        <oboInOwl:inSubset>operations</oboInOwl:inSubset>
+        <rdfs:label>Texture extraction</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://edamontology.org/operation_Volume_rendering -->
+
+    <owl:Class rdf:about="http://edamontology.org/operation_Volume_rendering">
+        <rdfs:subClassOf rdf:resource="http://edamontology.org/operation_Image_visualisation"/>
+        <oboInOwl:inSubset>bioimaging</oboInOwl:inSubset>
+        <oboInOwl:inSubset>edam</oboInOwl:inSubset>
+        <oboInOwl:inSubset>operations</oboInOwl:inSubset>
+        <rdfs:label>Volume rendering</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://edamontology.org/operation_Warping -->
+
+    <owl:Class rdf:about="http://edamontology.org/operation_Warping">
+        <rdfs:subClassOf rdf:resource="http://edamontology.org/operation_Geometrical_transform"/>
+        <oboInOwl:inSubset>bioimaging</oboInOwl:inSubset>
+        <oboInOwl:inSubset>edam</oboInOwl:inSubset>
+        <oboInOwl:inSubset>operations</oboInOwl:inSubset>
+        <rdfs:label>Warping</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://edamontology.org/operation_Watershed -->
+
+    <owl:Class rdf:about="http://edamontology.org/operation_Watershed">
+        <rdfs:subClassOf rdf:resource="http://edamontology.org/operation_Image_segmentation"/>
+        <oboInOwl:inSubset>bioimaging</oboInOwl:inSubset>
+        <oboInOwl:inSubset>edam</oboInOwl:inSubset>
+        <oboInOwl:inSubset>operations</oboInOwl:inSubset>
+        <rdfs:comment>Concrete algorithm?</rdfs:comment>
+        <rdfs:label>Watershed</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://edamontology.org/operation__R1NVO6hpWWcs99UiEFiOfK -->
+
+    <owl:Class rdf:about="http://edamontology.org/operation__R1NVO6hpWWcs99UiEFiOfK">
+        <rdfs:subClassOf rdf:resource="http://edamontology.org/operation_Image_reconstruction"/>
+        <oboInOwl:inSubset>bioimaging</oboInOwl:inSubset>
+        <oboInOwl:inSubset>edam</oboInOwl:inSubset>
+        <oboInOwl:inSubset>operations</oboInOwl:inSubset>
+        <rdfs:label>Tomography reconstruction</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://edamontology.org/operation__R3BGvVm77d5vFMF6f28ZiW -->
+
+    <owl:Class rdf:about="http://edamontology.org/operation__R3BGvVm77d5vFMF6f28ZiW">
+        <rdfs:subClassOf rdf:resource="http://edamontology.org/operation__R7MFwdgojfmkZ07yWbdcda0"/>
+        <oboInOwl:hasNarrowSynonym>Lens distortion correction</oboInOwl:hasNarrowSynonym>
+        <oboInOwl:inSubset>bioimaging</oboInOwl:inSubset>
+        <oboInOwl:inSubset>edam</oboInOwl:inSubset>
+        <oboInOwl:inSubset>operations</oboInOwl:inSubset>
+        <rdfs:label>Geometric distortion correction</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://edamontology.org/operation__R7MFwdgojfmkZ07yWbdcda0 -->
+
+    <owl:Class rdf:about="http://edamontology.org/operation__R7MFwdgojfmkZ07yWbdcda0">
+        <rdfs:subClassOf rdf:resource="http://edamontology.org/operation_Image_processing"/>
+        <oboInOwl:hasDefinition>Image correction is the removal of aberrations originating from the imaging instrument, lighting, or sample.</oboInOwl:hasDefinition>
+        <oboInOwl:hasNarrowSynonym>Instrument aberration correction</oboInOwl:hasNarrowSynonym>
+        <oboInOwl:hasRelatedSynonym>Image pre-processing</oboInOwl:hasRelatedSynonym>
+        <oboInOwl:hasRelatedSynonym>Image preprocessing</oboInOwl:hasRelatedSynonym>
+        <oboInOwl:inSubset>bioimaging</oboInOwl:inSubset>
+        <oboInOwl:inSubset>edam</oboInOwl:inSubset>
+        <oboInOwl:inSubset>operations</oboInOwl:inSubset>
+        <rdfs:label>Image correction</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://edamontology.org/operation__R7qn3VpJyCAPGqdW6ia3h2d -->
+
+    <owl:Class rdf:about="http://edamontology.org/operation__R7qn3VpJyCAPGqdW6ia3h2d">
+        <rdfs:subClassOf rdf:resource="http://edamontology.org/operation__R7MFwdgojfmkZ07yWbdcda0"/>
+        <oboInOwl:hasRelatedSynonym>Color deconvolution</oboInOwl:hasRelatedSynonym>
+        <oboInOwl:inSubset>bioimaging</oboInOwl:inSubset>
+        <oboInOwl:inSubset>edam</oboInOwl:inSubset>
+        <oboInOwl:inSubset>operations</oboInOwl:inSubset>
+        <rdfs:label>Spectral unmixing</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://edamontology.org/operation__R8ANfLkuHu47r739AkhxrId -->
+
+    <owl:Class rdf:about="http://edamontology.org/operation__R8ANfLkuHu47r739AkhxrId">
+        <rdfs:subClassOf rdf:resource="http://edamontology.org/operation_Geometrical_transform"/>
+        <oboInOwl:inSubset>bioimaging</oboInOwl:inSubset>
+        <oboInOwl:inSubset>edam</oboInOwl:inSubset>
+        <oboInOwl:inSubset>operations</oboInOwl:inSubset>
+        <rdfs:label>Affine</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://edamontology.org/operation__R8EfungVXA0oQM2Ac7YY5eu -->
+
+    <owl:Class rdf:about="http://edamontology.org/operation__R8EfungVXA0oQM2Ac7YY5eu">
+        <rdfs:subClassOf rdf:resource="http://edamontology.org/operation_Image_reconstruction"/>
+        <rdfs:subClassOf rdf:resource="http://edamontology.org/operation__RBNng13hEB0CJD5VzSKqrfB"/>
+        <oboInOwl:hasNarrowSynonym>PAINT image reconstruction</oboInOwl:hasNarrowSynonym>
+        <oboInOwl:hasNarrowSynonym>PALM image reconstruction</oboInOwl:hasNarrowSynonym>
+        <oboInOwl:hasNarrowSynonym>SMLM image reconstruction</oboInOwl:hasNarrowSynonym>
+        <oboInOwl:hasNarrowSynonym>STORM image reconstruction</oboInOwl:hasNarrowSynonym>
+        <oboInOwl:hasNarrowSynonym>Single-molecule localisation microscopy image reconstruction</oboInOwl:hasNarrowSynonym>
+        <oboInOwl:inSubset>bioimaging</oboInOwl:inSubset>
+        <oboInOwl:inSubset>edam</oboInOwl:inSubset>
+        <oboInOwl:inSubset>operations</oboInOwl:inSubset>
+        <rdfs:label>Single molecule localisation</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://edamontology.org/operation__R8V95OnTjs7fCvVXWjaXrh6 -->
+
+    <owl:Class rdf:about="http://edamontology.org/operation__R8V95OnTjs7fCvVXWjaXrh6">
+        <rdfs:subClassOf rdf:resource="http://edamontology.org/operation_Image_reconstruction"/>
+        <oboInOwl:inSubset>bioimaging</oboInOwl:inSubset>
+        <oboInOwl:inSubset>edam</oboInOwl:inSubset>
+        <oboInOwl:inSubset>operations</oboInOwl:inSubset>
+        <rdfs:label>Structured illumination reconstruction</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://edamontology.org/operation__R9EjejimBB0tmnQRmZt0RhA -->
+
+    <owl:Class rdf:about="http://edamontology.org/operation__R9EjejimBB0tmnQRmZt0RhA">
+        <rdfs:subClassOf rdf:resource="http://edamontology.org/operation_Image_registration"/>
+        <oboInOwl:inSubset>bioimaging</oboInOwl:inSubset>
+        <oboInOwl:inSubset>edam</oboInOwl:inSubset>
+        <oboInOwl:inSubset>operations</oboInOwl:inSubset>
+        <rdfs:label>Object registration</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://edamontology.org/operation__R9FvNkpDIaqZQhLVlPsHisj -->
+
+    <owl:Class rdf:about="http://edamontology.org/operation__R9FvNkpDIaqZQhLVlPsHisj">
+        <rdfs:subClassOf rdf:resource="http://edamontology.org/operation__RDFFD5jBfUw74a3vJeBAGB1"/>
+        <oboInOwl:inSubset>bioimaging</oboInOwl:inSubset>
+        <oboInOwl:inSubset>edam</oboInOwl:inSubset>
+        <oboInOwl:inSubset>operations</oboInOwl:inSubset>
+        <rdfs:label>Synthetic image generation</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://edamontology.org/operation__R9Qf06vxvFj2UbAk7pW3IMG -->
+
+    <owl:Class rdf:about="http://edamontology.org/operation__R9Qf06vxvFj2UbAk7pW3IMG">
+        <rdfs:subClassOf rdf:resource="http://edamontology.org/operation_3443"/>
+        <oboInOwl:inSubset>bioimaging</oboInOwl:inSubset>
+        <oboInOwl:inSubset>edam</oboInOwl:inSubset>
+        <oboInOwl:inSubset>operations</oboInOwl:inSubset>
+        <rdfs:label>Filament tracing</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://edamontology.org/operation__R9Vc5BV3ZMcLHEL6WEceXbY -->
+
+    <owl:Class rdf:about="http://edamontology.org/operation__R9Vc5BV3ZMcLHEL6WEceXbY">
+        <rdfs:subClassOf rdf:resource="http://edamontology.org/operation__RLtOI0poPsYRHzgXbAcr2E"/>
+        <oboInOwl:hasExactSynonym>Rigid image registration</oboInOwl:hasExactSynonym>
+        <oboInOwl:inSubset>bioimaging</oboInOwl:inSubset>
+        <oboInOwl:inSubset>edam</oboInOwl:inSubset>
+        <oboInOwl:inSubset>operations</oboInOwl:inSubset>
+        <rdfs:label>Rigid registration</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://edamontology.org/operation__RBNng13hEB0CJD5VzSKqrfB -->
+
+    <owl:Class rdf:about="http://edamontology.org/operation__RBNng13hEB0CJD5VzSKqrfB">
+        <rdfs:subClassOf rdf:resource="http://edamontology.org/operation_Object_detection"/>
+        <oboInOwl:inSubset>bioimaging</oboInOwl:inSubset>
+        <oboInOwl:inSubset>edam</oboInOwl:inSubset>
+        <oboInOwl:inSubset>operations</oboInOwl:inSubset>
+        <rdfs:label>Isolated object detection</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://edamontology.org/operation__RBPObKBKIMwjdLygBOlvojW -->
+
+    <owl:Class rdf:about="http://edamontology.org/operation__RBPObKBKIMwjdLygBOlvojW">
+        <rdfs:subClassOf rdf:resource="http://edamontology.org/operation_Image_reconstruction"/>
+        <oboInOwl:inSubset>bioimaging</oboInOwl:inSubset>
+        <oboInOwl:inSubset>edam</oboInOwl:inSubset>
+        <oboInOwl:inSubset>operations</oboInOwl:inSubset>
+        <rdfs:label>Selective plane illumination microscopy reconstruction</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://edamontology.org/operation__RBUpi1JSczmHQSf8Q8fDzG5 -->
+
+    <owl:Class rdf:about="http://edamontology.org/operation__RBUpi1JSczmHQSf8Q8fDzG5">
+        <rdfs:subClassOf rdf:resource="http://edamontology.org/operation_Image_tracking"/>
+        <oboInOwl:hasRelatedSynonym>Scratch assay analysis</oboInOwl:hasRelatedSynonym>
+        <oboInOwl:hasRelatedSynonym>Wound healing analysis</oboInOwl:hasRelatedSynonym>
+        <oboInOwl:inSubset>bioimaging</oboInOwl:inSubset>
+        <oboInOwl:inSubset>edam</oboInOwl:inSubset>
+        <oboInOwl:inSubset>operations</oboInOwl:inSubset>
+        <rdfs:label>Collective object tracking</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://edamontology.org/operation__RBYLqCqN4rP7Jy5m5mxpTeM -->
+
+    <owl:Class rdf:about="http://edamontology.org/operation__RBYLqCqN4rP7Jy5m5mxpTeM">
+        <rdfs:subClassOf rdf:resource="http://edamontology.org/operation_2945"/>
+        <rdfs:subClassOf rdf:resource="http://edamontology.org/operation_Image_processing"/>
+        <oboInOwl:hasRelatedSynonym>FFT</oboInOwl:hasRelatedSynonym>
+        <oboInOwl:hasRelatedSynonym>Fast Fourier transform</oboInOwl:hasRelatedSynonym>
+        <oboInOwl:hasRelatedSynonym>Wavelet transform</oboInOwl:hasRelatedSynonym>
+        <oboInOwl:inSubset>bioimaging</oboInOwl:inSubset>
+        <oboInOwl:inSubset>edam</oboInOwl:inSubset>
+        <oboInOwl:inSubset>operations</oboInOwl:inSubset>
+        <rdfs:comment>ToDo: Add Wikipedia links</rdfs:comment>
+        <rdfs:label>Frequency analysis</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://edamontology.org/operation__RBh3vNecu5XlIPh3kbMM4Cq -->
+
+    <owl:Class rdf:about="http://edamontology.org/operation__RBh3vNecu5XlIPh3kbMM4Cq">
+        <rdfs:subClassOf rdf:resource="http://edamontology.org/operation__R7MFwdgojfmkZ07yWbdcda0"/>
+        <oboInOwl:inSubset>bioimaging</oboInOwl:inSubset>
+        <oboInOwl:inSubset>edam</oboInOwl:inSubset>
+        <oboInOwl:inSubset>operations</oboInOwl:inSubset>
+        <rdfs:label>Drift correction</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://edamontology.org/operation__RCPVGO34XrwrJasQ5yWBg9k -->
+
+    <owl:Class rdf:about="http://edamontology.org/operation__RCPVGO34XrwrJasQ5yWBg9k">
+        <rdfs:subClassOf rdf:resource="http://edamontology.org/operation_Image_registration"/>
+        <oboInOwl:hasNarrowSynonym>Elastic registration</oboInOwl:hasNarrowSynonym>
+        <oboInOwl:inSubset>bioimaging</oboInOwl:inSubset>
+        <oboInOwl:inSubset>edam</oboInOwl:inSubset>
+        <oboInOwl:inSubset>operations</oboInOwl:inSubset>
+        <rdfs:label>Deformable registration</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://edamontology.org/operation__RCi5QWhY2hXnO46smg6bHRQ -->
+
+    <owl:Class rdf:about="http://edamontology.org/operation__RCi5QWhY2hXnO46smg6bHRQ">
+        <rdfs:subClassOf rdf:resource="http://edamontology.org/operation__R7MFwdgojfmkZ07yWbdcda0"/>
+        <oboInOwl:inSubset>bioimaging</oboInOwl:inSubset>
+        <oboInOwl:inSubset>edam</oboInOwl:inSubset>
+        <oboInOwl:inSubset>operations</oboInOwl:inSubset>
+        <rdfs:comment>multiplicative</rdfs:comment>
+        <rdfs:label>Detector gain correction</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://edamontology.org/operation__RDFFD5jBfUw74a3vJeBAGB1 -->
+
+    <owl:Class rdf:about="http://edamontology.org/operation__RDFFD5jBfUw74a3vJeBAGB1">
+        <rdfs:subClassOf rdf:resource="http://edamontology.org/operation_3429"/>
+        <oboInOwl:inSubset>bioimaging</oboInOwl:inSubset>
+        <oboInOwl:inSubset>edam</oboInOwl:inSubset>
+        <oboInOwl:inSubset>operations</oboInOwl:inSubset>
+        <rdfs:label>Image generation</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://edamontology.org/operation__RDetoixS3xEu0agR2CebaoB -->
+
+    <owl:Class rdf:about="http://edamontology.org/operation__RDetoixS3xEu0agR2CebaoB">
+        <rdfs:subClassOf rdf:resource="http://edamontology.org/operation_2423"/>
+        <oboInOwl:inSubset>bioimaging</oboInOwl:inSubset>
+        <oboInOwl:inSubset>edam</oboInOwl:inSubset>
+        <oboInOwl:inSubset>operations</oboInOwl:inSubset>
+        <rdfs:label>Pattern recognition</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://edamontology.org/operation__RDggamr21qZlMqkQmyOdC7l -->
+
+    <owl:Class rdf:about="http://edamontology.org/operation__RDggamr21qZlMqkQmyOdC7l">
+        <rdfs:subClassOf rdf:resource="http://edamontology.org/operation_Object_detection"/>
+        <oboInOwl:inSubset>bioimaging</oboInOwl:inSubset>
+        <oboInOwl:inSubset>edam</oboInOwl:inSubset>
+        <oboInOwl:inSubset>operations</oboInOwl:inSubset>
+        <rdfs:label>Landmark detection</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://edamontology.org/operation__RDlueIjODveP3FyOknVAqo5 -->
+
+    <owl:Class rdf:about="http://edamontology.org/operation__RDlueIjODveP3FyOknVAqo5">
+        <rdfs:subClassOf rdf:resource="http://edamontology.org/operation__R7MFwdgojfmkZ07yWbdcda0"/>
+        <oboInOwl:hasNarrowSynonym>Camera bias correction</oboInOwl:hasNarrowSynonym>
+        <oboInOwl:inSubset>bioimaging</oboInOwl:inSubset>
+        <oboInOwl:inSubset>edam</oboInOwl:inSubset>
+        <oboInOwl:inSubset>operations</oboInOwl:inSubset>
+        <rdfs:comment>Additive</rdfs:comment>
+        <rdfs:label>Detector bias correction</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://edamontology.org/operation__RDr8xcZEa4L3mZsslmhhee8 -->
+
+    <owl:Class rdf:about="http://edamontology.org/operation__RDr8xcZEa4L3mZsslmhhee8">
+        <rdfs:subClassOf rdf:resource="http://edamontology.org/operation__R7MFwdgojfmkZ07yWbdcda0"/>
+        <oboInOwl:hasRelatedSynonym>Channel shift correction</oboInOwl:hasRelatedSynonym>
+        <oboInOwl:inSubset>bioimaging</oboInOwl:inSubset>
+        <oboInOwl:inSubset>edam</oboInOwl:inSubset>
+        <oboInOwl:inSubset>operations</oboInOwl:inSubset>
+        <rdfs:label>Chromatic aberration correction</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://edamontology.org/operation__RDsrmC9l0bZw9kGJzGMCyY8 -->
+
+    <owl:Class rdf:about="http://edamontology.org/operation__RDsrmC9l0bZw9kGJzGMCyY8">
+        <rdfs:subClassOf rdf:resource="http://edamontology.org/operation_Image_tracking"/>
+        <oboInOwl:inSubset>bioimaging</oboInOwl:inSubset>
+        <oboInOwl:inSubset>edam</oboInOwl:inSubset>
+        <oboInOwl:inSubset>operations</oboInOwl:inSubset>
+        <rdfs:label>Isolated object tracking</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://edamontology.org/operation__RDyyXyhf1oHK93opXhEnRND -->
+
+    <owl:Class rdf:about="http://edamontology.org/operation__RDyyXyhf1oHK93opXhEnRND">
+        <rdfs:subClassOf rdf:resource="http://edamontology.org/operation_Image_enhancement"/>
+        <rdfs:subClassOf rdf:resource="http://edamontology.org/operation_Image_reconstruction"/>
+        <oboInOwl:hasExactSynonym>Noise reduction</oboInOwl:hasExactSynonym>
+        <oboInOwl:inSubset>bioimaging</oboInOwl:inSubset>
+        <oboInOwl:inSubset>edam</oboInOwl:inSubset>
+        <oboInOwl:inSubset>operations</oboInOwl:inSubset>
+        <rdfs:label>Image denoising</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://edamontology.org/operation__RLtOI0poPsYRHzgXbAcr2E -->
+
+    <owl:Class rdf:about="http://edamontology.org/operation__RLtOI0poPsYRHzgXbAcr2E">
+        <rdfs:subClassOf rdf:resource="http://edamontology.org/operation_Image_registration"/>
+        <oboInOwl:hasExactSynonym>Affine image registration</oboInOwl:hasExactSynonym>
+        <oboInOwl:inSubset>bioimaging</oboInOwl:inSubset>
+        <oboInOwl:inSubset>edam</oboInOwl:inSubset>
+        <oboInOwl:inSubset>operations</oboInOwl:inSubset>
+        <rdfs:label>Affine registration</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://edamontology.org/operation__Rhb4iyLUQWY4HnhPpuqNNI -->
+
+    <owl:Class rdf:about="http://edamontology.org/operation__Rhb4iyLUQWY4HnhPpuqNNI">
+        <rdfs:subClassOf rdf:resource="http://edamontology.org/operation_Image_processing"/>
+        <oboInOwl:inSubset>bioimaging</oboInOwl:inSubset>
+        <oboInOwl:inSubset>edam</oboInOwl:inSubset>
+        <oboInOwl:inSubset>operations</oboInOwl:inSubset>
+        <rdfs:label>Image crop</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://edamontology.org/operation__RyCFuPLOeGxpcGjYbWcWWD -->
+
+    <owl:Class rdf:about="http://edamontology.org/operation__RyCFuPLOeGxpcGjYbWcWWD">
+        <rdfs:subClassOf rdf:resource="http://edamontology.org/operation_2990"/>
+        <rdfs:subClassOf rdf:resource="http://edamontology.org/operation_3443"/>
+        <oboInOwl:inSubset>bioimaging</oboInOwl:inSubset>
+        <oboInOwl:inSubset>edam</oboInOwl:inSubset>
+        <oboInOwl:inSubset>operations</oboInOwl:inSubset>
+        <rdfs:label>Isolated object classification</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://edamontology.org/operation___Clustering -->
+
+    <owl:Class rdf:about="http://edamontology.org/operation___Clustering">
+        <rdfs:subClassOf rdf:resource="http://edamontology.org/operation_0004"/>
+        <oboInOwl:inSubset>bioimaging</oboInOwl:inSubset>
+        <oboInOwl:inSubset>edam</oboInOwl:inSubset>
+        <oboInOwl:inSubset>operations</oboInOwl:inSubset>
+        <rdfs:label>Clustering</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://edamontology.org/operation___Colocalisation_analysis -->
+
+    <owl:Class rdf:about="http://edamontology.org/operation___Colocalisation_analysis">
+        <rdfs:subClassOf rdf:resource="http://edamontology.org/operation_3443"/>
+        <oboInOwl:inSubset>bioimaging</oboInOwl:inSubset>
+        <oboInOwl:inSubset>edam</oboInOwl:inSubset>
+        <oboInOwl:inSubset>operations</oboInOwl:inSubset>
+        <oboInOwl:hasExactSynonym>Colocalization analysis</oboInOwl:hasExactSynonym>
+        <rdfs:label>Colocalisation analysis</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://edamontology.org/operation___Image_convolution -->
+
+    <owl:Class rdf:about="http://edamontology.org/operation___Image_convolution">
+        <rdfs:subClassOf rdf:resource="http://edamontology.org/operation___Image_filtering"/>
+        <oboInOwl:inSubset>bioimaging</oboInOwl:inSubset>
+        <oboInOwl:inSubset>edam</oboInOwl:inSubset>
+        <oboInOwl:inSubset>operations</oboInOwl:inSubset>
+        <rdfs:label>Image convolution</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://edamontology.org/operation___Image_filtering -->
+
+    <owl:Class rdf:about="http://edamontology.org/operation___Image_filtering">
+        <rdfs:subClassOf rdf:resource="http://edamontology.org/operation_Image_processing"/>
+        <oboInOwl:inSubset>bioimaging</oboInOwl:inSubset>
+        <oboInOwl:inSubset>edam</oboInOwl:inSubset>
+        <oboInOwl:inSubset>operations</oboInOwl:inSubset>
+        <rdfs:label>Image filtering</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://edamontology.org/operation___Image_validation -->
+
+    <owl:Class rdf:about="http://edamontology.org/operation___Image_validation">
+        <rdfs:subClassOf rdf:resource="http://edamontology.org/operation___Validation"/>
+        <oboInOwl:inSubset>bioimaging</oboInOwl:inSubset>
+        <oboInOwl:inSubset>edam</oboInOwl:inSubset>
+        <oboInOwl:inSubset>operations</oboInOwl:inSubset>
+        <rdfs:label>Image validation</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://edamontology.org/operation___Optimisation_or_refinement -->
+
+    <owl:Class rdf:about="http://edamontology.org/operation___Optimisation_or_refinement">
+        <rdfs:subClassOf rdf:resource="http://edamontology.org/operation_0004"/>
+        <oboInOwl:inSubset>bioimaging</oboInOwl:inSubset>
+        <oboInOwl:inSubset>edam</oboInOwl:inSubset>
+        <oboInOwl:inSubset>operations</oboInOwl:inSubset>
+        <oboInOwl:hasExactSynonym>Optimization or refinement</oboInOwl:hasExactSynonym>
+        <rdfs:label>Optimisation or refinement</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://edamontology.org/operation___Parameter_optimisation -->
+
+    <owl:Class rdf:about="http://edamontology.org/operation___Parameter_optimisation">
+        <rdfs:subClassOf rdf:resource="http://edamontology.org/operation___Optimisation_or_refinement"/>
+        <related_term>Model optimisation</related_term>
+        <related_term>Model training</related_term>
+        <oboInOwl:hasExactSynonym>Parameter optimization</oboInOwl:hasExactSynonym>
+        <oboInOwl:inSubset>bioimaging</oboInOwl:inSubset>
+        <oboInOwl:inSubset>edam</oboInOwl:inSubset>
+        <oboInOwl:inSubset>operations</oboInOwl:inSubset>
+        <rdfs:label>Parameter optimisation</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://edamontology.org/operation___Pixel-based_colocalisation -->
+
+    <owl:Class rdf:about="http://edamontology.org/operation___Pixel-based_colocalisation">
+        <rdfs:subClassOf rdf:resource="http://edamontology.org/operation___Colocalisation_analysis"/>
+        <oboInOwl:inSubset>bioimaging</oboInOwl:inSubset>
+        <oboInOwl:inSubset>edam</oboInOwl:inSubset>
+        <oboInOwl:inSubset>operations</oboInOwl:inSubset>
+        <related_term>Manders coefficient</related_term>
+        <oboInOwl:hasExactSynonym>Pixel-based colocalization</oboInOwl:hasExactSynonym>
+        <rdfs:label>Pixel-based colocalisation</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://edamontology.org/operation___Trajectory_analysis -->
+
+    <owl:Class rdf:about="http://edamontology.org/operation___Trajectory_analysis">
+        <rdfs:subClassOf rdf:resource="http://edamontology.org/operation_Image_tracking"/>
+        <oboInOwl:inSubset>bioimaging</oboInOwl:inSubset>
+        <oboInOwl:inSubset>edam</oboInOwl:inSubset>
+        <oboInOwl:inSubset>operations</oboInOwl:inSubset>
+        <rdfs:label>Trajectory analysis</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://edamontology.org/operation___Validation -->
+
+    <owl:Class rdf:about="http://edamontology.org/operation___Validation">
+        <rdfs:subClassOf rdf:resource="http://edamontology.org/operation_0004"/>
+        <hide_in_subset>bioimaging</hide_in_subset>
+        <oboInOwl:inSubset>edam</oboInOwl:inSubset>
+        <oboInOwl:inSubset>operations</oboInOwl:inSubset>
+        <rdfs:label>Validation</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://edamontology.org/operation___Wound-healing_analysis -->
+
+    <owl:Class rdf:about="http://edamontology.org/operation___Wound-healing_analysis">
+        <rdfs:subClassOf rdf:resource="http://edamontology.org/operation_Image_tracking"/>
+        <related_term>Scratch assay</related_term>
+        <related_term>Wound-healing assay</related_term>
+        <rdfs:label>Wound-healing analysis</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://edamontology.org/topic_0003 -->
+
+    <owl:Class rdf:about="http://edamontology.org/topic_0003">
+        <created_in>beta12orEarlier</created_in>
+        <oboInOwl:hasDefinition>A category denoting a rather broad domain or field of interest, of study, application, work, data, or technology. Topics have no clearly defined borders between each other.</oboInOwl:hasDefinition>
+        <oboInOwl:hasRelatedSynonym>sumo:FieldOfStudy</oboInOwl:hasRelatedSynonym>
+        <oboInOwl:inSubset rdf:resource="http://purl.obolibrary.org/obo/edam#edam"/>
+        <oboInOwl:inSubset rdf:resource="http://purl.obolibrary.org/obo/edam#topics"/>
+        <oboInOwl:inSubset rdf:resource="http://purl.obolibrary.org/obo/edam#bioimaging"/>
+        <oboInOwl:inSubset>navigation</oboInOwl:inSubset>
+        <rdfs:label>Topic</rdfs:label>
+        <rdfs:seeAlso>http://bioontology.org/ontologies/ResearchArea.owl#Area_of_Research</rdfs:seeAlso>
+        <rdfs:seeAlso>http://onto.eva.mpg.de/ontologies/gfo-bio.owl#Method</rdfs:seeAlso>
+        <rdfs:seeAlso>http://purl.org/biotop/biotop.owl#Quality</rdfs:seeAlso>
+        <rdfs:seeAlso>http://www.ifomis.org/bfo/1.1/snap#Continuant</rdfs:seeAlso>
+        <rdfs:seeAlso>http://www.ifomis.org/bfo/1.1/snap#Quality</rdfs:seeAlso>
+        <rdfs:seeAlso>http://www.loa-cnr.it/ontologies/DOLCE-Lite.owl#quality</rdfs:seeAlso>
+        <rdfs:seeAlso>http://www.onto-med.de/ontologies/gfo.owl#Category</rdfs:seeAlso>
+        <rdfs:seeAlso>http://www.onto-med.de/ontologies/gfo.owl#Perpetuant</rdfs:seeAlso>
+    </owl:Class>
+    
+
+
+    <!-- http://edamontology.org/topic_0593 -->
+
+    <owl:Class rdf:about="http://edamontology.org/topic_0593">
+        <rdfs:subClassOf rdf:resource="http://edamontology.org/topic__RBfI2XgIsxcfKonPPluKAhK"/>
+        <oboInOwl:hasExactSynonym>NMR</oboInOwl:hasExactSynonym>
+        <oboInOwl:inSubset>bioimaging</oboInOwl:inSubset>
+        <oboInOwl:inSubset>edam</oboInOwl:inSubset>
+        <oboInOwl:inSubset>topics</oboInOwl:inSubset>
+        <rdfs:label>Nuclear magnetic resonance spectroscopy</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://edamontology.org/topic_0611 -->
+
+    <owl:Class rdf:about="http://edamontology.org/topic_0611">
+        <rdfs:subClassOf rdf:resource="http://edamontology.org/topic_Microscopy"/>
+        <oboInOwl:inSubset>bioimaging</oboInOwl:inSubset>
+        <oboInOwl:inSubset>edam</oboInOwl:inSubset>
+        <oboInOwl:inSubset>topics</oboInOwl:inSubset>
+        <rdfs:label>Electron microscopy</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://edamontology.org/topic_3382 -->
+
+    <owl:Class rdf:about="http://edamontology.org/topic_3382">
+        <rdfs:subClassOf rdf:resource="http://edamontology.org/topic_0003"/>
+        <oboInOwl:inSubset>bioimaging</oboInOwl:inSubset>
+        <oboInOwl:inSubset>edam</oboInOwl:inSubset>
+        <oboInOwl:inSubset>topics</oboInOwl:inSubset>
+        <rdfs:label>Imaging</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://edamontology.org/topic_3385 -->
+
+    <owl:Class rdf:about="http://edamontology.org/topic_3385">
+        <rdfs:subClassOf rdf:resource="http://edamontology.org/topic_Microscopy"/>
+        <oboInOwl:hasNarrowSynonym>Brightfield</oboInOwl:hasNarrowSynonym>
+        <oboInOwl:hasNarrowSynonym>Fluorescence recovery after photobleaching</oboInOwl:hasNarrowSynonym>
+        <oboInOwl:hasNarrowSynonym>FRAP</oboInOwl:hasNarrowSynonym>
+        <oboInOwl:inSubset>bioimaging</oboInOwl:inSubset>
+        <oboInOwl:inSubset>edam</oboInOwl:inSubset>
+        <oboInOwl:inSubset>topics</oboInOwl:inSubset>
+        <rdfs:label>Light microscopy</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://edamontology.org/topic_3444 -->
+
+    <owl:Class rdf:about="http://edamontology.org/topic_3444">
+        <rdfs:subClassOf rdf:resource="http://edamontology.org/topic_3382"/>
+        <oboInOwl:hasExactSynonym>MRI</oboInOwl:hasExactSynonym>
+        <oboInOwl:inSubset>bioimaging</oboInOwl:inSubset>
+        <oboInOwl:inSubset>edam</oboInOwl:inSubset>
+        <oboInOwl:inSubset>topics</oboInOwl:inSubset>
+        <rdfs:label>Magnetic resonance imaging</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://edamontology.org/topic_3452 -->
+
+    <owl:Class rdf:about="http://edamontology.org/topic_3452">
+        <rdfs:subClassOf rdf:resource="http://edamontology.org/topic_3382"/>
+        <oboInOwl:inSubset>bioimaging</oboInOwl:inSubset>
+        <oboInOwl:inSubset>edam</oboInOwl:inSubset>
+        <oboInOwl:inSubset>topics</oboInOwl:inSubset>
+        <rdfs:label>Tomography</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://edamontology.org/topic_3474 -->
+
+    <owl:Class rdf:about="http://edamontology.org/topic_3474">
+        <rdfs:subClassOf rdf:resource="http://edamontology.org/topic_0003"/>
+        <related_term>Artificial intelligence</related_term>
+        <oboInOwl:inSubset>bioimaging</oboInOwl:inSubset>
+        <oboInOwl:inSubset>edam</oboInOwl:inSubset>
+        <oboInOwl:inSubset>topics</oboInOwl:inSubset>
+        <rdfs:label>Machine learning</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://edamontology.org/topic_Digital_histology -->
+
+    <owl:Class rdf:about="http://edamontology.org/topic_Digital_histology">
+        <rdfs:subClassOf rdf:resource="http://edamontology.org/topic_0003"/>
+        <oboInOwl:hasNarrowSynonym>Digital pathology imaging</oboInOwl:hasNarrowSynonym>
+        <oboInOwl:inSubset>bioimaging</oboInOwl:inSubset>
+        <oboInOwl:inSubset>edam</oboInOwl:inSubset>
+        <oboInOwl:inSubset>topics</oboInOwl:inSubset>
+        <rdfs:label>Digital histology</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://edamontology.org/topic_Fluorescent_microscopy -->
+
+    <owl:Class rdf:about="http://edamontology.org/topic_Fluorescent_microscopy">
+        <rdfs:subClassOf rdf:resource="http://edamontology.org/topic_3385"/>
+        <oboInOwl:inSubset>bioimaging</oboInOwl:inSubset>
+        <oboInOwl:inSubset>edam</oboInOwl:inSubset>
+        <oboInOwl:inSubset>topics</oboInOwl:inSubset>
+        <rdfs:label>Fluorescence microscopy</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://edamontology.org/topic_High_content_screening -->
+
+    <owl:Class rdf:about="http://edamontology.org/topic_High_content_screening">
+        <rdfs:subClassOf rdf:resource="http://edamontology.org/topic_0003"/>
+        <oboInOwl:hasExactSynonym>HCS</oboInOwl:hasExactSynonym>
+        <oboInOwl:inSubset>bioimaging</oboInOwl:inSubset>
+        <oboInOwl:inSubset>edam</oboInOwl:inSubset>
+        <oboInOwl:inSubset>topics</oboInOwl:inSubset>
+        <rdfs:label>High content screening</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://edamontology.org/topic_Light-sheet_microscopy -->
+
+    <owl:Class rdf:about="http://edamontology.org/topic_Light-sheet_microscopy">
+        <rdfs:subClassOf rdf:resource="http://edamontology.org/topic__R7Vn7GbwtqVvGWNAMGdcNW1"/>
+        <rdfs:subClassOf rdf:resource="http://edamontology.org/topic__RBsSZve5PnQFO3scMDWo9f0"/>
+        <oboInOwl:hasNarrowSynonym>DSLM</oboInOwl:hasNarrowSynonym>
+        <oboInOwl:hasNarrowSynonym>Digitally scanned Lightsheet Microscopy</oboInOwl:hasNarrowSynonym>
+        <oboInOwl:hasNarrowSynonym>LSFM</oboInOwl:hasNarrowSynonym>
+        <oboInOwl:hasNarrowSynonym>Light-sheet fluorescence microscopy</oboInOwl:hasNarrowSynonym>
+        <oboInOwl:hasNarrowSynonym>SPIM</oboInOwl:hasNarrowSynonym>
+        <oboInOwl:hasNarrowSynonym>Selective Plane Illumination Microscopy</oboInOwl:hasNarrowSynonym>
+        <oboInOwl:hasRelatedSynonym>Bessel Beam Lightsheet Microscopy</oboInOwl:hasRelatedSynonym>
+        <oboInOwl:hasRelatedSynonym>COLM</oboInOwl:hasRelatedSynonym>
+        <oboInOwl:hasRelatedSynonym>Clarity Optimized Lightsheet Microscopy</oboInOwl:hasRelatedSynonym>
+        <oboInOwl:hasRelatedSynonym>Dual-View inverted SPIM</oboInOwl:hasRelatedSynonym>
+        <oboInOwl:hasRelatedSynonym>Hardware implementations: multidirectional SPIM</oboInOwl:hasRelatedSynonym>
+        <oboInOwl:hasRelatedSynonym>LLSM</oboInOwl:hasRelatedSynonym>
+        <oboInOwl:hasRelatedSynonym>Lattice Light-sheet Microscopy</oboInOwl:hasRelatedSynonym>
+        <oboInOwl:hasRelatedSynonym>MuViSPIM</oboInOwl:hasRelatedSynonym>
+        <oboInOwl:hasRelatedSynonym>Multiview Selective Plane Illumination Microscopy</oboInOwl:hasRelatedSynonym>
+        <oboInOwl:hasRelatedSynonym>SPED</oboInOwl:hasRelatedSynonym>
+        <oboInOwl:hasRelatedSynonym>Spherical aberrations assisted Extended Depth-of-field Lightsheet Microscopy</oboInOwl:hasRelatedSynonym>
+        <oboInOwl:hasRelatedSynonym>diSPIM</oboInOwl:hasRelatedSynonym>
+        <oboInOwl:hasRelatedSynonym>iSPIM</oboInOwl:hasRelatedSynonym>
+        <oboInOwl:hasRelatedSynonym>inverted SPIM</oboInOwl:hasRelatedSynonym>
+        <oboInOwl:hasRelatedSynonym>mSPIM</oboInOwl:hasRelatedSynonym>
+        <oboInOwl:hasRelatedSynonym>single objective Selective Plane Illumination Microscopy</oboInOwl:hasRelatedSynonym>
+        <oboInOwl:hasRelatedSynonym>soSPIM</oboInOwl:hasRelatedSynonym>
+        <oboInOwl:inSubset>bioimaging</oboInOwl:inSubset>
+        <oboInOwl:inSubset>edam</oboInOwl:inSubset>
+        <oboInOwl:inSubset>topics</oboInOwl:inSubset>
+        <rdfs:label>Light-sheet microscopy</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://edamontology.org/topic_Microscopy -->
+
+    <owl:Class rdf:about="http://edamontology.org/topic_Microscopy">
+        <rdfs:subClassOf rdf:resource="http://edamontology.org/topic_3382"/>
+        <oboInOwl:hasNarrowSynonym>Slide scanner</oboInOwl:hasNarrowSynonym>
+        <oboInOwl:inSubset>bioimaging</oboInOwl:inSubset>
+        <oboInOwl:inSubset>edam</oboInOwl:inSubset>
+        <oboInOwl:inSubset>topics</oboInOwl:inSubset>
+        <rdfs:label>Microscopy</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://edamontology.org/topic_Statistics -->
+
+    <owl:Class rdf:about="http://edamontology.org/topic_Statistics">
+        <rdfs:subClassOf rdf:resource="http://edamontology.org/topic_0003"/>
+        <oboInOwl:inSubset>bioimaging</oboInOwl:inSubset>
+        <oboInOwl:inSubset>edam</oboInOwl:inSubset>
+        <oboInOwl:inSubset>topics</oboInOwl:inSubset>
+        <rdfs:label>Statistics</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://edamontology.org/topic_Super-resolution_microscopy -->
+
+    <owl:Class rdf:about="http://edamontology.org/topic_Super-resolution_microscopy">
+        <rdfs:subClassOf rdf:resource="http://edamontology.org/topic_Fluorescent_microscopy"/>
+        <oboInOwl:hasNarrowSynonym>Photoactivated localization microscopy</oboInOwl:hasNarrowSynonym>
+        <oboInOwl:hasNarrowSynonym>palm</oboInOwl:hasNarrowSynonym>
+        <oboInOwl:inSubset>bioimaging</oboInOwl:inSubset>
+        <oboInOwl:inSubset>edam</oboInOwl:inSubset>
+        <oboInOwl:inSubset>topics</oboInOwl:inSubset>
+        <rdfs:label>Super-resolution microscopy</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://edamontology.org/topic_Widefield_microscopy -->
+
+    <owl:Class rdf:about="http://edamontology.org/topic_Widefield_microscopy">
+        <rdfs:subClassOf rdf:resource="http://edamontology.org/topic_3385"/>
+        <rdfs:subClassOf rdf:resource="http://edamontology.org/topic__RBsSZve5PnQFO3scMDWo9f0"/>
+        <oboInOwl:hasNarrowSynonym>Epi-fluorescence microscopy</oboInOwl:hasNarrowSynonym>
+        <oboInOwl:hasNarrowSynonym>Epifluorescence microscopy</oboInOwl:hasNarrowSynonym>
+        <oboInOwl:hasNarrowSynonym>Widefield fluorescence microscopy</oboInOwl:hasNarrowSynonym>
+        <oboInOwl:inSubset>bioimaging</oboInOwl:inSubset>
+        <oboInOwl:inSubset>edam</oboInOwl:inSubset>
+        <oboInOwl:inSubset>topics</oboInOwl:inSubset>
+        <rdfs:label>Widefield microscopy</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://edamontology.org/topic__R77vfEkRqjIenYUqhDPvdkM -->
+
+    <owl:Class rdf:about="http://edamontology.org/topic__R77vfEkRqjIenYUqhDPvdkM">
+        <rdfs:subClassOf rdf:resource="http://edamontology.org/topic__ReQzVVVh0IPyN0c1V5wQVO"/>
+        <oboInOwl:inSubset>bioimaging</oboInOwl:inSubset>
+        <oboInOwl:inSubset>edam</oboInOwl:inSubset>
+        <oboInOwl:inSubset>topics</oboInOwl:inSubset>
+        <rdfs:label>Cryo fixation</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://edamontology.org/topic__R7LElbFkBgKS401YKsVtNck -->
+
+    <owl:Class rdf:about="http://edamontology.org/topic__R7LElbFkBgKS401YKsVtNck">
+        <rdfs:subClassOf rdf:resource="http://edamontology.org/topic_0611"/>
+        <oboInOwl:hasExactSynonym>TEM</oboInOwl:hasExactSynonym>
+        <oboInOwl:inSubset>bioimaging</oboInOwl:inSubset>
+        <oboInOwl:inSubset>edam</oboInOwl:inSubset>
+        <oboInOwl:inSubset>topics</oboInOwl:inSubset>
+        <rdfs:label>Transmission electron microscopy</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://edamontology.org/topic__R7Vn7GbwtqVvGWNAMGdcNW1 -->
+
+    <owl:Class rdf:about="http://edamontology.org/topic__R7Vn7GbwtqVvGWNAMGdcNW1">
+        <rdfs:subClassOf rdf:resource="http://edamontology.org/topic_3385"/>
+        <oboInOwl:inSubset>bioimaging</oboInOwl:inSubset>
+        <oboInOwl:inSubset>edam</oboInOwl:inSubset>
+        <oboInOwl:inSubset>topics</oboInOwl:inSubset>
+        <rdfs:label>Point-scanning microscopy</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://edamontology.org/topic__R7WRbf9Y8ySw9QWPwAjzcUa -->
+
+    <owl:Class rdf:about="http://edamontology.org/topic__R7WRbf9Y8ySw9QWPwAjzcUa">
+        <rdfs:subClassOf rdf:resource="http://edamontology.org/topic__RL4rPCXlIu9uzNrGcbcSNp"/>
+        <oboInOwl:inSubset>bioimaging</oboInOwl:inSubset>
+        <oboInOwl:inSubset>edam</oboInOwl:inSubset>
+        <oboInOwl:inSubset>topics</oboInOwl:inSubset>
+        <rdfs:label>In-vitro imaging</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://edamontology.org/topic__R89wYXZ2735GXdn4m4GOT9n -->
+
+    <owl:Class rdf:about="http://edamontology.org/topic__R89wYXZ2735GXdn4m4GOT9n">
+        <rdfs:subClassOf rdf:resource="http://edamontology.org/topic__R9P5gEAm1wic4R2PcZ7ZpPA"/>
+        <oboInOwl:inSubset>bioimaging</oboInOwl:inSubset>
+        <oboInOwl:inSubset>edam</oboInOwl:inSubset>
+        <oboInOwl:inSubset>topics</oboInOwl:inSubset>
+        <rdfs:label>Dark field microscopy</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://edamontology.org/topic__R8Ss4wIFt90wZ1yjFLfXyPM -->
+
+    <owl:Class rdf:about="http://edamontology.org/topic__R8Ss4wIFt90wZ1yjFLfXyPM">
+        <rdfs:subClassOf rdf:resource="http://edamontology.org/topic_Microscopy"/>
+        <oboInOwl:hasExactSynonym>CLEM</oboInOwl:hasExactSynonym>
+        <oboInOwl:inSubset>bioimaging</oboInOwl:inSubset>
+        <oboInOwl:inSubset>edam</oboInOwl:inSubset>
+        <oboInOwl:inSubset>topics</oboInOwl:inSubset>
+        <rdfs:label>Correlative Light and Electron Microscopy</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://edamontology.org/topic__R8XUtD89JCyeUaaVebe9Mkw -->
+
+    <owl:Class rdf:about="http://edamontology.org/topic__R8XUtD89JCyeUaaVebe9Mkw">
+        <rdfs:subClassOf rdf:resource="http://edamontology.org/topic__RL4rPCXlIu9uzNrGcbcSNp"/>
+        <oboInOwl:inSubset>bioimaging</oboInOwl:inSubset>
+        <oboInOwl:inSubset>edam</oboInOwl:inSubset>
+        <oboInOwl:inSubset>topics</oboInOwl:inSubset>
+        <rdfs:label>In-vivo imaging</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://edamontology.org/topic__R8nlu8VCuL5nvBFgOaGNHgT -->
+
+    <owl:Class rdf:about="http://edamontology.org/topic__R8nlu8VCuL5nvBFgOaGNHgT">
+        <rdfs:subClassOf rdf:resource="http://edamontology.org/topic__R9P5gEAm1wic4R2PcZ7ZpPA"/>
+        <oboInOwl:inSubset>bioimaging</oboInOwl:inSubset>
+        <oboInOwl:inSubset>edam</oboInOwl:inSubset>
+        <oboInOwl:inSubset>topics</oboInOwl:inSubset>
+        <rdfs:label>Polarized light microscopy</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://edamontology.org/topic__R8oQpUEjKZjNQCTB4x3JQuJ -->
+
+    <owl:Class rdf:about="http://edamontology.org/topic__R8oQpUEjKZjNQCTB4x3JQuJ">
+        <rdfs:subClassOf rdf:resource="http://edamontology.org/topic_Super-resolution_microscopy"/>
+        <oboInOwl:hasExactSynonym>SMLM</oboInOwl:hasExactSynonym>
+        <oboInOwl:hasNarrowSynonym>Direct stochastic optical reconstruction microscopy</oboInOwl:hasNarrowSynonym>
+        <oboInOwl:hasNarrowSynonym>Fluorescence Photoactivation Localization Microscopy</oboInOwl:hasNarrowSynonym>
+        <oboInOwl:hasNarrowSynonym>GSDIM</oboInOwl:hasNarrowSynonym>
+        <oboInOwl:hasNarrowSynonym>Ground State Depletion Individual Molecule Return</oboInOwl:hasNarrowSynonym>
+        <oboInOwl:hasNarrowSynonym>PALM</oboInOwl:hasNarrowSynonym>
+        <oboInOwl:hasNarrowSynonym>Photoactivated Localization Microscopy</oboInOwl:hasNarrowSynonym>
+        <oboInOwl:hasNarrowSynonym>STORM</oboInOwl:hasNarrowSynonym>
+        <oboInOwl:hasNarrowSynonym>Stochastic optical reconstruction microscopy</oboInOwl:hasNarrowSynonym>
+        <oboInOwl:hasNarrowSynonym>dSTORM</oboInOwl:hasNarrowSynonym>
+        <oboInOwl:inSubset>bioimaging</oboInOwl:inSubset>
+        <oboInOwl:inSubset>edam</oboInOwl:inSubset>
+        <oboInOwl:inSubset>topics</oboInOwl:inSubset>
+        <rdfs:label>Single molecule localization microscopy</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://edamontology.org/topic__R96toeNl9iMp8oqv9augU84 -->
+
+    <owl:Class rdf:about="http://edamontology.org/topic__R96toeNl9iMp8oqv9augU84">
+        <rdfs:subClassOf rdf:resource="http://edamontology.org/topic_0003"/>
+        <oboInOwl:hasBroadSynonym>3D reconstruction</oboInOwl:hasBroadSynonym>
+        <oboInOwl:hasBroadSynonym>Morphological reconstruction</oboInOwl:hasBroadSynonym>
+        <oboInOwl:inSubset>bioimaging</oboInOwl:inSubset>
+        <oboInOwl:inSubset>edam</oboInOwl:inSubset>
+        <oboInOwl:inSubset>topics</oboInOwl:inSubset>
+        <rdfs:label>In-silico reconstruction</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://edamontology.org/topic__R9Cmje2ZUXyDW6aQAvFhwSM -->
+
+    <owl:Class rdf:about="http://edamontology.org/topic__R9Cmje2ZUXyDW6aQAvFhwSM">
+        <rdfs:subClassOf rdf:resource="http://edamontology.org/topic__R7Vn7GbwtqVvGWNAMGdcNW1"/>
+        <oboInOwl:inSubset>bioimaging</oboInOwl:inSubset>
+        <oboInOwl:inSubset>edam</oboInOwl:inSubset>
+        <oboInOwl:inSubset>topics</oboInOwl:inSubset>
+        <rdfs:label>Confocal microscopy</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://edamontology.org/topic__R9O3HmIAjoN5IqXXXRukzzr -->
+
+    <owl:Class rdf:about="http://edamontology.org/topic__R9O3HmIAjoN5IqXXXRukzzr">
+        <rdfs:subClassOf rdf:resource="http://edamontology.org/topic__R7LElbFkBgKS401YKsVtNck"/>
+        <oboInOwl:inSubset>bioimaging</oboInOwl:inSubset>
+        <oboInOwl:inSubset>edam</oboInOwl:inSubset>
+        <oboInOwl:inSubset>topics</oboInOwl:inSubset>
+        <rdfs:label>Electron tomography</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://edamontology.org/topic__R9P5gEAm1wic4R2PcZ7ZpPA -->
+
+    <owl:Class rdf:about="http://edamontology.org/topic__R9P5gEAm1wic4R2PcZ7ZpPA">
+        <rdfs:subClassOf rdf:resource="http://edamontology.org/topic_3385"/>
+        <oboInOwl:inSubset>bioimaging</oboInOwl:inSubset>
+        <oboInOwl:inSubset>edam</oboInOwl:inSubset>
+        <oboInOwl:inSubset>topics</oboInOwl:inSubset>
+        <rdfs:label>Transmission light microscopy</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://edamontology.org/topic__R9PtYz3fOHhRsnKnQzFIXff -->
+
+    <owl:Class rdf:about="http://edamontology.org/topic__R9PtYz3fOHhRsnKnQzFIXff">
+        <rdfs:subClassOf rdf:resource="http://edamontology.org/topic__ReQzVVVh0IPyN0c1V5wQVO"/>
+        <oboInOwl:inSubset>bioimaging</oboInOwl:inSubset>
+        <oboInOwl:inSubset>edam</oboInOwl:inSubset>
+        <oboInOwl:inSubset>topics</oboInOwl:inSubset>
+        <rdfs:label>Critical-point drying</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://edamontology.org/topic__R9WwNqEL8rvkyBPk7GkDTYh -->
+
+    <owl:Class rdf:about="http://edamontology.org/topic__R9WwNqEL8rvkyBPk7GkDTYh">
+        <rdfs:subClassOf rdf:resource="http://edamontology.org/topic_3452"/>
+        <oboInOwl:hasRelatedSynonym>PAT</oboInOwl:hasRelatedSynonym>
+        <oboInOwl:inSubset>bioimaging</oboInOwl:inSubset>
+        <oboInOwl:inSubset>edam</oboInOwl:inSubset>
+        <oboInOwl:inSubset>topics</oboInOwl:inSubset>
+        <rdfs:label>Photoacoustic tomography</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://edamontology.org/topic__R9zg34pnGmTyzPidJj9vfJt -->
+
+    <owl:Class rdf:about="http://edamontology.org/topic__R9zg34pnGmTyzPidJj9vfJt">
+        <rdfs:subClassOf rdf:resource="http://edamontology.org/topic__RBZsLMTdyuEDtVe2fge61l0"/>
+        <oboInOwl:hasExactSynonym>FIB-SEM</oboInOwl:hasExactSynonym>
+        <oboInOwl:inSubset>bioimaging</oboInOwl:inSubset>
+        <oboInOwl:inSubset>edam</oboInOwl:inSubset>
+        <oboInOwl:inSubset>topics</oboInOwl:inSubset>
+        <rdfs:label>Focused ion beam scanning electron microscopy</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://edamontology.org/topic__RB4unXFUWvdBe91ihVAA9rR -->
+
+    <owl:Class rdf:about="http://edamontology.org/topic__RB4unXFUWvdBe91ihVAA9rR">
+        <rdfs:subClassOf rdf:resource="http://edamontology.org/topic__RL4rPCXlIu9uzNrGcbcSNp"/>
+        <oboInOwl:inSubset>bioimaging</oboInOwl:inSubset>
+        <oboInOwl:inSubset>edam</oboInOwl:inSubset>
+        <oboInOwl:inSubset>topics</oboInOwl:inSubset>
+        <rdfs:label>Ex-vivo imaging</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://edamontology.org/topic__RBDp7HwdUBEjpS6PRjYfV2V -->
+
+    <owl:Class rdf:about="http://edamontology.org/topic__RBDp7HwdUBEjpS6PRjYfV2V">
+        <rdfs:subClassOf rdf:resource="http://edamontology.org/topic_0003"/>
+        <oboInOwl:inSubset>bioimaging</oboInOwl:inSubset>
+        <oboInOwl:inSubset>edam</oboInOwl:inSubset>
+        <oboInOwl:inSubset>topics</oboInOwl:inSubset>
+        <rdfs:label>Bioimage informatics</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://edamontology.org/topic__RBHw300pzIYcttGsAmIZvk5 -->
+
+    <owl:Class rdf:about="http://edamontology.org/topic__RBHw300pzIYcttGsAmIZvk5">
+        <rdfs:subClassOf rdf:resource="http://edamontology.org/topic_3382"/>
+        <oboInOwl:inSubset>bioimaging</oboInOwl:inSubset>
+        <oboInOwl:inSubset>edam</oboInOwl:inSubset>
+        <oboInOwl:inSubset>topics</oboInOwl:inSubset>
+        <rdfs:label>Ultrasonography</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://edamontology.org/topic__RBKlmE9DGTZwEwxw0juThGg -->
+
+    <owl:Class rdf:about="http://edamontology.org/topic__RBKlmE9DGTZwEwxw0juThGg">
+        <rdfs:subClassOf rdf:resource="http://edamontology.org/topic__R7Vn7GbwtqVvGWNAMGdcNW1"/>
+        <oboInOwl:hasNarrowSynonym>Two-photon excitation Microscopy (TPEM)</oboInOwl:hasNarrowSynonym>
+        <oboInOwl:inSubset>bioimaging</oboInOwl:inSubset>
+        <oboInOwl:inSubset>edam</oboInOwl:inSubset>
+        <oboInOwl:inSubset>topics</oboInOwl:inSubset>
+        <rdfs:label>Multi-photon microscopy</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://edamontology.org/topic__RBNfUSYBOKUapWrsyPMMTkw -->
+
+    <owl:Class rdf:about="http://edamontology.org/topic__RBNfUSYBOKUapWrsyPMMTkw">
+        <rdfs:subClassOf rdf:resource="http://edamontology.org/topic__RBZsLMTdyuEDtVe2fge61l0"/>
+        <oboInOwl:hasExactSynonym>Cryo SEM</oboInOwl:hasExactSynonym>
+        <oboInOwl:inSubset>bioimaging</oboInOwl:inSubset>
+        <oboInOwl:inSubset>edam</oboInOwl:inSubset>
+        <oboInOwl:inSubset>topics</oboInOwl:inSubset>
+        <rdfs:label>Cryo scanning electron microscopy</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://edamontology.org/topic__RBNoPZIOvBhdWGe8mFNpoWQ -->
+
+    <owl:Class rdf:about="http://edamontology.org/topic__RBNoPZIOvBhdWGe8mFNpoWQ">
+        <rdfs:subClassOf rdf:resource="http://edamontology.org/topic_3382"/>
+        <oboInOwl:inSubset>bioimaging</oboInOwl:inSubset>
+        <oboInOwl:inSubset>edam</oboInOwl:inSubset>
+        <oboInOwl:inSubset>topics</oboInOwl:inSubset>
+        <rdfs:label>Fixed sample imaging</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://edamontology.org/topic__RBZsLMTdyuEDtVe2fge61l0 -->
+
+    <owl:Class rdf:about="http://edamontology.org/topic__RBZsLMTdyuEDtVe2fge61l0">
+        <rdfs:subClassOf rdf:resource="http://edamontology.org/topic_0611"/>
+        <oboInOwl:inSubset>bioimaging</oboInOwl:inSubset>
+        <oboInOwl:inSubset>edam</oboInOwl:inSubset>
+        <oboInOwl:inSubset>topics</oboInOwl:inSubset>
+        <rdfs:label>Scanning electron microscopy</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://edamontology.org/topic__RBfI2XgIsxcfKonPPluKAhK -->
+
+    <owl:Class rdf:about="http://edamontology.org/topic__RBfI2XgIsxcfKonPPluKAhK">
+        <rdfs:subClassOf rdf:resource="http://edamontology.org/topic_3382"/>
+        <oboInOwl:inSubset>bioimaging</oboInOwl:inSubset>
+        <oboInOwl:inSubset>edam</oboInOwl:inSubset>
+        <oboInOwl:inSubset>topics</oboInOwl:inSubset>
+        <rdfs:label>Spectroscopy</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://edamontology.org/topic__RBkRgSi7js0c70kjiPgYTgR -->
+
+    <owl:Class rdf:about="http://edamontology.org/topic__RBkRgSi7js0c70kjiPgYTgR">
+        <rdfs:subClassOf rdf:resource="http://edamontology.org/topic_3452"/>
+        <oboInOwl:hasRelatedSynonym>SPECT</oboInOwl:hasRelatedSynonym>
+        <oboInOwl:inSubset>bioimaging</oboInOwl:inSubset>
+        <oboInOwl:inSubset>edam</oboInOwl:inSubset>
+        <oboInOwl:inSubset>topics</oboInOwl:inSubset>
+        <rdfs:label>Single-photon emission computed tomography</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://edamontology.org/topic__RBsSZve5PnQFO3scMDWo9f0 -->
+
+    <owl:Class rdf:about="http://edamontology.org/topic__RBsSZve5PnQFO3scMDWo9f0">
+        <rdfs:subClassOf rdf:resource="http://edamontology.org/topic_3385"/>
+        <oboInOwl:inSubset>bioimaging</oboInOwl:inSubset>
+        <oboInOwl:inSubset>edam</oboInOwl:inSubset>
+        <oboInOwl:inSubset>topics</oboInOwl:inSubset>
+        <rdfs:label>Area-capturing microscopy</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://edamontology.org/topic__RByvmgDpAo4FOrMdvTm1gwR -->
+
+    <owl:Class rdf:about="http://edamontology.org/topic__RByvmgDpAo4FOrMdvTm1gwR">
+        <rdfs:subClassOf rdf:resource="http://edamontology.org/topic__RBZsLMTdyuEDtVe2fge61l0"/>
+        <oboInOwl:inSubset>bioimaging</oboInOwl:inSubset>
+        <oboInOwl:inSubset>edam</oboInOwl:inSubset>
+        <oboInOwl:inSubset>topics</oboInOwl:inSubset>
+        <rdfs:label>Serial block-face scanning electron microscopy</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://edamontology.org/topic__RC91JqkkQnsmvg8zuG6Td7q -->
+
+    <owl:Class rdf:about="http://edamontology.org/topic__RC91JqkkQnsmvg8zuG6Td7q">
+        <rdfs:subClassOf rdf:resource="http://edamontology.org/topic_Super-resolution_microscopy"/>
+        <oboInOwl:hasExactSynonym>SIM</oboInOwl:hasExactSynonym>
+        <oboInOwl:hasRelatedSynonym>Instant linear structured Illumination Microscopy</oboInOwl:hasRelatedSynonym>
+        <oboInOwl:hasRelatedSynonym>MSIM</oboInOwl:hasRelatedSynonym>
+        <oboInOwl:hasRelatedSynonym>Multifocal Structured Illumination Microscopy</oboInOwl:hasRelatedSynonym>
+        <oboInOwl:hasRelatedSynonym>SSIM</oboInOwl:hasRelatedSynonym>
+        <oboInOwl:hasRelatedSynonym>Saturated Structured Illumination</oboInOwl:hasRelatedSynonym>
+        <oboInOwl:hasRelatedSynonym>iSIM</oboInOwl:hasRelatedSynonym>
+        <oboInOwl:inSubset>bioimaging</oboInOwl:inSubset>
+        <oboInOwl:inSubset>edam</oboInOwl:inSubset>
+        <oboInOwl:inSubset>topics</oboInOwl:inSubset>
+        <rdfs:label>Structured illumination microscopy</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://edamontology.org/topic__RDCjx86atJP685sX1zrE2ia -->
+
+    <owl:Class rdf:about="http://edamontology.org/topic__RDCjx86atJP685sX1zrE2ia">
+        <rdfs:subClassOf rdf:resource="http://edamontology.org/topic__R9O3HmIAjoN5IqXXXRukzzr"/>
+        <oboInOwl:inSubset>bioimaging</oboInOwl:inSubset>
+        <oboInOwl:inSubset>edam</oboInOwl:inSubset>
+        <oboInOwl:inSubset>topics</oboInOwl:inSubset>
+        <rdfs:label>Cryo electron tomography</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://edamontology.org/topic__RDdX0TswBVhmWiS1dI3pghN -->
+
+    <owl:Class rdf:about="http://edamontology.org/topic__RDdX0TswBVhmWiS1dI3pghN">
+        <rdfs:subClassOf rdf:resource="http://edamontology.org/topic__R9P5gEAm1wic4R2PcZ7ZpPA"/>
+        <oboInOwl:inSubset>bioimaging</oboInOwl:inSubset>
+        <oboInOwl:inSubset>edam</oboInOwl:inSubset>
+        <oboInOwl:inSubset>topics</oboInOwl:inSubset>
+        <rdfs:label>Bright field microscopy</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://edamontology.org/topic__RDos3h5yRfjhLUcOImDOFgB -->
+
+    <owl:Class rdf:about="http://edamontology.org/topic__RDos3h5yRfjhLUcOImDOFgB">
+        <rdfs:subClassOf rdf:resource="http://edamontology.org/topic_3452"/>
+        <oboInOwl:hasNarrowSynonym>PET scan</oboInOwl:hasNarrowSynonym>
+        <oboInOwl:inSubset>bioimaging</oboInOwl:inSubset>
+        <oboInOwl:inSubset>edam</oboInOwl:inSubset>
+        <oboInOwl:inSubset>topics</oboInOwl:inSubset>
+        <rdfs:label>Positron emission tomography</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://edamontology.org/topic__RDvZSyRAcr8fonKvKdVoXw2 -->
+
+    <owl:Class rdf:about="http://edamontology.org/topic__RDvZSyRAcr8fonKvKdVoXw2">
+        <rdfs:subClassOf rdf:resource="http://edamontology.org/topic_3382"/>
+        <oboInOwl:inSubset>bioimaging</oboInOwl:inSubset>
+        <oboInOwl:inSubset>edam</oboInOwl:inSubset>
+        <oboInOwl:inSubset>topics</oboInOwl:inSubset>
+        <rdfs:label>Bioluminescence imaging</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://edamontology.org/topic__RL4rPCXlIu9uzNrGcbcSNp -->
+
+    <owl:Class rdf:about="http://edamontology.org/topic__RL4rPCXlIu9uzNrGcbcSNp">
+        <rdfs:subClassOf rdf:resource="http://edamontology.org/topic_3382"/>
+        <oboInOwl:inSubset>bioimaging</oboInOwl:inSubset>
+        <oboInOwl:inSubset>edam</oboInOwl:inSubset>
+        <oboInOwl:inSubset>topics</oboInOwl:inSubset>
+        <rdfs:label>Live sample imaging</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://edamontology.org/topic__RMCSMqSNvOTurvW2FV8tjN -->
+
+    <owl:Class rdf:about="http://edamontology.org/topic__RMCSMqSNvOTurvW2FV8tjN">
+        <rdfs:subClassOf rdf:resource="http://edamontology.org/topic_Super-resolution_microscopy"/>
+        <oboInOwl:hasBroadSynonym>STED-4Pi</oboInOwl:hasBroadSynonym>
+        <oboInOwl:hasExactSynonym>STED</oboInOwl:hasExactSynonym>
+        <oboInOwl:hasNarrowSynonym>MinFlux</oboInOwl:hasNarrowSynonym>
+        <oboInOwl:hasNarrowSynonym>RESOLFT</oboInOwl:hasNarrowSynonym>
+        <oboInOwl:hasNarrowSynonym>Reversible Saturable Optical Linear Fluorescence Transitions microscopy</oboInOwl:hasNarrowSynonym>
+        <oboInOwl:hasNarrowSynonym>gated-STED</oboInOwl:hasNarrowSynonym>
+        <oboInOwl:inSubset>bioimaging</oboInOwl:inSubset>
+        <oboInOwl:inSubset>edam</oboInOwl:inSubset>
+        <oboInOwl:inSubset>topics</oboInOwl:inSubset>
+        <rdfs:label>Stimulated Emission Depletion microscopy</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://edamontology.org/topic__RMctC69gGv9qYqwKCXxeLF -->
+
+    <owl:Class rdf:about="http://edamontology.org/topic__RMctC69gGv9qYqwKCXxeLF">
+        <rdfs:subClassOf rdf:resource="http://edamontology.org/topic__R77vfEkRqjIenYUqhDPvdkM"/>
+        <oboInOwl:inSubset>bioimaging</oboInOwl:inSubset>
+        <oboInOwl:inSubset>edam</oboInOwl:inSubset>
+        <oboInOwl:inSubset>topics</oboInOwl:inSubset>
+        <rdfs:label>Plunge freezing</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://edamontology.org/topic__RNFOzq5E0ZVBh5Euhn06rn -->
+
+    <owl:Class rdf:about="http://edamontology.org/topic__RNFOzq5E0ZVBh5Euhn06rn">
+        <rdfs:subClassOf rdf:resource="http://edamontology.org/topic__R9P5gEAm1wic4R2PcZ7ZpPA"/>
+        <oboInOwl:hasNarrowSynonym>Nomarski interferential contrast (NIC)</oboInOwl:hasNarrowSynonym>
+        <oboInOwl:hasNarrowSynonym>Nomarski microscopy</oboInOwl:hasNarrowSynonym>
+        <oboInOwl:inSubset>bioimaging</oboInOwl:inSubset>
+        <oboInOwl:inSubset>edam</oboInOwl:inSubset>
+        <oboInOwl:inSubset>topics</oboInOwl:inSubset>
+        <rdfs:label>DIC microscopy</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://edamontology.org/topic__RXLeVr0cHSXzTSRyO5zwZD -->
+
+    <owl:Class rdf:about="http://edamontology.org/topic__RXLeVr0cHSXzTSRyO5zwZD">
+        <rdfs:subClassOf rdf:resource="http://edamontology.org/topic__R7LElbFkBgKS401YKsVtNck"/>
+        <oboInOwl:hasExactSynonym>STEM</oboInOwl:hasExactSynonym>
+        <oboInOwl:inSubset>bioimaging</oboInOwl:inSubset>
+        <oboInOwl:inSubset>edam</oboInOwl:inSubset>
+        <oboInOwl:inSubset>topics</oboInOwl:inSubset>
+        <rdfs:label>Scanning transmission electron microscopy</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://edamontology.org/topic__RbM6PZFI9i5lG4gzAySn0c -->
+
+    <owl:Class rdf:about="http://edamontology.org/topic__RbM6PZFI9i5lG4gzAySn0c">
+        <rdfs:subClassOf rdf:resource="http://edamontology.org/topic__ReQzVVVh0IPyN0c1V5wQVO"/>
+        <oboInOwl:inSubset>bioimaging</oboInOwl:inSubset>
+        <oboInOwl:inSubset>edam</oboInOwl:inSubset>
+        <oboInOwl:inSubset>topics</oboInOwl:inSubset>
+        <rdfs:label>Freeze fracturing</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://edamontology.org/topic__ReQzVVVh0IPyN0c1V5wQVO -->
+
+    <owl:Class rdf:about="http://edamontology.org/topic__ReQzVVVh0IPyN0c1V5wQVO">
+        <rdfs:subClassOf rdf:resource="http://edamontology.org/topic_0003"/>
+        <oboInOwl:inSubset>bioimaging</oboInOwl:inSubset>
+        <oboInOwl:inSubset>edam</oboInOwl:inSubset>
+        <oboInOwl:inSubset>topics</oboInOwl:inSubset>
+        <rdfs:label>Sample preparation</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://edamontology.org/topic__RkSYwMcVWG5FCi4BaWDMaJ -->
+
+    <owl:Class rdf:about="http://edamontology.org/topic__RkSYwMcVWG5FCi4BaWDMaJ">
+        <rdfs:subClassOf rdf:resource="http://edamontology.org/topic__R77vfEkRqjIenYUqhDPvdkM"/>
+        <oboInOwl:inSubset>bioimaging</oboInOwl:inSubset>
+        <oboInOwl:inSubset>edam</oboInOwl:inSubset>
+        <oboInOwl:inSubset>topics</oboInOwl:inSubset>
+        <rdfs:label>High-pressure freezing</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://edamontology.org/topic__Rn8MnorStmqIkNlAVZWBc0 -->
+
+    <owl:Class rdf:about="http://edamontology.org/topic__Rn8MnorStmqIkNlAVZWBc0">
+        <rdfs:subClassOf rdf:resource="http://edamontology.org/topic_Fluorescent_microscopy"/>
+        <rdfs:subClassOf rdf:resource="http://edamontology.org/topic__R9Cmje2ZUXyDW6aQAvFhwSM"/>
+        <oboInOwl:hasNarrowSynonym>LSM</oboInOwl:hasNarrowSynonym>
+        <oboInOwl:hasNarrowSynonym>Laser scanning microscopy</oboInOwl:hasNarrowSynonym>
+        <oboInOwl:hasNarrowSynonym>Nipkow disk microscopy</oboInOwl:hasNarrowSynonym>
+        <oboInOwl:hasNarrowSynonym>SDCM</oboInOwl:hasNarrowSynonym>
+        <oboInOwl:hasNarrowSynonym>Spinning Disk confocal microscopy</oboInOwl:hasNarrowSynonym>
+        <oboInOwl:inSubset>bioimaging</oboInOwl:inSubset>
+        <oboInOwl:inSubset>edam</oboInOwl:inSubset>
+        <oboInOwl:inSubset>topics</oboInOwl:inSubset>
+        <rdfs:label>Confocal fluorescence microscopy</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://edamontology.org/topic__RtBCcu7zJiS0phrbR2HzAI -->
+
+    <owl:Class rdf:about="http://edamontology.org/topic__RtBCcu7zJiS0phrbR2HzAI">
+        <rdfs:subClassOf rdf:resource="http://edamontology.org/topic__R9P5gEAm1wic4R2PcZ7ZpPA"/>
+        <oboInOwl:hasNarrowSynonym>Phase imaging</oboInOwl:hasNarrowSynonym>
+        <oboInOwl:hasRelatedSynonym>Quantitative phase contrast imaging</oboInOwl:hasRelatedSynonym>
+        <oboInOwl:inSubset>bioimaging</oboInOwl:inSubset>
+        <oboInOwl:inSubset>edam</oboInOwl:inSubset>
+        <oboInOwl:inSubset>topics</oboInOwl:inSubset>
+        <rdfs:label>Phase contrast microscopy</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://edamontology.org/topic__RwTXNChEQ9hv7IpvHjQGin -->
+
+    <owl:Class rdf:about="http://edamontology.org/topic__RwTXNChEQ9hv7IpvHjQGin">
+        <rdfs:subClassOf rdf:resource="http://edamontology.org/topic_0003"/>
+        <oboInOwl:inSubset>bioimaging</oboInOwl:inSubset>
+        <oboInOwl:inSubset>edam</oboInOwl:inSubset>
+        <oboInOwl:inSubset>topics</oboInOwl:inSubset>
+        <rdfs:label>Data sharing</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://edamontology.org/topic__RxfmHE99gOkUOOML5krfsJ -->
+
+    <owl:Class rdf:about="http://edamontology.org/topic__RxfmHE99gOkUOOML5krfsJ">
+        <rdfs:subClassOf rdf:resource="http://edamontology.org/topic_3452"/>
+        <oboInOwl:hasNarrowSynonym>CT</oboInOwl:hasNarrowSynonym>
+        <oboInOwl:inSubset>bioimaging</oboInOwl:inSubset>
+        <oboInOwl:inSubset>edam</oboInOwl:inSubset>
+        <oboInOwl:inSubset>topics</oboInOwl:inSubset>
+        <rdfs:label>Computerized tomography</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://edamontology.org/topic___Fluctuation_based_microscopy -->
+
+    <owl:Class rdf:about="http://edamontology.org/topic___Fluctuation_based_microscopy">
+        <rdfs:subClassOf rdf:resource="http://edamontology.org/topic_Fluorescent_microscopy"/>
+        <oboInOwl:inSubset>bioimaging</oboInOwl:inSubset>
+        <oboInOwl:inSubset>edam</oboInOwl:inSubset>
+        <oboInOwl:inSubset>topics</oboInOwl:inSubset>
+        <oboInOwl:hasNarrowSynonym>Photobleaching microscopy with non-linear processing</oboInOwl:hasNarrowSynonym>
+        <oboInOwl:hasNarrowSynonym>PiMP</oboInOwl:hasNarrowSynonym>
+        <oboInOwl:hasNarrowSynonym>SOFI</oboInOwl:hasNarrowSynonym>
+        <oboInOwl:hasNarrowSynonym>SRRF</oboInOwl:hasNarrowSynonym>
+        <oboInOwl:hasNarrowSynonym>Super resolution optical fluctuation imaging</oboInOwl:hasNarrowSynonym>
+        <oboInOwl:hasNarrowSynonym>Super resolution radial fluctuations</oboInOwl:hasNarrowSynonym>
+        <rdfs:label>Fluctuation based microscopy</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://edamontology.org/topic___Fluorescence_correlative_spectroscopy -->
+
+    <owl:Class rdf:about="http://edamontology.org/topic___Fluorescence_correlative_spectroscopy">
+        <rdfs:subClassOf rdf:resource="http://edamontology.org/topic_Fluorescent_microscopy"/>
+        <rdfs:subClassOf rdf:resource="http://edamontology.org/topic__RBfI2XgIsxcfKonPPluKAhK"/>
+        <oboInOwl:inSubset>bioimaging</oboInOwl:inSubset>
+        <oboInOwl:inSubset>edam</oboInOwl:inSubset>
+        <oboInOwl:inSubset>topics</oboInOwl:inSubset>
+        <oboInOwl:hasExactSynonym>FCS</oboInOwl:hasExactSynonym>
+        <oboInOwl:hasRelatedSynonym>FCCS</oboInOwl:hasRelatedSynonym>
+        <oboInOwl:hasRelatedSynonym>FLCS</oboInOwl:hasRelatedSynonym>
+        <oboInOwl:hasRelatedSynonym>Fluorescence Lifetime Correlation Microscopy</oboInOwl:hasRelatedSynonym>
+        <oboInOwl:hasRelatedSynonym>Fluorescence cross-correlative spectroscopy</oboInOwl:hasRelatedSynonym>
+        <rdfs:label>Fluorescence correlative spectroscopy</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://edamontology.org/topic___Fluorescence_lifetime_imaging -->
+
+    <owl:Class rdf:about="http://edamontology.org/topic___Fluorescence_lifetime_imaging">
+        <rdfs:subClassOf rdf:resource="http://edamontology.org/topic_Fluorescent_microscopy"/>
+        <oboInOwl:inSubset>bioimaging</oboInOwl:inSubset>
+        <oboInOwl:inSubset>edam</oboInOwl:inSubset>
+        <oboInOwl:inSubset>topics</oboInOwl:inSubset>
+        <oboInOwl:hasExactSynonym>FLIM</oboInOwl:hasExactSynonym>
+        <rdfs:label>Fluorescence lifetime imaging microscopy</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://edamontology.org/topic___Fluorescence_recovery_after_photobleaching -->
+
+    <owl:Class rdf:about="http://edamontology.org/topic___Fluorescence_recovery_after_photobleaching">
+        <rdfs:subClassOf rdf:resource="http://edamontology.org/topic_Fluorescent_microscopy"/>
+        <oboInOwl:inSubset>bioimaging</oboInOwl:inSubset>
+        <oboInOwl:inSubset>edam</oboInOwl:inSubset>
+        <oboInOwl:inSubset>topics</oboInOwl:inSubset>
+        <oboInOwl:hasExactSynonym>FRAP</oboInOwl:hasExactSynonym>
+        <oboInOwl:hasRelatedSynonym>FLAP</oboInOwl:hasRelatedSynonym>
+        <oboInOwl:hasRelatedSynonym>FLIP</oboInOwl:hasRelatedSynonym>
+        <oboInOwl:hasRelatedSynonym>Fluorescence Localization after photobleaching</oboInOwl:hasRelatedSynonym>
+        <oboInOwl:hasRelatedSynonym>Fluorescence loss in photobleaching</oboInOwl:hasRelatedSynonym>
+        <oboInOwl:hasRelatedSynonym>Inverse Fluorescence Recovery after photobleaching</oboInOwl:hasRelatedSynonym>
+        <oboInOwl:hasRelatedSynonym>iFRAP</oboInOwl:hasRelatedSynonym>
+        <rdfs:label>Fluorescence recovery after photobleaching</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://edamontology.org/topic___F%C3%B6rster_resonance_energy_transfer -->
+
+    <owl:Class rdf:about="http://edamontology.org/topic___F%C3%B6rster_resonance_energy_transfer">
+        <rdfs:subClassOf rdf:resource="http://edamontology.org/topic_Fluorescent_microscopy"/>
+        <oboInOwl:inSubset>bioimaging</oboInOwl:inSubset>
+        <oboInOwl:inSubset>edam</oboInOwl:inSubset>
+        <oboInOwl:inSubset>topics</oboInOwl:inSubset>
+        <oboInOwl:hasExactSynonym>FRET</oboInOwl:hasExactSynonym>
+        <oboInOwl:hasExactSynonym>Fluorescence resonance energy transfer</oboInOwl:hasExactSynonym>
+        <rdfs:label>Förster resonance energy transfer</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://edamontology.org/topic___Image_correlation_spectroscopy -->
+
+    <owl:Class rdf:about="http://edamontology.org/topic___Image_correlation_spectroscopy">
+        <rdfs:subClassOf rdf:resource="http://edamontology.org/topic_Fluorescent_microscopy"/>
+        <oboInOwl:inSubset>bioimaging</oboInOwl:inSubset>
+        <oboInOwl:inSubset>edam</oboInOwl:inSubset>
+        <oboInOwl:inSubset>topics</oboInOwl:inSubset>
+        <oboInOwl:hasExactSynonym>ICS</oboInOwl:hasExactSynonym>
+        <oboInOwl:hasRelatedSynonym>PICS</oboInOwl:hasRelatedSynonym>
+        <oboInOwl:hasRelatedSynonym>Particle Image Correlation Spectroscopy</oboInOwl:hasRelatedSynonym>
+        <oboInOwl:hasRelatedSynonym>RICS</oboInOwl:hasRelatedSynonym>
+        <oboInOwl:hasRelatedSynonym>Raster Image Correlation Spectroscopy</oboInOwl:hasRelatedSynonym>
+        <rdfs:label>Image correlation spectroscopy</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://edamontology.org/topic___Reinforcement_learning -->
+
+    <owl:Class rdf:about="http://edamontology.org/topic___Reinforcement_learning">
+        <rdfs:subClassOf rdf:resource="http://edamontology.org/topic_3474"/>
+        <oboInOwl:inSubset>bioimaging</oboInOwl:inSubset>
+        <oboInOwl:inSubset>edam</oboInOwl:inSubset>
+        <oboInOwl:inSubset>topics</oboInOwl:inSubset>
+        <rdfs:label>Reinforcement learning</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://edamontology.org/topic___Supervised_learning -->
+
+    <owl:Class rdf:about="http://edamontology.org/topic___Supervised_learning">
+        <rdfs:subClassOf rdf:resource="http://edamontology.org/topic_3474"/>
+        <oboInOwl:inSubset>bioimaging</oboInOwl:inSubset>
+        <oboInOwl:inSubset>edam</oboInOwl:inSubset>
+        <oboInOwl:inSubset>topics</oboInOwl:inSubset>
+        <rdfs:label>Supervised learning</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://edamontology.org/topic___Unsupervised_learning -->
+
+    <owl:Class rdf:about="http://edamontology.org/topic___Unsupervised_learning">
+        <rdfs:subClassOf rdf:resource="http://edamontology.org/topic_3474"/>
+        <oboInOwl:inSubset>bioimaging</oboInOwl:inSubset>
+        <oboInOwl:inSubset>edam</oboInOwl:inSubset>
+        <oboInOwl:inSubset>topics</oboInOwl:inSubset>
+        <rdfs:label>Unsupervised learning</rdfs:label>
+    </owl:Class>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.3.1) https://github.com/owlcs/owlapi -->
+

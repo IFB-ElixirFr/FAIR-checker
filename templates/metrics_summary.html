@@ -1,0 +1,342 @@
+{% extends "layout.html" %}
+
+{% block nav %}
+{% include 'nav.html' %}
+{% endblock %}
+
+{% block body %}
+
+<script type="text/javascript" charset="utf-8">
+    $( document ).ready(function() {
+        console.log( "ready!" );
+        $("#notif").addClass("is-hidden");
+
+        console.log('trying to connect...');
+        var socket = io.connect('http://127.0.0.1:5000');
+        //var socket = io();
+        console.log('connected');
+
+        //////////////////
+        // select url to test
+        //////////////////
+        {% for k in sample_data.keys() %}
+           $("#sample_{{k}}").on("change", function(){
+               console.log(this.value) ;
+               $("#url").val(this.value) ;
+               $('#sample_{{k}} option[value="{{ k }}"]').attr("selected", "selected");
+           });
+        {% endfor %}
+
+
+
+
+        //////////////////
+        // click handlers
+        //////////////////
+
+        {% for f in f_metrics %}
+        $("#test_{{f.id}}").one('click', function($e){
+            $e.preventDefault();
+            console.log("Testing metric {{f.name}}");
+            console.log("ID: " + "{{f.id}}");
+            console.log("Value: " + "{{f.api_url}}");
+            $(this).addClass("is-loading");
+
+            // socket.emit('evaluate_{{f.id}}', {
+            socket.emit('evaluate_metric', {
+                          url: $("#url").val(),
+                          api_url: "{{f.api_url}}",
+                          id: "{{f.id}}",
+                          principle: "{{f.principle}}",
+                        });
+        });
+        {% endfor %}
+
+        //////////////////
+        // event handlers
+        //////////////////
+
+        socket.on('connect', function() {
+            socket.emit('hello', {data: 'I\'m connected!'});
+            console.log('hello message sent');
+        });
+
+
+        {% for f in f_metrics %}
+        socket.on('done_{{f.id}}', function(value) {
+            console.log('DONE {{f.name}}');
+            $("#test_{{f.id}}").removeClass("is-loading");
+            $("#test_{{f.id}}").attr("disabled", true);
+            $("#test_{{f.id}}").removeAttr("href");
+
+            console.log(value['time']);
+            console.log(value['score']);
+
+            // change status color
+            if (value['score'] == 1) {
+              $("#status_{{f.id}}").addClass("is-success");
+              $("#result_{{f.id}}").addClass("is-success");
+            } else {
+              $("#status_{{f.id}}").addClass("is-danger");
+              $("#result_{{f.id}}").addClass("is-danger");
+            }
+
+            //update progressbar
+            current = parseInt($("#p1").attr("value"));
+            $("#p1").attr("value", current+1);
+            // add score to result
+            $("#score_{{f.id}}").text(value['score']);
+            // add time to result
+            $("#time_{{f.id}}").text(value['time']);
+            // add comment to result
+            $("#comment_{{f.id}}").text(value['comment']);
+            // show table
+            $("#result_table_{{f.id}}").show();
+            // open card
+            $("#metric_card_content_{{f.id}}").removeClass("is-hidden");
+
+
+
+            update_radar_chart();
+
+        });
+        {% endfor %}
+
+        //////////////////
+        // exec all button
+        //////////////////
+
+
+        // check all category boxes
+        $('[id^=checkbox_all_]').on('click', function($e){
+            target_name = $(this).data("target");
+            is_checked = $(this).prop("checked");
+            $('[name=' + target_name + ']').prop("checked", is_checked);
+
+        });
+
+        // start all selected metrics test
+        $("#btn_test_checked").on('click', function($e){
+
+          $('[id^=checkbox_test_]').each(function( id ) {
+            is_checked = $(this).prop("checked");
+            target_id = $(this).data("target");
+
+            if (is_checked) {
+              console.log("gogo metric");
+              console.log(target_id);
+              $("#" + target_id).trigger( "click" );
+            }
+          });
+
+        });
+
+        // start all metrics test
+        $("#btn_test_all").on('click', function($e){
+          $('[id^=test_metric_]').each(function( id ) {
+            $(this).trigger( "click" );
+            // console.log($(this).attr('id'))
+          });
+        });
+
+        // socket.on('fast', function(value) {
+        //     if ("done".includes(value)) {
+        //         $("#p1").attr("value", 100);
+        //     } else {
+        //         console.log('received '+value+' for p1');
+        //         $("#p1").attr("value",value);
+        //     }
+        // });
+        //
+        // socket.on('slow', function(value) {
+        //     if ("done".includes(value)) {
+        //         $("#p2").attr("value", 100);
+        //     } else {
+        //         console.log('received '+value+' for p2');
+        //         $("#p2").attr("value", value);
+        //     }
+        // });
+
+        socket.on('long', function(value) {
+            console.log('END LONG');
+            $("#notif").text(value);
+            $("#notif").removeClass("is-hidden");
+        });
+
+        socket.emit('fast');
+        //socket.emit('slow');
+        //socket.emit('long');
+    });
+</script>
+
+<h1 class="title">How FAIR is my resource</h1>
+
+<!-- description section -->
+<article class="message is-info">
+    <div class="message-header">
+        <p>Demo context and goal</p>
+    </div>
+    <div class="message-body">
+        <h3 class="title">Monitoring progress in FAIRification through self-assessment of resources maturity indicators</h3>
+        <!-- <br> -->
+        This demo is based on the FAIRMetrics framework [Wilkinson, Dumontier et al., Scientific Data 6:174] that is composed of Maturity Indicators (MI), compliance tests and the evaluator application itself.
+        For now, few efforts have been done so far to take advantage from their concrete implementation, in the process of improving FAIRness of users/community resources.
+        Furthermore, this does not provide concrete help or guidelines to developers for better sharing their published works. In this work we propose a web demonstrator, leveraging existing web APIs, aimed at i) evaluating FAIR maturity indicators and ii) providing hints to progress in the FAIRification process.
+    </div>
+</article>
+
+<!-- input uri section -->
+<article class="message is-info">
+    <div class="message-header">
+        <p>Pick a sample resource identifier</p>
+    </div>
+    <div class="message-body">
+      <div class="columns is-multiline is-mobile">
+          {% for k in sample_data.keys() %}
+              <div class="column is-one-third">
+                  <div class="field">
+                      <label class="label">{{k}}</label>
+                      <div class="control">
+
+                          <div class="select">
+                              <select id="sample_{{k}}">
+                                  {% for s in sample_data[k] %}
+                                  <option>{{ s }}</option>
+                                  {% endfor %}
+                              </select>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          {% endfor %}
+      </div>
+      <input id="url" name="url" class="input" type="text" placeholder="FAIR resource URL" value="http://bio.tools/bwa">
+    </div>
+</article>
+
+<!-- Start metric section -->
+<article class="message is-info">
+    <div class="message-header">
+        <p>Start basic or advanced test (select metrics using checkboxes below)</p>
+    </div>
+    <div class="message-body">
+        <div class="field is-grouped is-grouped-centered">
+            <p class="control">
+                <a id="btn_test_all" class="button is-info">Test all metrics</a>
+            </p>
+            <p class="control">
+                <a id="btn_test_checked" class="button is-info">Test checked metrics</a>
+            </p>
+        </div>
+        <progress id="p1" class="progress is-primary"  value="0" max="22"></progress>
+    </div>
+
+</article>
+
+
+
+
+<!-- Metrics sselection checkboxes section -->
+<article class="message is-info">
+    <div class="message-header">
+        <p>Select the metrics you want to test</p>
+    </div>
+    <div class="message-body">
+        <div class="columns">
+        {% for category in ['F', 'A', 'I', 'R'] %}
+            <div class="is-one-quarter">
+                <table id="metrics_checkboxes" class="table is-hoverable">
+                    <thead>
+                        <th>
+                            <label class="checkbox">
+                                <input id="checkbox_all_{{ category }}" data-target="checkbox_{{ category }}" type="checkbox">
+                                {{ category }} - All
+
+                            </label>
+                        </th>
+                    </thead>
+                    <!-- Remove hidden to show tables -->
+                    <tbody>
+                    <!-- <tbody hidden> -->
+                    {% for f in f_metrics %}
+                        {% if f.principle_category == category %}
+                        <tr>
+                            <th>
+                                <label class="checkbox">
+                                    <input name="checkbox_{{ category }}" id="checkbox_test_{{ f.id }}" data-target="test_{{ f.id }}" type="checkbox">
+                                    {{ f.principle_tag }} - {{ f.name }}
+
+                                </label>
+                            </th>
+                        </tr>
+                        {% endif %}
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        {% endfor %}
+        </div>
+    </div>
+</article>
+
+
+<article class="message is-info">
+    <div class="message-header">
+        <p>Radar chart of metrics completion</p>
+    </div>
+    <div class="message-body">
+        {% include 'radar_chart.html' %}
+    </div>
+</article>
+
+
+
+<article class="message is-info">
+    <div class="message-header">
+        <p>List of metrics with details and completion status</p>
+    </div>
+    <div class="message-body">
+      <div class="columns is-multiline is-mobile">
+      <!--    <div class="column is-one-fifth"><code>Findable</code></div>-->
+          {% for f in f_metrics %}
+              <div class="column is-one-third">
+                  {% set title=f.name %}
+                  {% set principle=f.principle %}
+                  {% set principle_category=f.principle_category %}
+                  {% set tag=f.principle_tag %}
+                  {% set desc=f.description %}
+                  {% set api_url=f.api_url %}
+                  {% set id=f.id %}
+                  {% include 'metrics_card.html' with context %}
+              </div>
+          {% endfor %}
+      </div>
+    </div>
+</article>
+
+
+<!--<div class="columns is-multiline is-mobile">-->
+<!--    <div class="column is-one-quarter"><code>A1</code></div>-->
+<!--    <div class="column is-one-quarter"><code>A2</code></div>-->
+<!--    <div class="column is-one-quarter"><code>A3</code></div>-->
+<!--</div>-->
+<!--<div class="columns is-multiline is-mobile">-->
+<!--    <div class="column is-one-quarter"><code>I1</code></div>-->
+<!--</div>-->
+<!--<div class="columns is-multiline is-mobile">-->
+<!--    <div class="column is-one-quarter"><code>R1</code></div>-->
+<!--    <div class="column is-one-quarter"><code>R2</code></div>-->
+</div>
+
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', function() {
+	let cardToggles = document.getElementsByClassName('card-toggle');
+	for (let i = 0; i < cardToggles.length; i++) {
+		cardToggles[i].addEventListener('click', e => {
+			e.currentTarget.parentElement.parentElement.childNodes[3].classList.toggle('is-hidden');
+		});
+	}
+});
+</script>
+
+{% endblock %}

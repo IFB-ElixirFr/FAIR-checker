@@ -1,0 +1,16 @@
+<table class="table is-striped is-fullwidth">
+    <thead>
+        <tr>
+            <th>{{ tab.title }}</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for row in tab.rows %}
+    <tr>
+      <td>
+          {{ row }}
+      </td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
