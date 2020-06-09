@@ -15,3 +15,10 @@ These FAIR checks aim at leveraging semantic web technologies to check that meta
 First, embedded semantic annotations are extracted from web pages, forming a minimal knowledge graph. Then, these knowledge are completed based on already deployed knowledge graphs (Datacite, OpenAire, WikiData). Finally, the resulting knowledge graph is tested to check that classes and properties are recognized through Linked Open Vocabularies (LOV), or Ontology Lookup Service (OLS).
 
 ## Installation
+
+Create a new conda ENV
+
+Activate the new ENV
+
+Run: 
+- while read requirement; do conda install  conda-forge --yes $requirement || pip install $requirement; done < requirements.txt
