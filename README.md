@@ -16,9 +16,17 @@ First, embedded semantic annotations are extracted from web pages, forming a min
 
 ## Installation
 
-Create a new conda ENV
+Clone the repo:
+- git clone https://github.com/IFB-ElixirFr/fair-checker.git
+
+Move to the folder:
+- cd fair-checker
+
+Create a new conda ENV:
+- conda create --name fair-check-env
 
 Activate the new ENV
+- conda activate fair-check-env
 
 Run: 
 - while read requirement; do conda install  conda-forge --yes $requirement || pip install $requirement; done < requirements.txt
