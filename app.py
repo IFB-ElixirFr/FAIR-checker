@@ -90,57 +90,16 @@ metrics = [{'name':'f1', 'category':'F', 'description': 'F1 verifies that ...  '
 
 kgs = {}
 
-@socketio.on('evaluate_metric_1')
-def handle_f1(json):
-
-    url = json['url']
-    api_url = json['api_url']
-    id = json['id']
-    print('RUNNING F1 for '+str(url))
-    emit('running_f1')
-    data = '{"subject": "' + url + '"}'
-    print(data)
-    res = test_metric.testMetric(api_url, data)
-    print(res)
-
-    # get the score
-    score = test_metric.requestResultSparql(res, "ss:SIO_000300")
-    score = str(int(float(score)))
-
-    # get comment
-    comment = test_metric.requestResultSparql(res, "schema:comment")
-    # remove empty lines from the comment
-    comment = test_metric.cleanComment(comment)
-
-    emit('done_' + id, {"score": score, "comment": comment})
-    print('DONE F1')
-
-@socketio.on('evaluate_metric_2')
-def handle_f2(json):
-    url = json['url']
-    api_url = json['api_url']
-    id = json['id']
-    print('RUNNING F2 for '+str(url))
-    emit('running_f2')
-    data = '{"subject": "' + url + '"}'
-    print(data)
-    res = test_metric.testMetric(api_url, data)
-    print(res)
-
-    # get the score
-    score = test_metric.requestResultSparql(res, "ss:SIO_000300")
-    score = str(int(float(score)))
-
-    # get comment
-    comment = test_metric.requestResultSparql(res, "schema:comment")
-    # remove empty lines from the comment
-    comment = test_metric.cleanComment(comment)
-
-    emit('done_' + id, {"score": score, "comment": comment})
-    print('DONE F2')
-
 @socketio.on('evaluate_metric')
 def handle_metric(json):
+
+    """
+    socketio Handler for a metric calculation requests, calling FAIRMetrics API.
+    emit the result of the test
+
+    @param json dict Contains the necessary informations to execute evaluate a metric.
+
+    """
     url = json['url']
     api_url = json['api_url']
     id = json['id']
@@ -363,6 +322,11 @@ def cb():
     print("received message originating from server")
 
 def buidJSONLD():
+    """
+    Create the Advanced page JSON-LD annotation using schema.org
+
+    @return str
+    """
     jld = {
         "@context": "https://schema.org/",
         "@type": "WebApplication",
@@ -383,6 +347,12 @@ def buidJSONLD():
 
 @app.route('/test_asynch')
 def test_asynch():
+    """
+    Load the Advanced page elements loading informations from FAIRMetrics API.
+    Generate a page allowing test of independent metrics.
+
+    @return render_template
+    """
     #return render_template('test_asynch.html')
     metrics = []
     ###### A DEPLACER AU LANCEMENT DU SERVEUR ######
