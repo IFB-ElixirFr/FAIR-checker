@@ -139,24 +139,6 @@
           });
         });
 
-        // socket.on('fast', function(value) {
-        //     if ("done".includes(value)) {
-        //         $("#p1").attr("value", 100);
-        //     } else {
-        //         console.log('received '+value+' for p1');
-        //         $("#p1").attr("value",value);
-        //     }
-        // });
-        //
-        // socket.on('slow', function(value) {
-        //     if ("done".includes(value)) {
-        //         $("#p2").attr("value", 100);
-        //     } else {
-        //         console.log('received '+value+' for p2');
-        //         $("#p2").attr("value", value);
-        //     }
-        // });
-
         socket.on('long', function(value) {
             console.log('END LONG');
             $("#notif").text(value);
@@ -297,7 +279,6 @@
     </div>
     <div class="message-body">
       <div class="columns is-multiline is-mobile">
-      <!--    <div class="column is-one-fifth"><code>Findable</code></div>-->
           {% for f in f_metrics %}
               <div class="column is-one-third">
                   {% set title=f.name %}
@@ -312,20 +293,8 @@
           {% endfor %}
       </div>
     </div>
+    https://github.com/IFB-ElixirFr/fair-checker.git
 </article>
-
-
-<!--<div class="columns is-multiline is-mobile">-->
-<!--    <div class="column is-one-quarter"><code>A1</code></div>-->
-<!--    <div class="column is-one-quarter"><code>A2</code></div>-->
-<!--    <div class="column is-one-quarter"><code>A3</code></div>-->
-<!--</div>-->
-<!--<div class="columns is-multiline is-mobile">-->
-<!--    <div class="column is-one-quarter"><code>I1</code></div>-->
-<!--</div>-->
-<!--<div class="columns is-multiline is-mobile">-->
-<!--    <div class="column is-one-quarter"><code>R1</code></div>-->
-<!--    <div class="column is-one-quarter"><code>R2</code></div>-->
 </div>
 
 <script type="text/javascript">

@@ -88,17 +88,18 @@ metrics = [{'name':'f1', 'category':'F', 'description': 'F1 verifies that ...  '
            {'name':'a1', 'category':'A'},
            {'name':'a2', 'category':'A'}]
 
+    ###### A DEPLACER AU LANCEMENT DU SERVEUR ######
+METRICS_RES = test_metric.getMetrics()
+
 kgs = {}
 
 @socketio.on('evaluate_metric')
 def handle_metric(json):
-
     """
     socketio Handler for a metric calculation requests, calling FAIRMetrics API.
     emit the result of the test
 
     @param json dict Contains the necessary informations to execute evaluate a metric.
-
     """
     url = json['url']
     api_url = json['api_url']
@@ -172,6 +173,12 @@ def handle_fast():
 #######################################
 @socketio.on('retrieve_embedded_annot')
 def handle_embedded_annot(data):
+    """
+    socketio Handler to aggregate original page metadata with sparql endpoints.
+    emit the result of sparql requests
+
+    @param data dict Contains the data needed to aggregate (url, etc).
+    """
     step = 0
     sid = request.sid
     print(sid)
@@ -355,8 +362,9 @@ def test_asynch():
     """
     #return render_template('test_asynch.html')
     metrics = []
-    ###### A DEPLACER AU LANCEMENT DU SERVEUR ######
-    metrics_res = test_metric.getMetrics()
+
+    metrics_res = METRICS_RES
+
     for metric in metrics_res:
         # remove "FAIR Metrics Gen2" from metric name
         name = metric["name"].replace('FAIR Metrics Gen2- ','')
