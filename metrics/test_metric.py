@@ -21,8 +21,8 @@ import time
 import sys
 from datetime import datetime, timedelta
 
-import joblib
-from joblib import Parallel, delayed
+#import joblib
+#from joblib import Parallel, delayed
 import multiprocessing
 from multiprocessing import Pool
 
