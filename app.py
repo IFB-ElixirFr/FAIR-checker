@@ -45,6 +45,7 @@ from subprocess import PIPE
 from subprocess import run
 
 app = Flask(__name__)
+
 #socketio = SocketIO(app, cors_allowed_origins="*")
 socketio = SocketIO(app,async_mode = 'eventlet')
 #socketio = SocketIO(app)

@@ -1,0 +1,33 @@
+# On local machine
+
+scp -r ~/fair-checker ubuntu@134.158.247.212:/home/ubuntu
+
+# On the VM
+
+cd ~/fair-checker
+sudo docker build -t fair-checker-webapp .
+sudo docker run -p 5000:5000 fair-checker-webapp
+
+# Selfsigned certificate
+
+openssl rand -out /home/ubuntu/.rnd -hex 256
+sudo openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout /home/ubuntu/gunicorn-selfsigned.key -out /home/ubuntu/gunicorn-selfsigned.crt -subj "/C=FR/ST=AURA/L=Lyon/O=IFB/OU=IFB-biosphere/CN=fairchecker.biosphere.france-bioinformatique.fr"
+sudo openssl dhparam -out /etc/ssl/certs/dhparam.pem 2048
+
+#echo "ssl_certificate /etc/ssl/certs/nginx-selfsigned.crt;" > /etc/nginx/snippets/self-signed.conf
+#echo "ssl_certificate_key /etc/ssl/private/nginx-selfsigned.key;" >> /etc/nginx/snippets/self-signed.conf
+
+
+scp ~/fair-checker/demo-fairchecker.conf ubuntu@134.158.247.212:/home/ubuntu/demo-fairchecker.conf
+
+
+sudo cp /home/ubuntu/demo-fairchecker.conf /etc/nginx/sites-available/default
+
+
+sudo systemctl reload nginx
+
+# replace those lines in templates
+var socket = io.connect('http://127.0.0.1:5000');
+
+# by
+var socket = io.connect('https://134.158.247.212');
