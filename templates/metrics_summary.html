@@ -20,7 +20,7 @@
         // select url to test
         //////////////////
         {% for k in sample_data.keys() %}
-           $("#sample_{{k}}").on("change", function(){
+           $("#sample_{{k}}").on("click", function(){
                console.log(this.value) ;
                $("#url").val(this.value) ;
                $('#sample_{{k}} option[value="{{ k }}"]').attr("selected", "selected");
@@ -76,9 +76,13 @@
             if (value['score'] == 1) {
               $("#status_{{f.id}}").addClass("is-success");
               $("#result_{{f.id}}").addClass("is-success");
+              // update_checkbox color
+              $("#checkbox_test_{{f.id}}").parent("label").css('background-color','#23d160');
             } else {
               $("#status_{{f.id}}").addClass("is-danger");
               $("#result_{{f.id}}").addClass("is-danger");
+              // update_checkbox color
+              $("#checkbox_test_{{f.id}}").parent("label").css('background-color','#ff3860');
             }
 
             //update progressbar
@@ -95,7 +99,18 @@
             // open card
             $("#metric_card_content_{{f.id}}").removeClass("is-hidden");
 
-
+            // check if all metric are done
+            is_loading = false
+            $('[id^=test_metric_]').each(function( id ) {
+              if ($(this).hasClass( "is-loading" )) {
+                is_loading = true;
+              }
+            });
+            if (!is_loading) {
+              console.log("all done !!!!");
+              $("#btn_test_checked").removeClass("is-loading");
+              $("#btn_test_all").removeClass("is-loading");
+            }
 
             update_radar_chart();
 
@@ -118,6 +133,9 @@
         // start all selected metrics test
         $("#btn_test_checked").on('click', function($e){
 
+          $("#btn_test_checked").addClass("is-loading");
+          $("#btn_test_all").addClass("is-loading");
+
           $('[id^=checkbox_test_]').each(function( id ) {
             is_checked = $(this).prop("checked");
             target_id = $(this).data("target");
@@ -133,6 +151,10 @@
 
         // start all metrics test
         $("#btn_test_all").on('click', function($e){
+
+          $("#btn_test_checked").addClass("is-loading");
+          $("#btn_test_all").addClass("is-loading");
+
           $('[id^=test_metric_]').each(function( id ) {
             $(this).trigger( "click" );
             // console.log($(this).attr('id'))
@@ -163,7 +185,7 @@
         <!-- <br> -->
         This demo is based on the FAIRMetrics framework [Wilkinson, Dumontier et al., Scientific Data 6:174] that is composed of Maturity Indicators (MI), compliance tests and the evaluator application itself.
         For now, few efforts have been done so far to take advantage from their concrete implementation, in the process of improving FAIRness of users/community resources.
-        Furthermore, this does not provide concrete help or guidelines to developers for better sharing their published works. In this work we propose a web demonstrator, leveraging existing web APIs, aimed at i) evaluating FAIR maturity indicators and ii) providing hints to progress in the FAIRification process.
+        Furthermore, existing interfaces do not provide concrete help or guidelines to developers for better sharing their published works. In this work we propose a web demonstrator, leveraging existing web APIs, aimed at i) evaluating FAIR maturity indicators and ii) providing hints to progress in the FAIRification process.
     </div>
 </article>
 
@@ -231,7 +253,7 @@
                     <thead>
                         <th>
                             <label class="checkbox">
-                                <input id="checkbox_all_{{ category }}" data-target="checkbox_{{ category }}" type="checkbox">
+                                  <input id="checkbox_all_{{ category }}" data-target="checkbox_{{ category }}" type="checkbox">
                                 {{ category }} - All
 
                             </label>
