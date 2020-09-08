@@ -48,6 +48,7 @@
                           api_url: "{{f.api_url}}",
                           id: "{{f.id}}",
                           principle: "{{f.principle}}",
+                          uuid: $("#download_csv").data("dl"),
                         });
         });
         {% endfor %}
@@ -94,6 +95,12 @@
             $("#time_{{f.id}}").text(value['time']);
             // add comment to result
             $("#comment_{{f.id}}").text(value['comment']);
+            // add recommandation if score == 0
+            if (value['score'] == 0) {
+              $("#guideline_{{f.id}}").text("Recommendations on how to improve the resource for this MI, link to other quality and recognised resources or documentation to help the user, etc");
+            } else  {
+              $("#guideline_{{f.id}}").parent("tr").hide()
+            }
             // show table
             $("#result_table_{{f.id}}").show();
             // open card
@@ -161,6 +168,14 @@
           });
         });
 
+
+
+        // $("#download_csv").on('click', function($e){
+        //     console.log("try download");
+        //     socket.emit('download_csv');
+        // });
+
+
         socket.on('long', function(value) {
             console.log('END LONG');
             $("#notif").text(value);
@@ -183,7 +198,7 @@
     <div class="message-body">
         <h3 class="title">Monitoring progress in FAIRification through self-assessment of resources maturity indicators</h3>
         <!-- <br> -->
-        This demo is based on the FAIRMetrics framework [Wilkinson, Dumontier et al., Scientific Data 6:174] that is composed of Maturity Indicators (MI), compliance tests and the evaluator application itself.
+        This demo is based on the FAIRMetrics framework [Wilkinson, Dumontier et al., Scientific Data 6:174] <a href="https://github.com/FAIRMetrics/Metrics">[GitHub]</a> that is composed of Maturity Indicators (MI), compliance tests and the evaluator application itself.
         For now, few efforts have been done so far to take advantage from their concrete implementation, in the process of improving FAIRness of users/community resources.
         Furthermore, existing interfaces do not provide concrete help or guidelines to developers for better sharing their published works. In this work we propose a web demonstrator, leveraging existing web APIs, aimed at i) evaluating FAIR maturity indicators and ii) providing hints to progress in the FAIRification process.
     </div>
@@ -192,7 +207,7 @@
 <!-- input uri section -->
 <article class="message is-info">
     <div class="message-header">
-        <p>Pick a sample resource identifier</p>
+        <p>Enter or select a sample resource identifier</p>
     </div>
     <div class="message-body">
       <div class="columns is-multiline is-mobile">
@@ -226,10 +241,16 @@
     <div class="message-body">
         <div class="field is-grouped is-grouped-centered">
             <p class="control">
-                <a id="btn_test_all" class="button is-info">Test all metrics</a>
+                <a id="btn_test_all" class="button is-info"><i class="fa fa-bar-chart fa-fw"></i>Test all metrics</a>
             </p>
             <p class="control">
-                <a id="btn_test_checked" class="button is-info">Test checked metrics</a>
+                <a id="btn_test_checked" class="button is-info"><i class="fa fa-bar-chart fa-fw"></i>Test checked metrics</a>
+            </p>
+            <p class="control">
+                <a id="download_csv" data-dl="{{ uuid }}" class="button is-info" href="/test_asynch/csv-download/{{ uuid }}"><i class="fa fa-download fa-fw"></i>CSV</a>
+            </p>
+            <p class="control">
+              <a onClick="window.location.reload();" class="button is-primary"><i class="fa fa-undo fa-fw"></i>Clean results</a>
             </p>
         </div>
         <progress id="p1" class="progress is-primary"  value="0" max="22"></progress>

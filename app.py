@@ -1,7 +1,7 @@
 import eventlet
 eventlet.monkey_patch()
 
-from flask import Flask, redirect, url_for, request, render_template, session
+from flask import Flask, redirect, url_for, request, render_template, session, send_file, send_from_directory
 from flask_socketio import SocketIO
 from flask_socketio import send, emit
 from concurrent.futures import ThreadPoolExecutor
@@ -12,6 +12,9 @@ import threading
 import time
 import random
 import re
+import os
+import io
+import uuid
 
 from rdflib import ConjunctiveGraph
 import json
@@ -25,7 +28,6 @@ import pyshacl
 import extruct
 #from extruct.jsonld import JsonLdExtractor
 
-import re
 
 import metrics.util  as util
 
@@ -51,10 +53,12 @@ socketio = SocketIO(app,async_mode = 'eventlet')
 #socketio = SocketIO(app)
 sample_resources = {
     'input_data': [
+        "",
         "https://data.inra.fr/dataset.xhtml?persistentId=doi:10.15454/TKMGCQ", # dataset INRA Dataverse
         "https://doi.pangaea.de/10.1594/PANGAEA.914331", # dataset in PANGAEA
     ],
     'input_software' : [
+        "",
         "https://zenodo.org/record/3349821#.Xp7m9SNR2Uk", # VM image in zenodo
         "https://explore.openaire.eu/search/software?softwareId=r37b0ad08687::275ecd99e516ed1b863e2a7586063a64", # same VM image in OpenAir
         "https://data.inra.fr/dataset.xhtml?persistentId=doi:10.15454/5K9HCS", # code in INRA Dataverse
@@ -63,14 +67,17 @@ sample_resources = {
         "http://tara-oceans.mio.osupytheas.fr/ocean-gene-atlas/", # OGA Main page of webtool
     ],
     'input_database' : [
+        "",
         "https://fairsharing.org/FAIRsharing.ZPRtfG", # knowledge base in FAIRsharing (AgroLD)
         "http://remap.univ-amu.fr" # Database of transcriptional regulators
     ],
     'input_ontology' : [
+        "",
         "https://bioportal.bioontology.org/ontologies/OCRE", # Ontology in bioportal
         "https://www.ebi.ac.uk/ols/ontologies/ncit/terms?iri=http%3A%2F%2Fpurl.obolibrary.org%2Fobo%2FNCIT_C2985" # OLS entry
     ],
     'input_publication' : [
+        "",
         "https://doi.org/10.1145/1614320.1614332", # Paper from lod.openair
         "https://search.datacite.org/works/10.7892/boris.108387", # Publication in Datacite
         "https://doi.org/10.6084/m9.figshare.c.3607916_d7.v1", # Publication figure in FigShare
@@ -78,9 +85,13 @@ sample_resources = {
         "https://api.datacite.org/dois/application/ld+json/10.6084/m9.figshare.c.3607916_d7.v1" # Publication figure with Datacite API
     ],
     'input_training' : [
+        "",
         "https://tess.elixir-europe.org/materials/train-the-trainer", # Training material in TeSS
         "https://tess.elixir-europe.org/materials/bioccheck-a-thon-check-in"
-    ]
+    ],
+    # 'input_ifb' : [
+    #     "https://www.orpha.net/consor/cgi-bin/Drugs_Search.php?lng=FR&data_id=2679&Substance=Benznidazole&search=Drugs_Search_Disease&data_type=Product&diseaseType=Drug&Typ=Sub&title=&diseaseGroup=Chagas"
+    # ]
 }
 
 metrics = [{'name':'f1', 'category':'F', 'description': 'F1 verifies that ...  '},
@@ -94,6 +105,18 @@ METRICS_RES = test_metric.getMetrics()
 
 kgs = {}
 
+FILE_UUID = ""
+
+DICT_TEMP_RES = {}
+
+
+
+
+@app.route('/favicon.ico')
+def favicon():
+    return send_from_directory(os.path.join(app.root_path, 'static'),
+                          'favicon.ico',mimetype='image/vnd.microsoft.icon')
+
 @socketio.on('evaluate_metric')
 def handle_metric(json):
     """
@@ -102,6 +125,7 @@ def handle_metric(json):
 
     @param json dict Contains the necessary informations to execute evaluate a metric.
     """
+
     url = json['url']
     api_url = json['api_url']
     id = json['id']
@@ -110,6 +134,8 @@ def handle_metric(json):
     emit('running_f')
     data = '{"subject": "' + url + '"}'
     print(data)
+
+    content_uuid = json['uuid']
 
 
     # evaluate metric
@@ -128,21 +154,122 @@ def handle_metric(json):
     comment = test_metric.requestResultSparql(res, "schema:comment")
     # remove empty lines from the comment
     comment = test_metric.cleanComment(comment)
+    all_comment = comment
     # select only success and failure
     comment = test_metric.filterComment(comment, "sf")
+
+    write_temp_metric_res_file(principle, api_url, res, evaluation_time, score, comment, content_uuid)
 
     emit('done_' + id, {"score": score, "comment": comment, "time": str(evaluation_time)})
     print('DONE ' + principle)
 
 
+def write_temp_metric_res_file(principle, api_url, json_res, time, score, comment, content_uuid):
+    global DICT_TEMP_RES
+    sid = request.sid
+    temp_file_path = "./temp/" + sid
+
+    principle = principle.split("/")[-1]
+    api_url = api_url.split("/")[-1].lstrip("gen2_")
+    name = principle + "_" + api_url
+    print(name)
+
+    line = '"{}"\t"{}"\t"{}"\t"{}"\n'.format(name, score, str(time), comment)
+    # write csv file
+    if os.path.exists(temp_file_path):
+        with open(temp_file_path, 'a') as fp:
+            fp.write(line)
+            print("success written")
+
+
+    if content_uuid in DICT_TEMP_RES.keys():
+        DICT_TEMP_RES[content_uuid] += line
+    else:
+        DICT_TEMP_RES[content_uuid] = line
+
+
+@socketio.on('download_csv')
+def handle_csv_download():
+
+
+    temp_file_path = "./temp/" + FILE_UUID
+
+    print("Received download request from " + FILE_UUID)
+    # csv_download(temp_file_path)
+
+@app.route('/test_asynch/csv-download/<uuid>')
+def csv_download(uuid):
+    print("downloading !")
+    print(uuid)
+
+    output = io.StringIO()
+    output.write(DICT_TEMP_RES[uuid])
+    # write file object in BytesIO from StringIO
+    content = output.getvalue().encode('utf-8')
+    mem = io.BytesIO()
+    mem.write(content)
+    mem.seek(0)
+
+    print(json.dumps(DICT_TEMP_RES, sort_keys=True, indent=4))
+
+    try:
+        return send_file(
+            mem,
+            as_attachment=True,
+            attachment_filename='results.csv',
+            mimetype='text/csv',
+            cache_timeout=-1,
+        )
+        # return send_from_directory(
+        #     "./temp/" + sid,
+        #     as_attachment=True,
+        #     attachment_filename='metrics_results.csv',
+        #     mimetype='text/csv'
+        # )
+    except Exception as e:
+        return str(e)
+
+# not working
 @socketio.on('connected')
 def handle_connected(json):
+
     print(request.namespace.socket.sessid)
     print(request.namespace)
+
+@socketio.on('connect')
+def handle_connect():
+    global FILE_UUID
+    print ("The random id using uuid() is : ",end="")
+    FILE_UUID = str(uuid.uuid1())
+    print (FILE_UUID)
+    print (request)
+
+    sid = request.sid
+
+    print("Connected with SID " + sid)
+
+    # Creates a new temp file
+    # with open("./temp/" + sid, 'w') as fp:
+    #     pass
+
+@socketio.on('disconnect')
+def handle_disconnected():
+
+    print("Disconnected")
+
+    sid = request.sid
+    print(request.sid)
+    time.sleep(5)
+    print("Cleaning temp file after disconnect: " + sid)
+    if os.path.exists("./temp/" + sid):
+        os.remove("./temp/" + sid)
+
 
 @socketio.on('hello')
 def handle_hello(json):
     print(request.sid)
+
+
     print('received hello from client: ' + str(json))
     #socketio.emit('ack', 'everything is fine', broadcast=True)
     #emit('ack', 'everything is fine', broadcast=True)
@@ -361,6 +488,9 @@ def test_asynch():
 
     @return render_template
     """
+    # unique id to retrieve content results of tests
+    content_uuid = str(uuid.uuid1())
+    DICT_TEMP_RES[content_uuid] = ""
     #return render_template('test_asynch.html')
     metrics = []
 
@@ -382,8 +512,8 @@ def test_asynch():
         })
 
     raw_jld = buidJSONLD()
-    print(raw_jld)
-    return render_template('metrics_summary.html', f_metrics=metrics, sample_data=sample_resources, jld=raw_jld)
+    # print(raw_jld)
+    return render_template('metrics_summary.html', f_metrics=metrics, sample_data=sample_resources, jld=raw_jld, uuid=content_uuid)
 
 @app.route('/kg_metrics')
 def kg_metrics():
