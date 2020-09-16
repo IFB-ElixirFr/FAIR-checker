@@ -6,6 +6,7 @@ from flask_socketio import SocketIO
 from flask_socketio import send, emit
 from concurrent.futures import ThreadPoolExecutor
 import concurrent.futures
+import secrets
 
 import threading
 
@@ -15,6 +16,8 @@ import re
 import os
 import io
 import uuid
+from datetime import datetime
+import json
 
 from rdflib import ConjunctiveGraph
 import json
@@ -50,6 +53,7 @@ app = Flask(__name__)
 
 #socketio = SocketIO(app, cors_allowed_origins="*")
 socketio = SocketIO(app,async_mode = 'eventlet')
+app.secret_key = secrets.token_urlsafe(16)
 #socketio = SocketIO(app)
 sample_resources = {
     'input_data': [
@@ -135,13 +139,15 @@ def handle_metric(json):
     data = '{"subject": "' + url + '"}'
     print(data)
 
+    print(session)
+
     content_uuid = json['uuid']
 
 
     # evaluate metric
     start_time = test_metric.getCurrentTime()
     res = test_metric.testMetric(api_url, data)
-    print(res)
+    # print(res)
     end_time = test_metric.getCurrentTime()
     evaluation_time = end_time - start_time
     print(evaluation_time)
@@ -158,7 +164,21 @@ def handle_metric(json):
     # select only success and failure
     comment = test_metric.filterComment(comment, "sf")
 
+    json_result = {
+        "url": url,
+        "api_url": api_url,
+        "principle": principle,
+        "id": id,
+        "score": score,
+        "exec_time": str(evaluation_time),
+        "date": str(datetime.now().isoformat())
+    }
+
+    print(json_result)
+
+
     write_temp_metric_res_file(principle, api_url, res, evaluation_time, score, comment, content_uuid)
+
 
     emit('done_' + id, {"score": score, "comment": comment, "time": str(evaluation_time)})
     print('DONE ' + principle)
@@ -255,10 +275,13 @@ def handle_connect():
 @socketio.on('disconnect')
 def handle_disconnected():
 
+
+
     print("Disconnected")
 
+
     sid = request.sid
-    print(request.sid)
+
     time.sleep(5)
     print("Cleaning temp file after disconnect: " + sid)
     if os.path.exists("./temp/" + sid):
@@ -491,6 +514,10 @@ def test_asynch():
     # unique id to retrieve content results of tests
     content_uuid = str(uuid.uuid1())
     DICT_TEMP_RES[content_uuid] = ""
+
+
+    print(str(session.items()))
+    # sid = request.sid
     #return render_template('test_asynch.html')
     metrics = []
 

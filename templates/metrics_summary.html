@@ -23,6 +23,7 @@
            $("#sample_{{k}}").on("click", function(){
                console.log(this.value) ;
                $("#url").val(this.value) ;
+               $("#url").trigger('input');
                $('#sample_{{k}} option[value="{{ k }}"]').attr("selected", "selected");
            });
         {% endfor %}
@@ -41,6 +42,7 @@
             console.log("ID: " + "{{f.id}}");
             console.log("Value: " + "{{f.api_url}}");
             $(this).addClass("is-loading");
+
 
             // socket.emit('evaluate_{{f.id}}', {
             socket.emit('evaluate_metric', {
@@ -62,16 +64,22 @@
             console.log('hello message sent');
         });
 
+        socket.on('disconnect', function() {
+            content_uuid = $("#download_csv").data("dl");
+            socket.emit('disconnect', {uuid: content_uuid});
+            console.log('send dc message');
+        });
+
 
         {% for f in f_metrics %}
         socket.on('done_{{f.id}}', function(value) {
             console.log('DONE {{f.name}}');
             $("#test_{{f.id}}").removeClass("is-loading");
-            $("#test_{{f.id}}").attr("disabled", true);
-            $("#test_{{f.id}}").removeAttr("href");
+            $("#test_{{f.id}}").prop("disabled", true);
 
             console.log(value['time']);
             console.log(value['score']);
+
 
             // change status color
             if (value['score'] == 1) {
@@ -117,7 +125,12 @@
               console.log("all done !!!!");
               $("#btn_test_checked").removeClass("is-loading");
               $("#btn_test_all").removeClass("is-loading");
+              $("#btn_test_all").prop("disabled", false);
+              $("#btn_test_checked").prop("disabled", false);
             }
+
+            // put checkbox in tested state true and trigger change
+            $("#checkbox_test_{{f.id}}").data('tested', true).trigger("change");
 
             update_radar_chart();
 
@@ -131,17 +144,44 @@
 
         // check all category boxes
         $('[id^=checkbox_all_]').on('click', function($e){
-            target_name = $(this).data("target");
-            is_checked = $(this).prop("checked");
-            $('[name=' + target_name + ']').prop("checked", is_checked);
+          target_name = $(this).data("target");
+          is_checked = $(this).prop("checked");
+          $('[name=' + target_name + ']').prop("checked", is_checked).trigger("change");
 
+        });
+
+        // check checkbox state to disable or not "btn_test_checked"
+        $('[id^=checkbox_test_]').change( function( id ) {
+          is_checked = this.checked;
+          is_tested = $(this).data("tested");
+          is_disabled_button = $("#btn_test_checked").prop('disabled');
+
+          $("#btn_test_checked").prop('disabled', true);
+
+          all_tested = true;
+          $('[id^=checkbox_test_]').each(function( id ) {
+            is_checked = this.checked;
+            is_tested = $(this).data("tested");
+            is_disabled_button = $("#btn_test_checked").prop('disabled');
+            if (is_disabled_button && !is_tested && is_checked) {
+                $("#btn_test_checked").prop('disabled', false);
+            };
+
+            if (!is_tested) {
+              all_tested = false
+            };
+          });
+
+          if (all_tested) {
+            $("#btn_test_all").prop("disabled", true);
+          }
         });
 
         // start all selected metrics test
         $("#btn_test_checked").on('click', function($e){
 
           $("#btn_test_checked").addClass("is-loading");
-          $("#btn_test_all").addClass("is-loading");
+          $("#btn_test_all").prop('disabled', true);
 
           $('[id^=checkbox_test_]').each(function( id ) {
             is_checked = $(this).prop("checked");
@@ -159,8 +199,9 @@
         // start all metrics test
         $("#btn_test_all").on('click', function($e){
 
-          $("#btn_test_checked").addClass("is-loading");
+          $("#btn_test_checked").prop('disabled', true);
           $("#btn_test_all").addClass("is-loading");
+
 
           $('[id^=test_metric_]').each(function( id ) {
             $(this).trigger( "click" );
@@ -168,7 +209,35 @@
           });
         });
 
+        //  detect regex
+        $("#url").on('input', function( id ) {
+          console.log("url updated");
+          doi_regex = /10.\d{4,9}\/[-._;()\/:A-Z0-9]+/gmi;
+          str_url = $(this).val()
+          var result = str_url.match(doi_regex);
 
+          // console.log(n)
+          if (result) {
+
+            var doi_button = $('<button/>', {
+                                              "class": "button is-small is-info is-light",
+                                              "title": "Click to select only the DOI"
+                                            })
+                .text(result)
+                .click(function () {
+                  $("#url").val(result) ;
+                });
+
+            console.log("It is a DOI !");
+            $("#is_doi").text("The input contains the following DOIs that you can also test: ");
+
+            $("#is_doi").append(doi_button);
+
+            console.log(result);
+          } else {
+            $("#is_doi").text("");
+          };
+        });
 
         // $("#download_csv").on('click', function($e){
         //     console.log("try download");
@@ -230,6 +299,7 @@
           {% endfor %}
       </div>
       <input id="url" name="url" class="input" type="text" placeholder="FAIR resource URL" value="http://bio.tools/bwa">
+      <span><p id="is_doi"></p></span
     </div>
 </article>
 
@@ -241,16 +311,16 @@
     <div class="message-body">
         <div class="field is-grouped is-grouped-centered">
             <p class="control">
-                <a id="btn_test_all" class="button is-info"><i class="fa fa-bar-chart fa-fw"></i>Test all metrics</a>
+                <button id="btn_test_all" class="button is-info"><i class="fa fa-bar-chart fa-fw"></i>Test all metrics</button>
             </p>
             <p class="control">
-                <a id="btn_test_checked" class="button is-info"><i class="fa fa-bar-chart fa-fw"></i>Test checked metrics</a>
+                <button id="btn_test_checked" class="button is-info" disabled="disabled"><i class="fa fa-bar-chart fa-fw"></i>Test checked metrics</button>
             </p>
             <p class="control">
                 <a id="download_csv" data-dl="{{ uuid }}" class="button is-info" href="/test_asynch/csv-download/{{ uuid }}"><i class="fa fa-download fa-fw"></i>CSV</a>
             </p>
             <p class="control">
-              <a onClick="window.location.reload();" class="button is-primary"><i class="fa fa-undo fa-fw"></i>Clean results</a>
+                <button onClick="window.location.reload();" class="button is-primary"><i class="fa fa-undo fa-fw"></i>Clean results</button>
             </p>
         </div>
         <progress id="p1" class="progress is-primary"  value="0" max="22"></progress>
@@ -288,7 +358,7 @@
                         <tr>
                             <th>
                                 <label class="checkbox">
-                                    <input name="checkbox_{{ category }}" id="checkbox_test_{{ f.id }}" data-target="test_{{ f.id }}" type="checkbox">
+                                    <input name="checkbox_{{ category }}" id="checkbox_test_{{ f.id }}" data-target="test_{{ f.id }}" data-tested=false type="checkbox">
                                     {{ f.principle_tag }} - {{ f.name }}
 
                                 </label>
