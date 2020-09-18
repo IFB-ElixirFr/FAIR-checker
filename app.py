@@ -51,6 +51,15 @@ from subprocess import run
 
 app = Flask(__name__)
 
+app = Flask(__name__)
+
+if app.config["ENV"] == "production":
+    app.config.from_object("config.ProductionConfig")
+else:
+    app.config.from_object("config.DevelopmentConfig")
+
+print(f'ENV is set to: {app.config["ENV"]}')
+
 #socketio = SocketIO(app, cors_allowed_origins="*")
 socketio = SocketIO(app,async_mode = 'eventlet')
 app.secret_key = secrets.token_urlsafe(16)
@@ -174,13 +183,24 @@ def handle_metric(json):
         "date": str(datetime.now().isoformat())
     }
 
-    print(json_result)
 
-
+    # might be removed
     write_temp_metric_res_file(principle, api_url, res, evaluation_time, score, comment, content_uuid)
 
+    principle = principle.split("/")[-1]
+    api_url = api_url.split("/")[-1].lstrip("gen2_")
+    name = principle + "_" + api_url
+    csv_line = '"{}"\t"{}"\t"{}"\t"{}"'.format(name, score, str(evaluation_time), comment)
+    emit_json = {
+        "score": score,
+        "comment": comment,
+        "time": str(evaluation_time),
+        "name": name,
+        "csv_line": csv_line
+    }
+    print(emit_json)
 
-    emit('done_' + id, {"score": score, "comment": comment, "time": str(evaluation_time)})
+    emit('done_' + id, emit_json)
     print('DONE ' + principle)
 
 
@@ -539,7 +559,8 @@ def test_asynch():
         })
 
     raw_jld = buidJSONLD()
-    # print(raw_jld)
+    print(app.config)
+
     return render_template('metrics_summary.html', f_metrics=metrics, sample_data=sample_resources, jld=raw_jld, uuid=content_uuid)
 
 @app.route('/kg_metrics')
