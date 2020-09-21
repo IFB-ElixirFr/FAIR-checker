@@ -37,6 +37,7 @@ COPY templates templates
 COPY static static
 COPY metrics metrics
 COPY launch.sh .
+COPY config.py .
 
 RUN chmod +x launch.sh
 
