@@ -71,6 +71,8 @@
         });
 
 
+        var csv_lines = []
+
         {% for f in f_metrics %}
         socket.on('done_{{f.id}}', function(value) {
             console.log('DONE {{f.name}}');
@@ -79,6 +81,8 @@
 
             console.log(value['time']);
             console.log(value['score']);
+            console.log(value['csv_line']);
+            csv_lines.push(value['csv_line']);
 
 
             // change status color
@@ -239,10 +243,13 @@
           };
         });
 
-        // $("#download_csv").on('click', function($e){
-        //     console.log("try download");
-        //     socket.emit('download_csv');
-        // });
+        $("#download_csv").on('click', function($e){
+            console.log("try download");
+            console.log(csv_lines.join("\n"));
+            let csv_content = "data:text/csv;charset=utf-8," + csv_lines.join("\n");
+            var encoded_uri = encodeURI(csv_content);
+            window.open(encoded_uri);
+        });
 
 
         socket.on('long', function(value) {
@@ -317,7 +324,7 @@
                 <button id="btn_test_checked" class="button is-info" disabled="disabled"><i class="fa fa-bar-chart fa-fw"></i>Test checked metrics</button>
             </p>
             <p class="control">
-                <a id="download_csv" data-dl="{{ uuid }}" class="button is-info" href="/test_asynch/csv-download/{{ uuid }}"><i class="fa fa-download fa-fw"></i>CSV</a>
+                <a id="download_csv" data-dl="{{ uuid }}" class="button is-info"><i class="fa fa-download fa-fw"></i>CSV</a>
             </p>
             <p class="control">
                 <button onClick="window.location.reload();" class="button is-primary"><i class="fa fa-undo fa-fw"></i>Clean results</button>
