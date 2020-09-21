@@ -51,6 +51,15 @@ from subprocess import run
 
 app = Flask(__name__)
 
+app = Flask(__name__)
+
+if app.config["ENV"] == "production":
+    app.config.from_object("config.ProductionConfig")
+else:
+    app.config.from_object("config.DevelopmentConfig")
+
+print(f'ENV is set to: {app.config["ENV"]}')
+
 #socketio = SocketIO(app, cors_allowed_origins="*")
 socketio = SocketIO(app,async_mode = 'eventlet')
 app.secret_key = secrets.token_urlsafe(16)
@@ -550,7 +559,8 @@ def test_asynch():
         })
 
     raw_jld = buidJSONLD()
-    # print(raw_jld)
+    print(app.config)
+
     return render_template('metrics_summary.html', f_metrics=metrics, sample_data=sample_resources, jld=raw_jld, uuid=content_uuid)
 
 @app.route('/kg_metrics')

@@ -23,7 +23,6 @@ scp ~/fair-checker/demo-fairchecker.conf ubuntu@134.158.247.212:/home/ubuntu/dem
 
 sudo cp /home/ubuntu/demo-fairchecker.conf /etc/nginx/sites-available/default
 
-
 sudo systemctl reload nginx
 
 # replace those lines in templates
@@ -31,3 +30,9 @@ var socket = io.connect('http://127.0.0.1:5000');
 
 # by
 var socket = io.connect('https://134.158.247.212');
+
+
+### variable to set in command line to select the config file
+export FLASK_ENV=development
+### or
+export FLASK_ENV=production
