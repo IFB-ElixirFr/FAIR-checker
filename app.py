@@ -237,7 +237,7 @@ def handle_csv_download():
     print("Received download request from " + FILE_UUID)
     # csv_download(temp_file_path)
 
-@app.route('/test_asynch/csv-download/<uuid>')
+@app.route('/base_metrics/csv-download/<uuid>')
 def csv_download(uuid):
     print("downloading !")
     print(uuid)
@@ -523,8 +523,8 @@ def buidJSONLD():
     raw_jld = json.dumps(jld)
     return raw_jld
 
-@app.route('/base-metrics')
-def test_asynch():
+@app.route('/base_metrics')
+def base_metrics():
     """
     Load the Advanced page elements loading informations from FAIRMetrics API.
     Generate a page allowing test of independent metrics.

@@ -10,7 +10,7 @@ class ProductionConfig(Config):
 
 class DevelopmentConfig(Config):
     DEBUG = True
-    SERVER_IP = "https://0.0.0.0:5000"
+    SERVER_IP = "http://127.0.0.1:5000"
 
 
 class TestingConfig(Config):
