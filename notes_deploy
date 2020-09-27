@@ -32,6 +32,9 @@ var socket = io.connect('http://127.0.0.1:5000');
 var socket = io.connect('https://134.158.247.212');
 
 
-# to set prod or dev config
+# to set prod or dev config (not working well yet)
 export FLASK_ENV=development
 export FLASK_ENV=production
+
+# run container detached
+docker run -p 5000:5000 --name fair-checker-webapp -d fair-checker-webapp

@@ -523,7 +523,7 @@ def buidJSONLD():
     raw_jld = json.dumps(jld)
     return raw_jld
 
-@app.route('/test_asynch')
+@app.route('/base-metrics')
 def test_asynch():
     """
     Load the Advanced page elements loading informations from FAIRMetrics API.
