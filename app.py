@@ -130,6 +130,10 @@ def favicon():
     return send_from_directory(os.path.join(app.root_path, 'static'),
                           'favicon.ico',mimetype='image/vnd.microsoft.icon')
 
+@app.route('/')
+def home():
+    return redirect(url_for('base_metrics'))
+
 @socketio.on('evaluate_metric')
 def handle_metric(json):
     """
@@ -138,7 +142,6 @@ def handle_metric(json):
 
     @param json dict Contains the necessary informations to execute evaluate a metric.
     """
-
     url = json['url']
     api_url = json['api_url']
     id = json['id']
@@ -173,6 +176,7 @@ def handle_metric(json):
     # select only success and failure
     comment = test_metric.filterComment(comment, "sf")
 
+
     json_result = {
         "url": url,
         "api_url": api_url,
@@ -183,13 +187,13 @@ def handle_metric(json):
         "date": str(datetime.now().isoformat())
     }
 
-
+    print(json_result)
     # might be removed
     write_temp_metric_res_file(principle, api_url, res, evaluation_time, score, comment, content_uuid)
 
     principle = principle.split("/")[-1]
-    api_url = api_url.split("/")[-1].lstrip("gen2_")
-    name = principle + "_" + api_url
+    metric_name = api_url.split("/")[-1].lstrip("gen2_")
+    name = principle + "_" + metric_name
     csv_line = '"{}"\t"{}"\t"{}"\t"{}"'.format(name, score, str(evaluation_time), comment)
     emit_json = {
         "score": score,
@@ -198,10 +202,60 @@ def handle_metric(json):
         "name": name,
         "csv_line": csv_line
     }
-    print(emit_json)
+
+
+    recommendation(emit_json, metric_name, comment)
 
     emit('done_' + id, emit_json)
     print('DONE ' + principle)
+
+
+def recommendation(emit_json, metric_name, comment):
+
+    recommendation_dict = {
+        # F1
+        "unique_identifier": {
+            "did not match any known identification system (tested inchi, doi, handle, uri) and therefore did not pass this metric.  If you think this is an error, please contact the FAIR Metrics group (http://fairmetrics.org).": "You may use another identification scheme for your resource. For instance, provide a DOI, a URI (https://www.w3.org/wiki/URI) or a pubmed id (PMID) for an academic paper.",
+        },
+        "data_identifier_persistence": {
+            "FAILURE: The identifier": "You may use another identification scheme for your resource. For instance, provide a DOI, a URI (https://www.w3.org/wiki/URI) or a pubmed id for an academic paper.",
+            "FAILURE: Was unable to locate the data identifier in the metadata using any (common) property/predicate reserved": "Ensure that the resource identifier is part of your web page meta-data (RDFa, embedded JSON-LD, microdata, etc.)",
+            "FAILURE: The GUID identifier of the data": "Ensure that the resource identifier, part of your web page meta-data (RDFa, embedded JSON-LD, microdata, etc.) is well formed (DOI, URI, PMID, etc.). ",
+            "FAILURE: The GUID does not conform with any known permanent-URL system.": "Ensure that the used identification scheme is permanent. For instance DOIs or PURLs are sustainable over the long term.",
+        },
+        "metadata_identifier_persistence": {
+            "The GUID identifier of the metadata": "Ensure that meta-data describing your resource use permanent and well fprmed identifiers (PURLs, DOIs, etc.)",
+            "FAILURE: The metadata GUID does not conform with any known permanent-URL system.": "Ensure that meta-data describing your resource use permanent and well formed identifiers (PURLs, DOIs, etc.)",
+        },
+        # F2
+        "grounded_metadata": {
+            "FAILURE: The identifier": "Ensure that meta-data describing your resource use permanent and well formed identifiers (PURLs, DOIs, etc.)",
+            "FAILURE: no linked-data style structured metadata found.": "Ensure that meta-data describing your resource use permanent and well formed identifiers (PURLs, DOIs, etc.)",
+        },
+        "structured_metadata": {
+            "FAILURE: The identifier": "Ensure that meta-data describing your resource use permanent and well formed identifiers (PURLs, DOIs, etc.)",
+            "FAILURE: no structured metadata found": "Ensure that meta-data describing your resource use a machine readable format such as JSON or RDF.",
+        },
+        # F3
+    }
+
+    # recommendation
+    metric_name_key = metric_name.replace(" ", "_")
+    print(metric_name_key)
+    print(recommendation_dict.keys())
+    if metric_name_key in recommendation_dict.keys():
+        metric_failures = recommendation_dict[metric_name]
+
+        for key in metric_failures.keys():
+            # print(key)
+            # print(comment)
+            if key in comment:
+                print("found a match!")
+                emit_json["recommendation"] = metric_failures[key]
+            else:
+                print("no match")
+    else:
+        emit_json["recommendation"] = "Recommendation will be available soon."
 
 
 def write_temp_metric_res_file(principle, api_url, json_res, time, score, comment, content_uuid):

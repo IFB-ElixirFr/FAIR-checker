@@ -26,6 +26,9 @@ RUN source activate fair-checker-webapp
 RUN echo "source activate fair-checker-webapp" > ~/.bashrc
 ENV PATH /opt/conda/envs/fair-checker-webapp/bin:$PATH
 
+ARG FLASK_ENV
+ENV FLASK_ENV ${FLASK_ENV}
+
 #RUN conda install flask rdflib pyopenssl -c conda-forge
 #RUN pip install rdflib-jsonld
 #RUN pip install Flask-SSLify
@@ -38,6 +41,7 @@ COPY static static
 COPY metrics metrics
 COPY launch.sh .
 COPY config.py .
+
 
 RUN chmod +x launch.sh
 

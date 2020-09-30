@@ -110,7 +110,7 @@
             $("#comment_{{f.id}}").text(value['comment']);
             // add recommandation if score == 0
             if (value['score'] == 0) {
-              $("#guideline_{{f.id}}").text("Recommendations on how to improve the resource for this MI, link to other quality and recognised resources or documentation to help the user, etc");
+              $("#guideline_{{f.id}}").text(value['recommendation']);
             } else  {
               $("#guideline_{{f.id}}").parent("tr").hide()
             }

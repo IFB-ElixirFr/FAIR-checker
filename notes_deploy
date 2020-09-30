@@ -5,8 +5,16 @@ scp -r ~/fair-checker ubuntu@134.158.247.212:/home/ubuntu
 # On the VM
 
 cd ~/fair-checker
-sudo docker build -t fair-checker-webapp .
-sudo docker run -p 5000:5000 fair-checker-webapp
+# select the correct env: 'production' or 'development'
+sudo docker build -t fair-checker-webapp --build-arg FLASK_ENV=production .
+# run attached or
+sudo docker run -p 5000:5000 --name fair-checker-webapp fair-checker-webapp
+# run dettached
+sudo docker run -p 5000:5000 --name fair-checker-webapp -d fair-checker-webapp
+
+# in case of code update
+sudo docker rm -f fair-checker-webapp
+# then build and run again
 
 # Selfsigned certificate
 
@@ -24,17 +32,3 @@ scp ~/fair-checker/demo-fairchecker.conf ubuntu@134.158.247.212:/home/ubuntu/dem
 sudo cp /home/ubuntu/demo-fairchecker.conf /etc/nginx/sites-available/default
 
 sudo systemctl reload nginx
-
-# replace those lines in templates
-var socket = io.connect('http://127.0.0.1:5000');
-
-# by
-var socket = io.connect('https://134.158.247.212');
-
-
-# to set prod or dev config (not working well yet)
-export FLASK_ENV=development
-export FLASK_ENV=production
-
-# run container detached
-docker run -p 5000:5000 --name fair-checker-webapp -d fair-checker-webapp
