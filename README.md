@@ -23,13 +23,13 @@ First, embedded semantic annotations are extracted from web pages, forming a min
 ### Using Docker
 
 Clone the repo:
-'''
+```
 git clone https://github.com/IFB-ElixirFr/fair-checker.git
-'''
+```
 Move to the folder:
-'''
+```
 cd fair-checker
-'''
+```
 
 Select the correct env: 'production' or 'development':
 - sudo docker build -t fair-checker-webapp --build-arg FLASK_ENV=production .
