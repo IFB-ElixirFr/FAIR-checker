@@ -192,7 +192,7 @@ def handle_metric(json):
     write_temp_metric_res_file(principle, api_url, res, evaluation_time, score, comment, content_uuid)
 
     principle = principle.split("/")[-1]
-    metric_name = api_url.split("/")[-1].lstrip("gen2_")
+    metric_name = api_url.split("/")[-1].replace("gen2_", "")
     name = principle + "_" + metric_name
     csv_line = '"{}"\t"{}"\t"{}"\t"{}"'.format(name, score, str(evaluation_time), comment)
     emit_json = {
@@ -202,7 +202,6 @@ def handle_metric(json):
         "name": name,
         "csv_line": csv_line
     }
-
 
     recommendation(emit_json, metric_name, comment)
 
@@ -237,11 +236,11 @@ def recommendation(emit_json, metric_name, comment):
             "FAILURE: no structured metadata found": "Ensure that meta-data describing your resource use a machine readable format such as JSON or RDF.",
         },
         # F3
-        "data_identifier_explicitly_in_metadata": {
+        "data_identifier_in_metadata": {
             "FAILURE: The identifier": "Ensure that meta-data describing your resource use permanent and well formed identifiers (PURLs, DOIs, etc.)",
             "FAILURE: Was unable to locate the data identifier in the metadata using any (common) property/predicate reserved": "Ensure that meta-data describing your resource use permanent and well formed identifiers (PURLs, DOIs, etc.)",
         },
-        "metadata_identifier_explicitly_in_metadata": {
+        "metadata_identifier_in_metadata": {
             "FAILURE: The identifier": "Ensure that meta-data describing your resource use permanent and well formed identifiers (PURLs, DOIs, etc.)",
             "FAILURE: No metadata identifiers were found in the metadata record": "Ensure that meta-data describing your resource use permanent and well formed identifiers (PURLs, DOIs, etc.)",
             "FAILURE: No metadata identifiers were found in the metadata record using predicates": "Ensure that identifiers in your metadata are linked together through typical RDF properties such as (schema:mainEntity, dcterms:identifier, etc.)",
@@ -249,25 +248,25 @@ def recommendation(emit_json, metric_name, comment):
             "FAILURE: While (apparent) metadata record identifiers were found": "Ensure that the resource identifier is explicitely referred to in your meta-data. ",
         },
         # F4
-        "searchable_in_major_search_engine": {
+        "searchable": {
             "FAILURE: The identifier": "Ensure that the resource identifier, part of your web page meta-data (RDFa, embedded JSON-LD, microdata, etc.) is well formed (DOI, URI, PMID, etc.). ",
             "FAILURE: NO ACCESS KEY CONFIGURED FOR BING. This test will now abort with failure": "No recommendation, server side issue",
             "FAILURE: Was unable to discover the metadata record by search in Bing using any method": "Ensure that meta-data describing your resource use the machine readable standards parsed by major search engines such as  schema.org OpenGraph, etc.",
         },
         # A1.1
-        "uses_open_free_protocol_for_metadata_retrieval": {
+        "metadata_protocol": {
             "FAILURE: The identifier ": "Ensure that meta-data describing your resource use permanent and well formed identifiers (PURLs, DOIs, etc.)",
         },
-        "uses_open_free_protocol_for_data_retrieval": {
+        "data_protocol": {
             "FAILURE: The identifier": "Ensure that meta-data describing your resource use permanent and well formed identifiers (PURLs, DOIs, etc.)",
             "FAILURE: Was unable to locate the data identifier in the metadata using any (common) property/predicate reserved for this purpose": "Ensure that identifiers in your metadata are linked together through typical RDF properties such as (schema:mainEntity, dcterms:identifier, etc.)",
         },
         # A1.2
-        "data_authentication_and_authorization": {
+        "data_authorization": {
             "FAILURE: The identifier": "Ensure that meta-data describing your resource use permanent and well formed identifiers (PURLs, DOIs, etc.)",
             "FAILURE: No data identifier was found in the metadata record": "Ensure that identifiers in your metadata are linked together through typical RDF properties such as (schema:mainEntity, dcterms:identifier, etc.)",
         },
-        "metadata_authentication_and_authorization": {
+        "metadata_authorization": {
             "FAILURE: The GUID identifier of the metadata": "Ensure that meta-data describing your resource use permanent and well formed identifiers (PURLs, DOIs, etc.)",
         },
         # A2
@@ -292,30 +291,30 @@ def recommendation(emit_json, metric_name, comment):
             "FAILURE: unable to find any kind of structured metadata": "Ensure that meta-data describing your resource use the RDF machine readable standard.",
         },
         # I2
-        "metadata_uses_FAIR_vocabularies_(weak)": {
+        "metadata_uses_fair_vocabularies_weak": {
             "FAILURE: The identifier": "Ensure that meta-data describing your resource use permanent and well formed identifiers (PURLs, DOIs, etc.)",
             "FAILURE: No linked data metadata was found.  Test is exiting": "Ensure that meta-data describing your resource use a machine readable format such as JSON or RDF.",
             "FAILURE: No predicates were found that resolved to Linked Data": "Ensure that meta-data describing your resource use a machine readable format such as JSON or RDF.",
             "The minimum to pass this test is 2/3 (with a minimum of 3 predicates in total)": "Ensure that in your metatdata, at least 2/3rd of your properties should leverage already known voabulary or ontology as registered in OLS, BioPortal, FAIRSharing regitries for instance.",
         },
-        "metadata_uses_FAIR_vocabularies_(strong)": {
+        "metadata_uses_fair_vocabularies_strong": {
             "FAILURE: The identifier ": "Ensure that meta-data describing your resource use permanent and well formed identifiers (PURLs, DOIs, etc.)",
             "FAILURE: No linked data metadata was found.  Test is exiting": "Ensure that meta-data describing your resource use a machine readable format such as JSON or RDF.",
             "FAILURE: No predicates were found that resolved to Linked Data.": "Ensure that meta-data describing your resource use a machine readable format such as JSON or RDF.",
             "The minimum to pass this test is 2/3 (with a minimum of 3 predicates in total)": "Ensure that in your metatdata, at least 2/3rd of your properties should leverage already known voabulary or ontology as registered in OLS, BioPortal, FAIRSharing regitries for instance.",
         },
         # I3
-        "metadata_contains_qualified_outward_references": {
+        "metadata_contains_outward_links": {
             "FAILURE: The identifier ": "You may use another identification scheme for your resource. For instance, provide a DOI, a URI (https://www.w3.org/wiki/URI) or a pubmed id (PMID) for an academic paper.",
             "FAILURE: No linked data was found.  Test is exiting.": "Ensure that your metadata is structured in RDF graphs.",
             "triples discovered in the linked metadata pointed to resources hosted elsewhere.  The minimum to pass this test is 1": "Ensure that your metadata use at least one identifier which is defined in an external resource (e.g. use a UniProt ID in your metadata, the uniprot id being described in UniProt KB)",
         },
         # R1.1
-        "metadata_includes_license_(weak)": {
+        "metadata_includes_license_weak": {
             "FAILURE: The identifier ": "You may use another identification scheme for your resource. For instance, provide a DOI, a URI (https://www.w3.org/wiki/URI) or a pubmed id (PMID) for an academic paper.",
             "FAILURE: No License property was found in the metadata.": "Ensure that a property defining the license of your resoure ispart of your metadata. For instance you can use dcterms:license or schema:license.",
         },
-        "metadata_includes_license_(strong)": {
+        "metadata_includes_license_strong": {
             "FAILURE: The identifier ": "You may use another identification scheme for your resource. For instance, provide a DOI, a URI (https://www.w3.org/wiki/URI) or a pubmed id (PMID) for an academic paper.",
             "FAILURE: No License property was found in the metadata.": "Ensure that a property defining the license of your resoure ispart of your metadata. For instance you can use dcterms:license or schema:license.",
         },
@@ -349,7 +348,7 @@ def write_temp_metric_res_file(principle, api_url, json_res, time, score, commen
     principle = principle.split("/")[-1]
     api_url = api_url.split("/")[-1].lstrip("gen2_")
     name = principle + "_" + api_url
-    print(name)
+    # print(name)
 
     line = '"{}"\t"{}"\t"{}"\t"{}"\n'.format(name, score, str(time), comment)
     # write csv file
