@@ -31,7 +31,7 @@ Move to the folder:
 cd fair-checker
 ```
 
-Select the correct env: 'production' or 'development':
+Build with the correct env: 'production' or 'development':
 ```
 sudo docker build -t fair-checker-webapp --build-arg FLASK_ENV=production .
 ```
