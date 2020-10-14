@@ -52,7 +52,7 @@ sudo docker rm -f fair-checker-webapp
 Then build and run again
 
 
-### Using only Conda env
+### Using Conda
 
 Clone the repo:
 ```
