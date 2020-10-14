@@ -32,31 +32,49 @@ cd fair-checker
 ```
 
 Select the correct env: 'production' or 'development':
-- sudo docker build -t fair-checker-webapp --build-arg FLASK_ENV=production .
+```
+sudo docker build -t fair-checker-webapp --build-arg FLASK_ENV=production .
+```
 
 Run attached:
-- sudo docker run -p 5000:5000 --name fair-checker-webapp fair-checker-webapp
+```
+sudo docker run -p 5000:5000 --name fair-checker-webapp fair-checker-webapp
+```
 Run dettached:
-- sudo docker run -p 5000:5000 --name fair-checker-webapp -d fair-checker-webapp
+```
+sudo docker run -p 5000:5000 --name fair-checker-webapp -d fair-checker-webapp
+```
 
-# in case of code update
+In case of code update:
+```
 sudo docker rm -f fair-checker-webapp
-# then build and run again
+```
+Then build and run again
 
 
 ### Using only Conda env
 
 Clone the repo:
-- git clone https://github.com/IFB-ElixirFr/fair-checker.git
+```
+git clone https://github.com/IFB-ElixirFr/fair-checker.git
+```
 
 Move to the folder:
-- cd fair-checker
+```
+cd fair-checker
+```
 
 Create a new conda ENV:
-- conda create --name fair-check-env
+```
+conda create --name fair-check-env
+```
 
-Activate the new ENV
-- conda activate fair-check-env
+Activate the new ENV:
+```
+conda activate fair-check-env
+```
 
 Run:
-- while read requirement; do conda install  conda-forge --yes $requirement || pip install $requirement; done < requirements.txt
+```
+while read requirement; do conda install  conda-forge --yes $requirement || pip install $requirement; done < requirements.txt
+```
