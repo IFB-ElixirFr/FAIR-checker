@@ -102,9 +102,37 @@ sample_resources = {
         "https://tess.elixir-europe.org/materials/train-the-trainer", # Training material in TeSS
         "https://tess.elixir-europe.org/materials/bioccheck-a-thon-check-in"
     ],
-    # 'input_ifb' : [
-    #     "https://www.orpha.net/consor/cgi-bin/Drugs_Search.php?lng=FR&data_id=2679&Substance=Benznidazole&search=Drugs_Search_Disease&data_type=Product&diseaseType=Drug&Typ=Sub&title=&diseaseGroup=Chagas"
-    # ]
+    'input_elixir-fr_SDP' : [
+        "",
+        "https://www.aniseed.cnrs.fr/",
+        "http://aria.pasteur.fr/",
+        "http://aureme.genouest.org",
+        "https://biii.eu",
+        "https://crisprcas.i2bc.paris-saclay.fr",
+        "https://urgi.versailles.inrae.fr/faidare/",
+        "https://www.southgreen.fr/genomehubs",
+        "https://www.genomicus.biologie.ens.fr/genomicus-98.01/cgi-bin/search.pl",
+        "http://ginsim.org", # pas sécurisé
+        "https://urgi.versailles.inrae.fr/gnpis/",
+        "http://www.imgt.org",
+        "http://lifemap.univ-lyon1.fr",
+        "http://www.atgc-montpellier.fr/lordec/",
+        "http://matrixdb.univ-lyon1.fr",
+        "https://metexplore.toulouse.inra.fr/index.html/",
+        "http://www.genoscope.cns.fr/agc/microscope/home/",
+        "http://bioinfo.cristal.univ-lille.fr/norine/",
+        "http://tara-oceans.mio.osupytheas.fr/ocean-gene-atlas/",
+        "http://www.orphadata.org/cgi-bin/index.php",
+        "http://www.orpha.net/consor/cgi-bin/index.php",
+        "https://paramecium.i2bc.paris-saclay.fr/",
+        "http://www.phylogeny.fr/",
+        "https://urgi.versailles.inrae.fr/Tools/REPET",
+        "http://rsat.eu/",
+        "http://abims.sb-roscoff.fr/sulfatlas/",
+        "https://varaft.eu/",
+        "http://www.wheatis.org/",
+        "https://workflow4metabolomics.org/",
+    ]
 }
 
 metrics = [{'name':'f1', 'category':'F', 'description': 'F1 verifies that ...  '},

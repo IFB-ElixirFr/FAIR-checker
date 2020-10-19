@@ -78,3 +78,9 @@ Run:
 ```
 while read requirement; do conda install  conda-forge --yes $requirement || pip install $requirement; done < requirements.txt
 ```
+
+Start local server:
+```
+export FLASK_ENV=development
+python3 app.py
+```
