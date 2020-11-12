@@ -156,7 +156,8 @@ def testMetric(metric_api_url, data):
     # base_url = "http://linkeddata.systems/cgi-bin/FAIR_Tests/"
     # sub_url = metric_api_url.split('/')[5]
     # metric_api_url = base_url + sub_url
-    print(metric_api_url)
+    # print(metric_api_url)
+
 
     while True:
         try:

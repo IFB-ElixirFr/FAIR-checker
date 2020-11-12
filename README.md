@@ -76,7 +76,7 @@ conda activate fair-check-env
 
 Run:
 ```
-while read requirement; do conda install  conda-forge --yes $requirement || pip install $requirement; done < requirements.txt
+while read requirement; do conda install -c conda-forge --yes $requirement || pip install $requirement; done < requirements.txt
 ```
 
 Start local server:
