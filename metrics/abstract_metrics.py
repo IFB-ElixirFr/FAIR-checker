@@ -1,4 +1,5 @@
 from test_metric import getMetrics, testMetric
+from evaluation import Evaluation
 
 from abc import ABC, abstractmethod
 
@@ -88,8 +89,12 @@ class FAIRMetricsImpl(AbstractFAIRMetrics):
     def evaluate(self, url):
         data = '{"subject": "' + url + '"}'
         print("Evaluating " + self.name)
-        result = testMetric(self.api, data)
-        print(result)
+        evaluation_obj = Evaluation(self.api, data)
+        evaluation_obj.evaluate()
+        # result = testMetric(self.api, data)
+        print(evaluation_obj.get_test_time())
+        print(evaluation_obj)
+        print(evaluation_obj.get_score())
 
 
 #########################
@@ -149,5 +154,3 @@ for m in metrics:
     # print(m.get_api())
     # m.get_desc()
     m.evaluate("http://bio.tools/bwa")
-    print(m.get_creation_date())
-    print(m.get_update_date())
