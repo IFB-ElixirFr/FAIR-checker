@@ -1,4 +1,4 @@
-from metrics.abstract_metrics import FAIRMetricsFactory
+from metrics.FAIRMetricsFactory import FAIRMetricsFactory
 from metrics.test_metric import getMetrics
 #from metrics.evaluation import Evaluation
 
