@@ -1,0 +1,35 @@
+language: python
+
+python:
+  #- "3.5"
+  - "3.6"
+
+install:
+  - sudo apt-get update
+  # We do this conditionally because it saves us some downloading if the
+  # version is the same.
+  - if [[ "$TRAVIS_PYTHON_VERSION" == "2.7" ]]; then
+      wget https://repo.continuum.io/miniconda/Miniconda2-latest-Linux-x86_64.sh -O miniconda.sh;
+    else
+      wget https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh -O miniconda.sh;
+    fi
+  - bash miniconda.sh -b -p $HOME/miniconda
+  - source "$HOME/miniconda/etc/profile.d/conda.sh"
+  - hash -r
+  - conda config --set always_yes yes --set changeps1 no
+  - conda update -q conda
+  # Useful for debugging any issues with conda
+  - conda info -a
+
+  - conda create -q -n test-environment python=$TRAVIS_PYTHON_VERSION python==3.7.4 python-engineio==3.0.0 eventlet==0.25.2 flask==1.1.1 flask-socketio==4.3.0 rdflib==4.2.2 rdflib-jsonld==0.4.0 pyshacl==0.11.5 termcolor==1.1.0 tqdm sparqlwrapper==1.8.2 requests==2.22.0 -c conda-forge
+  - conda activate test-environment
+  - pip install extruct==0.9.0
+
+script:
+  #- cd src
+  - nose2
+
+notifications:
+  email:
+    - alban.gaignard@univ-nantes.fr
+    - thomas.rosnet@france-bioinformatique.fr
