@@ -1,4 +1,4 @@
-from test_metric import getMetrics, testMetric
+from test_metric import getMetrics, testMetric, requestResultSparql
 from evaluation import Evaluation
 
 from abc import ABC, abstractmethod
@@ -53,6 +53,15 @@ class AbstractFAIRMetrics(ABC):
     def evaluate(self):
         pass
 
+    def __str__(self):
+        return f"FAIR metrics {self.id} : " \
+               f"\n\t {self.principle} " \
+               f"\n\t {self.name} " \
+               f"\n\t {self.desc} " \
+               f"\n\t {self.creator} " \
+               f"\n\t {self.created_at} " \
+               f"\n\t {self.updated_at} "
+
 #########################
 class F1Impl(AbstractFAIRMetrics):
 
@@ -86,15 +95,20 @@ class FAIRMetricsImpl(AbstractFAIRMetrics):
     def get_api(self):
         return self.api
 
-    def evaluate(self, url):
+    def evaluate(self, url) -> Evaluation :
         data = '{"subject": "' + url + '"}'
         print("Evaluating " + self.name)
-        evaluation_obj = Evaluation(self.api, data)
-        evaluation_obj.evaluate()
-        # result = testMetric(self.api, data)
-        print(evaluation_obj.get_test_time())
-        print(evaluation_obj)
-        print(evaluation_obj.get_score())
+
+        eval = Evaluation()
+        eval.set_start_time()
+        eval.result_text = testMetric(self.api, data)
+        #print(eval.result_text)
+        eval.set_end_time()
+        # evaluation_obj.result_json = json.loads(self.result_text)
+        eval.set_score(requestResultSparql(eval.result_text, "ss:SIO_000300"))
+        eval.set_reason(requestResultSparql(eval.result_text, "schema:comment"))
+
+        return eval
 
 
 #########################
@@ -110,8 +124,6 @@ class FAIRMetricsFactory:
 
 
 json_metrics = getMetrics()
-
-
 
 factory = FAIRMetricsFactory()
 
@@ -148,9 +160,11 @@ try:
 except ValueError as e:
     print(f"no metrics implemention for {e}")
 
-for m in metrics:
-    print(m.get_principle())
-    print(m.get_name())
+#for m in metrics:
+#    print(m)
     # print(m.get_api())
     # m.get_desc()
-    m.evaluate("http://bio.tools/bwa")
+    #m.evaluate("http://bio.tools/bwa")
+
+result = metrics[2].evaluate("http://bio.tools/bw")
+print(result)
