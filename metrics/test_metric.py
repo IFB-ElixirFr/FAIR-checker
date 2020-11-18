@@ -386,6 +386,7 @@ def requestResultSparql(metric_evaluation_result_text, term):
     rdf_string = g.serialize(format="turtle").decode("utf-8")
     # print(g.serialize(format="json-ld").decode("utf-8"))
 
+    #TODO use RDFLib graph traversal methods to retrieve some parts of the graphs
     prefix = """
     PREFIX obo:<http://purl.obolibrary.org/obo/>
     PREFIX schema:<http://schema.org/>
@@ -395,7 +396,7 @@ def requestResultSparql(metric_evaluation_result_text, term):
         """
         $prefix
         SELECT ?s ?p ?o
-        WHERE { ?s $term ?o } limit 50
+        WHERE { ?s $term ?o } 
         """)
 
     query_string = s.substitute(prefix=prefix, term=term)
