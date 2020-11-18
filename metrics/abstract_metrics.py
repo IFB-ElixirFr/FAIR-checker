@@ -1,5 +1,5 @@
-from test_metric import getMetrics, testMetric, requestResultSparql
-from evaluation import Evaluation
+from metrics.test_metric import getMetrics, testMetric, requestResultSparql
+from metrics.evaluation import Evaluation
 
 from abc import ABC, abstractmethod
 
@@ -123,48 +123,3 @@ class FAIRMetricsFactory:
 
 
 
-json_metrics = getMetrics()
-
-factory = FAIRMetricsFactory()
-
-metrics = []
-#for i in range(1,3):
-try:
-    # metrics.append(factory.get_metric("test_f1"))
-    # metrics.append(factory.get_metric("test_r2"))
-
-    for metric in json_metrics:
-        # remove "FAIR Metrics Gen2" from metric name
-        name = metric["name"].replace('FAIR Metrics Gen2- ','')
-        # same but other syntax because of typo
-        name = name.replace('FAIR Metrics Gen2 - ','')
-        principle = metric["principle"].rsplit('/', 1)[-1]
-        metrics.append(factory.get_metric(
-            name,
-            metric["@id"],
-            metric["description"],
-            metric["smarturl"],
-            principle,
-            metric["creator"],
-            metric["created_at"],
-            metric["updated_at"],
-        ))
-        # retrieve more specific info about each metric
-        # metric_info = processFunction(getMetricInfo, [metric["@id"]], 'Retrieving metric informations... ')
-        # retrieve the name (principle) of each metric (F1, A1, I2, etc)
-        # principle = metric_info["principle"].rsplit('/', 1)[-1]
-        # principle = metric_info["principle"]
-        # get the description on the metric
-        # description = '"' + metric_info["description"] + '"'    #metrics.append(factory.get_metrics("f2"))
-
-except ValueError as e:
-    print(f"no metrics implemention for {e}")
-
-#for m in metrics:
-#    print(m)
-    # print(m.get_api())
-    # m.get_desc()
-    #m.evaluate("http://bio.tools/bwa")
-
-result = metrics[2].evaluate("http://bio.tools/bw")
-print(result)

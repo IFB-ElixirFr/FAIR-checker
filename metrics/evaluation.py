@@ -1,4 +1,4 @@
-from test_metric import testMetric, requestResultSparql
+from metrics.test_metric import testMetric, requestResultSparql
 from datetime import datetime, timedelta
 import time
 
