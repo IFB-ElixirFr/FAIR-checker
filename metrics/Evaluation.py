@@ -48,9 +48,6 @@ class Evaluation():
         return self.end_time - self.start_time
 
     def __str__(self):
-        return "Evaluation started at " + str(self.start_time) + " and ended at " + str(self.end_time)
-
-    def __str__(self):
         return f"FAIR metrics evaluation : " \
                f"\n\t started at {self.start_time} " \
                f"\n\t lasted {self.get_test_time()} " \
