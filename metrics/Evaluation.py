@@ -1,6 +1,8 @@
 from metrics.test_metric import testMetric, requestResultSparql
 from datetime import datetime, timedelta
 import time
+import json
+from pymongo import MongoClient
 
 #########################
 class Evaluation():
@@ -28,8 +30,10 @@ class Evaluation():
     def set_reason(self, r):
         self.reason = r
 
+    #TODO check https://pymongo.readthedocs.io/en/stable/examples/datetimes.html
     def get_current_time(self):
-        return datetime.strptime(time.strftime('%Y-%m-%d %H:%M:%S'), '%Y-%m-%d %H:%M:%S')
+        # return datetime.strptime(time.strftime('%Y-%m-%d %H:%M:%S'), '%Y-%m-%d %H:%M:%S')
+        return datetime.now().isoformat()
 
     def get_score(self):
         return self.score
@@ -37,12 +41,22 @@ class Evaluation():
     def get_reason(self):
         return self.reason
 
-    # def evaluate(self):
-    #     self.set_start_time()
-    #     self.result_text = testMetric(self.api_url, self.tested_resource)
-    #     self.set_end_time()
-    #     # self.result_json = json.loads(self.result_text)
-    #     self.set_score(requestResultSparql(self.result_text, "ss:SIO_000300"))
+    def persist(self):
+        client = MongoClient()
+        db = client.fair_checker
+        db_eval = db.evaluations
+
+        eval = {
+            'uri': None,
+            'metrics': None,
+            'started_at': self.start_time,
+            'ended_at': self.end_time,
+            'success': self.score,
+            'reason': self.reason
+        }
+
+        r = db_eval.insert_one(eval)
+        return r
 
     def get_test_time(self):
         return self.end_time - self.start_time

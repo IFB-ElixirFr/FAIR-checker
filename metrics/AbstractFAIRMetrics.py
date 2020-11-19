@@ -1,5 +1,5 @@
 from metrics.test_metric import getMetrics, testMetric, requestResultSparql
-from metrics.evaluation import Evaluation
+from metrics.Evaluation import Evaluation
 
 from abc import ABC, abstractmethod
 

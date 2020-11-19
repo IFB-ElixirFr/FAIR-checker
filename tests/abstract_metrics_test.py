@@ -1,6 +1,7 @@
 from metrics.FAIRMetricsFactory import FAIRMetricsFactory
 from metrics.test_metric import getMetrics
 #from metrics.evaluation import Evaluation
+from pymongo import MongoClient
 
 import unittest
 
@@ -44,6 +45,17 @@ class AbstractMetricsTestCase(unittest.TestCase):
     def test_bwa(self):
         result = self.metrics[0].evaluate("http://bio.tools/bwa")
         self.assertEqual(str(1), str(result.get_score()))
+
+    def test_basic_stats(self):
+        client = MongoClient()
+        db = client.fair_checker
+        db_eval = db.evaluations
+        n1 = db_eval.count_documents({})
+        print(f'{n1} stored evaluation')
+        result = self.metrics[0].evaluate("http://bio.tools/bwa")
+        n2 = db_eval.count_documents({})
+        print(f'{n2} stored evaluation')
+        self.assertEqual(n2, n1+1)
 
 if __name__ == '__main__':
     unittest.main()

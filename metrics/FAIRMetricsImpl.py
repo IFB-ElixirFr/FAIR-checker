@@ -1,5 +1,5 @@
 from metrics.AbstractFAIRMetrics import AbstractFAIRMetrics
-from metrics.evaluation import Evaluation
+from metrics.Evaluation import Evaluation
 from metrics.test_metric import testMetric, requestResultSparql
 
 
@@ -29,5 +29,6 @@ class FAIRMetricsImpl(AbstractFAIRMetrics):
         # evaluation_obj.result_json = json.loads(self.result_text)
         eval.set_score(requestResultSparql(eval.result_text, "ss:SIO_000300"))
         eval.set_reason(requestResultSparql(eval.result_text, "schema:comment"))
+        eval.persist()
 
         return eval
