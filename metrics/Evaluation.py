@@ -33,7 +33,8 @@ class Evaluation():
     #TODO check https://pymongo.readthedocs.io/en/stable/examples/datetimes.html
     def get_current_time(self):
         # return datetime.strptime(time.strftime('%Y-%m-%d %H:%M:%S'), '%Y-%m-%d %H:%M:%S')
-        return datetime.now().isoformat()
+        # return datetime.now().isoformat()
+        return datetime.now()
 
     def get_score(self):
         return self.score
