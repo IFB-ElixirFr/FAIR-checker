@@ -29,6 +29,8 @@ class FAIRMetricsImpl(AbstractFAIRMetrics):
         # evaluation_obj.result_json = json.loads(self.result_text)
         eval.set_score(requestResultSparql(eval.result_text, "ss:SIO_000300"))
         eval.set_reason(requestResultSparql(eval.result_text, "schema:comment"))
+        eval.set_metrics(self.principle)
+        eval.set_target_uri(url)
         eval.persist()
 
         return eval

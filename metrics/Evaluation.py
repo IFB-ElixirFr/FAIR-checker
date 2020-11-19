@@ -8,12 +8,11 @@ from pymongo import MongoClient
 class Evaluation():
     start_time = None
     end_time = None
-
     score = None
-    # result_json = None
     result_text = None
     reason = None
-
+    metrics = None
+    target_uri = None
 
     def __init__(self):
         pass
@@ -30,6 +29,12 @@ class Evaluation():
     def set_reason(self, r):
         self.reason = r
 
+    def set_metrics(self, metrics):
+        self.metrics = str(metrics)
+
+    def set_target_uri(self, target_uri):
+        self.target_uri = str(target_uri)
+
     #TODO check https://pymongo.readthedocs.io/en/stable/examples/datetimes.html
     def get_current_time(self):
         # return datetime.strptime(time.strftime('%Y-%m-%d %H:%M:%S'), '%Y-%m-%d %H:%M:%S')
@@ -42,14 +47,20 @@ class Evaluation():
     def get_reason(self):
         return self.reason
 
+    def get_metrics(self):
+        return self.metrics
+
+    def get_target_uri(self):
+        return self.target_uri
+
     def persist(self):
         client = MongoClient()
         db = client.fair_checker
         db_eval = db.evaluations
 
         eval = {
-            'uri': None,
-            'metrics': None,
+            'target_uri': self.target_uri,
+            'metrics': self.metrics,
             'started_at': self.start_time,
             'ended_at': self.end_time,
             'success': self.score,

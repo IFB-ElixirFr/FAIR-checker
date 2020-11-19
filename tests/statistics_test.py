@@ -2,11 +2,12 @@ from metrics.FAIRMetricsFactory import FAIRMetricsFactory
 from metrics.test_metric import getMetrics
 #from metrics.evaluation import Evaluation
 from pymongo import MongoClient
+from datetime import datetime, date, timedelta
 
 import unittest
 
 
-class AbstractMetricsTestCase(unittest.TestCase):
+class StatisticsTestCase(unittest.TestCase):
     metrics = []
     factory = None
 
@@ -38,13 +39,43 @@ class AbstractMetricsTestCase(unittest.TestCase):
         except ValueError as e:
             print(f"no metrics implemention for {e}")
 
-    def test_bw(self):
-        result = self.metrics[2].evaluate("http://bio.tools/bw")
-        self.assertEqual(str(0), str(result.get_score()))
-
-    def test_bwa(self):
+    def test_basic_stats(self):
+        client = MongoClient()
+        db = client.fair_checker
+        db_eval = db.evaluations
+        n1 = db_eval.count_documents({})
+        print(f'{n1} stored evaluation')
         result = self.metrics[0].evaluate("http://bio.tools/bwa")
-        self.assertEqual(str(1), str(result.get_score()))
+        n2 = db_eval.count_documents({})
+        print(f'{n2} stored evaluation')
+        self.assertEqual(n2, n1+1)
+
+    def test_count_this_week(self):
+        client = MongoClient()
+        db = client.fair_checker
+        evaluations = db.evaluations
+
+        a_day_ago = datetime.now() - timedelta(1)
+        a_week_ago = datetime.now() - timedelta(7)
+        a_month_ago = datetime.now() - timedelta(30)
+
+        #nb_eval = evaluations.find({"started_at": {"$gt": a_day_ago}}).count_documents()
+        nb_eval = evaluations.count_documents({"started_at": {"$gt": a_week_ago}})
+        print(nb_eval)
+
+    def test_count_success_this_week(self):
+        client = MongoClient()
+        db = client.fair_checker
+        evaluations = db.evaluations
+
+        a_day_ago = datetime.now() - timedelta(1)
+        a_week_ago = datetime.now() - timedelta(7)
+        a_month_ago = datetime.now() - timedelta(30)
+
+        #nb_eval = evaluations.find({"started_at": {"$gt": a_day_ago}}).count_documents()
+        nb_eval = evaluations.count_documents({"started_at": {"$gt": a_week_ago}})
+        print(nb_eval)
+
 
 if __name__ == '__main__':
     unittest.main()
