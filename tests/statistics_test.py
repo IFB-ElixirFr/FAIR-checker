@@ -73,7 +73,20 @@ class StatisticsTestCase(unittest.TestCase):
         a_month_ago = datetime.now() - timedelta(30)
 
         #nb_eval = evaluations.find({"started_at": {"$gt": a_day_ago}}).count_documents()
-        nb_eval = evaluations.count_documents({"started_at": {"$gt": a_week_ago}})
+        nb_eval = evaluations.count_documents({"started_at": {"$gt": a_week_ago}, "success": "1"})
+        print(nb_eval)
+
+    def test_count_failed_this_week(self):
+        client = MongoClient()
+        db = client.fair_checker
+        evaluations = db.evaluations
+
+        a_day_ago = datetime.now() - timedelta(1)
+        a_week_ago = datetime.now() - timedelta(7)
+        a_month_ago = datetime.now() - timedelta(30)
+
+        #nb_eval = evaluations.find({"started_at": {"$gt": a_day_ago}}).count_documents()
+        nb_eval = evaluations.count_documents({"started_at": {"$gt": a_week_ago}, "success": "0"})
         print(nb_eval)
 
 
