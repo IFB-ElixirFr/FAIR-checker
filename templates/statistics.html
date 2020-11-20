@@ -1,0 +1,149 @@
+{% extends "layout.html" %}
+
+{% block nav %}
+{% include 'nav.html' %}
+{% endblock %}
+
+{% block body %}
+
+<script type="text/javascript" charset="utf-8">
+
+    $( document ).ready(function() {
+
+<!--        var cm = new CodeMirror.fromTextArea(document.getElementById("editor"), {-->
+<!--            lineNumbers: true,-->
+<!--            lineWrapping: true,-->
+<!--         });-->
+
+        console.log( "ready!" );
+        $("#notif").addClass("is-hidden");
+
+        console.log('trying to connect...');
+        var socket = io.connect({{ config['SERVER_IP']|tojson }});
+        //var socket = io();
+        console.log('connected');
+
+        //////////////////
+        // click handlers
+        //////////////////
+
+
+
+        //////////////////
+        // event handlers
+        //////////////////
+
+        socket.on('connect', function() {
+            socket.emit('hello', {data: 'I\'m connected!'});
+            console.log('hello message sent');
+        });
+    });
+</script>
+
+<section class="hero is-warning">
+  <div class="hero-body">
+    <div class="container">
+<!--      <h1 class="title">-->
+<!--        Primary title-->
+<!--      </h1>-->
+<!--      <h2 class="subtitle">-->
+<!--        Primary subtitle-->
+<!--      </h2>-->
+
+      <section class="section">
+          <nav class="level">
+            <div class="level-item has-text-centered">
+              <div>
+                <p class="heading">Evaluations this week</p>
+                <p class="title">{{ evals }}</p>
+              </div>
+            </div>
+            <div class="level-item has-text-centered">
+              <div>
+                <p class="heading">Success this week</p>
+                <p class="title">{{ success }}</p>
+              </div>
+            </div>
+            <div class="level-item has-text-centered">
+              <div>
+                <p class="heading">Failures this week</p>
+                <p class="title">{{ failures }}</p>
+              </div>
+            </div>
+          </nav>
+        </section>
+
+      <section class="section">
+          <nav class="level">
+            <div class="level-item has-text-centered">
+              <div>
+                <p class="heading">FINDABLE this week</p>
+                <p class="title">{{ f_success }}</p>
+              </div>
+            </div>
+            <div class="level-item has-text-centered">
+              <div>
+                <p class="heading">not FINDABLE this week</p>
+                <p class="title">{{ f_failures }}</p>
+              </div>
+            </div>
+          </nav>
+        </section>
+
+        <section class="section">
+          <nav class="level">
+            <div class="level-item has-text-centered">
+              <div>
+                <p class="heading">ACCESSIBLE this week</p>
+                <p class="title">{{ a_success }}</p>
+              </div>
+            </div>
+            <div class="level-item has-text-centered">
+              <div>
+                <p class="heading">not ACCESSIBLE this week</p>
+                <p class="title">{{ a_failures }}</p>
+              </div>
+            </div>
+          </nav>
+        </section>
+
+      <section class="section">
+          <nav class="level">
+            <div class="level-item has-text-centered">
+              <div>
+                <p class="heading">INTEROPERABLE this week</p>
+                <p class="title">{{ i_success }}</p>
+              </div>
+            </div>
+            <div class="level-item has-text-centered">
+              <div>
+                <p class="heading">not INTEROPERABLE this week</p>
+                <p class="title">{{ i_failures }}</p>
+              </div>
+            </div>
+          </nav>
+        </section>
+
+      <section class="section">
+          <nav class="level">
+            <div class="level-item has-text-centered">
+              <div>
+                <p class="heading">REUSABLE this week</p>
+                <p class="title">{{ r_success }}</p>
+              </div>
+            </div>
+            <div class="level-item has-text-centered">
+              <div>
+                <p class="heading">not REUSABLE this week</p>
+                <p class="title">{{ r_failures }}</p>
+              </div>
+            </div>
+          </nav>
+        </section>
+
+
+    </div>
+  </div>
+</section>
+
+{% endblock %}
