@@ -49,5 +49,10 @@ class AbstractMetricsTestCase(unittest.TestCase):
         result = self.metrics[0].evaluate("http://bio.tools/bwa")
         self.assertEqual(str(1), str(result.get_score()))
 
+    def test_all_bwa(self):
+        for m in self.metrics:
+            result = m.evaluate("http://bio.tools/bwa")
+            #self.assertEqual(str(1), str(result.get_score()))
+
 if __name__ == '__main__':
     unittest.main()

@@ -7,6 +7,8 @@ from metrics.test_metric import getMetrics
 from pymongo import MongoClient
 from datetime import datetime, date, timedelta
 
+import metrics.statistics as stats
+
 import unittest
 
 
@@ -89,6 +91,10 @@ class StatisticsTestCase(unittest.TestCase):
 
         nb_eval = evaluations.count_documents({"started_at": {"$gt": a_week_ago}, "success": "0"})
         print(nb_eval)
+
+    def test_per_principle(self):
+        print(stats.this_week_for_named_metrics(prefix='F', success=1))
+        print(stats.this_week_for_named_metrics(prefix='F', success=0))
 
 
 if __name__ == '__main__':
