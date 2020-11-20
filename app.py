@@ -32,7 +32,7 @@ import extruct
 #from extruct.jsonld import JsonLdExtractor
 
 
-import metrics.util  as util
+import metrics.util as util
 
 
 import sys
@@ -42,6 +42,9 @@ import sys
 # sys.path.append('../fairmetrics_interface_tests')
 # import metrics.test_metric
 from metrics import test_metric
+from metrics.Evaluation import Evaluation
+from metrics.FAIRMetricsFactory import FAIRMetricsFactory
+from metrics.FAIRMetricsImpl import FAIRMetricsImpl
 
 # Command line exec
 import subprocess
@@ -141,7 +144,39 @@ metrics = [{'name':'f1', 'category':'F', 'description': 'F1 verifies that ...  '
            {'name':'a1', 'category':'A'},
            {'name':'a2', 'category':'A'}]
 
+
+METRICS = {}
+json_metrics = test_metric.getMetrics()
+factory = FAIRMetricsFactory()
+
+# for i in range(1,3):
+try:
+    # metrics.append(factory.get_metric("test_f1"))
+    # metrics.append(factory.get_metric("test_r2"))
+    for metric in json_metrics:
+        # remove "FAIR Metrics Gen2" from metric name
+        name = metric["name"].replace('FAIR Metrics Gen2- ', '')
+        # same but other syntax because of typo
+        name = name.replace('FAIR Metrics Gen2 - ', '')
+        principle = metric["principle"]
+        METRICS[name] = factory.get_metric(
+            name,
+            metric["@id"],
+            metric["description"],
+            metric["smarturl"],
+            principle,
+            metric["creator"],
+            metric["created_at"],
+            metric["updated_at"],
+        )
+
+except ValueError as e:
+    print(f"no metrics implemention for {e}")
+
+
+
     ###### A DEPLACER AU LANCEMENT DU SERVEUR ######
+
 METRICS_RES = test_metric.getMetrics()
 
 kgs = {}
@@ -170,34 +205,54 @@ def handle_metric(json):
 
     @param json dict Contains the necessary informations to execute evaluate a metric.
     """
+
+
+
+    metric_name = json['metric_name']
     url = json['url']
-    api_url = json['api_url']
-    id = json['id']
-    principle = json['principle']
+    #
+    client_metric_id = json['id']
+    # principle = json['principle']
+    #
+    # data = '{"subject": "' + url + '"}'
+    # print(data)
+
+
+    ### NEW class IMPLE
+
+    id = METRICS[metric_name].get_id()
+    api_url = METRICS[metric_name].get_api()
+    principle = METRICS[metric_name].get_principle()
+
+
     print('RUNNING ' + principle + ' for '+str(url))
     emit('running_f')
-    data = '{"subject": "' + url + '"}'
-    print(data)
 
-    print(session)
+    result_object = METRICS[metric_name].evaluate(url)
+    evaluation_time = result_object.get_test_time()
+    score = result_object.get_score()
+
+    comment = result_object.get_reason()
+
+    ###
 
     content_uuid = json['uuid']
 
 
-    # evaluate metric
-    start_time = test_metric.getCurrentTime()
-    res = test_metric.testMetric(api_url, data)
-    # print(res)
-    end_time = test_metric.getCurrentTime()
-    evaluation_time = end_time - start_time
-    print(evaluation_time)
-
-    # get the score
-    score = test_metric.requestResultSparql(res, "ss:SIO_000300")
-    score = str(int(float(score)))
-
-    # get comment
-    comment = test_metric.requestResultSparql(res, "schema:comment")
+    # # evaluate metric
+    # start_time = test_metric.getCurrentTime()
+    # res = test_metric.testMetric(api_url, data)
+    # # print(res)
+    # end_time = test_metric.getCurrentTime()
+    # evaluation_time = end_time - start_time
+    # print(evaluation_time)
+    #
+    # # get the score
+    # score = test_metric.requestResultSparql(res, "ss:SIO_000300")
+    # score = str(int(float(score)))
+    #
+    # # get comment
+    # comment = test_metric.requestResultSparql(res, "schema:comment")
     # remove empty lines from the comment
     comment = test_metric.cleanComment(comment)
     all_comment = comment
@@ -217,11 +272,11 @@ def handle_metric(json):
 
     print(json_result)
     # might be removed
-    write_temp_metric_res_file(principle, api_url, res, evaluation_time, score, comment, content_uuid)
+    write_temp_metric_res_file(principle, api_url, evaluation_time, score, comment, content_uuid)
 
     principle = principle.split("/")[-1]
-    metric_name = api_url.split("/")[-1].replace("gen2_", "")
-    name = principle + "_" + metric_name
+    metric_label = api_url.split("/")[-1].replace("gen2_", "")
+    name = principle + "_" + metric_label
     csv_line = '"{}"\t"{}"\t"{}"\t"{}"'.format(name, score, str(evaluation_time), comment)
     emit_json = {
         "score": score,
@@ -233,8 +288,19 @@ def handle_metric(json):
 
     recommendation(emit_json, metric_name, comment)
 
-    emit('done_' + id, emit_json)
+    emit('done_' + client_metric_id, emit_json)
     print('DONE ' + principle)
+
+@socketio.on('quick_structured_data_search')
+def handle_quick_structured_data_search(url):
+    if url == "":
+        return False
+
+    extruct_rdf = util.extract_rdf_from_html(url)
+    graph = util.extruct_to_rdf(extruct_rdf)
+    result_list = util.rdf_to_triple_list(graph)
+    emit('done_data_search', result_list)
+
 
 
 def recommendation(emit_json, metric_name, comment):
@@ -368,7 +434,7 @@ def recommendation(emit_json, metric_name, comment):
         emit_json["recommendation"] = "Recommendation will be available soon."
 
 
-def write_temp_metric_res_file(principle, api_url, json_res, time, score, comment, content_uuid):
+def write_temp_metric_res_file(principle, api_url, time, score, comment, content_uuid):
     global DICT_TEMP_RES
     sid = request.sid
     temp_file_path = "./temp/" + sid
@@ -703,27 +769,43 @@ def base_metrics():
     print(str(session.items()))
     # sid = request.sid
     #return render_template('test_asynch.html')
-    metrics = []
-
-    metrics_res = METRICS_RES
-
-    for metric in metrics_res:
-        # remove "FAIR Metrics Gen2" from metric name
-        name = metric["name"].replace('FAIR Metrics Gen2- ','')
-        # same but other syntax because of typo
-        name = name.replace('FAIR Metrics Gen2 - ','')
-        metrics.append({
-            "name": name,
-            "description": metric["description"],
-            "api_url": metric["smarturl"],
-            "id": "metric_" + metric["@id"].rsplit('/', 1)[-1],
-            "principle": metric["principle"],
-            "principle_tag": metric["principle"].rsplit('/', 1)[-1],
-            "principle_category": metric["principle"].rsplit('/', 1)[-1][0],
-        })
+    # metrics = []
+    #
+    # metrics_res = METRICS_RES
+    #
+    # for metric in metrics_res:
+    #     # remove "FAIR Metrics Gen2" from metric name
+    #     name = metric["name"].replace('FAIR Metrics Gen2- ','')
+    #     # same but other syntax because of typo
+    #     name = name.replace('FAIR Metrics Gen2 - ','')
+    #     metrics.append({
+    #         "name": name,
+    #         "description": metric["description"],
+    #         "api_url": metric["smarturl"],
+    #         "id": "metric_" + metric["@id"].rsplit('/', 1)[-1],
+    #         "principle": metric["principle"],
+    #         "principle_tag": metric["principle"].rsplit('/', 1)[-1],
+    #         "principle_category": metric["principle"].rsplit('/', 1)[-1][0],
+    #     })
 
     raw_jld = buidJSONLD()
     print(app.config)
+
+
+    metrics = []
+
+    for key in METRICS.keys():
+        print()
+        metrics.append({
+            "name": METRICS[key].get_name(),
+            "description": METRICS[key].get_desc(),
+            "api_url": METRICS[key].get_api(),
+            "id": "metric_" + METRICS[key].get_id().rsplit('/', 1)[-1],
+            "principle": METRICS[key].get_principle(),
+            "principle_tag": METRICS[key].get_principle().rsplit('/', 1)[-1],
+            "principle_category": METRICS[key].get_principle().rsplit('/', 1)[-1][0],
+        })
+
 
     return render_template('metrics_summary.html', f_metrics=metrics, sample_data=sample_resources, jld=raw_jld, uuid=content_uuid)
 

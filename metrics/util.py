@@ -4,6 +4,8 @@ from rdflib.namespace import RDF
 import requests
 from jinja2 import Template
 from pyshacl import validate
+import extruct
+import json
 
 import re
 
@@ -25,7 +27,7 @@ def describe_opencitation(uri, g):
             PREFIX c4o: <http://purl.org/spar/c4o/>
 
             DESCRIBE ?x WHERE {
-                ?x datacite:hasIdentifier/literal:hasLiteralValue '""" + uri + """' 
+                ?x datacite:hasIdentifier/literal:hasLiteralValue '""" + uri + """'
             }
     """)
 
@@ -46,8 +48,8 @@ def describe_loa(uri, g):
     print(f'SPARQL for [ {uri} ] with enpoint [ LOA ]')
     sparql = SPARQLWrapper("http://lod.openaire.eu/sparql")
     sparql.setQuery("""
-            DESCRIBE ?x WHERE {   
-            ?x <http://lod.openaire.eu/vocab/resPersistentID> '""" + uri + """' 
+            DESCRIBE ?x WHERE {
+            ?x <http://lod.openaire.eu/vocab/resPersistentID> '""" + uri + """'
             }
     """)
 
@@ -76,8 +78,8 @@ def describe_wikidata(uri, g):
             PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
             PREFIX bd: <http://www.bigdata.com/rdf#>
 
-            DESCRIBE ?x WHERE {   
-                ?x wdt:P356 '""" + uri + """' 
+            DESCRIBE ?x WHERE {
+                ?x wdt:P356 '""" + uri + """'
             }
     """)
 
@@ -177,7 +179,7 @@ def shape_checks(kg):
         ] ;
         {% endfor %}
     .
-    
+
     schema:SoftwareShape
         a sh:NodeShape ;
         sh:targetClass schema:SoftwareApplication ;
@@ -190,7 +192,7 @@ def shape_checks(kg):
         ] ;
         {% endfor %}
     .
-        
+
     schema:DatasetShape
         a sh:NodeShape ;
         sh:targetClass schema:Dataset ;
@@ -203,7 +205,7 @@ def shape_checks(kg):
         ] ;
         {% endfor %}
     .
-    
+
     schema:DatasetShape
         a sh:NodeShape ;
         sh:targetClass schema:Dataset ;
@@ -216,7 +218,7 @@ def shape_checks(kg):
         ] ;
         {% endfor %}
     .
-    
+
     schema:PaperShape
         a sh:NodeShape ;
         sh:targetClass schema:ScholarlyArticle ;
@@ -229,7 +231,7 @@ def shape_checks(kg):
         ] ;
         {% endfor %}
     .
-    
+
     schema:PaperShape
         a sh:NodeShape ;
         sh:targetClass schema:ScholarlyArticle ;
@@ -242,7 +244,7 @@ def shape_checks(kg):
         ] ;
         {% endfor %}
     .
-    
+
     """
 
     data = {
@@ -278,7 +280,7 @@ def shape_checks(kg):
             ?v rdf:type sh:ValidationReport ;
                sh:result ?r .
             ?r sh:focusNode ?node ;
-               sh:sourceShape ?s . 
+               sh:sourceShape ?s .
             ?s sh:path ?path ;
                sh:severity ?severity .
         }
@@ -294,3 +296,37 @@ def shape_checks(kg):
             errors.append(f'Property {r["path"]} <span class="has-text-danger has-text-weight-bold">must be</span> provided')
 
     return warnings, errors
+
+
+def extract_rdf_from_html(uri):
+    page = requests.get(uri)
+    html = page.content
+
+    d = extruct.extract(html, syntaxes=['microdata', 'rdfa', 'json-ld'], errors='ignore')
+    return d
+
+def extruct_to_rdf(extruct_str):
+
+    g = ConjunctiveGraph()
+
+    for md in extruct_str["json-ld"]:
+        g.parse(data=json.dumps(md, ensure_ascii=False), format="json-ld")
+
+    for md in extruct_str['rdfa']:
+        g.parse(data=json.dumps(md, ensure_ascii=False), format="json-ld")
+
+    for md in extruct_str['microdata']:
+        g.parse(data=json.dumps(md, ensure_ascii=False), format="json-ld")
+
+    return g
+
+
+def rdf_to_triple_list(graph):
+    tuple_list = []
+    for s, p, o in graph.triples((None, None, None)):
+        print("{} => {} => {}".format(s, p, o))
+        tuple_list.append((str(s), str(p), str(o)))
+
+    return tuple_list
+    # for s, p, o in graph.triples((None,  RDF.type, None)):
+    #     print("{} => {}".format(p, o))

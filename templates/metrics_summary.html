@@ -47,6 +47,7 @@
 
             // socket.emit('evaluate_{{f.id}}', {
             socket.emit('evaluate_metric', {
+                          metric_name: "{{ f.name }}",
                           url: $("#url").val(),
                           api_url: "{{f.api_url}}",
                           id: "{{f.id}}",
@@ -259,6 +260,28 @@
             $("#notif").removeClass("is-hidden");
         });
 
+
+        // trigger quick_structured_data_search on focus lost
+        $("#quick_search_button").on('click', function(){
+            console.log("focus lost");
+            socket.emit('quick_structured_data_search', $("#url").val())
+        });
+        socket.on('done_data_search', function(array) {
+            $("#structured_data_table > tbody").empty();
+            // console.log(value);
+            // var structured_data_table = $("#structured_data_table")
+            for (const elements of array) {
+
+                var table_body = $('#structured_data_table').find('tbody');
+                var table_row = table_body.append($('<tr>'));
+                for (const elem of elements) {
+                    table_row.append($('<td>').text(elem));
+                }
+
+            }
+
+        });
+
         socket.emit('fast');
         //socket.emit('slow');
         //socket.emit('long');
@@ -306,9 +329,34 @@
               </div>
           {% endfor %}
       </div>
-      <input id="url" name="url" class="input" type="text" placeholder="FAIR resource URL" value="http://bio.tools/bwa">
+      <input id="url" name="url" class="input" type="text" placeholder="FAIR resource URL">
       <span><p id="is_doi"></p></span
     </div>
+    <!-- <br>
+    <div class="card">
+        <header class="card-header">
+
+            <div class="card-header-title">
+              <button id="quick_search_button" class="button is-info">Quick structured data search<i class="fa fa-search fa-fw"></i></button>
+            </div>
+
+            <a class="card-header-icon card-toggle">
+              <i class="fa fa-angle-down"></i>
+            </a>
+        </header>
+        <div id="quick_structured_data_search" class="card-content is-hidden">
+          <table id="structured_data_table" class="table is-hoverable">
+              <thead>
+                  <td>Subject</td>
+                  <td>Predicate</td>
+                  <td>Object</td>
+              </thead>
+              <tbody>
+              </tbody>
+          </table>
+        </div>
+    </div> -->
+
 </article>
 
 <!-- Start metric section -->

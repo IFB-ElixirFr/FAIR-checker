@@ -1,3 +1,6 @@
+import sys
+sys.path.insert(1, '..')
+
 from metrics.FAIRMetricsFactory import FAIRMetricsFactory
 from metrics.test_metric import getMetrics
 #from metrics.evaluation import Evaluation
@@ -24,7 +27,7 @@ class AbstractMetricsTestCase(unittest.TestCase):
                 name = metric["name"].replace('FAIR Metrics Gen2- ', '')
                 # same but other syntax because of typo
                 name = name.replace('FAIR Metrics Gen2 - ', '')
-                principle = metric["principle"].rsplit('/', 1)[-1]
+                principle = metric["principle"]
                 cls.metrics.append(factory.get_metric(
                     name,
                     metric["@id"],
