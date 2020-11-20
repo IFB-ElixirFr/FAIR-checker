@@ -6,6 +6,7 @@ FROM ubuntu:18.04
 RUN apt-get update
 
 RUN apt-get install -y git curl wget bzip2 vim lynx
+#RUN apt-get install -y mongodb
 
 # Install miniconda to /miniconda
 RUN curl -LO http://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh

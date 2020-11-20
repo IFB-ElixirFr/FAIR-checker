@@ -1,3 +1,6 @@
+import sys
+sys.path.insert(1, '..')
+
 from metrics.FAIRMetricsFactory import FAIRMetricsFactory
 from metrics.test_metric import getMetrics
 #from metrics.evaluation import Evaluation

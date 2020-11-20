@@ -59,7 +59,7 @@ class MyTestCase(unittest.TestCase):
         h = {'Accept': 'application/json'}
         data = '{"subject": "' + doi + '"}'
         data = data.encode("utf-8")
-        res = requests.post(smarturl, headers=h, params=p)
+        res = requests.post(smarturl, headers=h, params=data)
         print(res)
 
 
