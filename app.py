@@ -33,12 +33,10 @@ import extruct
 
 
 import metrics.util as util
+import metrics.statistics as stats
 
 
 import sys
-
-
-
 # sys.path.append('../fairmetrics_interface_tests')
 # import metrics.test_metric
 from metrics import test_metric
@@ -176,7 +174,6 @@ except ValueError as e:
 
 
     ###### A DEPLACER AU LANCEMENT DU SERVEUR ######
-
 METRICS_RES = test_metric.getMetrics()
 
 kgs = {}
@@ -196,6 +193,23 @@ def favicon():
 @app.route('/')
 def home():
     return redirect(url_for('base_metrics'))
+
+@app.route('/statistics')
+def statistics():
+    return render_template('statistics.html',
+                           evals=stats.evaluations_this_week(),
+                           success=stats.success_this_week(),
+                           failures=stats.failures_this_week(),
+                           f_success=stats.this_week_for_named_metrics(prefix='F',success=1),
+                           f_failures=stats.this_week_for_named_metrics(prefix='F',success=0),
+                           a_success=stats.this_week_for_named_metrics(prefix='A', success=1),
+                           a_failures=stats.this_week_for_named_metrics(prefix='A', success=0),
+                           i_success=stats.this_week_for_named_metrics(prefix='I', success=1),
+                           i_failures=stats.this_week_for_named_metrics(prefix='I', success=0),
+                           r_success=stats.this_week_for_named_metrics(prefix='R', success=1),
+                           r_failures=stats.this_week_for_named_metrics(prefix='R', success=0)
+                           )
+
 
 @socketio.on('evaluate_metric')
 def handle_metric(json):
