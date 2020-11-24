@@ -291,7 +291,7 @@
 <h1 class="title">How FAIR is my resource</h1>
 
 <!-- description section -->
-<article class="message is-info">
+<article id="description" class="message is-info">
     <div class="message-header">
         <p>Demo context and goal</p>
     </div>
@@ -305,11 +305,17 @@
 </article>
 
 <!-- input uri section -->
-<article class="message is-info">
+<article id="url_selection" class="message is-info">
     <div class="message-header">
-        <p>Enter or select a sample resource identifier</p>
+        <p>Enter or select a resource identifier example</p>
     </div>
     <div class="message-body">
+      <input id="url" name="url" class="input is-large" type="text" placeholder="FAIR resource URL">
+      <span><p id="is_doi"></p></span>
+      <br>
+      OR pick an example:
+      <br>
+      <br>
       <div class="columns is-multiline is-mobile">
           {% for k in sample_data.keys() %}
               <div class="column is-one-third">
@@ -329,8 +335,7 @@
               </div>
           {% endfor %}
       </div>
-      <input id="url" name="url" class="input" type="text" placeholder="FAIR resource URL">
-      <span><p id="is_doi"></p></span
+
     </div>
     <!-- <br>
     <div class="card">
@@ -360,7 +365,7 @@
 </article>
 
 <!-- Start metric section -->
-<article class="message is-info">
+<article id="start_test" class="message is-info">
     <div class="message-header">
         <p>Start basic or advanced test (select metrics using checkboxes below)</p>
     </div>
@@ -388,7 +393,7 @@
 
 
 <!-- Metrics sselection checkboxes section -->
-<article class="message is-info">
+<article id="select_metrics" class="message is-info">
     <div class="message-header">
         <p>Select the metrics you want to test</p>
     </div>
@@ -431,7 +436,7 @@
 </article>
 
 
-<article class="message is-info">
+<article id="radar_chart" class="message is-info">
     <div class="message-header">
         <p>Radar chart of metrics completion</p>
     </div>
@@ -442,7 +447,7 @@
 
 
 
-<article class="message is-info">
+<article id="metrics_details_rec" class="message is-info">
     <div class="message-header">
         <p>List of metrics with details and completion status</p>
     </div>
