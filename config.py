@@ -5,7 +5,8 @@ class Config(object):
 
 
 class ProductionConfig(Config):
-    SERVER_IP = "https://192.54.201.35"
+    #SERVER_IP = "https://134.158.247.212"
+    SERVER_IP = "https://fair-checker.france-bioinformatique.fr"
 
 
 class DevelopmentConfig(Config):
