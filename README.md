@@ -38,11 +38,11 @@ sudo docker build -t fair-checker-webapp --build-arg FLASK_ENV=production .
 
 Run attached:
 ```
-sudo docker run -p 5000:5000 --name fair-checker-webapp fair-checker-webapp
+sudo docker run --network="host" -p 5000:5000 --name fair-checker-webapp fair-checker-webapp
 ```
 Run dettached:
 ```
-sudo docker run -p 5000:5000 --name fair-checker-webapp -d fair-checker-webapp
+sudo docker run --network="host" -p 5000:5000 --name fair-checker-webapp -d fair-checker-webapp
 ```
 
 In case of code update:

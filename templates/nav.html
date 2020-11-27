@@ -2,9 +2,21 @@
     <p class="menu-label">FAIR checks</p>
     <ul class="menu-list">
         <!-- <li><a href="{{ url_for('is_it_fair') }}">Basic</a></li> -->
-        <li><a href="{{ url_for('base_metrics') }}">Base Metrics</a></li>
-        <li><a href="{{ url_for('kg_metrics') }}">Custom Metrics</a></li>
+        <li>
+          <a href="{{ url_for('base_metrics') }}">Base Metrics</a>
+          <ul>
+            <li><a href="#description"><i class="fa fa-info-circle"></i> Description</a></li>
+            <li><a href="#url_selection"><i class="fa fa-link"></i> URL Selection</a></li>
+            <li><a href="#start_test"><i class="fa fa-play"></i> Start test</a></li>
+            <li><a href="#select_metrics"><i class="fa fa-check"></i> Select metrics</a></li>
+            <li><a href="#radar_chart"><i class="fa fa-pie-chart"></i> Radar chart</a></li>
+            <li><a href="#metrics_details_rec"><i class="fa fa-book"></i> Metrics list details and recommendations</a></li>
+          </ul>
+        </li>
         <li><a href="{{ url_for('statistics') }}">Usage statistics</a></li>
     </ul>
+    <p class="menu-label">Beta</p>
+    <ul class="menu-list">
+      <li><a href="{{ url_for('kg_metrics') }}">Custom Metrics</a></li>
+    </ul>
 </aside>
-
