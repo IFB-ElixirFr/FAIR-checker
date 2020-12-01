@@ -50,9 +50,55 @@ class AbstractMetricsTestCase(unittest.TestCase):
         self.assertEqual(str(1), str(result.get_score()))
 
     def test_all_bwa(self):
+        print("Test all bwa")
+        scores = [1,0,0,1,1,0,0,0,0,1,0,1,0,1,1,0,0,0,0,0,0,0]
+        i = 0
         for m in self.metrics:
             result = m.evaluate("http://bio.tools/bwa")
-            #self.assertEqual(str(1), str(result.get_score()))
+            self.assertEqual(str(scores[i]), str(result.get_score()))
+            i += 1
+
+    def test_all_pangaea(self):
+        print("Test all pangaea")
+        scores = [1,0,0,1,1,1,0,0,1,1,1,1,0,1,1,0,0,1,1,1,1,1]
+        i = 0
+        for m in self.metrics:
+
+            result = m.evaluate("https://doi.pangaea.de/10.1594/PANGAEA.914331")
+            self.assertEqual(str(scores[i]), str(result.get_score()))
+            i += 1
+
+    def test_names(self):
+        print("Test all names")
+        names = [
+            "Unique Identifier",
+            "Identifier Persistence",
+            "Data Identifier Persistence",
+            "Structured Metadata",
+            "Grounded Metadata",
+            "Data Identifier Explicitly In Metadata",
+            "Metadata Identifier Explicitly In Metadata",
+            "Searchable in major search engine",
+            "Uses open free protocol for data retrieval",
+            "Uses open free protocol for metadata retrieval",
+            "Data authentication and authorization",
+            "Metadata authentication and authorization",
+            "Metadata Persistence",
+            "Metadata Knowledge Representation Language (weak)",
+            "Metadata Knowledge Representation Language (strong)",
+            "Data Knowledge Representation Language (weak)",
+            "Data Knowledge Representation Language (strong)",
+            "Metadata uses FAIR vocabularies (weak)",
+            "Metadata uses FAIR vocabularies (strong)",
+            "Metadata contains qualified outward references)",
+            "Metadata Includes License (strong)",
+            "Metadata Includes License (weak)",
+        ]
+        i = 0
+        for m in self.metrics:
+            print(m.get_name())
+            self.assertEqual(str(names[i]),str(m.get_name()))
+            i += 1
 
 if __name__ == '__main__':
     unittest.main()
