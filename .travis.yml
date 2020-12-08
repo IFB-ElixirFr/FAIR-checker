@@ -28,7 +28,7 @@ install:
 
 script:
   #- cd src
-  - nose2 -v
+  - nose2 -C --pretty-assert
 
 notifications:
   email:
