@@ -78,4 +78,4 @@ class Evaluation():
                f"\n\t started at {self.start_time} " \
                f"\n\t lasted {self.get_test_time()} " \
                f"\n\t score {self.score} " \
-               f"\n\t reason {self.reason} " \
+               f"\n\t reason {self.reason} "
