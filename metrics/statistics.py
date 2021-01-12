@@ -54,3 +54,71 @@ def failures_this_week():
 
     nb_eval = evaluations.count_documents({"started_at": {"$gt": a_week_ago}, "success": "0"})
     return nb_eval
+
+def success_weekly_one_year():
+    client = MongoClient()
+    db = client.fair_checker
+    evaluations = db.evaluations
+
+    a_week_ago = datetime.now() - timedelta(356)
+
+    pipeline = [
+        {
+            "$match": {
+                "started_at": {"$gt": a_week_ago},
+                "success": "1",
+            }
+        },
+        {
+            "$group": {
+
+                "_id": {
+                    "week": { "$isoWeek": "$started_at"},
+                    "year": { "$year": "$started_at"},
+                },
+                "documentCount": {"$sum": 1}
+            }
+        }
+    ];
+    # print(list(db.evaluations.aggregate(pipeline)))
+    week_count_eval = {}
+    results = list(db.evaluations.aggregate(pipeline))
+    for result in results:
+        year_week = str(result["_id"]["year"]) + "-" + str(result["_id"]["week"])
+        week_count_eval[year_week] = result["documentCount"]
+
+    return week_count_eval
+
+def failures_weekly_one_year():
+    client = MongoClient()
+    db = client.fair_checker
+    evaluations = db.evaluations
+
+    a_week_ago = datetime.now() - timedelta(356)
+
+    pipeline = [
+        {
+            "$match": {
+                "started_at": {"$gt": a_week_ago},
+                "success": "0",
+            }
+        },
+        {
+            "$group": {
+
+                "_id": {
+                    "week": { "$isoWeek": "$started_at"},
+                    "year": { "$year": "$started_at"},
+                },
+                "documentCount": {"$sum": 1}
+            }
+        }
+    ];
+    # print(list(db.evaluations.aggregate(pipeline)))
+    week_count_eval = {}
+    results = list(db.evaluations.aggregate(pipeline))
+    for result in results:
+        year_week = str(result["_id"]["year"]) + "-" + str(result["_id"]["week"])
+        week_count_eval[year_week] = result["documentCount"]
+
+    return week_count_eval

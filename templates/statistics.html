@@ -150,7 +150,11 @@
 <!-- Load d3.js -->
 <script src="https://d3js.org/d3.v4.js"></script>
 
-</<section>
+<!-- //////////////////
+/// First BAR Chart ///
+/////////////////// -->
+
+<section>
   <!-- Create a div where the graph will take place -->
   <div id="my_dataviz" class="columns is-mobile is-centered"></div>
 
@@ -240,6 +244,104 @@ d3.csv("https://raw.githubusercontent.com/holtzy/D3-graph-gallery/master/DATA/da
 
 })
 
+</script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+<!-- //////////////////
+/// Second BAR Chart ///
+/////////////////// -->
+
+<!-- <canvas id="myChart" width="400" height="400"></canvas> -->
+<section>
+  <!-- Create a div where the graph will take place -->
+  <div>
+    <canvas id="myChart" class="columns is-mobile is-centered"></canvas>
+  </div>
+</section>
+
+
+<script>
+  var ctx = document.getElementById("myChart").getContext("2d");
+
+
+
+  var data2 = {
+      labels: ["Total", "F", "A", "I", "R"],
+      datasets: [
+          {
+              label: "Success",
+              backgroundColor: "green",
+              data: [{{ success }},{{ f_success }},{{ a_success }},{{ i_success }},{{ r_success }}]
+          },
+          {
+              label: "Failures",
+              backgroundColor: "red",
+              data: [{{ failures }},{{ f_failures }},{{ a_failures }},{{ i_failures }},{{ r_failures }}]
+          }
+      ]
+  };
+
+
+
+  var myBarChart = new Chart(ctx, {
+      type: 'bar',
+      data: data2,
+      options: {
+          barValueSpacing: 20,
+          scales: {
+              yAxes: [{
+                  ticks: {
+                      min: 0,
+                  }
+              }]
+          }
+      }
+  });
+</script>
+
+
+
+<section>
+
+  <div >
+    <canvas id="myLineChart" class="columns is-mobile is-centered" ></canvas>
+  </div>
+
+</section>
+<script>
+  var ctx = document.getElementById("myLineChart").getContext("2d");
+  console.log( {{ success_weekly|tojson }});
+
+  const labels = Object.keys({{ success_weekly|tojson }});
+  const values_success = Object.values({{ success_weekly|tojson }});
+  const values_failures = Object.values({{ failures_weekly|tojson }});
+
+  var data = {
+      labels: labels,
+      datasets: [
+          {
+              label: "Success",
+              borderColor: "green",
+              // backgroundColor: 'rgba(0, 0, 0, 0.1)',
+              fill: false,
+              data: values_success,
+          },
+          {
+              label: "Failures",
+              borderColor: "red",
+              // backgroundColor: 'rgba(0, 0, 0, 0.1)',
+              fill: false,
+              data: values_failures,
+          },
+      ]
+  };
+
+  var myLineChart = new Chart(ctx, {
+    type: 'line',
+    data: data,
+
+  });
 </script>
 
 {% endblock %}
