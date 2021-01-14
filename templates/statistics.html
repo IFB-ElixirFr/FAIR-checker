@@ -147,104 +147,7 @@
 </section>
 
 
-<!-- Load d3.js -->
-<script src="https://d3js.org/d3.v4.js"></script>
-
-<!-- //////////////////
-/// First BAR Chart ///
-/////////////////// -->
-
-<section>
-  <!-- Create a div where the graph will take place -->
-  <div id="my_dataviz" class="columns is-mobile is-centered"></div>
-
-</section>
-
-<script>
-
-// set the dimensions and margins of the graph
-var margin = {top: 10, right: 30, bottom: 20, left: 50},
-    width = 460 - margin.left - margin.right,
-    height = 400 - margin.top - margin.bottom;
-
-// append the svg object to the body of the page
-var svg = d3.select("#my_dataviz")
-  .append("svg")
-    .attr("width", width + margin.left + margin.right)
-    .attr("height", height + margin.top + margin.bottom)
-  .append("g")
-    .attr("transform",
-          "translate(" + margin.left + "," + margin.top + ")");
-
-// Parse the Data
-d3.csv("https://raw.githubusercontent.com/holtzy/D3-graph-gallery/master/DATA/data_stacked.csv", function(data) {
-
-  var data2 = [
-    {"metric": "Total", "success": {{ success }}, "failure": {{ failures }}},
-    {"metric": "F", "success": {{ f_success }}, "failure": {{ f_failures }}},
-    {"metric": "A", "success": {{ a_success }}, "failure": {{ a_failures }}},
-    {"metric": "I", "success": {{ i_success }}, "failure": {{ i_failures }}},
-    {"metric": "R", "success": {{ r_success }}, "failure": {{ r_failures }}},
-  ]
-  data2["columns"] = ["metric", "success", "failure"]
-  data = data2
-  // List of subgroups = header of the csv files = soil condition here
-  var subgroups = data.columns.slice(1)
-  console.log(subgroups);
-
-  // List of groups = species here = value of the first column called group -> I show them on the X axis
-  var groups = d3.map(data, function(d){return(d.metric)}).keys()
-  console.log(groups);
-
-  // Add X axis
-  var x = d3.scaleBand()
-      .domain(groups)
-      .range([0, width])
-      .padding([0.2])
-  svg.append("g")
-    .attr("transform", "translate(0," + height + ")")
-    .call(d3.axisBottom(x).tickSize(0));
-
-  // Add Y axis
-  // Calcul height
-  max_height = Math.max({{ success }}, {{ failures }}) + 5;
-  var y = d3.scaleLinear()
-    .domain([0, max_height])
-    .range([ height, 0 ]);
-  svg.append("g")
-    .call(d3.axisLeft(y));
-
-  // Another scale for subgroup position?
-  var xSubgroup = d3.scaleBand()
-    .domain(subgroups)
-    .range([0, x.bandwidth()])
-    .padding([0.05])
-
-  // color palette = one color per subgroup
-  var color = d3.scaleOrdinal()
-    .domain(subgroups)
-    .range(['#4daf4a', '#e41a1c'])
-
-  // Show the bars
-  svg.append("g")
-    .selectAll("g")
-    // Enter in data = loop group per group
-    .data(data)
-    .enter()
-    .append("g")
-      .attr("transform", function(d) { return "translate(" + x(d.metric) + ",0)"; })
-    .selectAll("rect")
-    .data(function(d) { return subgroups.map(function(key) { return {key: key, value: d[key]}; }); })
-    .enter().append("rect")
-      .attr("x", function(d) { return xSubgroup(d.key); })
-      .attr("y", function(d) { return y(d.value); })
-      .attr("width", xSubgroup.bandwidth())
-      .attr("height", function(d) { return height - y(d.value); })
-      .attr("fill", function(d) { return color(d.key); });
-
-})
-
-</script>
+<br>
 
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
@@ -252,13 +155,48 @@ d3.csv("https://raw.githubusercontent.com/holtzy/D3-graph-gallery/master/DATA/da
 /// Second BAR Chart ///
 /////////////////// -->
 
-<!-- <canvas id="myChart" width="400" height="400"></canvas> -->
-<section>
-  <!-- Create a div where the graph will take place -->
-  <div>
-    <canvas id="myChart" class="columns is-mobile is-centered"></canvas>
-  </div>
-</section>
+
+<article id="radar_chart" class="message is-info">
+    <div class="message-header">
+        <p>Last 7 days results</p>
+    </div>
+    <div class="message-body">
+      <!-- <canvas id="myChart" width="400" height="400"></canvas> -->
+      <section>
+        <!-- Create a div where the graph will take place -->
+        <div>
+          <canvas id="myChart" class="columns is-mobile is-centered"></canvas>
+        </div>
+      </section>
+    </div>
+</article>
+
+<article id="radar_chart" class="message is-info">
+    <div class="message-header">
+        <p>Weekly results</p>
+    </div>
+    <div class="message-body">
+      <!-- <canvas id="myChart" width="400" height="400"></canvas> -->
+      <p class="control">
+          <button id="update_stats_total" data-fair="Total" class="button is-info"><i class="fa fa-bar-chart fa-fw"></i>Total</button>
+      </p>
+      <p class="control">
+          <button id="update_stats_f" data-fair="F" class="button is-info"><i class="fa fa-bar-chart fa-fw"></i>Findable</button>
+      </p>
+      <p class="control">
+          <button id="update_stats_a" data-fair="A" class="button is-info"><i class="fa fa-bar-chart fa-fw"></i>Accessible</button>
+      </p>
+      <section>
+
+        <div >
+          <canvas id="myLineChart" class="columns is-mobile is-centered" ></canvas>
+        </div>
+
+      </section>
+    </div>
+</article>
+
+
 
 
 <script>
@@ -271,12 +209,16 @@ d3.csv("https://raw.githubusercontent.com/holtzy/D3-graph-gallery/master/DATA/da
       datasets: [
           {
               label: "Success",
-              backgroundColor: "green",
+              borderWidth: '1',
+              borderColor: 'rgba(75, 192, 192, 1)',
+              backgroundColor: 'rgba(219, 242, 242, 0.5)',
               data: [{{ success }},{{ f_success }},{{ a_success }},{{ i_success }},{{ r_success }}]
           },
           {
               label: "Failures",
-              backgroundColor: "red",
+              borderWidth: '1',
+              borderColor: 'rgba(255, 99, 132, 1)',
+              backgroundColor: 'rgba(255, 224, 230, 0.5)',
               data: [{{ failures }},{{ f_failures }},{{ a_failures }},{{ i_failures }},{{ r_failures }}]
           }
       ]
@@ -302,13 +244,7 @@ d3.csv("https://raw.githubusercontent.com/holtzy/D3-graph-gallery/master/DATA/da
 
 
 
-<section>
 
-  <div >
-    <canvas id="myLineChart" class="columns is-mobile is-centered" ></canvas>
-  </div>
-
-</section>
 <script>
   var ctx = document.getElementById("myLineChart").getContext("2d");
   console.log( {{ success_weekly|tojson }});
@@ -322,14 +258,14 @@ d3.csv("https://raw.githubusercontent.com/holtzy/D3-graph-gallery/master/DATA/da
       datasets: [
           {
               label: "Success",
-              borderColor: "green",
+              borderColor: 'rgba(75, 192, 192, 1)',
               // backgroundColor: 'rgba(0, 0, 0, 0.1)',
               fill: false,
               data: values_success,
           },
           {
               label: "Failures",
-              borderColor: "red",
+              borderColor: 'rgba(255, 99, 132, 1)',
               // backgroundColor: 'rgba(0, 0, 0, 0.1)',
               fill: false,
               data: values_failures,
@@ -340,6 +276,31 @@ d3.csv("https://raw.githubusercontent.com/holtzy/D3-graph-gallery/master/DATA/da
   var myLineChart = new Chart(ctx, {
     type: 'line',
     data: data,
+    options: {
+        title: {
+            display: true,
+            text: 'Total metrics weekly results'
+        },
+    },
+
+  });
+
+
+</script>
+
+<script>
+  // start all selected metrics test
+  $('#update_stats_f').on('click', function($e){
+    console.log($(this).data("fair"));
+    myLineChart.options.title.text = 'Findable chart';
+    const findable_values_success = Object.values({{ f_success_weekly|tojson }});
+    const findable_values_failures = Object.values({{ f_failures_weekly|tojson }});
+
+    myLineChart.data.datasets[0].data = findable_values_success;
+    myLineChart.data.datasets[1].data = findable_values_failures;
+
+
+    myLineChart.update();
 
   });
 </script>

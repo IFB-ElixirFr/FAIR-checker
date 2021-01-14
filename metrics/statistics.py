@@ -60,12 +60,12 @@ def success_weekly_one_year():
     db = client.fair_checker
     evaluations = db.evaluations
 
-    a_week_ago = datetime.now() - timedelta(356)
+    a_year_ago = datetime.now() - timedelta(356)
 
     pipeline = [
         {
             "$match": {
-                "started_at": {"$gt": a_week_ago},
+                "started_at": {"$gt": a_year_ago},
                 "success": "1",
             }
         },
@@ -80,7 +80,7 @@ def success_weekly_one_year():
             }
         }
     ];
-    # print(list(db.evaluations.aggregate(pipeline)))
+
     week_count_eval = {}
     results = list(db.evaluations.aggregate(pipeline))
     for result in results:
@@ -94,12 +94,12 @@ def failures_weekly_one_year():
     db = client.fair_checker
     evaluations = db.evaluations
 
-    a_week_ago = datetime.now() - timedelta(356)
+    a_year_ago = datetime.now() - timedelta(356)
 
     pipeline = [
         {
             "$match": {
-                "started_at": {"$gt": a_week_ago},
+                "started_at": {"$gt": a_year_ago},
                 "success": "0",
             }
         },
@@ -114,11 +114,47 @@ def failures_weekly_one_year():
             }
         }
     ];
-    # print(list(db.evaluations.aggregate(pipeline)))
+
     week_count_eval = {}
     results = list(db.evaluations.aggregate(pipeline))
     for result in results:
         year_week = str(result["_id"]["year"]) + "-" + str(result["_id"]["week"])
         week_count_eval[year_week] = result["documentCount"]
 
+    return week_count_eval
+
+
+def weekly_named_metrics(prefix='F', success=0):
+    client = MongoClient()
+    db = client.fair_checker
+    evaluations = db.evaluations
+
+    a_year_ago = datetime.now() - timedelta(356)
+
+    pipeline = [
+        {
+            "$match": {
+                "started_at": {"$gt": a_year_ago},
+                "success": str(success),
+                "metrics": {"$regex": "^" + prefix},
+            }
+        },
+        {
+            "$group": {
+
+                "_id": {
+                    "week": { "$isoWeek": "$started_at"},
+                    "year": { "$year": "$started_at"},
+                },
+                "documentCount": {"$sum": 1}
+            }
+        }
+    ];
+
+    week_count_eval = {}
+    results = list(db.evaluations.aggregate(pipeline))
+
+    for result in results:
+        year_week = str(result["_id"]["year"]) + "-" + str(result["_id"]["week"])
+        week_count_eval[year_week] = result["documentCount"]
     return week_count_eval
