@@ -1,6 +1,52 @@
 <!-- <button id="update">Update</button> -->
 <div id="chart-radar" class="columns is-mobile is-centered"></div>
 
+
+<!-- <canvas id="radar-chart" class="columns is-mobile is-centered"></canvas> -->
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+
+<script type="text/javascript" charset="utf-8">
+  var ctx = document.getElementById("radar-chart").getContext("2d");
+
+  var data2 = {
+      labels: ["Total", "F", "A", "I", "R"],
+      datasets: [
+          {
+              label: "Success",
+              borderWidth: '1',
+              borderColor: 'rgba(75, 192, 192, 1)',
+              backgroundColor: 'rgba(219, 242, 242, 0.5)',
+              data: [{{ success }},{{ f_success }},{{ a_success }},{{ i_success }},{{ r_success }}]
+          },
+          {
+              label: "Failures",
+              borderWidth: '1',
+              borderColor: 'rgba(255, 99, 132, 1)',
+              backgroundColor: 'rgba(255, 224, 230, 0.5)',
+              data: [{{ failures }},{{ f_failures }},{{ a_failures }},{{ i_failures }},{{ r_failures }}]
+          }
+      ]
+  };
+
+
+
+  var myRadarChart = new Chart(ctx, {
+      type: 'radar',
+      // data: data2,
+      // options: {
+      //     barValueSpacing: 20,
+      //     scales: {
+      //         yAxes: [{
+      //             ticks: {
+      //                 min: 0,
+      //             }
+      //         }]
+      //     }
+      // }
+  });
+</script>
+
 <script type="text/javascript" charset="utf-8">
 
 

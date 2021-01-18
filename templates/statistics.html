@@ -176,16 +176,25 @@
         <p>Weekly results</p>
     </div>
     <div class="message-body">
-      <!-- <canvas id="myChart" width="400" height="400"></canvas> -->
-      <p class="control">
-          <button id="update_stats_total" data-fair="Total" class="button is-info"><i class="fa fa-bar-chart fa-fw"></i>Total</button>
-      </p>
-      <p class="control">
-          <button id="update_stats_f" data-fair="F" class="button is-info"><i class="fa fa-bar-chart fa-fw"></i>Findable</button>
-      </p>
-      <p class="control">
-          <button id="update_stats_a" data-fair="A" class="button is-info"><i class="fa fa-bar-chart fa-fw"></i>Accessible</button>
-      </p>
+
+      <div class="field is-grouped is-grouped-centered">
+        <!-- <canvas id="myChart" width="400" height="400"></canvas> -->
+        <p class="control">
+            <button id="update_stats_total" data-fair="Total" class="button is-info"><i class="fa fa-bar-chart fa-fw"></i>Total</button>
+        </p>
+        <p class="control">
+            <button id="update_stats_f" data-fair="F" class="button is-info"><i class="fa fa-bar-chart fa-fw"></i>Findable</button>
+        </p>
+        <p class="control">
+            <button id="update_stats_a" data-fair="A" class="button is-info"><i class="fa fa-bar-chart fa-fw"></i>Accessible</button>
+        </p>
+        <p class="control">
+            <button id="update_stats_i" data-fair="I" class="button is-info"><i class="fa fa-bar-chart fa-fw"></i>Interoperable</button>
+        </p>
+        <p class="control">
+            <button id="update_stats_r" data-fair="R" class="button is-info"><i class="fa fa-bar-chart fa-fw"></i>Reusable</button>
+        </p>
+      </div>
       <section>
 
         <div >
@@ -279,7 +288,8 @@
     options: {
         title: {
             display: true,
-            text: 'Total metrics weekly results'
+            text: 'Total',
+            fontSize: 28,
         },
     },
 
@@ -290,16 +300,40 @@
 
 <script>
   // start all selected metrics test
-  $('#update_stats_f').on('click', function($e){
-    console.log($(this).data("fair"));
-    myLineChart.options.title.text = 'Findable chart';
-    const findable_values_success = Object.values({{ f_success_weekly|tojson }});
-    const findable_values_failures = Object.values({{ f_failures_weekly|tojson }});
-
-    myLineChart.data.datasets[0].data = findable_values_success;
-    myLineChart.data.datasets[1].data = findable_values_failures;
+  $("button[id^='update_stats_']").on('click', function($e){
+    // console.log($(this).data("fair"));
 
 
+    switch ($(this).data("fair")) {
+      case 'Total':
+        myLineChart.options.title.text = 'Total';
+        var values_success = Object.values({{ success_weekly|tojson }});
+        var values_failures = Object.values({{ failures_weekly|tojson }});
+        break;
+      case 'F':
+        myLineChart.options.title.text = 'Findable';
+        var values_success = Object.values({{ f_success_weekly|tojson }});
+        var values_failures = Object.values({{ f_failures_weekly|tojson }});
+        break;
+      case 'A':
+        myLineChart.options.title.text = 'Accessible';
+        var values_success = Object.values({{ a_success_weekly|tojson }});
+        var values_failures = Object.values({{ a_failures_weekly|tojson }});
+        break;
+      case 'I':
+        myLineChart.options.title.text = 'Interoperable';
+        var values_success = Object.values({{ i_success_weekly|tojson }});
+        var values_failures = Object.values({{ i_failures_weekly|tojson }});
+        break;
+      case 'R':
+        myLineChart.options.title.text = 'Reusable';
+        var values_success = Object.values({{ r_success_weekly|tojson }});
+        var values_failures = Object.values({{ r_failures_weekly|tojson }});
+        break;
+    }
+
+    myLineChart.data.datasets[0].data = values_success;
+    myLineChart.data.datasets[1].data = values_failures;
     myLineChart.update();
 
   });
