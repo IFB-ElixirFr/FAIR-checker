@@ -1,39 +1,79 @@
 <!-- <button id="update">Update</button> -->
-<div id="chart-radar" class="columns is-mobile is-centered"></div>
+<!-- <div id="chart-radar" class="columns is-mobile is-centered"></div> -->
 
+<!-- <div>
+  <a id="canvas2svg" class="button is-info" download="ChartImage.svg" href=""><i class="fa fa-download fa-fw"></i>DOWNLOAD</a>
+</div> -->
+<canvas id="radar-chart" class="columns is-mobile is-centered"></canvas>
 
-<!-- <canvas id="radar-chart" class="columns is-mobile is-centered"></canvas> -->
-
-<script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.0"></script>
 
 <script type="text/javascript" charset="utf-8">
+
   var ctx = document.getElementById("radar-chart").getContext("2d");
 
-  var data2 = {
-      labels: ["Total", "F", "A", "I", "R"],
+  var data = {
+      labels: ["Total", "Findable", "Accessible", "Interoperable", "Reusable"],
       datasets: [
           {
               label: "Success",
-              borderWidth: '1',
+              borderWidth: '2',
               borderColor: 'rgba(75, 192, 192, 1)',
               backgroundColor: 'rgba(219, 242, 242, 0.5)',
-              data: [{{ success }},{{ f_success }},{{ a_success }},{{ i_success }},{{ r_success }}]
+              data: [0,0,0,0,0],
+              pointRadius: 5,
+              pointHitRadius: 50,
+              pointHoverRadius: 5,
+              hoverBackgroundColor: 'rgba(75, 192, 192, 1)',
           },
           {
               label: "Failures",
-              borderWidth: '1',
+              borderWidth: '2',
               borderColor: 'rgba(255, 99, 132, 1)',
               backgroundColor: 'rgba(255, 224, 230, 0.5)',
-              data: [{{ failures }},{{ f_failures }},{{ a_failures }},{{ i_failures }},{{ r_failures }}]
+              data: [0,0,0,0,0],
+              pointRadius: 5,
+              pointHitRadius: 50,
+              pointHoverRadius: 5,
+              hoverBackgroundColor: 'rgba(255, 99, 132, 1)',
+              hidden: true,
           }
       ]
   };
 
+  options = {
+    scale: {
+        // angleLines: {
+        //     display: false
+        // },
+      ticks: {
+        suggestedMin: 0,
+        suggestedMax: 100,
+      }
+    },
+    tooltips: {
+      callbacks: {
+        title: (tooltipItem, data) => data.labels[tooltipItem[0].index],
+        label: function(tooltipItems, data) {
+          return tooltipItems.yLabel + ' %';
+        }
+      }
+    },
+    animation: {
+      duration: 500,
+    },
 
+    // hover: {
+    //   mode: 'index',
+    //   intersect: false
+    // }
+
+  };
 
   var myRadarChart = new Chart(ctx, {
       type: 'radar',
-      // data: data2,
+      options: options,
+      data: data,
       // options: {
       //     barValueSpacing: 20,
       //     scales: {
@@ -45,6 +85,96 @@
       //     }
       // }
   });
+
+  $("#canvas2svg").click(function(){
+    console.log("downloading functionality");
+
+    // /*Get image of canvas element*/
+    // var url_base64jp = document.getElementById("radar-chart").toDataURL("image/jpg");
+    // /*get download button (tag: <a></a>) */
+    // var a =  document.getElementById("canvas2svg");
+    // /*insert chart image url to download button (tag: <a></a>) */
+    // a.href = url_base64jp;
+
+    // Add some critical information
+    $("svg").attr({ version: '1.1' , xmlns:"http://www.w3.org/2000/svg"});
+
+    var svg = $("#radar-chart").html();
+    var b64 = Base64.encode(svg); // or use btoa if supported
+
+    // Works in recent Webkit(Chrome)
+    $("body").append($("<img src='data:image/svg+xml;base64,\n"+b64+"' alt='file.svg'/>"));
+
+    // Works in Firefox 3.6 and Webit and possibly any browser which supports the data-uri
+    $("body").append($("<a href-lang='image/svg+xml' href='data:image/svg+xml;base64,\n"+b64+"' title='file.svg'>Download</a>"));
+
+
+  });
+
+  function update_radar_chart2() {
+      console.log("updated 2 !");
+      console.log(myRadarChart.data.datasets[0].data)
+
+      fs_count = {
+        success: {},
+        failure: {},
+      };
+      element = $('[id^=score_metric_]');
+      element.each(function( id ) {
+        value = parseInt($(this).text());
+        category = $(this).data("category");
+
+
+        if (!('Total' in fs_count['success'])){
+          fs_count['success']['Total'] = 0;
+        }
+        if (!('Total' in fs_count['failure'])){
+          fs_count['failure']['Total'] = 0;
+        }
+        if (!(category in fs_count['success'])){
+          fs_count['success'][category] = 0;
+        }
+        if (!(category in fs_count['failure'])){
+          fs_count['failure'][category] = 0;
+        }
+
+        size = $('[name=checkbox_' + category + ']').length;
+        total_size = $('[name^=checkbox_').length;
+
+        if (value == 1) {
+          fs_count['success'][category] += 1/size*100;
+          fs_count['success']['Total'] += 1/total_size*100;
+        } else if (value == 0){
+          fs_count['failure'][category] += 1/size*100;
+          fs_count['failure']['Total'] += 1/total_size*100;
+        }
+
+
+      });
+
+      console.log(fs_count);
+
+      values_success = [
+        fs_count['success']['Total'].toFixed(1),
+        fs_count['success']['F'].toFixed(1),
+        fs_count['success']['A'].toFixed(1),
+        fs_count['success']['I'].toFixed(1),
+        fs_count['success']['R'].toFixed(1),
+      ]
+
+      values_failures = [
+        fs_count['failure']['Total'].toFixed(1),
+        fs_count['failure']['F'].toFixed(1),
+        fs_count['failure']['A'].toFixed(1),
+        fs_count['failure']['I'].toFixed(1),
+        fs_count['failure']['R'].toFixed(1),
+      ]
+      myRadarChart.data.datasets[0].data = values_success;
+      myRadarChart.data.datasets[1].data = values_failures;
+      myRadarChart.update();
+  };
+
+
 </script>
 
 <script type="text/javascript" charset="utf-8">

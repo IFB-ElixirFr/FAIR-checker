@@ -150,7 +150,7 @@
 <br>
 
 
-<script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.0"></script>
 <!-- //////////////////
 /// Second BAR Chart ///
 /////////////////// -->
@@ -291,6 +291,15 @@
             text: 'Total',
             fontSize: 28,
         },
+        tooltips: {
+           mode: 'index',
+           intersect: false
+        },
+        hover: {
+           mode: 'index',
+           intersect: false
+        }
+
     },
 
   });
@@ -331,6 +340,7 @@
         var values_failures = Object.values({{ r_failures_weekly|tojson }});
         break;
     }
+
 
     myLineChart.data.datasets[0].data = values_success;
     myLineChart.data.datasets[1].data = values_failures;
