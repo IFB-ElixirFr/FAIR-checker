@@ -330,3 +330,13 @@ def rdf_to_triple_list(graph):
     return tuple_list
     # for s, p, o in graph.triples((None,  RDF.type, None)):
     #     print("{} => {}".format(p, o))
+
+
+def download_csv(uri):
+
+    client = MongoClient()
+    db = client.fair_checker
+    evaluations = db.evaluations
+
+    a_day_ago = datetime.now() - timedelta(1)
+    pass
