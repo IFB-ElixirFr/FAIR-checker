@@ -17,7 +17,7 @@ class MyTestCase(unittest.TestCase):
 
     def test_dynamic_biotools(self):
         uri = 'https://workflowhub.eu/workflows/45'
-        #uri = 'https://bio.tools/jaspar'
+        # uri = 'https://bio.tools/jaspar'
 
         chrome_options = Options()
         chrome_options.add_argument("--headless")

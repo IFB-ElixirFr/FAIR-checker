@@ -613,27 +613,35 @@ def handle_embedded_annot(data):
     print("Retrieve KG for uri: " + uri)
     page = requests.get(uri)
     html = page.content
+
+    # use selenium to retrieve Javascript genereted content
+    # html = util.get_html_selenium(uri)
+
     d = extruct.extract(html, syntaxes=['microdata', 'rdfa', 'json-ld'], errors='ignore')
+
 
     print(d)
     kg = ConjunctiveGraph()
+
+    # kg = util.get_rdf_selenium(uri, kg)
 
     for md in d['json-ld']:
         if '@context' in md.keys():
             print(md['@context'])
             if ('https://schema.org' in md['@context']) or ('http://schema.org' in md['@context']) :
-                md['@context'] = 'https://schema.org/docs/jsonldcontext.json'
+                md['@context'] = 'static/data/jsonldcontext.json'
         kg.parse(data=json.dumps(md, ensure_ascii=False), format="json-ld")
     for md in d['rdfa']:
         if '@context' in md.keys():
             if ('https://schema.org' in md['@context']) or ('http://schema.org' in md['@context']) :
-                md['@context'] = 'https://schema.org/docs/jsonldcontext.json'
+                md['@context'] = 'static/data/jsonldcontext.json'
         kg.parse(data=json.dumps(md, ensure_ascii=False), format="json-ld")
     for md in d['microdata']:
         if '@context' in md.keys():
             if ('https://schema.org' in md['@context']) or ('http://schema.org' in md['@context']) :
-                md['@context'] = 'https://schema.org/docs/jsonldcontext.json'
+                md['@context'] = 'static/data/jsonldcontext.json'
         kg.parse(data=json.dumps(md, ensure_ascii=False), format="json-ld")
+
 
     kgs[sid] = kg
 
@@ -648,31 +656,31 @@ def handle_embedded_annot(data):
         print(f'FOUND DOI: {uri}')
         # describe on lod.openair
 
-    kg = util.describe_loa(uri, kg)
-    step += 1
-    emit('update_annot', step)
-    emit('send_annot', str(kg.serialize(format='turtle').decode()))
-    print(len(kg))
-
-    kg = util.describe_opencitation(uri, kg)
-    step += 1
-    emit('update_annot', step)
-    emit('send_annot', str(kg.serialize(format='turtle').decode()))
-    print(len(kg))
-
-    kg = util.describe_wikidata(uri, kg)
-    step += 1
-    emit('update_annot', step)
-    emit('send_annot', str(kg.serialize(format='turtle').decode()))
-    print(len(kg))
-
-    kg = util.describe_biotools(uri, kg)
-    step += 1
-    emit('update_annot', step)
-    emit('send_annot', str(kg.serialize(format='turtle').decode()))
-    print(f'ended with step {step}')
-    print(len(kg))
-    print(step)
+    # kg = util.describe_loa(uri, kg)
+    # step += 1
+    # emit('update_annot', step)
+    # emit('send_annot', str(kg.serialize(format='turtle').decode()))
+    # print(len(kg))
+    #
+    # kg = util.describe_opencitation(uri, kg)
+    # step += 1
+    # emit('update_annot', step)
+    # emit('send_annot', str(kg.serialize(format='turtle').decode()))
+    # print(len(kg))
+    #
+    # kg = util.describe_wikidata(uri, kg)
+    # step += 1
+    # emit('update_annot', step)
+    # emit('send_annot', str(kg.serialize(format='turtle').decode()))
+    # print(len(kg))
+    #
+    # kg = util.describe_biotools(uri, kg)
+    # step += 1
+    # emit('update_annot', step)
+    # emit('send_annot', str(kg.serialize(format='turtle').decode()))
+    # print(f'ended with step {step}')
+    # print(len(kg))
+    # print(step)
 
 @socketio.on('complete_kg')
 def handle_complete_kg(json):
