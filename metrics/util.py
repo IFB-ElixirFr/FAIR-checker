@@ -7,6 +7,10 @@ from pyshacl import validate
 import extruct
 import json
 
+from lxml import html
+from selenium import webdriver
+from selenium.webdriver.chrome.options import Options
+
 import re
 
 # DOI regex
@@ -330,6 +334,54 @@ def rdf_to_triple_list(graph):
     return tuple_list
     # for s, p, o in graph.triples((None,  RDF.type, None)):
     #     print("{} => {}".format(p, o))
+
+
+def get_rdf_selenium(uri, kg):
+    # uri = 'https://workflowhub.eu/workflows/45'
+    #uri = 'https://bio.tools/jaspar'
+
+    chrome_options = Options()
+    chrome_options.add_argument("--headless")
+
+    browser = webdriver.Chrome(options = chrome_options)
+    browser.get(uri)
+
+    html_source = browser.page_source
+    #print(html_source)
+    browser.quit()
+    tree = html.fromstring(html_source)
+    jsonld_string = tree.xpath('//script[@type="application/ld+json"]//text()')
+
+    kg = ConjunctiveGraph()
+    for json_ld_annots in jsonld_string :
+        jsonld = json.loads(json_ld_annots)
+
+        if '@context' in jsonld.keys():
+            if ('//schema.org' in jsonld['@context']):
+                jsonld['@context'] = 'static/data/jsonldcontext.json'
+        kg.parse(data=json.dumps(jsonld, ensure_ascii=False), format="json-ld")
+
+        print(f'{len(kg)} retrieved triples in KG')
+        print(kg.serialize(format='turtle').decode())
+
+    return kg
+
+def get_html_selenium(uri):
+    # uri = 'https://workflowhub.eu/workflows/45'
+    #uri = 'https://bio.tools/jaspar'
+
+    chrome_options = Options()
+    chrome_options.add_argument("--headless")
+
+    browser = webdriver.Chrome(options = chrome_options)
+    browser.get(uri)
+
+    html_source = browser.page_source
+    #print(html_source)
+    browser.quit()
+
+
+    return html_source
 
 
 def download_csv(uri):
