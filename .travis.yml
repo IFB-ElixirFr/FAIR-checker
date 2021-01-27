@@ -25,6 +25,7 @@ install:
   - conda create --name test-environment python=$TRAVIS_PYTHON_VERSION
   - while read requirement; do conda install -c conda-forge --yes $requirement || pip install $requirement; done < requirements.txt
   - conda activate test-environment
+  - pip install nose2
 
 script:
   #- cd src
