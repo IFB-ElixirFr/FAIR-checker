@@ -10,10 +10,29 @@ from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 import extruct
 
+from metrics.R2Impl import R2Impl
+
 ###
 ### TODO check this issue https://github.com/RDFLib/rdflib-jsonld/issues/84
 ###
 class MyTestCase(unittest.TestCase):
+
+    def test_R2_Impl(slef):
+        class_r2 = R2Impl()
+        print(class_r2.get_name())
+        uri = 'https://workflowhub.eu/workflows/45'
+        # class_r2.extract_html_requests(uri)
+        class_r2.extract_html_selenium(uri)
+        # print(class_r2.get_html_source())
+        class_r2.extract_rdf()
+        print("Classes:")
+        for row in class_r2.get_classes():
+            print(row)
+
+        print("\nProperties:")
+        for row in class_r2.get_properties():
+            print(row)
+
 
     def test_dynamic_biotools(self):
         uri = 'https://workflowhub.eu/workflows/45'
