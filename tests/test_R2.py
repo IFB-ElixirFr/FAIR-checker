@@ -12,6 +12,7 @@ import extruct
 
 from metrics.R2Impl import R2Impl
 
+
 ###
 ### TODO check this issue https://github.com/RDFLib/rdflib-jsonld/issues/84
 ###
@@ -21,17 +22,25 @@ class MyTestCase(unittest.TestCase):
         class_r2 = R2Impl()
         print(class_r2.get_name())
         uri = 'https://workflowhub.eu/workflows/45'
-        # class_r2.extract_html_requests(uri)
-        class_r2.extract_html_selenium(uri)
+        class_r2.set_url(uri)
+        class_r2.extract_html_requests()
+        # class_r2.extract_html_selenium()
         # print(class_r2.get_html_source())
         class_r2.extract_rdf()
         print("Classes:")
-        for row in class_r2.get_classes():
-            print(row)
+        for rdf_class in class_r2.get_classes():
+            print(rdf_class)
+
 
         print("\nProperties:")
-        for row in class_r2.get_properties():
-            print(row)
+        for rdf_prop in class_r2.get_properties():
+            print(rdf_prop)
+            for obj in class_r2.get_jsonld().objects(predicate=rdf_prop[0]):
+                print(obj)
+                # print(class_r2.ask_LOV(obj))
+
+        # for s, p, o in class_r2.get_jsonld():
+        #     print("%s : %s : %s" % (s,p,o))
 
 
     def test_dynamic_biotools(self):

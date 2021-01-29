@@ -9,7 +9,7 @@ from rdflib import ConjunctiveGraph
 
 import json
 
-from metrics.util import ask_LOV
+from metrics.util import ask_LOV as is_in_LOV
 
 class R2Impl(AbstractFAIRMetrics):
     """
@@ -29,10 +29,13 @@ class R2Impl(AbstractFAIRMetrics):
         self.api = "api_url_for_R2"
         self.rdf_jsonld = "Graph RDF"
 
-    def extract_html_requests(self, url):
+    def set_url(self, url):
+        self.url = url
+
+    def extract_html_requests(self):
         while (True):
             try:
-                response = requests.get(url=url, timeout=10)
+                response = requests.get(url=self.url, timeout=10)
                 break
             except SSLError:
                 time.sleep(5)
@@ -46,12 +49,12 @@ class R2Impl(AbstractFAIRMetrics):
 
         self.html_source = response.content
 
-    def extract_html_selenium(self, url):
+    def extract_html_selenium(self):
         chrome_options = Options()
         chrome_options.add_argument("--headless")
 
         browser = webdriver.Chrome(options=chrome_options)
-        browser.get(url)
+        browser.get(self.url)
 
         self.html_source = browser.page_source
 
@@ -109,9 +112,9 @@ class R2Impl(AbstractFAIRMetrics):
     def get_jsonld(self):
         return self.rdf_jsonld
 
-    def ask_LOV(self):
-        # ask_LOV()
-        return "Me too"
+    def ask_LOV(self, uri):
+        bool = is_in_LOV(uri)
+        return bool
 
     def evaluate(self):
         print("Evaluating R2")
