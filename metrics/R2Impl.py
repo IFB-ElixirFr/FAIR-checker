@@ -9,6 +9,8 @@ from rdflib import ConjunctiveGraph
 
 import json
 
+import validators
+
 from metrics.util import ask_LOV as is_in_LOV
 
 class R2Impl(AbstractFAIRMetrics):
@@ -112,9 +114,11 @@ class R2Impl(AbstractFAIRMetrics):
     def get_jsonld(self):
         return self.rdf_jsonld
 
+    def is_valid_uri(self, uri):
+        return validators.url(uri)
+
     def ask_LOV(self, uri):
-        bool = is_in_LOV(uri)
-        return bool
+        return is_in_LOV(uri)
 
     def evaluate(self):
         print("Evaluating R2")

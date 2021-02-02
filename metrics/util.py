@@ -146,8 +146,12 @@ def ask_LOV(uri):
     p = {'query': "ASK { ?s ?p <" + uri + ">}"}
     res = requests.get("https://lov.linkeddata.es/dataset/lov/sparql", headers=h, params=p, verify=False)
 
-    #print(res.text)
+    # print(res.text)
+    # if res.text.startswith("Error 400: Parse error:"):
+    #     return False
     return res.json()['boolean']
+
+
 
 def shape_checks(kg):
 

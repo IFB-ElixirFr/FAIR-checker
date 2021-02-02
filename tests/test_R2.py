@@ -37,7 +37,8 @@ class MyTestCase(unittest.TestCase):
             print(rdf_prop)
             for obj in class_r2.get_jsonld().objects(predicate=rdf_prop[0]):
                 print(obj)
-                # print(class_r2.ask_LOV(obj))
+                if class_r2.is_valid_uri(obj):
+                    print(class_r2.ask_LOV(obj))
 
         # for s, p, o in class_r2.get_jsonld():
         #     print("%s : %s : %s" % (s,p,o))
