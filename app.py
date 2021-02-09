@@ -656,31 +656,32 @@ def handle_embedded_annot(data):
         print(f'FOUND DOI: {uri}')
         # describe on lod.openair
 
+    # @TODO fix wikidata / LOA / etc. access
     # kg = util.describe_loa(uri, kg)
     # step += 1
     # emit('update_annot', step)
     # emit('send_annot', str(kg.serialize(format='turtle').decode()))
     # print(len(kg))
-    #
+
     # kg = util.describe_opencitation(uri, kg)
     # step += 1
     # emit('update_annot', step)
     # emit('send_annot', str(kg.serialize(format='turtle').decode()))
     # print(len(kg))
-    #
+
     # kg = util.describe_wikidata(uri, kg)
     # step += 1
     # emit('update_annot', step)
     # emit('send_annot', str(kg.serialize(format='turtle').decode()))
     # print(len(kg))
-    #
-    # kg = util.describe_biotools(uri, kg)
-    # step += 1
-    # emit('update_annot', step)
-    # emit('send_annot', str(kg.serialize(format='turtle').decode()))
-    # print(f'ended with step {step}')
-    # print(len(kg))
-    # print(step)
+
+    kg = util.describe_biotools(uri, kg)
+    step += 1
+    emit('update_annot', step)
+    emit('send_annot', str(kg.serialize(format='turtle').decode()))
+    print(f'ended with step {step}')
+    print(len(kg))
+    print(step)
 
 @socketio.on('complete_kg')
 def handle_complete_kg(json):
