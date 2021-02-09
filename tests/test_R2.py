@@ -22,6 +22,7 @@ class MyTestCase(unittest.TestCase):
         class_r2 = R2Impl()
         print(class_r2.get_name())
         uri = 'https://workflowhub.eu/workflows/45'
+        # uri = "https://data.inrae.fr/dataset.xhtml?persistentId=doi:10.15454/A4KXE7"
         class_r2.set_url(uri)
         class_r2.extract_html_requests()
         # class_r2.extract_html_selenium()
@@ -35,10 +36,11 @@ class MyTestCase(unittest.TestCase):
         print("\nProperties:")
         for rdf_prop in class_r2.get_properties():
             print(rdf_prop)
-            for obj in class_r2.get_jsonld().objects(predicate=rdf_prop[0]):
-                print(obj)
-                if class_r2.is_valid_uri(obj):
-                    print(class_r2.ask_LOV(obj))
+            print(class_r2.ask_LOV(rdf_prop[0]))
+            # for obj in class_r2.get_jsonld().objects(predicate=rdf_prop[0]):
+                # print(obj)
+                # if class_r2.is_valid_uri(obj):
+                #     print(class_r2.ask_LOV(obj))
 
         # for s, p, o in class_r2.get_jsonld():
         #     print("%s : %s : %s" % (s,p,o))
