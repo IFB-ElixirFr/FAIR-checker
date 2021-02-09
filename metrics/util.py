@@ -151,9 +151,25 @@ def ask_LOV(uri):
     #     return False
     return res.json()['boolean']
 
+def gen_shape(property_list = None, class_list = None, recommendation=None):
+    """
 
+    @param property_list: a list of OWL/RDF properties
+    @param class_list: a list of OWL/RDF classes
+    @param recommendation: the message to be displayed during validation
+    @return: a SHACL constraint expression to validate RDF graph based on a list or required properties or classes (at least)
+
+    @TODO another method for strong validation (AND)
+    """
+
+    return None
 
 def shape_checks(kg):
+    """
+
+    @param kg:
+    @return:
+    """
 
     types = ['schema:SoftwareApplication', 'schema:CreativeWork', 'schema:Dataset', 'schema:ScholarlyArticle']
     minimal_dataset_properties = ['schema:name', 'schema:description', 'schema:identifier', 'schema:keywords', 'schema:url']
