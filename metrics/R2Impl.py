@@ -95,14 +95,14 @@ class R2Impl(AbstractFAIRMetrics):
 
     def get_classes(self):
         query_classes = """
-            SELECT DISTINCT ?class { ?s rdf:type ?class } ORDER BY ?class
+            SELECT DISTINCT ?class WHERE { ?s rdf:type ?class } ORDER BY ?class
         """
 
         return self.rdf_jsonld.query(query_classes)
 
     def get_properties(self):
         query_properties = """
-            SELECT DISTINCT ?prop { ?s ?prop ?o } ORDER BY ?prop
+            SELECT DISTINCT ?prop WHERE { ?s ?prop ?o } ORDER BY ?prop
         """
 
         return self.rdf_jsonld.query(query_properties)
