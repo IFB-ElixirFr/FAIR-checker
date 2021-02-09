@@ -143,7 +143,7 @@ def ask_LOV(uri):
     print(f'SPARQL for [ {uri} ] with enpoint [ https://lov.linkeddata.es/dataset/lov/sparql ]')
 
     h = {'Accept': 'application/sparql-results+json'}
-    p = {'query': "ASK { ?s ?p <" + uri + ">}"}
+    p = {'query': "ASK { <" + uri + "> ?p ?o }"}
     res = requests.get("https://lov.linkeddata.es/dataset/lov/sparql", headers=h, params=p, verify=False)
 
     # print(res.text)
