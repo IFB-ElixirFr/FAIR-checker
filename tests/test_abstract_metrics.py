@@ -60,7 +60,7 @@ class AbstractMetricsTestCase(unittest.TestCase):
 
     def test_all_pangaea(self):
         print("Test all pangaea")
-        scores = [1,0,0,1,1,1,0,0,1,1,1,1,0,1,1,0,0,1,1,1,1,1]
+        scores = [1,0,0,1,1,1,0,1,1,1,1,1,0,1,1,0,0,1,1,1,1,1]
         i = 0
         for m in self.metrics:
 

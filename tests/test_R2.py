@@ -16,7 +16,24 @@ from metrics.R2Impl import R2Impl
 ###
 ### TODO check this issue https://github.com/RDFLib/rdflib-jsonld/issues/84
 ###
-class MyTestCase(unittest.TestCase):
+class R2ImplTestCase(unittest.TestCase):
+    # def setUp(self):
+
+    uri_test = 'https://workflowhub.eu/workflows/45'
+
+    def test_extract_html_requests(self):
+        class_r2 = R2Impl()
+        class_r2.set_url(self.uri_test)
+        class_r2.extract_html_requests()
+        requests_status_code = class_r2.get_requests_status_code()
+        self.assertEqual(200, requests_status_code)
+
+    def test_extract_rdf(self):
+        class_r2 = R2Impl()
+        class_r2.set_url(self.uri_test)
+        class_r2.extract_html_requests()
+        class_r2.extract_rdf()
+        self.assertEqual(80, len(class_r2.get_jsonld()))
 
     def test_R2_Impl(slef):
         class_r2 = R2Impl()
@@ -44,6 +61,7 @@ class MyTestCase(unittest.TestCase):
 
         # for s, p, o in class_r2.get_jsonld():
         #     print("%s : %s : %s" % (s,p,o))
+
 
 
     def test_dynamic_biotools(self):

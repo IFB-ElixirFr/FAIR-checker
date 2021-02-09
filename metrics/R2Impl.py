@@ -28,6 +28,7 @@ class R2Impl(AbstractFAIRMetrics):
         self.name = "R2"
         self.url = "URL here"
         self.html_source = "Page content"
+        self.requests_status_code = "Status code for requests"
         self.api = "api_url_for_R2"
         self.rdf_jsonld = "Graph RDF"
 
@@ -49,6 +50,7 @@ class R2Impl(AbstractFAIRMetrics):
                 print("ConnectionError, retrying...")
                 time.sleep(10)
 
+        self.requests_status_code = response.status_code
         self.html_source = response.content
 
     def extract_html_selenium(self):
@@ -62,7 +64,8 @@ class R2Impl(AbstractFAIRMetrics):
 
         browser.quit()
 
-
+    def get_requests_status_code(self):
+        return self.requests_status_code
 
     def extract_rdf(self):
         html_source = self.html_source
