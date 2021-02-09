@@ -47,12 +47,12 @@ class R2ImplTestCase(unittest.TestCase):
         class_r2.extract_rdf()
         print("Classes:")
         for rdf_class in class_r2.get_classes():
-            print(rdf_class)
+            print(str(rdf_class[0]))
 
 
         print("\nProperties:")
         for rdf_prop in class_r2.get_properties():
-            print(rdf_prop)
+            print(str(rdf_prop[0]))
             print(class_r2.ask_LOV(rdf_prop[0]))
             # for obj in class_r2.get_jsonld().objects(predicate=rdf_prop[0]):
                 # print(obj)
