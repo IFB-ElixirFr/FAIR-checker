@@ -90,14 +90,16 @@
             // change status color
             if (value['score'] == 1) {
               $("#status_{{f.id}}").addClass("is-success");
+              $("#status_{{f.id}}").text("Success");
               $("#result_{{f.id}}").addClass("is-success");
               // update_checkbox color
-              $("#checkbox_test_{{f.id}}").parent("label").css('background-color','#23d160');
+              $("#checkbox_test_{{f.id}}").parent("label").parent("td").css('background-color','#DBF2F2');
             } else {
               $("#status_{{f.id}}").addClass("is-danger");
+              $("#status_{{f.id}}").text("Failure");
               $("#result_{{f.id}}").addClass("is-danger");
               // update_checkbox color
-              $("#checkbox_test_{{f.id}}").parent("label").css('background-color','#ff3860');
+              $("#checkbox_test_{{f.id}}").parent("label").parent("td").css('background-color','#FFE0E6');
             }
 
             //update progressbar
@@ -109,13 +111,15 @@
             $("#time_{{f.id}}").text(value['time']);
             // add comment to result
             $("#comment_{{f.id}}").text(value['comment']);
+
             // add recommandation if score == 0
-            if (value['score'] == 0) {
+            // if (value['score'] == 0) {
               $("#guideline_{{f.id}}").text(value['recommendation']);
-            } else  {
-              $("#guideline_{{f.id}}").parent("tr").hide()
-            }
-            // show table
+            // } else  {
+            //   $("#guideline_{{f.id}}").parent("tr").hide()
+            // }
+
+            // // show table
             $("#result_table_{{f.id}}").show();
             // open card
             $("#metric_card_content_{{f.id}}").removeClass("is-hidden");
@@ -402,7 +406,7 @@
         <div class="columns">
         {% for category in ['F', 'A', 'I', 'R'] %}
             <div class="is-one-quarter">
-                <table id="metrics_checkboxes" class="table is-hoverable">
+                <table id="metrics_checkboxes" class="table is-hoverable is-bordered is-striped">
                     <thead>
                         <th>
                             <label class="checkbox">
@@ -418,13 +422,13 @@
                     {% for f in f_metrics %}
                         {% if f.principle_category == category %}
                         <tr>
-                            <th>
+                            <td>
                                 <label class="checkbox">
                                     <input name="checkbox_{{ category }}" id="checkbox_test_{{ f.id }}" data-target="test_{{ f.id }}" data-tested=false type="checkbox">
                                     {{ f.principle_tag }} - {{ f.name }}
 
                                 </label>
-                            </th>
+                            </td>
                         </tr>
                         {% endif %}
                     {% endfor %}
@@ -447,6 +451,16 @@
 </article>
 
 
+
+<article id="metrics_details_rec" class="message is-info">
+    <div class="message-header">
+        <p>List of metrics with details and completion status</p>
+    </div>
+    <div class="message-body">
+        {% include 'metrics_table.html' %}
+    </div>
+    https://github.com/IFB-ElixirFr/fair-checker.git
+</article>
 
 <article id="metrics_details_rec" class="message is-info">
     <div class="message-header">

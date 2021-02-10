@@ -442,10 +442,11 @@ def recommendation(emit_json, metric_name, comment):
 
     # recommendation
     metric_name_key = metric_name.replace(" ", "_")
+    metric_name_key = metric_name_key.lower()
     print(metric_name_key)
     print(recommendation_dict.keys())
     if metric_name_key in recommendation_dict.keys():
-        metric_failures = recommendation_dict[metric_name]
+        metric_failures = recommendation_dict[metric_name_key]
 
         for key in metric_failures.keys():
             # print(key)

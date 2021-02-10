@@ -1,0 +1,37 @@
+<table class="table is-bordered is-striped is-hoverable" style="margin: auto;">
+    <thead>
+        <tr>
+            <th>Principle</th>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Time</th>
+            <th>Comment</th>
+            <th>Recommandation</th>
+            <th>Result</th>
+            <th>Test</th>
+        </tr>
+    </thead>
+    <tbody>
+      {% for f in f_metrics %}
+        <tr>
+            <!-- <td>{{ f.principle_category }}</td> -->
+            <td class="vcenter hcenter">{{ f.principle_tag }}</td>
+            <td class="vcenter">{{ f.name }}</td>
+            <td class="vcenter hcenter">
+              <div class="popover is-popover-top">
+                <button class="button is-primary popover-trigger"><i class="fa fa-info-circle"></i></button>
+                <div class="popover-content" style="text-align: left;">
+                  {{ f.description }}
+                </div>
+              </div>
+            </td>
+            <td id="time_{{ f.id }}"></td>
+            <td id="comment_{{ f.id }}"></td>
+            <td id="guideline_{{ f.id }}"></td>
+            <td class="vcenter hcenter"><span id="status_{{ f.id }}" class="tag is-small">Status</span></td>
+            <td class="vcenter hcenter"><button id="test_{{ f.id }}" href="#" value="{{ f.api_url }}" class="button is-small is-info" data-checkbox="checkbox_test_{{ f.id }}">Check</button></td>
+
+        </tr>
+      {% endfor %}
+    </tbody>
+</table>
