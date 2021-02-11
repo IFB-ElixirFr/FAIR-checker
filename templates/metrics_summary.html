@@ -94,12 +94,14 @@
               $("#result_{{f.id}}").addClass("is-success");
               // update_checkbox color
               $("#checkbox_test_{{f.id}}").parent("label").parent("td").css('background-color','#DBF2F2');
+              $("#metrics_row_{{ f.id }}").css('background-color','#DBF2F2');
             } else {
               $("#status_{{f.id}}").addClass("is-danger");
               $("#status_{{f.id}}").text("Failure");
               $("#result_{{f.id}}").addClass("is-danger");
               // update_checkbox color
               $("#checkbox_test_{{f.id}}").parent("label").parent("td").css('background-color','#FFE0E6');
+              $("#metrics_row_{{ f.id }}").css('background-color','#FFE0E6');
             }
 
             //update progressbar
