@@ -87,6 +87,8 @@
             csv_lines.push(value['csv_line']);
 
 
+
+
             // change status color
             if (value['score'] == 1) {
               $("#status_{{f.id}}").addClass("is-success");
@@ -113,13 +115,16 @@
             $("#time_{{f.id}}").text(value['time']);
             // add comment to result
             $("#comment_{{f.id}}").text(value['comment']);
+            // show comment buttpn
+            $("#comment_{{f.id}}").parent("div").find('button').show();
 
             // add recommandation if score == 0
-            // if (value['score'] == 0) {
+            if (value['score'] == 0) {
               $("#guideline_{{f.id}}").text(value['recommendation']);
-            // } else  {
-            //   $("#guideline_{{f.id}}").parent("tr").hide()
-            // }
+              $("#guideline_{{f.id}}").parent("div").find('button').show()
+            } else  {
+              // $("#guideline_{{f.id}}").parent("tr").hide()
+            }
 
             // // show table
             $("#result_table_{{f.id}}").show();
