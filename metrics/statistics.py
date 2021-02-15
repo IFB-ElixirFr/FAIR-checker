@@ -82,12 +82,19 @@ def success_weekly_one_year():
     ];
 
     week_count_eval = {}
+    week_count_eval_list = []
     results = list(db.evaluations.aggregate(pipeline))
+
     for result in results:
+        print(result)
         year_week = str(result["_id"]["year"]) + "-" + str(result["_id"]["week"])
         week_count_eval[year_week] = result["documentCount"]
 
-    return week_count_eval
+
+    for key in sorted(week_count_eval.keys()):
+        print(key + ": " + str(week_count_eval[key]))
+        week_count_eval_list.append({ "x": key, "y": week_count_eval[key] })
+    return week_count_eval_list
 
 def failures_weekly_one_year():
     client = MongoClient()
@@ -116,12 +123,20 @@ def failures_weekly_one_year():
     ];
 
     week_count_eval = {}
+    week_count_eval_list = []
     results = list(db.evaluations.aggregate(pipeline))
+
     for result in results:
+        print(result)
         year_week = str(result["_id"]["year"]) + "-" + str(result["_id"]["week"])
         week_count_eval[year_week] = result["documentCount"]
 
-    return week_count_eval
+
+    for key in sorted(week_count_eval.keys()):
+        print(key + ": " + str(week_count_eval[key]))
+        week_count_eval_list.append({ "x": key, "y": week_count_eval[key] })
+
+    return week_count_eval_list
 
 
 def weekly_named_metrics(prefix='F', success=0):
@@ -152,9 +167,17 @@ def weekly_named_metrics(prefix='F', success=0):
     ];
 
     week_count_eval = {}
+    week_count_eval_list = []
     results = list(db.evaluations.aggregate(pipeline))
 
     for result in results:
+        print(result)
         year_week = str(result["_id"]["year"]) + "-" + str(result["_id"]["week"])
         week_count_eval[year_week] = result["documentCount"]
-    return week_count_eval
+
+
+    for key in sorted(week_count_eval.keys()):
+        print(key + ": " + str(week_count_eval[key]))
+        week_count_eval_list.append({ "x": key, "y": week_count_eval[key] })
+
+    return week_count_eval_list

@@ -113,15 +113,18 @@
             $("#score_{{f.id}}").text(value['score']);
             // add time to result
             $("#time_{{f.id}}").text(value['time']);
-            // add comment to result
-            $("#comment_{{f.id}}").text(value['comment']);
             // show comment buttpn
             $("#comment_{{f.id}}").parent("div").find('button').show();
+            // add comment to result
+            $("#comment_{{f.id}}").children("article").removeClass("is-info");
+            $("#comment_{{f.id}}").children("article").children("div").text(value['comment']);
+
 
             // add recommandation if score == 0
             if (value['score'] == 0) {
-              $("#guideline_{{f.id}}").text(value['recommendation']);
               $("#guideline_{{f.id}}").parent("div").find('button').show()
+              $("#guideline_{{f.id}}").children("article").children("div").text(value['recommendation']);
+
             } else  {
               // $("#guideline_{{f.id}}").parent("tr").hide()
             }

@@ -17,6 +17,7 @@ import os
 import io
 import uuid
 from datetime import datetime
+from datetime import timedelta
 import json
 
 from rdflib import ConjunctiveGraph
@@ -209,7 +210,7 @@ def statistics():
                            i_success_weekly=stats.weekly_named_metrics(prefix='I', success=1),
                            i_failures_weekly=stats.weekly_named_metrics(prefix='I', success=0),
                            r_success_weekly=stats.weekly_named_metrics(prefix='R', success=1),
-                           r_failures_weekly=stats.weekly_named_metrics(prefix='F', success=0),
+                           r_failures_weekly=stats.weekly_named_metrics(prefix='R', success=0),
 
                            f_success=stats.this_week_for_named_metrics(prefix='F',success=1),
                            f_failures=stats.this_week_for_named_metrics(prefix='F',success=0),
@@ -254,7 +255,8 @@ def handle_metric(json):
     emit('running_f')
 
     result_object = METRICS[metric_name].evaluate(url)
-    evaluation_time = result_object.get_test_time()
+    # Eval time removing microseconds
+    evaluation_time = result_object.get_test_time() - timedelta(microseconds=result_object.get_test_time().microseconds)
     score = result_object.get_score()
 
     comment = result_object.get_reason()
