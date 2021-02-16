@@ -17,6 +17,7 @@ import os
 import io
 import uuid
 from datetime import datetime
+from datetime import timedelta
 import json
 
 from rdflib import ConjunctiveGraph
@@ -209,7 +210,7 @@ def statistics():
                            i_success_weekly=stats.weekly_named_metrics(prefix='I', success=1),
                            i_failures_weekly=stats.weekly_named_metrics(prefix='I', success=0),
                            r_success_weekly=stats.weekly_named_metrics(prefix='R', success=1),
-                           r_failures_weekly=stats.weekly_named_metrics(prefix='F', success=0),
+                           r_failures_weekly=stats.weekly_named_metrics(prefix='R', success=0),
 
                            f_success=stats.this_week_for_named_metrics(prefix='F',success=1),
                            f_failures=stats.this_week_for_named_metrics(prefix='F',success=0),
@@ -254,7 +255,8 @@ def handle_metric(json):
     emit('running_f')
 
     result_object = METRICS[metric_name].evaluate(url)
-    evaluation_time = result_object.get_test_time()
+    # Eval time removing microseconds
+    evaluation_time = result_object.get_test_time() - timedelta(microseconds=result_object.get_test_time().microseconds)
     score = result_object.get_score()
 
     comment = result_object.get_reason()
@@ -341,7 +343,7 @@ def recommendation(emit_json, metric_name, comment):
             "FAILURE: The GUID identifier of the data": "Ensure that the resource identifier, part of your web page meta-data (RDFa, embedded JSON-LD, microdata, etc.) is well formed (DOI, URI, PMID, etc.). ",
             "FAILURE: The GUID does not conform with any known permanent-URL system.": "Ensure that the used identification scheme is permanent. For instance DOIs or PURLs are sustainable over the long term.",
         },
-        "metadata_identifier_persistence": {
+        "identifier_persistence": {
             "The GUID identifier of the metadata": "Ensure that meta-data describing your resource use permanent and well fprmed identifiers (PURLs, DOIs, etc.)",
             "FAILURE: The metadata GUID does not conform with any known permanent-URL system.": "Ensure that meta-data describing your resource use permanent and well formed identifiers (PURLs, DOIs, etc.)",
         },
@@ -355,11 +357,11 @@ def recommendation(emit_json, metric_name, comment):
             "FAILURE: no structured metadata found": "Ensure that meta-data describing your resource use a machine readable format such as JSON or RDF.",
         },
         # F3
-        "data_identifier_in_metadata": {
+        "data_identifier_explicitly_in_metadata": {
             "FAILURE: The identifier": "Ensure that meta-data describing your resource use permanent and well formed identifiers (PURLs, DOIs, etc.)",
             "FAILURE: Was unable to locate the data identifier in the metadata using any (common) property/predicate reserved": "Ensure that meta-data describing your resource use permanent and well formed identifiers (PURLs, DOIs, etc.)",
         },
-        "metadata_identifier_in_metadata": {
+        "metadata_identifier_explicitly_in_metadata": {
             "FAILURE: The identifier": "Ensure that meta-data describing your resource use permanent and well formed identifiers (PURLs, DOIs, etc.)",
             "FAILURE: No metadata identifiers were found in the metadata record": "Ensure that meta-data describing your resource use permanent and well formed identifiers (PURLs, DOIs, etc.)",
             "FAILURE: No metadata identifiers were found in the metadata record using predicates": "Ensure that identifiers in your metadata are linked together through typical RDF properties such as (schema:mainEntity, dcterms:identifier, etc.)",
@@ -367,25 +369,25 @@ def recommendation(emit_json, metric_name, comment):
             "FAILURE: While (apparent) metadata record identifiers were found": "Ensure that the resource identifier is explicitely referred to in your meta-data. ",
         },
         # F4
-        "searchable": {
+        "searchable_in_major_search_engine": {
             "FAILURE: The identifier": "Ensure that the resource identifier, part of your web page meta-data (RDFa, embedded JSON-LD, microdata, etc.) is well formed (DOI, URI, PMID, etc.). ",
             "FAILURE: NO ACCESS KEY CONFIGURED FOR BING. This test will now abort with failure": "No recommendation, server side issue",
             "FAILURE: Was unable to discover the metadata record by search in Bing using any method": "Ensure that meta-data describing your resource use the machine readable standards parsed by major search engines such as  schema.org OpenGraph, etc.",
         },
         # A1.1
-        "metadata_protocol": {
+        "uses_open_free_protocol_for_metadata_retrieval": {
             "FAILURE: The identifier ": "Ensure that meta-data describing your resource use permanent and well formed identifiers (PURLs, DOIs, etc.)",
         },
-        "data_protocol": {
+        "uses_open_free_protocol_for_data_retrieval": {
             "FAILURE: The identifier": "Ensure that meta-data describing your resource use permanent and well formed identifiers (PURLs, DOIs, etc.)",
             "FAILURE: Was unable to locate the data identifier in the metadata using any (common) property/predicate reserved for this purpose": "Ensure that identifiers in your metadata are linked together through typical RDF properties such as (schema:mainEntity, dcterms:identifier, etc.)",
         },
         # A1.2
-        "data_authorization": {
+        "data_authentication_and_authorization": {
             "FAILURE: The identifier": "Ensure that meta-data describing your resource use permanent and well formed identifiers (PURLs, DOIs, etc.)",
             "FAILURE: No data identifier was found in the metadata record": "Ensure that identifiers in your metadata are linked together through typical RDF properties such as (schema:mainEntity, dcterms:identifier, etc.)",
         },
-        "metadata_authorization": {
+        "metadata_authentication_and_authorization": {
             "FAILURE: The GUID identifier of the metadata": "Ensure that meta-data describing your resource use permanent and well formed identifiers (PURLs, DOIs, etc.)",
         },
         # A2
@@ -396,7 +398,7 @@ def recommendation(emit_json, metric_name, comment):
             "FAILURE: was unable to find a persistence policy using any approach": "Ensure that a peristence policy predicate is used in the resource metadata : http://www.w3.org/2000/10/swap/pim/doc#persistencePolicy ",
         },
         # I1
-        "data_knowledge_representation_language_(weak)": {
+        "data_knowledge_representation_language_weak": {
             "FAILURE: The identifier": "Ensure that meta-data describing your resource use permanent and well formed identifiers (PURLs, DOIs, etc.)",
             "FAILURE: the data could not be found, or does not appear to be in a recognized knowledge representation language": "Ensure that metadata leverage a standard knowledge representation language such as RDFS, SKOS, OWL, OBO, etc.",
             "FAILURE: The reported content-type header": "Ensure that your resource is accessible by an HTTP GET query and provides a content-type header. You may ask to your resource publisher. ",
@@ -405,7 +407,20 @@ def recommendation(emit_json, metric_name, comment):
             "FAILURE: The URL to the data is not reporting a Content-Type in its headers.  This test will now halt": "Ensure that your resource is accessible by an HTTP GET query and provides a content-type header. You may ask to your resource publisher.",
             "failed to resolve via a HEAD call with headers": "Ensure that your resource is accessible by an HTTP GET query and provides a content-type header. You may ask to your resource publisher.",
         },
-        "metadata_knowledge_representation_language_(weak)": {
+        "data_knowledge_representation_language_strong": {
+            "FAILURE: The identifier": "Ensure that meta-data describing your resource use permanent and well formed identifiers (PURLs, DOIs, etc.)",
+            "FAILURE: the data could not be found, or does not appear to be in a recognized knowledge representation language": "Ensure that metadata leverage a standard knowledge representation language such as RDFS, SKOS, OWL, OBO, etc.",
+            "FAILURE: The reported content-type header": "Ensure that your resource is accessible by an HTTP GET query and provides a content-type header. You may ask to your resource publisher. ",
+            "which is not a known Linked Data format": "Ensure that your resource is web accessible and that the HTTP message provides a linked data content-type, e.g. application/ld+json or text/turtle",
+            "which is not likely to contain structured data": "Ensure that your resource is web accessible and that the HTTP message provides a structured data content-type, e.g. application/json. You may ask your resource publisher.",
+            "FAILURE: The URL to the data is not reporting a Content-Type in its headers.  This test will now halt": "Ensure that your resource is accessible by an HTTP GET query and provides a content-type header. You may ask to your resource publisher.",
+            "failed to resolve via a HEAD call with headers": "Ensure that your resource is accessible by an HTTP GET query and provides a content-type header. You may ask to your resource publisher.",
+        },
+        "metadata_knowledge_representation_language_weak": {
+            "FAILURE: The identifier": "Ensure that meta-data describing your resource use permanent and well formed identifiers (PURLs, DOIs, etc.)",
+            "FAILURE: unable to find any kind of structured metadata": "Ensure that meta-data describing your resource use the RDF machine readable standard.",
+        },
+        "metadata_knowledge_representation_language_strong": {
             "FAILURE: The identifier": "Ensure that meta-data describing your resource use permanent and well formed identifiers (PURLs, DOIs, etc.)",
             "FAILURE: unable to find any kind of structured metadata": "Ensure that meta-data describing your resource use the RDF machine readable standard.",
         },
@@ -423,7 +438,7 @@ def recommendation(emit_json, metric_name, comment):
             "The minimum to pass this test is 2/3 (with a minimum of 3 predicates in total)": "Ensure that in your metatdata, at least 2/3rd of your properties should leverage already known voabulary or ontology as registered in OLS, BioPortal, FAIRSharing regitries for instance.",
         },
         # I3
-        "metadata_contains_outward_links": {
+        "metadata_contains_qualified_outward_references": {
             "FAILURE: The identifier ": "You may use another identification scheme for your resource. For instance, provide a DOI, a URI (https://www.w3.org/wiki/URI) or a pubmed id (PMID) for an academic paper.",
             "FAILURE: No linked data was found.  Test is exiting.": "Ensure that your metadata is structured in RDF graphs.",
             "triples discovered in the linked metadata pointed to resources hosted elsewhere.  The minimum to pass this test is 1": "Ensure that your metadata use at least one identifier which is defined in an external resource (e.g. use a UniProt ID in your metadata, the uniprot id being described in UniProt KB)",
@@ -441,15 +456,16 @@ def recommendation(emit_json, metric_name, comment):
     }
 
     # recommendation
-    metric_name_key = metric_name.replace(" ", "_")
+    metric_name_key = metric_name.replace(" ", "_").replace("(", "").replace(")", "")
+    metric_name_key = metric_name_key.lower()
     print(metric_name_key)
     print(recommendation_dict.keys())
     if metric_name_key in recommendation_dict.keys():
-        metric_failures = recommendation_dict[metric_name]
+        metric_failures = recommendation_dict[metric_name_key]
 
         for key in metric_failures.keys():
-            # print(key)
-            # print(comment)
+            print(key)
+            print(comment)
             if key in comment:
                 print("found a match!")
                 emit_json["recommendation"] = metric_failures[key]

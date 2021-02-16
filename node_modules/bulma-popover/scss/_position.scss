@@ -1,0 +1,71 @@
+@mixin top {
+    .popover-content {
+        top: auto !important;
+        bottom: 100% !important;
+        left: 50% !important;
+        right: auto !important;
+        transform: translate(-50%, -0.7rem) !important;
+
+        &::before {
+            top: 100% !important;
+            bottom: auto !important;
+            left: 50% !important;
+            right: auto !important;
+            transform: rotate(-45deg);
+        }
+    }
+}
+
+@mixin right {
+    .popover-content {
+        top: auto !important;
+        bottom: 50% !important;
+        left: 100% !important;
+        right: auto !important;
+        transform: translate(0.7rem, 50%) !important;
+
+        &::before {
+            top: 50% !important;
+            bottom: auto !important;
+            left: 0 !important;
+            right: auto !important;
+            transform: rotate(45deg);
+        }
+    }
+}
+
+@mixin bottom {
+    .popover-content {
+        top: 100% !important;
+        bottom: auto !important;
+        left: 50% !important;
+        right: auto !important;
+        transform: translate(-50%, 0.7rem) !important;
+
+        &::before {
+            top: 0 !important;
+            bottom: auto !important;
+            left: 50% !important;
+            right: auto !important;
+            transform: rotate(135deg);
+        }
+    }
+}
+
+@mixin left {
+    .popover-content {
+        top: auto !important;
+        bottom: 50% !important;
+        left: auto !important;
+        right: 100% !important;
+        transform: translate(-0.7rem, 50%) !important;
+
+        &::before {
+            top: 50% !important;
+            bottom: auto !important;
+            left: 100% !important;
+            right: auto !important;
+            transform: rotate(-135deg);
+        }
+    }
+}

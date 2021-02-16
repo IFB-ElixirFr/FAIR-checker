@@ -87,17 +87,23 @@
             csv_lines.push(value['csv_line']);
 
 
+
+
             // change status color
             if (value['score'] == 1) {
               $("#status_{{f.id}}").addClass("is-success");
+              $("#status_{{f.id}}").text("Success");
               $("#result_{{f.id}}").addClass("is-success");
               // update_checkbox color
-              $("#checkbox_test_{{f.id}}").parent("label").css('background-color','#23d160');
+              $("#checkbox_test_{{f.id}}").parent("label").parent("td").css('background-color','#DBF2F2');
+              $("#metrics_row_{{ f.id }}").css('background-color','#DBF2F2');
             } else {
               $("#status_{{f.id}}").addClass("is-danger");
+              $("#status_{{f.id}}").text("Failure");
               $("#result_{{f.id}}").addClass("is-danger");
               // update_checkbox color
-              $("#checkbox_test_{{f.id}}").parent("label").css('background-color','#ff3860');
+              $("#checkbox_test_{{f.id}}").parent("label").parent("td").css('background-color','#FFE0E6');
+              $("#metrics_row_{{ f.id }}").css('background-color','#FFE0E6');
             }
 
             //update progressbar
@@ -107,15 +113,23 @@
             $("#score_{{f.id}}").text(value['score']);
             // add time to result
             $("#time_{{f.id}}").text(value['time']);
+            // show comment buttpn
+            $("#comment_{{f.id}}").parent("div").find('button').show();
             // add comment to result
-            $("#comment_{{f.id}}").text(value['comment']);
+            $("#comment_{{f.id}}").children("article").removeClass("is-info");
+            $("#comment_{{f.id}}").children("article").children("div").text(value['comment']);
+
+
             // add recommandation if score == 0
             if (value['score'] == 0) {
-              $("#guideline_{{f.id}}").text(value['recommendation']);
+              $("#guideline_{{f.id}}").parent("div").find('button').show()
+              $("#guideline_{{f.id}}").children("article").children("div").text(value['recommendation']);
+
             } else  {
-              $("#guideline_{{f.id}}").parent("tr").hide()
+              // $("#guideline_{{f.id}}").parent("tr").hide()
             }
-            // show table
+
+            // // show table
             $("#result_table_{{f.id}}").show();
             // open card
             $("#metric_card_content_{{f.id}}").removeClass("is-hidden");
@@ -246,6 +260,23 @@
           };
         });
 
+        // show examples
+        $("#show_examples, #url_examples").on({
+            mouseenter: function () {
+                //stuff to do on mouse enter
+                $("#url_examples").show();
+                $("#show_examples").children("i").removeClass("fa-chevron-down");
+                $("#show_examples").children("i").addClass("fa-chevron-up");
+            },
+            mouseleave: function () {
+                //stuff to do on mouse leave
+                $("#url_examples").hide();
+                $("#show_examples").children("i").removeClass("fa-chevron-up");
+                $("#show_examples").children("i").addClass("fa-chevron-down");
+            }
+        });
+
+
         $("#download_csv").on('click', function($e){
             console.log("try download");
             console.log(csv_lines.join("\n"));
@@ -295,6 +326,7 @@
 <article id="description" class="message is-info">
     <div class="message-header">
         <p>Demo context and goal</p>
+
     </div>
     <div class="message-body">
         <h3 class="title">Monitoring progress in FAIRification through self-assessment of resources maturity indicators</h3>
@@ -314,29 +346,34 @@
       <input id="url" name="url" class="input is-large" type="text" placeholder="FAIR resource URL">
       <span><p id="is_doi"></p></span>
       <br>
-      OR pick an example:
-      <br>
-      <br>
-      <div class="columns is-multiline is-mobile">
-          {% for k in sample_data.keys() %}
-              <div class="column is-one-third">
-                  <div class="field">
-                      <label class="label">{{k}}</label>
-                      <div class="control">
+      OR pick an
+      <button class="button is-info is-small" id="show_examples">Example<i class="fa fa-chevron-down fa-fw" aria-hidden="true"></i></button>
+      <div id="url_examples" style="display: none;">
+        <br>
+        <article class="message is-info" >
+          <div class="message-body">
+            <div class="columns is-multiline is-mobile">
+                {% for k in sample_data.keys() %}
+                    <div class="column is-one-third">
+                        <div class="field">
+                            <label class="label">{{k}}</label>
+                            <div class="control">
 
-                          <div class="select">
-                              <select id="sample_{{k}}">
-                                  {% for s in sample_data[k] %}
-                                  <option>{{ s }}</option>
-                                  {% endfor %}
-                              </select>
-                          </div>
-                      </div>
-                  </div>
+                                <div class="select">
+                                    <select id="sample_{{k}}">
+                                        {% for s in sample_data[k] %}
+                                        <option>{{ s }}</option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
               </div>
-          {% endfor %}
-      </div>
-
+            </div>
+          </article>
+        </div>
     </div>
     <!-- <br>
     <div class="card">
@@ -402,7 +439,7 @@
         <div class="columns">
         {% for category in ['F', 'A', 'I', 'R'] %}
             <div class="is-one-quarter">
-                <table id="metrics_checkboxes" class="table is-hoverable">
+                <table id="metrics_checkboxes" class="table is-hoverable is-bordered is-striped">
                     <thead>
                         <th>
                             <label class="checkbox">
@@ -418,13 +455,13 @@
                     {% for f in f_metrics %}
                         {% if f.principle_category == category %}
                         <tr>
-                            <th>
+                            <td>
                                 <label class="checkbox">
                                     <input name="checkbox_{{ category }}" id="checkbox_test_{{ f.id }}" data-target="test_{{ f.id }}" data-tested=false type="checkbox">
                                     {{ f.principle_tag }} - {{ f.name }}
 
                                 </label>
-                            </th>
+                            </td>
                         </tr>
                         {% endif %}
                     {% endfor %}
@@ -451,6 +488,27 @@
 <article id="metrics_details_rec" class="message is-info">
     <div class="message-header">
         <p>List of metrics with details and completion status</p>
+
+        <div class="popover is-popover-left">
+          <i class="fa fa-info-circle popover-trigger" aria-hidden="true"></i>
+          <div class="popover-content" style="text-align: left; padding: 0;">
+            <article class="message is-info">
+              <div class="message-body is-size-7">
+                Help comming soon
+              </div>
+            </article>
+          </div>
+        </div>
+    </div>
+    <div class="message-body">
+        {% include 'metrics_table.html' %}
+    </div>
+    https://github.com/IFB-ElixirFr/fair-checker.git
+</article>
+
+<!-- <article id="metrics_details_rec" class="message is-info">
+    <div class="message-header">
+        <p>List of metrics with details and completion status</p>
     </div>
     <div class="message-body">
       <div class="columns is-multiline is-mobile">
@@ -469,7 +527,7 @@
       </div>
     </div>
     https://github.com/IFB-ElixirFr/fair-checker.git
-</article>
+</article> -->
 </div>
 
 <script type="text/javascript">

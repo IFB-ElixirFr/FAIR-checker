@@ -257,33 +257,65 @@
 <script>
   var ctx = document.getElementById("myLineChart").getContext("2d");
   console.log( {{ success_weekly|tojson }});
+  console.log( {{ failures_weekly|tojson }});
 
-  const labels = Object.keys({{ success_weekly|tojson }});
-  const values_success = Object.values({{ success_weekly|tojson }});
-  const values_failures = Object.values({{ failures_weekly|tojson }});
+  var success_labels = {{ success_weekly|tojson }}.map(v => (v.x));
+  var failures_labels = {{ failures_weekly|tojson }}.map(v => (v.x));
+  var labels = [...new Set([...success_labels, ...failures_labels])].sort()
+
+  // const labels = Object.keys({{ failures_weekly|tojson }});
+  // const values_success = Object.values({{ success_weekly|tojson }});
+  // const values_failures = Object.values({{ failures_weekly|tojson }});
+
+  // console.log(labels);
+  // console.log(values_failures);
+
+  var array1 = [1, 2, 3];
+  var array2 = [2, 3, 4];
+  console.log();
 
   var data = {
-      labels: labels,
+      // labels: ["2020-47","2020-48","2021-1","2021-2","2021-3","2021-4","2021-6"],
       datasets: [
           {
               label: "Success",
+              borderWidth: '1',
               borderColor: 'rgba(75, 192, 192, 1)',
-              // backgroundColor: 'rgba(0, 0, 0, 0.1)',
+              backgroundColor: 'rgba(219, 242, 242, 0.5)',
               fill: false,
-              data: values_success,
+              data: {{ success_weekly|tojson }},
           },
           {
               label: "Failures",
+              borderWidth: '1',
               borderColor: 'rgba(255, 99, 132, 1)',
-              // backgroundColor: 'rgba(0, 0, 0, 0.1)',
+              backgroundColor: 'rgba(255, 224, 230, 0.5)',
               fill: false,
-              data: values_failures,
+              data: {{ failures_weekly|tojson }},
           },
+          // {
+          //     label: "Success",
+          //     borderWidth: '1',
+          //     borderColor: 'rgba(75, 192, 192, 1)',
+          //     // backgroundColor: 'rgba(219, 242, 242, 0.5)',
+          //     fill: false,
+          //     data: {{ success_weekly|tojson }},
+          //     type: "line",
+          // },
+          // {
+          //     label: "Failures",
+          //     borderWidth: '1',
+          //     borderColor: 'rgba(255, 99, 132, 1)',
+          //     // backgroundColor: 'rgba(255, 224, 230, 0.5)',
+          //     fill: false,
+          //     data: {{ failures_weekly|tojson }},
+          //     type: "line",
+          // },
       ]
   };
 
   var myLineChart = new Chart(ctx, {
-    type: 'line',
+    type: 'bar',
     data: data,
     options: {
         title: {
@@ -291,13 +323,20 @@
             text: 'Total',
             fontSize: 28,
         },
-        tooltips: {
-           mode: 'index',
-           intersect: false
-        },
-        hover: {
-           mode: 'index',
-           intersect: false
+        spanGaps: false,
+        // tooltips: {
+        //    mode: 'index',
+        //    intersect: false
+        // },
+        // hover: {
+        //    mode: 'index',
+        //    intersect: false
+        // },
+        scales: {
+            xAxes: [{
+                type: 'category',
+                labels: labels
+            }]
         }
 
     },
@@ -321,6 +360,7 @@
         break;
       case 'F':
         myLineChart.options.title.text = 'Findable';
+        // var labels = Object.keys({{ success_weekly|tojson }});
         var values_success = Object.values({{ f_success_weekly|tojson }});
         var values_failures = Object.values({{ f_failures_weekly|tojson }});
         break;
@@ -341,7 +381,7 @@
         break;
     }
 
-
+    // myLineChart.data.labels = labels;
     myLineChart.data.datasets[0].data = values_success;
     myLineChart.data.datasets[1].data = values_failures;
     myLineChart.update();

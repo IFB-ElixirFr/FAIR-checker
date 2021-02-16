@@ -4,7 +4,10 @@
 <!-- <div>
   <a id="canvas2svg" class="button is-info" download="ChartImage.svg" href=""><i class="fa fa-download fa-fw"></i>DOWNLOAD</a>
 </div> -->
+
 <canvas id="radar-chart" class="columns is-mobile is-centered"></canvas>
+
+
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.0"></script>
 
@@ -12,6 +15,8 @@
 
   var ctx = document.getElementById("radar-chart").getContext("2d");
 
+  ctx.canvas.height = '400';
+  ctx.canvas.width = '400';
   var data = {
       labels: ["Total", "Findable", "Accessible", "Interoperable", "Reusable"],
       datasets: [
@@ -62,6 +67,8 @@
     animation: {
       duration: 500,
     },
+    maintainAspectRatio: false,
+    // responsive: true,
 
     // hover: {
     //   mode: 'index',
