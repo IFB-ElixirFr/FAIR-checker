@@ -7,6 +7,7 @@
             <th>Time</th>
             <th>Comment</th>
             <th>Recommandation</th>
+            <th>Score</th>
             <th>Result</th>
             <th>Test</th>
         </tr>
@@ -59,6 +60,7 @@
                 </div>
               </div>
             </td>
+            <td class="vcenter hcenter" id="score_{{ f.id }}" data-category="{{ f.principle_category }}"></td>
             <td class="vcenter hcenter"><span id="status_{{ f.id }}" class="tag is-small">Status</span></td>
             <td class="vcenter hcenter"><button id="test_{{ f.id }}" href="#" value="{{ f.api_url }}" class="button is-small is-info" data-checkbox="checkbox_test_{{ f.id }}">Check</button></td>
 
