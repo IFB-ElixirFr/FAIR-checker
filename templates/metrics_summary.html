@@ -260,6 +260,23 @@
           };
         });
 
+        // show examples
+        $("#show_examples, #url_examples").on({
+            mouseenter: function () {
+                //stuff to do on mouse enter
+                $("#url_examples").show();
+                $("#show_examples").children("i").removeClass("fa-chevron-down");
+                $("#show_examples").children("i").addClass("fa-chevron-up");
+            },
+            mouseleave: function () {
+                //stuff to do on mouse leave
+                $("#url_examples").hide();
+                $("#show_examples").children("i").removeClass("fa-chevron-up");
+                $("#show_examples").children("i").addClass("fa-chevron-down");
+            }
+        });
+
+
         $("#download_csv").on('click', function($e){
             console.log("try download");
             console.log(csv_lines.join("\n"));
@@ -309,6 +326,7 @@
 <article id="description" class="message is-info">
     <div class="message-header">
         <p>Demo context and goal</p>
+
     </div>
     <div class="message-body">
         <h3 class="title">Monitoring progress in FAIRification through self-assessment of resources maturity indicators</h3>
@@ -328,29 +346,34 @@
       <input id="url" name="url" class="input is-large" type="text" placeholder="FAIR resource URL">
       <span><p id="is_doi"></p></span>
       <br>
-      OR pick an example:
-      <br>
-      <br>
-      <div class="columns is-multiline is-mobile">
-          {% for k in sample_data.keys() %}
-              <div class="column is-one-third">
-                  <div class="field">
-                      <label class="label">{{k}}</label>
-                      <div class="control">
+      OR pick an
+      <button class="button is-info is-small" id="show_examples">Example<i class="fa fa-chevron-down fa-fw" aria-hidden="true"></i></button>
+      <div id="url_examples" style="display: none;">
+        <br>
+        <article class="message is-info" >
+          <div class="message-body">
+            <div class="columns is-multiline is-mobile">
+                {% for k in sample_data.keys() %}
+                    <div class="column is-one-third">
+                        <div class="field">
+                            <label class="label">{{k}}</label>
+                            <div class="control">
 
-                          <div class="select">
-                              <select id="sample_{{k}}">
-                                  {% for s in sample_data[k] %}
-                                  <option>{{ s }}</option>
-                                  {% endfor %}
-                              </select>
-                          </div>
-                      </div>
-                  </div>
+                                <div class="select">
+                                    <select id="sample_{{k}}">
+                                        {% for s in sample_data[k] %}
+                                        <option>{{ s }}</option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
               </div>
-          {% endfor %}
-      </div>
-
+            </div>
+          </article>
+        </div>
     </div>
     <!-- <br>
     <div class="card">
@@ -465,6 +488,17 @@
 <article id="metrics_details_rec" class="message is-info">
     <div class="message-header">
         <p>List of metrics with details and completion status</p>
+
+        <div class="popover is-popover-left">
+          <i class="fa fa-info-circle popover-trigger" aria-hidden="true"></i>
+          <div class="popover-content" style="text-align: left; padding: 0;">
+            <article class="message is-info">
+              <div class="message-body is-size-7">
+                Help comming soon
+              </div>
+            </article>
+          </div>
+        </div>
     </div>
     <div class="message-body">
         {% include 'metrics_table.html' %}
@@ -472,7 +506,7 @@
     https://github.com/IFB-ElixirFr/fair-checker.git
 </article>
 
-<article id="metrics_details_rec" class="message is-info">
+<!-- <article id="metrics_details_rec" class="message is-info">
     <div class="message-header">
         <p>List of metrics with details and completion status</p>
     </div>
@@ -493,7 +527,7 @@
       </div>
     </div>
     https://github.com/IFB-ElixirFr/fair-checker.git
-</article>
+</article> -->
 </div>
 
 <script type="text/javascript">
