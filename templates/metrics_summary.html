@@ -264,18 +264,32 @@
         $("#show_examples, #url_examples").on({
             mouseenter: function () {
                 //stuff to do on mouse enter
-                $("#url_examples").show();
+
                 $("#show_examples").children("i").removeClass("fa-chevron-down");
                 $("#show_examples").children("i").addClass("fa-chevron-up");
+                elem_id = $(this).attr('id');
+                // if ( elem_id == "show_examples" ) {
+                //   $("#url_examples").slideDown("200");
+                // } else {
+                //   $("#url_examples").show();
+                // }
+                $("#url_examples").show();
             },
             mouseleave: function () {
                 //stuff to do on mouse leave
-                $("#url_examples").hide();
+
                 $("#show_examples").children("i").removeClass("fa-chevron-up");
                 $("#show_examples").children("i").addClass("fa-chevron-down");
+                // $("#url_examples").slideUp();
+                $("#url_examples").hide();
             }
         });
 
+
+
+        $("#btn_advanced_test").on('click', function($e){
+          $("#select_metrics").toggle("fast");
+        });
 
         $("#download_csv").on('click', function($e){
             console.log("try download");
@@ -405,24 +419,28 @@
 <!-- Start metric section -->
 <article id="start_test" class="message is-info">
     <div class="message-header">
-        <p>Start basic or advanced test (select metrics using checkboxes below)</p>
+        <p>Start basic or advanced test</p>
     </div>
     <div class="message-body">
         <div class="field is-grouped is-grouped-centered">
             <p class="control">
-                <button id="btn_test_all" class="button is-info"><i class="fa fa-bar-chart fa-fw"></i>Test all metrics</button>
-            </p>
-            <p class="control">
-                <button id="btn_test_checked" class="button is-info" disabled="disabled"><i class="fa fa-bar-chart fa-fw"></i>Test checked metrics</button>
-            </p>
-            <p class="control">
-                <a id="download_csv" data-dl="{{ uuid }}" class="button is-info"><i class="fa fa-download fa-fw"></i>CSV</a>
-            </p>
-            <p class="control">
-                <button onClick="window.location.reload();" class="button is-primary"><i class="fa fa-undo fa-fw"></i>Clean results</button>
+                <button id="btn_test_all" class="button is-info is-large"><i class="fa fa-bar-chart fa-fw"></i>Test all metrics</button>
             </p>
         </div>
         <progress id="p1" class="progress is-primary"  value="0" max="22"></progress>
+
+
+        <div class="field is-grouped is-grouped-centered">
+          <p class="control">
+            <button id="btn_advanced_test" class="button is-info"><i class="fa fa-bar-chart fa-fw"></i>Advanced Test</button>
+          </p>
+          <p class="control">
+              <button onClick="window.location.reload();" class="button is-primary"><i class="fa fa-undo fa-fw"></i>Clean results</button>
+          </p>
+          <p class="control">
+              <a id="download_csv" data-dl="{{ uuid }}" class="button is-info"><i class="fa fa-download fa-fw"></i>CSV</a>
+          </p>
+        </div>
     </div>
 
 </article>
@@ -431,12 +449,12 @@
 
 
 <!-- Metrics sselection checkboxes section -->
-<article id="select_metrics" class="message is-info">
+<article id="select_metrics" class="message is-info" style="display: none;">
     <div class="message-header">
         <p>Select the metrics you want to test</p>
     </div>
     <div class="message-body">
-        <div class="columns">
+        <div class="columns is-centered">
         {% for category in ['F', 'A', 'I', 'R'] %}
             <div class="is-one-quarter">
                 <table id="metrics_checkboxes" class="table is-hoverable is-bordered is-striped">
@@ -470,18 +488,16 @@
             </div>
         {% endfor %}
         </div>
+        <br>
+        <p class="columns is-centered">
+            <button id="btn_test_checked" class="button is-info" disabled="disabled"><i class="fa fa-bar-chart fa-fw"></i>Test checked metrics</button>
+        </p>
     </div>
+
 </article>
 
 
-<article id="radar_chart" class="message is-info">
-    <div class="message-header">
-        <p>Radar chart of metrics completion</p>
-    </div>
-    <div class="message-body">
-        {% include 'radar_chart.html' %}
-    </div>
-</article>
+
 
 
 
@@ -506,6 +522,15 @@
     https://github.com/IFB-ElixirFr/fair-checker.git
 </article>
 
+
+<article id="radar_chart" class="message is-info">
+    <div class="message-header">
+        <p>Radar chart of metrics completion</p>
+    </div>
+    <div class="message-body">
+        {% include 'radar_chart.html' %}
+    </div>
+</article>
 <!-- <article id="metrics_details_rec" class="message is-info">
     <div class="message-header">
         <p>List of metrics with details and completion status</p>
