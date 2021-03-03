@@ -26,72 +26,18 @@ class R2Impl(AbstractFAIRMetrics):
 
     def __init__(self):
         self.name = "R2"
-        self.url = "URL here"
-        self.html_source = "Page content"
-        self.requests_status_code = "Status code for requests"
+
+
         self.api = "api_url_for_R2"
-        self.rdf_jsonld = "Graph RDF"
 
-    def set_url(self, url):
-        self.url = url
 
-    def extract_html_requests(self):
-        while (True):
-            try:
-                response = requests.get(url=self.url, timeout=10)
-                break
-            except SSLError:
-                time.sleep(5)
-            except requests.exceptions.Timeout:
-                print("Timeout, retrying")
-                time.sleep(5)
-            except requests.exceptions.ConnectionError as e:
-                print(e)
-                print("ConnectionError, retrying...")
-                time.sleep(10)
 
-        self.requests_status_code = response.status_code
-        self.html_source = response.content
 
-    def extract_html_selenium(self):
-        chrome_options = Options()
-        chrome_options.add_argument("--headless")
 
-        browser = webdriver.Chrome(options=chrome_options)
-        browser.get(self.url)
 
-        self.html_source = browser.page_source
 
-        browser.quit()
 
-    def get_requests_status_code(self):
-        return self.requests_status_code
 
-    def extract_rdf(self):
-        html_source = self.html_source
-        data = extruct.extract(html_source, syntaxes=['microdata', 'rdfa', 'json-ld'], errors='ignore')
-        kg = ConjunctiveGraph()
-
-        # kg = util.get_rdf_selenium(uri, kg)
-
-        for md in data['json-ld']:
-            if '@context' in md.keys():
-                print(md['@context'])
-                if ('https://schema.org' in md['@context']) or ('http://schema.org' in md['@context']) :
-                    md['@context'] = '../static/data/jsonldcontext.json'
-            kg.parse(data=json.dumps(md, ensure_ascii=False), format="json-ld")
-        for md in data['rdfa']:
-            if '@context' in md.keys():
-                if ('https://schema.org' in md['@context']) or ('http://schema.org' in md['@context']) :
-                    md['@context'] = '../static/data/jsonldcontext.json'
-            kg.parse(data=json.dumps(md, ensure_ascii=False), format="json-ld")
-        for md in data['microdata']:
-            if '@context' in md.keys():
-                if ('https://schema.org' in md['@context']) or ('http://schema.org' in md['@context']) :
-                    md['@context'] = '../static/data/jsonldcontext.json'
-            kg.parse(data=json.dumps(md, ensure_ascii=False), format="json-ld")
-
-        self.rdf_jsonld = kg
 
     def get_classes(self):
         query_classes = """
