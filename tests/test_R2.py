@@ -63,10 +63,9 @@ class R2ImplTestCase(unittest.TestCase):
         #     print("%s : %s : %s" % (s,p,o))
 
 
-
     def test_dynamic_biotools(self):
-        uri = 'https://workflowhub.eu/workflows/45'
-        # uri = 'https://bio.tools/jaspar'
+        #uri = 'https://workflowhub.eu/workflows/45'
+        uri = 'https://bio.tools/jaspar'
 
         chrome_options = Options()
         chrome_options.add_argument("--headless")
