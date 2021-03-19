@@ -102,9 +102,13 @@
             $.each(value['classes'], function(index, item) {
                 var row = '<tr>';
                 row += '<td>' + item['name'] ;
-                $.each(item['tag'], function(index, t) {
-                    row += ' <span class="tag is-primary is-pulled-right">' + t + '</span>'
-                });
+                if (item['tag'].length == 0) {
+                    row += ' <span class="tag is-danger is-pulled-right"> unknown</span>'
+                } else {
+                    $.each(item['tag'], function(index, t) {
+                        row += ' <span class="tag is-primary is-pulled-right">' + t + '</span>'
+                    });
+                }
                 row += '</td>';
                 rows += row + '<tr>';
             });
@@ -114,9 +118,13 @@
             $.each(value['properties'], function(index, item) {
                 var row = '<tr>';
                 row += '<td>' + item['name'] ;
-                $.each(item['tag'], function(index, t) {
-                    row += ' <span class="tag is-primary is-pulled-right">' + t + '</span>'
-                });
+                if (item['tag'].length == 0) {
+                    row += ' <span class="tag is-danger is-pulled-right"> unknown</span>'
+                } else {
+                    $.each(item['tag'], function(index, t) {
+                        row += ' <span class="tag is-primary is-pulled-right">' + t + '</span>'
+                    });
+                }
                 row += '</td>';
                 rows += row + '<tr>';
             });
@@ -192,8 +200,8 @@
 </script>
 
 <div class="section">
-    <h1 class="title is-1">How FAIR are my tools, workflows, datasets ? [BETA]</h1>
-    <p> These FAIR checks aim at leveraging semantic web technologies to check that metadata use standards and recognized
+    <h1 class="title is-1">[BETA] How are my tools, workflows, datasets annotated ? How to enhance metadata quality ? </h1>
+    <p> These automated validations leverage semantic web technologies and check that metadata use standards and recognized
         ontologies or controlled vocabularies.</p>
     <br>
     <p> First, embedded semantic annotations are extracted from web pages, forming a minimal knowledge graph. Then, these knowledge are completed based on already deployed knowledge graphs (Datacite, OpenAire, WikiData). Finally, the resulting knowledge graph is tested to check that classes and properties are recognized through Linked Open Vocabularies (LOV), or Ontology Lookup Service (OLS)</p>
@@ -206,7 +214,6 @@
                 <div class="field">
                     <label class="label">{{k}}</label>
                     <div class="control">
-
                         <div class="select">
                             <select id="sample_{{k}}">
                                 {% for s in sample_data[k] %}
@@ -227,31 +234,34 @@
           <p class="control is-expanded">
             <input id="url" name="url" class="input" type="text" placeholder="Resource URL" value="https://bio.tools/bwa">
           </p>
-        <p class="control"><a id="btn_kg" class="button is-info">Enrich Knowledge Graph</a></p>
-        <p class="control"><a id="btn_fairness" class="button is-primary">Vocab. checks</a></p>
-        <p class="control"><a id="btn_bioschemas" class="button is-warning">BioSchemas checks</a></p>
+        <p class="control"><a id="btn_kg" class="button is-info">Build Knowledge Graph</a></p>
+<!--        <p class="control"><a id="btn_fairness" class="button is-primary">Vocab. checks</a></p>-->
+<!--        <p class="control"><a id="btn_bioschemas" class="button is-warning">BioSchemas checks</a></p>-->
     </div>
 </div>
 
-<div class="section is-hidden">
-    <progress id="p1" class="progress is-primary"  value="0" max="5"></progress>
-</div>
+<!--<div class="section is-hidden">-->
+<!--&lt;!&ndash;<div class="section">&ndash;&gt;-->
+<!--    <progress id="p1" class="progress is-primary"  value="0" max="5"></progress>-->
+<!--</div>-->
 
 <section id="section-KG" class="section is-hidden">
-    <div class="section">
+<!--    <div class="section">-->
         <div class="field">
           <div class="control">
             <textarea id="microdata" class="textarea is-small" placeholder="Knowledge graph, in RDF, turtle syntax" rows="15"></textarea>
           </div>
         </div>
+        <div class="field is-grouped">
+        <p class="control"><a id="btn_fairness" class="button is-primary">Vocab. checks</a></p>
+        <p class="control"><a id="btn_bioschemas" class="button is-warning">BioSchemas checks</a></p>
     </div>
+<!--    </div>-->
 </section>
 
 <section id="section-LinkedData" class="section is-hidden">
-    <h3 class="title is-3">Interoperability validation</h3>
-    <p>What</p>
-    <p>Why</p>
-    <p>How</p>
+    <h3 class="title is-3">Controlled vocabulary checks</h3>
+    <p>We now have a Knowledge Graph grounded to ontology concepts (classes) and relations (properties). Are these terms known in reference ontology registries such as LOV, OLS or BioPortal ? </p>
     <div class="columns is-multiline is-mobile">
         <div class="column is-one-half">
             <table class="table is-striped is-fullwidth">
@@ -271,10 +281,8 @@
 </section>
 
 <section id="section-BioSchemas" class="section is-hidden">
-    <h3 class="title is-3">BioSchemas validation</h3>
-    <p>What</p>
-    <p>Why</p>
-    <p>How</p>
+    <h3 class="title is-3">BioSchemas profiles checks</h3>
+    <p>Bioschemas is a community effort aimed at reusing and extending Schema.org for better life science digital resource findability. Several profiles are defined for each kind of Life Science resources, specifying minimal, recommended or optional information. Am I missing minimal information ? Should I provide other information for better findability ?</p>
     <div class="columns is-multiline is-mobile">
         <div class="column is-one-half">
             <table class="table is-striped is-fullwidth">
