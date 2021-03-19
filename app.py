@@ -67,74 +67,81 @@ socketio = SocketIO(app,async_mode = 'eventlet')
 app.secret_key = secrets.token_urlsafe(16)
 #socketio = SocketIO(app)
 sample_resources = {
-    'input_data': [
+    'examples': [
         "",
-        "https://data.inra.fr/dataset.xhtml?persistentId=doi:10.15454/TKMGCQ", # dataset INRA Dataverse
-        "https://doi.pangaea.de/10.1594/PANGAEA.914331", # dataset in PANGAEA
-    ],
-    'input_software' : [
-        "",
-        "https://zenodo.org/record/3349821#.Xp7m9SNR2Uk", # VM image in zenodo
-        "https://explore.openaire.eu/search/software?softwareId=r37b0ad08687::275ecd99e516ed1b863e2a7586063a64", # same VM image in OpenAir
-        "https://data.inra.fr/dataset.xhtml?persistentId=doi:10.15454/5K9HCS", # code in INRA Dataverse
-        "https://bio.tools/rsat_peak-motifs", # Tool in biotools
         "https://workflowhub.eu/workflows/18", # Workflow in WorkflowHub
-        "http://tara-oceans.mio.osupytheas.fr/ocean-gene-atlas/", # OGA Main page of webtool
-    ],
-    'input_database' : [
-        "",
-        "https://fairsharing.org/FAIRsharing.ZPRtfG", # knowledge base in FAIRsharing (AgroLD)
-        "http://remap.univ-amu.fr" # Database of transcriptional regulators
-    ],
-    'input_ontology' : [
-        "",
-        "https://bioportal.bioontology.org/ontologies/OCRE", # Ontology in bioportal
-        "https://www.ebi.ac.uk/ols/ontologies/ncit/terms?iri=http%3A%2F%2Fpurl.obolibrary.org%2Fobo%2FNCIT_C2985" # OLS entry
-    ],
-    'input_publication' : [
-        "",
-        "https://doi.org/10.1145/1614320.1614332", # Paper from lod.openair
         "https://search.datacite.org/works/10.7892/boris.108387", # Publication in Datacite
-        "https://doi.org/10.6084/m9.figshare.c.3607916_d7.v1", # Publication figure in FigShare
-        "https://search.datacite.org/works/10.6084/m9.figshare.c.3607916_d7.v1", # Publication figure in Datacite (same as previous)
-        "https://api.datacite.org/dois/application/ld+json/10.6084/m9.figshare.c.3607916_d7.v1" # Publication figure with Datacite API
+        "https://doi.pangaea.de/10.1594/PANGAEA.914331", # dataset in PANGAEA
+        "https://bio.tools/jaspar",
     ],
-    'input_training' : [
-        "",
-        "https://tess.elixir-europe.org/materials/train-the-trainer", # Training material in TeSS
-        "https://tess.elixir-europe.org/materials/bioccheck-a-thon-check-in"
-    ],
-    'input_elixir-fr_SDP' : [
-        "",
-        "https://www.aniseed.cnrs.fr/",
-        "http://aria.pasteur.fr/",
-        "http://aureme.genouest.org",
-        "https://biii.eu",
-        "https://crisprcas.i2bc.paris-saclay.fr",
-        "https://urgi.versailles.inrae.fr/faidare/",
-        "https://www.southgreen.fr/genomehubs",
-        "https://www.genomicus.biologie.ens.fr/genomicus-98.01/cgi-bin/search.pl",
-        "http://ginsim.org", # pas sécurisé
-        "https://urgi.versailles.inrae.fr/gnpis/",
-        "http://www.imgt.org",
-        "http://lifemap.univ-lyon1.fr",
-        "http://www.atgc-montpellier.fr/lordec/",
-        "http://matrixdb.univ-lyon1.fr",
-        "https://metexplore.toulouse.inra.fr/index.html/",
-        "http://www.genoscope.cns.fr/agc/microscope/home/",
-        "http://bioinfo.cristal.univ-lille.fr/norine/",
-        "http://tara-oceans.mio.osupytheas.fr/ocean-gene-atlas/",
-        "http://www.orphadata.org/cgi-bin/index.php",
-        "http://www.orpha.net/consor/cgi-bin/index.php",
-        "https://paramecium.i2bc.paris-saclay.fr/",
-        "http://www.phylogeny.fr/",
-        "https://urgi.versailles.inrae.fr/Tools/REPET",
-        "http://rsat.eu/",
-        "http://abims.sb-roscoff.fr/sulfatlas/",
-        "https://varaft.eu/",
-        "http://www.wheatis.org/",
-        "https://workflow4metabolomics.org/",
-    ]
+    # 'input_data': [
+    #     "",
+    #     "https://data.inra.fr/dataset.xhtml?persistentId=doi:10.15454/TKMGCQ", # dataset INRA Dataverse
+    #     "https://doi.pangaea.de/10.1594/PANGAEA.914331", # dataset in PANGAEA
+    # ],
+    # 'input_software' : [
+    #     "",
+    #     "https://zenodo.org/record/3349821#.Xp7m9SNR2Uk", # VM image in zenodo
+    #     "https://explore.openaire.eu/search/software?softwareId=r37b0ad08687::275ecd99e516ed1b863e2a7586063a64", # same VM image in OpenAir
+    #     "https://data.inra.fr/dataset.xhtml?persistentId=doi:10.15454/5K9HCS", # code in INRA Dataverse
+    #     "https://bio.tools/rsat_peak-motifs", # Tool in biotools
+    #     "https://workflowhub.eu/workflows/18", # Workflow in WorkflowHub
+    #     "http://tara-oceans.mio.osupytheas.fr/ocean-gene-atlas/", # OGA Main page of webtool
+    # ],
+    # 'input_database' : [
+    #     "",
+    #     "https://fairsharing.org/FAIRsharing.ZPRtfG", # knowledge base in FAIRsharing (AgroLD)
+    #     "http://remap.univ-amu.fr" # Database of transcriptional regulators
+    # ],
+    # 'input_ontology' : [
+    #     "",
+    #     "https://bioportal.bioontology.org/ontologies/OCRE", # Ontology in bioportal
+    #     "https://www.ebi.ac.uk/ols/ontologies/ncit/terms?iri=http%3A%2F%2Fpurl.obolibrary.org%2Fobo%2FNCIT_C2985" # OLS entry
+    # ],
+    # 'input_publication' : [
+    #     "",
+    #     "https://doi.org/10.1145/1614320.1614332", # Paper from lod.openair
+    #     "https://search.datacite.org/works/10.7892/boris.108387", # Publication in Datacite
+    #     "https://doi.org/10.6084/m9.figshare.c.3607916_d7.v1", # Publication figure in FigShare
+    #     "https://search.datacite.org/works/10.6084/m9.figshare.c.3607916_d7.v1", # Publication figure in Datacite (same as previous)
+    #     "https://api.datacite.org/dois/application/ld+json/10.6084/m9.figshare.c.3607916_d7.v1" # Publication figure with Datacite API
+    # ],
+    # 'input_training' : [
+    #     "",
+    #     "https://tess.elixir-europe.org/materials/train-the-trainer", # Training material in TeSS
+    #     "https://tess.elixir-europe.org/materials/bioccheck-a-thon-check-in"
+    # ],
+    # 'input_elixir-fr_SDP' : [
+    #     "",
+    #     "https://www.aniseed.cnrs.fr/",
+    #     "http://aria.pasteur.fr/",
+    #     "http://aureme.genouest.org",
+    #     "https://biii.eu",
+    #     "https://crisprcas.i2bc.paris-saclay.fr",
+    #     "https://urgi.versailles.inrae.fr/faidare/",
+    #     "https://www.southgreen.fr/genomehubs",
+    #     "https://www.genomicus.biologie.ens.fr/genomicus-98.01/cgi-bin/search.pl",
+    #     "http://ginsim.org", # pas sécurisé
+    #     "https://urgi.versailles.inrae.fr/gnpis/",
+    #     "http://www.imgt.org",
+    #     "http://lifemap.univ-lyon1.fr",
+    #     "http://www.atgc-montpellier.fr/lordec/",
+    #     "http://matrixdb.univ-lyon1.fr",
+    #     "https://metexplore.toulouse.inra.fr/index.html/",
+    #     "http://www.genoscope.cns.fr/agc/microscope/home/",
+    #     "http://bioinfo.cristal.univ-lille.fr/norine/",
+    #     "http://tara-oceans.mio.osupytheas.fr/ocean-gene-atlas/",
+    #     "http://www.orphadata.org/cgi-bin/index.php",
+    #     "http://www.orpha.net/consor/cgi-bin/index.php",
+    #     "https://paramecium.i2bc.paris-saclay.fr/",
+    #     "http://www.phylogeny.fr/",
+    #     "https://urgi.versailles.inrae.fr/Tools/REPET",
+    #     "http://rsat.eu/",
+    #     "http://abims.sb-roscoff.fr/sulfatlas/",
+    #     "https://varaft.eu/",
+    #     "http://www.wheatis.org/",
+    #     "https://workflow4metabolomics.org/",
+    # ]
 }
 
 metrics = [{'name':'f1', 'category':'F', 'description': 'F1 verifies that ...  '},

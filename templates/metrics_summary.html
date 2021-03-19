@@ -37,7 +37,7 @@
         //////////////////
 
         {% for f in f_metrics %}
-        $("#test_{{f.id}}").one('click', function($e){
+        $("#test_{{f.id}}").on('click', function($e){
             $e.preventDefault();
             console.log("Testing metric {{f.name}}");
             console.log("ID: " + "{{f.id}}");
@@ -79,7 +79,7 @@
         socket.on('done_{{f.id}}', function(value) {
             console.log('DONE {{f.name}}');
             $("#test_{{f.id}}").removeClass("is-loading");
-            $("#test_{{f.id}}").prop("disabled", true);
+            // $("#test_{{f.id}}").prop("disabled", true);
 
             console.log(value['time']);
             console.log(value['score']);
@@ -91,6 +91,7 @@
 
             // change status color
             if (value['score'] == 1) {
+              $("#status_{{f.id}}").removeClass("is-danger");
               $("#status_{{f.id}}").addClass("is-success");
               $("#status_{{f.id}}").text("Success");
               $("#result_{{f.id}}").addClass("is-success");
@@ -98,6 +99,7 @@
               $("#checkbox_test_{{f.id}}").parent("label").parent("td").css('background-color','#DBF2F2');
               $("#metrics_row_{{ f.id }}").css('background-color','#DBF2F2');
             } else {
+              $("#status_{{f.id}}").removeClass("is-success");
               $("#status_{{f.id}}").addClass("is-danger");
               $("#status_{{f.id}}").text("Failure");
               $("#result_{{f.id}}").addClass("is-danger");
@@ -106,9 +108,6 @@
               $("#metrics_row_{{ f.id }}").css('background-color','#FFE0E6');
             }
 
-            //update progressbar
-            current = parseInt($("#p1").attr("value"));
-            $("#p1").attr("value", current+1);
             // add score to result
             $("#score_{{f.id}}").text(value['score']);
             // add time to result
@@ -119,6 +118,18 @@
             $("#comment_{{f.id}}").children("article").removeClass("is-info");
             $("#comment_{{f.id}}").children("article").children("div").text(value['comment']);
 
+            //update progressbar
+            // current = parseInt($("#p1").attr("value"));
+            progress = 0
+            $("#p1").attr("value", progress);
+            $('[id^=score_metric_]').each(function( progress ) {
+              if ($(this).text() != "") {
+                  $("#p1").attr("value", progress+1);
+
+              }
+            });
+            console.log($("#p1").parent().closest('div').data("label"));
+            $("#p1").parent().closest('div').data("label", "toto");
 
             // add recommandation if score == 0
             if (value['score'] == 0) {
@@ -126,7 +137,7 @@
               $("#guideline_{{f.id}}").children("article").children("div").text(value['recommendation']);
 
             } else  {
-              // $("#guideline_{{f.id}}").parent("tr").hide()
+              $("#guideline_{{f.id}}").parent("div").find('button').hide()
             }
 
             // // show table
@@ -145,7 +156,7 @@
               console.log("all done !!!!");
               $("#btn_test_checked").removeClass("is-loading");
               $("#btn_test_all").removeClass("is-loading");
-              $("#btn_test_all").prop("disabled", false);
+              // $("#btn_test_all").prop("disabled", false);
               $("#btn_test_checked").prop("disabled", false);
             }
 
@@ -194,7 +205,7 @@
           });
 
           if (all_tested) {
-            $("#btn_test_all").prop("disabled", true);
+            // $("#btn_test_all").prop("disabled", true);
           }
         });
 
@@ -336,58 +347,51 @@
 
 <h1 class="title">How FAIR is my resource</h1>
 
-<!-- description section -->
-<article id="description" class="message is-info">
-    <div class="message-header">
-        <p>Demo context and goal</p>
 
-    </div>
-    <div class="message-body">
-        <h3 class="title">Monitoring progress in FAIRification through self-assessment of resources maturity indicators</h3>
-        <!-- <br> -->
-        This demo is based on the FAIRMetrics framework [Wilkinson, Dumontier et al., Scientific Data 6:174] <a href="https://github.com/FAIRMetrics/Metrics">[GitHub]</a> that is composed of Maturity Indicators (MI), compliance tests and the evaluator application itself.
-        For now, few efforts have been done so far to take advantage from their concrete implementation, in the process of improving FAIRness of users/community resources.
-        Furthermore, existing interfaces do not provide concrete help or guidelines to developers for better sharing their published works. In this work we propose a web demonstrator, leveraging existing web APIs, aimed at i) evaluating FAIR maturity indicators and ii) providing hints to progress in the FAIRification process.
-    </div>
-</article>
 
 <!-- input uri section -->
 <article id="url_selection" class="message is-info">
     <div class="message-header">
-        <p>Enter or select a resource identifier example</p>
+        <p>Enter resource identifier (URL/DOI)</p>
     </div>
     <div class="message-body">
       <input id="url" name="url" class="input is-large" type="text" placeholder="FAIR resource URL">
       <span><p id="is_doi"></p></span>
       <br>
-      OR pick an
+      <div class="field is-grouped is-grouped-centered">
+          <p class="control">
+              <button id="btn_test_all" class="button is-info is-large"><i class="fa fa-bar-chart fa-fw"></i>Test all metrics</button>
+          </p>
+      </div>
+
       <button class="button is-info is-small" id="show_examples">Example<i class="fa fa-chevron-down fa-fw" aria-hidden="true"></i></button>
       <div id="url_examples" style="display: none;">
         <br>
         <article class="message is-info" >
           <div class="message-body">
             <div class="columns is-multiline is-mobile">
-                {% for k in sample_data.keys() %}
-                    <div class="column is-one-third">
-                        <div class="field">
-                            <label class="label">{{k}}</label>
-                            <div class="control">
+              {% for k in sample_data.keys() %}
+                  <div class="column is-4">
+                      <div class="field">
+                          <label class="label">{{k}}</label>
+                          <div class="control">
 
-                                <div class="select">
-                                    <select id="sample_{{k}}">
-                                        {% for s in sample_data[k] %}
-                                        <option>{{ s }}</option>
-                                        {% endfor %}
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                {% endfor %}
+                              <div class="select">
+                                  <select id="sample_{{k}}">
+                                      {% for s in sample_data[k] %}
+                                      <option>{{ s }}</option>
+                                      {% endfor %}
+                                  </select>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              {% endfor %}
               </div>
             </div>
-          </article>
-        </div>
+        </article>
+      </div>
+
     </div>
     <!-- <br>
     <div class="card">
@@ -419,25 +423,26 @@
 <!-- Start metric section -->
 <article id="start_test" class="message is-info">
     <div class="message-header">
-        <p>Start basic or advanced test</p>
+        <p>Progress</p>
     </div>
     <div class="message-body">
-        <div class="field is-grouped is-grouped-centered">
+        <!-- <div class="field is-grouped is-grouped-centered">
             <p class="control">
                 <button id="btn_test_all" class="button is-info is-large"><i class="fa fa-bar-chart fa-fw"></i>Test all metrics</button>
             </p>
-        </div>
-        <progress id="p1" class="progress is-primary"  value="0" max="22"></progress>
+        </div> -->
 
+        <progress id="p1" class="progress is-primary" value="0" max="22"></progress>
 
         <div class="field is-grouped is-grouped-centered">
           <p class="control">
-            <button id="btn_advanced_test" class="button is-info"><i class="fa fa-bar-chart fa-fw"></i>Advanced Test</button>
-          </p>
-          <p class="control">
               <button onClick="window.location.reload();" class="button is-primary"><i class="fa fa-undo fa-fw"></i>Clean results</button>
           </p>
-          <p class="control">
+          <!-- <p class="control">
+            <button id="btn_advanced_test" class="button is-info"><i class="fa fa-bar-chart fa-fw"></i>Advanced Test</button>
+          </p> -->
+
+          <p hidden class="control">
               <a id="download_csv" data-dl="{{ uuid }}" class="button is-info"><i class="fa fa-download fa-fw"></i>CSV</a>
           </p>
         </div>
@@ -503,7 +508,7 @@
 
 <article id="metrics_details_rec" class="message is-info">
     <div class="message-header">
-        <p>List of metrics with details and completion status</p>
+        <p>List of metrics with details and results</p>
 
         <div class="popover is-popover-left">
           <i class="fa fa-info-circle popover-trigger" aria-hidden="true"></i>
@@ -519,7 +524,7 @@
     <div class="message-body">
         {% include 'metrics_table.html' %}
     </div>
-    https://github.com/IFB-ElixirFr/fair-checker.git
+
 </article>
 
 
@@ -531,6 +536,28 @@
         {% include 'radar_chart.html' %}
     </div>
 </article>
+
+<!-- description section -->
+<article id="description" class="message is-info">
+    <div class="message-header">
+        <p>About</p>
+
+    </div>
+    <div class="message-body">
+        <h3 class="title">Monitoring progress in FAIRification through self-assessment of resources maturity indicators</h3>
+        <!-- <br> -->
+        This demo is based on the FAIRMetrics framework [Wilkinson, Dumontier et al., Scientific Data 6:174] <a href="https://github.com/FAIRMetrics/Metrics">[GitHub]</a> that is composed of Maturity Indicators (MI), compliance tests and the evaluator application itself.
+        For now, few efforts have been done so far to take advantage from their concrete implementation, in the process of improving FAIRness of users/community resources.
+        Furthermore, existing interfaces do not provide concrete help or guidelines to developers for better sharing their published works. In this work we propose a web demonstrator, leveraging existing web APIs, aimed at i) evaluating FAIR maturity indicators and ii) providing hints to progress in the FAIRification process.
+    </div>
+
+    <div class="message-body">
+      <a href="https://github.com/IFB-ElixirFr/fair-checker.git" target="_blank" rel="noopener noreferrer">https://github.com/IFB-ElixirFr/fair-checker.git</a>
+    </div>
+
+
+</article>
+
 <!-- <article id="metrics_details_rec" class="message is-info">
     <div class="message-header">
         <p>List of metrics with details and completion status</p>
