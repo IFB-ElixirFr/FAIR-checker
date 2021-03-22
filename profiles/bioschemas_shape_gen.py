@@ -3,7 +3,7 @@ from ssl import SSLError
 
 import extruct
 import json
-from rdflib import ConjunctiveGraph
+from rdflib import ConjunctiveGraph, URIRef
 from rdflib.namespace import RDF
 from jinja2 import Template
 from pyshacl import validate
@@ -24,17 +24,17 @@ class BioschemasProfileError(Exception):
         return f'{self.class_name} -> {self.message}'
 
 bs_profiles = {
-    'schema:SoftwareApplication' : {
-        'min_props': ['schema:name', 'schema:description', 'schema:url'],
-        'rec_props': ['schema:additionalType', 'schema:applicationCategory', 'schema:applicationSubCategory', 'schema:author' 'schema:license', 'schema:citation', 'schema:featureList', 'schema:softwareVersion']
+    'sc:SoftwareApplication' : {
+        'min_props': ['sc:name', 'sc:description', 'sc:url'],
+        'rec_props': ['sc:additionalType', 'sc:applicationCategory', 'sc:applicationSubCategory', 'sc:author' 'sc:license', 'sc:citation', 'sc:featureList', 'sc:softwareVersion']
     },
-    'schema:Dataset': {
-        'min_props': ['schema:name', 'schema:description', 'schema:identifier', 'schema:keywords', 'schema:url'],
-        'rec_props': ['schema:license', 'schema:creator', 'schema:citation']
+    'sc:Dataset': {
+        'min_props': ['sc:name', 'sc:description', 'sc:identifier', 'sc:keywords', 'sc:url'],
+        'rec_props': ['sc:license', 'sc:creator', 'sc:citation']
     },
-    'schema:ScholarlyArticle': {
-        'min_props': ['schema:headline', 'schema:identifier'],
-        'rec_props': ['schema:about', 'schema:alternateName', 'schema:author', 'schema:backstory', 'schema:citation', 'schema:dateCreated', 'schema:dateModified', 'schema:datePublished', 'schema:isBasedOn', 'schema:isPartOf', 'schema:keywords', 'schema:license', 'schema:pageEnd', 'schema:pageStart', 'schema:url']
+    'sc:ScholarlyArticle': {
+        'min_props': ['sc:headline', 'sc:identifier'],
+        'rec_props': ['sc:about', 'sc:alternateName', 'sc:author', 'sc:backstory', 'sc:citation', 'sc:dateCreated', 'sc:dateModified', 'sc:datePublished', 'sc:isBasedOn', 'sc:isPartOf', 'sc:keywords', 'sc:license', 'sc:pageEnd', 'sc:pageStart', 'sc:url']
     }
 }
 
@@ -129,18 +129,18 @@ def gen_SHACL_from_profile(shape_name, target_classes, min_props, rec_props):
     #print(rec_props)
 
     shape_template = """
-        @prefix dash: <http://datashapes.org/dash#> .
+        @prefix ns: <https://fair-checker.france-bioinformatique.fr#> .
         @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
         @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-        @prefix schema: <http://schema.org/> .
+        @prefix sc: <http://schema.org/> .
         @prefix sh: <http://www.w3.org/ns/shacl#> .
         @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
         @prefix edam: <http://edamontology.org/> .
         @prefix biotools: <https://bio.tools/ontology/> .
 
-        schema:{{shape_name}}
+        ns:{{shape_name}}
             a sh:NodeShape ;
-            #sh:targetSubjectsOf schema:name ;
+            #sh:targetSubjectsOf sc:name ;
             {% for c in target_classes %}
             sh:targetClass  {{c}} ;
             {% endfor %}
@@ -173,16 +173,30 @@ def gen_SHACL_from_profile(shape_name, target_classes, min_props, rec_props):
 
     return shape
 
-def validate_shape_from_RDF(input_url, rdf_syntax):
+def validate_any_from_RDF(input_url, rdf_syntax):
     kg = ConjunctiveGraph()
+    kg.namespace_manager.bind('sc', URIRef('http://schema.org/'))
     kg.parse(location=input_url, format=rdf_syntax)
 
     #list classes
     for s, p, o in kg.triples((None, RDF.type, None)):
-        print("{} is a {}".format(s, o))
-        if o in bs_profiles.keys():
-            print(f"Trying to validate a(n) {o} resource")
-            shacl_shape = gen_SHACL_from_target_class(str(o))
+        print(f"{s.n3(kg.namespace_manager)} is a {o.n3(kg.namespace_manager)}")
+        if o.n3(kg.namespace_manager) in bs_profiles.keys():
+            print(f"Trying to validate {s} as a(n) {o} resource")
+            shacl_shape = gen_SHACL_from_target_class(o.n3(kg.namespace_manager))
+            validate_shape(knowledge_graph=kg, shacl_shape=shacl_shape)
+
+def validate_any_from_microdata(input_url):
+    html = get_html_from_selenium(input_url)
+    kg = get_rdf(html)
+    kg.namespace_manager.bind('sc', URIRef('http://schema.org/'))
+
+    # list classes
+    for s, p, o in kg.triples((None, RDF.type, None)):
+        print(f"{s.n3(kg.namespace_manager)} is a {o.n3(kg.namespace_manager)}")
+        if o.n3(kg.namespace_manager) in bs_profiles.keys():
+            print(f"Trying to validate {s} as a(n) {o} resource")
+            shacl_shape = gen_SHACL_from_target_class(o.n3(kg.namespace_manager))
             validate_shape(knowledge_graph=kg, shacl_shape=shacl_shape)
 
 def validate_shape_from_RDF(input_uri, rdf_syntax, shacl_shape):
@@ -198,7 +212,7 @@ def validate_shape_from_microdata(input_uri, shacl_shape):
     validate_shape(knowledge_graph=kg, shacl_shape=shacl_shape)
 
 def validate_shape(knowledge_graph, shacl_shape):
-
+    #print(knowledge_graph.serialize(format="turtle").decode())
     r = validate(data_graph=knowledge_graph,
                  data_graph_format='turtle',
                  shacl_graph=shacl_shape,
@@ -224,14 +238,14 @@ def validate_shape(knowledge_graph, shacl_shape):
         """
 
     results = results_graph.query(report_query)
-    # print('VALIDATION RESULTS')
-    # print(results_text)
-    # print(conforms)
-    # print(results_graph.serialize(format="turtle").decode())
+    #print('VALIDATION RESULTS')
+    #print(results_text)
+    #print(conforms)
+    #print(results_graph.serialize(format="turtle").decode())
     warnings = []
     errors = []
     for r in results:
         if "#Warning" in r['severity']:
-            print(f'WARNING = Property {r["path"]} should be provided for {r["node"]}')
+            print(f'WARNING: Property {r["path"]} should be provided for {r["node"]}')
         if "#Violation" in r['severity']:
-            print(f'ERROR = Property {r["path"]} must be provided for {r["node"]}')
+            print(f'ERROR: Property {r["path"]} must be provided for {r["node"]}')
