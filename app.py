@@ -572,12 +572,7 @@ def handle_connect():
 
 @socketio.on('disconnect')
 def handle_disconnected():
-
-
-
     print("Disconnected")
-
-
     sid = request.sid
 
     time.sleep(5)
@@ -586,36 +581,34 @@ def handle_disconnected():
         os.remove("./temp/" + sid)
 
 
-@socketio.on('hello')
-def handle_hello(json):
-    print(request.sid)
-
-
-    print('received hello from client: ' + str(json))
-    #socketio.emit('ack', 'everything is fine', broadcast=True)
-    #emit('ack', 'everything is fine', broadcast=True)
-    emit('ack', 'everything is fine')
-
-@socketio.on('slow')
-def handle_slow():
-    print('received slow from client: ' + str(request.sid))
-    #socketio.emit('ack', 'everything is fine', broadcast=True)
-    #emit('ack', 'everything is fine', broadcast=True)
-    for i in range(0,100):
-        time.sleep(0.5)
-        emit('slow', i)
-        i+=10
-    emit('slow', 'done')
-
-@socketio.on('fast')
-def handle_fast():
-    print('received fast client: ' + str(request.sid))
-    #socketio.emit('ack', 'everything is fine', broadcast=True)
-    #emit('ack', 'everything is fine', broadcast=True)
-    for i in range(0,100):
-        time.sleep(0.01)
-        emit('fast', i)
-    emit('fast', 'done')
+# @socketio.on('hello')
+# def handle_hello(json):
+#     print(request.sid)
+#     print('received hello from client: ' + str(json))
+#     #socketio.emit('ack', 'everything is fine', broadcast=True)
+#     #emit('ack', 'everything is fine', broadcast=True)
+#     emit('ack', 'everything is fine')
+#
+# @socketio.on('slow')
+# def handle_slow():
+#     print('received slow from client: ' + str(request.sid))
+#     #socketio.emit('ack', 'everything is fine', broadcast=True)
+#     #emit('ack', 'everything is fine', broadcast=True)
+#     for i in range(0,100):
+#         time.sleep(0.5)
+#         emit('slow', i)
+#         i+=10
+#     emit('slow', 'done')
+#
+# @socketio.on('fast')
+# def handle_fast():
+#     print('received fast client: ' + str(request.sid))
+#     #socketio.emit('ack', 'everything is fine', broadcast=True)
+#     #emit('ack', 'everything is fine', broadcast=True)
+#     for i in range(0,100):
+#         time.sleep(0.01)
+#         emit('fast', i)
+#     emit('fast', 'done')
 
 
 #######################################
@@ -770,6 +763,7 @@ def check_kg_shape(data):
         handle_embedded_annot(data)
     kg = kgs[sid]
 
+    #TODO replace this code with profiles.bioschemas_shape_gen
     warnings, errors = util.shape_checks(kg)
     data = {'errors': errors, 'warnings': warnings}
     emit('done_check_shape', data)
