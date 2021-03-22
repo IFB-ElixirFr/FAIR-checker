@@ -283,22 +283,24 @@
 <section id="section-BioSchemas" class="section is-hidden">
     <h3 class="title is-3">BioSchemas profiles checks</h3>
     <p>Bioschemas is a community effort aimed at reusing and extending Schema.org for better life science digital resource findability. Several profiles are defined for each kind of Life Science resources, specifying minimal, recommended or optional information. Am I missing minimal information ? Should I provide other information for better findability ?</p>
-    <div class="columns is-multiline is-mobile">
-        <div class="column is-one-half">
-            <table class="table is-striped is-fullwidth">
-                <thead><tr><th>Requirements</th></tr></thead>
-                <tbody id="t_errors">
-                </tbody>
-            </table>
+
+        <div class="columns is-multiline is-mobile">
+            <div class="column is-one-half">
+                <table class="table is-striped is-fullwidth">
+                    <thead><tr><th>Requirements</th></tr></thead>
+                    <tbody id="t_errors">
+                    </tbody>
+                </table>
+            </div>
+            <div class="column is-one-half">
+                <table class="table is-striped is-fullwidth">
+                    <thead><tr><th>Improvements</th></tr></thead>
+                    <tbody id="t_warnings">
+                    </tbody>
+                </table>
+            </div>
         </div>
-        <div class="column is-one-half">
-            <table class="table is-striped is-fullwidth">
-                <thead><tr><th>Improvements</th></tr></thead>
-                <tbody id="t_warnings">
-                </tbody>
-            </table>
-        </div>
-    </div>
+
 </section>
 
 {% endblock %}

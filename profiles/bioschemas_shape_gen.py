@@ -4,6 +4,7 @@ from ssl import SSLError
 import extruct
 import json
 from rdflib import ConjunctiveGraph
+from rdflib.namespace import RDF
 from jinja2 import Template
 from pyshacl import validate
 import requests
@@ -12,6 +13,30 @@ from selenium.webdriver.chrome.options import Options
 
 from metrics.AbstractFAIRMetrics import AbstractFAIRMetrics
 
+class BioschemasProfileError(Exception):
+
+    def __init__(self, class_name, message="The profile is yet defined"):
+        self.class_name = class_name
+        self.message = message
+        super().__init__(self.message)
+
+    def __str__(self):
+        return f'{self.class_name} -> {self.message}'
+
+bs_profiles = {
+    'schema:SoftwareApplication' : {
+        'min_props': ['schema:name', 'schema:description', 'schema:url'],
+        'rec_props': ['schema:additionalType', 'schema:applicationCategory', 'schema:applicationSubCategory', 'schema:author' 'schema:license', 'schema:citation', 'schema:featureList', 'schema:softwareVersion']
+    },
+    'schema:Dataset': {
+        'min_props': ['schema:name', 'schema:description', 'schema:identifier', 'schema:keywords', 'schema:url'],
+        'rec_props': ['schema:license', 'schema:creator', 'schema:citation']
+    },
+    'schema:ScholarlyArticle': {
+        'min_props': ['schema:headline', 'schema:identifier'],
+        'rec_props': ['schema:about', 'schema:alternateName', 'schema:author', 'schema:backstory', 'schema:citation', 'schema:dateCreated', 'schema:dateModified', 'schema:datePublished', 'schema:isBasedOn', 'schema:isPartOf', 'schema:keywords', 'schema:license', 'schema:pageEnd', 'schema:pageStart', 'schema:url']
+    }
+}
 
 def get_html_from_requests(url):
     while (True):
@@ -83,6 +108,18 @@ def checktype(obj):
     else:
         return False
 
+def gen_SHACL_from_target_class(target_class):
+    print(target_class)
+
+    if not target_class in bs_profiles.keys():
+        raise BioschemasProfileError(class_name=target_class)
+
+    name = target_class.rsplit(':', 1)[1]
+    #targets = []
+    #targets.append(target_class)
+
+    return gen_SHACL_from_profile(name, [target_class], bs_profiles[target_class]['min_props'], bs_profiles[target_class]['rec_props'])
+
 def gen_SHACL_from_profile(shape_name, target_classes, min_props, rec_props):
 
     #TODO type checking for parameters
@@ -135,6 +172,18 @@ def gen_SHACL_from_profile(shape_name, target_classes, min_props, rec_props):
     g.parse(data=shape, format='turtle')
 
     return shape
+
+def validate_shape_from_RDF(input_url, rdf_syntax):
+    kg = ConjunctiveGraph()
+    kg.parse(location=input_url, format=rdf_syntax)
+
+    #list classes
+    for s, p, o in kg.triples((None, RDF.type, None)):
+        print("{} is a {}".format(s, o))
+        if o in bs_profiles.keys():
+            print(f"Trying to validate a(n) {o} resource")
+            shacl_shape = gen_SHACL_from_target_class(str(o))
+            validate_shape(knowledge_graph=kg, shacl_shape=shacl_shape)
 
 def validate_shape_from_RDF(input_uri, rdf_syntax, shacl_shape):
     kg = ConjunctiveGraph()
