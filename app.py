@@ -73,6 +73,7 @@ sample_resources = {
         "https://search.datacite.org/works/10.7892/boris.108387", # Publication in Datacite
         "https://doi.pangaea.de/10.1594/PANGAEA.914331", # dataset in PANGAEA
         "https://bio.tools/jaspar",
+        "https://bioportal.bioontology.org/ontologies/OCRE", # Ontology in bioportal
     ],
     # 'input_data': [
     #     "",
