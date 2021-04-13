@@ -10,6 +10,7 @@ from pyshacl import validate
 import requests
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
+from pathlib import Path
 
 from metrics.AbstractFAIRMetrics import AbstractFAIRMetrics
 
@@ -72,31 +73,36 @@ def get_html_from_selenium(url):
 def get_rdf(html_source):
     # data = extruct.extract(html_source, syntaxes=['microdata', 'rdfa', 'json-ld'], )
     data = extruct.extract(str(html_source), syntaxes=['microdata', 'rdfa', 'json-ld'], errors='ignore')
+    print(data)
+    print("ici")
     kg = ConjunctiveGraph()
 
     # kg = util.get_rdf_selenium(uri, kg)
     #print(html_source)
     #print(data.keys())
 
+    base_path = Path(__file__).parent  ## current directory
+    static_file_path = str((base_path / "../static/data/jsonldcontext.json").resolve())
+
     if 'json-ld' in data.keys():
         for md in data['json-ld']:
             if '@context' in md.keys():
                 print(md['@context'])
                 if ('https://schema.org' in md['@context']) or ('http://schema.org' in md['@context']):
-                    md['@context'] = '../static/data/jsonldcontext.json'
+                    md['@context'] = static_file_path
             kg.parse(data=json.dumps(md, ensure_ascii=False), format="json-ld")
     if 'rdfa' in data.keys():
         for md in data['rdfa']:
             if '@context' in md.keys():
                 if ('https://schema.org' in md['@context']) or ('http://schema.org' in md['@context']):
-                    md['@context'] = '../static/data/jsonldcontext.json'
+                    md['@context'] = static_file_path
             kg.parse(data=json.dumps(md, ensure_ascii=False), format="json-ld")
 
     if 'microdata' in data.keys():
         for md in data['microdata']:
             if '@context' in md.keys():
                 if ('https://schema.org' in md['@context']) or ('http://schema.org' in md['@context']):
-                    md['@context'] = '../static/data/jsonldcontext.json'
+                    md['@context'] = static_file_path
             kg.parse(data=json.dumps(md, ensure_ascii=False), format="json-ld")
 
     return kg
@@ -152,12 +158,12 @@ def gen_SHACL_from_profile(shape_name, target_classes, min_props, rec_props):
                 sh:severity sh:Violation
             ] ;
             {% endfor %}
-            
+
             {% for rec_prop in rec_props %}
             sh:property [
                 sh:path {{rec_prop}} ;
                 sh:minCount 1 ;
-                sh:severity sh:Violation
+                sh:severity sh:Warning
             ] ;
             {% endfor %}
         .
@@ -168,15 +174,18 @@ def gen_SHACL_from_profile(shape_name, target_classes, min_props, rec_props):
     #print(shape)
 
     #todo try catch to validate the generated shape
-    g = ConjunctiveGraph()
-    g.parse(data=shape, format='turtle')
+    # g = ConjunctiveGraph()
+    # g.parse(data=shape, format='turtle')
 
     return shape
 
 def validate_any_from_RDF(input_url, rdf_syntax):
     kg = ConjunctiveGraph()
     kg.namespace_manager.bind('sc', URIRef('http://schema.org/'))
+    # kg.namespace_manager.bind('schema', URIRef('http://schema.org/'))
     kg.parse(location=input_url, format=rdf_syntax)
+
+    results = {}
 
     #list classes
     for s, p, o in kg.triples((None, RDF.type, None)):
@@ -184,12 +193,22 @@ def validate_any_from_RDF(input_url, rdf_syntax):
         if o.n3(kg.namespace_manager) in bs_profiles.keys():
             print(f"Trying to validate {s} as a(n) {o} resource")
             shacl_shape = gen_SHACL_from_target_class(o.n3(kg.namespace_manager))
-            validate_shape(knowledge_graph=kg, shacl_shape=shacl_shape)
+            warnings, errors = validate_shape(knowledge_graph=kg, shacl_shape=shacl_shape)
+            results[str(s)] = {
+                            "type": str(o),
+                            "warnings": warnings,
+                            "errors": errors,
+                        }
+    return results
 
 def validate_any_from_microdata(input_url):
     html = get_html_from_selenium(input_url)
     kg = get_rdf(html)
     kg.namespace_manager.bind('sc', URIRef('http://schema.org/'))
+
+    results = {}
+    # print(kg.serialize(format="turtle").decode())
+
 
     # list classes
     for s, p, o in kg.triples((None, RDF.type, None)):
@@ -197,19 +216,28 @@ def validate_any_from_microdata(input_url):
         if o.n3(kg.namespace_manager) in bs_profiles.keys():
             print(f"Trying to validate {s} as a(n) {o} resource")
             shacl_shape = gen_SHACL_from_target_class(o.n3(kg.namespace_manager))
-            validate_shape(knowledge_graph=kg, shacl_shape=shacl_shape)
+            warnings, errors = validate_shape(knowledge_graph=kg, shacl_shape=shacl_shape)
+            results[str(s)] = {
+                            "type": str(o),
+                            "warnings": warnings,
+                            "errors": errors,
+                        }
+    print(len(kg))
+    return results
 
 def validate_shape_from_RDF(input_uri, rdf_syntax, shacl_shape):
     kg = ConjunctiveGraph()
     kg.parse(location=input_uri, format=rdf_syntax)
-    validate_shape(knowledge_graph=kg, shacl_shape=shacl_shape)
+    warnings, errors = validate_shape(knowledge_graph=kg, shacl_shape=shacl_shape)
+    return warnings, errors
 
 def validate_shape_from_microdata(input_uri, shacl_shape):
     #html = get_html_from_requests(input_uri)
     html = get_html_from_selenium(input_uri)
     kg = get_rdf(html)
     #print(kg.serialize(format='turtle').decode())
-    validate_shape(knowledge_graph=kg, shacl_shape=shacl_shape)
+    warnings, errors = validate_shape(knowledge_graph=kg, shacl_shape=shacl_shape)
+    return warnings, errors
 
 def validate_shape(knowledge_graph, shacl_shape):
     #print(knowledge_graph.serialize(format="turtle").decode())
@@ -239,13 +267,17 @@ def validate_shape(knowledge_graph, shacl_shape):
 
     results = results_graph.query(report_query)
     #print('VALIDATION RESULTS')
-    #print(results_text)
-    #print(conforms)
+    # print(results_text)
+    # print(conforms)
     #print(results_graph.serialize(format="turtle").decode())
     warnings = []
     errors = []
     for r in results:
         if "#Warning" in r['severity']:
             print(f'WARNING: Property {r["path"]} should be provided for {r["node"]}')
+            warnings.append(f'{r["path"]}')
         if "#Violation" in r['severity']:
             print(f'ERROR: Property {r["path"]} must be provided for {r["node"]}')
+            errors.append(f'{r["path"]}')
+
+    return warnings, errors

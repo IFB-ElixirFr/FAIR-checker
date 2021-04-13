@@ -6,6 +6,7 @@ from jinja2 import Template
 from pyshacl import validate
 import extruct
 import json
+from pathlib import Path
 
 from lxml import html
 from selenium import webdriver
@@ -310,10 +311,14 @@ def shape_checks(kg):
         }
     """
 
+    print("toto")
+    print(results_graph.serialize(format="turtle").decode("utf-8"))
+
     results = results_graph.query(report_query)
     warnings = []
     errors = []
     for r in results:
+        print(r)
         if "#Warning" in r['severity']:
             warnings.append(f'Property {r["path"]} <span class="has-text-warning has-text-weight-bold">should be</span> provided')
         if "#Violation" in r['severity']:
@@ -373,12 +378,16 @@ def get_rdf_selenium(uri, kg):
     jsonld_string = tree.xpath('//script[@type="application/ld+json"]//text()')
 
     kg = ConjunctiveGraph()
+
+    base_path = Path(__file__).parent  ## current directory
+    static_file_path = str((base_path / "../static/data/jsonldcontext.json").resolve())
+
     for json_ld_annots in jsonld_string :
         jsonld = json.loads(json_ld_annots)
 
         if '@context' in jsonld.keys():
             if ('//schema.org' in jsonld['@context']):
-                jsonld['@context'] = 'static/data/jsonldcontext.json'
+                jsonld['@context'] = static_file_path
         kg.parse(data=json.dumps(jsonld, ensure_ascii=False), format="json-ld")
 
         print(f'{len(kg)} retrieved triples in KG')
@@ -386,22 +395,17 @@ def get_rdf_selenium(uri, kg):
 
     return kg
 
-def get_html_selenium(uri):
-    # uri = 'https://workflowhub.eu/workflows/45'
-    #uri = 'https://bio.tools/jaspar'
-
+def get_html_selenium(url):
     chrome_options = Options()
     chrome_options.add_argument("--headless")
+    browser = webdriver.Chrome(options=chrome_options)
 
-    browser = webdriver.Chrome(options = chrome_options)
-    browser.get(uri)
+    try:
+        browser.get(url)
+        return browser.page_source
 
-    html_source = browser.page_source
-    #print(html_source)
-    browser.quit()
-
-
-    return html_source
+    finally:
+        browser.quit()
 
 
 def download_csv(uri):

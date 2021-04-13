@@ -19,9 +19,9 @@ import uuid
 from datetime import datetime
 from datetime import timedelta
 import json
+from pathlib import Path
 
 from rdflib import ConjunctiveGraph
-import json
 import requests
 
 import rdflib
@@ -44,6 +44,8 @@ from metrics import test_metric
 from metrics.Evaluation import Evaluation
 from metrics.FAIRMetricsFactory import FAIRMetricsFactory
 from metrics.FAIRMetricsImpl import FAIRMetricsImpl
+
+import profiles.bioschemas_shape_gen as bioschemas_shape
 
 # Command line exec
 import subprocess
@@ -627,35 +629,40 @@ def handle_embedded_annot(data):
     uri = str(data['url'])
     print('retrieving embedded annotations for '+uri)
     print("Retrieve KG for uri: " + uri)
-    page = requests.get(uri)
-    html = page.content
+    # page = requests.get(uri)
+    # html = page.content
 
     # use selenium to retrieve Javascript genereted content
-    # html = util.get_html_selenium(uri)
+    html = util.get_html_selenium(uri)
 
     d = extruct.extract(html, syntaxes=['microdata', 'rdfa', 'json-ld'], errors='ignore')
 
-
     print(d)
+    print("là")
     kg = ConjunctiveGraph()
 
     # kg = util.get_rdf_selenium(uri, kg)
+
+    # kg = util.extruct_to_rdf(d)
+
+    base_path = Path(__file__).parent  ## current directory
+    static_file_path = str((base_path / "static/data/jsonldcontext.json").resolve())
 
     for md in d['json-ld']:
         if '@context' in md.keys():
             print(md['@context'])
             if ('https://schema.org' in md['@context']) or ('http://schema.org' in md['@context']) :
-                md['@context'] = 'static/data/jsonldcontext.json'
+                md['@context'] = static_file_path
         kg.parse(data=json.dumps(md, ensure_ascii=False), format="json-ld")
     for md in d['rdfa']:
         if '@context' in md.keys():
             if ('https://schema.org' in md['@context']) or ('http://schema.org' in md['@context']) :
-                md['@context'] = 'static/data/jsonldcontext.json'
+                md['@context'] = static_file_path
         kg.parse(data=json.dumps(md, ensure_ascii=False), format="json-ld")
     for md in d['microdata']:
         if '@context' in md.keys():
             if ('https://schema.org' in md['@context']) or ('http://schema.org' in md['@context']) :
-                md['@context'] = 'static/data/jsonldcontext.json'
+                md['@context'] = static_file_path
         kg.parse(data=json.dumps(md, ensure_ascii=False), format="json-ld")
 
 
@@ -767,6 +774,10 @@ def check_kg_shape(data):
     warnings, errors = util.shape_checks(kg)
     data = {'errors': errors, 'warnings': warnings}
     emit('done_check_shape', data)
+
+    # replacement
+    results = bioschemas_shape.validate_any_from_microdata(uri)
+    print(results)
 
 
 
