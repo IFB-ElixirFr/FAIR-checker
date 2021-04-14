@@ -10,9 +10,13 @@ from pyshacl import validate
 import requests
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
+from webdriver_manager.chrome import ChromeDriverManager
+
 from pathlib import Path
 
 from metrics.AbstractFAIRMetrics import AbstractFAIRMetrics
+
+# driver = webdriver.Chrome(ChromeDriverManager().install())
 
 class BioschemasProfileError(Exception):
 

@@ -880,6 +880,15 @@ def kg_metrics():
     m = []
     return render_template('kg_metrics.html', f_metrics=m, sample_data=sample_resources)
 
+@app.route('/kg_metrics_2')
+def kg_metrics_2():
+    # m = [{  "name": "i1",
+    #         "description": "desc i1",
+    #         "id": "metric_i1",
+    #         "principle": "principle for i1" }]
+    m = []
+    return render_template('kg_metrics_2.html', f_metrics=m, sample_data=sample_resources)
+
 @app.route('/is_it_fair')
 def is_it_fair():
     return render_template('is_it_fair.html', )
