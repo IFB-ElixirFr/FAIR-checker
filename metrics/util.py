@@ -62,7 +62,7 @@ def describe_loa(uri, g):
     sparql.setReturnFormat(N3)
     results = sparql.query().convert()
     print("Results: " + str(len(g_len.parse(data=results, format="n3"))))
-    g.parse(data=results, format="n3")
+    g.parse(data=results, format="turtle")
 
     # print(g.serialize(format='turtle').decode())
     return g
@@ -93,7 +93,7 @@ def describe_wikidata(uri, g):
     print("Results: " + str(len(results)))
     results = results.serialize(format='turtle').decode()
 
-    g.parse(data=results, format="n3")
+    g.parse(data=results, format="turtle")
 
     # print(g.serialize(format='turtle').decode())
     return g

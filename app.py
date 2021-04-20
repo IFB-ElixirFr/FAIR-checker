@@ -615,6 +615,70 @@ def handle_disconnected():
 
 #######################################
 #######################################
+
+@socketio.on('retrieve_embedded_annot_2')
+def handle_embedded_annot_2(data):
+    """
+     socketio Handler to aggregate original page metadata with sparql endpoints.
+     emit the result of sparql requests
+
+     @param data dict Contains the data needed to aggregate (url, etc).
+     """
+    # step = 0
+    print("handle annot_2")
+    sid = request.sid
+    print(sid)
+    uri = str(data['url'])
+    print('retrieving embedded annotations for ' + uri)
+    print("Retrieve KG for uri: " + uri)
+    # page = requests.get(uri)
+    # html = page.content
+
+    # use selenium to retrieve Javascript genereted content
+    html = util.get_html_selenium(uri)
+
+    d = extruct.extract(html, syntaxes=['microdata', 'rdfa', 'json-ld'], errors='ignore')
+
+    print(d)
+    print("là")
+    kg = ConjunctiveGraph()
+
+    base_path = Path(__file__).parent  ## current directory
+    static_file_path = str((base_path / "static/data/jsonldcontext.json").resolve())
+
+    for md in d['json-ld']:
+        if '@context' in md.keys():
+            print(md['@context'])
+            if ('https://schema.org' in md['@context']) or ('http://schema.org' in md['@context']) :
+                md['@context'] = static_file_path
+        kg.parse(data=json.dumps(md, ensure_ascii=False), format="json-ld")
+    for md in d['rdfa']:
+        if '@context' in md.keys():
+            if ('https://schema.org' in md['@context']) or ('http://schema.org' in md['@context']) :
+                md['@context'] = static_file_path
+        kg.parse(data=json.dumps(md, ensure_ascii=False), format="json-ld")
+    for md in d['microdata']:
+        if '@context' in md.keys():
+            if ('https://schema.org' in md['@context']) or ('http://schema.org' in md['@context']) :
+                md['@context'] = static_file_path
+        kg.parse(data=json.dumps(md, ensure_ascii=False), format="json-ld")
+
+    # step += 1
+    print(len(kg))
+    # emit('update_annot_2', step)
+    emit('send_annot_2', str(kg.serialize(format='turtle').decode()))
+
+
+@socketio.on('describe_biotools')
+def handle_describe_biotools(data):
+    print("describing biotools")
+    uri = str(data['url'])
+    graph = str(data['graph'])
+    kg = ConjunctiveGraph()
+    kg.parse(data=graph, format="turtle")
+    kg = util.describe_biotools(uri, kg)
+    emit('send_annot_2', str(kg.serialize(format='turtle').decode()))
+
 @socketio.on('retrieve_embedded_annot')
 def handle_embedded_annot(data):
     """
@@ -679,19 +743,19 @@ def handle_embedded_annot(data):
         print(f'FOUND DOI: {uri}')
         # describe on lod.openair
 
-    # @TODO fix wikidata / LOA / etc. access
-    # kg = util.describe_loa(uri, kg)
-    # step += 1
-    # emit('update_annot', step)
-    # emit('send_annot', str(kg.serialize(format='turtle').decode()))
-    # print(len(kg))
+        # @TODO fix wikidata / LOA / etc. access
+        kg = util.describe_loa(uri, kg)
+        step += 1
+        emit('update_annot', step)
+        emit('send_annot', str(kg.serialize(format='turtle').decode()))
+        print(len(kg))
 
     # kg = util.describe_opencitation(uri, kg)
     # step += 1
     # emit('update_annot', step)
     # emit('send_annot', str(kg.serialize(format='turtle').decode()))
     # print(len(kg))
-
+    #
     # kg = util.describe_wikidata(uri, kg)
     # step += 1
     # emit('update_annot', step)

@@ -10,10 +10,10 @@
 
     $( document ).ready(function() {
 
-<!--        var cm = new CodeMirror.fromTextArea(document.getElementById("editor"), {-->
-<!--            lineNumbers: true,-->
-<!--            lineWrapping: true,-->
-<!--         });-->
+//        var cm = new CodeMirror.fromTextArea(document.getElementById("editor"), {-->
+// <!--            lineNumbers: true,-->
+// <!--            lineWrapping: true,-->
+// <!--         });
 
         console.log( "ready!" );
         $("#notif").addClass("is-hidden");
@@ -53,8 +53,16 @@
             $("#section-KG").removeClass("is-hidden");
             $("#section-LinkedData").addClass("is-hidden");
             $("#section-BioSchemas").addClass("is-hidden");
-            socket.emit('retrieve_embedded_annot', {url: $("#url").val()});
+            socket.emit('retrieve_embedded_annot_2', {url: $("#url").val()});
         });
+
+        $("#btn_describe_biotools").click(function(){
+            $(this).addClass("is-loading");
+            graph = $("#microdata").val();
+            url = $("#url").val();
+            socket.emit('describe_biotools', {url: url, graph: graph});
+        });
+
 
         $("#btn_fairness").click(function(){
             $(this).addClass("is-loading");
@@ -81,7 +89,7 @@
             console.log('hello message sent');
         });
 
-         socket.on('update_annot', function(value) {
+         socket.on('update_annot_2', function(value) {
              if ("done".includes(value)) {
                 $("#p1").attr("value", 4);
             } else {
@@ -89,10 +97,11 @@
                 $("#p1").attr("value",value);
             }
          });
-         socket.on('send_annot', function(value) {
+         socket.on('send_annot_2', function(value) {
              console.log(value);
              //cm.setValue(value);
-             $("#microdata").val(value)
+             $("#microdata").val(value);
+             $("#btn_describe_biotools").removeClass("is-loading");
              $("#btn_kg").removeClass("is-loading");
          });
 
@@ -285,7 +294,7 @@
           <p class="control"><a class="button is-success">Describe Wikidata</a></p>
           <p class="control"><a class="button is-link">Describe OpenCitation</a></p>
           <p class="control"><a class="button is-info">Describe Load Openair</a></p>
-          <p class="control"><a class="button is-warning">Describe Bio.tools</a></p>
+          <p class="control"><a id="btn_describe_biotools" class="button is-warning">Describe Bio.tools</a></p>
         </div>
       </div>
     </article>
