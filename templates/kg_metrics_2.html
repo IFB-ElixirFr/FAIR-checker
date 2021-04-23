@@ -63,6 +63,26 @@
             socket.emit('describe_biotools', {url: url, graph: graph});
         });
 
+        $("#btn_describe_loa").click(function(){
+            $(this).addClass("is-loading");
+            graph = $("#microdata").val();
+            url = $("#url").val();
+            socket.emit('describe_loa', {url: url, graph: graph});
+        });
+
+        $("#btn_describe_wikidata").click(function(){
+            $(this).addClass("is-loading");
+            graph = $("#microdata").val();
+            url = $("#url").val();
+            socket.emit('describe_wikidata', {url: url, graph: graph});
+        });
+
+        $("#btn_describe_opencitation").click(function(){
+            $(this).addClass("is-loading");
+            graph = $("#microdata").val();
+            url = $("#url").val();
+            socket.emit('describe_opencitation', {url: url, graph: graph});
+        });
 
         $("#btn_fairness").click(function(){
             $(this).addClass("is-loading");
@@ -101,7 +121,10 @@
              console.log(value);
              //cm.setValue(value);
              $("#microdata").val(value);
+             $("#btn_describe_opencitation").removeClass("is-loading");
+             $("#btn_describe_wikidata").removeClass("is-loading");
              $("#btn_describe_biotools").removeClass("is-loading");
+             $("#btn_describe_loa").removeClass("is-loading");
              $("#btn_kg").removeClass("is-loading");
          });
 
@@ -291,9 +314,9 @@
       <div class="message-body">
         <div class="field is-grouped">
           <p class="control"><a class="button is-primary is-large">Describe All</a></p>
-          <p class="control"><a class="button is-success">Describe Wikidata</a></p>
-          <p class="control"><a class="button is-link">Describe OpenCitation</a></p>
-          <p class="control"><a class="button is-info">Describe Load Openair</a></p>
+          <p class="control"><a id="btn_describe_wikidata" class="button is-success" disabled>Describe Wikidata</a></p>
+          <p class="control"><a id="btn_describe_opencitation" class="button is-link" disabled>Describe OpenCitation</a></p>
+          <p class="control"><a id="btn_describe_loa" class="button is-info">Describe Load Openair</a></p>
           <p class="control"><a id="btn_describe_biotools" class="button is-warning">Describe Bio.tools</a></p>
         </div>
       </div>

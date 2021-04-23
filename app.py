@@ -669,6 +669,27 @@ def handle_embedded_annot_2(data):
     emit('send_annot_2', str(kg.serialize(format='turtle').decode()))
 
 
+
+@socketio.on('describe_opencitation')
+def handle_describe_wikidata(data):
+    print("describing opencitation")
+    uri = str(data['url'])
+    graph = str(data['graph'])
+    kg = ConjunctiveGraph()
+    kg.parse(data=graph, format="turtle")
+    kg = util.describe_opencitation(uri, kg)
+    emit('send_annot_2', str(kg.serialize(format='turtle').decode()))
+
+@socketio.on('describe_wikidata')
+def handle_describe_wikidata(data):
+    print("describing wikidata")
+    uri = str(data['url'])
+    graph = str(data['graph'])
+    kg = ConjunctiveGraph()
+    kg.parse(data=graph, format="turtle")
+    kg = util.describe_wikidata(uri, kg)
+    emit('send_annot_2', str(kg.serialize(format='turtle').decode()))
+
 @socketio.on('describe_biotools')
 def handle_describe_biotools(data):
     print("describing biotools")
@@ -677,6 +698,20 @@ def handle_describe_biotools(data):
     kg = ConjunctiveGraph()
     kg.parse(data=graph, format="turtle")
     kg = util.describe_biotools(uri, kg)
+    emit('send_annot_2', str(kg.serialize(format='turtle').decode()))
+
+@socketio.on('describe_loa')
+def handle_describe_loa(data):
+    print("describing loa")
+    uri = str(data['url'])
+    graph = str(data['graph'])
+    kg = ConjunctiveGraph()
+    kg.parse(data=graph, format="turtle")
+    # check if id or doi in uri
+    if util.is_DOI(uri):
+        uri = util.get_DOI(uri)
+        print(f'FOUND DOI: {uri}')
+    kg = util.describe_loa(uri, kg)
     emit('send_annot_2', str(kg.serialize(format='turtle').decode()))
 
 @socketio.on('retrieve_embedded_annot')
