@@ -177,7 +177,7 @@ def shape_checks(kg):
     recommended_dataset_properties = ['schema:license', 'schema:creator', 'schema:citation']
 
     minimal_software_properties = ['schema:name', 'schema:description', 'schema:url']
-    recommended_software_properties = ['schema:additionalType', 'schema:applicationCategory', 'schema:applicationSubCategory', 'schema:author' 'schema:license', 'schema:citation', 'schema:featureList', 'schema:softwareVersion']
+    recommended_software_properties = ['schema:additionalType', 'schema:applicationCategory', 'schema:applicationSubCategory', 'schema:author', 'schema:license', 'schema:citation', 'schema:featureList', 'schema:softwareVersion']
 
     minimal_publication_properties = ['schema:headline', 'schema:identifier']
     recommended_publication_properties = ['schema:about', 'schema:alternateName', 'schema:author', 'schema:backstory', 'schema:citation', 'schema:dateCreated', 'schema:dateModified', 'schema:datePublished', 'schema:isBasedOn', 'schema:isPartOf', 'schema:keywords', 'schema:license', 'schema:pageEnd', 'schema:pageStart', 'schema:url']

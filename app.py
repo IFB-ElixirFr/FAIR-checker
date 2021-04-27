@@ -663,6 +663,8 @@ def handle_embedded_annot_2(data):
                 md['@context'] = static_file_path
         kg.parse(data=json.dumps(md, ensure_ascii=False), format="json-ld")
 
+    kgs[sid] = kg
+
     # step += 1
     print(len(kg))
     # emit('update_annot_2', step)
@@ -693,10 +695,12 @@ def handle_describe_wikidata(data):
 @socketio.on('describe_biotools')
 def handle_describe_biotools(data):
     print("describing biotools")
+    sid = request.sid
+    kg = kgs[sid]
     uri = str(data['url'])
     graph = str(data['graph'])
-    kg = ConjunctiveGraph()
-    kg.parse(data=graph, format="turtle")
+    # kg = ConjunctiveGraph()
+    # kg.parse(data=graph, format="turtle")
     kg = util.describe_biotools(uri, kg)
     emit('send_annot_2', str(kg.serialize(format='turtle').decode()))
 
@@ -875,10 +879,34 @@ def check_kg_shape(data):
     emit('done_check_shape', data)
 
     # replacement
-    results = bioschemas_shape.validate_any_from_microdata(uri)
+    # results = bioschemas_shape.validate_any_from_microdata(uri)
+    # print(results)
+
+
+@socketio.on('check_kg_shape_2')
+def check_kg_shape_2(data):
+    step = 0
+    sid = request.sid
+    print(sid)
+    uri = str(data['url'])
+    # if (not sid in kgs.keys()):
+    #     handle_embedded_annot(data)
+    # elif (not kgs[sid]):
+    #     handle_embedded_annot(data)
+    kg = kgs[sid]
+
+    print("titi")
+    
+
+    #TODO replace this code with profiles.bioschemas_shape_gen
+    warnings, errors = util.shape_checks(kg)
+    data = {'errors': errors, 'warnings': warnings}
+    emit('done_check_shape', data)
+
+    # replacement
+    print("TITI")
+    results = bioschemas_shape.validate_any_from_KG(kg)
     print(results)
-
-
 
 #######################################
 #######################################

@@ -396,7 +396,7 @@ def requestResultSparql(metric_evaluation_result_text, term):
         """
         $prefix
         SELECT ?s ?p ?o
-        WHERE { ?s $term ?o } 
+        WHERE { ?s $term ?o }
         """)
 
     query_string = s.substitute(prefix=prefix, term=term)

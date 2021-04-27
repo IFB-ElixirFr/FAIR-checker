@@ -31,7 +31,7 @@ class BioschemasProfileError(Exception):
 bs_profiles = {
     'sc:SoftwareApplication' : {
         'min_props': ['sc:name', 'sc:description', 'sc:url'],
-        'rec_props': ['sc:additionalType', 'sc:applicationCategory', 'sc:applicationSubCategory', 'sc:author' 'sc:license', 'sc:citation', 'sc:featureList', 'sc:softwareVersion']
+        'rec_props': ['sc:additionalType', 'sc:applicationCategory', 'sc:applicationSubCategory', 'sc:author', 'sc:license', 'sc:citation', 'sc:featureList', 'sc:softwareVersion']
     },
     'sc:Dataset': {
         'min_props': ['sc:name', 'sc:description', 'sc:identifier', 'sc:keywords', 'sc:url'],
@@ -182,6 +182,30 @@ def gen_SHACL_from_profile(shape_name, target_classes, min_props, rec_props):
     # g.parse(data=shape, format='turtle')
 
     return shape
+
+def validate_any_from_KG(kg):
+    kg.namespace_manager.bind('sc', URIRef('http://schema.org/'))
+    # kg.namespace_manager.bind('schema', URIRef('http://schema.org/'))
+    print("tata")
+    print(len(kg))
+    print(kg.serialize(format="turtle").decode())
+
+    results = {}
+
+    #list classes
+    for s, p, o in kg.triples((None, RDF.type, None)):
+        print(f"{s.n3(kg.namespace_manager)} is a {o.n3(kg.namespace_manager)}")
+        if o.n3(kg.namespace_manager) in bs_profiles.keys():
+            print(f"Trying to validate {s} as a(n) {o} resource")
+            shacl_shape = gen_SHACL_from_target_class(o.n3(kg.namespace_manager))
+            warnings, errors = validate_shape(knowledge_graph=kg, shacl_shape=shacl_shape)
+            results[str(s)] = {
+                            "type": str(o),
+                            "warnings": warnings,
+                            "errors": errors,
+                        }
+
+    return results
 
 def validate_any_from_RDF(input_url, rdf_syntax):
     kg = ConjunctiveGraph()
