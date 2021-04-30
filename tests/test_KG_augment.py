@@ -1,4 +1,8 @@
+import json
 import unittest
+import unittest
+
+import requests
 
 from metrics.R2Impl import R2Impl
 from metrics.util import describe_loa
@@ -11,7 +15,7 @@ from rdflib import Graph, ConjunctiveGraph, Namespace
 
 
 class KGAugmentTestCase(unittest.TestCase):
-    def test_wikidata(self):
+    def test_wikidata_sparqlwrapper(self):
         # r2 = R2Impl()
         # r2.set_url("https://workflowhub.eu/workflows/45")
         # r2.extract_html_requests()
@@ -28,7 +32,18 @@ class KGAugmentTestCase(unittest.TestCase):
         kg = describe_wikidata(url, kg)
         print(kg.serialize(format='turtle').decode())
 
-        # self.assertEqual(True, False)
+    def test_wikidata_http(self):
+        endpoint = 'https://query.wikidata.org/sparql'
+
+        q = "DESCRIBE <http://www.wikidata.org/entity/Q1684014>"
+
+        payload = {'query': q}
+        res = requests.get(endpoint, params=payload)
+        #print(res.text)
+        kg = ConjunctiveGraph()
+        kg.parse(data=res.text)
+        print(f'loaded {len(kg)} triples')
+        self.assertEquals(len(kg), 49)
 
     def test_biotools(self):
         # r2 = R2Impl()
