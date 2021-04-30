@@ -35,15 +35,16 @@ class KGAugmentTestCase(unittest.TestCase):
     def test_wikidata_http(self):
         endpoint = 'https://query.wikidata.org/sparql'
 
-        q = "DESCRIBE <http://www.wikidata.org/entity/Q1684014>"
+        uri = 'http://www.wikidata.org/entity/Q1684014'
+        h = {'Accept': 'text/turtle'}
+        p = {'query': "DESCRIBE <" + uri + ">"}
+        res = requests.get(endpoint, headers=h, params=p, verify=False)
 
-        payload = {'query': q}
-        res = requests.get(endpoint, params=payload)
-        #print(res.text)
+        print(res.text)
         kg = ConjunctiveGraph()
-        kg.parse(data=res.text)
+        kg.parse(data=res.text, format='turtle')
         print(f'loaded {len(kg)} triples')
-        self.assertEquals(len(kg), 49)
+        self.assertEqual(len(kg), 49)
 
     def test_biotools(self):
         # r2 = R2Impl()
