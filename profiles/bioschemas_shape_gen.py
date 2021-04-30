@@ -10,7 +10,7 @@ from pyshacl import validate
 import requests
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
-from webdriver_manager.chrome import ChromeDriverManager
+#from webdriver_manager.chrome import ChromeDriverManager
 
 from pathlib import Path
 
