@@ -12,6 +12,8 @@ from lxml import html
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 
+import logging
+
 import re
 
 # DOI regex
@@ -71,9 +73,11 @@ def describe_loa(uri, g):
 # Describe Wikidata
 def describe_wikidata(uri, g):
     # g = Graph()
-    print(f'SPARQL for [ {uri} ] with enpoint [ Wikidata ]')
-    sparql = SPARQLWrapper("https://query.wikidata.org/sparql")
-    sparql.setQuery("""
+    graph_pre_size = len(g)
+    endpoint = 'https://query.wikidata.org/sparql'
+    print(f'SPARQL for [ {uri} ] with enpoint [ {endpoint} ]')
+    #sparql = SPARQLWrapper("https://query.wikidata.org/sparql")
+    query = """
             PREFIX wd: <http://www.wikidata.org/entity/>
             PREFIX wdt: <http://www.wikidata.org/prop/direct/>
             PREFIX wikibase: <http://wikiba.se/ontology#>
@@ -86,21 +90,25 @@ def describe_wikidata(uri, g):
             DESCRIBE ?x WHERE {
                 ?x wdt:P356 '""" + uri + """'
             }
-    """)
+    """
 
-    sparql.setReturnFormat(N3)
-    results = sparql.query().convert()
-    print("Results: " + str(len(results)))
-    results = results.serialize(format='turtle').decode()
+    print(query)
 
-    g.parse(data=results, format="turtle")
+    h = {'Accept': 'text/turtle'}
+    p = {'query': query}
+
+    res = requests.get(endpoint, headers=h, params=p, verify=False)
+    g.parse(data=res.text, format="turtle")
+
+    graph_post_size = len(g)
+    print(f'{graph_post_size - graph_pre_size} added new triples')
 
     # print(g.serialize(format='turtle').decode())
     return g
 
 # Describe a tool based on experimental bio.tools SPARQL endpoint
 def describe_biotools(uri, g):
-    print(f'SPARQL for [ {uri} ] with enpoint [ bio.tools ]')
+    print(f'SPARQL for [ {uri} ] with enpoint [ https://134.158.247.76/sparql ]')
 
     h = {'Accept': 'text/turtle'}
     p = {'query': "DESCRIBE <" + uri + ">"}
