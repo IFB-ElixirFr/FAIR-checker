@@ -672,23 +672,44 @@ def handle_embedded_annot_2(data):
 
 
 
+@socketio.on('update_annot_bioschemas')
+def handle_annotationn(data):
+    errors = data["err"]
+    warnings = data["warn"]
+    print(warnings)
+    
+    sid = request.sid
+    kg = kgs[sid]
+
 @socketio.on('describe_opencitation')
-def handle_describe_wikidata(data):
+def handle_describe_opencitation(data):
     print("describing opencitation")
+    sid = request.sid
+    kg = kgs[sid]
     uri = str(data['url'])
     graph = str(data['graph'])
-    kg = ConjunctiveGraph()
-    kg.parse(data=graph, format="turtle")
+    # kg = ConjunctiveGraph()
+    # kg.parse(data=graph, format="turtle")
+    # check if id or doi in uri
+    if util.is_DOI(uri):
+        uri = util.get_DOI(uri)
+        print(f'FOUND DOI: {uri}')
     kg = util.describe_opencitation(uri, kg)
     emit('send_annot_2', str(kg.serialize(format='turtle').decode()))
 
 @socketio.on('describe_wikidata')
 def handle_describe_wikidata(data):
     print("describing wikidata")
+    sid = request.sid
+    kg = kgs[sid]
     uri = str(data['url'])
     graph = str(data['graph'])
-    kg = ConjunctiveGraph()
-    kg.parse(data=graph, format="turtle")
+    # kg = ConjunctiveGraph()
+    # kg.parse(data=graph, format="turtle")
+    # check if id or doi in uri
+    if util.is_DOI(uri):
+        uri = util.get_DOI(uri)
+        print(f'FOUND DOI: {uri}')
     kg = util.describe_wikidata(uri, kg)
     emit('send_annot_2', str(kg.serialize(format='turtle').decode()))
 
@@ -707,10 +728,12 @@ def handle_describe_biotools(data):
 @socketio.on('describe_loa')
 def handle_describe_loa(data):
     print("describing loa")
+    sid = request.sid
+    kg = kgs[sid]
     uri = str(data['url'])
     graph = str(data['graph'])
-    kg = ConjunctiveGraph()
-    kg.parse(data=graph, format="turtle")
+    # kg = ConjunctiveGraph()
+    # kg.parse(data=graph, format="turtle")
     # check if id or doi in uri
     if util.is_DOI(uri):
         uri = util.get_DOI(uri)
@@ -896,7 +919,7 @@ def check_kg_shape_2(data):
     kg = kgs[sid]
 
     print("titi")
-    
+
 
     #TODO replace this code with profiles.bioschemas_shape_gen
     warnings, errors = util.shape_checks(kg)

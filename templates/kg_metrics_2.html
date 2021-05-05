@@ -50,7 +50,7 @@
 
         $("#btn_kg").click(function(){
             $(this).addClass("is-loading");
-            $("#article-KG").find(".message-body").removeClass("is-hidden");
+            // $("#article-KG").find(".message-body").removeClass("is-hidden");
 
             // $("#section-LinkedData").addClass("is-hidden");
             // $("#section-BioSchemas").addClass("is-hidden");
@@ -101,8 +101,49 @@
             $(this).addClass("is-loading");
             $("#section-KG").removeClass("is-hidden");
             // $("#section-LinkedData").addClass("is-hidden");
-            $("#section-BioSchemas").removeClass("is-hidden");
+            // $("#section-BioSchemas").removeClass("is-hidden");
             socket.emit('check_kg_shape_2', {url: $("#url").val(), kg: $("#microdata").val()});
+        });
+
+        // TABS for Step 3
+
+        $("#bioschemas_tab").click(function(){
+            $(this).addClass("is-active");
+            $("#linkeddata_tab").removeClass("is-active");
+
+            $("#section-LinkedData").addClass("is-hidden");
+            $("#section-BioSchemas").removeClass("is-hidden");
+        });
+
+        $("#linkeddata_tab").click(function(){
+            $(this).addClass("is-active");
+            $("#bioschemas_tab").removeClass("is-active");
+
+            $("#section-LinkedData").removeClass("is-hidden");
+            $("#section-BioSchemas").addClass("is-hidden");
+        });
+
+
+        $("#btn_submit_annot_bioschemas").click(function(){
+
+            var err_selector = $('[id^="bs_err_annot_"]');
+            var warn_selector = $('[id^="bs_warn_annot_"]');
+
+            var err = {};
+            err_selector.each(function() {
+                val = $(this).val();
+                property = $(this).parent("div").parent().children("label").children("a").text();
+                err[property] = val;
+            });
+
+            var warn = {};
+            warn_selector.each(function() {
+                val = $(this).val();
+                property = $(this).parent("div").parent().children("label").children("a").text();
+                warn[property] = val;
+            });
+            console.log(warn);
+            socket.emit('update_annot_bioschemas', {err: err, warn: warn});
         });
 
         //////////////////
@@ -123,7 +164,7 @@
             }
          });
          socket.on('send_annot_2', function(value) {
-             console.log(value);
+             // console.log(value);
              //cm.setValue(value);
              $("#article-describe").find(".message-body").removeClass("is-hidden");
              $("#article-bioschemas-check").find(".message-body").removeClass("is-hidden");
@@ -200,7 +241,7 @@
                 row +=  '<div class="field">';
                 row +=   '<label class="label"><a href="' + item + '" target="_blank">' + item + '</a></label>';
                 row +=   '<div class="control">';
-                row +=    '<input class="input" type="text">';
+                row +=    '<input id="bs_err_annot_' + index + '" class="input" type="text">';
                 row +=   '</div>';
                 row +=  '</div>';
                 rows += row + '</tr>';
@@ -216,11 +257,10 @@
                 row +=  '<div class="field">';
                 row +=   '<label class="label"><a href="' + item + '" target="_blank">' + item + '</a></label>';
                 row +=   '<div class="control">';
-                row +=    '<input class="input" type="text">';
+                row +=    '<input id="bs_warn_annot_' + index + '" class="input" type="text">';
                 row +=   '</div>';
                 row +=  '</div>';
                 rows += row + '</tr>';
-
             });
             $('#t_warnings_annot').html(rows);
 
@@ -228,6 +268,8 @@
             $("#btn_bioschemas").removeClass("is-loading");
             $("#btn_annot_bioschemas").removeClass("is-hidden");
          });
+
+
 
         {% for f in f_metrics %}
         socket.on('done_{{f.id}}', function(value) {
@@ -339,10 +381,13 @@
           <p class="control"><a class="button is-primary is-large" disabled>Describe All</a></p>
         </div>
         <div class="field is-grouped is-grouped-centered">
-          <p class="control"><a id="btn_describe_wikidata" class="button is-success" disabled>Describe Wikidata</a></p>
-          <p class="control"><a id="btn_describe_opencitation" class="button is-link" disabled>Describe OpenCitation</a></p>
+          <p class="control"><a id="btn_describe_wikidata" class="button is-success">Describe Wikidata</a></p>
+          <p class="control"><a id="btn_describe_opencitation" class="button is-link">Describe OpenCitation</a></p>
           <p class="control"><a id="btn_describe_loa" class="button is-info">Describe Load Openair</a></p>
           <p class="control"><a id="btn_describe_biotools" class="button is-warning">Describe Bio.tools</a></p>
+        </div>
+        <div class="control">
+          <textarea id="microdata" class="textarea is-small" placeholder="Knowledge graph, in RDF, turtle syntax" rows="15"></textarea>
         </div>
       </div>
     </article>
@@ -355,33 +400,78 @@
         <p>Step 3: Check Graph content against BioSchemas profile</p>
       </div>
       <div class="message-body is-hidden">
-        <div class="field is-grouped is-grouped-centered">
-        <!-- <p class="control"><a id="btn_fairness" class="button is-primary">Vocab. checks</a></p> -->
-        <p class="control"><a id="btn_bioschemas" class="button is-warning">BioSchemas checks</a></p>
+        <div class="tabs is-boxed">
+          <ul>
+            <li id="bioschemas_tab" class="is-active">
+              <a>
+                <span class="icon is-small"><i class="fa fa-pencil" aria-hidden="true"></i></span>
+                <span>BioSchemas Check</span>
+              </a>
+            </li>
+            <li id="linkeddata_tab">
+              <a>
+                <span class="icon is-small"><i class="fa fa-share-alt" aria-hidden="true"></i></span>
+                <span>Controlled vocabularies Check</span>
+              </a>
+            </li>
+          </ul>
         </div>
-        <section id="section-BioSchemas" class="section is-hidden">
+
+        <section id="section-BioSchemas" class="section">
+
             <!-- <h3 class="title is-3">BioSchemas profiles checks</h3> -->
             <p>Bioschemas is a community effort aimed at reusing and extending Schema.org for better life science digital resource findability. Several profiles are defined for each kind of Life Science resources, specifying minimal, recommended or optional information. Am I missing minimal information ? Should I provide other information for better findability ?</p>
             <br>
-                <div class="columns is-multiline is-mobile">
-                    <div class="column is-one-half">
-                        <table class="table is-striped is-fullwidth">
-                            <thead><tr><th>Requirements</th></tr></thead>
-                            <tbody id="t_errors">
-                            </tbody>
-                        </table>
-                    </div>
-                    <div class="column is-one-half">
-                        <table class="table is-striped is-fullwidth">
-                            <thead><tr><th>Improvements</th></tr></thead>
-                            <tbody id="t_warnings">
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
+            <div class="field is-grouped is-grouped-centered">
+              <!-- <p class="control"><a id="btn_fairness" class="button is-primary">Vocab. checks</a></p> -->
+              <p class="control"><a id="btn_bioschemas" class="button is-warning is-large">Check BioSchemas </a></p>
+            </div>
+            <br>
+            <div class="columns is-multiline is-mobile">
+              <div class="column is-one-half">
+                  <table class="table is-striped is-fullwidth">
+                      <thead><tr><th>Requirements</th></tr></thead>
+                      <tbody id="t_errors">
+                      </tbody>
+                  </table>
+              </div>
+              <div class="column is-one-half">
+                  <table class="table is-striped is-fullwidth">
+                      <thead><tr><th>Improvements</th></tr></thead>
+                      <tbody id="t_warnings">
+                      </tbody>
+                  </table>
+              </div>
+            </div>
             <div class="field is-grouped is-grouped-centered">
             <!-- <p class="control"><a id="btn_fairness" class="button is-primary">Vocab. checks</a></p> -->
             <p class="control"><a id="btn_annot_bioschemas" class="button is-warning is-hidden">Annotate missing BioSchemas properties</a></p>
+            </div>
+        </section>
+        <section id="section-LinkedData" class="section is-hidden">
+            <!-- <h3 class="title is-3">Controlled vocabulary checks</h3> -->
+            <p>We now have a Knowledge Graph grounded to ontology concepts (classes) and relations (properties). Are these terms known in reference ontology registries such as LOV, OLS or BioPortal ? </p>
+            <br>
+            <div class="field is-grouped is-grouped-centered">
+              <p class="control"><a id="btn_fairness" class="button is-primary is-large">Check Vocabularies</a></p>
+              <!-- <p class="control"><a id="btn_bioschemas" class="button is-warning is-large">BioSchemas checks</a></p> -->
+            </div>
+            <br>
+            <div class="columns is-multiline is-mobile">
+                <div class="column is-one-half">
+                    <table class="table is-striped is-fullwidth">
+                        <thead><tr><th>Classes</th></tr></thead>
+                        <tbody id="t_classes">
+                        </tbody>
+                    </table>
+                </div>
+                <div class="column is-one-half">
+                    <table class="table is-striped is-fullwidth">
+                        <thead><tr><th>Properties</th></tr></thead>
+                        <tbody id="t_properties">
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </section>
       </div>
@@ -394,7 +484,7 @@
         <p>Step 4: Annotate missing properties</p>
       </div>
       <div class="message-body">
-      <section class="section">
+      <section id="section-Annot" class="section">
               <div class="columns is-multiline is-mobile">
                   <div class="column is-one-half">
                       <table class="table is-striped is-fullwidth">
@@ -411,14 +501,18 @@
                       </table>
                   </div>
               </div>
+              <div class="field is-grouped is-grouped-centered">
+              <!-- <p class="control"><a id="btn_fairness" class="button is-primary">Vocab. checks</a></p> -->
+              <p class="control"><a id="btn_submit_annot_bioschemas" class="button is-warning">Load annotations into Graph</a></p>
+              </div>
       </section>
       </div>
     </article>
 <!-- <section id="section-KG" class="section"> -->
 <!--    <div class="section">-->
-    <article id="article-KG" class="message is-info">
+    <article id="article-KG" class="message is-info is-hidden">
       <div class="message-header">
-        <p>Graph Content</p>
+        <p>Graph</p>
       </div>
       <div class="message-body is-hidden">
         <div class="field">
@@ -432,26 +526,7 @@
 <!--    </div>-->
 <!-- </section> -->
 
-<section id="section-LinkedData" class="section is-hidden">
-    <h3 class="title is-3">Controlled vocabulary checks</h3>
-    <p>We now have a Knowledge Graph grounded to ontology concepts (classes) and relations (properties). Are these terms known in reference ontology registries such as LOV, OLS or BioPortal ? </p>
-    <div class="columns is-multiline is-mobile">
-        <div class="column is-one-half">
-            <table class="table is-striped is-fullwidth">
-                <thead><tr><th>Classes</th></tr></thead>
-                <tbody id="t_classes">
-                </tbody>
-            </table>
-        </div>
-        <div class="column is-one-half">
-            <table class="table is-striped is-fullwidth">
-                <thead><tr><th>Properties</th></tr></thead>
-                <tbody id="t_properties">
-                </tbody>
-            </table>
-        </div>
-    </div>
-</section>
+
 
 
 

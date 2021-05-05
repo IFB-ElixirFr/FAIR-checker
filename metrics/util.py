@@ -21,10 +21,11 @@ regex = r"10.\d{4,9}\/[-._;()\/:A-Z0-9]+"
 
 # Describe datacite
 def describe_opencitation(uri, g):
-    # g = Graph()
-    print(f'SPARQL for [ {uri} ] with enpoint [ Opencitation ]')
-    sparql = SPARQLWrapper("https://opencitations.net/sparql")
-    sparql.setQuery("""
+    graph_pre_size = len(g)
+    endpoint = 'https://opencitations.net/sparql'
+    print(f'SPARQL for [ {uri} ] with enpoint [ {endpoint} ]')
+    #sparql = SPARQLWrapper("https://query.wikidata.org/sparql")
+    query = """
             PREFIX cito: <http://purl.org/spar/cito/>
             PREFIX dcterms: <http://purl.org/dc/terms/>
             PREFIX datacite: <http://purl.org/spar/datacite/>
@@ -36,15 +37,21 @@ def describe_opencitation(uri, g):
             DESCRIBE ?x WHERE {
                 ?x datacite:hasIdentifier/literal:hasLiteralValue '""" + uri + """'
             }
-    """)
+    """
 
-    sparql.setReturnFormat(TURTLE)
-    results = sparql.query().convert()
-    print("Results: " + str(len(results)))
+    print(query)
 
-    results = results.serialize(format='turtle').decode()
+    h = {'Accept': 'text/turtle'}
+    p = {'query': query}
 
-    g.parse(data=results, format="turtle")
+    res = requests.get(endpoint, headers=h, params=p, verify=False)
+    g.parse(data=res.text, format="turtle")
+
+    graph_post_size = len(g)
+    print(f'{graph_post_size - graph_pre_size} added new triples')
+
+    ######################
+
 
     # print(g.serialize(format='turtle').decode())
     return g
