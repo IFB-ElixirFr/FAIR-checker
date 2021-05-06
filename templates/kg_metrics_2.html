@@ -128,6 +128,7 @@
 
             var err_selector = $('[id^="bs_err_annot_"]');
             var warn_selector = $('[id^="bs_warn_annot_"]');
+            var url = $('#url').val();
 
             var err = {};
             err_selector.each(function() {
@@ -143,7 +144,7 @@
                 warn[property] = val;
             });
             console.log(warn);
-            socket.emit('update_annot_bioschemas', {err: err, warn: warn});
+            socket.emit('update_annot_bioschemas', {err: err, warn: warn, url: url});
         });
 
         //////////////////

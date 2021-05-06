@@ -674,12 +674,38 @@ def handle_embedded_annot_2(data):
 
 @socketio.on('update_annot_bioschemas')
 def handle_annotationn(data):
+    # url = data['url']
     errors = data["err"]
     warnings = data["warn"]
     print(warnings)
-    
+
     sid = request.sid
     kg = kgs[sid]
+
+    software_application = rdflib.URIRef("http://schema.org/SoftwareApplication")
+
+    scholarly_article = rdflib.URIRef("http://schema.org/ScholarlyArticle")
+
+    uri = ''
+    for s, p, o in kg.triples((None, rdflib.namespace.RDF.type, scholarly_article)):
+        uri = s
+        print(s)
+        print(p)
+        print(o)
+
+    if (scholarly_article, None, None) in kg:
+        print("ScholarlyArticle in KG !")
+        for property in warnings.keys():
+            print(property)
+            value = warnings[property]
+            if value != '':
+                value = rdflib.Literal(value)
+                property = rdflib.URIRef(property)
+
+                print("Adding property")
+                kg.add((uri, property, value))
+    print(kg.serialize(format='json-ld').decode())
+    emit('send_annot_2', str(kg.serialize(format='turtle').decode()))
 
 @socketio.on('describe_opencitation')
 def handle_describe_opencitation(data):
