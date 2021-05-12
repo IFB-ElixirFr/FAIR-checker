@@ -6,6 +6,149 @@
 
 {% block body %}
 
+<!-- TESTING Display -->
+<script>
+  function filterNodesById(nodes,id){
+    return nodes.filter(function(n) { return n.id === id; });
+  }
+
+  function triplesToGraph(triples){
+
+    svg.html("");
+    //Graph
+    var graph={nodes:[], links:[]};
+
+    //Initial Graph from triples
+    triples.forEach(function(triple){
+      var subjId = triple.subject;
+      var predId = triple.predicate;
+      var objId = triple.object;
+
+      var subjNode = filterNodesById(graph.nodes, subjId)[0];
+      var objNode  = filterNodesById(graph.nodes, objId)[0];
+
+      if(subjNode==null){
+        subjNode = {id:subjId, label:subjId, weight:1};
+        graph.nodes.push(subjNode);
+      }
+
+      if(objNode==null){
+        objNode = {id:objId, label:objId, weight:1};
+        graph.nodes.push(objNode);
+      }
+
+
+      graph.links.push({source:subjNode, target:objNode, predicate:predId, weight:1});
+    });
+
+    return graph;
+  }
+
+  function addNewTriples(triples_list){
+
+    graph = triplesToGraph(triples_list);
+    update();
+  }
+
+  function update(){
+    // ==================== Add Marker ====================
+    svg.append("svg:defs").selectAll("marker")
+        .data(["end"])
+      .enter().append("svg:marker")
+        .attr("id", String)
+        .attr("viewBox", "0 -5 10 10")
+        .attr("refX", 30)
+        .attr("refY", -0.5)
+        .attr("markerWidth", 6)
+        .attr("markerHeight", 6)
+        .attr("orient", "auto")
+      .append("svg:polyline")
+        .attr("points", "0,-5 10,0 0,5")
+        ;
+
+    // ==================== Add Links ====================
+    var links = svg.selectAll(".link")
+              .data(graph.links)
+              .enter()
+              .append("line")
+                .attr("marker-end", "url(#end)")
+                .attr("class", "link")
+                .attr("stroke-width",1)
+            ;//links
+
+    // ==================== Add Link Names =====================
+    var linkTexts = svg.selectAll(".link-text")
+                  .data(graph.links)
+                  .enter()
+                  .append("text")
+            .attr("class", "link-text")
+            .text( function (d) { return d.predicate; })
+          ;
+
+      //linkTexts.append("title")
+      //		.text(function(d) { return d.predicate; });
+
+    // ==================== Add Link Names =====================
+    var nodeTexts = svg.selectAll(".node-text")
+                  .data(graph.nodes)
+                  .enter()
+                  .append("text")
+            .attr("class", "node-text")
+            .text( function (d) { return d.label; })
+          ;
+
+      //nodeTexts.append("title")
+      //		.text(function(d) { return d.label; });
+
+    // ==================== Add Node =====================
+    var nodes = svg.selectAll(".node")
+              .data(graph.nodes)
+              .enter()
+              .append("circle")
+                .attr("class", "node")
+                .attr("r",8)
+                .call(force.drag)
+            ;//nodes
+
+    // ==================== Force ====================
+    force.on("tick", function() {
+      nodes
+        .attr("cx", function(d){ return d.x; })
+        .attr("cy", function(d){ return d.y; })
+        ;
+
+      links
+        .attr("x1", 	function(d)	{ return d.source.x; })
+            .attr("y1", 	function(d) { return d.source.y; })
+            .attr("x2", 	function(d) { return d.target.x; })
+            .attr("y2", 	function(d) { return d.target.y; })
+           ;
+
+      nodeTexts
+        .attr("x", function(d) { return d.x + 12 ; })
+        .attr("y", function(d) { return d.y + 3; })
+        ;
+
+
+      linkTexts
+        .attr("x", function(d) { return 4 + (d.source.x + d.target.x)/2  ; })
+        .attr("y", function(d) { return 4 + (d.source.y + d.target.y)/2 ; })
+        ;
+    });
+
+    // ==================== Run ====================
+    force
+        .nodes(graph.nodes)
+        .links(graph.links)
+      .charge(-500)
+      .linkDistance(100)
+        .start()
+      ;
+  }
+
+
+</script>
+
 <script type="text/javascript" charset="utf-8">
 
     $( document ).ready(function() {
@@ -55,6 +198,7 @@
             // $("#section-LinkedData").addClass("is-hidden");
             // $("#section-BioSchemas").addClass("is-hidden");
             socket.emit('retrieve_embedded_annot_2', {url: $("#url").val()});
+
         });
 
         $("#btn_describe_biotools").click(function(){
@@ -175,6 +319,8 @@
              $("#btn_describe_biotools").removeClass("is-loading");
              $("#btn_describe_loa").removeClass("is-loading");
              $("#btn_kg").removeClass("is-loading");
+             // Call Graph display update here
+             socket.emit('get_latest_triples');
          });
 
         socket.on('done_check', function(value) {
@@ -312,6 +458,32 @@
             $("#notif").removeClass("is-hidden");
         });
 
+        socket.on('send_triples', function(value) {
+          var new_triples = value["triples"];
+          // console.log(triples);
+          // var new_triples = [
+          //     {subject:"ex:ThaiLand", 	predicate:"ex:hasFood", 	object:"ex:TomYumKung"},
+          //     {subject:"ex:TomYumKung", 	predicate:"rdf:type", 		object:"ex:SpicyFood"},
+          //     {subject:"ex:TomYumKung", 	predicate:"ex:includes", 	object:"ex:shrimp"},
+          //     {subject:"ex:TomYumKung", 	predicate:"ex:includes", 	object:"ex:chilly"},
+          //     {subject:"ex:TomYumKung", 	predicate:"ex:includes", 	object:"ex:lemon"},
+          //     {subject:"ex:lemon", 		predicate:"ex:hasTaste", 	object:"ex:sour"},
+          //     {subject:"ex:chilly", 		predicate:"ex:hasTaste", 	object:"ex:spicy"}
+          //   ];
+        console.log(new_triples);
+
+        // for(let i = 0; i < new_triples.length; i++){
+        //   console.log(new_triples[i]);
+        //   triples.push(new_triples[i]);
+        //   graph = triplesToGraph(new_triples[i]);
+        // };
+        // //
+        addNewTriples(new_triples);
+
+        // update();
+        console.log("updated graph")
+        });
+
         //socket.emit('fast');
 
     });
@@ -378,14 +550,14 @@
         <p>Step 2: Enrich Graph [Optional] (comparison with previous one ?)</p>
       </div>
       <div class="message-body is-hidden">
-        <div class="field is-grouped is-grouped-centered">
+        <!-- <div class="field is-grouped is-grouped-centered">
           <p class="control"><a class="button is-primary is-large" disabled>Describe All</a></p>
-        </div>
+        </div> -->
         <div class="field is-grouped is-grouped-centered">
-          <p class="control"><a id="btn_describe_wikidata" class="button is-success">Describe Wikidata</a></p>
-          <p class="control"><a id="btn_describe_opencitation" class="button is-link">Describe OpenCitation</a></p>
-          <p class="control"><a id="btn_describe_loa" class="button is-info">Describe Load Openair</a></p>
-          <p class="control"><a id="btn_describe_biotools" class="button is-warning">Describe Bio.tools</a></p>
+          <p class="control"><a id="btn_describe_wikidata" class="button is-success">Wikidata</a></p>
+          <p class="control"><a id="btn_describe_opencitation" class="button is-link">OpenCitation</a></p>
+          <p class="control"><a id="btn_describe_loa" class="button is-info">Lod Openair</a></p>
+          <p class="control"><a id="btn_describe_biotools" class="button is-warning">Bio.tools</a></p>
         </div>
         <div class="control">
           <textarea id="microdata" class="textarea is-small" placeholder="Knowledge graph, in RDF, turtle syntax" rows="15"></textarea>
@@ -398,27 +570,28 @@
 <!--    <div class="section">-->
     <article id="article-bioschemas-check" class="message is-info">
       <div class="message-header">
-        <p>Step 3: Check Graph content against BioSchemas profile</p>
+        <p>Step 3: Metadata quality checks</p>
       </div>
       <div class="message-body is-hidden">
         <div class="tabs is-boxed">
           <ul>
-            <li id="bioschemas_tab" class="is-active">
-              <a>
-                <span class="icon is-small"><i class="fa fa-pencil" aria-hidden="true"></i></span>
-                <span>BioSchemas Check</span>
-              </a>
-            </li>
-            <li id="linkeddata_tab">
+            <li id="linkeddata_tab" class="is-active">
               <a>
                 <span class="icon is-small"><i class="fa fa-share-alt" aria-hidden="true"></i></span>
-                <span>Controlled vocabularies Check</span>
+                <span>Controlled vocabularies</span>
               </a>
             </li>
+            <li id="bioschemas_tab">
+              <a>
+                <span class="icon is-small"><i class="fa fa-pencil" aria-hidden="true"></i></span>
+                <span>Bioschemas</span>
+              </a>
+            </li>
+
           </ul>
         </div>
 
-        <section id="section-BioSchemas" class="section">
+        <section id="section-BioSchemas" class="section  is-hidden">
 
             <!-- <h3 class="title is-3">BioSchemas profiles checks</h3> -->
             <p>Bioschemas is a community effort aimed at reusing and extending Schema.org for better life science digital resource findability. Several profiles are defined for each kind of Life Science resources, specifying minimal, recommended or optional information. Am I missing minimal information ? Should I provide other information for better findability ?</p>
@@ -449,9 +622,9 @@
             <p class="control"><a id="btn_annot_bioschemas" class="button is-warning is-hidden">Annotate missing BioSchemas properties</a></p>
             </div>
         </section>
-        <section id="section-LinkedData" class="section is-hidden">
+        <section id="section-LinkedData" class="section">
             <!-- <h3 class="title is-3">Controlled vocabulary checks</h3> -->
-            <p>We now have a Knowledge Graph grounded to ontology concepts (classes) and relations (properties). Are these terms known in reference ontology registries such as LOV, OLS or BioPortal ? </p>
+            <p>We now have a Knowledge Graph grounded to ontology concepts (classes) and relations (properties). Are these classes and properties already known in reference ontology registries such as LOV, OLS or BioPortal ? </p>
             <br>
             <div class="field is-grouped is-grouped-centered">
               <p class="control"><a id="btn_fairness" class="button is-primary is-large">Check Vocabularies</a></p>
@@ -523,6 +696,43 @@
         </div>
       </div>
     </article>
+
+
+
+
+    <article id="article-KGdisplay" class="message is-info">
+      <div class="message-header">
+        <p>Graph Display</p>
+      </div>
+      <div class="message-body">
+        <div class="field">
+          <div class="control">
+            <div id="svg-body" class="panel-body"></div>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <script>
+    	// var triples = [
+    	// 		{subject:"ex:ThaiLand", 	predicate:"ex:hasFood", 	object:"ex:TomYumKung"},
+      //
+    	// 	];
+
+
+  	var svg = d3.select("#svg-body").append("svg")
+  				.attr("width", "auto")
+  				.attr("height", 600)
+          .attr("display", "block")
+  				;
+
+  	var force = d3.layout.force().size([800, 600]);
+
+  	// var graph = triplesToGraph(triples);
+
+  	// update();
+
+    </script>
 
 <!--    </div>-->
 <!-- </section> -->

@@ -616,6 +616,17 @@ def handle_disconnected():
 #######################################
 #######################################
 
+@socketio.on('get_latest_triples')
+def handle_get_latest_triples():
+    sid = request.sid
+    kg = kgs[sid]
+
+    list_triples = []
+    for s, p, o in kg.triples((None, None, None)):
+        triple = {"subject": s, "predicate": p, "object": o}
+        list_triples.append(triple)
+    emit('send_triples', {"triples": list_triples})
+
 @socketio.on('retrieve_embedded_annot_2')
 def handle_embedded_annot_2(data):
     """
@@ -687,14 +698,14 @@ def handle_annotationn(data):
     scholarly_article = rdflib.URIRef("http://schema.org/ScholarlyArticle")
 
     uri = ''
-    for s, p, o in kg.triples((None, rdflib.namespace.RDF.type, scholarly_article)):
+    for s, p, o in kg.triples((None, rdflib.namespace.RDF.type, software_application)):
         uri = s
         print(s)
         print(p)
         print(o)
 
-    if (scholarly_article, None, None) in kg:
-        print("ScholarlyArticle in KG !")
+    if (software_application, None, None) in kg:
+        print("software_application in KG !")
         for property in warnings.keys():
             print(property)
             value = warnings[property]
@@ -928,8 +939,8 @@ def check_kg_shape(data):
     emit('done_check_shape', data)
 
     # replacement
-    # results = bioschemas_shape.validate_any_from_microdata(uri)
-    # print(results)
+    results = bioschemas_shape.validate_any_from_microdata(uri)
+    print(results)
 
 
 @socketio.on('check_kg_shape_2')
