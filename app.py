@@ -693,28 +693,27 @@ def handle_annotationn(data):
     sid = request.sid
     kg = kgs[sid]
 
-    software_application = rdflib.URIRef("http://schema.org/SoftwareApplication")
+    class_list = [
+        rdflib.URIRef("http://schema.org/SoftwareApplication"),
+        rdflib.URIRef("http://schema.org/ScholarlyArticle"),
+        rdflib.URIRef("http://schema.org/Dataset")
+    ]
 
-    scholarly_article = rdflib.URIRef("http://schema.org/ScholarlyArticle")
+    for class_elem in class_list:
+        uri = ''
+        for s, p, o in kg.triples((None, rdflib.namespace.RDF.type, class_elem)):
+            uri = s
+        if (class_elem, None, None) in kg:
+            print("software_application in KG !")
+            for property in warnings.keys():
+                print(property)
+                value = warnings[property]
+                if value != '':
+                    value = rdflib.Literal(value)
+                    property = rdflib.URIRef(property)
 
-    uri = ''
-    for s, p, o in kg.triples((None, rdflib.namespace.RDF.type, software_application)):
-        uri = s
-        print(s)
-        print(p)
-        print(o)
-
-    if (software_application, None, None) in kg:
-        print("software_application in KG !")
-        for property in warnings.keys():
-            print(property)
-            value = warnings[property]
-            if value != '':
-                value = rdflib.Literal(value)
-                property = rdflib.URIRef(property)
-
-                print("Adding property")
-                kg.add((uri, property, value))
+                    print("Adding property")
+                    kg.add((uri, property, value))
     print(kg.serialize(format='json-ld').decode())
     emit('send_annot_2', str(kg.serialize(format='turtle').decode()))
 

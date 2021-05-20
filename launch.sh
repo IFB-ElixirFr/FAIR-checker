@@ -1,5 +1,6 @@
 #!/bin/sh
 echo "ENV is set to: "
+export FLASK_ENV=development
 printenv FLASK_ENV
 #exec source activate fair-checker-webapp
 exec gunicorn -b 0.0.0.0:5000 --reload --access-logfile - --error-logfile - app:app --worker-class eventlet -w 1
