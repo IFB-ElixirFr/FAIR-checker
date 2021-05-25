@@ -249,6 +249,14 @@
             socket.emit('check_kg_shape_2', {url: $("#url").val(), kg: $("#microdata").val()});
         });
 
+        // Change RDF type button
+
+        $('[id^="btn_rdf_"]').click(function(){
+            var rdf_type = $(this).data("rdf");
+            console.log(rdf_type);
+            socket.emit('change_rdf_type', {rdf_type: rdf_type});
+        });
+
         // TABS for Step 3
 
         $("#bioschemas_tab").click(function(){
@@ -564,10 +572,10 @@
         </div>
         <br>
         <div class="field is-grouped is-grouped-centered">
-          <p class="control"><a id="btn_rdf_json-ld" class="button is-success">JSON-LD</a></p>
-          <p class="control"><a id="btn_rdf_turtle" class="button is-link">Turtle</a></p>
-          <p class="control"><a id="btn_rdf_n3" class="button is-warning">N3</a></p>
-          <p class="control"><a id="btn_rdf_xml" class="button is-info">XML</a></p>
+          <p class="control"><a id="btn_rdf_json-ld" data-rdf="json-ld" class="button is-success">JSON-LD</a></p>
+          <p class="control"><a id="btn_rdf_turtle" data-rdf="turtle" class="button is-link">Turtle</a></p>
+          <p class="control"><a id="btn_rdf_nt" data-rdf="nt" class="button is-warning">NT</a></p>
+          <p class="control"><a id="btn_rdf_xml" data-rdf="xml" class="button is-info">XML</a></p>
         </div>
       </div>
     </article>

@@ -186,7 +186,9 @@ except ValueError as e:
     ###### A DEPLACER AU LANCEMENT DU SERVEUR ######
 METRICS_RES = test_metric.getMetrics()
 
-kgs = {}
+KGS = {}
+
+RDF_TYPE = {}
 
 FILE_UUID = ""
 
@@ -619,13 +621,20 @@ def handle_disconnected():
 @socketio.on('get_latest_triples')
 def handle_get_latest_triples():
     sid = request.sid
-    kg = kgs[sid]
+    kg = KGS[sid]
 
     list_triples = []
     for s, p, o in kg.triples((None, None, None)):
         triple = {"subject": s, "predicate": p, "object": o}
         list_triples.append(triple)
     emit('send_triples', {"triples": list_triples})
+
+@socketio.on('change_rdf_type')
+def handle_change_rdf_type(data):
+    sid = request.sid
+    RDF_TYPE[sid] = data["rdf_type"]
+    kg = KGS[sid]
+    emit('send_annot_2', str(kg.serialize(format=RDF_TYPE[sid]).decode()))
 
 @socketio.on('retrieve_embedded_annot_2')
 def handle_embedded_annot_2(data):
@@ -639,6 +648,7 @@ def handle_embedded_annot_2(data):
     print("handle annot_2")
     sid = request.sid
     print(sid)
+    RDF_TYPE[sid] = "turtle"
     uri = str(data['url'])
     print('retrieving embedded annotations for ' + uri)
     print("Retrieve KG for uri: " + uri)
@@ -674,12 +684,12 @@ def handle_embedded_annot_2(data):
                 md['@context'] = static_file_path
         kg.parse(data=json.dumps(md, ensure_ascii=False), format="json-ld")
 
-    kgs[sid] = kg
+    KGS[sid] = kg
 
     # step += 1
     print(len(kg))
     # emit('update_annot_2', step)
-    emit('send_annot_2', str(kg.serialize(format='turtle').decode()))
+    emit('send_annot_2', str(kg.serialize(format=RDF_TYPE[sid]).decode()))
 
 
 
@@ -691,7 +701,7 @@ def handle_annotationn(data):
     print(warnings)
 
     sid = request.sid
-    kg = kgs[sid]
+    kg = KGS[sid]
 
     class_list = [
         rdflib.URIRef("http://schema.org/SoftwareApplication"),
@@ -715,13 +725,13 @@ def handle_annotationn(data):
                     print("Adding property")
                     kg.add((uri, property, value))
     print(kg.serialize(format='json-ld').decode())
-    emit('send_annot_2', str(kg.serialize(format='turtle').decode()))
+    emit('send_annot_2', str(kg.serialize(format=RDF_TYPE[sid]).decode()))
 
 @socketio.on('describe_opencitation')
 def handle_describe_opencitation(data):
     print("describing opencitation")
     sid = request.sid
-    kg = kgs[sid]
+    kg = KGS[sid]
     uri = str(data['url'])
     graph = str(data['graph'])
     # kg = ConjunctiveGraph()
@@ -731,13 +741,13 @@ def handle_describe_opencitation(data):
         uri = util.get_DOI(uri)
         print(f'FOUND DOI: {uri}')
     kg = util.describe_opencitation(uri, kg)
-    emit('send_annot_2', str(kg.serialize(format='turtle').decode()))
+    emit('send_annot_2', str(kg.serialize(format=RDF_TYPE[sid]).decode()))
 
 @socketio.on('describe_wikidata')
 def handle_describe_wikidata(data):
     print("describing wikidata")
     sid = request.sid
-    kg = kgs[sid]
+    kg = KGS[sid]
     uri = str(data['url'])
     graph = str(data['graph'])
     # kg = ConjunctiveGraph()
@@ -747,25 +757,25 @@ def handle_describe_wikidata(data):
         uri = util.get_DOI(uri)
         print(f'FOUND DOI: {uri}')
     kg = util.describe_wikidata(uri, kg)
-    emit('send_annot_2', str(kg.serialize(format='turtle').decode()))
+    emit('send_annot_2', str(kg.serialize(format=RDF_TYPE[sid]).decode()))
 
 @socketio.on('describe_biotools')
 def handle_describe_biotools(data):
     print("describing biotools")
     sid = request.sid
-    kg = kgs[sid]
+    kg = KGS[sid]
     uri = str(data['url'])
     graph = str(data['graph'])
     # kg = ConjunctiveGraph()
     # kg.parse(data=graph, format="turtle")
     kg = util.describe_biotools(uri, kg)
-    emit('send_annot_2', str(kg.serialize(format='turtle').decode()))
+    emit('send_annot_2', str(kg.serialize(format=RDF_TYPE[sid]).decode()))
 
 @socketio.on('describe_loa')
 def handle_describe_loa(data):
     print("describing loa")
     sid = request.sid
-    kg = kgs[sid]
+    kg = KGS[sid]
     uri = str(data['url'])
     graph = str(data['graph'])
     # kg = ConjunctiveGraph()
@@ -775,7 +785,7 @@ def handle_describe_loa(data):
         uri = util.get_DOI(uri)
         print(f'FOUND DOI: {uri}')
     kg = util.describe_loa(uri, kg)
-    emit('send_annot_2', str(kg.serialize(format='turtle').decode()))
+    emit('send_annot_2', str(kg.serialize(format=RDF_TYPE[sid]).decode()))
 
 @socketio.on('retrieve_embedded_annot')
 def handle_embedded_annot(data):
@@ -828,7 +838,7 @@ def handle_embedded_annot(data):
         kg.parse(data=json.dumps(md, ensure_ascii=False), format="json-ld")
 
 
-    kgs[sid] = kg
+    KGS[sid] = kg
 
     step += 1
     emit('update_annot', step)
@@ -878,11 +888,11 @@ def check_kg(data):
     sid = request.sid
     print(sid)
     uri = str(data['url'])
-    if (not sid in kgs.keys()) :
+    if (not sid in KGS.keys()) :
         handle_embedded_annot(data)
-    elif (not kgs[sid]):
+    elif (not KGS[sid]):
         handle_embedded_annot(data)
-    kg = kgs[sid]
+    kg = KGS[sid]
 
     query_classes = """
         SELECT DISTINCT ?class { ?s rdf:type ?class } ORDER BY ?class
@@ -926,11 +936,11 @@ def check_kg_shape(data):
     sid = request.sid
     print(sid)
     uri = str(data['url'])
-    if (not sid in kgs.keys()):
+    if (not sid in KGS.keys()):
         handle_embedded_annot(data)
-    elif (not kgs[sid]):
+    elif (not KGS[sid]):
         handle_embedded_annot(data)
-    kg = kgs[sid]
+    kg = KGS[sid]
 
     #TODO replace this code with profiles.bioschemas_shape_gen
     warnings, errors = util.shape_checks(kg)
@@ -948,11 +958,11 @@ def check_kg_shape_2(data):
     sid = request.sid
     print(sid)
     uri = str(data['url'])
-    # if (not sid in kgs.keys()):
+    # if (not sid in KGS.keys()):
     #     handle_embedded_annot(data)
-    # elif (not kgs[sid]):
+    # elif (not KGS[sid]):
     #     handle_embedded_annot(data)
-    kg = kgs[sid]
+    kg = KGS[sid]
 
     print("titi")
 
