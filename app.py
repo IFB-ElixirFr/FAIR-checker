@@ -45,7 +45,7 @@ from metrics.Evaluation import Evaluation
 from metrics.FAIRMetricsFactory import FAIRMetricsFactory
 from metrics.FAIRMetricsImpl import FAIRMetricsImpl
 
-import profiles.bioschemas_shape_gen as bioschemas_shape
+# import profiles.bioschemas_shape_gen as bioschemas_shape
 
 # Command line exec
 import subprocess
@@ -948,7 +948,7 @@ def check_kg_shape(data):
     emit('done_check_shape', data)
 
     # replacement
-    results = bioschemas_shape.validate_any_from_microdata(uri)
+    # results = bioschemas_shape.validate_any_from_microdata(uri)
     print(results)
 
 
@@ -974,8 +974,8 @@ def check_kg_shape_2(data):
 
     # replacement
     print("TITI")
-    results = bioschemas_shape.validate_any_from_KG(kg)
-    print(results)
+    # results = bioschemas_shape.validate_any_from_KG(kg)
+    # print(results)
 
 #######################################
 #######################################
