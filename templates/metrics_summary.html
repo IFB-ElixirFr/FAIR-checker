@@ -29,7 +29,11 @@
            });
         {% endfor %}
 
-
+        // Exemple selector Button
+        $('[id^="resource_"]').on("click", function(){
+            console.log($(this).children("a").text());
+            $("#url").val($(this).children("a").text()) ;
+        });
 
 
         //////////////////
@@ -363,9 +367,8 @@
               <button id="btn_test_all" class="button is-info is-large"><i class="fa fa-bar-chart fa-fw"></i>Test all metrics</button>
           </p>
       </div>
-
-      <button class="button is-info is-small" id="show_examples">Example<i class="fa fa-chevron-down fa-fw" aria-hidden="true"></i></button>
-      <div id="url_examples" style="display: none;">
+      <!-- <button class="button is-info is-small" id="show_examples">Example<i class="fa fa-chevron-down fa-fw" aria-hidden="true"></i></button> -->
+      <!-- <div id="url_examples" style="display: none;">
         <br>
         <article class="message is-info" >
           <div class="message-body">
@@ -390,8 +393,20 @@
               </div>
             </div>
         </article>
-      </div>
+      </div> -->
+      <!-- <div class="section"> -->
+        {% for k in sample_data.keys() %}
+        <p class="button is-info is-small">{{k}}<i class="fa fa-chevron-down fa-fw"></i></p>
+        <br>
+        <br>
+        <div class="field is-grouped is-grouped-centered">
+            {% for s in sample_data[k] %}
+            <p id="resource_{{k}}_{{loop.index}}"class="control"><a class="button is-link">{{ s }}</a></p>
+            {% endfor %}
+        </div>
+        {% endfor %}
 
+      <!-- </div> -->
     </div>
     <!-- <br>
     <div class="card">

@@ -48,6 +48,12 @@
             });
         {% endfor %}
 
+        // Exemple selector Button
+        $('[id^="resource_"]').on("click", function(){
+            console.log($(this).children("a").text());
+            $("#url").val($(this).children("a").text()) ;
+        });
+
         $("#btn_kg").click(function(){
             $(this).addClass("is-loading");
             $("#section-KG").removeClass("is-hidden");
@@ -207,7 +213,7 @@
     <p> First, embedded semantic annotations are extracted from web pages, forming a minimal knowledge graph. Then, these knowledge are completed based on already deployed knowledge graphs (Datacite, OpenAire, WikiData). Finally, the resulting knowledge graph is tested to check that classes and properties are recognized through Linked Open Vocabularies (LOV), or Ontology Lookup Service (OLS)</p>
 </div>
 
-<div class="section">
+<!-- <div class="section">
     <div class="columns is-multiline is-mobile">
         {% for k in sample_data.keys() %}
             <div class="column is-4">
@@ -226,8 +232,20 @@
             </div>
         {% endfor %}
     </div>
-</div>
+</div> -->
 
+<div class="section">
+    {% for k in sample_data.keys() %}
+    <p class="button is-info is-small">{{k}}<i class="fa fa-chevron-down fa-fw"></i></p>
+    <br>
+    <br>
+    <div class="field is-grouped is-grouped-centered">
+        {% for s in sample_data[k] %}
+        <p id="resource_{{k}}_{{loop.index}}"class="control"><a class="button is-link">{{ s }}</a></p>
+        {% endfor %}
+    </div>
+    {% endfor %}
+</div>
 
 <div class="section">
     <div class="field is-grouped">
