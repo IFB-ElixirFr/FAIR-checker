@@ -15,6 +15,7 @@ from selenium.webdriver.chrome.options import Options
 import logging
 
 import re
+import validators
 
 # DOI regex
 regex = r"10.\d{4,9}\/[-._;()\/:A-Z0-9]+"
@@ -126,6 +127,11 @@ def describe_biotools(uri, g):
     #print(g.serialize(format='turtle').decode())
     return g
 
+def is_URL(any_url):
+    if validators.url(any_url) :
+        return True
+    else :
+        return False
 
 def is_DOI(uri):
     return bool(re.search(regex, uri, re.MULTILINE | re.IGNORECASE))
