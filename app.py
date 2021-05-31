@@ -69,8 +69,8 @@ socketio = SocketIO(app,async_mode = 'eventlet')
 app.secret_key = secrets.token_urlsafe(16)
 #socketio = SocketIO(app)
 sample_resources = {
-    'examples': [
-        "",
+    'Examples': [
+        # "",
         "https://workflowhub.eu/workflows/18", # Workflow in WorkflowHub
         "https://search.datacite.org/works/10.7892/boris.108387", # Publication in Datacite
         "https://doi.pangaea.de/10.1594/PANGAEA.914331", # dataset in PANGAEA
