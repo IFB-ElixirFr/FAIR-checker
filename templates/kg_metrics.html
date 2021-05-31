@@ -19,7 +19,8 @@
         $("#notif").addClass("is-hidden");
 
         console.log('trying to connect...');
-        var socket = io.connect({{ config['SERVER_IP']|tojson }});
+        var socket = io({transports: ['websocket']});
+        socket.connect({{ config['SERVER_IP']|tojson }});
         //var socket = io();
         console.log('connected');
 
