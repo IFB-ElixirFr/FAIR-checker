@@ -206,6 +206,10 @@ def favicon():
 def home():
     return redirect(url_for('base_metrics'))
 
+@app.route('/about')
+def about():
+    return render_template('about.html')
+
 @app.route('/statistics')
 def statistics():
     return render_template('statistics.html',
