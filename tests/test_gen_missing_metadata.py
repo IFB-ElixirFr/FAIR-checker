@@ -29,31 +29,32 @@ class MissingMetadataTestCase(unittest.TestCase):
         new_kg = rdflib.ConjunctiveGraph()
 
         #TODO check that url is well formed
-        uri = rdflib.URIRef(data["url"])
+        if util.is_URL(data["url"]):
+            uri = rdflib.URIRef(data["url"])
 
-        for p in data["warn"].keys():
-            if data["warn"][p]:
-                value = data["warn"][p]
-                if util.is_URL(value):
-                    new_kg.add((uri, rdflib.URIRef(p), rdflib.URIRef(value)))
-                else:
-                    new_kg.add((uri, rdflib.URIRef(p), rdflib.Literal(value)))
+            for p in data["warn"].keys():
+                if data["warn"][p]:
+                    value = data["warn"][p]
+                    if util.is_URL(value):
+                        new_kg.add((uri, rdflib.URIRef(p), rdflib.URIRef(value)))
+                    else:
+                        new_kg.add((uri, rdflib.URIRef(p), rdflib.Literal(value)))
 
-        for p in data["err"].keys():
-            if data["err"][p]:
-                value = data["err"][p]
-                if util.is_URL(value):
-                    new_kg.add((uri, rdflib.URIRef(p), rdflib.URIRef(value)))
-                else:
-                    new_kg.add((uri, rdflib.URIRef(p), rdflib.Literal(value)))
+            for p in data["err"].keys():
+                if data["err"][p]:
+                    value = data["err"][p]
+                    if util.is_URL(value):
+                        new_kg.add((uri, rdflib.URIRef(p), rdflib.URIRef(value)))
+                    else:
+                        new_kg.add((uri, rdflib.URIRef(p), rdflib.Literal(value)))
 
-        print("****** Turtle syntax *****")
-        print(new_kg.serialize(format='turtle').decode())
-        print("**************************")
+            print("****** Turtle syntax *****")
+            print(new_kg.serialize(format='turtle').decode())
+            print("**************************")
 
-        print("***** JSON-LD syntax *****")
-        print(new_kg.serialize(format='json-ld').decode())
-        print("**************************")
+            print("***** JSON-LD syntax *****")
+            print(new_kg.serialize(format='json-ld').decode())
+            print("**************************")
 
         self.assertEquals(len(new_kg), 4)
 

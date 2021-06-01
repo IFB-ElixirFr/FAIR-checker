@@ -149,7 +149,7 @@ def ask_OLS(uri):
     print(f'call to the OLS REST API for [ {uri} ]')
     h = {'Accept': 'application/json'}
     p = {'iri': uri}
-    res = requests.get("http://www.ebi.ac.uk/ols/api/terms", headers=h, params=p, verify=False)
+    res = requests.get("https://www.ebi.ac.uk/ols/api/terms", headers=h, params=p, verify=False)
 
     if res.json()['page']['totalElements'] > 0:
         return True
@@ -437,3 +437,18 @@ def download_csv(uri):
 
     a_day_ago = datetime.now() - timedelta(1)
     pass
+
+def replace_value_char_for_key(key, var, old_char, new_char):
+    if hasattr(var,'items'):
+        for k, v in var.items():
+            if k == key:
+                v = v.replace(old_char, new_char)
+                var[k] = v
+                yield v
+            if isinstance(v, dict):
+                for result in replace_value_char_for_key(key, v, old_char, new_char):
+                    yield result
+            elif isinstance(v, list):
+                for d in v:
+                    for result in replace_value_char_for_key(key, d, old_char, new_char):
+                        yield result
