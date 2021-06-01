@@ -15,6 +15,40 @@ from rdflib import Graph, ConjunctiveGraph, Namespace
 
 
 class KGAugmentTestCase(unittest.TestCase):
+
+    def test_base_url(selfself):
+        #from https://github.com/RDFLib/rdflib/issues/1003
+        rdf_triples_base = """
+        @prefix category: <http://example.org/> .
+        @prefix dct: <http://purl.org/dc/terms/> .
+        @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+        @base <http://example.org/> .
+
+        <> a skos:ConceptScheme ;
+            dct:creator <https://creator.com> ;
+            dct:description "Test Description"@en ;
+            dct:source <nick> ;
+            dct:title "Title"@en .
+        """
+        kg = ConjunctiveGraph()
+        kg.parse(data=rdf_triples_base, format="turtle")
+        print(kg.serialize(format="turtle").decode())
+
+        rdf_triples_NO_base = """
+        @prefix category: <http://example.org/> .
+        @prefix dct: <http://purl.org/dc/terms/> .
+        @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+
+        <> a skos:ConceptScheme ;
+            dct:creator <https://creator.com> ;
+            dct:description "Test Description"@en ;
+            dct:source <nick> ;
+            dct:title "Title"@en .
+        """
+        kg = ConjunctiveGraph()
+        kg.parse(data=rdf_triples_NO_base, format="turtle")
+        print(kg.serialize(format="turtle").decode())
+
     def test_wikidata_sparqlwrapper(self):
         # r2 = R2Impl()
         # r2.set_url("https://workflowhub.eu/workflows/45")
