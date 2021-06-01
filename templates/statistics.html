@@ -40,6 +40,8 @@
     });
 </script>
 
+<h1 class="title">Statistics</h1>
+
 <section class="hero is-warning">
   <div class="hero-body">
     <div class="container">
@@ -261,7 +263,7 @@
 
   var success_labels = {{ success_weekly|tojson }}.map(v => (v.x));
   var failures_labels = {{ failures_weekly|tojson }}.map(v => (v.x));
-  var labels = [...new Set([...success_labels, ...failures_labels])].sort()
+  var labels = [...new Set([...success_labels, ...failures_labels])].sort();
 
   // const labels = Object.keys({{ failures_weekly|tojson }});
   // const values_success = Object.values({{ success_weekly|tojson }});

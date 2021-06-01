@@ -86,8 +86,12 @@ def success_weekly_one_year():
     results = list(db.evaluations.aggregate(pipeline))
 
     for result in results:
-        print(result)
-        year_week = str(result["_id"]["year"]) + "-" + str(result["_id"]["week"])
+        week = str(result["_id"]["week"])
+        # add 0 before single digit num for sorting purpose
+        if len(week) == 1:
+            week = "0" + week
+        year_week = str(result["_id"]["year"]) + "-" + week
+        # year_week = str(result["_id"]["week"]) + "-" + str(result["_id"]["year"])
         week_count_eval[year_week] = result["documentCount"]
 
 
@@ -127,8 +131,12 @@ def failures_weekly_one_year():
     results = list(db.evaluations.aggregate(pipeline))
 
     for result in results:
-        print(result)
-        year_week = str(result["_id"]["year"]) + "-" + str(result["_id"]["week"])
+        week = str(result["_id"]["week"])
+        # add 0 before single digit num for sorting purpose
+        if len(week) == 1:
+            week = "0" + week
+        year_week = str(result["_id"]["year"]) + "-" + week
+        # year_week = str(result["_id"]["week"]) + "-" + str(result["_id"]["year"])
         week_count_eval[year_week] = result["documentCount"]
 
 
@@ -171,8 +179,11 @@ def weekly_named_metrics(prefix='F', success=0):
     results = list(db.evaluations.aggregate(pipeline))
 
     for result in results:
-        print(result)
-        year_week = str(result["_id"]["year"]) + "-" + str(result["_id"]["week"])
+        week = str(result["_id"]["week"])
+        # add 0 before single digit num for sorting purpose
+        if len(week) == 1:
+            week = "0" + week
+        year_week = str(result["_id"]["year"]) + "-" + week
         week_count_eval[year_week] = result["documentCount"]
 
 

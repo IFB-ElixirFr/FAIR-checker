@@ -664,6 +664,11 @@ def handle_embedded_annot_2(data):
 
     d = extruct.extract(html, syntaxes=['microdata', 'rdfa', 'json-ld'], errors='ignore')
 
+    # remove whitespaces from @id values after axtruct
+    for key, val in d.items():
+        for dict in d[key]:
+            list(util.replace_value_char_for_key('@id', dict, " ", "_"))
+
     print(d)
     print("là")
     kg = ConjunctiveGraph()
@@ -733,32 +738,33 @@ def handle_annotationn(data):
     new_kg = rdflib.ConjunctiveGraph()
 
     #TODO check that url is well formed
-    uri = rdflib.URIRef(data["url"])
+    if util.is_URL(data["url"]):
+        uri = rdflib.URIRef(data["url"])
 
-    for p in data["warn"].keys():
-        if data["warn"][p]:
-            value = data["warn"][p]
-            if util.is_URL(value):
-                new_kg.add((uri, rdflib.URIRef(p), rdflib.URIRef(value)))
-            else:
-                new_kg.add((uri, rdflib.URIRef(p), rdflib.Literal(value)))
+        for p in data["warn"].keys():
+            if data["warn"][p]:
+                value = data["warn"][p]
+                if util.is_URL(value):
+                    new_kg.add((uri, rdflib.URIRef(p), rdflib.URIRef(value)))
+                else:
+                    new_kg.add((uri, rdflib.URIRef(p), rdflib.Literal(value)))
 
-    for p in data["err"].keys():
-        if data["err"][p]:
-            value = data["err"][p]
-            if util.is_URL(value):
-                new_kg.add((uri, rdflib.URIRef(p), rdflib.URIRef(value)))
-            else:
-                new_kg.add((uri, rdflib.URIRef(p), rdflib.Literal(value)))
+        for p in data["err"].keys():
+            if data["err"][p]:
+                value = data["err"][p]
+                if util.is_URL(value):
+                    new_kg.add((uri, rdflib.URIRef(p), rdflib.URIRef(value)))
+                else:
+                    new_kg.add((uri, rdflib.URIRef(p), rdflib.Literal(value)))
 
     # print("****** Turtle syntax *****")
     # print(new_kg.serialize(format='turtle').decode())
     # print("**************************")
 
-    print("***** JSON-LD syntax *****")
-    print()
-    print("**************************")
-    emit('send_bs_annot', str(new_kg.serialize(format='json-ld').decode()))
+        print("***** JSON-LD syntax *****")
+        print()
+        print("**************************")
+        emit('send_bs_annot', str(new_kg.serialize(format='json-ld').decode()))
 
 @socketio.on('describe_opencitation')
 def handle_describe_opencitation(data):
@@ -820,6 +826,8 @@ def handle_describe_loa(data):
     kg = util.describe_loa(uri, kg)
     emit('send_annot_2', str(kg.serialize(format=RDF_TYPE[sid]).decode()))
 
+
+
 @socketio.on('retrieve_embedded_annot')
 def handle_embedded_annot(data):
     """
@@ -842,8 +850,6 @@ def handle_embedded_annot(data):
 
     d = extruct.extract(html, syntaxes=['microdata', 'rdfa', 'json-ld'], errors='ignore')
 
-    print(d)
-    print("là")
     kg = ConjunctiveGraph()
 
     # kg = util.get_rdf_selenium(uri, kg)
@@ -853,9 +859,13 @@ def handle_embedded_annot(data):
     base_path = Path(__file__).parent  ## current directory
     static_file_path = str((base_path / "static/data/jsonldcontext.json").resolve())
 
+    # remove whitespaces from @id values after axtruct
+    for key, val in d.items():
+        for dict in d[key]:
+            list(util.replace_value_char_for_key('@id', dict, " ", "_"))
+
     for md in d['json-ld']:
         if '@context' in md.keys():
-            print(md['@context'])
             if ('https://schema.org' in md['@context']) or ('http://schema.org' in md['@context']) :
                 md['@context'] = static_file_path
         kg.parse(data=json.dumps(md, ensure_ascii=False), format="json-ld")
@@ -982,7 +992,7 @@ def check_kg_shape(data):
 
     # replacement
     # results = bioschemas_shape.validate_any_from_microdata(uri)
-    print(results)
+    # print(results)
 
 
 @socketio.on('check_kg_shape_2')
