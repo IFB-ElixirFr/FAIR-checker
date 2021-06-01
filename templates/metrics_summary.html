@@ -33,6 +33,7 @@
         $('[id^="resource_"]').on("click", function(){
             console.log($(this).children("a").text());
             $("#url").val($(this).children("a").text()) ;
+            $("#url").trigger("input");
         });
 
 

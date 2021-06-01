@@ -698,34 +698,63 @@ def handle_annotationn(data):
     # url = data['url']
     errors = data["err"]
     warnings = data["warn"]
-    print(warnings)
+    # print(warnings)
 
-    sid = request.sid
-    kg = KGS[sid]
+    # sid = request.sid
+    # kg = KGS[sid]
 
-    class_list = [
-        rdflib.URIRef("http://schema.org/SoftwareApplication"),
-        rdflib.URIRef("http://schema.org/ScholarlyArticle"),
-        rdflib.URIRef("http://schema.org/Dataset")
-    ]
+    # class_list = [
+    #     rdflib.URIRef("http://schema.org/SoftwareApplication"),
+    #     rdflib.URIRef("http://schema.org/ScholarlyArticle"),
+    #     rdflib.URIRef("http://schema.org/Dataset")
+    # ]
+    #
+    # for class_elem in class_list:
+    #     uri = ''
+    #     for s, p, o in kg.triples((None, rdflib.namespace.RDF.type, class_elem)):
+    #         uri = s
+    #     if (class_elem, None, None) in kg:
+    #         print("software_application in KG !")
+    #         for property in warnings.keys():
+    #             print(property)
+    #             value = warnings[property]
+    #             if value != '':
+    #                 value = rdflib.Literal(value)
+    #                 property = rdflib.URIRef(property)
+    #
+    #                 print("Adding property")
+    #                 kg.add((uri, property, value))
+    # print(kg.serialize(format='json-ld').decode())
+    # emit('send_annot_2', str(kg.serialize(format=RDF_TYPE[sid]).decode()))
+    new_kg = rdflib.ConjunctiveGraph()
 
-    for class_elem in class_list:
-        uri = ''
-        for s, p, o in kg.triples((None, rdflib.namespace.RDF.type, class_elem)):
-            uri = s
-        if (class_elem, None, None) in kg:
-            print("software_application in KG !")
-            for property in warnings.keys():
-                print(property)
-                value = warnings[property]
-                if value != '':
-                    value = rdflib.Literal(value)
-                    property = rdflib.URIRef(property)
+    #TODO check that url is well formed
+    uri = rdflib.URIRef(data["url"])
 
-                    print("Adding property")
-                    kg.add((uri, property, value))
-    print(kg.serialize(format='json-ld').decode())
-    emit('send_annot_2', str(kg.serialize(format=RDF_TYPE[sid]).decode()))
+    for p in data["warn"].keys():
+        if data["warn"][p]:
+            value = data["warn"][p]
+            if util.is_URL(value):
+                new_kg.add((uri, rdflib.URIRef(p), rdflib.URIRef(value)))
+            else:
+                new_kg.add((uri, rdflib.URIRef(p), rdflib.Literal(value)))
+
+    for p in data["err"].keys():
+        if data["err"][p]:
+            value = data["err"][p]
+            if util.is_URL(value):
+                new_kg.add((uri, rdflib.URIRef(p), rdflib.URIRef(value)))
+            else:
+                new_kg.add((uri, rdflib.URIRef(p), rdflib.Literal(value)))
+
+    # print("****** Turtle syntax *****")
+    # print(new_kg.serialize(format='turtle').decode())
+    # print("**************************")
+
+    print("***** JSON-LD syntax *****")
+    print()
+    print("**************************")
+    emit('send_bs_annot', str(new_kg.serialize(format='json-ld').decode()))
 
 @socketio.on('describe_opencitation')
 def handle_describe_opencitation(data):

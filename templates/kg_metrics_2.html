@@ -337,7 +337,11 @@
              $("#btn_kg").removeClass("is-loading");
              // Call Graph display update here
              socket.emit('get_latest_triples');
-         });
+        });
+
+        socket.on('send_bs_annot', function(value) {
+          $("#annotated_bioschemas").val(value);
+        });
 
         socket.on('done_check', function(value) {
             console.log(value);
@@ -714,7 +718,10 @@
               </div>
               <div class="field is-grouped is-grouped-centered">
               <!-- <p class="control"><a id="btn_fairness" class="button is-primary">Vocab. checks</a></p> -->
-              <p class="control"><a id="btn_submit_annot_bioschemas" class="button is-warning">Load annotations into Graph</a></p>
+              <p class="control"><a id="btn_submit_annot_bioschemas" class="button is-warning">Annotate Bioschemas profile</a></p>
+              </div>
+              <div class="control">
+                <textarea id="annotated_bioschemas" class="textarea is-small" placeholder="BioSchemas annotation will be shown here" rows="15"></textarea>
               </div>
       </section>
       </div>
