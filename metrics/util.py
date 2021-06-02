@@ -60,6 +60,7 @@ def describe_opencitation(uri, g):
 # Describe lod.openaire
 def describe_loa(uri, g):
     # g = Graph()
+    graph_pre_size = len(g)
     print(f'SPARQL for [ {uri} ] with enpoint [ LOA ]')
     sparql = SPARQLWrapper("http://lod.openaire.eu/sparql")
     sparql.setQuery("""
@@ -73,7 +74,8 @@ def describe_loa(uri, g):
     results = sparql.query().convert()
     print("Results: " + str(len(g_len.parse(data=results, format="n3"))))
     g.parse(data=results, format="turtle")
-
+    graph_post_size = len(g)
+    print(f'{graph_post_size - graph_pre_size} added new triples')
     # print(g.serialize(format='turtle').decode())
     return g
 
