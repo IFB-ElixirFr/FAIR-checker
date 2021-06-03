@@ -326,10 +326,16 @@
             fontSize: 28,
         },
         spanGaps: false,
-        // tooltips: {
-        //    mode: 'index',
-        //    intersect: false
-        // },
+        tooltips: {
+            callbacks: {
+                title: function(tooltipItem, data) {
+                    return "";
+                },
+                // label: function(tooltipItem, data) {
+                //     return data['datasets'][0]['data'][tooltipItem['index']];
+                // },
+            },
+        },
         // hover: {
         //    mode: 'index',
         //    intersect: false
