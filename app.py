@@ -71,11 +71,26 @@ app.secret_key = secrets.token_urlsafe(16)
 #socketio = SocketIO(app)
 sample_resources = {
     'Examples': [
-        "https://data.inrae.fr/dataset.xhtml?persistentId=doi:10.15454/P27LDX",
-        "https://workflowhub.eu/workflows/18", # Workflow in WorkflowHub
-        "https://search.datacite.org/works/10.7892/boris.108387", # Publication in Datacite
-        "https://doi.pangaea.de/10.1594/PANGAEA.914331", # dataset in PANGAEA
-        "https://bio.tools/jaspar",
+        {
+            "text": "Dataset Dataverse",
+            "url": "https://data.inrae.fr/dataset.xhtml?persistentId=doi:10.15454/P27LDX",
+        },
+        {
+            "text": "Workflow",
+            "url": "https://workflowhub.eu/workflows/18", # Workflow in WorkflowHub
+        },
+        {
+            "text": "Publication Datacite",
+            "url": "https://search.datacite.org/works/10.7892/boris.108387", # Publication in Datacite
+        },
+        {
+            "text": "Dataset",
+            "url": "https://doi.pangaea.de/10.1594/PANGAEA.914331",# dataset in PANGAEA
+        },
+        {
+            "text": "Tool",
+            "url": "https://bio.tools/jaspar",
+        },
     ],
     # 'input_data': [
     #     "",
