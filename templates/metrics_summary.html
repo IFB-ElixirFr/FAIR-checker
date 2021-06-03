@@ -32,7 +32,7 @@
         // Exemple selector Button
         $('[id^="resource_"]').on("click", function(){
             console.log($(this).children("a").text());
-            $("#url").val($(this).children("a").text()) ;
+            $("#url").val($(this).children("a").data("url")) ;
             $("#url").trigger("input");
         });
 
@@ -433,7 +433,7 @@
         <!-- <br> -->
         <div class="field is-grouped is-grouped-centered">
             {% for s in sample_data[k] %}
-            <p id="resource_{{k}}_{{loop.index}}"class="control"><a class="button is-small is-text">{{ s }}</a></p>
+            <p id="resource_{{k}}_{{loop.index}}"class="control"><a class="button is-small is-text" data-url="{{ s.url }}">{{ s.text }}</a></p>
             {% endfor %}
         </div>
         {% endfor %}
