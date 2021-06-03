@@ -32,7 +32,7 @@
         // Exemple selector Button
         $('[id^="resource_"]').on("click", function(){
             console.log($(this).children("a").text());
-            $("#url").val($(this).children("a").text()) ;
+            $("#url").val($(this).children("a").data("url")) ;
             $("#url").trigger("input");
         });
 
@@ -81,6 +81,37 @@
         var csv_lines = []
 
         {% for f in f_metrics %}
+        socket.on('error_{{f.id}}', function(value) {
+            $("#test_{{f.id}}").removeClass("is-loading");
+            $("#status_{{f.id}}").text("Error");
+            $("#status_{{f.id}}").addClass("is-warning");
+            $("#metrics_row_{{ f.id }}").css('background-color','#FFF7DF');
+            $("#score_{{f.id}}").text("NA");
+            // show comment buttpn
+            $("#comment_{{f.id}}").parent("div").find('button').show();
+            // add comment to result
+            $("#comment_{{f.id}}").children("article").removeClass("is-info");
+            $("#comment_{{f.id}}").children("article").children("div").text("Error with FAIR-Checker or FAIRMetrics API, don't hesitate to contact the support with the URL that give an error, thank you.");
+
+            // check if all metric are done
+            is_loading = false
+            $('[id^=test_metric_]').each(function( id ) {
+              if ($(this).hasClass( "is-loading" )) {
+                is_loading = true;
+              }
+            });
+            if (!is_loading) {
+              console.log("all done !!!!");
+              $("#btn_test_checked").removeClass("is-loading");
+              $("#btn_test_all").removeClass("is-loading");
+              // $("#btn_test_all").prop("disabled", false);
+              $("#btn_test_checked").prop("disabled", false);
+            }
+
+            // put checkbox in tested state true and trigger change
+            $("#checkbox_test_{{f.id}}").data('tested', true).trigger("change");
+        });
+
         socket.on('done_{{f.id}}', function(value) {
             console.log('DONE {{f.name}}');
             $("#test_{{f.id}}").removeClass("is-loading");
@@ -402,7 +433,7 @@
         <!-- <br> -->
         <div class="field is-grouped is-grouped-centered">
             {% for s in sample_data[k] %}
-            <p id="resource_{{k}}_{{loop.index}}"class="control"><a class="button is-small is-text">{{ s }}</a></p>
+            <p id="resource_{{k}}_{{loop.index}}"class="control"><a class="button is-small is-text" data-url="{{ s.url }}">{{ s.text }}</a></p>
             {% endfor %}
         </div>
         {% endfor %}
@@ -518,7 +549,14 @@
 </article>
 
 
-
+<article id="radar_chart" class="message is-info">
+    <div class="message-header">
+        <p>Radar chart of metrics completion</p>
+    </div>
+    <div class="message-body">
+        {% include 'radar_chart.html' %}
+    </div>
+</article>
 
 
 
@@ -548,14 +586,7 @@
 </article>
 
 
-<article id="radar_chart" class="message is-info">
-    <div class="message-header">
-        <p>Radar chart of metrics completion</p>
-    </div>
-    <div class="message-body">
-        {% include 'radar_chart.html' %}
-    </div>
-</article>
+
 
 <!-- description section -->
 <article id="description" class="message is-info">

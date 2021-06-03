@@ -19,6 +19,7 @@ import uuid
 from datetime import datetime
 from datetime import timedelta
 import json
+from json import JSONDecodeError
 from pathlib import Path
 
 from rdflib import ConjunctiveGraph
@@ -70,11 +71,26 @@ app.secret_key = secrets.token_urlsafe(16)
 #socketio = SocketIO(app)
 sample_resources = {
     'Examples': [
-        # "",
-        "https://workflowhub.eu/workflows/18", # Workflow in WorkflowHub
-        "https://search.datacite.org/works/10.7892/boris.108387", # Publication in Datacite
-        "https://doi.pangaea.de/10.1594/PANGAEA.914331", # dataset in PANGAEA
-        "https://bio.tools/jaspar",
+        {
+            "text": "Dataset Dataverse",
+            "url": "https://data.inrae.fr/dataset.xhtml?persistentId=doi:10.15454/P27LDX",
+        },
+        {
+            "text": "Workflow",
+            "url": "https://workflowhub.eu/workflows/18", # Workflow in WorkflowHub
+        },
+        {
+            "text": "Publication Datacite",
+            "url": "https://search.datacite.org/works/10.7892/boris.108387", # Publication in Datacite
+        },
+        {
+            "text": "Dataset",
+            "url": "https://doi.pangaea.de/10.1594/PANGAEA.914331",# dataset in PANGAEA
+        },
+        {
+            "text": "Tool",
+            "url": "https://bio.tools/jaspar",
+        },
     ],
     # 'input_data': [
     #     "",
@@ -269,7 +285,22 @@ def handle_metric(json):
     print('RUNNING ' + principle + ' for '+str(url))
     emit('running_f')
 
-    result_object = METRICS[metric_name].evaluate(url)
+    try:
+        result_object = METRICS[metric_name].evaluate(url)
+    except JSONDecodeError:
+        print("Error json")
+        print('error_' + client_metric_id)
+        # emit_json = {
+        #     "score": -1,
+        #     "comment": "None",
+        #     "time": str(evaluation_time),
+        #     "name": "",
+        #     "csv_line": "\t\t\t"
+        # }
+        emit('error_' + client_metric_id)
+
+        return False
+
     # Eval time removing microseconds
     evaluation_time = result_object.get_test_time() - timedelta(microseconds=result_object.get_test_time().microseconds)
     score = result_object.get_score()
@@ -330,6 +361,7 @@ def handle_metric(json):
 
     recommendation(emit_json, metric_name, comment)
 
+    # print(emit_json)
     emit('done_' + client_metric_id, emit_json)
     print('DONE ' + principle)
 
@@ -350,7 +382,7 @@ def recommendation(emit_json, metric_name, comment):
     recommendation_dict = {
         # F1
         "unique_identifier": {
-            "did not match any known identification system (tested inchi, doi, handle, uri) and therefore did not pass this metric.  If you think this is an error, please contact the FAIR Metrics group (http://fairmetrics.org).": "You may use another identification scheme for your resource. For instance, provide a DOI, a URI (https://www.w3.org/wiki/URI) or a pubmed id (PMID) for an academic paper.",
+            "did not match any known identification system (tested inchi, doi, handle, uri) and therefore did not pass this metric.  If you think this is an error, please contact the FAIR Metrics group (http://fairmetrics.org).": "You may use another identification scheme for your resource. For instance, provide a DOI, a URI (https://www.w3.org/wiki/URI) or a pubmed id (PMID) for an academic paper. Also, look at the FAIR Cookbook: https://fairplus.github.io/the-fair-cookbook/content/recipes/findability/identifiers.html",
         },
         "data_identifier_persistence": {
             "FAILURE: The identifier": "You may use another identification scheme for your resource. For instance, provide a DOI, a URI (https://www.w3.org/wiki/URI) or a pubmed id for an academic paper.",
@@ -385,9 +417,9 @@ def recommendation(emit_json, metric_name, comment):
         },
         # F4
         "searchable_in_major_search_engine": {
-            "FAILURE: The identifier": "Ensure that the resource identifier, part of your web page meta-data (RDFa, embedded JSON-LD, microdata, etc.) is well formed (DOI, URI, PMID, etc.). ",
+            "FAILURE: The identifier": "Ensure that the resource identifier, part of your web page meta-data (RDFa, embedded JSON-LD, microdata, etc.) is well formed (DOI, URI, PMID, etc.). Also, see the corresponding FAIR Cookbook page: https://fairplus.github.io/the-fair-cookbook/content/recipes/findability/seo.html",
             "FAILURE: NO ACCESS KEY CONFIGURED FOR BING. This test will now abort with failure": "No recommendation, server side issue",
-            "FAILURE: Was unable to discover the metadata record by search in Bing using any method": "Ensure that meta-data describing your resource use the machine readable standards parsed by major search engines such as  schema.org OpenGraph, etc.",
+            "FAILURE: Was unable to discover the metadata record by search in Bing using any method": "Ensure that meta-data describing your resource use the machine readable standards parsed by major search engines such as  schema.org OpenGraph, etc. Also, see the corresponding FAIR Cookbook page: https://fairplus.github.io/the-fair-cookbook/content/recipes/findability/seo.html",
         },
         # A1.1
         "uses_open_free_protocol_for_metadata_retrieval": {
@@ -433,24 +465,24 @@ def recommendation(emit_json, metric_name, comment):
         },
         "metadata_knowledge_representation_language_weak": {
             "FAILURE: The identifier": "Ensure that meta-data describing your resource use permanent and well formed identifiers (PURLs, DOIs, etc.)",
-            "FAILURE: unable to find any kind of structured metadata": "Ensure that meta-data describing your resource use the RDF machine readable standard.",
+            "FAILURE: unable to find any kind of structured metadata": "Ensure that meta-data describing your resource use the RDF machine readable standard. Also, you can check the Interoperability recipes of the FAIR Cookbook: https://fairplus.github.io/the-fair-cookbook/content/recipes/interoperability.html",
         },
         "metadata_knowledge_representation_language_strong": {
             "FAILURE: The identifier": "Ensure that meta-data describing your resource use permanent and well formed identifiers (PURLs, DOIs, etc.)",
-            "FAILURE: unable to find any kind of structured metadata": "Ensure that meta-data describing your resource use the RDF machine readable standard.",
+            "FAILURE: unable to find any kind of structured metadata": "Ensure that meta-data describing your resource use the RDF machine readable standard. Also, you can check the Interoperability recipes of the FAIR Cookbook: https://fairplus.github.io/the-fair-cookbook/content/recipes/interoperability.html",
         },
         # I2
         "metadata_uses_fair_vocabularies_weak": {
             "FAILURE: The identifier": "Ensure that meta-data describing your resource use permanent and well formed identifiers (PURLs, DOIs, etc.)",
             "FAILURE: No linked data metadata was found.  Test is exiting": "Ensure that meta-data describing your resource use a machine readable format such as JSON or RDF.",
             "FAILURE: No predicates were found that resolved to Linked Data": "Ensure that meta-data describing your resource use a machine readable format such as JSON or RDF.",
-            "The minimum to pass this test is 2/3 (with a minimum of 3 predicates in total)": "Ensure that in your metatdata, at least 2/3rd of your properties should leverage already known voabulary or ontology as registered in OLS, BioPortal, FAIRSharing regitries for instance.",
+            "The minimum to pass this test is 2/3 (with a minimum of 3 predicates in total)": "Ensure that in your metatdata, at least 2/3rd of your properties should leverage already known voabulary or ontology as registered in OLS, BioPortal, FAIRSharing regitries for instance. Also, check the FAIR Cookbook recipe about ontologies: https://fairplus.github.io/the-fair-cookbook/content/recipes/interoperability/introduction-terminologies-ontologies.html",
         },
         "metadata_uses_fair_vocabularies_strong": {
             "FAILURE: The identifier ": "Ensure that meta-data describing your resource use permanent and well formed identifiers (PURLs, DOIs, etc.)",
             "FAILURE: No linked data metadata was found.  Test is exiting": "Ensure that meta-data describing your resource use a machine readable format such as JSON or RDF.",
             "FAILURE: No predicates were found that resolved to Linked Data.": "Ensure that meta-data describing your resource use a machine readable format such as JSON or RDF.",
-            "The minimum to pass this test is 2/3 (with a minimum of 3 predicates in total)": "Ensure that in your metatdata, at least 2/3rd of your properties should leverage already known voabulary or ontology as registered in OLS, BioPortal, FAIRSharing regitries for instance.",
+            "The minimum to pass this test is 2/3 (with a minimum of 3 predicates in total)": "Ensure that in your metatdata, at least 2/3rd of your properties should leverage already known voabulary or ontology as registered in OLS, BioPortal, FAIRSharing regitries for instance. Also, check the FAIR Cookbook recipe about ontologies: https://fairplus.github.io/the-fair-cookbook/content/recipes/interoperability/introduction-terminologies-ontologies.html",
         },
         # I3
         "metadata_contains_qualified_outward_references": {
@@ -460,12 +492,12 @@ def recommendation(emit_json, metric_name, comment):
         },
         # R1.1
         "metadata_includes_license_weak": {
-            "FAILURE: The identifier ": "You may use another identification scheme for your resource. For instance, provide a DOI, a URI (https://www.w3.org/wiki/URI) or a pubmed id (PMID) for an academic paper.",
-            "FAILURE: No License property was found in the metadata.": "Ensure that a property defining the license of your resoure ispart of your metadata. For instance you can use dcterms:license or schema:license.",
+            "FAILURE: The identifier ": "You may use another identification scheme for your resource. For instance, provide a DOI, a URI (https://www.w3.org/wiki/URI) or a pubmed id (PMID) for an academic paper. Also, you can check the FAIR Cookbook recipe about Licensing: https://fairplus.github.io/the-fair-cookbook/content/recipes/reusability/ATI-licensing.html",
+            "FAILURE: No License property was found in the metadata.": "Ensure that a property defining the license of your resoure ispart of your metadata. For instance you can use dcterms:license or schema:license. Also, you can check the FAIR Cookbook recipe about Licensing: https://fairplus.github.io/the-fair-cookbook/content/recipes/reusability/ATI-licensing.html",
         },
         "metadata_includes_license_strong": {
-            "FAILURE: The identifier ": "You may use another identification scheme for your resource. For instance, provide a DOI, a URI (https://www.w3.org/wiki/URI) or a pubmed id (PMID) for an academic paper.",
-            "FAILURE: No License property was found in the metadata.": "Ensure that a property defining the license of your resoure ispart of your metadata. For instance you can use dcterms:license or schema:license.",
+            "FAILURE: The identifier ": "You may use another identification scheme for your resource. For instance, provide a DOI, a URI (https://www.w3.org/wiki/URI) or a pubmed id (PMID) for an academic paper. Also, you can check the FAIR Cookbook recipe about Licensing: https://fairplus.github.io/the-fair-cookbook/content/recipes/reusability/ATI-licensing.html",
+            "FAILURE: No License property was found in the metadata.": "Ensure that a property defining the license of your resoure ispart of your metadata. For instance you can use dcterms:license or schema:license. Also, you can check the FAIR Cookbook recipe about Licensing: https://fairplus.github.io/the-fair-cookbook/content/recipes/reusability/ATI-licensing.html",
         },
 
     }
