@@ -509,14 +509,24 @@
     });
 </script>
 
-<h1 class="title">[BETA] How are my tools, workflows, datasets annotated ? How to enhance metadata quality ? </h1>
+<article id="disclaimer" class="message is-warning">
+    <div class="message-body">
+      <b>Disclaimer:</b> FAIR-Checker is under active development and is not intended to be used yet in production environment.
+    </div>
+</article>
 
-<div class="section">
-    <p> These automated validations leverage semantic web technologies and check that metadata use standards and recognized
-        ontologies or controlled vocabularies.</p>
+<h1 class="title">How to enhance metadata quality for my tools, datasets, workflows ?</h1>
+<!--<article id="Aims" class="message">-->
+<!--    <div class="message-header">-->
+<!--        <p>Aims</p>-->
+<!--    </div>-->
+<!--    <div class="message-body">-->
+        <p> These automated validations leverage semantic web technologies and check that metadata use standards and recognized ontologies or controlled vocabularies.</p>
     <br>
-    <p> First, embedded semantic annotations are extracted from web pages, forming a minimal knowledge graph. Then, these knowledge are completed based on already deployed knowledge graphs (Datacite, OpenAire, WikiData). Finally, the resulting knowledge graph is tested to check that classes and properties are recognized through Linked Open Vocabularies (LOV), or Ontology Lookup Service (OLS)</p>
-</div>
+    <p> First, embedded semantic annotations are extracted from web pages, forming a minimal knowledge graph. Then, this minimal knowledge graph is completed based on already deployed knowledge graphs (Datacite, OpenAire, WikiData). Finally, the resulting knowledge graph is tested to check that classes and properties are recognized through Linked Open Vocabularies (LOV), or Ontology Lookup Service (OLS)</p>
+<br>
+<!--    </div>-->
+<!--</article>-->
 
 <!--<div class="section">-->
 <!--    <div class="columns is-multiline is-mobile">-->
@@ -538,9 +548,6 @@
 <!--        {% endfor %}-->
 <!--    </div>-->
 <!--</div>-->
-
-
-
 
 <!-- <div id="section-build-KG" class="section"> -->
     <article id="article-build-KG" class="message is-info">
