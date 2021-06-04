@@ -11,7 +11,7 @@ from metrics.util import describe_wikidata
 from metrics.util import describe_opencitation
 from metrics.util import is_DOI, get_DOI
 
-from rdflib import Graph, ConjunctiveGraph, Namespace
+from rdflib import Graph, ConjunctiveGraph, Namespace, URIRef, Literal, BNode
 
 
 class KGAugmentTestCase(unittest.TestCase):
@@ -49,6 +49,17 @@ class KGAugmentTestCase(unittest.TestCase):
         kg.parse(data=rdf_triples_NO_base, format="turtle")
         print(kg.serialize(format="turtle").decode())
 
+        #from scratch
+        kg2 = ConjunctiveGraph()
+        kg2.add((URIRef("http://fair-checker/example/qs"), URIRef("http://value"), Literal("2")))
+        print(kg2.serialize(format="turtle", base="http://fair-checker/example/").decode())
+
+        kg3 = ConjunctiveGraph()
+        kg3.parse(data="@base <http://example.org/> . <> a <http://example.org/Class> .", format="turtle")
+        kg3 = kg3 + kg2
+        print(kg3.serialize(format="turtle", base="http://fair-checker/example/").decode())
+
+
     def test_wikidata_sparqlwrapper(self):
         # r2 = R2Impl()
         # r2.set_url("https://workflowhub.eu/workflows/45")
@@ -78,7 +89,7 @@ class KGAugmentTestCase(unittest.TestCase):
         kg = ConjunctiveGraph()
         kg.parse(data=res.text, format='turtle')
         print(f'loaded {len(kg)} triples')
-        self.assertEqual(len(kg), 49)
+        self.assertEqual(49, len(kg))
 
     def test_biotools(self):
         # r2 = R2Impl()
