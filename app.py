@@ -65,6 +65,7 @@ else:
 
 print(f'ENV is set to: {app.config["ENV"]}')
 
+
 #socketio = SocketIO(app, cors_allowed_origins="*")
 socketio = SocketIO(app,async_mode = 'eventlet')
 app.secret_key = secrets.token_urlsafe(16)
@@ -993,16 +994,22 @@ def check_kg(data):
         if util.ask_OLS(c['name']):
             c['tag'].append('OLS')
             emit('done_check', table_content)
-        if util.ask_LOV(c['name']):
-            c['tag'].append('LOV')
+        # if util.ask_LOV(c['name']):
+        #     c['tag'].append('LOV')
+        #     emit('done_check', table_content)
+        if util.ask_BioPortal(c['name']):
+            c['tag'].append('BioPortal')
             emit('done_check', table_content)
 
     for p in table_content['properties']:
         if util.ask_OLS(p['name']):
             p['tag'].append('OLS')
             emit('done_check', table_content)
-        if util.ask_LOV(p['name']):
-            p['tag'].append('LOV')
+        # if util.ask_LOV(p['name']):
+        #     p['tag'].append('LOV')
+        #     emit('done_check', table_content)
+        if util.ask_BioPortal(p['name']):
+            p['tag'].append('BioPortal')
             emit('done_check', table_content)
 
 @socketio.on('check_kg_shape')

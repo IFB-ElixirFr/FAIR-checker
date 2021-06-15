@@ -90,22 +90,27 @@ class GenSHACLTestCase(unittest.TestCase):
 
         table_content = {'classes':[], 'properties':[]}
         qres = kg.query(query_classes)
+        print("Class")
         for row in qres:
             table_content['classes'].append({'name': row["class"], 'tag':[]})
             print(f'{row["class"]}')
 
         qres = kg.query(query_properties)
+        print("Prop")
         for row in qres:
             table_content['properties'].append({'name': row["prop"], 'tag':[]})
             print(f'{row["prop"]}')
 
         for c in table_content['classes']:
+            print(util.ask_BioPortal(c['name']))
             if util.ask_OLS(c['name']):
                 c['tag'].append('OLS')
             # if util.ask_LOV(c['name']):
             #     c['tag'].append('LOV')
 
         for p in table_content['properties']:
+            print(util.ask_BioPortal(p['name']))
+            # print(util.ask_OLS(p['name']))
             if util.ask_OLS(p['name']):
                 p['tag'].append('OLS')
             # if util.ask_LOV(p['name']):
