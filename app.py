@@ -994,10 +994,10 @@ def check_kg(data):
         if util.ask_OLS(c['name']):
             c['tag'].append('OLS')
             emit('done_check', table_content)
-        # if util.ask_LOV(c['name']):
-        #     c['tag'].append('LOV')
-        #     emit('done_check', table_content)
-        if util.ask_BioPortal(c['name']):
+        if util.ask_LOV(c['name']):
+            c['tag'].append('LOV')
+            emit('done_check', table_content)
+        if util.ask_BioPortal(c['name'], "class"):
             c['tag'].append('BioPortal')
             emit('done_check', table_content)
 
@@ -1005,10 +1005,10 @@ def check_kg(data):
         if util.ask_OLS(p['name']):
             p['tag'].append('OLS')
             emit('done_check', table_content)
-        # if util.ask_LOV(p['name']):
-        #     p['tag'].append('LOV')
-        #     emit('done_check', table_content)
-        if util.ask_BioPortal(p['name']):
+        if util.ask_LOV(p['name']):
+            p['tag'].append('LOV')
+            emit('done_check', table_content)
+        if util.ask_BioPortal(p['name'], "property"):
             p['tag'].append('BioPortal')
             emit('done_check', table_content)
 

@@ -154,7 +154,8 @@ def get_DOI(uri):
     match = re.search(regex, uri, re.MULTILINE | re.IGNORECASE)
     return match.group(0)
 
-def ask_BioPortal(uri):
+
+def ask_BioPortal(uri, type):
 
     print(f'Call to the BioPortal REST API for [ {uri} ]')
     # print(app.config)
@@ -164,8 +165,11 @@ def ask_BioPortal(uri):
             'Accept': 'application/json',
             'Authorization': 'apikey token=' + api_key
         }
-    # res = requests.get("https://data.bioontology.org/property_search?q=" + uri, headers=h, verify=True)
-    res = requests.get("https://data.bioontology.org/search?q=" + uri + "&require_exact_match=true", headers=h, verify=True)
+
+    if type == "property":
+        res = requests.get("https://data.bioontology.org/property_search?q=" + uri, headers=h, verify=True)
+    elif type == "class":
+        res = requests.get("https://data.bioontology.org/search?q=" + uri + "&require_exact_match=true", headers=h, verify=True)
     # print(res)
 
 
