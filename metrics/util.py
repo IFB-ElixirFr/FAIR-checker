@@ -134,7 +134,7 @@ def describe_biotools(uri, g):
 
     h = {'Accept': 'text/turtle'}
     p = {'query': "DESCRIBE <" + uri + ">"}
-    res = requests.get("https://134.158.247.76/sparql", headers=h, params=p, verify=False)
+    res = requests.get("https://134.158.247.157/sparql", headers=h, params=p, verify=False)
 
     g.parse(data=res.text, format="turtle")
 
