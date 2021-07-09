@@ -102,19 +102,19 @@ class GenSHACLTestCase(unittest.TestCase):
             print(f'{row["prop"]}')
 
         for c in table_content['classes']:
-            print(util.ask_BioPortal(c['name']))
+            print(util.ask_BioPortal(c['name'], "class"))
             if util.ask_OLS(c['name']):
                 c['tag'].append('OLS')
-            # if util.ask_LOV(c['name']):
-            #     c['tag'].append('LOV')
+            if util.ask_LOV(c['name']):
+                c['tag'].append('LOV')
 
         for p in table_content['properties']:
-            print(util.ask_BioPortal(p['name']))
+            print(util.ask_BioPortal(p['name'], "property"))
             # print(util.ask_OLS(p['name']))
             if util.ask_OLS(p['name']):
                 p['tag'].append('OLS')
-            # if util.ask_LOV(p['name']):
-            #     p['tag'].append('LOV')
+            if util.ask_LOV(p['name']):
+                p['tag'].append('LOV')
 
 
 if __name__ == '__main__':
