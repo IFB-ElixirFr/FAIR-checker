@@ -2,12 +2,11 @@ import unittest
 from lxml import html
 import requests
 import json
-import rdflib
+from pathlib import Path
 from rdflib import ConjunctiveGraph
-from rdflib.compare import to_isomorphic, graph_diff
-import pyshacl
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
+from webdriver_manager.chrome import ChromeDriverManager
 import extruct
 
 from metrics.R2Impl import R2Impl
@@ -33,7 +32,7 @@ class R2ImplTestCase(unittest.TestCase):
         class_r2.set_url(self.uri_test)
         class_r2.extract_html_requests()
         class_r2.extract_rdf()
-        self.assertEqual(83, len(class_r2.get_jsonld()))
+        self.assertEqual(103, len(class_r2.get_jsonld()))
 
     def test_R2_Impl(slef):
         class_r2 = R2Impl()
@@ -65,19 +64,30 @@ class R2ImplTestCase(unittest.TestCase):
 
     def test_dynamic_biotools(self):
         #uri = 'https://workflowhub.eu/workflows/45'
-        uri = 'https://bio.tools/jaspar'
+        uri = 'http://bio.tools/jaspar'
 
         chrome_options = Options()
         chrome_options.add_argument("--headless")
-
-        browser = webdriver.Chrome(options = chrome_options)
+        #browser = webdriver.Chrome(options = chrome_options)
+        browser = webdriver.Chrome(ChromeDriverManager().install(), options = chrome_options)
+        browser.implicitly_wait(10)
         browser.get(uri)
 
-        html_source = browser.page_source
-        #print(html_source)
+        #html_source = browser.page_source
+        #element = browser.find_element_by_xpath('//*')
+        element = browser.find_element_by_xpath("//script[@type='application/ld+json']")
+        print(element)
+        element = element.get_attribute('outerHTML')
+        print(element)
+
         browser.quit()
-        tree = html.fromstring(html_source)
+
+        #tree = html.fromstring(html_source)
+        tree = html.fromstring(element)
         jsonld_string = tree.xpath('//script[@type="application/ld+json"]//text()')
+
+        base_path = Path(__file__).parent.parent  ## current directory
+        static_file_path = str((base_path / "static/data/jsonldcontext.json").resolve())
 
         kg = ConjunctiveGraph()
         for json_ld_annots in jsonld_string :
@@ -85,13 +95,13 @@ class R2ImplTestCase(unittest.TestCase):
 
             if '@context' in jsonld.keys():
                 if ('//schema.org' in jsonld['@context']):
-                    jsonld['@context'] = '../static/data/jsonldcontext.json'
+                    jsonld['@context'] = static_file_path
             kg.parse(data=json.dumps(jsonld, ensure_ascii=False), format="json-ld")
 
             print(f'{len(kg)} retrieved triples in KG')
             print(kg.serialize(format='turtle').decode())
 
-        self.assertEqual(62, len(kg))
+        self.assertEqual(61, len(kg))
 
 
     def test_static_data_inra(self):
@@ -112,17 +122,20 @@ class R2ImplTestCase(unittest.TestCase):
         print(d)
         kg = ConjunctiveGraph()
 
+        base_path = Path(__file__).parent.parent  ## current directory
+        static_file_path = str((base_path / "static/data/jsonldcontext.json").resolve())
+
         for md in d['json-ld']:
             if '@context' in md.keys():
                 print(md['@context'])
                 if ('//schema.org' in md['@context']):
-                    md['@context'] = '../static/data/jsonldcontext.json'
+                    md['@context'] = static_file_path
             #print(json.dumps(md, ensure_ascii=True, indent=True))
             kg.parse(data=json.dumps(md, ensure_ascii=True), format="json-ld")
         for md in d['microdata']:
             if '@context' in md.keys():
                 if ('//schema.org' in md['@context']):
-                    md['@context'] = '../static/data/jsonldcontext.json'
+                    md['@context'] = static_file_path
             kg.parse(data=json.dumps(md, ensure_ascii=False), format="json-ld")
 
         print(f'{len(kg)} retrieved triples in KG')
