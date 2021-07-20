@@ -1,9 +1,11 @@
 import sys
-sys.path.insert(1, '..')
+
+sys.path.insert(1, "..")
 
 from metrics.FAIRMetricsFactory import FAIRMetricsFactory
 from metrics.test_metric import getMetrics
-#from metrics.evaluation import Evaluation
+
+# from metrics.evaluation import Evaluation
 from pymongo import MongoClient
 from datetime import datetime, date, timedelta
 
@@ -27,20 +29,22 @@ class StatisticsTestCase(unittest.TestCase):
             # metrics.append(factory.get_metric("test_r2"))
             for metric in json_metrics:
                 # remove "FAIR Metrics Gen2" from metric name
-                name = metric["name"].replace('FAIR Metrics Gen2- ', '')
+                name = metric["name"].replace("FAIR Metrics Gen2- ", "")
                 # same but other syntax because of typo
-                name = name.replace('FAIR Metrics Gen2 - ', '')
-                principle = metric["principle"].rsplit('/', 1)[-1]
-                cls.metrics.append(factory.get_metric(
-                    name,
-                    metric["@id"],
-                    metric["description"],
-                    metric["smarturl"],
-                    principle,
-                    metric["creator"],
-                    metric["created_at"],
-                    metric["updated_at"],
-                ))
+                name = name.replace("FAIR Metrics Gen2 - ", "")
+                principle = metric["principle"].rsplit("/", 1)[-1]
+                cls.metrics.append(
+                    factory.get_metric(
+                        name,
+                        metric["@id"],
+                        metric["description"],
+                        metric["smarturl"],
+                        principle,
+                        metric["creator"],
+                        metric["created_at"],
+                        metric["updated_at"],
+                    )
+                )
         except ValueError as e:
             print(f"no metrics implemention for {e}")
 
@@ -49,11 +53,11 @@ class StatisticsTestCase(unittest.TestCase):
         db = client.fair_checker
         db_eval = db.evaluations
         n1 = db_eval.count_documents({})
-        print(f'{n1} stored evaluation')
+        print(f"{n1} stored evaluation")
         result = self.metrics[0].evaluate("http://bio.tools/bwa")
         n2 = db_eval.count_documents({})
-        print(f'{n2} stored evaluation')
-        self.assertEqual(n2, n1+1)
+        print(f"{n2} stored evaluation")
+        self.assertEqual(n2, n1 + 1)
 
     def test_count_this_week(self):
         client = MongoClient()
@@ -64,7 +68,7 @@ class StatisticsTestCase(unittest.TestCase):
         a_week_ago = datetime.now() - timedelta(7)
         a_month_ago = datetime.now() - timedelta(30)
 
-        #nb_eval = evaluations.find({"started_at": {"$gt": a_day_ago}}).count_documents()
+        # nb_eval = evaluations.find({"started_at": {"$gt": a_day_ago}}).count_documents()
         nb_eval = evaluations.count_documents({"started_at": {"$gt": a_week_ago}})
         print(nb_eval)
 
@@ -77,7 +81,9 @@ class StatisticsTestCase(unittest.TestCase):
         a_week_ago = datetime.now() - timedelta(7)
         a_month_ago = datetime.now() - timedelta(30)
 
-        nb_eval = evaluations.count_documents({"started_at": {"$gt": a_week_ago}, "success": "1"})
+        nb_eval = evaluations.count_documents(
+            {"started_at": {"$gt": a_week_ago}, "success": "1"}
+        )
         print(nb_eval)
 
     def test_count_failed_this_week(self):
@@ -89,13 +95,15 @@ class StatisticsTestCase(unittest.TestCase):
         a_week_ago = datetime.now() - timedelta(7)
         a_month_ago = datetime.now() - timedelta(30)
 
-        nb_eval = evaluations.count_documents({"started_at": {"$gt": a_week_ago}, "success": "0"})
+        nb_eval = evaluations.count_documents(
+            {"started_at": {"$gt": a_week_ago}, "success": "0"}
+        )
         print(nb_eval)
 
     def test_per_principle(self):
-        print(stats.this_week_for_named_metrics(prefix='F', success=1))
-        print(stats.this_week_for_named_metrics(prefix='F', success=0))
+        print(stats.this_week_for_named_metrics(prefix="F", success=1))
+        print(stats.this_week_for_named_metrics(prefix="F", success=0))
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

@@ -2,8 +2,8 @@ import unittest
 from rdflib import Graph, ConjunctiveGraph, Namespace
 import metrics.util as util
 
-class GenSHACLTestCase(unittest.TestCase):
 
+class GenSHACLTestCase(unittest.TestCase):
     def test_validate_shape_tool(self):
         turtle_edam = """
             @prefix biotools: <https://bio.tools/ontology/> .
@@ -79,7 +79,7 @@ class GenSHACLTestCase(unittest.TestCase):
             [] ns1:role ns1:navigation .
         """
         kg = ConjunctiveGraph()
-        kg.parse(data=turtle_edam, format='turtle')
+        kg.parse(data=turtle_edam, format="turtle")
 
         query_classes = """
             SELECT DISTINCT ?class { ?s rdf:type ?class } ORDER BY ?class
@@ -88,29 +88,29 @@ class GenSHACLTestCase(unittest.TestCase):
             SELECT DISTINCT ?prop { ?s ?prop ?o } ORDER BY ?prop
         """
 
-        table_content = {'classes':[], 'properties':[]}
+        table_content = {"classes": [], "properties": []}
         qres = kg.query(query_classes)
         for row in qres:
-            table_content['classes'].append({'name': row["class"], 'tag':[]})
+            table_content["classes"].append({"name": row["class"], "tag": []})
             print(f'{row["class"]}')
 
         qres = kg.query(query_properties)
         for row in qres:
-            table_content['properties'].append({'name': row["prop"], 'tag':[]})
+            table_content["properties"].append({"name": row["prop"], "tag": []})
             print(f'{row["prop"]}')
 
-        for c in table_content['classes']:
-            if util.ask_OLS(c['name']):
-                c['tag'].append('OLS')
+        for c in table_content["classes"]:
+            if util.ask_OLS(c["name"]):
+                c["tag"].append("OLS")
             # if util.ask_LOV(c['name']):
             #     c['tag'].append('LOV')
 
-        for p in table_content['properties']:
-            if util.ask_OLS(p['name']):
-                p['tag'].append('OLS')
+        for p in table_content["properties"]:
+            if util.ask_OLS(p["name"]):
+                p["tag"].append("OLS")
             # if util.ask_LOV(p['name']):
             #     p['tag'].append('LOV')
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

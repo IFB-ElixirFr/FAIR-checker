@@ -5,10 +5,14 @@ import metrics.util as util
 
 
 class MissingMetadataTestCase(unittest.TestCase):
-
     def test_url(self):
-        self.assertFalse(util.is_URL("qsd jqshgd"), "This is not an URL, result should be False")
-        self.assertTrue(util.is_URL("http://bio.tools/edam"), "This is a valid URL, result should be True")
+        self.assertFalse(
+            util.is_URL("qsd jqshgd"), "This is not an URL, result should be False"
+        )
+        self.assertTrue(
+            util.is_URL("http://bio.tools/edam"),
+            "This is a valid URL, result should be True",
+        )
 
     def test_something(self):
 
@@ -17,18 +21,18 @@ class MissingMetadataTestCase(unittest.TestCase):
                 "http://schema.org/applicationCategory": "my_Category",
             },
             "warn": {
-                  "http://schema.org/applicationCategory": "",
-                  "http://schema.org/author": "qskjdh qskjd",
-                  "http://schema.org/softwareVersion": "1.23",
-                  "http://schema.org/featureList": "http://bio.tools/my_feature",
-                  "http://schema.org/applicationSubCategory": ""
+                "http://schema.org/applicationCategory": "",
+                "http://schema.org/author": "qskjdh qskjd",
+                "http://schema.org/softwareVersion": "1.23",
+                "http://schema.org/featureList": "http://bio.tools/my_feature",
+                "http://schema.org/applicationSubCategory": "",
             },
-            "url": "https://bio.tools/bwa"
+            "url": "https://bio.tools/bwa",
         }
 
         new_kg = rdflib.ConjunctiveGraph()
 
-        #TODO check that url is well formed
+        # TODO check that url is well formed
         if util.is_URL(data["url"]):
             uri = rdflib.URIRef(data["url"])
 
@@ -49,15 +53,15 @@ class MissingMetadataTestCase(unittest.TestCase):
                         new_kg.add((uri, rdflib.URIRef(p), rdflib.Literal(value)))
 
             print("****** Turtle syntax *****")
-            print(new_kg.serialize(format='turtle').decode())
+            print(new_kg.serialize(format="turtle").decode())
             print("**************************")
 
             print("***** JSON-LD syntax *****")
-            print(new_kg.serialize(format='json-ld').decode())
+            print(new_kg.serialize(format="json-ld").decode())
             print("**************************")
 
         self.assertEquals(len(new_kg), 4)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()
