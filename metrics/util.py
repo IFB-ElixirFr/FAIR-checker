@@ -510,14 +510,15 @@ def get_html_selenium(url):
         browser.quit()
 
 
-def download_csv(uri):
-
-    client = MongoClient()
-    db = client.fair_checker
-    evaluations = db.evaluations
-
-    a_day_ago = datetime.now() - timedelta(1)
-    pass
+# TODO @Thomas, to be fixed (imports)
+# def download_csv(uri):
+#
+#     client = MongoClient()
+#     db = client.fair_checker
+#     evaluations = db.evaluations
+#
+#     a_day_ago = datetime.now() - timedelta(1)
+#     pass
 
 
 def replace_value_char_for_key(key, var, old_char, new_char):
