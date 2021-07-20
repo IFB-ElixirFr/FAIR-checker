@@ -1,74 +1,43 @@
-import eventlet
-eventlet.monkey_patch()
+# from https://github.com/eventlet/eventlet/issues/670
+# import eventlet
+# eventlet.monkey_patch()
+import sys
 
 from flask import Flask, redirect, url_for, request, render_template, session, send_file, send_from_directory
 from flask_socketio import SocketIO
-from flask_socketio import send, emit
-from concurrent.futures import ThreadPoolExecutor
-import concurrent.futures
+from flask_socketio import emit
 import secrets
-
-import threading
-
 import time
-import random
-import re
 import os
 import io
 import uuid
+import argparse
+from argparse import RawTextHelpFormatter
 from datetime import datetime
 from datetime import timedelta
 import json
 from json import JSONDecodeError
 from pathlib import Path
-
-from rdflib import ConjunctiveGraph
-import requests
-
 import rdflib
 from rdflib import ConjunctiveGraph
-from rdflib.compare import to_isomorphic, graph_diff
-import pyshacl
-
 import extruct
-#from extruct.jsonld import JsonLdExtractor
-
-
 import metrics.util as util
 import metrics.statistics as stats
-
-
-import sys
-# sys.path.append('../fairmetrics_interface_tests')
-# import metrics.test_metric
 from metrics import test_metric
-from metrics.Evaluation import Evaluation
 from metrics.FAIRMetricsFactory import FAIRMetricsFactory
-from metrics.FAIRMetricsImpl import FAIRMetricsImpl
-
-# import profiles.bioschemas_shape_gen as bioschemas_shape
-
-# Command line exec
-import subprocess
-from subprocess import Popen
-from subprocess import PIPE
-from subprocess import run
 
 app = Flask(__name__)
-
-# app.config.from_envvar('FLASK_CONFIG')
 
 if app.config["ENV"] == "production":
     app.config.from_object("config.ProductionConfig")
 else:
     app.config.from_object("config.DevelopmentConfig")
 
-print(f'ENV is set to: {app.config["ENV"]}')
+#print(f'ENV is set to: {app.config["ENV"]}')
 
-#socketio = SocketIO(app, cors_allowed_origins="*")
-socketio = SocketIO(app,async_mode = 'eventlet')
+socketio = SocketIO(app, async_mode = 'eventlet')
 app.secret_key = secrets.token_urlsafe(16)
-#socketio = SocketIO(app)
+
 sample_resources = {
     'Examples': [
         {
@@ -92,74 +61,6 @@ sample_resources = {
             "url": "https://bio.tools/jaspar",
         },
     ],
-    # 'input_data': [
-    #     "",
-    #     "https://data.inra.fr/dataset.xhtml?persistentId=doi:10.15454/TKMGCQ", # dataset INRA Dataverse
-    #     "https://doi.pangaea.de/10.1594/PANGAEA.914331", # dataset in PANGAEA
-    # ],
-    # 'input_software' : [
-    #     "",
-    #     "https://zenodo.org/record/3349821#.Xp7m9SNR2Uk", # VM image in zenodo
-    #     "https://explore.openaire.eu/search/software?softwareId=r37b0ad08687::275ecd99e516ed1b863e2a7586063a64", # same VM image in OpenAir
-    #     "https://data.inra.fr/dataset.xhtml?persistentId=doi:10.15454/5K9HCS", # code in INRA Dataverse
-    #     "https://bio.tools/rsat_peak-motifs", # Tool in biotools
-    #     "https://workflowhub.eu/workflows/18", # Workflow in WorkflowHub
-    #     "http://tara-oceans.mio.osupytheas.fr/ocean-gene-atlas/", # OGA Main page of webtool
-    # ],
-    # 'input_database' : [
-    #     "",
-    #     "https://fairsharing.org/FAIRsharing.ZPRtfG", # knowledge base in FAIRsharing (AgroLD)
-    #     "http://remap.univ-amu.fr" # Database of transcriptional regulators
-    # ],
-    # 'input_ontology' : [
-    #     "",
-    #     "https://bioportal.bioontology.org/ontologies/OCRE", # Ontology in bioportal
-    #     "https://www.ebi.ac.uk/ols/ontologies/ncit/terms?iri=http%3A%2F%2Fpurl.obolibrary.org%2Fobo%2FNCIT_C2985" # OLS entry
-    # ],
-    # 'input_publication' : [
-    #     "",
-    #     "https://doi.org/10.1145/1614320.1614332", # Paper from lod.openair
-    #     "https://search.datacite.org/works/10.7892/boris.108387", # Publication in Datacite
-    #     "https://doi.org/10.6084/m9.figshare.c.3607916_d7.v1", # Publication figure in FigShare
-    #     "https://search.datacite.org/works/10.6084/m9.figshare.c.3607916_d7.v1", # Publication figure in Datacite (same as previous)
-    #     "https://api.datacite.org/dois/application/ld+json/10.6084/m9.figshare.c.3607916_d7.v1" # Publication figure with Datacite API
-    # ],
-    # 'input_training' : [
-    #     "",
-    #     "https://tess.elixir-europe.org/materials/train-the-trainer", # Training material in TeSS
-    #     "https://tess.elixir-europe.org/materials/bioccheck-a-thon-check-in"
-    # ],
-    # 'input_elixir-fr_SDP' : [
-    #     "",
-    #     "https://www.aniseed.cnrs.fr/",
-    #     "http://aria.pasteur.fr/",
-    #     "http://aureme.genouest.org",
-    #     "https://biii.eu",
-    #     "https://crisprcas.i2bc.paris-saclay.fr",
-    #     "https://urgi.versailles.inrae.fr/faidare/",
-    #     "https://www.southgreen.fr/genomehubs",
-    #     "https://www.genomicus.biologie.ens.fr/genomicus-98.01/cgi-bin/search.pl",
-    #     "http://ginsim.org", # pas sécurisé
-    #     "https://urgi.versailles.inrae.fr/gnpis/",
-    #     "http://www.imgt.org",
-    #     "http://lifemap.univ-lyon1.fr",
-    #     "http://www.atgc-montpellier.fr/lordec/",
-    #     "http://matrixdb.univ-lyon1.fr",
-    #     "https://metexplore.toulouse.inra.fr/index.html/",
-    #     "http://www.genoscope.cns.fr/agc/microscope/home/",
-    #     "http://bioinfo.cristal.univ-lille.fr/norine/",
-    #     "http://tara-oceans.mio.osupytheas.fr/ocean-gene-atlas/",
-    #     "http://www.orphadata.org/cgi-bin/index.php",
-    #     "http://www.orpha.net/consor/cgi-bin/index.php",
-    #     "https://paramecium.i2bc.paris-saclay.fr/",
-    #     "http://www.phylogeny.fr/",
-    #     "https://urgi.versailles.inrae.fr/Tools/REPET",
-    #     "http://rsat.eu/",
-    #     "http://abims.sb-roscoff.fr/sulfatlas/",
-    #     "https://varaft.eu/",
-    #     "http://www.wheatis.org/",
-    #     "https://workflow4metabolomics.org/",
-    # ]
 }
 
 metrics = [{'name':'f1', 'category':'F', 'description': 'F1 verifies that ...  '},
@@ -1195,8 +1096,35 @@ def testUrl():
                                             results_list=results_list,)
 
 
+parser = argparse.ArgumentParser(description="""
+FAIR-Checker, a web and command line tool to assess FAIRness of web accessible resources. 
+Usage examples :
+    python app.py --web
+    python app.py --url http://bio.tools/bwa
+    python app.py --bioschemas --url http://bio.tools/bwa
+
+Please report any issue to thomas.rosnet@france-bioinforatique.fr, 
+or submit an issue to https://github.com/IFB-ElixirFr/fair-checker/issues. 
+""", formatter_class=RawTextHelpFormatter)
+parser.add_argument('-w', '--web', action='store_true', required=False, help='launch FAIR-Checker as a web server', dest='web')
+#nargs='+'
+parser.add_argument('-u', '--urls', nargs='+', required=False, help='list of URLs to be tested', dest='urls')
+parser.add_argument('-bs', '--bioschemas', action='store_true', required=False, help='validate Bioschemas profiles', dest='bioschemas')
+
 if __name__ == "__main__":
-    # context = ('server.crt', 'server.key')
-    # app.run(host='0.0.0.0', port=5000, debug=True, ssl_context=context)
-    socketio.run(app,  host="0.0.0.0", port=5000, debug=True)
-    #app.run(host='0.0.0.0', port=5000, debug=True)
+
+    if len(sys.argv) == 1:
+        parser.print_help(sys.stderr)
+        sys.exit(1)
+
+    args = parser.parse_args()
+
+    if args.urls:
+        for url in args.urls:
+            print(f"Testing URL {url}")
+
+    elif args.web:
+        # context = ('server.crt', 'server.key')
+        # app.run(host='0.0.0.0', port=5000, debug=True, ssl_context=context)
+        socketio.run(app, host="0.0.0.0", port=5000, debug=True)
+        # app.run(host='0.0.0.0', port=5000, debug=True)
