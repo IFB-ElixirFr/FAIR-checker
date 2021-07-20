@@ -5,7 +5,7 @@ import json
 from pymongo import MongoClient
 
 #########################
-class Evaluation():
+class Evaluation:
     start_time = None
     end_time = None
     score = None
@@ -35,7 +35,7 @@ class Evaluation():
     def set_target_uri(self, target_uri):
         self.target_uri = str(target_uri)
 
-    #TODO check https://pymongo.readthedocs.io/en/stable/examples/datetimes.html
+    # TODO check https://pymongo.readthedocs.io/en/stable/examples/datetimes.html
     def get_current_time(self):
         # return datetime.strptime(time.strftime('%Y-%m-%d %H:%M:%S'), '%Y-%m-%d %H:%M:%S')
         # return datetime.now().isoformat()
@@ -59,12 +59,12 @@ class Evaluation():
         db_eval = db.evaluations
 
         eval = {
-            'target_uri': self.target_uri,
-            'metrics': self.metrics,
-            'started_at': self.start_time,
-            'ended_at': self.end_time,
-            'success': self.score,
-            'reason': self.reason
+            "target_uri": self.target_uri,
+            "metrics": self.metrics,
+            "started_at": self.start_time,
+            "ended_at": self.end_time,
+            "success": self.score,
+            "reason": self.reason,
         }
 
         r = db_eval.insert_one(eval)
@@ -74,8 +74,10 @@ class Evaluation():
         return self.end_time - self.start_time
 
     def __str__(self):
-        return f"FAIR metrics evaluation : " \
-               f"\n\t started at {self.start_time} " \
-               f"\n\t lasted {self.get_test_time()} " \
-               f"\n\t score {self.score} " \
-               f"\n\t reason {self.reason} "
+        return (
+            f"FAIR metrics evaluation : "
+            f"\n\t started at {self.start_time} "
+            f"\n\t lasted {self.get_test_time()} "
+            f"\n\t score {self.score} "
+            f"\n\t reason {self.reason} "
+        )

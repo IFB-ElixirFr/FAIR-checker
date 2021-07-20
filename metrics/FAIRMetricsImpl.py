@@ -17,14 +17,14 @@ class FAIRMetricsImpl(AbstractFAIRMetrics):
     def get_api(self):
         return self.api
 
-    def evaluate(self, url) -> Evaluation :
+    def evaluate(self, url) -> Evaluation:
         data = '{"subject": "' + url + '"}'
         print("Evaluating " + self.name)
 
         eval = Evaluation()
         eval.set_start_time()
         eval.result_text = testMetric(self.api, data)
-        #print(eval.result_text)
+        # print(eval.result_text)
         eval.set_end_time()
         # evaluation_obj.result_json = json.loads(self.result_text)
         eval.set_score(requestResultSparql(eval.result_text, "ss:SIO_000300"))

@@ -23,10 +23,11 @@ regex = r"10.\d{4,9}\/[-._;()\/:A-Z0-9]+"
 # Describe datacite
 def describe_opencitation(uri, g):
     graph_pre_size = len(g)
-    endpoint = 'https://opencitations.net/sparql'
-    print(f'SPARQL for [ {uri} ] with enpoint [ {endpoint} ]')
-    #sparql = SPARQLWrapper("https://query.wikidata.org/sparql")
-    query = """
+    endpoint = "https://opencitations.net/sparql"
+    print(f"SPARQL for [ {uri} ] with enpoint [ {endpoint} ]")
+    # sparql = SPARQLWrapper("https://query.wikidata.org/sparql")
+    query = (
+        """
             PREFIX cito: <http://purl.org/spar/cito/>
             PREFIX dcterms: <http://purl.org/dc/terms/>
             PREFIX datacite: <http://purl.org/spar/datacite/>
@@ -36,38 +37,45 @@ def describe_opencitation(uri, g):
             PREFIX c4o: <http://purl.org/spar/c4o/>
 
             DESCRIBE ?x WHERE {
-                ?x datacite:hasIdentifier/literal:hasLiteralValue '""" + uri + """'
+                ?x datacite:hasIdentifier/literal:hasLiteralValue '"""
+        + uri
+        + """'
             }
     """
+    )
 
     print(query)
 
-    h = {'Accept': 'text/turtle'}
-    p = {'query': query}
+    h = {"Accept": "text/turtle"}
+    p = {"query": query}
 
     res = requests.get(endpoint, headers=h, params=p, verify=False)
     g.parse(data=res.text, format="turtle")
 
     graph_post_size = len(g)
-    print(f'{graph_post_size - graph_pre_size} added new triples')
+    print(f"{graph_post_size - graph_pre_size} added new triples")
 
     ######################
 
-
     # print(g.serialize(format='turtle').decode())
     return g
+
 
 # Describe lod.openaire
 def describe_loa(uri, g):
     # g = Graph()
     graph_pre_size = len(g)
-    print(f'SPARQL for [ {uri} ] with enpoint [ LOA ]')
+    print(f"SPARQL for [ {uri} ] with enpoint [ LOA ]")
     sparql = SPARQLWrapper("http://lod.openaire.eu/sparql")
-    sparql.setQuery("""
+    sparql.setQuery(
+        """
             DESCRIBE ?x WHERE {
-            ?x <http://lod.openaire.eu/vocab/resPersistentID> '""" + uri + """'
+            ?x <http://lod.openaire.eu/vocab/resPersistentID> '"""
+        + uri
+        + """'
             }
-    """)
+    """
+    )
 
     g_len = Graph()
     sparql.setReturnFormat(N3)
@@ -75,7 +83,7 @@ def describe_loa(uri, g):
     print("Results: " + str(len(g_len.parse(data=results, format="n3"))))
     g.parse(data=results, format="turtle")
     graph_post_size = len(g)
-    print(f'{graph_post_size - graph_pre_size} added new triples')
+    print(f"{graph_post_size - graph_pre_size} added new triples")
     # print(g.serialize(format='turtle').decode())
     return g
 
@@ -84,10 +92,11 @@ def describe_loa(uri, g):
 def describe_wikidata(uri, g):
     # g = Graph()
     graph_pre_size = len(g)
-    endpoint = 'https://query.wikidata.org/sparql'
-    print(f'SPARQL for [ {uri} ] with enpoint [ {endpoint} ]')
-    #sparql = SPARQLWrapper("https://query.wikidata.org/sparql")
-    query = """
+    endpoint = "https://query.wikidata.org/sparql"
+    print(f"SPARQL for [ {uri} ] with enpoint [ {endpoint} ]")
+    # sparql = SPARQLWrapper("https://query.wikidata.org/sparql")
+    query = (
+        """
             PREFIX wd: <http://www.wikidata.org/entity/>
             PREFIX wdt: <http://www.wikidata.org/prop/direct/>
             PREFIX wikibase: <http://wikiba.se/ontology#>
@@ -98,49 +107,59 @@ def describe_wikidata(uri, g):
             PREFIX bd: <http://www.bigdata.com/rdf#>
 
             DESCRIBE ?x WHERE {
-                ?x wdt:P356 '""" + uri + """'
+                ?x wdt:P356 '"""
+        + uri
+        + """'
             }
     """
+    )
 
     print(query)
 
-    h = {'Accept': 'text/turtle'}
-    p = {'query': query}
+    h = {"Accept": "text/turtle"}
+    p = {"query": query}
 
     res = requests.get(endpoint, headers=h, params=p, verify=False)
     g.parse(data=res.text, format="turtle")
 
     graph_post_size = len(g)
-    print(f'{graph_post_size - graph_pre_size} added new triples')
+    print(f"{graph_post_size - graph_pre_size} added new triples")
 
     # print(g.serialize(format='turtle').decode())
     return g
 
+
 # Describe a tool based on experimental bio.tools SPARQL endpoint
 def describe_biotools(uri, g):
-    print(f'SPARQL for [ {uri} ] with enpoint [ https://134.158.247.157/sparql ]')
+    print(f"SPARQL for [ {uri} ] with enpoint [ https://134.158.247.157/sparql ]")
 
-    h = {'Accept': 'text/turtle'}
-    p = {'query': "DESCRIBE <" + uri + ">"}
-    res = requests.get("https://134.158.247.157/sparql", headers=h, params=p, verify=False)
+    h = {"Accept": "text/turtle"}
+    p = {"query": "DESCRIBE <" + uri + ">"}
+    res = requests.get(
+        "https://134.158.247.157/sparql", headers=h, params=p, verify=False
+    )
 
     g.parse(data=res.text, format="turtle")
 
-    #print(g.serialize(format='turtle').decode())
+    # print(g.serialize(format='turtle').decode())
     return g
 
+
 def is_URL(any_url):
-    if validators.url(any_url) :
+    if validators.url(any_url):
         return True
-    else :
+    else:
         return False
+
 
 def is_DOI(uri):
     return bool(re.search(regex, uri, re.MULTILINE | re.IGNORECASE))
 
+
 def get_DOI(uri):
     match = re.search(regex, uri, re.MULTILINE | re.IGNORECASE)
     return match.group(0)
+
 
 def ask_OLS(uri):
     """
@@ -148,15 +167,18 @@ def ask_OLS(uri):
     :param uri:
     :return: True if the URI is registered in one of the ontologies indexed in OLS, False otherwise.
     """
-    print(f'call to the OLS REST API for [ {uri} ]')
-    h = {'Accept': 'application/json'}
-    p = {'iri': uri}
-    res = requests.get("https://www.ebi.ac.uk/ols/api/terms", headers=h, params=p, verify=True)
+    print(f"call to the OLS REST API for [ {uri} ]")
+    h = {"Accept": "application/json"}
+    p = {"iri": uri}
+    res = requests.get(
+        "https://www.ebi.ac.uk/ols/api/terms", headers=h, params=p, verify=True
+    )
 
-    if res.json()['page']['totalElements'] > 0:
+    if res.json()["page"]["totalElements"] > 0:
         return True
     else:
         return False
+
 
 def ask_LOV(uri):
     """
@@ -164,18 +186,23 @@ def ask_LOV(uri):
     :param uri:
     :return: True if the URI is registered in one of the ontologies indexed in LOV, False otherwise.
     """
-    print(f'SPARQL for [ {uri} ] with enpoint [ https://lov.linkeddata.es/dataset/lov/sparql ]')
+    print(
+        f"SPARQL for [ {uri} ] with enpoint [ https://lov.linkeddata.es/dataset/lov/sparql ]"
+    )
 
-    h = {'Accept': 'application/sparql-results+json'}
-    p = {'query': "ASK { <" + uri + "> ?p ?o }"}
-    res = requests.get("https://lov.linkeddata.es/dataset/lov/sparql", headers=h, params=p, verify=True)
+    h = {"Accept": "application/sparql-results+json"}
+    p = {"query": "ASK { <" + uri + "> ?p ?o }"}
+    res = requests.get(
+        "https://lov.linkeddata.es/dataset/lov/sparql", headers=h, params=p, verify=True
+    )
 
     # print(res.text)
     # if res.text.startswith("Error 400: Parse error:"):
     #     return False
-    return res.json()['boolean']
+    return res.json()["boolean"]
 
-def gen_shape(property_list = None, class_list = None, recommendation=None):
+
+def gen_shape(property_list=None, class_list=None, recommendation=None):
     """
 
     @param property_list: a list of OWL/RDF properties
@@ -188,6 +215,7 @@ def gen_shape(property_list = None, class_list = None, recommendation=None):
 
     return None
 
+
 def shape_checks(kg):
     """
 
@@ -195,15 +223,55 @@ def shape_checks(kg):
     @return:
     """
 
-    types = ['schema:SoftwareApplication', 'schema:CreativeWork', 'schema:Dataset', 'schema:ScholarlyArticle']
-    minimal_dataset_properties = ['schema:name', 'schema:description', 'schema:identifier', 'schema:keywords', 'schema:url']
-    recommended_dataset_properties = ['schema:license', 'schema:creator', 'schema:citation']
+    types = [
+        "schema:SoftwareApplication",
+        "schema:CreativeWork",
+        "schema:Dataset",
+        "schema:ScholarlyArticle",
+    ]
+    minimal_dataset_properties = [
+        "schema:name",
+        "schema:description",
+        "schema:identifier",
+        "schema:keywords",
+        "schema:url",
+    ]
+    recommended_dataset_properties = [
+        "schema:license",
+        "schema:creator",
+        "schema:citation",
+    ]
 
-    minimal_software_properties = ['schema:name', 'schema:description', 'schema:url']
-    recommended_software_properties = ['schema:additionalType', 'schema:applicationCategory', 'schema:applicationSubCategory', 'schema:author', 'schema:license', 'schema:citation', 'schema:featureList', 'schema:softwareVersion']
+    minimal_software_properties = ["schema:name", "schema:description", "schema:url"]
+    recommended_software_properties = [
+        "schema:additionalType",
+        "schema:applicationCategory",
+        "schema:applicationSubCategory",
+        "schema:author",
+        "schema:license",
+        "schema:citation",
+        "schema:featureList",
+        "schema:softwareVersion",
+    ]
 
-    minimal_publication_properties = ['schema:headline', 'schema:identifier']
-    recommended_publication_properties = ['schema:about', 'schema:alternateName', 'schema:author', 'schema:backstory', 'schema:citation', 'schema:dateCreated', 'schema:dateModified', 'schema:datePublished', 'schema:isBasedOn', 'schema:isPartOf', 'schema:keywords', 'schema:license', 'schema:pageEnd', 'schema:pageStart', 'schema:url']
+    minimal_publication_properties = ["schema:headline", "schema:identifier"]
+    recommended_publication_properties = [
+        "schema:about",
+        "schema:alternateName",
+        "schema:author",
+        "schema:backstory",
+        "schema:citation",
+        "schema:dateCreated",
+        "schema:dateModified",
+        "schema:datePublished",
+        "schema:isBasedOn",
+        "schema:isPartOf",
+        "schema:keywords",
+        "schema:license",
+        "schema:pageEnd",
+        "schema:pageStart",
+        "schema:url",
+    ]
 
     shape_template = """
     @prefix dash: <http://datashapes.org/dash#> .
@@ -296,30 +364,33 @@ def shape_checks(kg):
     """
 
     data = {
-        'software_min': minimal_software_properties,
-        'software_reco': recommended_software_properties,
-        'dataset_min': minimal_dataset_properties,
-        'dataset_reco': recommended_dataset_properties,
-        'paper_min': minimal_publication_properties,
-        'paper_reco': recommended_publication_properties}
+        "software_min": minimal_software_properties,
+        "software_reco": recommended_software_properties,
+        "dataset_min": minimal_dataset_properties,
+        "dataset_reco": recommended_dataset_properties,
+        "paper_min": minimal_publication_properties,
+        "paper_reco": recommended_publication_properties,
+    }
 
     template = Template(shape_template)
     shape = template.render(data=data)
     print(shape)
     g = ConjunctiveGraph()
-    g.parse(data=shape, format='turtle')
+    g.parse(data=shape, format="turtle")
     print(len(g))
 
-    r = validate(data_graph=kg,
-                 data_graph_format='turtle',
-                 shacl_graph=shape,
-                 # shacl_graph = my_shacl_constraint,
-                 shacl_graph_format='turtle',
-                 ont_graph=None,
-                 inference='rdfs',
-                 abort_on_error=False,
-                 meta_shacl=False,
-                 debug=True)
+    r = validate(
+        data_graph=kg,
+        data_graph_format="turtle",
+        shacl_graph=shape,
+        # shacl_graph = my_shacl_constraint,
+        shacl_graph_format="turtle",
+        ont_graph=None,
+        inference="rdfs",
+        abort_on_error=False,
+        meta_shacl=False,
+        debug=True,
+    )
 
     conforms, results_graph, results_text = r
 
@@ -342,10 +413,14 @@ def shape_checks(kg):
     errors = []
     for r in results:
         print(r)
-        if "#Warning" in r['severity']:
-            warnings.append(f'Property {r["path"]} <span class="has-text-warning has-text-weight-bold">should be</span> provided')
-        if "#Violation" in r['severity']:
-            errors.append(f'Property {r["path"]} <span class="has-text-danger has-text-weight-bold">must be</span> provided')
+        if "#Warning" in r["severity"]:
+            warnings.append(
+                f'Property {r["path"]} <span class="has-text-warning has-text-weight-bold">should be</span> provided'
+            )
+        if "#Violation" in r["severity"]:
+            errors.append(
+                f'Property {r["path"]} <span class="has-text-danger has-text-weight-bold">must be</span> provided'
+            )
 
     return warnings, errors
 
@@ -354,8 +429,11 @@ def extract_rdf_from_html(uri):
     page = requests.get(uri)
     html = page.content
 
-    d = extruct.extract(html, syntaxes=['microdata', 'rdfa', 'json-ld'], errors='ignore')
+    d = extruct.extract(
+        html, syntaxes=["microdata", "rdfa", "json-ld"], errors="ignore"
+    )
     return d
+
 
 def extruct_to_rdf(extruct_str):
 
@@ -364,10 +442,10 @@ def extruct_to_rdf(extruct_str):
     for md in extruct_str["json-ld"]:
         g.parse(data=json.dumps(md, ensure_ascii=False), format="json-ld")
 
-    for md in extruct_str['rdfa']:
+    for md in extruct_str["rdfa"]:
         g.parse(data=json.dumps(md, ensure_ascii=False), format="json-ld")
 
-    for md in extruct_str['microdata']:
+    for md in extruct_str["microdata"]:
         g.parse(data=json.dumps(md, ensure_ascii=False), format="json-ld")
 
     return g
@@ -386,16 +464,16 @@ def rdf_to_triple_list(graph):
 
 def get_rdf_selenium(uri, kg):
     # uri = 'https://workflowhub.eu/workflows/45'
-    #uri = 'https://bio.tools/jaspar'
+    # uri = 'https://bio.tools/jaspar'
 
     chrome_options = Options()
     chrome_options.add_argument("--headless")
 
-    browser = webdriver.Chrome(options = chrome_options)
+    browser = webdriver.Chrome(options=chrome_options)
     browser.get(uri)
 
     html_source = browser.page_source
-    #print(html_source)
+    # print(html_source)
     browser.quit()
     tree = html.fromstring(html_source)
     jsonld_string = tree.xpath('//script[@type="application/ld+json"]//text()')
@@ -405,18 +483,19 @@ def get_rdf_selenium(uri, kg):
     base_path = Path(__file__).parent  ## current directory
     static_file_path = str((base_path / "../static/data/jsonldcontext.json").resolve())
 
-    for json_ld_annots in jsonld_string :
+    for json_ld_annots in jsonld_string:
         jsonld = json.loads(json_ld_annots)
 
-        if '@context' in jsonld.keys():
-            if ('//schema.org' in jsonld['@context']):
-                jsonld['@context'] = static_file_path
+        if "@context" in jsonld.keys():
+            if "//schema.org" in jsonld["@context"]:
+                jsonld["@context"] = static_file_path
         kg.parse(data=json.dumps(jsonld, ensure_ascii=False), format="json-ld")
 
-        print(f'{len(kg)} retrieved triples in KG')
-        print(kg.serialize(format='turtle').decode())
+        print(f"{len(kg)} retrieved triples in KG")
+        print(kg.serialize(format="turtle").decode())
 
     return kg
+
 
 def get_html_selenium(url):
     chrome_options = Options()
@@ -440,8 +519,9 @@ def download_csv(uri):
     a_day_ago = datetime.now() - timedelta(1)
     pass
 
+
 def replace_value_char_for_key(key, var, old_char, new_char):
-    if hasattr(var,'items'):
+    if hasattr(var, "items"):
         for k, v in var.items():
             if k == key:
                 v = v.replace(old_char, new_char)
@@ -452,5 +532,7 @@ def replace_value_char_for_key(key, var, old_char, new_char):
                     yield result
             elif isinstance(v, list):
                 for d in v:
-                    for result in replace_value_char_for_key(key, d, old_char, new_char):
+                    for result in replace_value_char_for_key(
+                        key, d, old_char, new_char
+                    ):
                         yield result

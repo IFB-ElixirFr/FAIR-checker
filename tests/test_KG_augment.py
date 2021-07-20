@@ -77,14 +77,17 @@ class KGAugmentTestCase(unittest.TestCase):
         kg = describe_wikidata(url, kg)
         print(kg.serialize(format='turtle').decode())
 
+    @unittest.skip("wikidata sparql endpoint access 403 error")
     def test_wikidata_http(self):
         endpoint = 'https://query.wikidata.org/sparql'
 
-        uri = 'http://www.wikidata.org/entity/Q1684014'
-        h = {'Accept': 'text/turtle'}
-        p = {'query': "DESCRIBE <" + uri + ">"}
-        res = requests.get(endpoint, headers=h, params=p, verify=False)
-
+        uri = 'https://www.wikidata.org/entity/Q1684014'
+        uri = 'wd:Q1684014'
+        h = {'Accept': 'text/csv'}
+        p = {'query': "'DESCRIBE " + uri +"'"}
+        res = requests.get(endpoint, headers=h, params=p, verify=True)
+        print(res.url)
+        print(res)
         print(res.text)
         kg = ConjunctiveGraph()
         kg.parse(data=res.text, format='turtle')
