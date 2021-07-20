@@ -1,9 +1,13 @@
 name: Black code formatting
 
 on:
-  workflow_run:
-    workflows: ["Python application"]
-    types: [completed]
+  #workflow_run:
+  #  workflows: ["Python application"]
+  #  types: [completed]
+  push:
+    branches: [ dev_alban, dev_thomas, master ]
+  pull_request:
+    branches: [ dev_alban, dev_thomas, master ]
 
 jobs:
   build:
