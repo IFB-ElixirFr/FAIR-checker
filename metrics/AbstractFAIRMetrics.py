@@ -1,3 +1,6 @@
+from datetime import time
+from ssl import SSLError
+
 from metrics.test_metric import getMetrics, testMetric, requestResultSparql
 from metrics.Evaluation import Evaluation
 
@@ -7,6 +10,7 @@ from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 import requests
 import extruct
+from pathlib import Path
 
 import rdflib
 from rdflib import ConjunctiveGraph
@@ -99,23 +103,26 @@ class AbstractFAIRMetrics(ABC):
         data = extruct.extract(html_source, syntaxes=['microdata', 'rdfa', 'json-ld'], errors='ignore')
         kg = ConjunctiveGraph()
 
+        base_path = Path(__file__).parent.parent  ## current directory
+        static_file_path = str((base_path / "static/data/jsonldcontext.json").resolve())
+
         # kg = util.get_rdf_selenium(uri, kg)
 
         for md in data['json-ld']:
             if '@context' in md.keys():
                 print(md['@context'])
                 if ('https://schema.org' in md['@context']) or ('http://schema.org' in md['@context']) :
-                    md['@context'] = '../static/data/jsonldcontext.json'
+                    md['@context'] = static_file_path
             kg.parse(data=json.dumps(md, ensure_ascii=False), format="json-ld")
         for md in data['rdfa']:
             if '@context' in md.keys():
                 if ('https://schema.org' in md['@context']) or ('http://schema.org' in md['@context']) :
-                    md['@context'] = '../static/data/jsonldcontext.json'
+                    md['@context'] = static_file_path
             kg.parse(data=json.dumps(md, ensure_ascii=False), format="json-ld")
         for md in data['microdata']:
             if '@context' in md.keys():
                 if ('https://schema.org' in md['@context']) or ('http://schema.org' in md['@context']) :
-                    md['@context'] = '../static/data/jsonldcontext.json'
+                    md['@context'] = static_file_path
             kg.parse(data=json.dumps(md, ensure_ascii=False), format="json-ld")
 
         self.rdf_jsonld = kg
