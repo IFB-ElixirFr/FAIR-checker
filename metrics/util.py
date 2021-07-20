@@ -118,11 +118,11 @@ def describe_wikidata(uri, g):
 
 # Describe a tool based on experimental bio.tools SPARQL endpoint
 def describe_biotools(uri, g):
-    print(f'SPARQL for [ {uri} ] with enpoint [ https://134.158.247.76/sparql ]')
+    print(f'SPARQL for [ {uri} ] with enpoint [ https://134.158.247.157/sparql ]')
 
     h = {'Accept': 'text/turtle'}
     p = {'query': "DESCRIBE <" + uri + ">"}
-    res = requests.get("https://134.158.247.76/sparql", headers=h, params=p, verify=False)
+    res = requests.get("https://134.158.247.157/sparql", headers=h, params=p, verify=False)
 
     g.parse(data=res.text, format="turtle")
 
@@ -151,7 +151,7 @@ def ask_OLS(uri):
     print(f'call to the OLS REST API for [ {uri} ]')
     h = {'Accept': 'application/json'}
     p = {'iri': uri}
-    res = requests.get("https://www.ebi.ac.uk/ols/api/terms", headers=h, params=p, verify=False)
+    res = requests.get("https://www.ebi.ac.uk/ols/api/terms", headers=h, params=p, verify=True)
 
     if res.json()['page']['totalElements'] > 0:
         return True
@@ -168,7 +168,7 @@ def ask_LOV(uri):
 
     h = {'Accept': 'application/sparql-results+json'}
     p = {'query': "ASK { <" + uri + "> ?p ?o }"}
-    res = requests.get("https://lov.linkeddata.es/dataset/lov/sparql", headers=h, params=p, verify=False)
+    res = requests.get("https://lov.linkeddata.es/dataset/lov/sparql", headers=h, params=p, verify=True)
 
     # print(res.text)
     # if res.text.startswith("Error 400: Parse error:"):
