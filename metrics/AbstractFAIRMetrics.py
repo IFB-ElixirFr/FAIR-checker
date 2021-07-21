@@ -105,16 +105,19 @@ class AbstractFAIRMetrics(ABC):
             if '@context' in md.keys():
                 print(md['@context'])
                 if ('https://schema.org' in md['@context']) or ('http://schema.org' in md['@context']) :
+                    # TODO use __file__ to compute an absolute path from "here"
                     md['@context'] = '../static/data/jsonldcontext.json'
             kg.parse(data=json.dumps(md, ensure_ascii=False), format="json-ld")
         for md in data['rdfa']:
             if '@context' in md.keys():
                 if ('https://schema.org' in md['@context']) or ('http://schema.org' in md['@context']) :
+                    # TODO use __file__ to compute an absolute path from "here"
                     md['@context'] = '../static/data/jsonldcontext.json'
             kg.parse(data=json.dumps(md, ensure_ascii=False), format="json-ld")
         for md in data['microdata']:
             if '@context' in md.keys():
                 if ('https://schema.org' in md['@context']) or ('http://schema.org' in md['@context']) :
+                    # TODO use __file__ to compute an absolute path from "here"
                     md['@context'] = '../static/data/jsonldcontext.json'
             kg.parse(data=json.dumps(md, ensure_ascii=False), format="json-ld")
 
