@@ -19,7 +19,7 @@ import json
 
 #########################
 class AbstractFAIRMetrics(ABC):
-    def __init__(self):
+    def __init__(self, url):
         self.name = "My name"
         self.id = "My id"
         self.desc = "My desc"
@@ -30,7 +30,7 @@ class AbstractFAIRMetrics(ABC):
         self.html_source = "Page content"
         self.rdf_jsonld = "Graph RDF"
         self.requests_status_code = "Status code for requests"
-        self.url = "URL here"
+        self.url = url
 
     # common functionality
     def common(self):
@@ -85,6 +85,7 @@ class AbstractFAIRMetrics(ABC):
         self.html_source = response.content
 
     def extract_html_selenium(self):
+        #TODO define a (singleton) global object for selenium as shown in unit tests.
         chrome_options = Options()
         chrome_options.add_argument("--headless")
 
