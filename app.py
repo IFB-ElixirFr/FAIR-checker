@@ -69,7 +69,6 @@ sample_resources = {
             "text": "Tool",
             "url": "https://bio.tools/jaspar",
         },
-
     ],
 }
 

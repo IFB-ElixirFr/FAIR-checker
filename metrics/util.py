@@ -175,27 +175,33 @@ def get_DOI(uri):
 
 def ask_BioPortal(uri, type):
 
-    print(f'Call to the BioPortal REST API for [ {uri} ]')
+    print(f"Call to the BioPortal REST API for [ {uri} ]")
     # print(app.config)
     with app.app_context():
         api_key = current_app.config["BIOPORTAL_APIKEY"]
-    h = {
-            'Accept': 'application/json',
-            'Authorization': 'apikey token=' + api_key
-        }
+    h = {"Accept": "application/json", "Authorization": "apikey token=" + api_key}
 
     if type == "property":
-        res = requests.get("https://data.bioontology.org/property_search?q=" + uri, headers=h, verify=True)
+        res = requests.get(
+            "https://data.bioontology.org/property_search?q=" + uri,
+            headers=h,
+            verify=True,
+        )
     elif type == "class":
-        res = requests.get("https://data.bioontology.org/search?q=" + uri + "&require_exact_match=true", headers=h, verify=True)
+        res = requests.get(
+            "https://data.bioontology.org/search?q="
+            + uri
+            + "&require_exact_match=true",
+            headers=h,
+            verify=True,
+        )
     # print(res)
 
-
-
-    if res.json()['totalCount'] > 0:
+    if res.json()["totalCount"] > 0:
         return True
     else:
         return False
+
 
 def ask_OLS(uri):
     """
@@ -203,13 +209,15 @@ def ask_OLS(uri):
     :param uri:
     :return: True if the URI is registered in one of the ontologies indexed in OLS, False otherwise.
     """
-    print(f'Call to the OLS REST API for [ {uri} ]')
+    print(f"Call to the OLS REST API for [ {uri} ]")
     # uri = requests.compat.quote_plus(uri)
-    h = {'Accept': 'application/json'}
-    p = {'iri': uri}
-    res = requests.get("https://www.ebi.ac.uk/ols/api/properties", headers=h, params=p, verify=True)
+    h = {"Accept": "application/json"}
+    p = {"iri": uri}
+    res = requests.get(
+        "https://www.ebi.ac.uk/ols/api/properties", headers=h, params=p, verify=True
+    )
 
-    if res.json()['page']['totalElements'] > 0:
+    if res.json()["page"]["totalElements"] > 0:
         return True
     else:
         return False
@@ -225,9 +233,11 @@ def ask_LOV(uri):
         f"SPARQL for [ {uri} ] with enpoint [ https://lov.linkeddata.es/dataset/lov/sparql ]"
     )
 
-    h = {'Accept': 'application/sparql-results+json'}
-    p = {'query': "ASK { <" + uri + "> ?p ?o }"}
-    res = requests.get("https://lov.linkeddata.es/dataset/lov/sparql", headers=h, params=p, verify=True)
+    h = {"Accept": "application/sparql-results+json"}
+    p = {"query": "ASK { <" + uri + "> ?p ?o }"}
+    res = requests.get(
+        "https://lov.linkeddata.es/dataset/lov/sparql", headers=h, params=p, verify=True
+    )
 
     print(res.text)
     # if res.text.startswith("Error 400: Parse error:"):

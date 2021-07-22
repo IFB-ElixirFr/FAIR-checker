@@ -3,14 +3,13 @@ from dotenv import load_dotenv
 
 
 basedir = path.abspath(path.dirname(__file__))
-load_dotenv(path.join(basedir, '.env'))
-
+load_dotenv(path.join(basedir, ".env"))
 
 
 class Config(object):
     # You have to config your apikey for bioportal in a separate .env file that must not be in git
     # e.g. BIOPORTAL_APIKEY='xxxxxx-xxxxx-xxxx-xxxx-xxxxxxxx'
-    BIOPORTAL_APIKEY = environ.get('BIOPORTAL_APIKEY')
+    BIOPORTAL_APIKEY = environ.get("BIOPORTAL_APIKEY")
     DEBUG = False
     TESTING = False
     SERVER_NAME = "0.0.0.0:5000"
