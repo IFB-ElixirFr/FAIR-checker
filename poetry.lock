@@ -229,7 +229,7 @@ six = ">=1.10.0"
 
 [[package]]
 name = "extruct"
-version = "0.9.0"
+version = "0.12.0"
 description = "Extract embedded metadata from HTML markup"
 category = "main"
 optional = false
@@ -237,9 +237,11 @@ python-versions = "*"
 
 [package.dependencies]
 html-text = ">=0.5.1"
+jstyleson = "*"
 lxml = "*"
 mf2py = "*"
-rdflib = "<5.0.0"
+pyrdfa3 = "*"
+rdflib = "*"
 rdflib-jsonld = "*"
 six = "*"
 w3lib = "*"
@@ -404,6 +406,14 @@ MarkupSafe = ">=2.0"
 
 [package.extras]
 i18n = ["Babel (>=2.7)"]
+
+[[package]]
+name = "jstyleson"
+version = "0.0.2"
+description = "Library to parse JSON with js-style comments."
+category = "main"
+optional = false
+python-versions = "*"
 
 [[package]]
 name = "lxml"
@@ -584,6 +594,18 @@ optional = false
 python-versions = ">=2.6, !=3.0.*, !=3.1.*, !=3.2.*"
 
 [[package]]
+name = "pyrdfa3"
+version = "3.5.3"
+description = "pyRdfa Libray"
+category = "main"
+optional = false
+python-versions = "*"
+
+[package.dependencies]
+html5lib = "*"
+rdflib = "*"
+
+[[package]]
 name = "pyshacl"
 version = "0.11.5"
 description = "Python SHACL Validator"
@@ -635,6 +657,17 @@ toml = "*"
 testing = ["fields", "hunter", "process-tests", "six", "pytest-xdist", "virtualenv"]
 
 [[package]]
+name = "python-dotenv"
+version = "0.18.0"
+description = "Read key-value pairs from a .env file and set them as environment variables"
+category = "main"
+optional = false
+python-versions = "*"
+
+[package.extras]
+cli = ["click (>=5.0)"]
+
+[[package]]
 name = "python-engineio"
 version = "3.14.2"
 description = "Engine.IO server"
@@ -675,7 +708,7 @@ python-versions = "*"
 
 [[package]]
 name = "rdflib"
-version = "4.2.2"
+version = "5.0.0"
 description = "RDFLib is a Python library for working with RDF, a simple yet powerful language for representing information."
 category = "main"
 optional = false
@@ -684,21 +717,24 @@ python-versions = "*"
 [package.dependencies]
 isodate = "*"
 pyparsing = "*"
+six = "*"
 
 [package.extras]
+docs = ["sphinx (<3)", "sphinxcontrib-apidoc"]
 html = ["html5lib"]
-sparql = ["sparqlwrapper"]
+sparql = ["requests"]
+tests = ["html5lib", "networkx", "nose", "doctest-ignore-unicode"]
 
 [[package]]
 name = "rdflib-jsonld"
-version = "0.4.0"
+version = "0.5.0"
 description = "rdflib extension adding JSON-LD parser and serializer"
 category = "main"
 optional = false
 python-versions = "*"
 
 [package.dependencies]
-rdflib = ">=4.2"
+rdflib = ">=4.2.2"
 
 [[package]]
 name = "regex"
@@ -1047,7 +1083,7 @@ testing = ["pytest (>=4.6)", "pytest-checkdocs (>=2.4)", "pytest-flake8", "pytes
 [metadata]
 lock-version = "1.1"
 python-versions = ">=3.7 <3.9"
-content-hash = "7ddc49033175b2cd50cd43883782fc69c892d1f56db904108e68a3f28fd9deed"
+content-hash = "acc4238c186a752c76e00c26785c5ac01ea791864751f335fb280367d04f477c"
 
 [metadata.files]
 alabaster = [
@@ -1182,8 +1218,8 @@ eventlet = [
     {file = "eventlet-0.25.2.tar.gz", hash = "sha256:4c8ab42c51bff55204fef43cff32616558bedbc7538d876bb6a96ce820c7f9ed"},
 ]
 extruct = [
-    {file = "extruct-0.9.0-py2.py3-none-any.whl", hash = "sha256:4df0ed2c58216f5b4ab1dd8bf727a808f5fa71040c0f58d39f7074230b1e1289"},
-    {file = "extruct-0.9.0.tar.gz", hash = "sha256:38debff85f9387ea5c6e63c4c63b8cf2a0b7152878fdf67231cdbee3cb0b9f31"},
+    {file = "extruct-0.12.0-py2.py3-none-any.whl", hash = "sha256:42c6c9f50b00aa6c17b5c26b5f1b3a337ebc27b427fafc3714f34ce3bbb16c2f"},
+    {file = "extruct-0.12.0.tar.gz", hash = "sha256:d4a68bb79d1b85ff36d603a42c2666888bb480191a399a659d9daaf735358276"},
 ]
 flake8 = [
     {file = "flake8-3.9.2-py2.py3-none-any.whl", hash = "sha256:bf8fd333346d844f616e8d47905ef3a3384edae6b4e9beb0c5101e25e3110907"},
@@ -1283,6 +1319,9 @@ itsdangerous = [
 jinja2 = [
     {file = "Jinja2-3.0.1-py3-none-any.whl", hash = "sha256:1f06f2da51e7b56b8f238affdd6b4e2c61e39598a378cc49345bc1bd42a978a4"},
     {file = "Jinja2-3.0.1.tar.gz", hash = "sha256:703f484b47a6af502e743c9122595cc812b0271f661722403114f71a79d0f5a4"},
+]
+jstyleson = [
+    {file = "jstyleson-0.0.2.tar.gz", hash = "sha256:680003f3b15a2959e4e6a351f3b858e3c07dd3e073a0d54954e34d8ea5e1308e"},
 ]
 lxml = [
     {file = "lxml-4.6.3-cp27-cp27m-macosx_10_9_x86_64.whl", hash = "sha256:df7c53783a46febb0e70f6b05df2ba104610f2fb0d27023409734a3ecbb78fb2"},
@@ -1522,6 +1561,10 @@ pyparsing = [
     {file = "pyparsing-2.4.7-py2.py3-none-any.whl", hash = "sha256:ef9d7589ef3c200abe66653d3f1ab1033c3c419ae9b9bdb1240a85b024efc88b"},
     {file = "pyparsing-2.4.7.tar.gz", hash = "sha256:c203ec8783bf771a155b207279b9bccb8dea02d8f0c9e5f8ead507bc3246ecc1"},
 ]
+pyrdfa3 = [
+    {file = "pyRdfa3-3.5.3-py3-none-any.whl", hash = "sha256:4da7ed49e8f524b573ed67e4f7bc7f403bff3be00546d7438fe263c924a91ccf"},
+    {file = "pyRdfa3-3.5.3.tar.gz", hash = "sha256:157663a92b87df345b6f69bde235dff5f797891608e12fe1e4fa8dad687131ae"},
+]
 pyshacl = [
     {file = "pyshacl-0.11.5-py3-none-any.whl", hash = "sha256:c87cc8e6040f215704671eaa98492b9b924c4b25c93569ab74ac0a4fc24b8139"},
     {file = "pyshacl-0.11.5.tar.gz", hash = "sha256:bd6ac9faa93c72f74f05c3bfff51cbdb11930e7d832819e240775e0b4aa1c28d"},
@@ -1533,6 +1576,10 @@ pytest = [
 pytest-cov = [
     {file = "pytest-cov-2.12.1.tar.gz", hash = "sha256:261ceeb8c227b726249b376b8526b600f38667ee314f910353fa318caa01f4d7"},
     {file = "pytest_cov-2.12.1-py2.py3-none-any.whl", hash = "sha256:261bb9e47e65bd099c89c3edf92972865210c36813f80ede5277dceb77a4a62a"},
+]
+python-dotenv = [
+    {file = "python-dotenv-0.18.0.tar.gz", hash = "sha256:effaac3c1e58d89b3ccb4d04a40dc7ad6e0275fda25fd75ae9d323e2465e202d"},
+    {file = "python_dotenv-0.18.0-py2.py3-none-any.whl", hash = "sha256:dd8fe852847f4fbfadabf6183ddd4c824a9651f02d51714fa075c95561959c7d"},
 ]
 python-engineio = [
     {file = "python-engineio-3.14.2.tar.gz", hash = "sha256:eab4553f2804c1ce97054c8b22cf0d5a9ab23128075248b97e1a5b2f29553085"},
@@ -1547,11 +1594,11 @@ pytz = [
     {file = "pytz-2021.1.tar.gz", hash = "sha256:83a4a90894bf38e243cf052c8b58f381bfe9a7a483f6a9cab140bc7f702ac4da"},
 ]
 rdflib = [
-    {file = "rdflib-4.2.2-py3-none-any.whl", hash = "sha256:58d5994610105a457cff7fdfe3d683d87786c5028a45ae032982498a7e913d6f"},
-    {file = "rdflib-4.2.2.tar.gz", hash = "sha256:da1df14552555c5c7715d8ce71c08f404c988c58a1ecd38552d0da4fc261280d"},
+    {file = "rdflib-5.0.0-py3-none-any.whl", hash = "sha256:88208ea971a87886d60ae2b1a4b2cdc263527af0454c422118d43fe64b357877"},
+    {file = "rdflib-5.0.0.tar.gz", hash = "sha256:78149dd49d385efec3b3adfbd61c87afaf1281c30d3fcaf1b323b34f603fb155"},
 ]
 rdflib-jsonld = [
-    {file = "rdflib-jsonld-0.4.0.tar.gz", hash = "sha256:144774786a2fc7de09b24a9309cbcccc78bc48b152536d2ea1c1df2ad715bc2d"},
+    {file = "rdflib-jsonld-0.5.0.tar.gz", hash = "sha256:4f7d55326405071c7bce9acf5484643bcb984eadb84a6503053367da207105ed"},
 ]
 regex = [
     {file = "regex-2021.7.6-cp36-cp36m-macosx_10_9_x86_64.whl", hash = "sha256:e6a1e5ca97d411a461041d057348e578dc344ecd2add3555aedba3b408c9f874"},

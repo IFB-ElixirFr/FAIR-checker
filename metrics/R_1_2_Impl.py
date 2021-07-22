@@ -93,7 +93,7 @@ class R_1_2_Impl(AbstractFAIRMetrics):
             }
         """
 
-        #print(self.rdf_jsonld.serialize(format="turtle").decode())
+        # print(self.rdf_jsonld.serialize(format="turtle").decode())
         res = self.rdf_jsonld.query(query_licenses)
         for bool_r in res:
             return bool_r

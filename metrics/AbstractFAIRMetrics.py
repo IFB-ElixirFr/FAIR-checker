@@ -85,7 +85,7 @@ class AbstractFAIRMetrics(ABC):
         self.html_source = response.content
 
     def extract_html_selenium(self):
-        #TODO define a (singleton) global object for selenium as shown in unit tests.
+        # TODO define a (singleton) global object for selenium as shown in unit tests.
         chrome_options = Options()
         chrome_options.add_argument("--headless")
 
