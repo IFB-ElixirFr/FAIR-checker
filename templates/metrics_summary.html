@@ -433,16 +433,20 @@
         </article>
       </div> -->
       <!-- <div class="section"> -->
-        {% for k in sample_data.keys() %}
-        <!-- <p class="button is-info is-small">{{k}}<i class="fa fa-chevron-down fa-fw"></i></p> -->
-        <!-- <br> -->
-        <!-- <br> -->
-        <div class="field is-grouped is-grouped-centered">
-            {% for s in sample_data[k] %}
-            <p id="resource_{{k}}_{{loop.index}}"class="control"><a class="button is-small is-text" data-url="{{ s.url }}">{{ s.text }}</a></p>
-            {% endfor %}
-        </div>
-        {% endfor %}
+      {% for k in sample_data.keys() %}
+      <p class="button is-info is-small">{{k}}<i class="fa fa-chevron-down fa-fw"></i></p>
+          <!-- <br> -->
+          <!-- <br> -->
+          <div class="panel">
+            <div class="panel-block is-centered">
+              <div class="field is-grouped is-grouped-centered">
+                  {% for s in sample_data[k] %}
+                  <p id="resource_{{k}}_{{loop.index}}"class="control"><a class="button is-small is-text" data-url="{{ s.url }}">{{ s.text }}</a></p>
+                  {% endfor %}
+              </div>
+            </div>
+          </div>
+      {% endfor %}
 
       <!-- </div> -->
     </div>
