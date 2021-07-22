@@ -21,8 +21,8 @@ import time
 import sys
 from datetime import datetime, timedelta
 
-#import joblib
-#from joblib import Parallel, delayed
+# import joblib
+# from joblib import Parallel, delayed
 import multiprocessing
 from multiprocessing import Pool
 
@@ -44,48 +44,67 @@ PRINT_DETAILS = False
 OUTPUT_DIR = "para_doi_test_output"
 OUTPUT_PREF = "ptest"
 
-parser = argparse.ArgumentParser(description='A FAIRMetrics tester',
-                                formatter_class=argparse.ArgumentDefaultsHelpFormatter)
+parser = argparse.ArgumentParser(
+    description="A FAIRMetrics tester",
+    formatter_class=argparse.ArgumentDefaultsHelpFormatter,
+)
 # parser.add_argument("guid", help="The GUID to be tested (DOI, etc)")
-parser.add_argument("-n","--name",
-                        help="Print metric name to STDOUT",
-                        action="store_true")
-parser.add_argument("-p","--principle",
-                        help="Print principle number to STDOUT",
-                        action="store_true")
-parser.add_argument("-d","--description",
-                        help="Print description of the metrics to STDOUT",
-                        action="store_true")
-parser.add_argument("-c","--comment",
-                        help="Zero or more letters from [iwfsc] (none=print all). Print comment messages for INFO, WARN, FAIL, SUCC, CRIT to STDOUT",
-                        # default='all',
-                        const='iwfsc',
-                        nargs='?',)
-parser.add_argument("-wc","--write_comment",
-                        help="Zero or more letters from [iwfsc] (none=print all). Filter comment messages for INFO, WARN, FAIL, SUCC, CRIT in output comment file",
-                        # default='all',
-                        const='iwfsc',
-                        nargs='?',)
-parser.add_argument("-s","--score",
-                        help="Print scores of the metrics to STDOUT",
-                        action="store_true")
-parser.add_argument("-t","--time",
-                        help="Print metric test time to STDOUT",
-                        action="store_true")
-parser.add_argument("-i","--input",
-                        help="The input GUID (Globally Unique Identifier: DOI, URL, etc...)",)
-parser.add_argument("-D","--directory",
-                        help="Output directory",
-                        default=OUTPUT_DIR,)
-parser.add_argument("-o","--output",
-                        help="Output prefix filenames",
-                        default=OUTPUT_PREF)
-parser.add_argument("-tn", "--thread_num",
-                        help="Number of threads to use. Max available: " + str(multiprocessing.cpu_count()),
-                        type=int,
-                        choices=range(1, multiprocessing.cpu_count()+1),
-                        default=1)
-
+parser.add_argument(
+    "-n", "--name", help="Print metric name to STDOUT", action="store_true"
+)
+parser.add_argument(
+    "-p", "--principle", help="Print principle number to STDOUT", action="store_true"
+)
+parser.add_argument(
+    "-d",
+    "--description",
+    help="Print description of the metrics to STDOUT",
+    action="store_true",
+)
+parser.add_argument(
+    "-c",
+    "--comment",
+    help="Zero or more letters from [iwfsc] (none=print all). Print comment messages for INFO, WARN, FAIL, SUCC, CRIT to STDOUT",
+    # default='all',
+    const="iwfsc",
+    nargs="?",
+)
+parser.add_argument(
+    "-wc",
+    "--write_comment",
+    help="Zero or more letters from [iwfsc] (none=print all). Filter comment messages for INFO, WARN, FAIL, SUCC, CRIT in output comment file",
+    # default='all',
+    const="iwfsc",
+    nargs="?",
+)
+parser.add_argument(
+    "-s", "--score", help="Print scores of the metrics to STDOUT", action="store_true"
+)
+parser.add_argument(
+    "-t", "--time", help="Print metric test time to STDOUT", action="store_true"
+)
+parser.add_argument(
+    "-i",
+    "--input",
+    help="The input GUID (Globally Unique Identifier: DOI, URL, etc...)",
+)
+parser.add_argument(
+    "-D",
+    "--directory",
+    help="Output directory",
+    default=OUTPUT_DIR,
+)
+parser.add_argument(
+    "-o", "--output", help="Output prefix filenames", default=OUTPUT_PREF
+)
+parser.add_argument(
+    "-tn",
+    "--thread_num",
+    help="Number of threads to use. Max available: " + str(multiprocessing.cpu_count()),
+    type=int,
+    choices=range(1, multiprocessing.cpu_count() + 1),
+    default=1,
+)
 
 
 def animated_loading(message):
@@ -100,9 +119,10 @@ def animated_loading(message):
 
     # the loop over the chars
     for char in chars:
-        sys.stdout.write('\r' + message + char)
-        time.sleep(.1)
+        sys.stdout.write("\r" + message + char)
+        time.sleep(0.1)
         sys.stdout.flush()
+
 
 def processFunction(function, args, message):
     """
@@ -127,10 +147,11 @@ def processFunction(function, args, message):
     the_process.join()
 
     # print('test')
-    sys.stdout.write('\r\033[K')
+    sys.stdout.write("\r\033[K")
     sys.stdout.flush()
 
     return res[0]
+
 
 def wrapper(func, args, res):
     """
@@ -141,6 +162,7 @@ def wrapper(func, args, res):
     @param res List The list of results from the input function
     """
     res.append(func(*args))
+
 
 def testMetric(metric_api_url, data):
     """
@@ -158,10 +180,11 @@ def testMetric(metric_api_url, data):
     # metric_api_url = base_url + sub_url
     # print(metric_api_url)
 
-
     while True:
         try:
-            response = requests.request(method='POST', url=metric_api_url, data=data, timeout=TIMEOUT)
+            response = requests.request(
+                method="POST", url=metric_api_url, data=data, timeout=TIMEOUT
+            )
             result = response.text
             break
         except requests.exceptions.Timeout:
@@ -186,8 +209,10 @@ def testMetrics(GUID):
     @return tuple (headers_list, descriptions_list, test_score_list, time_list, comments_list)
     """
 
-    if args.directory: OUTPUT_DIR = args.directory
-    if args.output: OUTPUT_PREF = args.output
+    if args.directory:
+        OUTPUT_DIR = args.directory
+    if args.output:
+        OUTPUT_PREF = args.output
 
     # Create the data dict containing the GUID
     data = '{"subject": "' + GUID + '"}'
@@ -196,29 +221,37 @@ def testMetrics(GUID):
     # Retrieve all the metrics general info and api urls
     metrics = getMetrics()
 
-    metric_test_results = [{
-        "@id": "metric",
-        "score": GUID,
-        "principle": "GUID",
-        "test_time": GUID,
-        "comment": '"' + GUID + '"',
-        "description": "Description"
-    }]
+    metric_test_results = [
+        {
+            "@id": "metric",
+            "score": GUID,
+            "principle": "GUID",
+            "test_time": GUID,
+            "comment": '"' + GUID + '"',
+            "description": "Description",
+        }
+    ]
 
     if args.thread_num > 1:
         metrics_list = []
         for metric in metrics:
-            metric_test_results.append({
-                "@id": metric["@id"],
-                "principle": metric["principle"].rsplit('/', 1)[-1]
-            })
+            metric_test_results.append(
+                {
+                    "@id": metric["@id"],
+                    "principle": metric["principle"].rsplit("/", 1)[-1],
+                }
+            )
             metrics_list.append((metric, data))
         # initialize parallelized
         num_cores = multiprocessing.cpu_count()
         p = Pool(num_cores)
         list_results = []
         # starting metrics test
-        for result in tqdm(p.imap_unordered(pTestMetric, metrics_list), total=len(metrics_list), dynamic_ncols=True):
+        for result in tqdm(
+            p.imap_unordered(pTestMetric, metrics_list),
+            total=len(metrics_list),
+            dynamic_ncols=True,
+        ):
             list_results.append(result)
 
         p.close()
@@ -234,7 +267,6 @@ def testMetrics(GUID):
                         metric_test_results[i]["comment"] = result["comment"]
                         metric_test_results[i]["description"] = result["description"]
 
-
     else:
         n = 0
         # iterate over each metric
@@ -242,34 +274,42 @@ def testMetrics(GUID):
             n += 1
 
             # retrieve more specific info about each metric
-            metric_info = processFunction(getMetricInfo, [metric["@id"]], 'Retrieving metric informations... ')
+            metric_info = processFunction(
+                getMetricInfo, [metric["@id"]], "Retrieving metric informations... "
+            )
             # retrieve the name (principle) of each metric (F1, A1, I2, etc)
-            principle = metric_info["principle"].rsplit('/', 1)[-1]
+            principle = metric_info["principle"].rsplit("/", 1)[-1]
             # principle = metric_info["principle"]
             # get the description on the metric
             description = '"' + metric_info["description"] + '"'
 
             if True:
-            # if principle[0:2] != 'I2':
-            # if principle[0:2] == 'I2':
+                # if principle[0:2] != 'I2':
+                # if principle[0:2] == 'I2':
                 if PRINT_DETAILS:
                     # print informations related to the metric
                     printMetricInfo(metric_info)
                 # evaluate the metric
                 start_time = getCurrentTime()
-                metric_evaluation_result_text = processFunction(testMetric, [metric["smarturl"], data], 'Evaluating metric ' + principle +'... ')
+                metric_evaluation_result_text = processFunction(
+                    testMetric,
+                    [metric["smarturl"], data],
+                    "Evaluating metric " + principle + "... ",
+                )
                 end_time = getCurrentTime()
                 # print(metric_evaluation_result_text)
                 metric_evaluation_result = json.loads(metric_evaluation_result_text)
                 test_time = end_time - start_time
 
                 if PRINT_DETAILS:
-                    #print results of the evaluation
+                    # print results of the evaluation
                     printTestMetricResult(metric_evaluation_result_text, test_time)
 
                 # get comment
                 # REQUETE SPARQL !!!!!
-                comment = requestResultSparql(metric_evaluation_result_text, "schema:comment")
+                comment = requestResultSparql(
+                    metric_evaluation_result_text, "schema:comment"
+                )
                 # remove empty lines from the comment
                 comment = cleanComment(comment)
                 # filter comment based on args
@@ -277,21 +317,24 @@ def testMetrics(GUID):
                     comment = filterComment(comment, args.write_comment)
                 comment = '"' + comment + '"'
 
-
                 # get the score
-                score = requestResultSparql(metric_evaluation_result_text, "ss:SIO_000300")
+                score = requestResultSparql(
+                    metric_evaluation_result_text, "ss:SIO_000300"
+                )
                 score = str(int(float(score)))
 
                 # add score, principle, time, comment and description
 
-                metric_test_results.append({
-                    "@id": metric["@id"],
-                    "principle": principle,
-                    "score": score,
-                    "test_time": test_time,
-                    "comment": comment,
-                    "description": description,
-                })
+                metric_test_results.append(
+                    {
+                        "@id": metric["@id"],
+                        "principle": principle,
+                        "score": score,
+                        "test_time": test_time,
+                        "comment": comment,
+                        "description": description,
+                    }
+                )
 
     # list that will contains the score for each metric test
     test_score_list = []
@@ -314,18 +357,41 @@ def testMetrics(GUID):
     sumScoresTimes(headers_list, test_score_list, time_list)
 
     # write the list of score (and header if file doesnt exists yet) to a result file
-    writeScoreFile("\t".join(headers_list), "\t".join(test_score_list), OUTPUT_DIR, "/" + OUTPUT_PREF + "_score.tsv")
+    writeScoreFile(
+        "\t".join(headers_list),
+        "\t".join(test_score_list),
+        OUTPUT_DIR,
+        "/" + OUTPUT_PREF + "_score.tsv",
+    )
 
     # write a new line to the time file or create it
-    writeTimeFile("\t".join(headers_list), "\t".join(map(str, time_list)), OUTPUT_DIR, "/" + OUTPUT_PREF + "_time.tsv")
+    writeTimeFile(
+        "\t".join(headers_list),
+        "\t".join(map(str, time_list)),
+        OUTPUT_DIR,
+        "/" + OUTPUT_PREF + "_time.tsv",
+    )
 
     # write a new line to the comment file or create it
-    writeCommentFile("\t".join(headers_list), "\t".join(comments_list), "\t".join(descriptions_list), OUTPUT_DIR, "/" + OUTPUT_PREF + "_comment.tsv")
+    writeCommentFile(
+        "\t".join(headers_list),
+        "\t".join(comments_list),
+        "\t".join(descriptions_list),
+        OUTPUT_DIR,
+        "/" + OUTPUT_PREF + "_comment.tsv",
+    )
 
     ### RAJOUT SOMME SCORES et temps dans stdout
     # if args.score:
     # if args.time:
-    return (headers_list, descriptions_list, test_score_list, list(map(str, time_list)), comments_list)
+    return (
+        headers_list,
+        descriptions_list,
+        test_score_list,
+        list(map(str, time_list)),
+        comments_list,
+    )
+
 
 def asyncTestMetric(metric):
     global args
@@ -333,14 +399,14 @@ def asyncTestMetric(metric):
     args.write_comment = False
     return pTestMetric(metric)
 
+
 def pTestMetric(metric):
     # retrieve more specific info about each metric
     metric_info = getMetricInfo(metric[0]["@id"])
     # retrieve the name (principle) of each metric (F1, A1, I2, etc)
-    principle = metric_info["principle"].rsplit('/', 1)[-1]
+    principle = metric_info["principle"].rsplit("/", 1)[-1]
     # get the description on the metric
     description = '"' + metric_info["description"] + '"'
-
 
     # if principle[0:2] != 'I2':
     # if principle[0] == 'F':
@@ -362,7 +428,6 @@ def pTestMetric(metric):
             comment = filterComment(comment, args.write_comment)
         comment = '"' + comment + '"'
 
-
         # get the score
         score = requestResultSparql(metric_evaluation_result_text, "ss:SIO_000300")
         score = str(int(float(score)))
@@ -379,14 +444,15 @@ def pTestMetric(metric):
 
     return False
 
+
 def requestResultSparql(metric_evaluation_result_text, term):
 
     g = rdflib.Graph()
-    result = g.parse(data=metric_evaluation_result_text, format='json-ld')
+    result = g.parse(data=metric_evaluation_result_text, format="json-ld")
     rdf_string = g.serialize(format="turtle").decode("utf-8")
     # print(g.serialize(format="json-ld").decode("utf-8"))
 
-    #TODO use RDFLib graph traversal methods to retrieve some parts of the graphs
+    # TODO use RDFLib graph traversal methods to retrieve some parts of the graphs
     prefix = """
     PREFIX obo:<http://purl.obolibrary.org/obo/>
     PREFIX schema:<http://schema.org/>
@@ -397,7 +463,8 @@ def requestResultSparql(metric_evaluation_result_text, term):
         $prefix
         SELECT ?s ?p ?o
         WHERE { ?s $term ?o }
-        """)
+        """
+    )
 
     query_string = s.substitute(prefix=prefix, term=term)
 
@@ -408,10 +475,9 @@ def requestResultSparql(metric_evaluation_result_text, term):
 
     return "\n".join(res_list)
 
-def sumScoresTimes(headers_list, test_score_list, time_list):
-    """
-    """
 
+def sumScoresTimes(headers_list, test_score_list, time_list):
+    """"""
 
     sum_score_dict = {}
     sum_dict = {}
@@ -454,16 +520,16 @@ def sumScoresTimes(headers_list, test_score_list, time_list):
 
     # convert datetime in time_list to str
 
+
 def writeTimeFile(headers_list, time_list, output_dir, filename):
-    """
-    """
+    """"""
     if not os.path.isdir(output_dir):
         os.makedirs(output_dir)
     filename = output_dir + filename
     exists = os.path.isfile(filename)
     if exists:
         file = open(filename, "a")
-        file.write("\n" + time_list )
+        file.write("\n" + time_list)
         file.close()
     else:
         file = open(filename, "w")
@@ -471,7 +537,10 @@ def writeTimeFile(headers_list, time_list, output_dir, filename):
         file.write("\n" + time_list)
         file.close()
 
-def writeCommentFile(headers_list, test_comment_list, descriptions_list, output_dir, filename):
+
+def writeCommentFile(
+    headers_list, test_comment_list, descriptions_list, output_dir, filename
+):
     """
 
     @param descriptions_list List Contains the description of eache principle added to the top of the file
@@ -483,7 +552,7 @@ def writeCommentFile(headers_list, test_comment_list, descriptions_list, output_
     exists = os.path.isfile(filename)
     if exists:
         file = open(filename, "a")
-        file.write("\n" + test_comment_list )
+        file.write("\n" + test_comment_list)
         file.close()
     else:
         file = open(filename, "w")
@@ -491,6 +560,7 @@ def writeCommentFile(headers_list, test_comment_list, descriptions_list, output_
         file.write("\n" + headers_list)
         file.write("\n" + test_comment_list)
         file.close()
+
 
 def writeScoreFile(headers_list, test_score_list, output_dir, filename):
     """
@@ -509,7 +579,7 @@ def writeScoreFile(headers_list, test_score_list, output_dir, filename):
     exists = os.path.isfile(filename)
     if exists:
         file = open(filename, "a")
-        file.write("\n" + test_score_list )
+        file.write("\n" + test_score_list)
         file.close()
     else:
         file = open(filename, "w")
@@ -517,13 +587,15 @@ def writeScoreFile(headers_list, test_score_list, output_dir, filename):
         file.write("\n" + test_score_list)
         file.close()
 
+
 def getCurrentTime():
     """
     Function returning the current time formated
 
     @return datetime object
     """
-    return datetime.strptime(time.strftime('%Y-%m-%d %H:%M:%S'), '%Y-%m-%d %H:%M:%S')
+    return datetime.strptime(time.strftime("%Y-%m-%d %H:%M:%S"), "%Y-%m-%d %H:%M:%S")
+
 
 def getMetricInfo(metric_url):
     """
@@ -535,7 +607,12 @@ def getMetricInfo(metric_url):
     """
     while True:
         try:
-            response = requests.request(method='GET', url=metric_url + '.json', allow_redirects=True, timeout=TIMEOUT)
+            response = requests.request(
+                method="GET",
+                url=metric_url + ".json",
+                allow_redirects=True,
+                timeout=TIMEOUT,
+            )
             result = response.json()
             break
         except requests.exceptions.Timeout:
@@ -545,6 +622,7 @@ def getMetricInfo(metric_url):
         except SSLError:
             time.sleep(10)
     return result
+
 
 def printTestMetricResult(result, test_time):
     """
@@ -566,16 +644,17 @@ def printTestMetricResult(result, test_time):
         for line in comment.split("\n"):
             # if line.startswith('SUCCESS') or line.startswith('FAILURE'):
             l = colorComment(line)
-            print(l, end='\n')
+            print(l, end="\n")
         print("")
 
     if args.score:
         print("Score:")
-        print(requestResultSparql(result, "ss:SIO_000300"), end='\n\n')
+        print(requestResultSparql(result, "ss:SIO_000300"), end="\n\n")
 
     if args.time:
         print("Metric test time:")
-        print(test_time, end='\n\n')
+        print(test_time, end="\n\n")
+
 
 def filterComment(comment, comment_args):
     """
@@ -586,12 +665,12 @@ def filterComment(comment, comment_args):
     @return String The filtered comment
     """
     association_dict = {
-                        's': 'SUCCESS',
-                        'f': 'FAILURE',
-                        'w': 'WARN',
-                        'i': 'INFO',
-                        'c': 'CRITICAL',
-                        }
+        "s": "SUCCESS",
+        "f": "FAILURE",
+        "w": "WARN",
+        "i": "INFO",
+        "c": "CRITICAL",
+    }
     filtered_comment = []
 
     additional_info = False
@@ -612,8 +691,8 @@ def filterComment(comment, comment_args):
             #     filtered_comment.append(line)
             #     break
 
-
     return "\n".join(filtered_comment)
+
 
 def cleanComment(comment):
     """
@@ -623,11 +702,12 @@ def cleanComment(comment):
 
     @return String The cleaned comment about the metric test
     """
-    comment = comment.split('\n')
-    if '' in comment:
-        comment = [l for l in comment if l != '']
-    comment = '\n'.join(comment)
+    comment = comment.split("\n")
+    if "" in comment:
+        comment = [l for l in comment if l != ""]
+    comment = "\n".join(comment)
     return comment
+
 
 def colorComment(line):
     """
@@ -638,13 +718,13 @@ def colorComment(line):
 
     # dict containing words as key and the associated color as value
     association_dict = {
-                        'SUCCESS': 'green',
-                        'FAILURE': 'red',
-                        'WARN': 'yellow',
-                        'INFO': 'cyan',
-                        'CRITICAL': 'magenta',
-                        }
-    l = ''
+        "SUCCESS": "green",
+        "FAILURE": "red",
+        "WARN": "yellow",
+        "INFO": "cyan",
+        "CRITICAL": "magenta",
+    }
+    l = ""
     # add the color to the terms if they exists
     for key_term, value_color in association_dict.items():
         if line.startswith(key_term):
@@ -655,16 +735,24 @@ def colorComment(line):
 
 
 def printMetricInfo(metric_info):
-    if args.name or args.principle or args.description or args.comment or args.score or args.time:
-        print('#' * 70, end='\n\n')
+    if (
+        args.name
+        or args.principle
+        or args.description
+        or args.comment
+        or args.score
+        or args.time
+    ):
+        print("#" * 70, end="\n\n")
 
     if args.name:
-        print(metric_info["name"], end='\n\n')
+        print(metric_info["name"], end="\n\n")
     if args.principle:
-        print("Principle: " + metric_info["principle"].rsplit('/', 1)[-1], end='\n\n')
+        print("Principle: " + metric_info["principle"].rsplit("/", 1)[-1], end="\n\n")
     if args.description:
         print("Description:")
-        print(metric_info["description"], end='\n\n')
+        print(metric_info["description"], end="\n\n")
+
 
 def getMetrics():
     """
@@ -673,9 +761,11 @@ def getMetrics():
     @return json Result returned by the request that is JSON-LD formated
     """
 
-    metrics_url = 'https://fair-evaluator.semanticscience.org/FAIR_Evaluator/metrics.json'
+    metrics_url = (
+        "https://fair-evaluator.semanticscience.org/FAIR_Evaluator/metrics.json"
+    )
 
-    while(True):
+    while True:
         try:
             response = requests.get(url=metrics_url, timeout=TIMEOUT)
             break
@@ -694,16 +784,16 @@ def getMetrics():
     return json_res
 
 
-
 def readDOIsFile(filename):
     """
     Read the DOIs from a file input.
 
     @param filename String The inputs DOIs to be tested
     """
-    with open(filename, 'r') as file:
+    with open(filename, "r") as file:
         data = file.read()
     return data
+
 
 def webTestMetrics(GUID_test):
     global args
@@ -715,6 +805,7 @@ def webTestMetrics(GUID_test):
 
     return testMetrics(GUID_test)
 
+
 if __name__ == "__main__":
     args = parser.parse_args()
     PRINT_DETAILS = True
@@ -723,7 +814,6 @@ if __name__ == "__main__":
     #     print("You haven't specified any arguments. Use -h to get more details on how to use this command.")
     #     sys.exit(1)
 
-
     # RSAT paper
     # GUID_test = "10.1093/nar/gky317"
 
@@ -731,25 +821,23 @@ if __name__ == "__main__":
     GUID_test = "https://doi.pangaea.de/10.1594/PANGAEA.902591"
 
     # Dataset
-    #GUID_test = "https://doi.org/10.5061/dryad.615"
-    #GUID_test = "10.5061/dryad.615"
+    # GUID_test = "https://doi.org/10.5061/dryad.615"
+    # GUID_test = "10.5061/dryad.615"
     # GUID_test = "https://www.france-bioinformatique.fr/en"
     # GUID_test = "https://fairsharing.org/"
     # GUID_test = "https://biit.cs.ut.ee/gprofiler/gost"
     # GUID_test = "https://bio.tools/rsat_peak-motifs"
-    if args.input: GUID_test = args.input
+    if args.input:
+        GUID_test = args.input
     # !!!! preblematic url !!!!
     # GUID_test = "10.1155/2019/2561828"
     # GUID_test = "10.1155/2017/3783714"
-
-
 
     # GUID_test = "https://identifiers.org/biotools:the_flux_capacitor"
 
     # GUID_test = "10.1002/cpbi.72"
     # GUID_test = "10.1093/neuros/nyw135"
     # GUID_test = 'https://orcid.org/0000-0002-3597-8557'
-
 
     # for i in range(0, 10):
     results = testMetrics(GUID_test)

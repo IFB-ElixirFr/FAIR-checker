@@ -13,6 +13,7 @@ import validators
 
 from metrics.util import ask_LOV as is_in_LOV
 
+
 class R2Impl(AbstractFAIRMetrics):
     """
     GOAL : retrieve embedded semantic annotations
@@ -23,21 +24,10 @@ class R2Impl(AbstractFAIRMetrics):
        4. for each, ask (efficiently) if it's known in LOV
     """
 
-
     def __init__(self):
         self.name = "R2"
 
-
         self.api = "api_url_for_R2"
-
-
-
-
-
-
-
-
-
 
     def get_classes(self):
         query_classes = """
@@ -52,7 +42,6 @@ class R2Impl(AbstractFAIRMetrics):
         """
 
         return self.rdf_jsonld.query(query_properties)
-
 
     def get_api(self):
         return self.api

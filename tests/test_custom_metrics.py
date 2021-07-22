@@ -1,18 +1,19 @@
 import sys
-sys.path.insert(1, '..')
+
+sys.path.insert(1, "..")
 
 import unittest
 import json
 import requests
 from rdflib import ConjunctiveGraph, Graph
 from metrics.util import ask_OLS, ask_LOV
+
 # from metrics.util import ask_BioPortal
 
 import random
 
+
 class MyTestCase(unittest.TestCase):
-
-
     @classmethod
     def setUpClass(cls) -> None:
         super().setUpClass()
@@ -40,10 +41,12 @@ class MyTestCase(unittest.TestCase):
         self.assertFalse(ask_LOV(uri3))
 
     def testMetricsAPI(sefl):
-        print(f'call to the FAIRMetrics API')
-        api_url = "https://fair-evaluator.semanticscience.org/FAIR_Evaluator/metrics.json"
+        print(f"call to the FAIRMetrics API")
+        api_url = (
+            "https://fair-evaluator.semanticscience.org/FAIR_Evaluator/metrics.json"
+        )
 
-        h = {'Accept': 'application/json'}
+        h = {"Accept": "application/json"}
         res = requests.get(api_url, headers=h, verify=False)
 
         # if res.json() > 0:
@@ -54,9 +57,9 @@ class MyTestCase(unittest.TestCase):
     def testGen2UniqueIdentifier(self):
         smarturl = "https://w3id.org/FAIR_Tests/tests/gen2_unique_identifier"
         doi = "10.5281/zenodo.1147435"
-        print(f'call to the FAIRMetrics API for [ {doi} ]')
+        print(f"call to the FAIRMetrics API for [ {doi} ]")
 
-        h = {'Accept': 'application/json'}
+        h = {"Accept": "application/json"}
         data = '{"subject": "' + doi + '"}'
         data = data.encode("utf-8")
         res = requests.post(smarturl, headers=h, params=data)
@@ -74,5 +77,6 @@ class RandomTest(unittest.TestCase):
         # Vérifie que 'elt' est dans 'liste'
         self.assertIn(elt, liste)
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     unittest.main()

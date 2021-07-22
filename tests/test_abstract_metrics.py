@@ -1,9 +1,11 @@
 import sys
-sys.path.insert(1, '..')
+
+sys.path.insert(1, "..")
 
 from metrics.FAIRMetricsFactory import FAIRMetricsFactory
 from metrics.test_metric import getMetrics
-#from metrics.evaluation import Evaluation
+
+# from metrics.evaluation import Evaluation
 from pymongo import MongoClient
 
 import unittest
@@ -24,20 +26,22 @@ class AbstractMetricsTestCase(unittest.TestCase):
             # metrics.append(factory.get_metric("test_r2"))
             for metric in json_metrics:
                 # remove "FAIR Metrics Gen2" from metric name
-                name = metric["name"].replace('FAIR Metrics Gen2- ', '')
+                name = metric["name"].replace("FAIR Metrics Gen2- ", "")
                 # same but other syntax because of typo
-                name = name.replace('FAIR Metrics Gen2 - ', '')
+                name = name.replace("FAIR Metrics Gen2 - ", "")
                 principle = metric["principle"]
-                cls.metrics.append(factory.get_metric(
-                    name,
-                    metric["@id"],
-                    metric["description"],
-                    metric["smarturl"],
-                    principle,
-                    metric["creator"],
-                    metric["created_at"],
-                    metric["updated_at"],
-                ))
+                cls.metrics.append(
+                    factory.get_metric(
+                        name,
+                        metric["@id"],
+                        metric["description"],
+                        metric["smarturl"],
+                        principle,
+                        metric["creator"],
+                        metric["created_at"],
+                        metric["updated_at"],
+                    )
+                )
         except ValueError as e:
             print(f"no metrics implemention for {e}")
 
@@ -51,7 +55,7 @@ class AbstractMetricsTestCase(unittest.TestCase):
 
     def test_all_bwa(self):
         print("Test all bwa")
-        scores = [1,0,0,1,1,0,0,0,0,1,0,1,0,1,1,0,0,0,0,0,0,0]
+        scores = [1, 0, 0, 1, 1, 0, 0, 0, 0, 1, 0, 1, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0]
         i = 0
         for m in self.metrics:
             result = m.evaluate("http://bio.tools/bwa")
@@ -60,7 +64,7 @@ class AbstractMetricsTestCase(unittest.TestCase):
 
     def test_all_pangaea(self):
         print("Test all pangaea")
-        scores = [1,0,0,1,1,1,0,1,1,1,1,1,0,1,1,0,0,1,1,1,1,1]
+        scores = [1, 0, 0, 1, 1, 1, 0, 1, 1, 1, 1, 1, 0, 1, 1, 0, 0, 1, 1, 1, 1, 1]
         i = 0
         for m in self.metrics:
 
@@ -97,8 +101,9 @@ class AbstractMetricsTestCase(unittest.TestCase):
         i = 0
         for m in self.metrics:
             print(m.get_name())
-            self.assertEqual(str(names[i]),str(m.get_name()))
+            self.assertEqual(str(names[i]), str(m.get_name()))
             i += 1
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     unittest.main()

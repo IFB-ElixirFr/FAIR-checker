@@ -1,3 +1,6 @@
+from datetime import time
+from ssl import SSLError
+
 from metrics.test_metric import getMetrics, testMetric, requestResultSparql
 from metrics.Evaluation import Evaluation
 
@@ -7,6 +10,7 @@ from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 import requests
 import extruct
+from pathlib import Path
 
 import rdflib
 from rdflib import ConjunctiveGraph
@@ -28,10 +32,9 @@ class AbstractFAIRMetrics(ABC):
         self.requests_status_code = "Status code for requests"
         self.url = "URL here"
 
-
-    #common functionality
+    # common functionality
     def common(self):
-        print('In common method of Parent')
+        print("In common method of Parent")
 
     # name
     def get_name(self):
@@ -64,7 +67,7 @@ class AbstractFAIRMetrics(ABC):
         self.url = url
 
     def extract_html_requests(self):
-        while (True):
+        while True:
             try:
                 response = requests.get(url=self.url, timeout=10)
                 break
@@ -81,8 +84,6 @@ class AbstractFAIRMetrics(ABC):
         self.requests_status_code = response.status_code
         self.html_source = response.content
 
-
-
     def extract_html_selenium(self):
         chrome_options = Options()
         chrome_options.add_argument("--headless")
@@ -96,29 +97,37 @@ class AbstractFAIRMetrics(ABC):
 
     def extract_rdf(self):
         html_source = self.html_source
-        data = extruct.extract(html_source, syntaxes=['microdata', 'rdfa', 'json-ld'], errors='ignore')
+        data = extruct.extract(
+            html_source, syntaxes=["microdata", "rdfa", "json-ld"], errors="ignore"
+        )
         kg = ConjunctiveGraph()
+
+        base_path = Path(__file__).parent.parent  ## current directory
+        static_file_path = str((base_path / "static/data/jsonldcontext.json").resolve())
 
         # kg = util.get_rdf_selenium(uri, kg)
 
-        for md in data['json-ld']:
-            if '@context' in md.keys():
-                print(md['@context'])
-                if ('https://schema.org' in md['@context']) or ('http://schema.org' in md['@context']) :
-                    # TODO use __file__ to compute an absolute path from "here"
-                    md['@context'] = '../static/data/jsonldcontext.json'
+        for md in data["json-ld"]:
+            if "@context" in md.keys():
+                print(md["@context"])
+                if ("https://schema.org" in md["@context"]) or (
+                    "http://schema.org" in md["@context"]
+                ):
+                    md["@context"] = static_file_path
             kg.parse(data=json.dumps(md, ensure_ascii=False), format="json-ld")
-        for md in data['rdfa']:
-            if '@context' in md.keys():
-                if ('https://schema.org' in md['@context']) or ('http://schema.org' in md['@context']) :
-                    # TODO use __file__ to compute an absolute path from "here"
-                    md['@context'] = '../static/data/jsonldcontext.json'
+        for md in data["rdfa"]:
+            if "@context" in md.keys():
+                if ("https://schema.org" in md["@context"]) or (
+                    "http://schema.org" in md["@context"]
+                ):
+                    md["@context"] = static_file_path
             kg.parse(data=json.dumps(md, ensure_ascii=False), format="json-ld")
-        for md in data['microdata']:
-            if '@context' in md.keys():
-                if ('https://schema.org' in md['@context']) or ('http://schema.org' in md['@context']) :
-                    # TODO use __file__ to compute an absolute path from "here"
-                    md['@context'] = '../static/data/jsonldcontext.json'
+        for md in data["microdata"]:
+            if "@context" in md.keys():
+                if ("https://schema.org" in md["@context"]) or (
+                    "http://schema.org" in md["@context"]
+                ):
+                    md["@context"] = static_file_path
             kg.parse(data=json.dumps(md, ensure_ascii=False), format="json-ld")
 
         self.rdf_jsonld = kg
@@ -134,10 +143,12 @@ class AbstractFAIRMetrics(ABC):
         pass
 
     def __str__(self):
-        return f"FAIR metrics {self.id} : " \
-               f"\n\t {self.principle} " \
-               f"\n\t {self.name} " \
-               f"\n\t {self.desc} " \
-               f"\n\t {self.creator} " \
-               f"\n\t {self.created_at} " \
-               f"\n\t {self.updated_at} "
+        return (
+            f"FAIR metrics {self.id} : "
+            f"\n\t {self.principle} "
+            f"\n\t {self.name} "
+            f"\n\t {self.desc} "
+            f"\n\t {self.creator} "
+            f"\n\t {self.created_at} "
+            f"\n\t {self.updated_at} "
+        )
