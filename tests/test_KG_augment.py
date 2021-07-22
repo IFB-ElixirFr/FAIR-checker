@@ -71,6 +71,7 @@ class KGAugmentTestCase(unittest.TestCase):
             kg3.serialize(format="turtle", base="http://fair-checker/example/").decode()
         )
 
+    @unittest.skip("To be done by a CRON")
     def test_wikidata_sparqlwrapper(self):
         # r2 = R2Impl()
         # r2.set_url("https://workflowhub.eu/workflows/45")
@@ -105,6 +106,7 @@ class KGAugmentTestCase(unittest.TestCase):
         print(f"loaded {len(kg)} triples")
         self.assertEqual(49, len(kg))
 
+    @unittest.skip("To be done by a CRON")
     def test_biotools(self):
         # r2 = R2Impl()
         # r2.set_url("https://workflowhub.eu/workflows/45")
@@ -125,6 +127,7 @@ class KGAugmentTestCase(unittest.TestCase):
 
         # self.assertEqual(True, False)
 
+    @unittest.skip("To be done by a CRON")
     def test_loa(self):
         # r2 = R2Impl()
         # r2.set_url("https://workflowhub.eu/workflows/45")
@@ -150,6 +153,7 @@ class KGAugmentTestCase(unittest.TestCase):
 
         # self.assertEqual(True, False)
 
+    @unittest.skip("To be done by a CRON")
     def test_opencitation(self):
         # r2 = R2Impl()
         # r2.set_url("https://workflowhub.eu/workflows/45")
@@ -170,6 +174,7 @@ class KGAugmentTestCase(unittest.TestCase):
 
         # self.assertEqual(True, False)
 
+    @unittest.skip("To be done by a CRON")
     def test_all(self):
         # r2 = R2Impl()
         # r2.set_url("https://workflowhub.eu/workflows/45")

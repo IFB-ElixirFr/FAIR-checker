@@ -45,14 +45,17 @@ class AbstractMetricsTestCase(unittest.TestCase):
         except ValueError as e:
             print(f"no metrics implemention for {e}")
 
+    @unittest.skip("To be done by a CRON")
     def test_bw(self):
         result = self.metrics[2].evaluate("http://bio.tools/bw")
         self.assertEqual(str(0), str(result.get_score()))
 
+    @unittest.skip("To be done by a CRON")
     def test_bwa(self):
         result = self.metrics[0].evaluate("http://bio.tools/bwa")
         self.assertEqual(str(1), str(result.get_score()))
 
+    @unittest.skip("To be done by a CRON")
     def test_all_bwa(self):
         print("Test all bwa")
         scores = [1, 0, 0, 1, 1, 0, 0, 0, 0, 1, 0, 1, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0]
@@ -62,6 +65,7 @@ class AbstractMetricsTestCase(unittest.TestCase):
             self.assertEqual(str(scores[i]), str(result.get_score()))
             i += 1
 
+    @unittest.skip("To be done by a CRON")
     def test_all_pangaea(self):
         print("Test all pangaea")
         scores = [1, 0, 0, 1, 1, 1, 0, 1, 1, 1, 1, 1, 0, 1, 1, 0, 0, 1, 1, 1, 1, 1]
@@ -72,6 +76,7 @@ class AbstractMetricsTestCase(unittest.TestCase):
             self.assertEqual(str(scores[i]), str(result.get_score()))
             i += 1
 
+    @unittest.skip("To be done by a CRON")
     def test_names(self):
         print("Test all names")
         names = [
