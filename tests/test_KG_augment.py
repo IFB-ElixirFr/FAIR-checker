@@ -1,10 +1,7 @@
-import json
-import unittest
 import unittest
 
 import requests
 
-from metrics.R2Impl import R2Impl
 from metrics.util import describe_loa
 from metrics.util import describe_biotools
 from metrics.util import describe_wikidata

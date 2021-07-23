@@ -11,6 +11,7 @@ from pymongo import MongoClient
 import unittest
 
 
+@unittest.skip("long test, to be run through a cron @GitHub ?")
 class AbstractMetricsTestCase(unittest.TestCase):
     metrics = []
     factory = None

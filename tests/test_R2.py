@@ -9,7 +9,7 @@ from selenium.webdriver.chrome.options import Options
 from webdriver_manager.chrome import ChromeDriverManager
 import extruct
 
-from metrics.R2Impl import R2Impl
+from metrics.R_1_2_Impl import R_1_2_Impl
 
 
 ###
@@ -21,21 +21,21 @@ class R2ImplTestCase(unittest.TestCase):
     uri_test = "https://workflowhub.eu/workflows/45"
 
     def test_extract_html_requests(self):
-        class_r2 = R2Impl()
+        class_r2 = R_1_2_Impl(self.uri_test)
         class_r2.set_url(self.uri_test)
         class_r2.extract_html_requests()
         requests_status_code = class_r2.get_requests_status_code()
         self.assertEqual(200, requests_status_code)
 
     def test_extract_rdf(self):
-        class_r2 = R2Impl()
+        class_r2 = R_1_2_Impl(self.uri_test)
         class_r2.set_url(self.uri_test)
         class_r2.extract_html_requests()
         class_r2.extract_rdf()
         self.assertEqual(103, len(class_r2.get_jsonld()))
 
-    def test_R2_Impl(slef):
-        class_r2 = R2Impl()
+    def test_R2_Impl(self):
+        class_r2 = R_1_2_Impl(self.uri_test)
         print(class_r2.get_name())
         uri = "https://workflowhub.eu/workflows/45"
         # uri = "https://data.inrae.fr/dataset.xhtml?persistentId=doi:10.15454/A4KXE7"
