@@ -32,7 +32,7 @@ class R2ImplTestCase(unittest.TestCase):
         class_r2.set_url(self.uri_test)
         class_r2.extract_html_requests()
         class_r2.extract_rdf()
-        self.assertEqual(103, len(class_r2.get_jsonld()))
+        self.assertEqual(104, len(class_r2.get_jsonld()))
 
     def test_R2_Impl(self):
         class_r2 = R_1_2_Impl(self.uri_test)

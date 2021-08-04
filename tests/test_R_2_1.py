@@ -13,7 +13,7 @@ class TestingLicenses(unittest.TestCase):
             "https://data.inrae.fr/dataset.xhtml?persistentId=doi:10.15454/P27LDX"
         )
         res = r21.strong_evaluate()
-        self.assertEqual(True, res)
+        self.assertEqual(False, res)
 
 
 if __name__ == "__main__":
