@@ -150,7 +150,7 @@ class KGAugmentTestCase(unittest.TestCase):
 
         # self.assertEqual(True, False)
 
-    @unittest.skip("To be done by a CRON")
+    # @unittest.skip("To be done by a CRON")
     def test_opencitation(self):
         # r2 = R2Impl()
         # r2.set_url("https://workflowhub.eu/workflows/45")
