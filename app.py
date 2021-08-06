@@ -296,13 +296,13 @@ def recommendation(emit_json, metric_name, comment):
     recommendation_dict = {
         # F1
         "unique_identifier": {
-            "did not match any known identification system (tested inchi, doi, "\
-            "handle, uri) and therefore did not pass this metric.  If you think"\
-            " this is an error, please contact the FAIR Metrics group "\
-            "(http://fairmetrics.org).": "You may use another identification "\
-            "scheme for your resource. For instance, provide a DOI, a URI "\
-            "(https://www.w3.org/wiki/URI) or a pubmed id (PMID) for an academic"\
-            "paper. Also, look at the FAIR Cookbook: "\
+            "did not match any known identification system (tested inchi, doi, "
+            "handle, uri) and therefore did not pass this metric.  If you think"
+            " this is an error, please contact the FAIR Metrics group "
+            "(http://fairmetrics.org).": "You may use another identification "
+            "scheme for your resource. For instance, provide a DOI, a URI "
+            "(https://www.w3.org/wiki/URI) or a pubmed id (PMID) for an academic"
+            "paper. Also, look at the FAIR Cookbook: "
             "https://fairplus.github.io/the-fair-cookbook/content/recipes/findability/identifiers.html",
         },
         "data_identifier_persistence": {
