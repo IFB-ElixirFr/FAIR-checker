@@ -49,18 +49,23 @@
         socket.emit('slow');
         socket.emit('long');
     });
+
 </script>
 
 <article id="disclaimer" class="message is-warning">
     <div class="message-body">
-      <b>Disclaimer:</b> FAIR-Checker is under active development and is not intended to be used yet in production environment.
+        <b>Disclaimer:</b> FAIR-Checker is under active development and is not intended to be used yet in production
+        environment.
     </div>
 </article>
 
 <h1 class="title">How FAIR is my resource ?</h1>
-<progress id="p1" class="progress is-primary"  value="" max="100"></progress>
-<progress id="p2" class="progress is-link"  value="" max="100"></progress>
+<progress id="p1" class="progress is-primary" value="" max="100"></progress>
+<progress id="p2" class="progress is-link" value="" max="100"></progress>
 
-<div id="notif" class="notification is-info"> <button class="delete"></button>long task done</div>
+<div id="notif" class="notification is-info">
+    <button class="delete"></button>
+    long task done
+</div>
 
 {% endblock %}

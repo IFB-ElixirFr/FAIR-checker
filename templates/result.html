@@ -12,25 +12,25 @@
 
 <table class="display" id="summary_table">
     <thead>
-        <tr>
-            <th></th>
-            <th>Principle</th>
-            <th>Score</th>
-            <th>Time</th>
-        </tr>
+    <tr>
+        <th></th>
+        <th>Principle</th>
+        <th>Score</th>
+        <th>Time</th>
+    </tr>
     </thead>
     <tbody>
     {% for elem in results_list %}
-        <tr data-child-value='{{ elem | tojson | safe }}'>
-            <td></td>
-            <td>{{ elem.header }}</td>
-            {% if elem.score == "0" %}
-            <td><span class="tag is-danger">{{ elem.score }}</span></td>
-            {% else %}
-            <td><span class="tag is-success">{{ elem.score }}</span></td>
-            {% endif %}
-            <td>{{ elem.time }}</td>
-        </tr>
+    <tr data-child-value='{{ elem | tojson | safe }}'>
+        <td></td>
+        <td>{{ elem.header }}</td>
+        {% if elem.score == "0" %}
+        <td><span class="tag is-danger">{{ elem.score }}</span></td>
+        {% else %}
+        <td><span class="tag is-success">{{ elem.score }}</span></td>
+        {% endif %}
+        <td>{{ elem.time }}</td>
+    </tr>
     {% endfor %}
     </tbody>
 </table>
