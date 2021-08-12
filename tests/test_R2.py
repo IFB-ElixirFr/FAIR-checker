@@ -9,7 +9,7 @@ from selenium.webdriver.chrome.options import Options
 from webdriver_manager.chrome import ChromeDriverManager
 import extruct
 
-from metrics.R_1_2_Impl import R_1_2_Impl
+from metrics.R_1_1_Impl import R_1_2_Impl
 
 
 ###
