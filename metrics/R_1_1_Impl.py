@@ -70,8 +70,15 @@ class R_1_1_Impl(AbstractFAIRMetrics):
         query_licenses = """
             PREFIX schema: <http://schema.org/>
             PREFIX dct: <http://purl.org/dc/terms/> 
+            PREFIX doap: <http://usefulinc.com/ns/doap#>
+            PREFIX dbpedia-owl: <http://dbpedia.org/ontology/>
+            PREFIX cc: <http://creativecommons.org/ns#>
+            PREFIX xhv: <http://www.w3.org/1999/xhtml/vocab#>
+            PREFIX sto: <https://w3id.org/i40/sto#>
+            PREFIX nie: <http://www.semanticdesktop.org/ontologies/2007/01/19/nie#>
             ASK { 
-                VALUES ?p {schema:license dct:license} . 
+                VALUES ?p {schema:license dct:license doap:license dbpedia-owl:license \
+                cc:license xhv:license sto:license nie:license } . 
                 ?s ?p ?o .
             }
         """
@@ -86,8 +93,15 @@ class R_1_1_Impl(AbstractFAIRMetrics):
         query_licenses = """
             PREFIX schema: <http://schema.org/>
             PREFIX dct: <http://purl.org/dc/terms/> 
+            PREFIX doap: <http://usefulinc.com/ns/doap#>
+            PREFIX dbpedia-owl: <http://dbpedia.org/ontology/>
+            PREFIX cc: <http://creativecommons.org/ns#>
+            PREFIX xhv: <http://www.w3.org/1999/xhtml/vocab#>
+            PREFIX sto: <https://w3id.org/i40/sto#>
+            PREFIX nie: <http://www.semanticdesktop.org/ontologies/2007/01/19/nie#>
             ASK { 
-                VALUES ?p {schema:license dct:license} . 
+                VALUES ?p {schema:license dct:license doap:license dbpedia-owl:license \
+                cc:license xhv:license sto:license nie:license } . 
                 ?s ?p ?o .
                 #FILTER( NOT (isBlank(?o))) .
             }
