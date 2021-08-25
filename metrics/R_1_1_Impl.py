@@ -28,6 +28,7 @@ class R_1_1_Impl(AbstractFAIRMetrics):
         self.name = "R1.1"
         self.desc = "Metadata includes license. Evaluate if dct:license or schema:license properties exist."
         self.url = url
+        self.api = "Metric R1.1 API"
 
     def get_classes(self):
         query_classes = """
@@ -69,19 +70,22 @@ class R_1_1_Impl(AbstractFAIRMetrics):
         # TODO define common prefix in the abstract metrics class
         query_licenses = """
             PREFIX schema: <http://schema.org/>
-            PREFIX dct: <http://purl.org/dc/terms/> 
+            PREFIX dct: <http://purl.org/dc/terms/>
             PREFIX doap: <http://usefulinc.com/ns/doap#>
             PREFIX dbpedia-owl: <http://dbpedia.org/ontology/>
             PREFIX cc: <http://creativecommons.org/ns#>
             PREFIX xhv: <http://www.w3.org/1999/xhtml/vocab#>
             PREFIX sto: <https://w3id.org/i40/sto#>
             PREFIX nie: <http://www.semanticdesktop.org/ontologies/2007/01/19/nie#>
-            ASK { 
+            ASK {
                 VALUES ?p {schema:license dct:license doap:license dbpedia-owl:license \
-                cc:license xhv:license sto:license nie:license } . 
+                cc:license xhv:license sto:license nie:license } .
                 ?s ?p ?o .
             }
         """
+        res = self.rdf_jsonld.query(query_licenses)
+        for bool_r in res:
+            return bool_r
 
     def strong_evaluate(self):
         print("Evaluating R1.1")
@@ -92,16 +96,16 @@ class R_1_1_Impl(AbstractFAIRMetrics):
         # TODO understand why SPARQL filters are not parsed by RDFlib
         query_licenses = """
             PREFIX schema: <http://schema.org/>
-            PREFIX dct: <http://purl.org/dc/terms/> 
+            PREFIX dct: <http://purl.org/dc/terms/>
             PREFIX doap: <http://usefulinc.com/ns/doap#>
             PREFIX dbpedia-owl: <http://dbpedia.org/ontology/>
             PREFIX cc: <http://creativecommons.org/ns#>
             PREFIX xhv: <http://www.w3.org/1999/xhtml/vocab#>
             PREFIX sto: <https://w3id.org/i40/sto#>
             PREFIX nie: <http://www.semanticdesktop.org/ontologies/2007/01/19/nie#>
-            ASK { 
+            ASK {
                 VALUES ?p {schema:license dct:license doap:license dbpedia-owl:license \
-                cc:license xhv:license sto:license nie:license } . 
+                cc:license xhv:license sto:license nie:license } .
                 ?s ?p ?o .
                 #FILTER( NOT (isBlank(?o))) .
             }

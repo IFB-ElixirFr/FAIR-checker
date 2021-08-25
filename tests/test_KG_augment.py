@@ -68,7 +68,7 @@ class KGAugmentTestCase(unittest.TestCase):
             kg3.serialize(format="turtle", base="http://fair-checker/example/").decode()
         )
 
-    @unittest.skip("To be done by a CRON")
+    # @unittest.skip("To be done by a CRON, find example with added triples")
     def test_wikidata_sparqlwrapper(self):
         # r2 = R2Impl()
         # r2.set_url("https://workflowhub.eu/workflows/45")
@@ -80,7 +80,7 @@ class KGAugmentTestCase(unittest.TestCase):
         # print(kg.serialize(format='turtle').decode())
 
         url = "http://www.wikidata.org/entity/Q28665865"
-        url = "https://search.datacite.org/works/10.7892/boris.108387"
+        # url = "https://search.datacite.org/works/10.7892/boris.108387"
 
         kg = ConjunctiveGraph()
         kg = describe_wikidata(url, kg)

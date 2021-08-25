@@ -140,6 +140,36 @@ class GenSHACLTestCase(unittest.TestCase):
             if util.ask_LOV(p["name"]):
                 p["tag"].append("LOV")
 
+    @unittest.skip("Need API key to work")
+    def test_BioPortal(self):
+        turtle_edam = self.turtle_edam
+        kg = ConjunctiveGraph()
+        kg.parse(data=turtle_edam, format="turtle")
+
+        query_classes = self.query_classes
+        query_properties = self.query_properties
+
+        table_content = {"classes": [], "properties": []}
+        qres = kg.query(query_classes)
+        print("Class")
+        for row in qres:
+            table_content["classes"].append({"name": row["class"], "tag": []})
+            print(f'{row["class"]}')
+
+        qres = kg.query(query_properties)
+        print("Prop")
+        for row in qres:
+            table_content["properties"].append({"name": row["prop"], "tag": []})
+            print(f'{row["prop"]}')
+
+        for c in table_content["classes"]:
+            if util.ask_BioPortal(c["name"], "class"):
+                c["tag"].append("BioPortal")
+
+        for p in table_content["properties"]:
+            if util.ask_BioPortal(c["name"], "property"):
+                c["tag"].append("BioPortal")
+
     @unittest.skip("Bioportal not working because of API key")
     def test_validate_shape_tool(self):
         turtle_edam = self.turtle_edam
