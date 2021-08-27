@@ -4,7 +4,9 @@ from metrics.R_1_1_Impl import R_1_1_Impl
 
 class TestingLicenses(unittest.TestCase):
     uri = "https://data.inrae.fr/dataset.xhtml?persistentId=doi:10.15454/P27LDX"
-    metric = R_1_1_Impl("https://data.inrae.fr/dataset.xhtml?persistentId=doi:10.15454/P27LDX")
+    metric = R_1_1_Impl(
+        "https://data.inrae.fr/dataset.xhtml?persistentId=doi:10.15454/P27LDX"
+    )
 
     def test_get(self):
         metric = self.metric
@@ -31,8 +33,6 @@ class TestingLicenses(unittest.TestCase):
         graph = metric.get_jsonld()
         print(len(graph))
         self.assertGreater(len(graph), 0)
-
-
 
     def test_license_workflowhub_weak(self):
         metric = R_1_1_Impl("https://workflowhub.eu/workflows/45")
