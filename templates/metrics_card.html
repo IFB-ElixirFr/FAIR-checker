@@ -7,7 +7,7 @@
             <span id="status_{{ id }}" class="tag is-small">Status</span>
         </div>
         <a class="card-header-icon card-toggle">
-          <i class="fa fa-angle-down"></i>
+            <i class="fa fa-angle-down"></i>
         </a>
     </header>
     <div id="metric_card_content_{{ id }}" class="card-content is-hidden">
@@ -31,22 +31,22 @@
             <div class="message-body is-size-7">
                 <table hidden id="result_table_{{ id }}" class="table is-hoverable">
                     <tbody>
-                        <tr>
-                            <td>Score</td>
-                            <td id="score_{{ id }}" data-category="{{ principle_category }}"></td>
-                        </tr>
-                        <tr>
-                            <td>Time</td>
-                            <td id="time_{{ id }}">time here !</td>
-                        </tr>
-                        <tr>
-                            <td>Comment</td>
-                            <td id="comment_{{ id }}">comment here !</td>
-                        </tr>
-                        <tr>
-                            <td>Recommendation</td>
-                            <td id="guideline_{{ id }}"></td>
-                        </tr>
+                    <tr>
+                        <td>Score</td>
+                        <td id="score_{{ id }}" data-category="{{ principle_category }}"></td>
+                    </tr>
+                    <tr>
+                        <td>Time</td>
+                        <td id="time_{{ id }}">time here !</td>
+                    </tr>
+                    <tr>
+                        <td>Comment</td>
+                        <td id="comment_{{ id }}">comment here !</td>
+                    </tr>
+                    <tr>
+                        <td>Recommendation</td>
+                        <td id="guideline_{{ id }}"></td>
+                    </tr>
                     </tbody>
                 </table>
             </div>
@@ -54,7 +54,9 @@
     </div>
     <footer class="card-footer">
         <div class="card-footer-item">
-            <button id="test_{{ id }}" href="#" value="{{ api_url }}" class="button is-small is-info" data-checkbox="checkbox_test_{{ id }}">Check</button>
+            <button id="test_{{ id }}" href="#" value="{{ api_url }}" class="button is-small is-info"
+                    data-checkbox="checkbox_test_{{ id }}">Check
+            </button>
         </div>
     </footer>
 </div>

@@ -109,7 +109,7 @@ try:
 except ValueError as e:
     print(f"no metrics implemention for {e}")
 
-    ###### A DEPLACER AU LANCEMENT DU SERVEUR ######
+# A DEPLACER AU LANCEMENT DU SERVEUR ######
 METRICS_RES = test_metric.getMetrics()
 
 KGS = {}
@@ -186,7 +186,7 @@ def handle_metric(json):
     # data = '{"subject": "' + url + '"}'
     # print(data)
 
-    ### NEW class IMPLE
+    # NEW class IMPLE
 
     id = METRICS[metric_name].get_id()
     api_url = METRICS[metric_name].get_api()
@@ -239,7 +239,7 @@ def handle_metric(json):
     # comment = test_metric.requestResultSparql(res, "schema:comment")
     # remove empty lines from the comment
     comment = test_metric.cleanComment(comment)
-    all_comment = comment
+    # all_comment = comment
     # select only success and failure
     comment = test_metric.filterComment(comment, "sf")
 
@@ -296,7 +296,14 @@ def recommendation(emit_json, metric_name, comment):
     recommendation_dict = {
         # F1
         "unique_identifier": {
-            "did not match any known identification system (tested inchi, doi, handle, uri) and therefore did not pass this metric.  If you think this is an error, please contact the FAIR Metrics group (http://fairmetrics.org).": "You may use another identification scheme for your resource. For instance, provide a DOI, a URI (https://www.w3.org/wiki/URI) or a pubmed id (PMID) for an academic paper. Also, look at the FAIR Cookbook: https://fairplus.github.io/the-fair-cookbook/content/recipes/findability/identifiers.html",
+            "did not match any known identification system (tested inchi, doi, "
+            "handle, uri) and therefore did not pass this metric.  If you think"
+            " this is an error, please contact the FAIR Metrics group "
+            "(http://fairmetrics.org).": "You may use another identification "
+            "scheme for your resource. For instance, provide a DOI, a URI "
+            "(https://www.w3.org/wiki/URI) or a pubmed id (PMID) for an academic"
+            "paper. Also, look at the FAIR Cookbook: "
+            "https://fairplus.github.io/the-fair-cookbook/content/recipes/findability/identifiers.html",
         },
         "data_identifier_persistence": {
             "FAILURE: The identifier": "You may use another identification scheme for your resource. For instance, provide a DOI, a URI (https://www.w3.org/wiki/URI) or a pubmed id for an academic paper.",
@@ -461,7 +468,7 @@ def write_temp_metric_res_file(principle, api_url, time, score, comment, content
 @socketio.on("download_csv")
 def handle_csv_download():
 
-    temp_file_path = "./temp/" + FILE_UUID
+    # temp_file_path = "./temp/" + FILE_UUID
 
     print("Received download request from " + FILE_UUID)
     # csv_download(temp_file_path)
@@ -625,7 +632,7 @@ def handle_embedded_annot_2(data):
     print("là")
     kg = ConjunctiveGraph()
 
-    base_path = Path(__file__).parent  ## current directory
+    base_path = Path(__file__).parent  # current directory
     static_file_path = str((base_path / "static/data/jsonldcontext.json").resolve())
 
     for md in d["json-ld"]:
@@ -662,8 +669,8 @@ def handle_embedded_annot_2(data):
 @socketio.on("update_annot_bioschemas")
 def handle_annotationn(data):
     # url = data['url']
-    errors = data["err"]
-    warnings = data["warn"]
+    # errors = data["err"]
+    # warnings = data["warn"]
     # print(warnings)
 
     # sid = request.sid
@@ -1162,14 +1169,14 @@ def testUrl():
 
 parser = argparse.ArgumentParser(
     description="""
-FAIR-Checker, a web and command line tool to assess FAIRness of web accessible resources. 
+FAIR-Checker, a web and command line tool to assess FAIRness of web accessible resources.
 Usage examples :
     python app.py --web
     python app.py --url http://bio.tools/bwa
     python app.py --bioschemas --url http://bio.tools/bwa
 
-Please report any issue to thomas.rosnet@france-bioinforatique.fr, 
-or submit an issue to https://github.com/IFB-ElixirFr/fair-checker/issues. 
+Please report any issue to thomas.rosnet@france-bioinforatique.fr,
+or submit an issue to https://github.com/IFB-ElixirFr/fair-checker/issues.
 """,
     formatter_class=RawTextHelpFormatter,
 )

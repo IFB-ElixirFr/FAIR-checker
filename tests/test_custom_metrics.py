@@ -24,6 +24,7 @@ class MyTestCase(unittest.TestCase):
         super().tearDownClass()
         print("ENDING all tests")
 
+    @unittest.skip("To be done by a CRON")
     def test_OLS(self):
         uri1 = "https://bio.tools/bwa"
         self.assertFalse(ask_OLS(uri1))
@@ -32,6 +33,7 @@ class MyTestCase(unittest.TestCase):
         uri3 = "http://www.ebi.ac.uk/efo/EFO_0000001"
         self.assertTrue(ask_OLS(uri3))
 
+    @unittest.skip("To be done by a CRON")
     def test_LOV(self):
         uri1 = "https://bio.tools/bwa"
         self.assertFalse(ask_LOV(uri1))
@@ -40,6 +42,7 @@ class MyTestCase(unittest.TestCase):
         uri3 = "http://www.ebi.ac.uk/efo/EFO_0000001"
         self.assertFalse(ask_LOV(uri3))
 
+    @unittest.skip("To be done by a CRON")
     def testMetricsAPI(sefl):
         print(f"call to the FAIRMetrics API")
         api_url = (
@@ -54,6 +57,7 @@ class MyTestCase(unittest.TestCase):
         # else:
         #     return False
 
+    @unittest.skip("To be done by a CRON")
     def testGen2UniqueIdentifier(self):
         smarturl = "https://w3id.org/FAIR_Tests/tests/gen2_unique_identifier"
         doi = "10.5281/zenodo.1147435"

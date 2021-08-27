@@ -60,7 +60,7 @@ class MissingMetadataTestCase(unittest.TestCase):
             print(new_kg.serialize(format="json-ld").decode())
             print("**************************")
 
-        self.assertEquals(len(new_kg), 4)
+        self.assertEqual(len(new_kg), 4)
 
 
 if __name__ == "__main__":
