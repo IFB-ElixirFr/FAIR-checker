@@ -111,6 +111,5 @@ class AbstractMetricsTestCase(unittest.TestCase):
             i += 1
 
 
-
 if __name__ == "__main__":
     unittest.main()
