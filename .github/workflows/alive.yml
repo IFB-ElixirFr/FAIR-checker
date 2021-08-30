@@ -1,9 +1,8 @@
-name: Black code formatting
+name: Availability of external services
 
 on:
-  #workflow_run:
-  #  workflows: ["Python application"]
-  #  types: [completed]
+  schedule:
+  - cron: "0 0 * * *"
   push:
     branches: [ dev_alban, dev_thomas, master ]
   pull_request:
@@ -15,6 +14,5 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-      - uses: rickstaa/action-black@v1
-        with:
-          black_args: ". --check --diff --color"
+      - name: Check Bio.tools SPARQL endpoint
+        run: bash biotools-sparql.alive.sh
