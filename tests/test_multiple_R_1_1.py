@@ -13,9 +13,9 @@ class TestingLicenses(unittest.TestCase):
 
     json_metrics = getMetrics()
     factory = FAIRMetricsFactory()
-    r11_wilk_et_al = FAIRMetricsImpl(
-                name, id, desc, api, principle, creator, created_at, updated_at
-            )
+    # r11_wilk_et_al = FAIRMetricsImpl(
+    #             name, id, desc, api, principle, creator, created_at, updated_at
+    #         )
 
     def test_get(self):
         metric = self.metric
