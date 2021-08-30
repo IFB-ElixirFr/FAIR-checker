@@ -1,6 +1,7 @@
 from metrics.AbstractFAIRMetrics import AbstractFAIRMetrics
 import validators
 
+
 class R_1_2_Impl(AbstractFAIRMetrics):
     """
     GOAL : retrieve embedded semantic annotations
