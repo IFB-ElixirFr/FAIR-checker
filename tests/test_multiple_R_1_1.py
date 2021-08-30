@@ -17,31 +17,31 @@ class TestingLicenses(unittest.TestCase):
     #             name, id, desc, api, principle, creator, created_at, updated_at
     #         )
 
-    def test_get(self):
-        metric = self.metric
-        print(metric.get_api())
-        print(metric.is_valid_uri(self.uri))
-        metric.evaluate()
-
-    def test_extract_html_selenium(self):
-        metric = self.metric
-        metric.extract_html_selenium()
-        # check that html_source is actually html
-        metric.get_html_source()
-        metric.extract_rdf()
-        graph = metric.get_jsonld()
-        print(len(graph))
-        self.assertGreater(len(graph), 0)
-
-    def test_extract_html_requests(self):
-        metric = self.metric
-        metric.extract_html_requests()
-        # check that html_source is actually html
-        metric.get_html_source()
-        metric.extract_rdf()
-        graph = metric.get_jsonld()
-        print(len(graph))
-        self.assertGreater(len(graph), 0)
+    # def test_get(self):
+    #     metric = self.metric
+    #     print(metric.get_api())
+    #     print(metric.is_valid_uri(self.uri))
+    #     metric.evaluate()
+    #
+    # def test_extract_html_selenium(self):
+    #     metric = self.metric
+    #     metric.extract_html_selenium()
+    #     # check that html_source is actually html
+    #     metric.get_html_source()
+    #     metric.extract_rdf()
+    #     graph = metric.get_jsonld()
+    #     print(len(graph))
+    #     self.assertGreater(len(graph), 0)
+    #
+    # def test_extract_html_requests(self):
+    #     metric = self.metric
+    #     metric.extract_html_requests()
+    #     # check that html_source is actually html
+    #     metric.get_html_source()
+    #     metric.extract_rdf()
+    #     graph = metric.get_jsonld()
+    #     print(len(graph))
+    #     self.assertGreater(len(graph), 0)
 
     def test_license_workflowhub_weak(self):
         metric = R_1_1_Impl("https://workflowhub.eu/workflows/45")
