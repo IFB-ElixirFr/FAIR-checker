@@ -1,5 +1,5 @@
 from metrics.AbstractFAIRMetrics import AbstractFAIRMetrics
-
+import validators
 
 class R_1_2_Impl(AbstractFAIRMetrics):
     """
@@ -36,6 +36,21 @@ class R_1_2_Impl(AbstractFAIRMetrics):
         return validators.url(uri)
 
     def evaluate(self):
+        #         eval = Evaluation()
+        #         eval.set_start_time()
+
+        #         eval.result_text = testMetric(self.api, data)
+
+        #         # print(eval.result_text)
+        #         eval.set_end_time()
+        #         # evaluation_obj.result_json = json.loads(self.result_text)
+        #         eval.set_score(requestResultSparql(eval.result_text, "ss:SIO_000300"))
+        #         eval.set_reason(requestResultSparql(eval.result_text, "schema:comment"))
+        #         # principle are URLs so we get the last element after the last /
+        #         eval.set_metrics(self.principle.split("/")[-1])
+        #         eval.set_target_uri(url)
+        #         eval.persist()
+        #         return eval
         pass
 
     def evaluate_prov(self):
