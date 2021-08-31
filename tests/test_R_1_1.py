@@ -1,5 +1,6 @@
 import unittest
 from metrics.R_1_1_Impl import R_1_1_Impl
+from metrics.Evaluation import Result
 
 
 class TestingLicenses(unittest.TestCase):
@@ -33,6 +34,11 @@ class TestingLicenses(unittest.TestCase):
         graph = metric.get_jsonld()
         print(len(graph))
         self.assertGreater(len(graph), 0)
+
+    def test_license_workflowhub(self):
+        metric = R_1_1_Impl("https://workflowhub.eu/workflows/45")
+        res = metric.evaluate()
+        self.assertEqual(res, Result.STRONG)
 
     def test_license_workflowhub_weak(self):
         metric = R_1_1_Impl("https://workflowhub.eu/workflows/45")

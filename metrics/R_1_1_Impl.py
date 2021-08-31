@@ -59,31 +59,25 @@ class R_1_1_Impl(AbstractFAIRMetrics):
     def ask_LOV(self, uri):
         return is_in_LOV(uri)
 
-    def evaluate(self):
-        pass
-
     def weak_evaluate(self):
         print("Evaluating R1.1")
         self.extract_html_requests()
         self.extract_rdf()
 
         # TODO define common prefix in the abstract metrics class
-        query_licenses = """
-            PREFIX schema: <http://schema.org/>
-            PREFIX dct: <http://purl.org/dc/terms/>
-            PREFIX doap: <http://usefulinc.com/ns/doap#>
-            PREFIX dbpedia-owl: <http://dbpedia.org/ontology/>
-            PREFIX cc: <http://creativecommons.org/ns#>
-            PREFIX xhv: <http://www.w3.org/1999/xhtml/vocab#>
-            PREFIX sto: <https://w3id.org/i40/sto#>
-            PREFIX nie: <http://www.semanticdesktop.org/ontologies/2007/01/19/nie#>
-            ASK {
-                VALUES ?p {schema:license dct:license doap:license dbpedia-owl:license \
-                cc:license xhv:license sto:license nie:license } .
-                ?s ?p ?o .
-            }
+        query_licenses = (
+            self.COMMON_SPARQL_PREFIX
+            + """
+ASK {
+    VALUES ?p {schema:license dct:license doap:license dbpedia-owl:license \
+    cc:license xhv:license sto:license nie:license } .
+    ?s ?p ?o .
+}
         """
-        res = self.rdf_jsonld.query(query_licenses)
+        )
+        # self.logger.debug(query_licenses)
+        res = self.get_rdf_jsonld().query(query_licenses)
+        # self.logger.debug(res)
         for bool_r in res:
             return bool_r
 
@@ -94,24 +88,19 @@ class R_1_1_Impl(AbstractFAIRMetrics):
 
         # TODO define common prefix in the abstract metrics class
         # TODO understand why SPARQL filters are not parsed by RDFlib
-        query_licenses = """
-            PREFIX schema: <http://schema.org/>
-            PREFIX dct: <http://purl.org/dc/terms/>
-            PREFIX doap: <http://usefulinc.com/ns/doap#>
-            PREFIX dbpedia-owl: <http://dbpedia.org/ontology/>
-            PREFIX cc: <http://creativecommons.org/ns#>
-            PREFIX xhv: <http://www.w3.org/1999/xhtml/vocab#>
-            PREFIX sto: <https://w3id.org/i40/sto#>
-            PREFIX nie: <http://www.semanticdesktop.org/ontologies/2007/01/19/nie#>
-            ASK {
-                VALUES ?p {schema:license dct:license doap:license dbpedia-owl:license \
-                cc:license xhv:license sto:license nie:license } .
-                ?s ?p ?o .
-                #FILTER( NOT (isBlank(?o))) .
-            }
+        query_licenses = (
+            self.COMMON_SPARQL_PREFIX
+            + """
+ASK {
+    VALUES ?p {schema:license dct:license doap:license dbpedia-owl:license \
+    cc:license xhv:license sto:license nie:license } .
+    ?s ?p ?o .
+    #FILTER( NOT (isBlank(?o))) .
+}
         """
+        )
 
         # print(self.rdf_jsonld.serialize(format="turtle").decode())
-        res = self.rdf_jsonld.query(query_licenses)
+        res = self.get_rdf_jsonld().query(query_licenses)
         for bool_r in res:
             return bool_r

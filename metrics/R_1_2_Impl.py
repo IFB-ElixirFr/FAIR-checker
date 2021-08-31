@@ -54,20 +54,24 @@ class R_1_2_Impl(AbstractFAIRMetrics):
         #         return eval
         pass
 
-    def evaluate_prov(self):
+    def strong_evaluate(self) -> bool:
         print("Evaluating R1.2")
         self.extract_html_requests()
         self.extract_rdf()
 
-        query_prov = """
-            PREFIX prov: <http://www.w3.org/ns/prov#>
-            PREFIX dct: <http://purl.org/dc/terms/> 
-            ASK { 
-                VALUES ?p {prov:tocomplete dct:tocomplete} . 
-                ?s ?p ?o .
-            }
-        """
+        query_prov = (
+            self.COMMON_SPARQL_PREFIX
+            + """ 
+ASK { 
+    VALUES ?p {prov:tocomplete dct:tocomplete} . 
+    ?s ?p ?o .
+}
+            """
+        )
 
         res = self.rdf_jsonld.query(query_prov)
         for bool_res in res:
             return bool_res
+
+    def weak_evaluate(self) -> bool:
+        pass
