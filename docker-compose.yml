@@ -1,0 +1,35 @@
+version: "3.9"
+
+services:
+  db:
+    image: mongo
+    restart: always
+    command: mongod --auth
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: mongodb
+      MONGO_INITDB_ROOT_PASSWORD: mongodb
+      MONGO_INITDB_DATABASE: mongodb
+      MONGODB_DATA_DIR: /data/db
+      MONDODB_LOG_DIR: /dev/null
+    volumes:
+      - mongodbdata:/data/db
+
+  web:
+    build: .
+    command: python3 app.py --web
+    environment:
+      MONGODB_DATABASE: fair-checker_db
+      MONGODB_USERNAME: mongodb
+      MONGODB_PASSWORD: mongodb
+      MONGODB_HOSTNAME: db
+    volumes:
+      - .:/home/app/web/
+    ports:
+      - "5000:5000"
+    depends_on:
+      - db
+    env_file:
+      - ./.env.dev
+
+volumes:
+  mongodbdata:

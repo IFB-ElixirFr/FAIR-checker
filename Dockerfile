@@ -3,6 +3,20 @@ FROM ubuntu:18.04
 
 #MAINTAINER Thomas Rosnet
 
+# create directory for the app user
+RUN mkdir -p /home/app
+
+# set environment variables
+ENV PYTHONDONTWRITEBYTECODE 1
+ENV PYTHONUNBUFFERED 1
+
+# set work directory
+# create the appropriate directories
+ENV HOME=/home/app
+ENV APP_HOME=/home/app/web
+RUN mkdir $APP_HOME
+WORKDIR $APP_HOME
+
 RUN apt-get update
 
 RUN apt-get install -y git curl wget bzip2 vim lynx
@@ -62,7 +76,14 @@ RUN conda init bash
 
 COPY environment.yml ./
 RUN conda env create -f environment.yml
+
 RUN source activate fair-checker-webapp
+SHELL ["conda", "run", "-n", "fair-checker-webapp", "/bin/bash", "-c"]
+
+# Demonstrate the environment is activated:
+RUN echo "Make sure flask is installed:"
+RUN python -c "import flask"
+
 RUN echo "source activate fair-checker-webapp" > ~/.bashrc
 ENV PATH /opt/conda/envs/fair-checker-webapp/bin:$PATH
 
@@ -93,4 +114,5 @@ RUN chmod +x launch_dev.sh
 #ENTRYPOINT ["conda", "run", "-n", "fair-checker-webapp", "python3", "app.py"]
 #ENTRYPOINT ["conda", "run", "-n", "fair-checker-webapp", "sh", "./launch_dev.sh"]
 
+# CMD /bin/bash -c 'conda run -n fair-checker-webapp && sh ./launch_dev.sh'
 CMD /bin/bash -c 'source activate fair-checker-webapp && sh ./launch_dev.sh'
