@@ -1,20 +1,40 @@
 import time
 from ssl import SSLError
-
 from abc import ABC, abstractmethod
-
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 import requests
 import extruct
 from pathlib import Path
-
 from rdflib import ConjunctiveGraph
-
 import json
+import logging
+import sys
+from metrics.Evaluation import Result
 
 #########################
 class AbstractFAIRMetrics(ABC):
+
+    logging.basicConfig(
+        level=logging.DEBUG,
+        format="[%(asctime)s] {%(filename)s:%(lineno)d} %(levelname)-8s %(message)s",
+        datefmt="%Y-%m-%d %H:%M:%S",
+    )
+    logger = logging.getLogger()
+    stream_handler = logging.StreamHandler(sys.stdout)
+    logger.addHandler(stream_handler)
+
+    COMMON_SPARQL_PREFIX = """
+PREFIX schema: <http://schema.org/>
+PREFIX dct: <http://purl.org/dc/terms/>
+PREFIX doap: <http://usefulinc.com/ns/doap#>
+PREFIX dbpedia-owl: <http://dbpedia.org/ontology/>
+PREFIX cc: <http://creativecommons.org/ns#>
+PREFIX xhv: <http://www.w3.org/1999/xhtml/vocab#>
+PREFIX sto: <https://w3id.org/i40/sto#>
+PREFIX nie: <http://www.semanticdesktop.org/ontologies/2007/01/19/nie#>
+    """
+
     def __init__(self, url):
         self.name = "My name"
         self.id = "My id"
@@ -58,6 +78,9 @@ class AbstractFAIRMetrics(ABC):
 
     def get_requests_status_code(self):
         return self.requests_status_code
+
+    def get_rdf_jsonld(self):
+        return self.rdf_jsonld
 
     def set_url(self, url):
         self.url = url
@@ -135,13 +158,26 @@ class AbstractFAIRMetrics(ABC):
         self.rdf_jsonld = kg
 
     # not all metrics can have an api
-    @abstractmethod
     def get_api(self):
         pass
 
-    # evaluations are not done the same way
+    def evaluate(self) -> Result:
+        self.extract_html_requests()
+        self.extract_rdf()
+
+        if self.strong_evaluate():
+            return Result.STRONG
+        elif self.weak_evaluate():
+            return Result.WEAK
+        else:
+            return Result.NO
+
     @abstractmethod
-    def evaluate(self):
+    def weak_evaluate(self) -> bool:
+        pass
+
+    @abstractmethod
+    def strong_evaluate(self) -> bool:
         pass
 
     def __str__(self):

@@ -1,8 +1,14 @@
-from metrics.test_metric import testMetric, requestResultSparql
 from datetime import datetime, timedelta
-import time
-import json
 from pymongo import MongoClient
+from enum import Enum, unique
+
+
+@unique
+class Result(Enum):
+    NO = 1
+    WEAK = 2
+    STRONG = 3
+
 
 #########################
 class Evaluation:

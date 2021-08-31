@@ -1,4 +1,4 @@
-echo "---------------"
-echo "black . --check"
-echo "---------------"
+echo "------------------------------"
+echo "black . --check --diff --color"
+echo "------------------------------"
 black . --check --diff --color
