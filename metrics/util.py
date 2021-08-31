@@ -542,7 +542,7 @@ def get_rdf_selenium(uri, kg):
 
 def get_html_selenium(url):
     chrome_options = Options()
-    chrome_options.add_argument('--no-sandbox')
+    chrome_options.add_argument("--no-sandbox")
     chrome_options.add_argument("--headless")
     browser = webdriver.Chrome(options=chrome_options)
 

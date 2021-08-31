@@ -79,6 +79,7 @@ COPY app.py .
 COPY templates templates
 COPY static static
 COPY metrics metrics
+COPY .env .
 COPY launch_dev.sh .
 COPY config.py .
 
