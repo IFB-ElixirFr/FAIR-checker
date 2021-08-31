@@ -1,8 +1,5 @@
-from datetime import time
+import time
 from ssl import SSLError
-
-from metrics.test_metric import getMetrics, testMetric, requestResultSparql
-from metrics.Evaluation import Evaluation
 
 from abc import ABC, abstractmethod
 
@@ -12,7 +9,6 @@ import requests
 import extruct
 from pathlib import Path
 
-import rdflib
 from rdflib import ConjunctiveGraph
 
 import json
@@ -24,11 +20,11 @@ class AbstractFAIRMetrics(ABC):
         self.id = "My id"
         self.desc = "My desc"
         self.principle = "My principle"
-        self.creator = "My creeator name"
+        self.creator = "My creator name"
         self.created_at = "My creation date"
         self.updated_at = "My update date"
         self.html_source = "Page content"
-        self.rdf_jsonld = "Graph RDF"
+        self.rdf_jsonld = "RDF graph"
         self.requests_status_code = "Status code for requests"
         self.url = url
 
