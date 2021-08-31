@@ -33,6 +33,7 @@ PREFIX cc: <http://creativecommons.org/ns#>
 PREFIX xhv: <http://www.w3.org/1999/xhtml/vocab#>
 PREFIX sto: <https://w3id.org/i40/sto#>
 PREFIX nie: <http://www.semanticdesktop.org/ontologies/2007/01/19/nie#>
+PREFIX prov: <http://www.w3.org/ns/prov#>
     """
 
     def __init__(self, url):
