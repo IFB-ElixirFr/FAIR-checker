@@ -115,4 +115,4 @@ RUN chmod +x launch_dev.sh
 #ENTRYPOINT ["conda", "run", "-n", "fair-checker-webapp", "sh", "./launch_dev.sh"]
 
 # CMD /bin/bash -c 'conda run -n fair-checker-webapp && sh ./launch_dev.sh'
-CMD /bin/bash -c 'source activate fair-checker-webapp && sh ./launch_dev.sh'
+#CMD /bin/bash -c 'source activate fair-checker-webapp && sh ./launch_dev.sh'

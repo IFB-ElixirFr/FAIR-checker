@@ -54,7 +54,7 @@ class Evaluation:
         return self.target_uri
 
     def persist(self):
-        client = MongoClient()
+        client = MongoClient('mongodb://db:27017/', username='mongodb', password='mongodb')
         db = client.fair_checker
         db_eval = db.evaluations
 

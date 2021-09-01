@@ -3,7 +3,7 @@ from datetime import datetime, date, timedelta
 
 
 def evaluations_this_week():
-    client = MongoClient()
+    client = MongoClient('mongodb://db:27017/', username='mongodb', password='mongodb')
     db = client.fair_checker
     evaluations = db.evaluations
 
@@ -17,7 +17,7 @@ def evaluations_this_week():
 
 
 def success_this_week():
-    client = MongoClient()
+    client = MongoClient('mongodb://db:27017/', username='mongodb', password='mongodb')
     db = client.fair_checker
     evaluations = db.evaluations
 
@@ -32,7 +32,7 @@ def success_this_week():
 
 
 def this_week_for_named_metrics(prefix="F", success=0):
-    client = MongoClient()
+    client = MongoClient('mongodb://db:27017/', username='mongodb', password='mongodb')
     db = client.fair_checker
     evaluations = db.evaluations
 
@@ -52,7 +52,7 @@ def this_week_for_named_metrics(prefix="F", success=0):
 
 
 def failures_this_week():
-    client = MongoClient()
+    client = MongoClient('mongodb://db:27017/', username='mongodb', password='mongodb')
     db = client.fair_checker
     evaluations = db.evaluations
 
@@ -67,7 +67,7 @@ def failures_this_week():
 
 
 def success_weekly_one_year():
-    client = MongoClient()
+    client = MongoClient('mongodb://db:27017/', username='mongodb', password='mongodb')
     db = client.fair_checker
     evaluations = db.evaluations
 
@@ -111,7 +111,7 @@ def success_weekly_one_year():
 
 
 def failures_weekly_one_year():
-    client = MongoClient()
+    client = MongoClient('mongodb://db:27017/', username='mongodb', password='mongodb')
     db = client.fair_checker
     evaluations = db.evaluations
 
@@ -156,7 +156,7 @@ def failures_weekly_one_year():
 
 
 def weekly_named_metrics(prefix="F", success=0):
-    client = MongoClient()
+    client = MongoClient('mongodb://db:27017/', username='mongodb', password='mongodb')
     db = client.fair_checker
     evaluations = db.evaluations
 

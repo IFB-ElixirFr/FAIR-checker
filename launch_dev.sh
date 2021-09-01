@@ -1,8 +1,19 @@
 #!/bin/sh
 echo "ENV is set to: "
-export FLASK_ENV=development
+#export FLASK_ENV=development
 printenv FLASK_ENV
+TIMEOUT=120
+
 #exec source activate fair-checker-webapp
-exec gunicorn -b 0.0.0.0:5000 --reload --access-logfile - --error-logfile - app:app --worker-class eventlet -w 1
+exec gunicorn -b 0.0.0.0:5000 \
+--reload \
+--timeout $TIMEOUT \
+--log-level=debug \
+--access-logfile - \
+--error-logfile - app:app \
+--worker-class eventlet -w 1
+
+
 # supervisord -c supervisord.conf
 #exec source activate fair-checker-webapp && python3 app.py
+#exec python3 app.py --web

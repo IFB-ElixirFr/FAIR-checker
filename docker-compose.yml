@@ -12,24 +12,20 @@ services:
       MONGODB_DATA_DIR: /data/db
       MONDODB_LOG_DIR: /dev/null
     volumes:
-      - mongodbdata:/data/db
+      - type: bind
+        source: /data/db
+        target: /data/db
 
   web:
     build: .
-    command: python3 app.py --web
+    command: bash -c 'source activate fair-checker-webapp && sh ./launch_dev.sh'
     environment:
-      MONGODB_DATABASE: fair-checker_db
-      MONGODB_USERNAME: mongodb
-      MONGODB_PASSWORD: mongodb
-      MONGODB_HOSTNAME: db
+      FLASK_ENV: development
     volumes:
       - .:/home/app/web/
     ports:
       - "5000:5000"
-    depends_on:
+    links:
       - db
     env_file:
       - ./.env.dev
-
-volumes:
-  mongodbdata:
