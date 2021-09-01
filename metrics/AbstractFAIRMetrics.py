@@ -2,6 +2,7 @@ import time
 from ssl import SSLError
 from abc import ABC, abstractmethod
 from selenium import webdriver
+from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.chrome.options import Options
 import requests
 import extruct
@@ -20,9 +21,16 @@ class AbstractFAIRMetrics(ABC):
         format="[%(asctime)s] {%(filename)s:%(lineno)d} %(levelname)-8s %(message)s",
         datefmt="%Y-%m-%d %H:%M:%S",
     )
-    logger = logging.getLogger()
-    stream_handler = logging.StreamHandler(sys.stdout)
-    logger.addHandler(stream_handler)
+    LOGGER = logging.getLogger()
+    if not LOGGER.handlers:
+        LOGGER.addHandler(logging.StreamHandler(sys.stdout))
+
+    chrome_options = Options()
+    chrome_options.add_argument("--headless")
+    WEB_BROWSER_HEADLESS = webdriver.Chrome(
+        ChromeDriverManager().install(), options=chrome_options
+    )
+    WEB_BROWSER_HEADLESS.implicitly_wait(10)
 
     COMMON_SPARQL_PREFIX = """
 PREFIX schema: <http://schema.org/>
@@ -86,10 +94,11 @@ PREFIX prov: <http://www.w3.org/ns/prov#>
     def set_url(self, url):
         self.url = url
 
-    def extract_html_requests(self):
+    @staticmethod
+    def extract_html_requests(url):
         while True:
             try:
-                response = requests.get(url=self.url, timeout=10)
+                response = requests.get(url=url, timeout=10)
                 break
             except SSLError:
                 time.sleep(5)
@@ -101,25 +110,19 @@ PREFIX prov: <http://www.w3.org/ns/prov#>
                 print("ConnectionError, retrying...")
                 time.sleep(10)
 
-        self.requests_status_code = response.status_code
-        self.html_source = response.content
+        # self.requests_status_code = response.status_code
+        # self.html_source = response.content
+        return response.content, response.status_code
 
-    def extract_html_selenium(self):
-        # TODO define a (singleton) global object for selenium as shown in unit tests.
-        chrome_options = Options()
-        chrome_options.add_argument("--headless")
+    @staticmethod
+    def extract_html_selenium(url):
 
-        browser = webdriver.Chrome(options=chrome_options)
-        # TODO Check imprel of .install to initialise earlier
-        # browser = webdriver.Chrome(
-        #     ChromeDriverManager().install(), options=chrome_options
-        # )
-        browser.implicitly_wait(10)
-        browser.get(self.url)
+        browser = AbstractFAIRMetrics.WEB_BROWSER_HEADLESS
+        browser.get(url)
 
-        self.html_source = browser.page_source
-
-        browser.quit()
+        # self.html_source = browser.page_source
+        # browser.quit()
+        return browser.page_source
 
     def extract_rdf(self):
         html_source = self.html_source
@@ -156,6 +159,7 @@ PREFIX prov: <http://www.w3.org/ns/prov#>
                     md["@context"] = static_file_path
             kg.parse(data=json.dumps(md, ensure_ascii=False), format="json-ld")
 
+        self.LOGGER.debug(kg.serialize(format="turtle").decode())
         self.rdf_jsonld = kg
 
     # not all metrics can have an api
@@ -163,7 +167,8 @@ PREFIX prov: <http://www.w3.org/ns/prov#>
         pass
 
     def evaluate(self) -> Result:
-        self.extract_html_requests()
+        # self.extract_html_requests()
+        self.html_source = AbstractFAIRMetrics.extract_html_selenium(self.url)
         self.extract_rdf()
 
         if self.strong_evaluate():
