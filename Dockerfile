@@ -103,7 +103,6 @@ COPY metrics metrics
 COPY .env .
 COPY launch_dev.sh .
 COPY config.py .
-COPY nginx-fairchecker.conf .
 
 
 RUN chmod +x launch_dev.sh
