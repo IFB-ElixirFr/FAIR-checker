@@ -13,7 +13,7 @@ services:
       MONDODB_LOG_DIR: /dev/null
     volumes:
       - type: bind
-        source: /data/db
+        source: ./data/db
         target: /data/db
 
   web:
