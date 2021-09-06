@@ -26,13 +26,17 @@ class TestingUrlPatterns(unittest.TestCase):
 
         biotools = "biotools:bwa"
         doi = "doi:10.15454/P27LDX"
+        pubmed = "pubmed:23758764"
+        pubmed = "pubmed:abcd"
         dataverse = (
             "https://data.inrae.fr/dataset.xhtml?persistentId=doi:10.15454/P27LDX"
         )
         datacite = "https://search.datacite.org/works/10.7892/boris.108387"
 
+        print(list_known_schemes)
         self.assertTrue(F1B_Impl.is_known_id_scheme(biotools, list_known_schemes))
         self.assertTrue(F1B_Impl.is_known_id_scheme(doi, list_known_schemes))
+        self.assertTrue(F1B_Impl.is_known_id_scheme(pubmed, list_known_schemes))
         self.assertFalse(F1B_Impl.is_known_id_scheme(dataverse, list_known_schemes))
         self.assertFalse(F1B_Impl.is_known_id_scheme(datacite, list_known_schemes))
 
