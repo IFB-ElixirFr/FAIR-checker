@@ -1,19 +1,9 @@
-import time
-from ssl import SSLError
 from abc import ABC, abstractmethod
-from selenium import webdriver
-from webdriver_manager.chrome import ChromeDriverManager
-from selenium.webdriver.chrome.options import Options
-import requests
-import extruct
-from pathlib import Path
-from rdflib import ConjunctiveGraph
-import json
 import logging
 import sys
 from metrics.Evaluation import Result
 
-#########################
+
 class AbstractFAIRMetrics(ABC):
 
     logging.basicConfig(
@@ -24,13 +14,6 @@ class AbstractFAIRMetrics(ABC):
     LOGGER = logging.getLogger()
     if not LOGGER.handlers:
         LOGGER.addHandler(logging.StreamHandler(sys.stdout))
-
-    chrome_options = Options()
-    chrome_options.add_argument("--headless")
-    WEB_BROWSER_HEADLESS = webdriver.Chrome(
-        ChromeDriverManager().install(), options=chrome_options
-    )
-    WEB_BROWSER_HEADLESS.implicitly_wait(10)
 
     COMMON_SPARQL_PREFIX = """
 PREFIX schema: <http://schema.org/>
@@ -44,7 +27,7 @@ PREFIX nie: <http://www.semanticdesktop.org/ontologies/2007/01/19/nie#>
 PREFIX prov: <http://www.w3.org/ns/prov#>
     """
 
-    def __init__(self, url):
+    def __init__(self, web_resource):
         self.name = "My name"
         self.id = "My id"
         self.desc = "My desc"
@@ -52,14 +35,8 @@ PREFIX prov: <http://www.w3.org/ns/prov#>
         self.creator = "My creator name"
         self.created_at = "My creation date"
         self.updated_at = "My update date"
-        self.html_source = "Page content"
-        self.rdf_jsonld = "RDF graph"
         self.requests_status_code = "Status code for requests"
-        self.url = url
-
-    # common functionality
-    def common(self):
-        print("In common method of Parent")
+        self.web_resource = web_resource
 
     # name
     def get_name(self):
@@ -88,89 +65,68 @@ PREFIX prov: <http://www.w3.org/ns/prov#>
     def get_requests_status_code(self):
         return self.requests_status_code
 
-    def get_rdf_jsonld(self):
-        return self.rdf_jsonld
+    def get_web_resource(self):
+        return self.web_resource
 
-    def set_url(self, url):
-        self.url = url
-
-    @staticmethod
-    def extract_html_requests(url):
-        while True:
-            try:
-                response = requests.get(url=url, timeout=10)
-                break
-            except SSLError:
-                time.sleep(5)
-            except requests.exceptions.Timeout:
-                print("Timeout, retrying")
-                time.sleep(5)
-            except requests.exceptions.ConnectionError as e:
-                print(e)
-                print("ConnectionError, retrying...")
-                time.sleep(10)
-
-        # self.requests_status_code = response.status_code
-        # self.html_source = response.content
-        return response.content, response.status_code
-
-    @staticmethod
-    def extract_html_selenium(url):
-
-        browser = AbstractFAIRMetrics.WEB_BROWSER_HEADLESS
-        browser.get(url)
-
-        # self.html_source = browser.page_source
-        # browser.quit()
-        return browser.page_source
-
-    def extract_rdf(self):
-        html_source = self.html_source
-        data = extruct.extract(
-            html_source, syntaxes=["microdata", "rdfa", "json-ld"], errors="ignore"
-        )
-        kg = ConjunctiveGraph()
-
-        base_path = Path(__file__).parent.parent  ## current directory
-        static_file_path = str((base_path / "static/data/jsonldcontext.json").resolve())
-
-        # kg = util.get_rdf_selenium(uri, kg)
-
-        for md in data["json-ld"]:
-            if "@context" in md.keys():
-                print(md["@context"])
-                if ("https://schema.org" in md["@context"]) or (
-                    "http://schema.org" in md["@context"]
-                ):
-                    md["@context"] = static_file_path
-            kg.parse(data=json.dumps(md, ensure_ascii=False), format="json-ld")
-        for md in data["rdfa"]:
-            if "@context" in md.keys():
-                if ("https://schema.org" in md["@context"]) or (
-                    "http://schema.org" in md["@context"]
-                ):
-                    md["@context"] = static_file_path
-            kg.parse(data=json.dumps(md, ensure_ascii=False), format="json-ld")
-        for md in data["microdata"]:
-            if "@context" in md.keys():
-                if ("https://schema.org" in md["@context"]) or (
-                    "http://schema.org" in md["@context"]
-                ):
-                    md["@context"] = static_file_path
-            kg.parse(data=json.dumps(md, ensure_ascii=False), format="json-ld")
-
-        self.LOGGER.debug(kg.serialize(format="turtle").decode())
-        self.rdf_jsonld = kg
-
-    # not all metrics can have an api
-    def get_api(self):
-        pass
+    # @staticmethod
+    # def extract_html_requests(url):
+    #     while True:
+    #         try:
+    #             response = requests.get(url=url, timeout=10)
+    #             break
+    #         except SSLError:
+    #             time.sleep(5)
+    #         except requests.exceptions.Timeout:
+    #             print("Timeout, retrying")
+    #             time.sleep(5)
+    #         except requests.exceptions.ConnectionError as e:
+    #             print(e)
+    #             print("ConnectionError, retrying...")
+    #             time.sleep(10)
+    #
+    #     # self.requests_status_code = response.status_code
+    #     # self.html_source = response.content
+    #     return response.content, response.status_code
+    #
+    # def extract_rdf(self):
+    #     html_source = self.html_source
+    #     data = extruct.extract(
+    #         html_source, syntaxes=["microdata", "rdfa", "json-ld"], errors="ignore"
+    #     )
+    #     kg = ConjunctiveGraph()
+    #
+    #     base_path = Path(__file__).parent.parent  ## current directory
+    #     static_file_path = str((base_path / "static/data/jsonldcontext.json").resolve())
+    #
+    #     # kg = util.get_rdf_selenium(uri, kg)
+    #
+    #     for md in data["json-ld"]:
+    #         if "@context" in md.keys():
+    #             print(md["@context"])
+    #             if ("https://schema.org" in md["@context"]) or (
+    #                 "http://schema.org" in md["@context"]
+    #             ):
+    #                 md["@context"] = static_file_path
+    #         kg.parse(data=json.dumps(md, ensure_ascii=False), format="json-ld")
+    #     for md in data["rdfa"]:
+    #         if "@context" in md.keys():
+    #             if ("https://schema.org" in md["@context"]) or (
+    #                 "http://schema.org" in md["@context"]
+    #             ):
+    #                 md["@context"] = static_file_path
+    #         kg.parse(data=json.dumps(md, ensure_ascii=False), format="json-ld")
+    #     for md in data["microdata"]:
+    #         if "@context" in md.keys():
+    #             if ("https://schema.org" in md["@context"]) or (
+    #                 "http://schema.org" in md["@context"]
+    #             ):
+    #                 md["@context"] = static_file_path
+    #         kg.parse(data=json.dumps(md, ensure_ascii=False), format="json-ld")
+    #
+    #     self.LOGGER.debug(kg.serialize(format="turtle").decode())
+    #     self.rdf_jsonld = kg
 
     def evaluate(self) -> Result:
-        # self.extract_html_requests()
-        self.html_source = AbstractFAIRMetrics.extract_html_selenium(self.url)
-        self.extract_rdf()
-
         if self.strong_evaluate():
             return Result.STRONG
         elif self.weak_evaluate():
