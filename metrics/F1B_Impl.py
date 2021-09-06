@@ -5,6 +5,7 @@ import requests
 from pathlib import Path
 from urllib.parse import urlparse
 import logging
+from rdflib import URIRef
 
 from metrics.AbstractFAIRMetrics import AbstractFAIRMetrics
 from metrics.FairCheckerExceptions import FairCheckerException
@@ -57,11 +58,19 @@ class F1B_Impl(AbstractFAIRMetrics):
         return ids
 
     @staticmethod
-    def is_known_id_scheme(identifier, list_of_known_namespaces):
-        logging.debug(f"Testing ID scheme for {identifier}")
-        parsed_url = urlparse(identifier)
-        check = parsed_url.scheme in list_of_known_namespaces
-        logging.debug(f"ID scheme in Identifiers.org: {check}")
+    def is_known_pid_scheme(identifier, list_of_known_namespaces) -> bool:
+        logging.debug(f"Testing ID scheme for {identifier}, ({type(identifier)})")
+        parsed_url = urlparse(str(identifier))
+        if not parsed_url.scheme:
+            prefix = parsed_url.path.split(":")[0]
+            check = prefix in list_of_known_namespaces
+            logging.debug(f"{prefix} known in Identifiers.org: {check}")
+        elif parsed_url.scheme in ["http", "https"]:
+            check = parsed_url.netloc in list_of_known_namespaces
+            logging.debug(f"{parsed_url.netloc} known in Identifiers.org: {check}")
+        else:
+            check = False
+
         return check
 
     """
@@ -69,15 +78,24 @@ class F1B_Impl(AbstractFAIRMetrics):
 
     """
 
-    def __init__(self, url):
+    def __init__(self, web_resource):
         self.name = "F1.B"
         self.desc = ""
-        self.url = url
+        super().__init__(web_resource)
 
     def weak_evaluate(self) -> bool:
         """
-        at least one of the URIs reuse one of the Identifiers.org namespaces
+        at least one of the RDF term (subject, predicate, or object) reuse one of the Identifiers.org namespaces
         """
+        kg = self.get_web_resource().get_rdf()
+        namespaces = F1B_Impl.get_known_namespaces()
+
+        for s, p, o in kg:
+            for term in [s, o]:
+                if F1B_Impl.is_known_pid_scheme(str(term), namespaces):
+                    logging.info(f"Found an Identifiers.org namespace for {str(term)}")
+                    return True
+        return False
 
     def strong_evaluate(self) -> bool:
         """
@@ -93,7 +111,7 @@ ASK {
             """
         )
         logging.debug(f"running query:" + f"\n{query_identifiers}")
-        res = self.rdf_jsonld.query(query_identifiers)
+        res = self.get_web_resource().get_rdf().query(query_identifiers)
         for bool_res in res:
             return bool_res
         pass

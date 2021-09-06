@@ -1,4 +1,7 @@
+from metrics.F1B_Impl_fm import F1B_Impl_fm
 from metrics.F1B_Impl import F1B_Impl
+from metrics.F1A_Impl import F1A_Impl
+from metrics.F1A_Impl_fm import F1A_Impl_fm
 from metrics.FAIRMetricsImpl import FAIRMetricsImpl
 from metrics.R_1_1_Impl import R_1_1_Impl
 from metrics.FairCheckerExceptions import NotYetImplementedException
@@ -25,8 +28,15 @@ class FAIRMetricsFactory:
             )
 
     @staticmethod
-    def get_F1B(url, impl=Implem.FAIR_CHECKER):
+    def get_F1B(web_resource, impl=Implem.FAIR_CHECKER):
         if impl == Implem.FAIR_METRICS_API:
-            raise NotYetImplementedException()
+            return F1B_Impl_fm(web_resource)
         else:
-            return F1B_Impl(url)
+            return F1B_Impl(web_resource)
+
+    @staticmethod
+    def get_F1A(web_resource, impl=Implem.FAIR_CHECKER):
+        if impl == Implem.FAIR_METRICS_API:
+            return F1A_Impl_fm(web_resource)
+        else:
+            return F1A_Impl(web_resource)
