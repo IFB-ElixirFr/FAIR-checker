@@ -1,0 +1,41 @@
+version: "3.9"
+
+services:
+  db:
+    image: mongo
+    restart: always
+    command: mongod --auth
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: mongodb
+      MONGO_INITDB_ROOT_PASSWORD: mongodb
+      MONGO_INITDB_DATABASE: mongodb
+      MONGODB_DATA_DIR: /data/db
+      MONDODB_LOG_DIR: /dev/null
+    volumes:
+      - type: bind
+        source: ./data/db
+        target: /data/db
+  nginx:
+    build: ./nginx
+    volumes:
+      - static:/home/app/web/static
+    ports:
+      - 443:80
+    depends_on:
+      - web
+  web:
+    build: .
+    command: bash -c 'source activate fair-checker-webapp && sh ./launch_dev.sh'
+    environment:
+      FLASK_ENV: development
+    volumes:
+      - .:/home/app/web/
+    ports:
+      - "5000:5000"
+    links:
+      - db
+    env_file:
+      - ./.env.dev
+
+volumes:
+  static:

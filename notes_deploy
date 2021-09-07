@@ -7,6 +7,6 @@ sudo openssl dhparam -out /etc/ssl/certs/dhparam.pem 2048
 echo "ssl_certificate /etc/ssl/certs/nginx-selfsigned.crt;" > /etc/nginx/snippets/self-signed.conf
 echo "ssl_certificate_key /etc/ssl/private/nginx-selfsigned.key;" >> /etc/nginx/snippets/self-signed.conf
 
-sudo cp ~/fair-checker/demo-fairchecker.conf /etc/nginx/sites-available/default
+sudo cp ~/fair-checker/nginx/nginx-fairchecker.conf /etc/nginx/sites-available/default
 
 sudo systemctl reload nginx
