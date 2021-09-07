@@ -21,7 +21,8 @@ services:
       - static:/home/app/web/static
       - ./nginx/ssl:/etc/ssl
     ports:
-      - 443:80
+      - 443:443
+      - 80:80
     depends_on:
       - web
   web:
