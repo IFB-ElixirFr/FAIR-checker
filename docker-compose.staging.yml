@@ -19,6 +19,7 @@ services:
     build: ./nginx
     volumes:
       - static:/home/app/web/static
+      - ./nginx/ssl:/etc/ssl
     ports:
       - 443:80
     depends_on:
