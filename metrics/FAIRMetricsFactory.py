@@ -4,6 +4,13 @@ from metrics.F1A_Impl import F1A_Impl
 from metrics.F1B_Impl import F1B_Impl
 from metrics.F2A_Impl import F2A_Impl
 from metrics.F2B_Impl import F2B_Impl
+from metrics.I1_Impl import I1_Impl
+from metrics.I1A_Impl import I1A_Impl
+from metrics.I1B_Impl import I1B_Impl
+from metrics.I2_Impl import I2_Impl
+from metrics.I2A_Impl import I2A_Impl
+from metrics.I2B_Impl import I2B_Impl
+from metrics.I3_Impl import I3_Impl
 from metrics.FAIRMetricsImpl import FAIRMetricsImpl
 from metrics.R_1_1_Impl import R_1_1_Impl
 from metrics.FairCheckerExceptions import NotYetImplementedException
@@ -56,3 +63,52 @@ class FAIRMetricsFactory:
             raise NotYetImplementedException
         else:
             return F2B_Impl(web_resource)
+
+    @staticmethod
+    def get_I1(web_resource, impl=Implem.FAIR_CHECKER):
+        if impl == Implem.FAIR_METRICS_API:
+            raise NotYetImplementedException
+        else:
+            return I1_Impl(web_resource)
+
+    @staticmethod
+    def get_I1A(web_resource, impl=Implem.FAIR_CHECKER):
+        if impl == Implem.FAIR_METRICS_API:
+            raise NotYetImplementedException
+        else:
+            return I1A_Impl(web_resource)
+
+    @staticmethod
+    def get_I1B(web_resource, impl=Implem.FAIR_CHECKER):
+        if impl == Implem.FAIR_METRICS_API:
+            raise NotYetImplementedException
+        else:
+            return I1B_Impl(web_resource)
+
+    @staticmethod
+    def get_I2(web_resource, impl=Implem.FAIR_CHECKER):
+        if impl == Implem.FAIR_METRICS_API:
+            raise NotYetImplementedException
+        else:
+            return I2_Impl(web_resource)
+
+    @staticmethod
+    def get_I2A(web_resource, impl=Implem.FAIR_CHECKER):
+        if impl == Implem.FAIR_METRICS_API:
+            raise NotYetImplementedException
+        else:
+            return I2A_Impl(web_resource)
+
+    @staticmethod
+    def get_I2B(web_resource, impl=Implem.FAIR_CHECKER):
+        if impl == Implem.FAIR_METRICS_API:
+            raise NotYetImplementedException
+        else:
+            return I2B_Impl(web_resource)
+
+    @staticmethod
+    def get_I3(web_resource, impl=Implem.FAIR_CHECKER):
+        if impl == Implem.FAIR_METRICS_API:
+            raise NotYetImplementedException
+        else:
+            return I3_Impl(web_resource)
