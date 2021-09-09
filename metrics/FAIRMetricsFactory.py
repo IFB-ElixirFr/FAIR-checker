@@ -12,7 +12,9 @@ from metrics.I2A_Impl import I2A_Impl
 from metrics.I2B_Impl import I2B_Impl
 from metrics.I3_Impl import I3_Impl
 from metrics.FAIRMetricsImpl import FAIRMetricsImpl
-from metrics.R_1_1_Impl import R_1_1_Impl
+from metrics.R11_Impl import R11_Impl
+from metrics.R12_Impl import R12_Impl
+from metrics.R13_Impl import R13_Impl
 from metrics.FairCheckerExceptions import NotYetImplementedException
 from enum import Enum, unique
 
@@ -112,3 +114,24 @@ class FAIRMetricsFactory:
             raise NotYetImplementedException
         else:
             return I3_Impl(web_resource)
+
+    @staticmethod
+    def get_R11(web_resource, impl=Implem.FAIR_CHECKER):
+        if impl == Implem.FAIR_METRICS_API:
+            raise NotYetImplementedException
+        else:
+            return R11_Impl(web_resource)
+
+    @staticmethod
+    def get_R12(web_resource, impl=Implem.FAIR_CHECKER):
+        if impl == Implem.FAIR_METRICS_API:
+            raise NotYetImplementedException
+        else:
+            return R12_Impl(web_resource)
+
+    @staticmethod
+    def get_R13(web_resource, impl=Implem.FAIR_CHECKER):
+        if impl == Implem.FAIR_METRICS_API:
+            raise NotYetImplementedException
+        else:
+            return R13_Impl(web_resource)
