@@ -127,6 +127,7 @@ PREFIX prov: <http://www.w3.org/ns/prov#>
     #     self.rdf_jsonld = kg
 
     def evaluate(self) -> Result:
+        logging.debug(f"Evaluating metrics {self.name}")
         if self.strong_evaluate():
             return Result.STRONG
         elif self.weak_evaluate():

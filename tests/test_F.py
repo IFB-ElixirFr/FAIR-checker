@@ -52,6 +52,22 @@ class FindabilityTestCase(unittest.TestCase):
         logging.info(res)
         self.assertEqual(res, Result.WEAK)
 
+    def test_F2A_biotools(self):
+        biotools = WebResource("http://bio.tools/bwa")
+        res = FAIRMetricsFactory.get_F2A(
+            web_resource=biotools, impl=Implem.FAIR_CHECKER
+        ).evaluate()
+        logging.info(res)
+        self.assertEqual(res, Result.STRONG)
+
+    def test_F2B_biotools(self):
+        biotools = WebResource("http://bio.tools/bwa")
+        res = FAIRMetricsFactory.get_F2B(
+            web_resource=biotools, impl=Implem.FAIR_CHECKER
+        ).evaluate()
+        logging.info(res)
+        self.assertEqual(res, Result.WEAK)
+
     def test_identifiers_dataverse(self):
         dataverse = WebResource(
             "https://data.inrae.fr/dataset.xhtml?persistentId=doi:10.15454/P27LDX"
