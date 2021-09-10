@@ -29,10 +29,13 @@ PREFIX pav: <http://purl.org/pav/>
 PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
     """
 
+    cache = {}
+
     def __init__(self, web_resource):
         self.name = "My name"
         self.id = "My id"
         self.desc = "My desc"
+        self.implem = "My desc"
         self.principle = "My principle"
         self.creator = "My creator name"
         self.created_at = "My creation date"
@@ -57,6 +60,9 @@ PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
 
     def get_creator(self):
         return self.creator
+
+    def get_implem(self):
+        return self.implem
 
     def get_creation_date(self):
         return self.created_at
@@ -130,11 +136,24 @@ PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
 
     def evaluate(self) -> Result:
         logging.debug(f"Evaluating metrics {self.name}")
+
+        # Check in the cache if the metrics has not been computed yet
+        url = self.get_web_resource().get_url()
+        if url in AbstractFAIRMetrics.cache.keys():
+            if self.get_implem() in AbstractFAIRMetrics.cache[url].keys():
+                logging.warning(f"Reusing cached result from {self.get_implem()}")
+                return AbstractFAIRMetrics.cache[url][self.get_implem()]
+        else:
+            AbstractFAIRMetrics.cache[url] = {}
+
         if self.strong_evaluate():
+            AbstractFAIRMetrics.cache[url][self.get_implem()] = Result.STRONG
             return Result.STRONG
         elif self.weak_evaluate():
+            AbstractFAIRMetrics.cache[url][self.get_implem()] = Result.WEAK
             return Result.WEAK
         else:
+            AbstractFAIRMetrics.cache[url][self.get_implem()] = Result.NO
             return Result.NO
 
     @abstractmethod

@@ -30,10 +30,18 @@ from pathlib import Path
 import rdflib
 from rdflib import ConjunctiveGraph
 import extruct
+import logging
+from rich.console import Console
+from rich.table import Table
+from rich.text import Text
+
 import metrics.util as util
 import metrics.statistics as stats
 from metrics import test_metric
 from metrics.FAIRMetricsFactory import FAIRMetricsFactory
+from metrics.AbstractFAIRMetrics import AbstractFAIRMetrics
+from metrics.WebResource import WebResource
+from metrics.Evaluation import Result
 
 app = Flask(__name__)
 
@@ -1206,6 +1214,17 @@ parser.add_argument(
     dest="bioschemas",
 )
 
+
+def get_result_style(result) -> str:
+    if result == Result.NO:
+        return "red"
+    elif result == Result.WEAK:
+        return "yellow"
+    elif result == Result.STRONG:
+        return "green"
+    return ""
+
+
 if __name__ == "__main__":
 
     if len(sys.argv) == 1:
@@ -1215,8 +1234,83 @@ if __name__ == "__main__":
     args = parser.parse_args()
 
     if args.urls:
+        start_time = time.time()
+
+        console = Console()
+        table = Table(show_header=True, header_style="bold magenta")
+        table.add_column("URL or identifier")
+        table.add_column("Findable", justify="right")
+        table.add_column("Accessible", justify="right")
+        table.add_column("Interoperable", justify="right")
+        table.add_column("Reusable", justify="right")
+
         for url in args.urls:
-            print(f"Testing URL {url}")
+            logging.info(f"Testing URL {url}")
+            web_res = WebResource(url)
+
+            metrics_collection = []
+            metrics_collection.append(FAIRMetricsFactory.get_F1A(web_res))
+            metrics_collection.append(FAIRMetricsFactory.get_F1B(web_res))
+            metrics_collection.append(FAIRMetricsFactory.get_F2A(web_res))
+            metrics_collection.append(FAIRMetricsFactory.get_F2B(web_res))
+            metrics_collection.append(FAIRMetricsFactory.get_I1(web_res))
+            metrics_collection.append(FAIRMetricsFactory.get_I1A(web_res))
+            metrics_collection.append(FAIRMetricsFactory.get_I1B(web_res))
+            metrics_collection.append(FAIRMetricsFactory.get_I2(web_res))
+            metrics_collection.append(FAIRMetricsFactory.get_I2A(web_res))
+            metrics_collection.append(FAIRMetricsFactory.get_I2B(web_res))
+            metrics_collection.append(FAIRMetricsFactory.get_I3(web_res))
+            metrics_collection.append(FAIRMetricsFactory.get_R11(web_res))
+            metrics_collection.append(FAIRMetricsFactory.get_R12(web_res))
+            metrics_collection.append(FAIRMetricsFactory.get_R13(web_res))
+
+            for m in metrics_collection:
+                logging.info(m.get_name())
+                res = m.evaluate()
+                if m.get_name().startswith("F"):
+                    table.add_row(
+                        url,
+                        Text(
+                            m.get_name() + " " + str(res), style=get_result_style(res)
+                        ),
+                        "",
+                        "",
+                        "",
+                    )
+                elif m.get_name().startswith("A"):
+                    table.add_row(
+                        url,
+                        "",
+                        Text(
+                            m.get_name() + " " + str(res), style=get_result_style(res)
+                        ),
+                        "",
+                        "",
+                    )
+                elif m.get_name().startswith("I"):
+                    table.add_row(
+                        url,
+                        "",
+                        "",
+                        Text(
+                            m.get_name() + " " + str(res), style=get_result_style(res)
+                        ),
+                        "",
+                    )
+                elif m.get_name().startswith("R"):
+                    table.add_row(
+                        url,
+                        "",
+                        "",
+                        "",
+                        Text(
+                            m.get_name() + " " + str(res), style=get_result_style(res)
+                        ),
+                    )
+
+        console.print(table)
+        elapsed_time = round((time.time() - start_time), 2)
+        logging.info(f"FAIR metrics evaluated in {elapsed_time} s")
 
     elif args.web:
         # context = ('server.crt', 'server.key')

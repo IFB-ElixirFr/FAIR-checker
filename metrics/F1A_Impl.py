@@ -21,6 +21,7 @@ class F1A_Impl(AbstractFAIRMetrics):
     def __init__(self, web_resource):
         super().__init__(web_resource)
         self.name = "F1.A"
+        self.implem = "F1.A"
         self.desc = ""
 
     def weak_evaluate(self) -> bool:
