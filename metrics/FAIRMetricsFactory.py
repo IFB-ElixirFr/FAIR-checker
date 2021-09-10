@@ -29,14 +29,9 @@ class FAIRMetricsFactory:
     def get_metric(
         self, name, id, desc, api, principle, creator, created_at, updated_at
     ):
-        if name == "test_f1":
-            return F1B_Impl()
-        elif name == "test_r2":
-            return R_1_1_Impl()
-        else:
-            return FAIRMetricsImpl(
-                name, id, desc, api, principle, creator, created_at, updated_at
-            )
+        return FAIRMetricsImpl(
+            name, id, desc, api, principle, creator, created_at, updated_at
+        )
 
     @staticmethod
     def get_F1B(web_resource, impl=Implem.FAIR_CHECKER):

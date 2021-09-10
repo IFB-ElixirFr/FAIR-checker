@@ -35,3 +35,9 @@ class FAIRMetricsImpl(AbstractFAIRMetrics):
         eval.persist()
 
         return eval
+
+    def weak_evaluate(self) -> bool:
+        pass
+
+    def strong_evaluate(self) -> bool:
+        pass

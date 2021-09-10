@@ -19,9 +19,9 @@ class F2A_Impl(AbstractFAIRMetrics):
     """
 
     def __init__(self, web_resource):
+        super().__init__(web_resource)
         self.name = "F2.A"
         self.desc = ""
-        super().__init__(web_resource)
 
     def weak_evaluate(self) -> bool:
         pass
@@ -31,5 +31,4 @@ class F2A_Impl(AbstractFAIRMetrics):
         at least one embedded RDF triple
         """
         kg = self.get_web_resource().get_rdf()
-        logging.debug()
         return len(kg) > 0

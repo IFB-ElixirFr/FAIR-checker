@@ -25,9 +25,9 @@ class R11_Impl(AbstractFAIRMetrics):
     """
 
     def __init__(self, web_resource):
+        super().__init__(web_resource)
         self.name = "R1.1"
         self.desc = "Metadata includes license. Evaluate if dct:license or schema:license properties exist."
-        super().__init__(web_resource)
 
     def weak_evaluate(self):
         pass

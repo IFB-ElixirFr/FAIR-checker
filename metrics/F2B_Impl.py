@@ -19,9 +19,9 @@ class F2B_Impl(AbstractFAIRMetrics):
     """
 
     def __init__(self, web_resource):
+        super().__init__(web_resource)
         self.name = "F2.B"
         self.desc = ""
-        super().__init__(web_resource)
 
     def weak_evaluate(self) -> bool:
         """

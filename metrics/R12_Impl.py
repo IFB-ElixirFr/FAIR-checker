@@ -8,9 +8,9 @@ class R12_Impl(AbstractFAIRMetrics):
     """
 
     def __init__(self, web_resource):
+        super().__init__(web_resource)
         self.name = "R1.2"
         self.desc = "Metadata includes provenance. Evaluate if provenance related properties exist."
-        super().__init__(web_resource)
 
     def strong_evaluate(self) -> bool:
         query_prov = (
