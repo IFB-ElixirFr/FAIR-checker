@@ -34,6 +34,7 @@ import logging
 from rich.console import Console
 from rich.table import Table
 from rich.text import Text
+from rich.progress import track
 
 import metrics.util as util
 import metrics.statistics as stats
@@ -1189,6 +1190,14 @@ or submit an issue to https://github.com/IFB-ElixirFr/fair-checker/issues.
     formatter_class=RawTextHelpFormatter,
 )
 parser.add_argument(
+    "-d",
+    "--debug",
+    action="store_true",
+    required=False,
+    help="enables debugging logs",
+    dest="debug",
+)
+parser.add_argument(
     "-w",
     "--web",
     action="store_true",
@@ -1233,19 +1242,35 @@ if __name__ == "__main__":
 
     args = parser.parse_args()
 
+    if args.debug:
+        logging.basicConfig(
+            level=logging.DEBUG,
+            format="[%(asctime)s] {%(filename)s:%(lineno)d} %(levelname)-8s %(message)s",
+            datefmt="%Y-%m-%d %H:%M:%S",
+        )
+
+    else:
+        logging.basicConfig(
+            level=logging.INFO,
+            format="[%(asctime)s] {%(filename)s:%(lineno)d} %(levelname)-8s %(message)s",
+            datefmt="%Y-%m-%d %H:%M:%S",
+        )
+    LOGGER = logging.getLogger()
+    if not LOGGER.handlers:
+        LOGGER.addHandler(logging.StreamHandler(sys.stdout))
+
     if args.urls:
         start_time = time.time()
 
         console = Console()
         table = Table(show_header=True, header_style="bold magenta")
-        table.add_column("URL or identifier")
         table.add_column("Findable", justify="right")
         table.add_column("Accessible", justify="right")
         table.add_column("Interoperable", justify="right")
         table.add_column("Reusable", justify="right")
 
         for url in args.urls:
-            logging.info(f"Testing URL {url}")
+            logging.debug(f"Testing URL {url}")
             web_res = WebResource(url)
 
             metrics_collection = []
@@ -1264,12 +1289,11 @@ if __name__ == "__main__":
             metrics_collection.append(FAIRMetricsFactory.get_R12(web_res))
             metrics_collection.append(FAIRMetricsFactory.get_R13(web_res))
 
-            for m in metrics_collection:
+            for m in track(metrics_collection, "Processing FAIR metrics ..."):
                 logging.info(m.get_name())
                 res = m.evaluate()
                 if m.get_name().startswith("F"):
                     table.add_row(
-                        url,
                         Text(
                             m.get_name() + " " + str(res), style=get_result_style(res)
                         ),
@@ -1279,7 +1303,6 @@ if __name__ == "__main__":
                     )
                 elif m.get_name().startswith("A"):
                     table.add_row(
-                        url,
                         "",
                         Text(
                             m.get_name() + " " + str(res), style=get_result_style(res)
@@ -1289,7 +1312,6 @@ if __name__ == "__main__":
                     )
                 elif m.get_name().startswith("I"):
                     table.add_row(
-                        url,
                         "",
                         "",
                         Text(
@@ -1299,15 +1321,13 @@ if __name__ == "__main__":
                     )
                 elif m.get_name().startswith("R"):
                     table.add_row(
-                        url,
                         "",
                         "",
                         "",
-                        Text(
-                            m.get_name() + " " + str(res), style=get_result_style(res)
-                        ),
+                        Text(f"{m.get_name()} {str(res)}", style=get_result_style(res)),
                     )
 
+        console.rule(f"[bold red]FAIRness evaluation for URL {url}")
         console.print(table)
         elapsed_time = round((time.time() - start_time), 2)
         logging.info(f"FAIR metrics evaluated in {elapsed_time} s")

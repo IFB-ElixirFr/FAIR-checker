@@ -6,15 +6,6 @@ from metrics.Evaluation import Result
 
 class AbstractFAIRMetrics(ABC):
 
-    logging.basicConfig(
-        level=logging.DEBUG,
-        format="[%(asctime)s] {%(filename)s:%(lineno)d} %(levelname)-8s %(message)s",
-        datefmt="%Y-%m-%d %H:%M:%S",
-    )
-    LOGGER = logging.getLogger()
-    if not LOGGER.handlers:
-        LOGGER.addHandler(logging.StreamHandler(sys.stdout))
-
     COMMON_SPARQL_PREFIX = """
 PREFIX schema: <http://schema.org/>
 PREFIX dct: <http://purl.org/dc/terms/>
