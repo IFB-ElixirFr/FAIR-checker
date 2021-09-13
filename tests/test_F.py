@@ -1,15 +1,37 @@
 import logging
 import unittest
+import sys
 
 from metrics.FAIRMetricsFactory import FAIRMetricsFactory
 from metrics.FAIRMetricsFactory import Implem
 from metrics.Evaluation import Result
 from metrics.WebResource import WebResource
 
+logging.basicConfig(
+    level=logging.DEBUG,
+    format="[%(asctime)s] {%(filename)s:%(lineno)d} %(levelname)-8s %(message)s",
+    datefmt="%Y-%m-%d %H:%M:%S",
+)
+LOGGER = logging.getLogger()
+if not LOGGER.handlers:
+    LOGGER.addHandler(logging.StreamHandler(sys.stdout))
+
 
 class FindabilityTestCase(unittest.TestCase):
+
+    uri_wf = "https://workflowhub.eu/workflows/45"
+    uri_tool = "https://bio.tools/bwa"
+    wf = None
+    tool = None
+
+    @classmethod
+    def setUpClass(cls) -> None:
+        super().setUpClass()
+        cls.tool = WebResource(cls.uri_tool)
+        cls.wf = WebResource(cls.uri_wf)
+
     def test_F1A_biotools_fm_API(self):
-        biotools = WebResource("http://bio.tools/bwa")
+        biotools = FindabilityTestCase.tool
         res = FAIRMetricsFactory.get_F1A(
             web_resource=biotools, impl=Implem.FAIR_METRICS_API
         ).evaluate()
@@ -17,12 +39,39 @@ class FindabilityTestCase(unittest.TestCase):
         self.assertEqual(res, Result.STRONG)
 
     def test_F1A_biotools(self):
-        biotools = WebResource("http://bio.tools/bwa")
+        biotools = FindabilityTestCase.tool
         res = FAIRMetricsFactory.get_F1A(
             web_resource=biotools, impl=Implem.FAIR_CHECKER
         ).evaluate()
         logging.info(res)
         self.assertEqual(res, Result.STRONG)
+
+    def test_cached_F2B_biotools(self):
+        biotools = FindabilityTestCase.tool
+
+        res4 = FAIRMetricsFactory.get_R11(
+            web_resource=biotools, impl=Implem.FAIR_CHECKER
+        ).evaluate()
+        logging.info(res4)
+        self.assertEqual(res4, Result.STRONG)
+
+        res1 = FAIRMetricsFactory.get_F2B(
+            web_resource=biotools, impl=Implem.FAIR_CHECKER
+        ).evaluate()
+        logging.info(res1)
+        self.assertEqual(res1, Result.WEAK)
+
+        res2 = FAIRMetricsFactory.get_F2B(
+            web_resource=biotools, impl=Implem.FAIR_CHECKER
+        ).evaluate()
+        logging.info(res2)
+        self.assertEqual(res2, Result.WEAK)
+
+        res3 = FAIRMetricsFactory.get_I2(
+            web_resource=biotools, impl=Implem.FAIR_CHECKER
+        ).evaluate()
+        logging.info(res3)
+        self.assertEqual(res3, Result.WEAK)
 
     def test_F1A_dataverse(self):
         dataverse = WebResource(
@@ -37,7 +86,7 @@ class FindabilityTestCase(unittest.TestCase):
         self.assertEqual(res, Result.STRONG)
 
     def test_F1B_biotools_fm_API(self):
-        biotools = WebResource("http://bio.tools/bwa")
+        biotools = FindabilityTestCase.tool
         res = FAIRMetricsFactory.get_F1B(
             web_resource=biotools, impl=Implem.FAIR_METRICS_API
         ).evaluate()
@@ -45,7 +94,7 @@ class FindabilityTestCase(unittest.TestCase):
         self.assertEqual(res, Result.NO)
 
     def test_F1B_biotools(self):
-        biotools = WebResource("http://bio.tools/bwa")
+        biotools = FindabilityTestCase.tool
         res = FAIRMetricsFactory.get_F1B(
             web_resource=biotools, impl=Implem.FAIR_CHECKER
         ).evaluate()
@@ -53,7 +102,7 @@ class FindabilityTestCase(unittest.TestCase):
         self.assertEqual(res, Result.WEAK)
 
     def test_F2A_biotools(self):
-        biotools = WebResource("http://bio.tools/bwa")
+        biotools = FindabilityTestCase.tool
         res = FAIRMetricsFactory.get_F2A(
             web_resource=biotools, impl=Implem.FAIR_CHECKER
         ).evaluate()
@@ -61,7 +110,7 @@ class FindabilityTestCase(unittest.TestCase):
         self.assertEqual(res, Result.STRONG)
 
     def test_F2B_biotools(self):
-        biotools = WebResource("http://bio.tools/bwa")
+        biotools = FindabilityTestCase.tool
         res = FAIRMetricsFactory.get_F2B(
             web_resource=biotools, impl=Implem.FAIR_CHECKER
         ).evaluate()
