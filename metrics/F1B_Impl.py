@@ -69,7 +69,7 @@ class F1B_Impl(AbstractFAIRMetrics):
             check = parsed_url.netloc in list_of_known_namespaces
             logging.debug(f"{parsed_url.netloc} known in Identifiers.org: {check}")
         else:
-            check = False
+            check = parsed_url.scheme in list_of_known_namespaces
 
         return check
 

@@ -14,7 +14,7 @@ class InteroperablilityTestCase(unittest.TestCase):
             web_resource=biotools, impl=Implem.FAIR_CHECKER
         ).evaluate()
         logging.info(res)
-        self.assertEqual(res, Result.WEAK)
+        self.assertEqual(res, Result.STRONG)
 
     def test_I2A_biotools(self):
         biotools = WebResource("http://bio.tools/bwa")

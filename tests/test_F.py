@@ -91,7 +91,7 @@ class FindabilityTestCase(unittest.TestCase):
             web_resource=biotools, impl=Implem.FAIR_METRICS_API
         ).evaluate()
         logging.info(res)
-        self.assertEqual(res, Result.NO)
+        self.assertEqual(res, Result.STRONG)
 
     def test_F1B_biotools(self):
         biotools = FindabilityTestCase.tool
