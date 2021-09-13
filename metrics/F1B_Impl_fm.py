@@ -20,8 +20,9 @@ class F1B_Impl_fm(AbstractFAIRMetrics):
     """
 
     def __init__(self, web_resource):
-        super.name = "F1B"
-        super.desc = "F1B implemented through the FAIRMetrics API"
+        super().__init__(web_resource)
+        self.name = "F1B"
+        self.desc = "F1B implemented through the FAIRMetrics API"
         self.url = web_resource.get_url()
 
     def weak_evaluate(self) -> bool:

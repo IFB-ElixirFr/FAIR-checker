@@ -180,6 +180,7 @@ def testMetric(metric_api_url, data):
     # metric_api_url = base_url + sub_url
     # print(metric_api_url)
 
+    # TODO return after a max number of retry (e.g. 3 or 5)
     while True:
         try:
             response = requests.request(

@@ -39,7 +39,7 @@ class F2B_Impl(AbstractFAIRMetrics):
             elif ask_LOV(row["class"]):
                 logging.debug(f"known in Linked Open Vocabularies (LOV)")
                 return True
-            elif ask_BioPortal(row["class"]):
+            elif ask_BioPortal(row["class"], type="class"):
                 logging.debug(f"known in BioPortal")
                 return True
 
@@ -52,7 +52,7 @@ class F2B_Impl(AbstractFAIRMetrics):
             elif ask_LOV(row["prop"]):
                 logging.debug(f"known in Linked Open Vocabularies (LOV)")
                 return True
-            elif ask_BioPortal(row["prop"]):
+            elif ask_BioPortal(row["prop"], type="property"):
                 logging.debug(f"known in BioPortal")
                 return True
         return False
