@@ -77,7 +77,7 @@ def describe_opencitation(uri, g):
 def describe_loa(uri, g):
     # g = Graph()
     graph_pre_size = len(g)
-    print(f"SPARQL for [ {uri} ] with enpoint [ LOA ]")
+    logging.debug(f"SPARQL for [ {uri} ] with enpoint [ LOA ]")
     sparql = SPARQLWrapper("http://lod.openaire.eu/sparql")
     sparql.setQuery(
         """
@@ -105,7 +105,7 @@ def describe_wikidata(uri, g):
     # g = Graph()
     graph_pre_size = len(g)
     endpoint = "https://query.wikidata.org/sparql"
-    print(f"SPARQL for [ {uri} ] with enpoint [ {endpoint} ]")
+    logging.debug(f"SPARQL for [ {uri} ] with enpoint [ {endpoint} ]")
     # sparql = SPARQLWrapper("https://query.wikidata.org/sparql")
     query = (
         """
@@ -135,7 +135,7 @@ def describe_wikidata(uri, g):
     g.parse(data=res.text, format="turtle")
 
     graph_post_size = len(g)
-    print(f"{graph_post_size - graph_pre_size} added new triples")
+    logging.debug(f"{graph_post_size - graph_pre_size} added new triples")
 
     # print(g.serialize(format='turtle').decode())
     return g
@@ -143,7 +143,9 @@ def describe_wikidata(uri, g):
 
 # Describe a tool based on experimental bio.tools SPARQL endpoint
 def describe_biotools(uri, g):
-    print(f"SPARQL for [ {uri} ] with enpoint [ https://134.158.247.157/sparql ]")
+    logging.debug(
+        f"SPARQL for [ {uri} ] with enpoint [ https://134.158.247.157/sparql ]"
+    )
 
     h = {"Accept": "text/turtle"}
     p = {"query": "DESCRIBE <" + uri + ">"}
