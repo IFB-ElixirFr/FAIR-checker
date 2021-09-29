@@ -22,12 +22,13 @@ PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
 
     cache = {}
 
-    def __init__(self, web_resource):
+    def __init__(self, web_resource=None):
         self.name = "My name"
         self.id = "My id"
         self.desc = "My desc"
-        self.implem = "My desc"
-        self.principle = "My principle"
+        self.implem = "My implem"
+        self.principle = "My principle (an URI describing the metric)"
+        self.principle_tag = "My principle TAG"
         self.creator = "My creator name"
         self.created_at = "My creation date"
         self.updated_at = "My update date"
@@ -49,6 +50,9 @@ PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
     def get_principle(self):
         return self.principle
 
+    def get_principle_tag(self):
+        return self.principle_tag
+
     def get_creator(self):
         return self.creator
 
@@ -66,6 +70,9 @@ PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
 
     def get_web_resource(self):
         return self.web_resource
+
+    def set_web_resource(self, web_resource):
+        self.web_resource = web_resource
 
     # @staticmethod
     # def extract_html_requests(url):
@@ -129,23 +136,26 @@ PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
         logging.debug(f"Evaluating metrics {self.name}")
 
         # Check in the cache if the metrics has not been computed yet
-        url = self.get_web_resource().get_url()
-        if url in AbstractFAIRMetrics.cache.keys():
-            if self.get_implem() in AbstractFAIRMetrics.cache[url].keys():
-                logging.warning(f"Reusing cached result from {self.get_implem()}")
-                return AbstractFAIRMetrics.cache[url][self.get_implem()]
-        else:
-            AbstractFAIRMetrics.cache[url] = {}
+        try:
+            url = self.get_web_resource().get_url()
+            if url in AbstractFAIRMetrics.cache.keys():
+                if self.get_implem() in AbstractFAIRMetrics.cache[url].keys():
+                    logging.warning(f"Reusing cached result from {self.get_implem()}")
+                    return AbstractFAIRMetrics.cache[url][self.get_implem()]
+            else:
+                AbstractFAIRMetrics.cache[url] = {}
 
-        if self.strong_evaluate():
-            AbstractFAIRMetrics.cache[url][self.get_implem()] = Result.STRONG
-            return Result.STRONG
-        elif self.weak_evaluate():
-            AbstractFAIRMetrics.cache[url][self.get_implem()] = Result.WEAK
-            return Result.WEAK
-        else:
-            AbstractFAIRMetrics.cache[url][self.get_implem()] = Result.NO
-            return Result.NO
+            if self.strong_evaluate():
+                AbstractFAIRMetrics.cache[url][self.get_implem()] = Result.STRONG
+                return Result.STRONG
+            elif self.weak_evaluate():
+                AbstractFAIRMetrics.cache[url][self.get_implem()] = Result.WEAK
+                return Result.WEAK
+            else:
+                AbstractFAIRMetrics.cache[url][self.get_implem()] = Result.NO
+                return Result.NO
+        except AttributeError:
+            logging.warning("No web_resource set")
 
     @abstractmethod
     def weak_evaluate(self) -> bool:

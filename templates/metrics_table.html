@@ -1,6 +1,7 @@
 <table class="table is-bordered is-striped is-hoverable" style="margin: auto;">
     <thead>
     <tr>
+        <th>Implem</th>
         <th>Principle</th>
         <th>Name</th>
         <th>Description</th>
@@ -15,7 +16,7 @@
     <tbody>
     {% for f in f_metrics %}
     <tr id="metrics_row_{{ f.id }}">
-        <!-- <td>{{ f.principle_category }}</td> -->
+        <td class="vcenter hcenter">{{ f.implem }}</td>
         <td class="vcenter hcenter">{{ f.principle_tag }}</td>
         <td class="vcenter">{{ f.name }}</td>
         <td class="vcenter hcenter">

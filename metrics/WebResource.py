@@ -21,6 +21,7 @@ class WebResource:
     )
     WEB_BROWSER_HEADLESS.implicitly_wait(20)
 
+    # TODO Extruct cam work with Selenium
     @staticmethod
     def extract_rdf_extruct(url) -> ConjunctiveGraph:
         while True:

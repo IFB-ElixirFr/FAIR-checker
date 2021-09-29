@@ -30,6 +30,19 @@ class FindabilityTestCase(unittest.TestCase):
         cls.tool = WebResource(cls.uri_tool)
         cls.wf = WebResource(cls.uri_wf)
 
+    def test_F1A_biotools_none(self):
+        # biotools = FindabilityTestCase.tool
+        # print(biotools)
+        metric_f1a = FAIRMetricsFactory.get_F1A(
+             impl=Implem.FAIR_CHECKER
+        )
+        web_resource = WebResource("https://bio.tools/bwa")
+        metric_f1a.set_web_resource(web_resource)
+        print(metric_f1a)
+        res = metric_f1a.evaluate()
+        logging.info(res)
+        self.assertEqual(Result.STRONG, res)
+
     def test_F1A_biotools_fm_API(self):
         biotools = FindabilityTestCase.tool
         res = FAIRMetricsFactory.get_F1A(

@@ -9,6 +9,7 @@ class FAIRMetricsImpl(AbstractFAIRMetrics):
         self.id = id
         self.desc = desc
         self.api = api
+        self.implem = "FAIRMetrics"
         self.principle = principle
         self.creator = creator
         self.created_at = created_at

@@ -18,11 +18,13 @@ class F1A_Impl(AbstractFAIRMetrics):
 
     """
 
-    def __init__(self, web_resource):
+    def __init__(self, web_resource=None):
         super().__init__(web_resource)
-        self.name = "F1.A"
-        self.implem = "F1.A"
-        self.desc = ""
+        self.name = "Unique IDs"
+        self.principle = "https://w3id.org/fair/principles/terms/F1"
+        self.principle_tag = "F1A"
+        self.implem = "FAIR-Checker"
+        self.desc = "FAIRChecker Implem of F1A, more details soon"
 
     def weak_evaluate(self) -> bool:
         pass

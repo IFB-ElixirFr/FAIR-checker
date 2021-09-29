@@ -43,6 +43,7 @@ from metrics.FAIRMetricsFactory import FAIRMetricsFactory
 from metrics.AbstractFAIRMetrics import AbstractFAIRMetrics
 from metrics.WebResource import WebResource
 from metrics.Evaluation import Result
+from metrics.FAIRMetricsFactory import Implem
 
 app = Flask(__name__)
 
@@ -120,6 +121,10 @@ except ValueError as e:
 
 # A DEPLACER AU LANCEMENT DU SERVEUR ######
 METRICS_RES = test_metric.getMetrics()
+
+METRICS_CUSTOM = factory.get_F1A(
+                    impl=Implem.FAIR_CHECKER
+                )
 
 KGS = {}
 
@@ -1081,12 +1086,13 @@ def base_metrics():
     print(app.config)
 
     metrics = []
-
+    print(METRICS["Unique Identifier"])
     for key in METRICS.keys():
         print()
         metrics.append(
             {
                 "name": METRICS[key].get_name(),
+                "implem": METRICS[key].get_implem(),
                 "description": METRICS[key].get_desc(),
                 "api_url": METRICS[key].get_api(),
                 "id": "metric_" + METRICS[key].get_id().rsplit("/", 1)[-1],
@@ -1097,6 +1103,21 @@ def base_metrics():
                 .rsplit("/", 1)[-1][0],
             }
         )
+    print(metrics[0])
+    metrics.append(
+        {
+            "name": METRICS_CUSTOM.get_name(),
+            "implem": METRICS_CUSTOM.get_implem(),
+            "description": METRICS_CUSTOM.get_desc(),
+            "api_url": "API to define",
+            "id": "ID to define",
+            "principle": METRICS_CUSTOM.get_principle(),
+            "principle_tag": METRICS_CUSTOM.get_principle_tag(),
+            "principle_category": METRICS_CUSTOM
+            .get_principle()
+            .rsplit("/", 1)[-1][0],
+        }
+    )
 
     return render_template(
         "metrics_summary.html",
