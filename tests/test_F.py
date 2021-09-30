@@ -33,9 +33,7 @@ class FindabilityTestCase(unittest.TestCase):
     def test_F1A_biotools_none(self):
         # biotools = FindabilityTestCase.tool
         # print(biotools)
-        metric_f1a = FAIRMetricsFactory.get_F1A(
-             impl=Implem.FAIR_CHECKER
-        )
+        metric_f1a = FAIRMetricsFactory.get_F1A(impl=Implem.FAIR_CHECKER)
         web_resource = WebResource("https://bio.tools/bwa")
         metric_f1a.set_web_resource(web_resource)
         print(metric_f1a)
