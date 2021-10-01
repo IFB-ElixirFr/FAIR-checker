@@ -45,6 +45,8 @@ from metrics.WebResource import WebResource
 from metrics.Evaluation import Result
 from metrics.FAIRMetricsFactory import Implem
 
+from metrics.F1A_Impl import F1A_Impl
+
 app = Flask(__name__)
 
 if app.config["ENV"] == "production":
@@ -189,6 +191,16 @@ def handle_metric(json):
     @param json dict Contains the necessary informations to execute evaluate a metric.
     """
 
+    implem = json["implem"]
+    console.print(implem)
+    console.print("test")
+    if implem == "FAIRMetrics":
+        evaluate_fairmetrics()
+    elif implem == "FAIR-Checker":
+        evaluate_fc_metrics()
+    else:
+        logging.warning("Invalid implem")
+
     metric_name = json["metric_name"]
     url = json["url"]
     #
@@ -290,6 +302,14 @@ def handle_metric(json):
     # print(emit_json)
     emit("done_" + client_metric_id, emit_json)
     print("DONE " + principle)
+
+
+def evaluate_fairmetrics():
+    pass
+
+
+def evaluate_fc_metrics():
+    print("OK FC Metrics")
 
 
 @socketio.on("quick_structured_data_search")
@@ -1091,7 +1111,7 @@ def base_metrics():
             "implem": METRICS_CUSTOM.get_implem(),
             "description": METRICS_CUSTOM.get_desc(),
             "api_url": "API to define",
-            "id": "FC_",
+            "id": "FC_" + METRICS_CUSTOM.get_id(),
             "principle": METRICS_CUSTOM.get_principle(),
             "principle_tag": METRICS_CUSTOM.get_principle_tag(),
             "principle_category": METRICS_CUSTOM.get_principle().rsplit("/", 1)[-1][0],

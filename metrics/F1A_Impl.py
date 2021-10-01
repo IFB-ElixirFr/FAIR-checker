@@ -21,6 +21,7 @@ class F1A_Impl(AbstractFAIRMetrics):
     def __init__(self, web_resource=None):
         super().__init__(web_resource)
         self.name = "Unique IDs"
+        self.id = "1"
         self.principle = "https://w3id.org/fair/principles/terms/F1"
         self.principle_tag = "F1A"
         self.implem = "FAIR-Checker"
