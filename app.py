@@ -12,7 +12,9 @@ from flask import (
     session,
     send_file,
     send_from_directory,
+    make_response,
 )
+from flask_cors import CORS
 from flask_socketio import SocketIO
 from flask_socketio import emit
 import secrets
@@ -48,6 +50,8 @@ from metrics.FAIRMetricsFactory import Implem
 from metrics.F1A_Impl import F1A_Impl
 
 app = Flask(__name__)
+# CORS(app)
+# app.config['CORS_HEADERS'] = 'Content-Type'
 
 if app.config["ENV"] == "production":
     app.config.from_object("config.ProductionConfig")
@@ -56,7 +60,9 @@ else:
 
 # print(f'ENV is set to: {app.config["ENV"]}')
 
-socketio = SocketIO(app, async_mode="eventlet")
+socketio = SocketIO(app)
+socketio.init_app(app, cors_allowed_origins="*")
+
 app.secret_key = secrets.token_urlsafe(16)
 
 sample_resources = {
@@ -182,6 +188,10 @@ def statistics():
     )
 
 
+
+def handle_test(json):
+    print(json, flush=True)
+
 @socketio.on("evaluate_metric")
 def handle_metric(json):
     """
@@ -190,10 +200,11 @@ def handle_metric(json):
 
     @param json dict Contains the necessary informations to execute evaluate a metric.
     """
-
+    print("TUTU", flush=True)
+    print("TOTO")
+    # sys.exit(0)
     implem = json["implem"]
-    console.print(implem)
-    console.print("test")
+
     if implem == "FAIRMetrics":
         evaluate_fairmetrics()
     elif implem == "FAIR-Checker":
@@ -1066,7 +1077,7 @@ def buidJSONLD():
     return raw_jld
 
 
-@app.route("/base_metrics")
+@app.route("/base_metrics", methods=['GET'])
 def base_metrics():
     """
     Load the Advanced page elements loading informations from FAIRMetrics API.
@@ -1137,14 +1148,22 @@ def base_metrics():
         )
     print(metrics[1])
 
-    return render_template(
+    # response =
+    return make_response(render_template(
         "metrics_summary.html",
         f_metrics=metrics,
         sample_data=sample_resources,
         jld=raw_jld,
         uuid=content_uuid,
-    )
+    ))
+    # )).headers.add('Access-Control-Allow-Origin', '*')
 
+# @app.after_request
+# def after_request(response):
+#   response.headers.add('Access-Control-Allow-Origin', '*')
+#   response.headers.add('Access-Control-Allow-Headers', 'Content-Type,Authorization')
+#   response.headers.add('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS')
+#   return response
 
 @app.route("/kg_metrics")
 def kg_metrics():

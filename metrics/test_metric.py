@@ -450,7 +450,7 @@ def requestResultSparql(metric_evaluation_result_text, term):
 
     g = rdflib.Graph()
     result = g.parse(data=metric_evaluation_result_text, format="json-ld")
-    rdf_string = g.serialize(format="turtle").decode("utf-8")
+    # rdf_string = g.serialize(format="turtle").decode("utf-8")
     # print(g.serialize(format="json-ld").decode("utf-8"))
 
     # TODO use RDFLib graph traversal methods to retrieve some parts of the graphs
