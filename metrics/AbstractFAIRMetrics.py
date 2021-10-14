@@ -139,7 +139,7 @@ PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
     #     self.LOGGER.debug(kg.serialize(format="turtle").decode())
     #     self.rdf_jsonld = kg
 
-    def evaluate(self) -> Result:
+    def evaluate(self) -> Evaluation:
         logging.debug(f"Evaluating metrics {self.name}")
 
         # Check in the cache if the metrics has not been computed yet
@@ -153,25 +153,31 @@ PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
                 AbstractFAIRMetrics.cache[url] = {}
 
 
-
-            if self.strong_evaluate():
+            if self.strong_evaluate().get_score() == "2":
+                print("STRONG")
                 AbstractFAIRMetrics.cache[url][self.get_implem()] = Result.STRONG
-                return Result.STRONG
-            elif self.weak_evaluate():
+                self.get_evaluation().set_end_time()
+                return self.get_evaluation()
+            elif self.weak_evaluate().get_score() == "1":
+                print("WEAK")
                 AbstractFAIRMetrics.cache[url][self.get_implem()] = Result.WEAK
-                return Result.WEAK
-            else:
+                self.get_evaluation().set_end_time()
+                return self.get_evaluation()
+            elif self.strong_evaluate().get_score() == "0" or self.weak_evaluate().get_score() == "0":
+                print("NO")
                 AbstractFAIRMetrics.cache[url][self.get_implem()] = Result.NO
-                return Result.NO
-        except AttributeError:
+                self.get_evaluation().set_end_time()
+                return self.get_evaluation()
+        except AttributeError as err:
+            print(err)
             logging.warning("No web_resource set")
 
     @abstractmethod
-    def weak_evaluate(self) -> bool:
+    def weak_evaluate(self) -> Evaluation:
         pass
 
     @abstractmethod
-    def strong_evaluate(self) -> bool:
+    def strong_evaluate(self) -> Evaluation:
         pass
 
     def __str__(self):

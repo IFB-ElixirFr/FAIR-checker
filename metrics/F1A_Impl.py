@@ -10,6 +10,7 @@ from rdflib import URIRef
 from metrics.AbstractFAIRMetrics import AbstractFAIRMetrics
 from datetime import timedelta
 from metrics.FairCheckerExceptions import FairCheckerException
+from metrics.Evaluation import Evaluation
 
 
 class F1A_Impl(AbstractFAIRMetrics):
@@ -28,10 +29,11 @@ class F1A_Impl(AbstractFAIRMetrics):
         self.implem = "FAIR-Checker"
         self.desc = "FAIRChecker Implem of F1A, more details soon"
 
-    def weak_evaluate(self) -> bool:
-        pass
+    def weak_evaluate(self) -> Evaluation:
+        eval = self.get_evaluation()
+        return eval
 
-    def strong_evaluate(self) -> bool:
+    def strong_evaluate(self) -> Evaluation:
         """
         We check here that embedded metadata do not contain RDF blank nodes.
         """
@@ -47,22 +49,28 @@ ASK {
 }
             """
         kg = self.get_web_resource().get_rdf()
-        eval.set_end_time()
-
+        print("test1")
         if len(kg) == 0:
             eval.set_score(0)
             eval.set_reason("No metadata in RDF format found")
             return eval
         else:
+            eval.set_reason("Found metadata in RDF format !")
+
             logging.debug(f"running query:" + f"\n{query_blank_nodes}")
             res = kg.query(query_blank_nodes)
             logging.debug(str(res.serialize(format="json")))
             for bool_res in res:
+                print("test2")
                 if bool_res:
                     #if blank node
+                    eval.set_reason("Blank node found")
                     eval.set_score(0)
                 else:
                     #if no blank node
+                    eval.set_reason("No blank node found !")
                     eval.set_score(2)
+                print("test3")
                 return eval
+
             pass

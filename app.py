@@ -315,14 +315,17 @@ def evaluate_fc_metrics(metric_name, client_metric_id, url):
     METRICS_CUSTOM[0].set_web_resource(webresource)
     print("Evaluating: " + metric_name)
     result = METRICS_CUSTOM[0].evaluate()
-    print(result)
+
+    score = result.get_score()
     # Eval time removing microseconds
-    # evaluation_time = result.get_test_time() - timedelta(
-    #     microseconds=result.get_test_time().microseconds
-    # )
+    evaluation_time = result.get_test_time() - timedelta(
+        microseconds=result.get_test_time().microseconds
+    )
+    comment = result.get_reason()
     emit_json = {
-        "score": str(result),
-        # "time": str(evaluation_time),
+        "score": str(score),
+        "time": str(evaluation_time),
+        "comment": comment,
         # "name": name,
     }
     emit("done_" + client_metric_id, emit_json)
