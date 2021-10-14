@@ -58,7 +58,7 @@ if app.config["ENV"] == "production":
 else:
     app.config.from_object("config.DevelopmentConfig")
 
-# print(f'ENV is set to: {app.config["ENV"]}')
+print(f'ENV is set to: {app.config["ENV"]}')
 
 socketio = SocketIO(app)
 socketio.init_app(app, cors_allowed_origins="*")
@@ -205,12 +205,7 @@ def handle_metric(json):
     # sys.exit(0)
     implem = json["implem"]
 
-    if implem == "FAIRMetrics":
-        evaluate_fairmetrics()
-    elif implem == "FAIR-Checker":
-        evaluate_fc_metrics()
-    else:
-        logging.warning("Invalid implem")
+
 
     metric_name = json["metric_name"]
     url = json["url"]
@@ -222,6 +217,16 @@ def handle_metric(json):
     # print(data)
 
     # NEW class IMPLE
+
+    if implem == "FAIRMetrics":
+        print("not our implem !")
+        evaluate_fairmetrics()
+    elif implem == "FAIR-Checker":
+        print("heya our IMPLEM !")
+        evaluate_fc_metrics(metric_name)
+    else:
+        print("Invalid implem")
+        logging.warning("Invalid implem")
 
     id = METRICS[metric_name].get_id()
     api_url = METRICS[metric_name].get_api()
@@ -319,8 +324,10 @@ def evaluate_fairmetrics():
     pass
 
 
-def evaluate_fc_metrics():
+def evaluate_fc_metrics(metric_name):
     print("OK FC Metrics")
+    id = METRICS_CUSTOM[metric_name].get_id()
+    print(id)
 
 
 @socketio.on("quick_structured_data_search")
