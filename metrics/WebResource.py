@@ -21,7 +21,7 @@ class WebResource:
     )
     WEB_BROWSER_HEADLESS.implicitly_wait(20)
 
-    # TODO Extruct cam work with Selenium
+    # TODO Extruct can work with Selenium
     @staticmethod
     def extract_rdf_extruct(url) -> ConjunctiveGraph:
         while True:
@@ -72,7 +72,7 @@ class WebResource:
                     md["@context"] = static_file_path
             kg.parse(data=json.dumps(md, ensure_ascii=False), format="json-ld")
 
-        logging.debug(kg.serialize(format="turtle").decode())
+        logging.debug(kg.serialize(format="turtle"))
         return kg
 
     @staticmethod
@@ -107,7 +107,7 @@ class WebResource:
                         jsonld["@context"] = static_file_path
                 kg.parse(data=json.dumps(jsonld, ensure_ascii=False), format="json-ld")
                 logging.debug(f"{len(kg)} retrieved triples in KG")
-                logging.debug(kg.serialize(format="turtle").decode())
+                logging.debug(kg.serialize(format="turtle"))
 
         except NoSuchElementException:
             logging.warning('Can\'t find "application/ld+json" content')

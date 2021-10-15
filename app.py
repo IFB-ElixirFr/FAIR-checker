@@ -1,6 +1,7 @@
 # from https://github.com/eventlet/eventlet/issues/670
-# import eventlet
-# eventlet.monkey_patch()
+import eventlet
+
+eventlet.monkey_patch()
 import sys
 
 from flask import (
@@ -50,8 +51,8 @@ from metrics.FAIRMetricsFactory import Implem
 from metrics.F1A_Impl import F1A_Impl
 
 app = Flask(__name__)
-# CORS(app)
-# app.config['CORS_HEADERS'] = 'Content-Type'
+CORS(app)
+app.config["CORS_HEADERS"] = "Content-Type"
 
 if app.config["ENV"] == "production":
     app.config.from_object("config.ProductionConfig")
@@ -61,7 +62,7 @@ else:
 print(f'ENV is set to: {app.config["ENV"]}')
 
 socketio = SocketIO(app)
-socketio.init_app(app, cors_allowed_origins="*")
+socketio.init_app(app, cors_allowed_origins="*", async_mode="eventlet")
 
 app.secret_key = secrets.token_urlsafe(16)
 
@@ -130,7 +131,7 @@ except ValueError as e:
 # A DEPLACER AU LANCEMENT DU SERVEUR ######
 METRICS_RES = test_metric.getMetrics()
 
-METRICS_CUSTOM = factory.get_F1A(impl=Implem.FAIR_CHECKER)
+METRICS_CUSTOM = [factory.get_F1A(impl=Implem.FAIR_CHECKER)]
 
 KGS = {}
 
@@ -188,9 +189,9 @@ def statistics():
     )
 
 
-
 def handle_test(json):
     print(json, flush=True)
+
 
 @socketio.on("evaluate_metric")
 def handle_metric(json):
@@ -204,8 +205,6 @@ def handle_metric(json):
     print("TOTO")
     # sys.exit(0)
     implem = json["implem"]
-
-
 
     metric_name = json["metric_name"]
     url = json["url"]
@@ -223,7 +222,7 @@ def handle_metric(json):
         evaluate_fairmetrics()
     elif implem == "FAIR-Checker":
         print("heya our IMPLEM !")
-        evaluate_fc_metrics(metric_name)
+        evaluate_fc_metrics(metric_name, url)
     else:
         print("Invalid implem")
         logging.warning("Invalid implem")
@@ -324,10 +323,15 @@ def evaluate_fairmetrics():
     pass
 
 
-def evaluate_fc_metrics(metric_name):
+def evaluate_fc_metrics(metric_name, url):
     print("OK FC Metrics")
-    id = METRICS_CUSTOM[metric_name].get_id()
+    print(METRICS_CUSTOM)
+    id = METRICS_CUSTOM[0].get_id()
     print(id)
+    webresource = WebResource("http://bio.tools/bwa")
+    METRICS_CUSTOM[0].set_web_resource(webresource)
+    result = METRICS_CUSTOM[0].evaluate()
+    print(result)
 
 
 @socketio.on("quick_structured_data_search")
@@ -1084,7 +1088,7 @@ def buidJSONLD():
     return raw_jld
 
 
-@app.route("/base_metrics", methods=['GET'])
+@app.route("/base_metrics", methods=["GET"])
 def base_metrics():
     """
     Load the Advanced page elements loading informations from FAIRMetrics API.
@@ -1125,14 +1129,16 @@ def base_metrics():
 
     metrics.append(
         {
-            "name": METRICS_CUSTOM.get_name(),
-            "implem": METRICS_CUSTOM.get_implem(),
-            "description": METRICS_CUSTOM.get_desc(),
+            "name": METRICS_CUSTOM[0].get_name(),
+            "implem": METRICS_CUSTOM[0].get_implem(),
+            "description": METRICS_CUSTOM[0].get_desc(),
             "api_url": "API to define",
-            "id": "FC_" + METRICS_CUSTOM.get_id(),
-            "principle": METRICS_CUSTOM.get_principle(),
-            "principle_tag": METRICS_CUSTOM.get_principle_tag(),
-            "principle_category": METRICS_CUSTOM.get_principle().rsplit("/", 1)[-1][0],
+            "id": "FC_" + METRICS_CUSTOM[0].get_id(),
+            "principle": METRICS_CUSTOM[0].get_principle(),
+            "principle_tag": METRICS_CUSTOM[0].get_principle_tag(),
+            "principle_category": METRICS_CUSTOM[0]
+            .get_principle()
+            .rsplit("/", 1)[-1][0],
         }
     )
 
@@ -1156,14 +1162,17 @@ def base_metrics():
     print(metrics[1])
 
     # response =
-    return make_response(render_template(
-        "metrics_summary.html",
-        f_metrics=metrics,
-        sample_data=sample_resources,
-        jld=raw_jld,
-        uuid=content_uuid,
-    ))
+    return make_response(
+        render_template(
+            "metrics_summary.html",
+            f_metrics=metrics,
+            sample_data=sample_resources,
+            jld=raw_jld,
+            uuid=content_uuid,
+        )
+    )
     # )).headers.add('Access-Control-Allow-Origin', '*')
+
 
 # @app.after_request
 # def after_request(response):
@@ -1171,6 +1180,7 @@ def base_metrics():
 #   response.headers.add('Access-Control-Allow-Headers', 'Content-Type,Authorization')
 #   response.headers.add('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS')
 #   return response
+
 
 @app.route("/kg_metrics")
 def kg_metrics():
