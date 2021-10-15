@@ -37,6 +37,7 @@ class R11_Impl(AbstractFAIRMetrics):
         pass
 
     def strong_evaluate(self):
+        eval = self.get_evaluation()
         query_licenses = (
             self.COMMON_SPARQL_PREFIX
             + """
@@ -52,4 +53,7 @@ ASK {
         # print(self.rdf_jsonld.serialize(format="turtle").decode())
         res = self.get_web_resource().get_rdf().query(query_licenses)
         for bool_r in res:
-            return bool_r
+            if bool_r:
+                return eval.set_score(2)
+            else:
+                return eval.set_score(0)

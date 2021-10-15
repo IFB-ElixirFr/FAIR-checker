@@ -34,5 +34,8 @@ class F2A_Impl(AbstractFAIRMetrics):
         """
         at least one embedded RDF triple
         """
+        eval = self.get_evaluation()
         kg = self.get_web_resource().get_rdf()
-        return len(kg) > 0
+        if len(kg) > 0:
+            return eval.set_score(2)
+        return eval.set_score(0)

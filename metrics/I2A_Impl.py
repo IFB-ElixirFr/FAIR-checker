@@ -21,6 +21,7 @@ class I2A_Impl(AbstractFAIRMetrics):
         """
         at least one predicate from {dct:title, rdfs:comment, rdfs:description, rdfs:title, etc.}
         """
+        eval = self.get_evaluation()
         query_human = (
             self.COMMON_SPARQL_PREFIX
             + """
@@ -36,13 +37,16 @@ class I2A_Impl(AbstractFAIRMetrics):
 
         kg = self.get_web_resource().get_rdf()
         if len(kg) == 0:
-            return False
+            return eval.set_score(0)
         else:
             logging.debug(f"running query:" + f"\n{query_human}")
             res = kg.query(query_human)
             logging.debug(str(res.serialize(format="json")))
             for bool_res in res:
-                return bool_res
+                if bool_res:
+                    eval.set_score(1)
+                else:
+                    eval.set_score(0)
             pass
 
     def strong_evaluate(self) -> bool:

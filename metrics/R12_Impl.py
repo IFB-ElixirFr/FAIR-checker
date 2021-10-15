@@ -16,7 +16,11 @@ class R12_Impl(AbstractFAIRMetrics):
         self.implem = "FAIR-Checker"
         self.desc = "Metadata includes provenance. Evaluate if provenance related properties exist."
 
-    def strong_evaluate(self) -> bool:
+    def weak_evaluate(self):
+        pass
+
+    def strong_evaluate(self):
+        eval = self.get_evaluation()
         query_prov = (
             self.COMMON_SPARQL_PREFIX
             + """ 
@@ -33,7 +37,9 @@ ASK {
 
         res = self.get_web_resource().get_rdf().query(query_prov)
         for bool_res in res:
-            return bool_res
+            if bool_res:
+                return eval.set_score(2)
+            else:
+                return eval.set_score(0)
 
-    def weak_evaluate(self) -> bool:
-        pass
+

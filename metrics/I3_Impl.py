@@ -24,7 +24,7 @@ class I3_Impl(AbstractFAIRMetrics):
 
     def strong_evaluate(self) -> bool:
         """at least 3 different URL authorities in URIs"""
-
+        eval = self.get_evaluation()
         kg = self.get_web_resource().get_rdf()
         domains = []
         for s, p, o in kg:
@@ -36,4 +36,7 @@ class I3_Impl(AbstractFAIRMetrics):
 
         logging.debug(f"Domain names found in URis: {domains}")
 
-        return len(domains) > 3
+        if len(domains) > 3:
+            return eval.set_score(2)
+        else:
+            return eval.set_score(0)

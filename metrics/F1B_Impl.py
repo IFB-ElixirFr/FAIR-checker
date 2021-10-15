@@ -91,6 +91,7 @@ class F1B_Impl(AbstractFAIRMetrics):
         """
         at least one of the RDF term (subject, predicate, or object) reuse one of the Identifiers.org namespaces
         """
+        eval = self.get_evaluation()
         kg = self.get_web_resource().get_rdf()
         namespaces = F1B_Impl.get_known_namespaces()
 
@@ -98,8 +99,8 @@ class F1B_Impl(AbstractFAIRMetrics):
             for term in [s, o]:
                 if F1B_Impl.is_known_pid_scheme(str(term), namespaces):
                     logging.info(f"Found an Identifiers.org namespace for {str(term)}")
-                    return True
-        return False
+                    return eval.set_score(1)
+        return eval.set_score(0)
 
     def strong_evaluate(self) -> bool:
         """
