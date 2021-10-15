@@ -34,7 +34,27 @@ class FAIRMetricsFactory:
         )
 
     @staticmethod
-    def get_F1B(web_resource, impl=Implem.FAIR_CHECKER):
+    def get_FC_metrics():
+        fc_metrics_list = [
+            F1A_Impl(None),
+            F1B_Impl(None),
+            F2A_Impl(None),
+            F2B_Impl(None),
+            I1_Impl(None),
+            I1A_Impl(None),
+            I1B_Impl(None),
+            I2_Impl(None),
+            I2A_Impl(None),
+            I2B_Impl(None),
+            I3_Impl(None),
+            R11_Impl(None),
+            R12_Impl(None),
+            R13_Impl(None),
+        ]
+        return fc_metrics_list
+
+    @staticmethod
+    def get_F1B(web_resource=None, impl=Implem.FAIR_CHECKER):
         if impl == Implem.FAIR_METRICS_API:
             return F1B_Impl_fm(web_resource)
         else:

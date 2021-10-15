@@ -11,7 +11,7 @@ class I1A_Impl(AbstractFAIRMetrics):
     def __init__(self, web_resource):
         super().__init__(web_resource)
         self.name = "I1A"
-        self.implem = "F2.A"
+        self.implem = "FAIR-Checker"
         self.desc = ""
 
     def weak_evaluate(self) -> bool:

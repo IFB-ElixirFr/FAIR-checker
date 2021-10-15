@@ -131,7 +131,7 @@ except ValueError as e:
 # A DEPLACER AU LANCEMENT DU SERVEUR ######
 METRICS_RES = test_metric.getMetrics()
 
-METRICS_CUSTOM = [factory.get_F1A(impl=Implem.FAIR_CHECKER)]
+METRICS_CUSTOM = factory.get_FC_metrics()
 
 KGS = {}
 
@@ -1125,20 +1125,21 @@ def base_metrics():
 
     metrics = []
 
-    metrics.append(
-        {
-            "name": METRICS_CUSTOM[0].get_name(),
-            "implem": METRICS_CUSTOM[0].get_implem(),
-            "description": METRICS_CUSTOM[0].get_desc(),
-            "api_url": "API to define",
-            "id": "FC_" + METRICS_CUSTOM[0].get_id(),
-            "principle": METRICS_CUSTOM[0].get_principle(),
-            "principle_tag": METRICS_CUSTOM[0].get_principle_tag(),
-            "principle_category": METRICS_CUSTOM[0]
-            .get_principle()
-            .rsplit("/", 1)[-1][0],
-        }
-    )
+    for metric in METRICS_CUSTOM:
+        metrics.append(
+            {
+                "name": metric.get_name(),
+                "implem": metric.get_implem(),
+                "description": metric.get_desc(),
+                "api_url": "API to define",
+                "id": "FC_" + metric.get_id(),
+                "principle": metric.get_principle(),
+                "principle_tag": metric.get_principle_tag(),
+                "principle_category": metric
+                .get_principle()
+                .rsplit("/", 1)[-1][0],
+            }
+        )
 
     print(METRICS["Unique Identifier"])
     for key in METRICS.keys():
