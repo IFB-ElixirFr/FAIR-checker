@@ -127,7 +127,7 @@
 
 
             // change status color
-            if (value['score'] == 1) {
+            if (value['score'] >= 1) {
               $("#status_{{f.id}}").removeClass("is-danger");
               $("#status_{{f.id}}").addClass("is-success");
               $("#status_{{f.id}}").text("Success");

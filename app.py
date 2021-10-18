@@ -201,15 +201,12 @@ def handle_metric(json):
 
     @param json dict Contains the necessary informations to execute evaluate a metric.
     """
-    print("TUTU", flush=True)
     print("TOTO")
-    # sys.exit(0)
     implem = json["implem"]
 
     metric_name = json["metric_name"]
-    url = json["url"]
-    #
     client_metric_id = json["id"]
+    url = json["url"]
     # principle = json['principle']
     #
     # data = '{"subject": "' + url + '"}'
@@ -219,14 +216,16 @@ def handle_metric(json):
 
     if implem == "FAIRMetrics":
         print("not our implem !")
-        evaluate_fairmetrics()
+        evaluate_fairmetrics(json, metric_name, client_metric_id, url)
     elif implem == "FAIR-Checker":
         print("heya our IMPLEM !")
-        evaluate_fc_metrics(metric_name, url)
+        evaluate_fc_metrics(metric_name, client_metric_id, url)
     else:
         print("Invalid implem")
         logging.warning("Invalid implem")
 
+
+def evaluate_fairmetrics(json, metric_name, client_metric_id, url):
     id = METRICS[metric_name].get_id()
     api_url = METRICS[metric_name].get_api()
     principle = METRICS[metric_name].get_principle()
@@ -262,20 +261,6 @@ def handle_metric(json):
 
     content_uuid = json["uuid"]
 
-    # # evaluate metric
-    # start_time = test_metric.getCurrentTime()
-    # res = test_metric.testMetric(api_url, data)
-    # # print(res)
-    # end_time = test_metric.getCurrentTime()
-    # evaluation_time = end_time - start_time
-    # print(evaluation_time)
-    #
-    # # get the score
-    # score = test_metric.requestResultSparql(res, "ss:SIO_000300")
-    # score = str(int(float(score)))
-    #
-    # # get comment
-    # comment = test_metric.requestResultSparql(res, "schema:comment")
     # remove empty lines from the comment
     comment = test_metric.cleanComment(comment)
     # all_comment = comment
@@ -304,6 +289,7 @@ def handle_metric(json):
     csv_line = '"{}"\t"{}"\t"{}"\t"{}"'.format(
         name, score, str(evaluation_time), comment
     )
+    print(name)
     emit_json = {
         "score": score,
         "comment": comment,
@@ -319,19 +305,28 @@ def handle_metric(json):
     print("DONE " + principle)
 
 
-def evaluate_fairmetrics():
-    pass
-
-
-def evaluate_fc_metrics(metric_name, url):
+def evaluate_fc_metrics(metric_name, client_metric_id, url):
     print("OK FC Metrics")
     print(METRICS_CUSTOM)
     id = METRICS_CUSTOM[0].get_id()
-    print(id)
-    webresource = WebResource("http://bio.tools/bwa")
+    print("ID: " + id)
+    print("Client ID: " + client_metric_id)
+    webresource = WebResource(url)
     METRICS_CUSTOM[0].set_web_resource(webresource)
+    print("Evaluating: " + metric_name)
     result = METRICS_CUSTOM[0].evaluate()
     print(result)
+    # Eval time removing microseconds
+    # evaluation_time = result.get_test_time() - timedelta(
+    #     microseconds=result.get_test_time().microseconds
+    # )
+    emit_json = {
+        "score": str(result),
+        # "time": str(evaluation_time),
+        # "name": name,
+    }
+    emit("done_" + client_metric_id, emit_json)
+    print("DONE our own metric !")
 
 
 @socketio.on("quick_structured_data_search")
