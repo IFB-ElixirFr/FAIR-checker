@@ -55,7 +55,9 @@ ASK {
             eval.set_reason("No metadata in RDF format found")
             return eval
         else:
-            eval.set_reason("Found metadata in RDF format ! (" + str(len(kg)) + " triples)")
+            eval.set_reason(
+                "Found metadata in RDF format ! (" + str(len(kg)) + " triples)"
+            )
 
             logging.debug(f"running query:" + f"\n{query_blank_nodes}")
             res = kg.query(query_blank_nodes)
@@ -63,11 +65,11 @@ ASK {
             for bool_res in res:
                 print("test2")
                 if bool_res:
-                    #if blank node
+                    # if blank node
                     eval.append_reason("Blank node found, thus ID is not unique")
                     eval.set_score(0)
                 else:
-                    #if no blank node
+                    # if no blank node
                     eval.append_reason("No blank node found !")
                     eval.set_score(2)
                 print("test3")

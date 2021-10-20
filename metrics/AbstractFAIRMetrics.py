@@ -152,7 +152,6 @@ PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
             else:
                 AbstractFAIRMetrics.cache[url] = {}
 
-
             if self.strong_evaluate().get_score() == "2":
                 print("STRONG")
                 AbstractFAIRMetrics.cache[url][self.get_implem()] = Result.STRONG
