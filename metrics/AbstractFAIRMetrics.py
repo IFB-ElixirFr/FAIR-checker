@@ -156,6 +156,7 @@ PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
             if self.strong_evaluate().get_score() == "2":
                 print("STRONG")
                 AbstractFAIRMetrics.cache[url][self.get_implem()] = Result.STRONG
+                print(Result.STRONG)
                 self.get_evaluation().set_end_time()
                 return self.get_evaluation()
             elif self.weak_evaluate().get_score() == "1":
@@ -163,7 +164,7 @@ PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
                 AbstractFAIRMetrics.cache[url][self.get_implem()] = Result.WEAK
                 self.get_evaluation().set_end_time()
                 return self.get_evaluation()
-            elif self.strong_evaluate().get_score() == "0" or self.weak_evaluate().get_score() == "0":
+            else:
                 print("NO")
                 AbstractFAIRMetrics.cache[url][self.get_implem()] = Result.NO
                 self.get_evaluation().set_end_time()

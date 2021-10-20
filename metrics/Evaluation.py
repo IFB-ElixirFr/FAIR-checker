@@ -41,6 +41,9 @@ class Evaluation:
     def set_reason(self, r):
         self.reason = r
 
+    def append_reason(self, r):
+        self.reason = self.reason + "\n" + r
+
     def set_metrics(self, metrics):
         self.metrics = str(metrics)
 
