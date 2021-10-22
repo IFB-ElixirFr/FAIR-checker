@@ -20,7 +20,10 @@ class F2A_Impl(AbstractFAIRMetrics):
 
     def __init__(self, web_resource):
         super().__init__(web_resource)
-        self.name = "F2.A"
+        # self.name = "F2.A"
+        self.id = "3"
+        self.principle = "https://w3id.org/fair/principles/terms/F2"
+        self.principle_tag = "F2A"
         self.implem = "FAIR-Checker"
         self.desc = ""
 

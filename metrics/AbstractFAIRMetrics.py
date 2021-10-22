@@ -23,7 +23,7 @@ PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
     cache = {}
 
     def __init__(self, web_resource=None):
-        self.name = "My name"
+        self.name = "My metric name"
         self.id = "My id"
         self.desc = "My desc"
         self.implem = "My implem"
@@ -141,7 +141,9 @@ PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
 
     def evaluate(self) -> Evaluation:
         logging.debug(f"Evaluating metrics {self.name}")
-
+        self.set_new_evaluation()
+        eval = self.get_evaluation()
+        eval.set_start_time()
         # Check in the cache if the metrics has not been computed yet
         try:
             url = self.get_web_resource().get_url()
@@ -154,19 +156,21 @@ PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
 
             if self.strong_evaluate().get_score() == "2":
                 print("STRONG")
-                AbstractFAIRMetrics.cache[url][self.get_implem()] = Result.STRONG
-                print(Result.STRONG)
                 self.get_evaluation().set_end_time()
+                AbstractFAIRMetrics.cache[url][self.get_principle_tag()] = self.strong_evaluate().get_score()
+
                 return self.get_evaluation()
             elif self.weak_evaluate().get_score() == "1":
                 print("WEAK")
-                AbstractFAIRMetrics.cache[url][self.get_implem()] = Result.WEAK
                 self.get_evaluation().set_end_time()
+                AbstractFAIRMetrics.cache[url][self.get_principle_tag()] = self.strong_evaluate().get_score()
+
                 return self.get_evaluation()
             else:
                 print("NO")
-                AbstractFAIRMetrics.cache[url][self.get_implem()] = Result.NO
                 self.get_evaluation().set_end_time()
+                AbstractFAIRMetrics.cache[url][self.get_principle_tag()] = self.strong_evaluate().get_score()
+
                 return self.get_evaluation()
         except AttributeError as err:
             print(err)

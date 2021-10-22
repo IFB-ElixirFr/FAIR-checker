@@ -37,9 +37,7 @@ class F1A_Impl(AbstractFAIRMetrics):
         """
         We check here that embedded metadata do not contain RDF blank nodes.
         """
-        self.set_new_evaluation()
         eval = self.get_evaluation()
-        eval.set_start_time()
 
         query_blank_nodes = """ 
 ASK {  

@@ -10,7 +10,10 @@ class I1A_Impl(AbstractFAIRMetrics):
 
     def __init__(self, web_resource):
         super().__init__(web_resource)
-        self.name = "I1A"
+        # self.name = "I1A"
+        self.id = "6"
+        self.principle = "https://w3id.org/fair/principles/terms/I1"
+        self.principle_tag = "I1A"
         self.implem = "FAIR-Checker"
         self.desc = ""
 

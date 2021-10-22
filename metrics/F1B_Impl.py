@@ -80,7 +80,10 @@ class F1B_Impl(AbstractFAIRMetrics):
 
     def __init__(self, web_resource):
         super().__init__(web_resource)
-        self.name = "F1.B"
+        # self.name = "F1.B"
+        self.id = "2"
+        self.principle = "https://w3id.org/fair/principles/terms/F1"
+        self.principle_tag = "F1B"
         self.implem = "FAIR-Checker"
         self.desc = ""
 
@@ -102,6 +105,7 @@ class F1B_Impl(AbstractFAIRMetrics):
         """
         dcterms:identifiers or schema:identifier and known in Identifiers.org
         """
+        eval = self.get_evaluation()
         query_identifiers = (
             self.COMMON_SPARQL_PREFIX
             + """ 
@@ -114,5 +118,9 @@ ASK {
         logging.debug(f"running query:" + f"\n{query_identifiers}")
         res = self.get_web_resource().get_rdf().query(query_identifiers)
         for bool_res in res:
-            return bool_res
+            if bool_res:
+                eval.set_score(2)
+            else:
+                eval.set_score(0)
+            return eval
         pass
