@@ -20,7 +20,7 @@ class F2B_Impl(AbstractFAIRMetrics):
 
     def __init__(self, web_resource):
         super().__init__(web_resource)
-        # self.name = "F2.B"
+        self.name = "Metric name 4"
         self.id = "4"
         self.principle = "https://w3id.org/fair/principles/terms/F2"
         self.principle_tag = "F2B"
@@ -39,26 +39,32 @@ class F2B_Impl(AbstractFAIRMetrics):
             logging.debug(f'evaluating class {row["class"]}')
             if ask_OLS(row["class"]):
                 logging.debug(f"known in Ontology Lookup Service (OLS)")
-                return eval.set_score(1)
+                eval.set_score(1)
+                return eval
             elif ask_LOV(row["class"]):
                 logging.debug(f"known in Linked Open Vocabularies (LOV)")
-                return eval.set_score(1)
+                eval.set_score(1)
+                return eval
             elif ask_BioPortal(row["class"], type="class"):
                 logging.debug(f"known in BioPortal")
-                return eval.set_score(1)
+                eval.set_score(1)
+                return eval
 
         qres = kg.query(self.query_properties)
         for row in qres:
             logging.debug(f'evaluating property {row["prop"]}')
             if ask_OLS(row["prop"]):
                 logging.debug(f"known in Ontology Lookup Service (OLS)")
-                return eval.set_score(1)
+                eval.set_score(1)
+                return eval
             elif ask_LOV(row["prop"]):
                 logging.debug(f"known in Linked Open Vocabularies (LOV)")
-                return eval.set_score(1)
+                eval.set_score(1)
+                return eval
             elif ask_BioPortal(row["prop"], type="property"):
                 logging.debug(f"known in BioPortal")
-                return eval.set_score(1)
+                eval.set_score(1)
+                return eval
         return eval.set_score(0)
 
     def strong_evaluate(self) -> bool:
@@ -77,7 +83,8 @@ class F2B_Impl(AbstractFAIRMetrics):
                 or ask_BioPortal(row["class"], type="class")
             ):
                 logging.debug(f"{row['class']} not known in OLS, or LOV, or BioPortal")
-                return eval.set_score(0)
+                eval.set_score(0)
+                return eval
 
         qres = kg.query(self.query_properties)
         for row in qres:
@@ -88,9 +95,11 @@ class F2B_Impl(AbstractFAIRMetrics):
                 or ask_BioPortal(row["prop"], type="property")
             ):
                 logging.debug(f"{row['prop']} not known in OLS, or LOV, or BioPortal ")
-                return eval.set_score(0)
+                eval.set_score(0)
+                return eval
 
         logging.info(
             "All classes and properties are known in major ontology registries"
         )
-        return eval.set_score(2)
+        eval.set_score(2)
+        return eval

@@ -9,7 +9,7 @@ class R12_Impl(AbstractFAIRMetrics):
 
     def __init__(self, web_resource):
         super().__init__(web_resource)
-        # self.name = "R1.2"
+        self.name = "Metric name 13"
         self.id = "13"
         self.principle = "https://w3id.org/fair/principles/terms/R1.2"
         self.principle_tag = "R1.2"
@@ -17,7 +17,8 @@ class R12_Impl(AbstractFAIRMetrics):
         self.desc = "Metadata includes provenance. Evaluate if provenance related properties exist."
 
     def weak_evaluate(self):
-        pass
+        eval = self.get_evaluation()
+        return eval
 
     def strong_evaluate(self):
         eval = self.get_evaluation()

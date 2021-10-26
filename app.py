@@ -308,13 +308,14 @@ def evaluate_fairmetrics(json, metric_name, client_metric_id, url):
 def evaluate_fc_metrics(metric_name, client_metric_id, url):
     print("OK FC Metrics")
     print(METRICS_CUSTOM)
-    id = METRICS_CUSTOM[0].get_id()
+    id = METRICS_CUSTOM[metric_name].get_id()
     print("ID: " + id)
     print("Client ID: " + client_metric_id)
     webresource = WebResource(url)
-    METRICS_CUSTOM[0].set_web_resource(webresource)
+    print(webresource)
+    METRICS_CUSTOM[metric_name].set_web_resource(webresource)
     print("Evaluating: " + metric_name)
-    result = METRICS_CUSTOM[0].evaluate()
+    result = METRICS_CUSTOM[metric_name].evaluate()
 
     score = result.get_score()
     # Eval time removing microseconds
@@ -1125,17 +1126,17 @@ def base_metrics():
 
     metrics = []
 
-    for metric in METRICS_CUSTOM:
+    for key in METRICS_CUSTOM.keys():
         metrics.append(
             {
-                "name": metric.get_name(),
-                "implem": metric.get_implem(),
-                "description": metric.get_desc(),
+                "name": METRICS_CUSTOM[key].get_name(),
+                "implem": METRICS_CUSTOM[key].get_implem(),
+                "description": METRICS_CUSTOM[key].get_desc(),
                 "api_url": "API to define",
-                "id": "FC_" + metric.get_id(),
-                "principle": metric.get_principle(),
-                "principle_tag": metric.get_principle_tag(),
-                "principle_category": metric
+                "id": "FC_" + METRICS_CUSTOM[key].get_id(),
+                "principle": METRICS_CUSTOM[key].get_principle(),
+                "principle_tag": METRICS_CUSTOM[key].get_principle_tag(),
+                "principle_category": METRICS_CUSTOM[key]
                 .get_principle()
                 .rsplit("/", 1)[-1][0],
             }

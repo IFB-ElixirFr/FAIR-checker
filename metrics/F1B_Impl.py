@@ -78,16 +78,16 @@ class F1B_Impl(AbstractFAIRMetrics):
 
     """
 
-    def __init__(self, web_resource):
+    def __init__(self, web_resource=None):
         super().__init__(web_resource)
-        # self.name = "F1.B"
+        self.name = "Metric name 2"
         self.id = "2"
         self.principle = "https://w3id.org/fair/principles/terms/F1"
         self.principle_tag = "F1B"
         self.implem = "FAIR-Checker"
         self.desc = ""
 
-    def weak_evaluate(self) -> bool:
+    def weak_evaluate(self):
         """
         at least one of the RDF term (subject, predicate, or object) reuse one of the Identifiers.org namespaces
         """
@@ -102,7 +102,7 @@ class F1B_Impl(AbstractFAIRMetrics):
                     return eval.set_score(1)
         return eval.set_score(0)
 
-    def strong_evaluate(self) -> bool:
+    def strong_evaluate(self):
         """
         dcterms:identifiers or schema:identifier and known in Identifiers.org
         """

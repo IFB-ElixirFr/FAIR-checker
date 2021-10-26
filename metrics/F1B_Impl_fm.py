@@ -26,7 +26,8 @@ class F1B_Impl_fm(AbstractFAIRMetrics):
         self.url = web_resource.get_url()
 
     def weak_evaluate(self) -> bool:
-        pass
+        eval = self.get_evaluation()
+        return eval
 
     def strong_evaluate(self) -> bool:
         data = '{"subject": "' + self.url + '"}'

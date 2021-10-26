@@ -92,7 +92,7 @@ class Evaluation:
         return (
             f"FAIR metrics evaluation : "
             f"\n\t started at {self.start_time} "
-            f"\n\t lasted {self.get_test_time()} "
+            f"\n\t ended {self.end_time} "
             f"\n\t score {self.score} "
             f"\n\t reason {self.reason} "
         )

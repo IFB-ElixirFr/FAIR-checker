@@ -12,7 +12,7 @@ class I3_Impl(AbstractFAIRMetrics):
 
     def __init__(self, web_resource):
         super().__init__(web_resource)
-        # self.name = "I3"
+        self.name = "Metric name 11"
         self.id = "11"
         self.principle = "https://w3id.org/fair/principles/terms/I3"
         self.principle_tag = "I3"
@@ -20,7 +20,8 @@ class I3_Impl(AbstractFAIRMetrics):
         self.desc = ""
 
     def weak_evaluate(self) -> bool:
-        pass
+        eval = self.get_evaluation()
+        return eval
 
     def strong_evaluate(self) -> bool:
         """at least 3 different URL authorities in URIs"""

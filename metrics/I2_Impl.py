@@ -11,7 +11,7 @@ class I2_Impl(AbstractFAIRMetrics):
 
     def __init__(self, web_resource):
         super().__init__(web_resource)
-        # self.name = "I2"
+        self.name = "Metric name 8"
         self.id = "8"
         self.principle = "https://w3id.org/fair/principles/terms/I2"
         self.principle_tag = "I2"

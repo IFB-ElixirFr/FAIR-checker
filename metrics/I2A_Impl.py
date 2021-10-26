@@ -10,7 +10,7 @@ class I2A_Impl(AbstractFAIRMetrics):
 
     def __init__(self, web_resource):
         super().__init__(web_resource)
-        # self.name = "I2A"
+        self.name = "Metric name 9"
         self.id = "9"
         self.principle = "https://w3id.org/fair/principles/terms/I2"
         self.principle_tag = "I2A"
@@ -51,4 +51,5 @@ class I2A_Impl(AbstractFAIRMetrics):
 
     def strong_evaluate(self) -> bool:
         """ """
-        pass
+        eval = self.get_evaluation()
+        return eval

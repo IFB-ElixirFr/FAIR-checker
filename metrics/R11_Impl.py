@@ -26,7 +26,7 @@ class R11_Impl(AbstractFAIRMetrics):
 
     def __init__(self, web_resource):
         super().__init__(web_resource)
-        # self.name = "R1.1"
+        self.name = "Metric name 12"
         self.id = "12"
         self.principle = "https://w3id.org/fair/principles/terms/R1.1"
         self.principle_tag = "R1.1"
@@ -34,7 +34,8 @@ class R11_Impl(AbstractFAIRMetrics):
         self.desc = "Metadata includes license. Evaluate if dct:license or schema:license properties exist."
 
     def weak_evaluate(self):
-        pass
+        eval = self.get_evaluation()
+        return eval
 
     def strong_evaluate(self):
         eval = self.get_evaluation()

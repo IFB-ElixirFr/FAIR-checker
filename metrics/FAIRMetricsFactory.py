@@ -35,22 +35,22 @@ class FAIRMetricsFactory:
 
     @staticmethod
     def get_FC_metrics():
-        fc_metrics_list = [
-            F1A_Impl(None),
-            F1B_Impl(None),
-            F2A_Impl(None),
-            F2B_Impl(None),
-            I1_Impl(None),
-            I1A_Impl(None),
-            I1B_Impl(None),
-            I2_Impl(None),
-            I2A_Impl(None),
-            I2B_Impl(None),
-            I3_Impl(None),
-            R11_Impl(None),
-            R12_Impl(None),
-            R13_Impl(None),
-        ]
+        fc_metrics_list = {
+            F1A_Impl(None).get_name(): F1A_Impl(None),
+            F1B_Impl(None).get_name(): F1B_Impl(None),
+            F2A_Impl(None).get_name(): F2A_Impl(None),
+            F2B_Impl(None).get_name(): F2B_Impl(None),
+            I1_Impl(None).get_name(): I1_Impl(None),
+            I1A_Impl(None).get_name(): I1A_Impl(None),
+            I1B_Impl(None).get_name(): I1B_Impl(None),
+            I2_Impl(None).get_name(): I2_Impl(None),
+            I2A_Impl(None).get_name(): I2A_Impl(None),
+            I2B_Impl(None).get_name(): I2B_Impl(None),
+            I3_Impl(None).get_name(): I3_Impl(None),
+            R11_Impl(None).get_name(): R11_Impl(None),
+            R12_Impl(None).get_name(): R12_Impl(None),
+            R13_Impl(None).get_name(): R13_Impl(None),
+        }
         return fc_metrics_list
 
     @staticmethod
