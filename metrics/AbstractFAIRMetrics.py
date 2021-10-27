@@ -143,11 +143,13 @@ PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
     #     self.rdf_jsonld = kg
 
     def evaluate(self) -> Evaluation:
+        print([cls.get_implem(self) for cls in AbstractFAIRMetrics.__subclasses__()])
         logging.debug(f"Evaluating metrics {self.get_name()}")
         logging.debug(f"Evaluating metrics {self.get_principle_tag()}")
         self.set_new_evaluation()
         eval = self.get_evaluation()
         eval.set_start_time()
+        logging.info(eval)
         # Check in the cache if the metrics has not been computed yet
         try:
 
@@ -155,7 +157,9 @@ PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
             if url in AbstractFAIRMetrics.cache.keys():
 
                 if self.get_principle_tag() in AbstractFAIRMetrics.cache[url].keys():
-                    logging.warning(f"Reusing cached result from {self.get_principle_tag()}")
+                    logging.warning(
+                        f"Reusing cached result from {self.get_principle_tag()}"
+                    )
                     return AbstractFAIRMetrics.cache[url][self.get_principle_tag()]
             else:
                 AbstractFAIRMetrics.cache[url] = {}
@@ -163,19 +167,25 @@ PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
             if self.strong_evaluate().get_score() == "2":
                 print("STRONG")
                 self.get_evaluation().set_end_time()
-                AbstractFAIRMetrics.cache[url][self.get_principle_tag()] = self.get_evaluation()
+                AbstractFAIRMetrics.cache[url][
+                    self.get_principle_tag()
+                ] = self.get_evaluation()
 
                 return self.get_evaluation()
             elif self.weak_evaluate().get_score() == "1":
                 print("WEAK")
                 self.get_evaluation().set_end_time()
-                AbstractFAIRMetrics.cache[url][self.get_principle_tag()] = self.get_evaluation()
+                AbstractFAIRMetrics.cache[url][
+                    self.get_principle_tag()
+                ] = self.get_evaluation()
 
                 return self.get_evaluation()
             else:
                 print("NO")
                 self.get_evaluation().set_end_time()
-                AbstractFAIRMetrics.cache[url][self.get_principle_tag()] = self.get_evaluation()
+                AbstractFAIRMetrics.cache[url][
+                    self.get_principle_tag()
+                ] = self.get_evaluation()
 
                 return self.get_evaluation()
         except AttributeError as err:

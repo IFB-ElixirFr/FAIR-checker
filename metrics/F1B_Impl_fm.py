@@ -19,7 +19,7 @@ class F1B_Impl_fm(AbstractFAIRMetrics):
 
     """
 
-    def __init__(self, web_resource):
+    def __init__(self, web_resource=None):
         super().__init__(web_resource)
         self.name = "F1B"
         self.desc = "F1B implemented through the FAIRMetrics API"

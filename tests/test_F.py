@@ -118,7 +118,7 @@ class FindabilityTestCase(unittest.TestCase):
             web_resource=biotools, impl=Implem.FAIR_CHECKER
         ).evaluate()
         logging.info(res)
-        self.assertEqual(res, Result.STRONG)
+        self.assertEqual(res.get_score(), "2")
 
     def test_F2B_biotools(self):
         biotools = FindabilityTestCase.tool

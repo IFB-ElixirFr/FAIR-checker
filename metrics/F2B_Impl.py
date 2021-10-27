@@ -18,7 +18,7 @@ class F2B_Impl(AbstractFAIRMetrics):
 
     """
 
-    def __init__(self, web_resource):
+    def __init__(self, web_resource=None):
         super().__init__(web_resource)
         self.name = "Metric name 4"
         self.id = "4"
@@ -27,11 +27,12 @@ class F2B_Impl(AbstractFAIRMetrics):
         self.implem = "FAIR-Checker"
         self.desc = ""
 
-    def weak_evaluate(self) -> bool:
+    def weak_evaluate(self, eval=None):
         """
         at least one used ontology classe or property known in major ontology registries (OLS, BioPortal, LOV)
         """
-        eval = self.get_evaluation()
+        if not eval:
+            eval = self.get_evaluation()
         kg = self.get_web_resource().get_rdf()
 
         qres = kg.query(self.query_classes)
@@ -65,13 +66,15 @@ class F2B_Impl(AbstractFAIRMetrics):
                 logging.debug(f"known in BioPortal")
                 eval.set_score(1)
                 return eval
-        return eval.set_score(0)
+        eval.set_score(0)
+        return eval
 
-    def strong_evaluate(self) -> bool:
+    def strong_evaluate(self, eval=None):
         """
         all used ontology classes and properties  known in major ontology registries (OLS, BioPortal, LOV)
         """
-        eval = self.get_evaluation()
+        if not eval:
+            eval = self.get_evaluation()
         kg = self.get_web_resource().get_rdf()
 
         qres = kg.query(self.query_classes)

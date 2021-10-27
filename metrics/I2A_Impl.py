@@ -8,7 +8,7 @@ class I2A_Impl(AbstractFAIRMetrics):
 
     """
 
-    def __init__(self, web_resource):
+    def __init__(self, web_resource=None):
         super().__init__(web_resource)
         self.name = "Metric name 9"
         self.id = "9"
@@ -17,7 +17,7 @@ class I2A_Impl(AbstractFAIRMetrics):
         self.implem = "FAIR-Checker"
         self.desc = ""
 
-    def weak_evaluate(self) -> bool:
+    def weak_evaluate(self):
         """
         at least one predicate from {dct:title, rdfs:comment, rdfs:description, rdfs:title, etc.}
         """
@@ -37,7 +37,8 @@ class I2A_Impl(AbstractFAIRMetrics):
 
         kg = self.get_web_resource().get_rdf()
         if len(kg) == 0:
-            return eval.set_score(0)
+            eval.set_score(0)
+            return eval
         else:
             logging.debug(f"running query:" + f"\n{query_human}")
             res = kg.query(query_human)
@@ -47,9 +48,9 @@ class I2A_Impl(AbstractFAIRMetrics):
                     eval.set_score(1)
                 else:
                     eval.set_score(0)
-            pass
+                return eval
 
-    def strong_evaluate(self) -> bool:
+    def strong_evaluate(self):
         """ """
         eval = self.get_evaluation()
         return eval

@@ -133,6 +133,9 @@ METRICS_RES = test_metric.getMetrics()
 
 METRICS_CUSTOM = factory.get_FC_metrics()
 
+for i, key in enumerate(METRICS_CUSTOM):
+    METRICS_CUSTOM[key].set_id("FC_" + str(i))
+
 KGS = {}
 
 RDF_TYPE = {}
@@ -1133,7 +1136,7 @@ def base_metrics():
                 "implem": METRICS_CUSTOM[key].get_implem(),
                 "description": METRICS_CUSTOM[key].get_desc(),
                 "api_url": "API to define",
-                "id": "FC_" + METRICS_CUSTOM[key].get_id(),
+                "id": METRICS_CUSTOM[key].get_id(),
                 "principle": METRICS_CUSTOM[key].get_principle(),
                 "principle_tag": METRICS_CUSTOM[key].get_principle_tag(),
                 "principle_category": METRICS_CUSTOM[key]

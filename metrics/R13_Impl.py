@@ -9,7 +9,7 @@ class R13_Impl(AbstractFAIRMetrics):
 
     """
 
-    def __init__(self, web_resource):
+    def __init__(self, web_resource=None):
         super().__init__(web_resource)
         self.name = "Metric name 14"
         self.id = "14"
@@ -18,14 +18,18 @@ class R13_Impl(AbstractFAIRMetrics):
         self.implem = "FAIR-Checker"
         self.desc = ""
 
-    def weak_evaluate(self) -> bool:
+    def weak_evaluate(self):
         """
         Delegated to F2B
         """
-        return F2B_Impl(self.get_web_resource()).weak_evaluate()
+        eval = self.get_evaluation()
+        eval_from_F2B = F2B_Impl(self.get_web_resource()).weak_evaluate(eval=eval)
+        return eval_from_F2B
 
-    def strong_evaluate(self) -> bool:
+    def strong_evaluate(self):
         """
         Delegated to F2B
         """
-        return F2B_Impl(self.get_web_resource()).strong_evaluate()
+        eval = self.get_evaluation()
+        eval_from_F2B = F2B_Impl(self.get_web_resource()).strong_evaluate(eval=eval)
+        return eval_from_F2B

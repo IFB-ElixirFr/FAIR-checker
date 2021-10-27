@@ -28,15 +28,17 @@ class F2A_Impl(AbstractFAIRMetrics):
         self.implem = "FAIR-Checker"
         self.desc = ""
 
-    def weak_evaluate(self) -> Evaluation:
-        eval = self.get_evaluation()
+    def weak_evaluate(self, eval=None) -> Evaluation:
+        if not eval:
+            eval = self.get_evaluation()
         return eval
 
-    def strong_evaluate(self) -> Evaluation:
+    def strong_evaluate(self, eval=None) -> Evaluation:
         """
         at least one embedded RDF triple
         """
-        eval = self.get_evaluation()
+        if not eval:
+            eval = self.get_evaluation()
         kg = self.get_web_resource().get_rdf()
 
         if len(kg) > 0:

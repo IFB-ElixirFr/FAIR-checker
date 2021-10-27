@@ -99,8 +99,10 @@ class F1B_Impl(AbstractFAIRMetrics):
             for term in [s, o]:
                 if F1B_Impl.is_known_pid_scheme(str(term), namespaces):
                     logging.info(f"Found an Identifiers.org namespace for {str(term)}")
-                    return eval.set_score(1)
-        return eval.set_score(0)
+                    eval.set_score(1)
+                    return eval
+        eval.set_score(0)
+        return eval
 
     def strong_evaluate(self):
         """

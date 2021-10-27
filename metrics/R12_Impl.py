@@ -7,7 +7,7 @@ class R12_Impl(AbstractFAIRMetrics):
     GOAL : retrieve embedded semantic annotations
     """
 
-    def __init__(self, web_resource):
+    def __init__(self, web_resource=None):
         super().__init__(web_resource)
         self.name = "Metric name 13"
         self.id = "13"
@@ -39,8 +39,8 @@ ASK {
         res = self.get_web_resource().get_rdf().query(query_prov)
         for bool_res in res:
             if bool_res:
-                return eval.set_score(2)
+                eval.set_score(2)
+                return eval
             else:
-                return eval.set_score(0)
-
-
+                eval.set_score(0)
+                return eval

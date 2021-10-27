@@ -10,7 +10,7 @@ class I3_Impl(AbstractFAIRMetrics):
 
     """
 
-    def __init__(self, web_resource):
+    def __init__(self, web_resource=None):
         super().__init__(web_resource)
         self.name = "Metric name 11"
         self.id = "11"
@@ -19,11 +19,11 @@ class I3_Impl(AbstractFAIRMetrics):
         self.implem = "FAIR-Checker"
         self.desc = ""
 
-    def weak_evaluate(self) -> bool:
+    def weak_evaluate(self):
         eval = self.get_evaluation()
         return eval
 
-    def strong_evaluate(self) -> bool:
+    def strong_evaluate(self):
         """at least 3 different URL authorities in URIs"""
         eval = self.get_evaluation()
         kg = self.get_web_resource().get_rdf()
@@ -38,6 +38,8 @@ class I3_Impl(AbstractFAIRMetrics):
         logging.debug(f"Domain names found in URis: {domains}")
 
         if len(domains) > 3:
-            return eval.set_score(2)
+            eval.set_score(2)
+            return eval
         else:
-            return eval.set_score(0)
+            eval.set_score(0)
+            return eval

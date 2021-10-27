@@ -24,7 +24,7 @@ class R11_Impl(AbstractFAIRMetrics):
        4. for each, ask (efficiently) if it's known in LOV
     """
 
-    def __init__(self, web_resource):
+    def __init__(self, web_resource=None):
         super().__init__(web_resource)
         self.name = "Metric name 12"
         self.id = "12"
@@ -55,6 +55,8 @@ ASK {
         res = self.get_web_resource().get_rdf().query(query_licenses)
         for bool_r in res:
             if bool_r:
-                return eval.set_score(2)
+                eval.set_score(2)
+                return eval
             else:
-                return eval.set_score(0)
+                eval.set_score(0)
+                return eval

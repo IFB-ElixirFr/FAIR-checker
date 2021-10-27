@@ -117,6 +117,7 @@ class WebResource:
 
     def __init__(self, url) -> None:
         self.url = url
+        self.id = "WebResource Unique ID for cache"
         # get dynamic RDF metadata (generated from JS)
         kg_1 = WebResource.extract_rdf_selenium(self.url)
         # get static RDF metadata (already available in html sources)
