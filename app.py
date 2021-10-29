@@ -18,6 +18,7 @@ from flask import (
 from flask_cors import CORS
 from flask_socketio import SocketIO
 from flask_socketio import emit
+from flask_caching import Cache
 import secrets
 import time
 import os
@@ -61,6 +62,7 @@ else:
 
 print(f'ENV is set to: {app.config["ENV"]}')
 
+cache = Cache(app)
 socketio = SocketIO(app)
 socketio.init_app(app, cors_allowed_origins="*", async_mode="eventlet")
 
@@ -191,9 +193,9 @@ def statistics():
         r_failures=stats.this_week_for_named_metrics(prefix="R", success=0),
     )
 
-
-def handle_test(json):
-    print(json, flush=True)
+@socketio.on("webresource")
+def handle_webresource(url):
+    print("A new url to retrieve metadata from !")
 
 
 @socketio.on("evaluate_metric")
@@ -310,11 +312,31 @@ def evaluate_fairmetrics(json, metric_name, client_metric_id, url):
 
 def evaluate_fc_metrics(metric_name, client_metric_id, url):
     print("OK FC Metrics")
+    print(cache.get("TOTO"))
     print(METRICS_CUSTOM)
     id = METRICS_CUSTOM[metric_name].get_id()
     print("ID: " + id)
     print("Client ID: " + client_metric_id)
-    webresource = WebResource(url)
+    # Faire une fonction recursive ?
+    if cache.get(url) == "pulling":
+        while True:
+            time.sleep(2)
+            print("test2")
+            if not cache.get(url) == "pulling":
+                print("test3")
+                webresource = cache.get(url)
+                break
+
+
+    elif not isinstance(cache.get(url), WebResource):
+        cache.set(url, "pulling")
+        print("test1")
+        webresource = WebResource(url)
+        cache.set(url, webresource)
+    elif isinstance(cache.get(url), WebResource):
+        webresource = cache.get(url)
+
+
     print(webresource)
     METRICS_CUSTOM[metric_name].set_web_resource(webresource)
     print("Evaluating: " + metric_name)
@@ -1128,6 +1150,8 @@ def base_metrics():
     print(app.config)
 
     metrics = []
+
+    cache.set("TOTO", "Toto cache !")
 
     for key in METRICS_CUSTOM.keys():
         metrics.append(
