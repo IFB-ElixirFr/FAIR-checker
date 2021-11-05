@@ -1,6 +1,7 @@
 # from https://github.com/eventlet/eventlet/issues/670
-# import eventlet
-# eventlet.monkey_patch()
+import eventlet
+
+eventlet.monkey_patch()
 import sys
 
 from flask import (
@@ -12,9 +13,12 @@ from flask import (
     session,
     send_file,
     send_from_directory,
+    make_response,
 )
+from flask_cors import CORS
 from flask_socketio import SocketIO
 from flask_socketio import emit
+from flask_caching import Cache
 import secrets
 import time
 import os
@@ -30,21 +34,38 @@ from pathlib import Path
 import rdflib
 from rdflib import ConjunctiveGraph
 import extruct
+import logging
+from rich.console import Console
+from rich.table import Table
+from rich.text import Text
+from rich.progress import track
+
 import metrics.util as util
 import metrics.statistics as stats
 from metrics import test_metric
 from metrics.FAIRMetricsFactory import FAIRMetricsFactory
+from metrics.AbstractFAIRMetrics import AbstractFAIRMetrics
+from metrics.WebResource import WebResource
+from metrics.Evaluation import Result
+from metrics.FAIRMetricsFactory import Implem
+
+from metrics.F1A_Impl import F1A_Impl
 
 app = Flask(__name__)
+CORS(app)
+app.config["CORS_HEADERS"] = "Content-Type"
 
 if app.config["ENV"] == "production":
     app.config.from_object("config.ProductionConfig")
 else:
     app.config.from_object("config.DevelopmentConfig")
 
-# print(f'ENV is set to: {app.config["ENV"]}')
+print(f'ENV is set to: {app.config["ENV"]}')
 
-socketio = SocketIO(app, async_mode="eventlet")
+cache = Cache(app)
+socketio = SocketIO(app)
+socketio.init_app(app, cors_allowed_origins="*", async_mode="eventlet")
+
 app.secret_key = secrets.token_urlsafe(16)
 
 sample_resources = {
@@ -112,6 +133,11 @@ except ValueError as e:
 # A DEPLACER AU LANCEMENT DU SERVEUR ######
 METRICS_RES = test_metric.getMetrics()
 
+METRICS_CUSTOM = factory.get_FC_metrics()
+
+for i, key in enumerate(METRICS_CUSTOM):
+    METRICS_CUSTOM[key].set_id("FC_" + str(i))
+
 KGS = {}
 
 RDF_TYPE = {}
@@ -167,6 +193,10 @@ def statistics():
         r_failures=stats.this_week_for_named_metrics(prefix="R", success=0),
     )
 
+@socketio.on("webresource")
+def handle_webresource(url):
+    print("A new url to retrieve metadata from !")
+
 
 @socketio.on("evaluate_metric")
 def handle_metric(json):
@@ -176,11 +206,12 @@ def handle_metric(json):
 
     @param json dict Contains the necessary informations to execute evaluate a metric.
     """
+    print("TOTO")
+    implem = json["implem"]
 
     metric_name = json["metric_name"]
-    url = json["url"]
-    #
     client_metric_id = json["id"]
+    url = json["url"]
     # principle = json['principle']
     #
     # data = '{"subject": "' + url + '"}'
@@ -188,6 +219,18 @@ def handle_metric(json):
 
     # NEW class IMPLE
 
+    if implem == "FAIRMetrics":
+        print("not our implem !")
+        evaluate_fairmetrics(json, metric_name, client_metric_id, url)
+    elif implem == "FAIR-Checker":
+        print("heya our IMPLEM !")
+        evaluate_fc_metrics(metric_name, client_metric_id, url)
+    else:
+        print("Invalid implem")
+        logging.warning("Invalid implem")
+
+
+def evaluate_fairmetrics(json, metric_name, client_metric_id, url):
     id = METRICS[metric_name].get_id()
     api_url = METRICS[metric_name].get_api()
     principle = METRICS[metric_name].get_principle()
@@ -223,20 +266,6 @@ def handle_metric(json):
 
     content_uuid = json["uuid"]
 
-    # # evaluate metric
-    # start_time = test_metric.getCurrentTime()
-    # res = test_metric.testMetric(api_url, data)
-    # # print(res)
-    # end_time = test_metric.getCurrentTime()
-    # evaluation_time = end_time - start_time
-    # print(evaluation_time)
-    #
-    # # get the score
-    # score = test_metric.requestResultSparql(res, "ss:SIO_000300")
-    # score = str(int(float(score)))
-    #
-    # # get comment
-    # comment = test_metric.requestResultSparql(res, "schema:comment")
     # remove empty lines from the comment
     comment = test_metric.cleanComment(comment)
     # all_comment = comment
@@ -265,6 +294,7 @@ def handle_metric(json):
     csv_line = '"{}"\t"{}"\t"{}"\t"{}"'.format(
         name, score, str(evaluation_time), comment
     )
+    print(name)
     emit_json = {
         "score": score,
         "comment": comment,
@@ -278,6 +308,54 @@ def handle_metric(json):
     # print(emit_json)
     emit("done_" + client_metric_id, emit_json)
     print("DONE " + principle)
+
+
+def evaluate_fc_metrics(metric_name, client_metric_id, url):
+    print("OK FC Metrics")
+    print(cache.get("TOTO"))
+    print(METRICS_CUSTOM)
+    id = METRICS_CUSTOM[metric_name].get_id()
+    print("ID: " + id)
+    print("Client ID: " + client_metric_id)
+    # Faire une fonction recursive ?
+    if cache.get(url) == "pulling":
+        while True:
+            time.sleep(2)
+            print("test2")
+            if not cache.get(url) == "pulling":
+                print("test3")
+                webresource = cache.get(url)
+                break
+
+
+    elif not isinstance(cache.get(url), WebResource):
+        cache.set(url, "pulling")
+        print("test1")
+        webresource = WebResource(url)
+        cache.set(url, webresource)
+    elif isinstance(cache.get(url), WebResource):
+        webresource = cache.get(url)
+
+
+    print(webresource)
+    METRICS_CUSTOM[metric_name].set_web_resource(webresource)
+    print("Evaluating: " + metric_name)
+    result = METRICS_CUSTOM[metric_name].evaluate()
+
+    score = result.get_score()
+    # Eval time removing microseconds
+    evaluation_time = result.get_test_time() - timedelta(
+        microseconds=result.get_test_time().microseconds
+    )
+    comment = result.get_reason()
+    emit_json = {
+        "score": str(score),
+        "time": str(evaluation_time),
+        "comment": comment,
+        # "name": name,
+    }
+    emit("done_" + client_metric_id, emit_json)
+    print("DONE our own metric !")
 
 
 @socketio.on("quick_structured_data_search")
@@ -1034,7 +1112,7 @@ def buidJSONLD():
     return raw_jld
 
 
-@app.route("/base_metrics")
+@app.route("/base_metrics", methods=["GET"])
 def base_metrics():
     """
     Load the Advanced page elements loading informations from FAIRMetrics API.
@@ -1073,11 +1151,31 @@ def base_metrics():
 
     metrics = []
 
+    cache.set("TOTO", "Toto cache !")
+
+    for key in METRICS_CUSTOM.keys():
+        metrics.append(
+            {
+                "name": METRICS_CUSTOM[key].get_name(),
+                "implem": METRICS_CUSTOM[key].get_implem(),
+                "description": METRICS_CUSTOM[key].get_desc(),
+                "api_url": "API to define",
+                "id": METRICS_CUSTOM[key].get_id(),
+                "principle": METRICS_CUSTOM[key].get_principle(),
+                "principle_tag": METRICS_CUSTOM[key].get_principle_tag(),
+                "principle_category": METRICS_CUSTOM[key]
+                .get_principle()
+                .rsplit("/", 1)[-1][0],
+            }
+        )
+
+    print(METRICS["Unique Identifier"])
     for key in METRICS.keys():
         print()
         metrics.append(
             {
                 "name": METRICS[key].get_name(),
+                "implem": METRICS[key].get_implem(),
                 "description": METRICS[key].get_desc(),
                 "api_url": METRICS[key].get_api(),
                 "id": "metric_" + METRICS[key].get_id().rsplit("/", 1)[-1],
@@ -1088,14 +1186,27 @@ def base_metrics():
                 .rsplit("/", 1)[-1][0],
             }
         )
+    print(metrics[1])
 
-    return render_template(
-        "metrics_summary.html",
-        f_metrics=metrics,
-        sample_data=sample_resources,
-        jld=raw_jld,
-        uuid=content_uuid,
+    # response =
+    return make_response(
+        render_template(
+            "metrics_summary.html",
+            f_metrics=metrics,
+            sample_data=sample_resources,
+            jld=raw_jld,
+            uuid=content_uuid,
+        )
     )
+    # )).headers.add('Access-Control-Allow-Origin', '*')
+
+
+# @app.after_request
+# def after_request(response):
+#   response.headers.add('Access-Control-Allow-Origin', '*')
+#   response.headers.add('Access-Control-Allow-Headers', 'Content-Type,Authorization')
+#   response.headers.add('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS')
+#   return response
 
 
 @app.route("/kg_metrics")
@@ -1181,6 +1292,14 @@ or submit an issue to https://github.com/IFB-ElixirFr/fair-checker/issues.
     formatter_class=RawTextHelpFormatter,
 )
 parser.add_argument(
+    "-d",
+    "--debug",
+    action="store_true",
+    required=False,
+    help="enables debugging logs",
+    dest="debug",
+)
+parser.add_argument(
     "-w",
     "--web",
     action="store_true",
@@ -1206,6 +1325,17 @@ parser.add_argument(
     dest="bioschemas",
 )
 
+
+def get_result_style(result) -> str:
+    if result == Result.NO:
+        return "red"
+    elif result == Result.WEAK:
+        return "yellow"
+    elif result == Result.STRONG:
+        return "green"
+    return ""
+
+
 if __name__ == "__main__":
 
     if len(sys.argv) == 1:
@@ -1214,9 +1344,95 @@ if __name__ == "__main__":
 
     args = parser.parse_args()
 
+    if args.debug:
+        logging.basicConfig(
+            level=logging.DEBUG,
+            format="[%(asctime)s] {%(filename)s:%(lineno)d} %(levelname)-8s %(message)s",
+            datefmt="%Y-%m-%d %H:%M:%S",
+        )
+
+    else:
+        logging.basicConfig(
+            level=logging.INFO,
+            format="[%(asctime)s] {%(filename)s:%(lineno)d} %(levelname)-8s %(message)s",
+            datefmt="%Y-%m-%d %H:%M:%S",
+        )
+    LOGGER = logging.getLogger()
+    if not LOGGER.handlers:
+        LOGGER.addHandler(logging.StreamHandler(sys.stdout))
+
     if args.urls:
+        start_time = time.time()
+
+        console = Console()
+        table = Table(show_header=True, header_style="bold magenta")
+        table.add_column("Findable", justify="right")
+        table.add_column("Accessible", justify="right")
+        table.add_column("Interoperable", justify="right")
+        table.add_column("Reusable", justify="right")
+
         for url in args.urls:
-            print(f"Testing URL {url}")
+            logging.debug(f"Testing URL {url}")
+            web_res = WebResource(url)
+
+            metrics_collection = []
+            metrics_collection.append(FAIRMetricsFactory.get_F1A(web_res))
+            metrics_collection.append(FAIRMetricsFactory.get_F1B(web_res))
+            metrics_collection.append(FAIRMetricsFactory.get_F2A(web_res))
+            metrics_collection.append(FAIRMetricsFactory.get_F2B(web_res))
+            metrics_collection.append(FAIRMetricsFactory.get_I1(web_res))
+            metrics_collection.append(FAIRMetricsFactory.get_I1A(web_res))
+            metrics_collection.append(FAIRMetricsFactory.get_I1B(web_res))
+            metrics_collection.append(FAIRMetricsFactory.get_I2(web_res))
+            metrics_collection.append(FAIRMetricsFactory.get_I2A(web_res))
+            metrics_collection.append(FAIRMetricsFactory.get_I2B(web_res))
+            metrics_collection.append(FAIRMetricsFactory.get_I3(web_res))
+            metrics_collection.append(FAIRMetricsFactory.get_R11(web_res))
+            metrics_collection.append(FAIRMetricsFactory.get_R12(web_res))
+            metrics_collection.append(FAIRMetricsFactory.get_R13(web_res))
+
+            for m in track(metrics_collection, "Processing FAIR metrics ..."):
+                logging.info(m.get_name())
+                res = m.evaluate()
+                if m.get_name().startswith("F"):
+                    table.add_row(
+                        Text(
+                            m.get_name() + " " + str(res), style=get_result_style(res)
+                        ),
+                        "",
+                        "",
+                        "",
+                    )
+                elif m.get_name().startswith("A"):
+                    table.add_row(
+                        "",
+                        Text(
+                            m.get_name() + " " + str(res), style=get_result_style(res)
+                        ),
+                        "",
+                        "",
+                    )
+                elif m.get_name().startswith("I"):
+                    table.add_row(
+                        "",
+                        "",
+                        Text(
+                            m.get_name() + " " + str(res), style=get_result_style(res)
+                        ),
+                        "",
+                    )
+                elif m.get_name().startswith("R"):
+                    table.add_row(
+                        "",
+                        "",
+                        "",
+                        Text(f"{m.get_name()} {str(res)}", style=get_result_style(res)),
+                    )
+
+        console.rule(f"[bold red]FAIRness evaluation for URL {url}")
+        console.print(table)
+        elapsed_time = round((time.time() - start_time), 2)
+        logging.info(f"FAIR metrics evaluated in {elapsed_time} s")
 
     elif args.web:
         # context = ('server.crt', 'server.key')

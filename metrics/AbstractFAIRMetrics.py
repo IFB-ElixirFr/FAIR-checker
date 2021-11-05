@@ -1,40 +1,40 @@
-from datetime import time
-from ssl import SSLError
-
-from metrics.test_metric import getMetrics, testMetric, requestResultSparql
-from metrics.Evaluation import Evaluation
-
 from abc import ABC, abstractmethod
+import logging
+import sys
+from metrics.Evaluation import Result, Evaluation
 
-from selenium import webdriver
-from selenium.webdriver.chrome.options import Options
-import requests
-import extruct
-from pathlib import Path
 
-import rdflib
-from rdflib import ConjunctiveGraph
-
-import json
-
-#########################
 class AbstractFAIRMetrics(ABC):
-    def __init__(self, url):
-        self.name = "My name"
+
+    COMMON_SPARQL_PREFIX = """
+PREFIX schema: <http://schema.org/>
+PREFIX dct: <http://purl.org/dc/terms/>
+PREFIX doap: <http://usefulinc.com/ns/doap#>
+PREFIX dbpedia-owl: <http://dbpedia.org/ontology/>
+PREFIX cc: <http://creativecommons.org/ns#>
+PREFIX xhv: <http://www.w3.org/1999/xhtml/vocab#>
+PREFIX sto: <https://w3id.org/i40/sto#>
+PREFIX nie: <http://www.semanticdesktop.org/ontologies/2007/01/19/nie#>
+PREFIX prov: <http://www.w3.org/ns/prov#>
+PREFIX pav: <http://purl.org/pav/>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+    """
+
+    cache = {}
+
+    def __init__(self, web_resource=None):
+        self.name = "My metric name"
         self.id = "My id"
         self.desc = "My desc"
-        self.principle = "My principle"
-        self.creator = "My creeator name"
+        self.implem = "My implem"
+        self.principle = "My principle (an URI describing the metric)"
+        self.principle_tag = "My principle TAG"
+        self.creator = "My creator name"
         self.created_at = "My creation date"
         self.updated_at = "My update date"
-        self.html_source = "Page content"
-        self.rdf_jsonld = "Graph RDF"
         self.requests_status_code = "Status code for requests"
-        self.url = url
-
-    # common functionality
-    def common(self):
-        print("In common method of Parent")
+        self.web_resource = web_resource
+        self.evaluation = Evaluation
 
     # name
     def get_name(self):
@@ -51,8 +51,14 @@ class AbstractFAIRMetrics(ABC):
     def get_principle(self):
         return self.principle
 
+    def get_principle_tag(self):
+        return self.principle_tag
+
     def get_creator(self):
         return self.creator
+
+    def get_implem(self):
+        return self.implem
 
     def get_creation_date(self):
         return self.created_at
@@ -63,89 +69,135 @@ class AbstractFAIRMetrics(ABC):
     def get_requests_status_code(self):
         return self.requests_status_code
 
-    def set_url(self, url):
-        self.url = url
+    def get_web_resource(self):
+        return self.web_resource
 
-    def extract_html_requests(self):
-        while True:
-            try:
-                response = requests.get(url=self.url, timeout=10)
-                break
-            except SSLError:
-                time.sleep(5)
-            except requests.exceptions.Timeout:
-                print("Timeout, retrying")
-                time.sleep(5)
-            except requests.exceptions.ConnectionError as e:
-                print(e)
-                print("ConnectionError, retrying...")
-                time.sleep(10)
+    def get_evaluation(self):
+        return self.evaluation
 
-        self.requests_status_code = response.status_code
-        self.html_source = response.content
+    def set_id(self, id):
+        self.id = id
 
-    def extract_html_selenium(self):
-        # TODO define a (singleton) global object for selenium as shown in unit tests.
-        chrome_options = Options()
-        chrome_options.add_argument("--headless")
+    def set_web_resource(self, web_resource):
+        self.web_resource = web_resource
 
-        browser = webdriver.Chrome(options=chrome_options)
-        # TODO Check imprel of .install to initialise earlier
-        # browser = webdriver.Chrome(
-        #     ChromeDriverManager().install(), options=chrome_options
-        # )
-        browser.implicitly_wait(10)
-        browser.get(self.url)
+    def set_new_evaluation(self):
+        self.evaluation = Evaluation()
 
-        self.html_source = browser.page_source
+    # @staticmethod
+    # def extract_html_requests(url):
+    #     while True:
+    #         try:
+    #             response = requests.get(url=url, timeout=10)
+    #             break
+    #         except SSLError:
+    #             time.sleep(5)
+    #         except requests.exceptions.Timeout:
+    #             print("Timeout, retrying")
+    #             time.sleep(5)
+    #         except requests.exceptions.ConnectionError as e:
+    #             print(e)
+    #             print("ConnectionError, retrying...")
+    #             time.sleep(10)
+    #
+    #     # self.requests_status_code = response.status_code
+    #     # self.html_source = response.content
+    #     return response.content, response.status_code
+    #
+    # def extract_rdf(self):
+    #     html_source = self.html_source
+    #     data = extruct.extract(
+    #         html_source, syntaxes=["microdata", "rdfa", "json-ld"], errors="ignore"
+    #     )
+    #     kg = ConjunctiveGraph()
+    #
+    #     base_path = Path(__file__).parent.parent  ## current directory
+    #     static_file_path = str((base_path / "static/data/jsonldcontext.json").resolve())
+    #
+    #     # kg = util.get_rdf_selenium(uri, kg)
+    #
+    #     for md in data["json-ld"]:
+    #         if "@context" in md.keys():
+    #             print(md["@context"])
+    #             if ("https://schema.org" in md["@context"]) or (
+    #                 "http://schema.org" in md["@context"]
+    #             ):
+    #                 md["@context"] = static_file_path
+    #         kg.parse(data=json.dumps(md, ensure_ascii=False), format="json-ld")
+    #     for md in data["rdfa"]:
+    #         if "@context" in md.keys():
+    #             if ("https://schema.org" in md["@context"]) or (
+    #                 "http://schema.org" in md["@context"]
+    #             ):
+    #                 md["@context"] = static_file_path
+    #         kg.parse(data=json.dumps(md, ensure_ascii=False), format="json-ld")
+    #     for md in data["microdata"]:
+    #         if "@context" in md.keys():
+    #             if ("https://schema.org" in md["@context"]) or (
+    #                 "http://schema.org" in md["@context"]
+    #             ):
+    #                 md["@context"] = static_file_path
+    #         kg.parse(data=json.dumps(md, ensure_ascii=False), format="json-ld")
+    #
+    #     self.LOGGER.debug(kg.serialize(format="turtle").decode())
+    #     self.rdf_jsonld = kg
 
-        browser.quit()
+    def evaluate(self) -> Evaluation:
+        print([cls.get_implem(self) for cls in AbstractFAIRMetrics.__subclasses__()])
+        logging.debug(f"Evaluating metrics {self.get_name()}")
+        logging.debug(f"Evaluating metrics {self.get_principle_tag()}")
+        self.set_new_evaluation()
+        eval = self.get_evaluation()
+        eval.set_start_time()
+        logging.info(eval)
+        # Check in the cache if the metrics has not been computed yet
+        try:
 
-    def extract_rdf(self):
-        html_source = self.html_source
-        data = extruct.extract(
-            html_source, syntaxes=["microdata", "rdfa", "json-ld"], errors="ignore"
-        )
-        kg = ConjunctiveGraph()
+            url = self.get_web_resource().get_url()
+            if url in AbstractFAIRMetrics.cache.keys():
 
-        base_path = Path(__file__).parent.parent  ## current directory
-        static_file_path = str((base_path / "static/data/jsonldcontext.json").resolve())
+                if self.get_principle_tag() in AbstractFAIRMetrics.cache[url].keys():
+                    logging.warning(
+                        f"Reusing cached result from {self.get_principle_tag()}"
+                    )
+                    return AbstractFAIRMetrics.cache[url][self.get_principle_tag()]
+            else:
+                AbstractFAIRMetrics.cache[url] = {}
 
-        # kg = util.get_rdf_selenium(uri, kg)
+            if self.strong_evaluate().get_score() == "2":
+                print("STRONG")
+                self.get_evaluation().set_end_time()
+                AbstractFAIRMetrics.cache[url][
+                    self.get_principle_tag()
+                ] = self.get_evaluation()
 
-        for md in data["json-ld"]:
-            if "@context" in md.keys():
-                print(md["@context"])
-                if ("https://schema.org" in md["@context"]) or (
-                    "http://schema.org" in md["@context"]
-                ):
-                    md["@context"] = static_file_path
-            kg.parse(data=json.dumps(md, ensure_ascii=False), format="json-ld")
-        for md in data["rdfa"]:
-            if "@context" in md.keys():
-                if ("https://schema.org" in md["@context"]) or (
-                    "http://schema.org" in md["@context"]
-                ):
-                    md["@context"] = static_file_path
-            kg.parse(data=json.dumps(md, ensure_ascii=False), format="json-ld")
-        for md in data["microdata"]:
-            if "@context" in md.keys():
-                if ("https://schema.org" in md["@context"]) or (
-                    "http://schema.org" in md["@context"]
-                ):
-                    md["@context"] = static_file_path
-            kg.parse(data=json.dumps(md, ensure_ascii=False), format="json-ld")
+                return self.get_evaluation()
+            elif self.weak_evaluate().get_score() == "1":
+                print("WEAK")
+                self.get_evaluation().set_end_time()
+                AbstractFAIRMetrics.cache[url][
+                    self.get_principle_tag()
+                ] = self.get_evaluation()
 
-        self.rdf_jsonld = kg
+                return self.get_evaluation()
+            else:
+                print("NO")
+                self.get_evaluation().set_end_time()
+                AbstractFAIRMetrics.cache[url][
+                    self.get_principle_tag()
+                ] = self.get_evaluation()
 
-    # not all metrics can have an api
+                return self.get_evaluation()
+        except AttributeError as err:
+            print(err)
+            logging.warning("No web_resource set")
+
     @abstractmethod
-    def get_api(self):
+    def weak_evaluate(self) -> Evaluation:
         pass
 
-    # evaluations are not done the same way
     @abstractmethod
-    def evaluate(self):
+    def strong_evaluate(self) -> Evaluation:
         pass
 
     def __str__(self):

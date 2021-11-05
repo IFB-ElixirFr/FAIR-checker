@@ -77,7 +77,7 @@ def describe_opencitation(uri, g):
 def describe_loa(uri, g):
     # g = Graph()
     graph_pre_size = len(g)
-    print(f"SPARQL for [ {uri} ] with enpoint [ LOA ]")
+    logging.debug(f"SPARQL for [ {uri} ] with enpoint [ LOA ]")
     sparql = SPARQLWrapper("http://lod.openaire.eu/sparql")
     sparql.setQuery(
         """
@@ -105,7 +105,7 @@ def describe_wikidata(uri, g):
     # g = Graph()
     graph_pre_size = len(g)
     endpoint = "https://query.wikidata.org/sparql"
-    print(f"SPARQL for [ {uri} ] with enpoint [ {endpoint} ]")
+    logging.debug(f"SPARQL for [ {uri} ] with enpoint [ {endpoint} ]")
     # sparql = SPARQLWrapper("https://query.wikidata.org/sparql")
     query = (
         """
@@ -135,7 +135,7 @@ def describe_wikidata(uri, g):
     g.parse(data=res.text, format="turtle")
 
     graph_post_size = len(g)
-    print(f"{graph_post_size - graph_pre_size} added new triples")
+    logging.debug(f"{graph_post_size - graph_pre_size} added new triples")
 
     # print(g.serialize(format='turtle').decode())
     return g
@@ -143,7 +143,9 @@ def describe_wikidata(uri, g):
 
 # Describe a tool based on experimental bio.tools SPARQL endpoint
 def describe_biotools(uri, g):
-    print(f"SPARQL for [ {uri} ] with enpoint [ https://134.158.247.157/sparql ]")
+    logging.debug(
+        f"SPARQL for [ {uri} ] with enpoint [ https://134.158.247.157/sparql ]"
+    )
 
     h = {"Accept": "text/turtle"}
     p = {"query": "DESCRIBE <" + uri + ">"}
@@ -175,11 +177,11 @@ def get_DOI(uri):
 
 def ask_BioPortal(uri, type):
 
-    print(f"Call to the BioPortal REST API for [ {uri} ]")
+    logging.debug(f"Call to the BioPortal REST API for [ {uri} ]")
     # print(app.config)
     with app.app_context():
         api_key = current_app.config["BIOPORTAL_APIKEY"]
-    h = {"Accept": "application/json", "Authorization": "apikey token=" + api_key}
+    h = {"Accept": "application/json", "Authorization": "apikey token=" + str(api_key)}
 
     if type == "property":
         res = requests.get(
@@ -196,10 +198,14 @@ def ask_BioPortal(uri, type):
             verify=True,
         )
     # print(res)
-
-    if res.json()["totalCount"] > 0:
-        return True
+    if res.status_code == 200:
+        if res.json()["totalCount"] > 0:
+            return True
+        else:
+            return False
     else:
+        logging.error("Cound not contact BioPortal")
+        logging.error(res.text)
         return False
 
 
@@ -209,7 +215,7 @@ def ask_OLS(uri):
     :param uri:
     :return: True if the URI is registered in one of the ontologies indexed in OLS, False otherwise.
     """
-    print(f"Call to the OLS REST API for [ {uri} ]")
+    logging.debug(f"Call to the OLS REST API for [ {uri} ]")
     # uri = requests.compat.quote_plus(uri)
     h = {"Accept": "application/json"}
     p = {"iri": uri}
@@ -229,7 +235,7 @@ def ask_LOV(uri):
     :param uri:
     :return: True if the URI is registered in one of the ontologies indexed in LOV, False otherwise.
     """
-    print(
+    logging.debug(
         f"SPARQL for [ {uri} ] with enpoint [ https://lov.linkeddata.es/dataset/lov/sparql ]"
     )
 
@@ -239,7 +245,7 @@ def ask_LOV(uri):
         "https://lov.linkeddata.es/dataset/lov/sparql", headers=h, params=p, verify=True
     )
 
-    print(res.text)
+    # print(res.text)
     # if res.text.startswith("Error 400: Parse error:"):
     #     return False
     return res.json()["boolean"]

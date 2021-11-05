@@ -13,6 +13,9 @@ class Config(object):
     DEBUG = False
     TESTING = False
     SERVER_NAME = "0.0.0.0:5000"
+    # Flask-Caching related configs
+    CACHE_TYPE= "SimpleCache"
+    CACHE_DEFAULT_TIMEOUT= 60
 
 
 class ProductionConfig(Config):
@@ -22,7 +25,7 @@ class ProductionConfig(Config):
 
 class DevelopmentConfig(Config):
     DEBUG = True
-    SERVER_IP = "http://127.0.0.1:5000"
+    SERVER_IP = "http://0.0.0.0:5000"
 
 
 class TestingConfig(Config):

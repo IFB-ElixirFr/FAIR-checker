@@ -9,6 +9,7 @@ class FAIRMetricsImpl(AbstractFAIRMetrics):
         self.id = id
         self.desc = desc
         self.api = api
+        self.implem = "FAIRMetrics"
         self.principle = principle
         self.creator = creator
         self.created_at = created_at
@@ -35,3 +36,9 @@ class FAIRMetricsImpl(AbstractFAIRMetrics):
         eval.persist()
 
         return eval
+
+    def weak_evaluate(self) -> bool:
+        pass
+
+    def strong_evaluate(self) -> bool:
+        pass

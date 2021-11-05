@@ -1,8 +1,20 @@
-from metrics.test_metric import testMetric, requestResultSparql
 from datetime import datetime, timedelta
-import time
-import json
 from pymongo import MongoClient
+from enum import Enum, unique
+
+
+@unique
+class Result(Enum):
+    NO = 1
+    WEAK = 2
+    STRONG = 3
+
+    def __repr__(self):
+        return self.name
+
+    def __str__(self):
+        return self.name
+
 
 #########################
 class Evaluation:
@@ -28,6 +40,9 @@ class Evaluation:
 
     def set_reason(self, r):
         self.reason = r
+
+    def append_reason(self, r):
+        self.reason = self.reason + "\n" + r
 
     def set_metrics(self, metrics):
         self.metrics = str(metrics)
@@ -77,7 +92,7 @@ class Evaluation:
         return (
             f"FAIR metrics evaluation : "
             f"\n\t started at {self.start_time} "
-            f"\n\t lasted {self.get_test_time()} "
+            f"\n\t ended {self.end_time} "
             f"\n\t score {self.score} "
             f"\n\t reason {self.reason} "
         )

@@ -180,6 +180,7 @@ def testMetric(metric_api_url, data):
     # metric_api_url = base_url + sub_url
     # print(metric_api_url)
 
+    # TODO return after a max number of retry (e.g. 3 or 5)
     while True:
         try:
             response = requests.request(
@@ -449,7 +450,7 @@ def requestResultSparql(metric_evaluation_result_text, term):
 
     g = rdflib.Graph()
     result = g.parse(data=metric_evaluation_result_text, format="json-ld")
-    rdf_string = g.serialize(format="turtle").decode("utf-8")
+    # rdf_string = g.serialize(format="turtle").decode("utf-8")
     # print(g.serialize(format="json-ld").decode("utf-8"))
 
     # TODO use RDFLib graph traversal methods to retrieve some parts of the graphs
