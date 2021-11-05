@@ -278,7 +278,7 @@
           });
         });
 
-        //  detect regex
+        //  detect doi regex
         $("#url").on('input', function( id ) {
           console.log("url updated");
           doi_regex = /10.\d{4,9}\/[-._;()\/:A-Z0-9]+/gmi;
@@ -306,6 +306,25 @@
           } else {
             $("#is_doi").text("");
           };
+        });
+
+        function is_valide_http_url(string) {
+          let url;
+
+          try {
+            url = new URL(string);
+          } catch (_) {
+            return false;
+          }
+
+          return url.protocol === "http:" || url.protocol === "https:";
+        }
+
+        $("#url").on('input', function( id ) {
+              str_url = $(this).val();
+              if (is_valide_http_url(str_url)) {
+                  socket.emit('webresource', str_url)
+              }
         });
 
         // show examples
