@@ -1,6 +1,7 @@
 {% extends "layout.html" %}
 
 {% block nav %}
+{% include 'nav_bar.html' %}
 {% include 'nav.html' %}
 {% endblock %}
 
@@ -63,6 +64,7 @@
         });
         {% endfor %}
 
+
         //////////////////
         // event handlers
         //////////////////
@@ -79,9 +81,26 @@
         });
 
 
+
         var csv_lines = []
 
         {% for f in f_metrics %}
+        // modal listner
+        $('[id^=modal_details_{{ f.id }}]').on('click', function($e){
+            target_id = $(this).data("target");
+            $("#" + target_id).addClass("is-active");
+            // $("#" + target_id).addClass("is-clipped");
+        });
+        // close with BG
+        $('[id^=modal_bg_{{ f.id }}]').on('click', function($e){
+            $('[id^=modal_{{ f.id }}]').removeClass("is-active");
+        });
+        // close with close button
+        $('[id^=modal_close_{{ f.id }}]').on('click', function($e){
+            $('[id^=modal_{{ f.id }}]').removeClass("is-active");
+        });
+
+        // metrics tests results handling
         socket.on('error_{{f.id}}', function(value) {
             $("#test_{{f.id}}").removeClass("is-loading");
             $("#status_{{f.id}}").text("Error");
@@ -624,6 +643,9 @@
     </div>
 
 </article>
+
+{% include 'metrics_modal.html' %}
+
 
 
 <!-- <article id="metrics_details_rec" class="message is-info">

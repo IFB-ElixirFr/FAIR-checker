@@ -11,6 +11,7 @@
         <th>Score</th>
         <th>Result</th>
         <th>Test</th>
+        <th>Details</th>
     </tr>
     </thead>
     <tbody>
@@ -70,7 +71,7 @@
                     data-checkbox="checkbox_test_{{ f.id }}">Check
             </button>
         </td>
-
+        <td class="vcenter hcenter"><button id="modal_details_{{ f.id }}" class="button is-info" data-target="modal_{{ f.id }}"><i class="fa fa-plus-square"></i></button></td>
     </tr>
     {% endfor %}
     </tbody>

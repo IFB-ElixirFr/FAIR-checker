@@ -158,7 +158,7 @@ def favicon():
 
 @app.route("/")
 def home():
-    return redirect(url_for("base_metrics"))
+    return render_template("index.html")
 
 
 @app.route("/about")
@@ -192,6 +192,7 @@ def statistics():
         r_success=stats.this_week_for_named_metrics(prefix="R", success=1),
         r_failures=stats.this_week_for_named_metrics(prefix="R", success=0),
     )
+
 
 @socketio.on("webresource")
 def handle_webresource(url):
@@ -327,7 +328,6 @@ def evaluate_fc_metrics(metric_name, client_metric_id, url):
                 webresource = cache.get(url)
                 break
 
-
     elif not isinstance(cache.get(url), WebResource):
         cache.set(url, "pulling")
         print("test1")
@@ -335,7 +335,6 @@ def evaluate_fc_metrics(metric_name, client_metric_id, url):
         cache.set(url, webresource)
     elif isinstance(cache.get(url), WebResource):
         webresource = cache.get(url)
-
 
     print(webresource)
     METRICS_CUSTOM[metric_name].set_web_resource(webresource)
