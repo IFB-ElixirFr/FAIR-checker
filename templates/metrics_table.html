@@ -36,12 +36,12 @@
                 </div>
             </div>
         </td>
-        <td id="time_{{ f.id }}" class="vcenter hcenter"></td>
+        <td id="row_time_{{ f.id }}" class="vcenter hcenter"></td>
         <td class="vcenter hcenter">
             <div class="popover is-popover-top">
                 <button class="button is-primary popover-trigger" style="display: none;"><i
                         class="fa fa-commenting-o"></i></button>
-                <div id="comment_{{ f.id }}" class="popover-content" style="text-align: left; padding: 0;">
+                <div id="row_comment_{{ f.id }}" class="popover-content" style="text-align: left; padding: 0;">
                     <article class="message is-primary">
                         <div class="message-body is-size-7">
                             <!-- Comment here ! -->
@@ -55,7 +55,7 @@
             <div class="popover is-popover-top">
                 <button class="button is-link popover-trigger" style="display: none;"><i class="fa fa-lightbulb-o"></i>
                 </button>
-                <div id="guideline_{{ f.id }}" class="popover-content" style="text-align: left; padding: 0;">
+                <div id="row_guideline_{{ f.id }}" class="popover-content" style="text-align: left; padding: 0;">
                     <article class="message is-link">
                         <div class="message-body is-size-7">
                             <!-- Guideline here ! -->
@@ -64,8 +64,8 @@
                 </div>
             </div>
         </td>
-        <td class="vcenter hcenter" id="score_{{ f.id }}" data-category="{{ f.principle_category }}"></td>
-        <td class="vcenter hcenter"><span id="status_{{ f.id }}" class="tag is-small">Status</span></td>
+        <td class="vcenter hcenter" id="row_score_{{ f.id }}" data-category="{{ f.principle_category }}"></td>
+        <td class="vcenter hcenter"><span id="row_status_{{ f.id }}" class="tag is-small">Status</span></td>
         <td class="vcenter hcenter">
             <button id="test_{{ f.id }}" href="#" value="{{ f.api_url }}" class="button is-small is-info"
                     data-checkbox="checkbox_test_{{ f.id }}">Check

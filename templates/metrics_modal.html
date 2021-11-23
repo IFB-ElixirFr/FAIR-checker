@@ -1,7 +1,7 @@
 {% for f in f_metrics %}
 <div class="modal" id="modal_{{ f.id }}">
   <div class="modal-background" id="modal_bg_{{ f.id }}"></div>
-  <div class="modal-card">
+  <div class="modal-card" id="metrics_modal_{{ f.id }}">
     <header class="modal-card-head">
       <p class="modal-card-title">{{ f.principle_tag }} - {{ f.name }}</p>
 
@@ -28,8 +28,17 @@
           <p>Metrics evaluation results</p>
         </div>
         <div class="message-body">
+          <div class="box" >
+            Score: <div id="modal_score_{{f.id}}"></div>
+          </div>
           <div class="box">
-            Update here Time, Comment, Recommandation
+            Time: <div id="modal_time_{{f.id}}"></div>
+          </div>
+          <div class="box">
+            Comment: <div id="modal_comment_{{f.id}}"></div>
+          </div>
+          <div class="box">
+            Guideline: <div id="modal_guideline_{{f.id}}"></div>
           </div>
         </div>
       </article>
