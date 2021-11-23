@@ -1235,105 +1235,114 @@ def get_result_style(result) -> str:
 
 
 if __name__ == "__main__":
+    try:
+        if len(sys.argv) == 1:
+            parser.print_help(sys.stderr)
+            sys.exit(1)
 
-    if len(sys.argv) == 1:
-        parser.print_help(sys.stderr)
-        sys.exit(1)
+        args = parser.parse_args()
 
-    args = parser.parse_args()
+        if args.debug:
+            logging.basicConfig(
+                level=logging.DEBUG,
+                format="[%(asctime)s] {%(filename)s:%(lineno)d} %(levelname)-8s %(message)s",
+                datefmt="%Y-%m-%d %H:%M:%S",
+            )
 
-    if args.debug:
-        logging.basicConfig(
-            level=logging.DEBUG,
-            format="[%(asctime)s] {%(filename)s:%(lineno)d} %(levelname)-8s %(message)s",
-            datefmt="%Y-%m-%d %H:%M:%S",
-        )
+        else:
+            logging.basicConfig(
+                level=logging.INFO,
+                format="[%(asctime)s] {%(filename)s:%(lineno)d} %(levelname)-8s %(message)s",
+                datefmt="%Y-%m-%d %H:%M:%S",
+            )
+        LOGGER = logging.getLogger()
+        if not LOGGER.handlers:
+            LOGGER.addHandler(logging.StreamHandler(sys.stdout))
 
-    else:
-        logging.basicConfig(
-            level=logging.INFO,
-            format="[%(asctime)s] {%(filename)s:%(lineno)d} %(levelname)-8s %(message)s",
-            datefmt="%Y-%m-%d %H:%M:%S",
-        )
-    LOGGER = logging.getLogger()
-    if not LOGGER.handlers:
-        LOGGER.addHandler(logging.StreamHandler(sys.stdout))
+        if args.urls:
+            start_time = time.time()
 
-    if args.urls:
-        start_time = time.time()
+            console = Console()
+            table = Table(show_header=True, header_style="bold magenta")
+            table.add_column("Findable", justify="right")
+            table.add_column("Accessible", justify="right")
+            table.add_column("Interoperable", justify="right")
+            table.add_column("Reusable", justify="right")
 
-        console = Console()
-        table = Table(show_header=True, header_style="bold magenta")
-        table.add_column("Findable", justify="right")
-        table.add_column("Accessible", justify="right")
-        table.add_column("Interoperable", justify="right")
-        table.add_column("Reusable", justify="right")
+            for url in args.urls:
+                logging.debug(f"Testing URL {url}")
+                web_res = WebResource(url)
 
-        for url in args.urls:
-            logging.debug(f"Testing URL {url}")
-            web_res = WebResource(url)
+                metrics_collection = []
+                metrics_collection.append(FAIRMetricsFactory.get_F1A(web_res))
+                metrics_collection.append(FAIRMetricsFactory.get_F1B(web_res))
+                metrics_collection.append(FAIRMetricsFactory.get_F2A(web_res))
+                metrics_collection.append(FAIRMetricsFactory.get_F2B(web_res))
+                metrics_collection.append(FAIRMetricsFactory.get_I1(web_res))
+                metrics_collection.append(FAIRMetricsFactory.get_I1A(web_res))
+                metrics_collection.append(FAIRMetricsFactory.get_I1B(web_res))
+                metrics_collection.append(FAIRMetricsFactory.get_I2(web_res))
+                metrics_collection.append(FAIRMetricsFactory.get_I2A(web_res))
+                metrics_collection.append(FAIRMetricsFactory.get_I2B(web_res))
+                metrics_collection.append(FAIRMetricsFactory.get_I3(web_res))
+                metrics_collection.append(FAIRMetricsFactory.get_R11(web_res))
+                metrics_collection.append(FAIRMetricsFactory.get_R12(web_res))
+                metrics_collection.append(FAIRMetricsFactory.get_R13(web_res))
 
-            metrics_collection = []
-            metrics_collection.append(FAIRMetricsFactory.get_F1A(web_res))
-            metrics_collection.append(FAIRMetricsFactory.get_F1B(web_res))
-            metrics_collection.append(FAIRMetricsFactory.get_F2A(web_res))
-            metrics_collection.append(FAIRMetricsFactory.get_F2B(web_res))
-            metrics_collection.append(FAIRMetricsFactory.get_I1(web_res))
-            metrics_collection.append(FAIRMetricsFactory.get_I1A(web_res))
-            metrics_collection.append(FAIRMetricsFactory.get_I1B(web_res))
-            metrics_collection.append(FAIRMetricsFactory.get_I2(web_res))
-            metrics_collection.append(FAIRMetricsFactory.get_I2A(web_res))
-            metrics_collection.append(FAIRMetricsFactory.get_I2B(web_res))
-            metrics_collection.append(FAIRMetricsFactory.get_I3(web_res))
-            metrics_collection.append(FAIRMetricsFactory.get_R11(web_res))
-            metrics_collection.append(FAIRMetricsFactory.get_R12(web_res))
-            metrics_collection.append(FAIRMetricsFactory.get_R13(web_res))
+                for m in track(metrics_collection, "Processing FAIR metrics ..."):
+                    logging.info(m.get_name())
+                    res = m.evaluate()
+                    if m.get_name().startswith("F"):
+                        table.add_row(
+                            Text(
+                                m.get_name() + " " + str(res),
+                                style=get_result_style(res),
+                            ),
+                            "",
+                            "",
+                            "",
+                        )
+                    elif m.get_name().startswith("A"):
+                        table.add_row(
+                            "",
+                            Text(
+                                m.get_name() + " " + str(res),
+                                style=get_result_style(res),
+                            ),
+                            "",
+                            "",
+                        )
+                    elif m.get_name().startswith("I"):
+                        table.add_row(
+                            "",
+                            "",
+                            Text(
+                                m.get_name() + " " + str(res),
+                                style=get_result_style(res),
+                            ),
+                            "",
+                        )
+                    elif m.get_name().startswith("R"):
+                        table.add_row(
+                            "",
+                            "",
+                            "",
+                            Text(
+                                f"{m.get_name()} {str(res)}",
+                                style=get_result_style(res),
+                            ),
+                        )
 
-            for m in track(metrics_collection, "Processing FAIR metrics ..."):
-                logging.info(m.get_name())
-                res = m.evaluate()
-                if m.get_name().startswith("F"):
-                    table.add_row(
-                        Text(
-                            m.get_name() + " " + str(res), style=get_result_style(res)
-                        ),
-                        "",
-                        "",
-                        "",
-                    )
-                elif m.get_name().startswith("A"):
-                    table.add_row(
-                        "",
-                        Text(
-                            m.get_name() + " " + str(res), style=get_result_style(res)
-                        ),
-                        "",
-                        "",
-                    )
-                elif m.get_name().startswith("I"):
-                    table.add_row(
-                        "",
-                        "",
-                        Text(
-                            m.get_name() + " " + str(res), style=get_result_style(res)
-                        ),
-                        "",
-                    )
-                elif m.get_name().startswith("R"):
-                    table.add_row(
-                        "",
-                        "",
-                        "",
-                        Text(f"{m.get_name()} {str(res)}", style=get_result_style(res)),
-                    )
+            console.rule(f"[bold red]FAIRness evaluation for URL {url}")
+            console.print(table)
+            elapsed_time = round((time.time() - start_time), 2)
+            logging.info(f"FAIR metrics evaluated in {elapsed_time} s")
 
-        console.rule(f"[bold red]FAIRness evaluation for URL {url}")
-        console.print(table)
-        elapsed_time = round((time.time() - start_time), 2)
-        logging.info(f"FAIR metrics evaluated in {elapsed_time} s")
+        elif args.web:
+            # context = ('server.crt', 'server.key')
+            # app.run(host='0.0.0.0', port=5000, debug=True, ssl_context=context)
+            socketio.run(app, host="0.0.0.0", port=5000, debug=True)
+            # app.run(host='0.0.0.0', port=5000, debug=True)
 
-    elif args.web:
-        # context = ('server.crt', 'server.key')
-        # app.run(host='0.0.0.0', port=5000, debug=True, ssl_context=context)
-        socketio.run(app, host="0.0.0.0", port=5000, debug=True)
-        # app.run(host='0.0.0.0', port=5000, debug=True)
+    finally:
+        WebResource.WEB_BROWSER_HEADLESS.quit()
