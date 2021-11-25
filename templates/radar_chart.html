@@ -17,7 +17,8 @@
   ctx.canvas.height = '400';
   ctx.canvas.width = '400';
   var data = {
-      labels: ["Total", "Findable", "Accessible", "Interoperable", "Reusable"],
+      // labels: ["Total", "Findable", "Accessible", "Interoperable", "Reusable"],
+      labels: ["Findable", "Interoperable", "Reusable", "Accessible"],
       datasets: [
           {
               label: "Success",
@@ -125,18 +126,18 @@
         success: {},
         failure: {},
       };
-      element = $('[id^=row_score_metric_]');
+      element = $('[id^=row_score_]');
       element.each(function( id ) {
         value = parseInt($(this).text());
         category = $(this).data("category");
 
 
-        if (!('Total' in fs_count['success'])){
-          fs_count['success']['Total'] = 0;
-        }
-        if (!('Total' in fs_count['failure'])){
-          fs_count['failure']['Total'] = 0;
-        }
+        // if (!('Total' in fs_count['success'])){
+        //   fs_count['success']['Total'] = 0;
+        // }
+        // if (!('Total' in fs_count['failure'])){
+        //   fs_count['failure']['Total'] = 0;
+        // }
         if (!(category in fs_count['success'])){
           fs_count['success'][category] = 0;
         }
@@ -147,12 +148,12 @@
         size = $('[name=checkbox_' + category + ']').length;
         total_size = $('[name^=checkbox_').length;
 
-        if (value == 1) {
+        if (value >= 1) {
           fs_count['success'][category] += 1/size*100;
-          fs_count['success']['Total'] += 1/total_size*100;
-        } else if (value == 0){
+          // fs_count['success']['Total'] += 1/total_size*100;
+        } else if (value === 0){
           fs_count['failure'][category] += 1/size*100;
-          fs_count['failure']['Total'] += 1/total_size*100;
+          // fs_count['failure']['Total'] += 1/total_size*100;
         }
 
 
@@ -161,19 +162,19 @@
       console.log(fs_count);
 
       values_success = [
-        fs_count['success']['Total'].toFixed(1),
+        // fs_count['success']['Total'].toFixed(1),
         fs_count['success']['F'].toFixed(1),
-        fs_count['success']['A'].toFixed(1),
         fs_count['success']['I'].toFixed(1),
         fs_count['success']['R'].toFixed(1),
+        // fs_count['success']['A'].toFixed(1),
       ]
 
       values_failures = [
-        fs_count['failure']['Total'].toFixed(1),
+        // fs_count['failure']['Total'].toFixed(1),
         fs_count['failure']['F'].toFixed(1),
-        fs_count['failure']['A'].toFixed(1),
         fs_count['failure']['I'].toFixed(1),
         fs_count['failure']['R'].toFixed(1),
+        // fs_count['failure']['A'].toFixed(1),
       ]
       myRadarChart.data.datasets[0].data = values_success;
       // myRadarChart.data.datasets[1].data = values_failures;
@@ -183,6 +184,15 @@
 
 
 </script>
+
+
+
+
+
+
+
+
+
 
 <script type="text/javascript" charset="utf-8">
 
@@ -238,7 +248,7 @@
         success: {},
         failure: {},
       };
-      element = $('[id^=row_score_metric_]');
+      element = $('[id^=row_score_]');
       element.each(function( id ) {
         value = parseInt($(this).text());
         category = $(this).data("category");

@@ -181,7 +181,7 @@
             // current = parseInt($("#p1").attr("value"));
             progress = 0
             $("#p1").attr("value", progress);
-            $('[id^=row_score_metric_]').each(function( progress ) {
+            $('[id^=row_score]').each(function( progress ) {
               if ($(this).text() != "") {
                   $("#p1").attr("value", progress+1);
 
@@ -294,7 +294,7 @@
           $("#btn_test_all").addClass("is-loading");
 
 
-          $('[id^=test_metric_]').each(function( id ) {
+          $('[id^=test_]').each(function( id ) {
             $(this).trigger( "click" );
             // console.log($(this).attr('id'))
           });
@@ -536,7 +536,7 @@
             </p>
         </div> -->
 
-        <progress id="p1" class="progress is-primary" value="0" max="22"></progress>
+        <progress id="p1" class="progress is-primary" value="0" max="12"></progress>
 
         <div class="field is-grouped is-grouped-centered">
             <p class="control">

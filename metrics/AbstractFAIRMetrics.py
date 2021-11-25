@@ -1,6 +1,7 @@
 from abc import ABC, abstractmethod
 import logging
 import sys
+from io import StringIO
 from metrics.Evaluation import Result, Evaluation
 
 
@@ -143,13 +144,16 @@ PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
     #     self.rdf_jsonld = kg
 
     def evaluate(self) -> Evaluation:
-        print([cls.get_implem(self) for cls in AbstractFAIRMetrics.__subclasses__()])
+
+
+        # print([cls.get_implem(self) for cls in AbstractFAIRMetrics.__subclasses__()])
         logging.debug(f"Evaluating metrics {self.get_name()}")
         logging.debug(f"Evaluating metrics {self.get_principle_tag()}")
         self.set_new_evaluation()
         eval = self.get_evaluation()
         eval.set_start_time()
         logging.info(eval)
+
         # Check in the cache if the metrics has not been computed yet
         try:
 

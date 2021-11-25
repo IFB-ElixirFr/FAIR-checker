@@ -1,7 +1,8 @@
 from datetime import datetime, timedelta
 from pymongo import MongoClient
 from enum import Enum, unique
-
+import logging
+from io import StringIO
 
 @unique
 class Result(Enum):
@@ -18,6 +19,23 @@ class Result(Enum):
 
 #########################
 class Evaluation:
+
+    ### Create the logger
+    eval_logger = logging.getLogger('eval_logger')
+    eval_logger.setLevel(logging.DEBUG)
+
+    ### Setup the console handler with a StringIO object
+    log_capture_string = StringIO()
+    ch = logging.StreamHandler(log_capture_string)
+    ch.setLevel(logging.DEBUG)
+
+    ### Add a formatter
+    formatter = logging.Formatter('[%(asctime)s] - %(levelname)s - %(message)s', "%Y-%m-%d %H:%M:%S")
+    ch.setFormatter(formatter)
+
+    ### Add the console handler to the logger
+    eval_logger.addHandler(ch)
+
     start_time = None
     end_time = None
     score = None
@@ -28,6 +46,27 @@ class Evaluation:
 
     def __init__(self):
         pass
+
+    def log_debug(self, message):
+        self.eval_logger.debug(message)
+
+    def log_info(self, message):
+        self.eval_logger.info(message)
+
+    def log_warning(self, message):
+        self.eval_logger.warning(message)
+
+    def log_error(self, message):
+        self.eval_logger.error(message)
+
+    def log_critical(self, message):
+        self.eval_logger.critical(message)
+
+    def get_log(self):
+        return self.log_capture_string.getvalue()
+
+    def close_log_stream(self):
+        self.log_capture_string.close()
 
     def set_score(self, score):
         self.score = str(int(float(score)))
