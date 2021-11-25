@@ -21,7 +21,7 @@ class F2A_Impl(AbstractFAIRMetrics):
 
     def __init__(self, web_resource=None):
         super().__init__(web_resource)
-        self.name = "Metric name 3"
+        self.name = "Structured metadata"
         self.id = "3"
         self.principle = "https://w3id.org/fair/principles/terms/F2"
         self.principle_tag = "F2A"

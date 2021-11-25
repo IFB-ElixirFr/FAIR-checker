@@ -10,7 +10,7 @@ class I1A_Impl(AbstractFAIRMetrics):
 
     def __init__(self, web_resource=None):
         super().__init__(web_resource)
-        self.name = "Metric name 6"
+        self.name = "Any structured information"
         self.id = "6"
         self.principle = "https://w3id.org/fair/principles/terms/I1"
         self.principle_tag = "I1A"

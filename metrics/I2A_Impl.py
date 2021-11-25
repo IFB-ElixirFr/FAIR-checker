@@ -10,7 +10,7 @@ class I2A_Impl(AbstractFAIRMetrics):
 
     def __init__(self, web_resource=None):
         super().__init__(web_resource)
-        self.name = "Metric name 9"
+        self.name = "Human-readable vocabularies"
         self.id = "9"
         self.principle = "https://w3id.org/fair/principles/terms/I2"
         self.principle_tag = "I2A"

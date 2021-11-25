@@ -80,7 +80,7 @@ class F1B_Impl(AbstractFAIRMetrics):
 
     def __init__(self, web_resource=None):
         super().__init__(web_resource)
-        self.name = "Metric name 2"
+        self.name = "Persistent IDs"
         self.id = "2"
         self.principle = "https://w3id.org/fair/principles/terms/F1"
         self.principle_tag = "F1B"
