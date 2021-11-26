@@ -57,7 +57,9 @@ ASK {
             # eval.set_reason(
             #     "Found metadata in RDF format ! (" + str(len(kg)) + " triples)"
             # )
-            eval.log_info("Found metadata in RDF format ! (" + str(len(kg)) + " triples)")
+            eval.log_info(
+                "Found metadata in RDF format ! (" + str(len(kg)) + " triples)"
+            )
             logging.debug(f"running query:" + f"\n{query_blank_nodes}")
             res = kg.query(query_blank_nodes)
             logging.debug(str(res.serialize(format="json")))

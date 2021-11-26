@@ -218,7 +218,6 @@ def handle_metric(json):
     #
     # data = '{"subject": "' + url + '"}'
 
-
     # NEW class IMPLE
 
     if implem == "FAIRMetrics":
@@ -740,10 +739,13 @@ def handle_embedded_annot_2(data):
     # step += 1
     print(nb_triples)
     # emit('update_annot_2', step)
-    emit("send_annot_2", {
-        "kg": str(kg.serialize(format=RDF_TYPE[sid])),
-        "nb_triples": nb_triples,
-    })
+    emit(
+        "send_annot_2",
+        {
+            "kg": str(kg.serialize(format=RDF_TYPE[sid])),
+            "nb_triples": nb_triples,
+        },
+    )
 
 
 @socketio.on("update_annot_bioschemas")
@@ -827,10 +829,13 @@ def handle_describe_opencitation(data):
     kg = util.describe_opencitation(uri, kg)
 
     nb_triples = len(kg)
-    emit("send_annot_2", {
-        "kg": str(kg.serialize(format=RDF_TYPE[sid])),
-        "nb_triples": nb_triples,
-    })
+    emit(
+        "send_annot_2",
+        {
+            "kg": str(kg.serialize(format=RDF_TYPE[sid])),
+            "nb_triples": nb_triples,
+        },
+    )
 
 
 @socketio.on("describe_wikidata")
@@ -848,10 +853,13 @@ def handle_describe_wikidata(data):
         print(f"FOUND DOI: {uri}")
     kg = util.describe_wikidata(uri, kg)
     nb_triples = len(kg)
-    emit("send_annot_2", {
-        "kg": str(kg.serialize(format=RDF_TYPE[sid])),
-        "nb_triples": nb_triples,
-    })
+    emit(
+        "send_annot_2",
+        {
+            "kg": str(kg.serialize(format=RDF_TYPE[sid])),
+            "nb_triples": nb_triples,
+        },
+    )
 
 
 @socketio.on("describe_biotools")
@@ -865,10 +873,13 @@ def handle_describe_biotools(data):
     # kg.parse(data=graph, format="turtle")
     kg = util.describe_biotools(uri, kg)
     nb_triples = len(kg)
-    emit("send_annot_2", {
-        "kg": str(kg.serialize(format=RDF_TYPE[sid])),
-        "nb_triples": nb_triples,
-    })
+    emit(
+        "send_annot_2",
+        {
+            "kg": str(kg.serialize(format=RDF_TYPE[sid])),
+            "nb_triples": nb_triples,
+        },
+    )
 
 
 @socketio.on("describe_loa")
@@ -886,10 +897,13 @@ def handle_describe_loa(data):
         print(f"FOUND DOI: {uri}")
     kg = util.describe_loa(uri, kg)
     nb_triples = len(kg)
-    emit("send_annot_2", {
-        "kg": str(kg.serialize(format=RDF_TYPE[sid])),
-        "nb_triples": nb_triples,
-    })
+    emit(
+        "send_annot_2",
+        {
+            "kg": str(kg.serialize(format=RDF_TYPE[sid])),
+            "nb_triples": nb_triples,
+        },
+    )
 
 
 @socketio.on("retrieve_embedded_annot")
@@ -1037,10 +1051,9 @@ def check_kg(data):
         if util.ask_LOV(c["name"]):
             c["tag"].append("LOV")
             emit("done_check", table_content)
-        if util.ask_BioPortal(c['name'], "class"):
-            c['tag'].append('BioPortal')
-            emit('done_check', table_content)
-
+        if util.ask_BioPortal(c["name"], "class"):
+            c["tag"].append("BioPortal")
+            emit("done_check", table_content)
 
     for p in table_content["properties"]:
         if util.ask_OLS(p["name"]):
@@ -1049,9 +1062,9 @@ def check_kg(data):
         if util.ask_LOV(p["name"]):
             p["tag"].append("LOV")
             emit("done_check", table_content)
-        if util.ask_BioPortal(p['name'], "property"):
-            p['tag'].append('BioPortal')
-            emit('done_check', table_content)
+        if util.ask_BioPortal(p["name"], "property"):
+            p["tag"].append("BioPortal")
+            emit("done_check", table_content)
 
 
 @socketio.on("check_kg_shape")
@@ -1194,7 +1207,6 @@ def base_metrics():
                 .rsplit("/", 1)[-1][0],
             }
         )
-
 
     # for key in METRICS.keys():
     #     print()
@@ -1422,7 +1434,8 @@ if __name__ == "__main__":
                 if m.get_principle_tag().startswith("F"):
                     table.add_row(
                         Text(
-                            m.get_name() + " " + str(res.get_score()), style=get_result_style(res)
+                            m.get_name() + " " + str(res.get_score()),
+                            style=get_result_style(res),
                         ),
                         "",
                         "",
@@ -1432,7 +1445,8 @@ if __name__ == "__main__":
                     table.add_row(
                         "",
                         Text(
-                            m.get_name() + " " + str(res.get_score()), style=get_result_style(res)
+                            m.get_name() + " " + str(res.get_score()),
+                            style=get_result_style(res),
                         ),
                         "",
                         "",
@@ -1442,7 +1456,8 @@ if __name__ == "__main__":
                         "",
                         "",
                         Text(
-                            m.get_name() + " " + str(res.get_score()), style=get_result_style(res)
+                            m.get_name() + " " + str(res.get_score()),
+                            style=get_result_style(res),
                         ),
                         "",
                     )
@@ -1451,7 +1466,10 @@ if __name__ == "__main__":
                         "",
                         "",
                         "",
-                        Text(f"{m.get_name()} {str(res.get_score())}", style=get_result_style(res)),
+                        Text(
+                            f"{m.get_name()} {str(res.get_score())}",
+                            style=get_result_style(res),
+                        ),
                     )
 
         console.rule(f"[bold red]FAIRness evaluation for URL {url}")

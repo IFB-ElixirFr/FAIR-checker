@@ -4,6 +4,7 @@ from enum import Enum, unique
 import logging
 from io import StringIO
 
+
 @unique
 class Result(Enum):
     NO = 1
@@ -21,7 +22,7 @@ class Result(Enum):
 class Evaluation:
 
     ### Create the logger
-    eval_logger = logging.getLogger('eval_logger')
+    eval_logger = logging.getLogger("eval_logger")
     eval_logger.setLevel(logging.DEBUG)
 
     ### Setup the console handler with a StringIO object
@@ -30,7 +31,9 @@ class Evaluation:
     ch.setLevel(logging.DEBUG)
 
     ### Add a formatter
-    formatter = logging.Formatter('[%(asctime)s] - %(levelname)s - %(message)s', "%Y-%m-%d %H:%M:%S")
+    formatter = logging.Formatter(
+        "[%(asctime)s] - %(levelname)s - %(message)s", "%Y-%m-%d %H:%M:%S"
+    )
     ch.setFormatter(formatter)
 
     ### Add the console handler to the logger

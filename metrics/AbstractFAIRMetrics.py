@@ -145,7 +145,6 @@ PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
 
     def evaluate(self) -> Evaluation:
 
-
         # print([cls.get_implem(self) for cls in AbstractFAIRMetrics.__subclasses__()])
         logging.debug(f"Evaluating metrics {self.get_name()}")
         logging.debug(f"Evaluating metrics {self.get_principle_tag()}")
