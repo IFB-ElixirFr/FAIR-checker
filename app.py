@@ -672,7 +672,7 @@ def handle_change_rdf_type(data):
     sid = request.sid
     RDF_TYPE[sid] = data["rdf_type"]
     kg = KGS[sid]
-    emit("send_annot_2", str(kg.serialize(format=RDF_TYPE[sid]).decode()))
+    emit("send_annot_2", str(kg.serialize(format=RDF_TYPE[sid])))
 
 
 @socketio.on("retrieve_embedded_annot_2")
@@ -736,11 +736,14 @@ def handle_embedded_annot_2(data):
         kg.parse(data=json.dumps(md, ensure_ascii=False), format="json-ld")
 
     KGS[sid] = kg
-
+    nb_triples = len(kg)
     # step += 1
-    print(len(kg))
+    print(nb_triples)
     # emit('update_annot_2', step)
-    emit("send_annot_2", str(kg.serialize(format=RDF_TYPE[sid]).decode()))
+    emit("send_annot_2", {
+        "kg": str(kg.serialize(format=RDF_TYPE[sid])),
+        "nb_triples": nb_triples,
+    })
 
 
 @socketio.on("update_annot_bioschemas")
@@ -805,7 +808,7 @@ def handle_annotationn(data):
         print("***** JSON-LD syntax *****")
         print()
         print("**************************")
-        emit("send_bs_annot", str(new_kg.serialize(format="json-ld").decode()))
+        emit("send_bs_annot", str(new_kg.serialize(format="json-ld")))
 
 
 @socketio.on("describe_opencitation")
@@ -822,7 +825,12 @@ def handle_describe_opencitation(data):
         uri = util.get_DOI(uri)
         print(f"FOUND DOI: {uri}")
     kg = util.describe_opencitation(uri, kg)
-    emit("send_annot_2", str(kg.serialize(format=RDF_TYPE[sid]).decode()))
+
+    nb_triples = len(kg)
+    emit("send_annot_2", {
+        "kg": str(kg.serialize(format=RDF_TYPE[sid])),
+        "nb_triples": nb_triples,
+    })
 
 
 @socketio.on("describe_wikidata")
@@ -839,7 +847,11 @@ def handle_describe_wikidata(data):
         uri = util.get_DOI(uri)
         print(f"FOUND DOI: {uri}")
     kg = util.describe_wikidata(uri, kg)
-    emit("send_annot_2", str(kg.serialize(format=RDF_TYPE[sid]).decode()))
+    nb_triples = len(kg)
+    emit("send_annot_2", {
+        "kg": str(kg.serialize(format=RDF_TYPE[sid])),
+        "nb_triples": nb_triples,
+    })
 
 
 @socketio.on("describe_biotools")
@@ -852,7 +864,11 @@ def handle_describe_biotools(data):
     # kg = ConjunctiveGraph()
     # kg.parse(data=graph, format="turtle")
     kg = util.describe_biotools(uri, kg)
-    emit("send_annot_2", str(kg.serialize(format=RDF_TYPE[sid]).decode()))
+    nb_triples = len(kg)
+    emit("send_annot_2", {
+        "kg": str(kg.serialize(format=RDF_TYPE[sid])),
+        "nb_triples": nb_triples,
+    })
 
 
 @socketio.on("describe_loa")
@@ -869,7 +885,11 @@ def handle_describe_loa(data):
         uri = util.get_DOI(uri)
         print(f"FOUND DOI: {uri}")
     kg = util.describe_loa(uri, kg)
-    emit("send_annot_2", str(kg.serialize(format=RDF_TYPE[sid]).decode()))
+    nb_triples = len(kg)
+    emit("send_annot_2", {
+        "kg": str(kg.serialize(format=RDF_TYPE[sid])),
+        "nb_triples": nb_triples,
+    })
 
 
 @socketio.on("retrieve_embedded_annot")
@@ -1017,6 +1037,10 @@ def check_kg(data):
         if util.ask_LOV(c["name"]):
             c["tag"].append("LOV")
             emit("done_check", table_content)
+        if util.ask_BioPortal(c['name'], "class"):
+            c['tag'].append('BioPortal')
+            emit('done_check', table_content)
+
 
     for p in table_content["properties"]:
         if util.ask_OLS(p["name"]):
@@ -1025,6 +1049,9 @@ def check_kg(data):
         if util.ask_LOV(p["name"]):
             p["tag"].append("LOV")
             emit("done_check", table_content)
+        if util.ask_BioPortal(p['name'], "property"):
+            p['tag'].append('BioPortal')
+            emit('done_check', table_content)
 
 
 @socketio.on("check_kg_shape")

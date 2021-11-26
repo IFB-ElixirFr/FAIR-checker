@@ -455,7 +455,7 @@ def shape_checks(kg):
     """
 
     print("toto")
-    print(results_graph.serialize(format="turtle").decode("utf-8"))
+    print(results_graph.serialize(format="turtle"))
 
     results = results_graph.query(report_query)
     warnings = []
