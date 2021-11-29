@@ -2,6 +2,7 @@ from abc import ABC, abstractmethod
 import logging
 import sys
 from metrics.Evaluation import Result
+from metrics.Evaluation import Evaluation
 
 
 class AbstractFAIRMetrics(ABC):
@@ -33,6 +34,8 @@ PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
         self.updated_at = "My update date"
         self.requests_status_code = "Status code for requests"
         self.web_resource = web_resource
+        self.eval = Evaluation()
+        self.eval.set_start_time()
 
     # name
     def get_name(self):
@@ -138,12 +141,21 @@ PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
             AbstractFAIRMetrics.cache[url] = {}
 
         if self.strong_evaluate():
+            self.eval.set_end_time()
+            # self.eval.set_score(Result.STRONG)
+            self.eval.set_score(2)
             AbstractFAIRMetrics.cache[url][self.get_implem()] = Result.STRONG
             return Result.STRONG
         elif self.weak_evaluate():
+            self.eval.set_end_time()
+            # self.eval.set_score(Result.WEAK)
+            self.eval.set_score(1)
             AbstractFAIRMetrics.cache[url][self.get_implem()] = Result.WEAK
             return Result.WEAK
         else:
+            self.eval.set_end_time()
+            # self.eval.set_score(Result.NO)
+            self.eval.set_score(0)
             AbstractFAIRMetrics.cache[url][self.get_implem()] = Result.NO
             return Result.NO
 
