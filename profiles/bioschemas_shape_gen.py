@@ -9,13 +9,13 @@ from jinja2 import Template
 from pyshacl import validate
 import requests
 from selenium import webdriver
+from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.chrome.options import Options
-
-# from webdriver_manager.chrome import ChromeDriverManager
 
 from pathlib import Path
 
 from metrics.AbstractFAIRMetrics import AbstractFAIRMetrics
+from metrics.WebResource import WebResource
 
 # driver = webdriver.Chrome(ChromeDriverManager().install())
 
@@ -74,84 +74,36 @@ bs_profiles = {
             "sc:url",
         ],
     },
+    "sc:MolecularEntity": {
+        "min_props": ["sc:identifier", "sc:name", "dct:conformsTo", "sc:url"],
+        "rec_props": [
+            "sc:inChI",
+            "sc:inChIKey",
+            "sc:iupacName",
+            "sc:molecularFormula",
+            "sc:molecularWeight",
+            "sc:smiles",
+        ],
+    },
+    "sc:Gene": {
+        "min_props": ["sc:identifier", "sc:name", "dct:conformsTo"],
+        "rec_props": [
+            "sc:description",
+            "sc:encodesBioChemEntity",
+            "sc:isPartOfBioChemEntity",
+            "sc:url",
+        ],
+    },
+    "bsc:Gene": {
+        "min_props": ["sc:identifier", "sc:name", "dct:conformsTo"],
+        "rec_props": [
+            "sc:description",
+            "sc:encodesBioChemEntity",
+            "sc:isPartOfBioChemEntity",
+            "sc:url",
+        ],
+    },
 }
-
-
-def get_html_from_requests(url):
-    while True:
-        try:
-            response = requests.get(url=url, timeout=10)
-            break
-        except SSLError:
-            time.sleep(5)
-        except requests.exceptions.Timeout:
-            print("Timeout, retrying")
-            time.sleep(5)
-        except requests.exceptions.ConnectionError as e:
-            print(e)
-            print("ConnectionError, retrying...")
-            time.sleep(10)
-
-    return response.content, response.status_code
-
-
-def get_html_from_selenium(url):
-    chrome_options = Options()
-    chrome_options.add_argument("--headless")
-    browser = webdriver.Chrome(options=chrome_options)
-
-    try:
-        browser.get(url)
-        return browser.page_source
-
-    finally:
-        browser.quit()
-
-
-def get_rdf(html_source):
-    # data = extruct.extract(html_source, syntaxes=['microdata', 'rdfa', 'json-ld'], )
-    data = extruct.extract(
-        str(html_source), syntaxes=["microdata", "rdfa", "json-ld"], errors="ignore"
-    )
-    print(data)
-    print("ici")
-    kg = ConjunctiveGraph()
-
-    # kg = util.get_rdf_selenium(uri, kg)
-    # print(html_source)
-    # print(data.keys())
-
-    base_path = Path(__file__).parent  ## current directory
-    static_file_path = str((base_path / "../static/data/jsonldcontext.json").resolve())
-
-    if "json-ld" in data.keys():
-        for md in data["json-ld"]:
-            if "@context" in md.keys():
-                print(md["@context"])
-                if ("https://schema.org" in md["@context"]) or (
-                    "http://schema.org" in md["@context"]
-                ):
-                    md["@context"] = static_file_path
-            kg.parse(data=json.dumps(md, ensure_ascii=False), format="json-ld")
-    if "rdfa" in data.keys():
-        for md in data["rdfa"]:
-            if "@context" in md.keys():
-                if ("https://schema.org" in md["@context"]) or (
-                    "http://schema.org" in md["@context"]
-                ):
-                    md["@context"] = static_file_path
-            kg.parse(data=json.dumps(md, ensure_ascii=False), format="json-ld")
-
-    if "microdata" in data.keys():
-        for md in data["microdata"]:
-            if "@context" in md.keys():
-                if ("https://schema.org" in md["@context"]) or (
-                    "http://schema.org" in md["@context"]
-                ):
-                    md["@context"] = static_file_path
-            kg.parse(data=json.dumps(md, ensure_ascii=False), format="json-ld")
-
-    return kg
 
 
 def checktype(obj):
@@ -163,7 +115,7 @@ def checktype(obj):
 
 
 def gen_SHACL_from_target_class(target_class):
-    print(target_class)
+    print(f"Generating SHACL shape for {target_class}")
 
     if not target_class in bs_profiles.keys():
         raise BioschemasProfileError(class_name=target_class)
@@ -193,6 +145,8 @@ def gen_SHACL_from_profile(shape_name, target_classes, min_props, rec_props):
         @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
         @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
         @prefix sc: <http://schema.org/> .
+        @prefix bsc: <https://bioschemas.org/> .
+        @prefix dct: <http://purl.org/dc/terms/> .
         @prefix sh: <http://www.w3.org/ns/shacl#> .
         @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
         @prefix edam: <http://edamontology.org/> .
@@ -241,8 +195,7 @@ def gen_SHACL_from_profile(shape_name, target_classes, min_props, rec_props):
 
 def validate_any_from_KG(kg):
     kg.namespace_manager.bind("sc", URIRef("http://schema.org/"))
-    # kg.namespace_manager.bind('schema', URIRef('http://schema.org/'))
-    print("tata")
+    kg.namespace_manager.bind("bsc", URIRef("https://bioschemas.org/"))
     print(len(kg))
     print(kg.serialize(format="turtle").decode())
 
@@ -292,12 +245,14 @@ def validate_any_from_RDF(input_url, rdf_syntax):
 
 
 def validate_any_from_microdata(input_url):
-    html = get_html_from_selenium(input_url)
-    kg = get_rdf(html)
+    web_resource = WebResource(input_url)
+    kg = web_resource.get_rdf()
     kg.namespace_manager.bind("sc", URIRef("http://schema.org/"))
+    kg.namespace_manager.bind("bsc", URIRef("https://bioschemas.org/"))
+    kg.namespace_manager.bind("dct", URIRef("http://purl.org/dc/terms/"))
 
     results = {}
-    # print(kg.serialize(format="turtle").decode())
+    print(kg.serialize(format="turtle").decode())
 
     # list classes
     for s, p, o in kg.triples((None, RDF.type, None)):
@@ -325,10 +280,8 @@ def validate_shape_from_RDF(input_uri, rdf_syntax, shacl_shape):
 
 
 def validate_shape_from_microdata(input_uri, shacl_shape):
-    # html = get_html_from_requests(input_uri)
-    html = get_html_from_selenium(input_uri)
-    kg = get_rdf(html)
-    # print(kg.serialize(format='turtle').decode())
+    kg = WebResource(input_uri).get_rdf()
+    print(kg.serialize(format="turtle").decode())
     warnings, errors = validate_shape(knowledge_graph=kg, shacl_shape=shacl_shape)
     return warnings, errors
 
