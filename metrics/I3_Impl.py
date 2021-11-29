@@ -12,7 +12,7 @@ class I3_Impl(AbstractFAIRMetrics):
 
     def __init__(self, web_resource=None):
         super().__init__(web_resource)
-        self.name = "Metric name 11"
+        self.name = "External links"
         self.id = "11"
         self.principle = "https://w3id.org/fair/principles/terms/I3"
         self.principle_tag = "I3"

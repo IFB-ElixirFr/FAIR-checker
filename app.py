@@ -28,6 +28,7 @@ import argparse
 from argparse import RawTextHelpFormatter
 from datetime import datetime
 from datetime import timedelta
+from io import StringIO
 import json
 from json import JSONDecodeError
 from pathlib import Path
@@ -158,7 +159,7 @@ def favicon():
 
 @app.route("/")
 def home():
-    return redirect(url_for("base_metrics"))
+    return render_template("index.html")
 
 
 @app.route("/about")
@@ -193,6 +194,7 @@ def statistics():
         r_failures=stats.this_week_for_named_metrics(prefix="R", success=0),
     )
 
+
 @socketio.on("webresource")
 def handle_webresource(url):
     print("A new url to retrieve metadata from !")
@@ -206,7 +208,7 @@ def handle_metric(json):
 
     @param json dict Contains the necessary informations to execute evaluate a metric.
     """
-    print("TOTO")
+
     implem = json["implem"]
 
     metric_name = json["metric_name"]
@@ -215,7 +217,6 @@ def handle_metric(json):
     # principle = json['principle']
     #
     # data = '{"subject": "' + url + '"}'
-    # print(data)
 
     # NEW class IMPLE
 
@@ -223,7 +224,7 @@ def handle_metric(json):
         print("not our implem !")
         evaluate_fairmetrics(json, metric_name, client_metric_id, url)
     elif implem == "FAIR-Checker":
-        print("heya our IMPLEM !")
+        print("hey our IMPLEM !")
         evaluate_fc_metrics(metric_name, client_metric_id, url)
     else:
         print("Invalid implem")
@@ -282,7 +283,7 @@ def evaluate_fairmetrics(json, metric_name, client_metric_id, url):
         "date": str(datetime.now().isoformat()),
     }
 
-    print(json_result)
+    # print(json_result)
     # might be removed
     write_temp_metric_res_file(
         principle, api_url, evaluation_time, score, comment, content_uuid
@@ -294,7 +295,7 @@ def evaluate_fairmetrics(json, metric_name, client_metric_id, url):
     csv_line = '"{}"\t"{}"\t"{}"\t"{}"'.format(
         name, score, str(evaluation_time), comment
     )
-    print(name)
+    # print(name)
     emit_json = {
         "score": score,
         "comment": comment,
@@ -311,9 +312,10 @@ def evaluate_fairmetrics(json, metric_name, client_metric_id, url):
 
 
 def evaluate_fc_metrics(metric_name, client_metric_id, url):
-    print("OK FC Metrics")
-    print(cache.get("TOTO"))
-    print(METRICS_CUSTOM)
+    # print("OK FC Metrics")
+    # print(cache.get("TOTO"))
+    # print(METRICS_CUSTOM)
+    logging.warning("Evaluating FAIR-Checker metric")
     id = METRICS_CUSTOM[metric_name].get_id()
     print("ID: " + id)
     print("Client ID: " + client_metric_id)
@@ -321,23 +323,17 @@ def evaluate_fc_metrics(metric_name, client_metric_id, url):
     if cache.get(url) == "pulling":
         while True:
             time.sleep(2)
-            print("test2")
             if not cache.get(url) == "pulling":
-                print("test3")
                 webresource = cache.get(url)
                 break
 
-
     elif not isinstance(cache.get(url), WebResource):
         cache.set(url, "pulling")
-        print("test1")
         webresource = WebResource(url)
         cache.set(url, webresource)
     elif isinstance(cache.get(url), WebResource):
         webresource = cache.get(url)
 
-
-    print(webresource)
     METRICS_CUSTOM[metric_name].set_web_resource(webresource)
     print("Evaluating: " + metric_name)
     result = METRICS_CUSTOM[metric_name].evaluate()
@@ -347,7 +343,10 @@ def evaluate_fc_metrics(metric_name, client_metric_id, url):
     evaluation_time = result.get_test_time() - timedelta(
         microseconds=result.get_test_time().microseconds
     )
-    comment = result.get_reason()
+    # comment = result.get_reason()
+    comment = result.get_log()
+    print(comment)
+    # result.close_log_stream()
     emit_json = {
         "score": str(score),
         "time": str(evaluation_time),
@@ -503,14 +502,14 @@ def recommendation(emit_json, metric_name, comment):
     # recommendation
     metric_name_key = metric_name.replace(" ", "_").replace("(", "").replace(")", "")
     metric_name_key = metric_name_key.lower()
-    print(metric_name_key)
-    print(recommendation_dict.keys())
+    # print(metric_name_key)
+    # print(recommendation_dict.keys())
     if metric_name_key in recommendation_dict.keys():
         metric_failures = recommendation_dict[metric_name_key]
 
         for key in metric_failures.keys():
-            print(key)
-            print(comment)
+            # print(key)
+            # print(comment)
             if key in comment:
                 print("found a match!")
                 emit_json["recommendation"] = metric_failures[key]
@@ -672,7 +671,7 @@ def handle_change_rdf_type(data):
     sid = request.sid
     RDF_TYPE[sid] = data["rdf_type"]
     kg = KGS[sid]
-    emit("send_annot_2", str(kg.serialize(format=RDF_TYPE[sid]).decode()))
+    emit("send_annot_2", str(kg.serialize(format=RDF_TYPE[sid])))
 
 
 @socketio.on("retrieve_embedded_annot_2")
@@ -706,8 +705,7 @@ def handle_embedded_annot_2(data):
         for dict in d[key]:
             list(util.replace_value_char_for_key("@id", dict, " ", "_"))
 
-    print(d)
-    print("là")
+    # print(d)
     kg = ConjunctiveGraph()
 
     base_path = Path(__file__).parent  # current directory
@@ -737,11 +735,17 @@ def handle_embedded_annot_2(data):
         kg.parse(data=json.dumps(md, ensure_ascii=False), format="json-ld")
 
     KGS[sid] = kg
-
+    nb_triples = len(kg)
     # step += 1
-    print(len(kg))
+    print(nb_triples)
     # emit('update_annot_2', step)
-    emit("send_annot_2", str(kg.serialize(format=RDF_TYPE[sid]).decode()))
+    emit(
+        "send_annot_2",
+        {
+            "kg": str(kg.serialize(format=RDF_TYPE[sid])),
+            "nb_triples": nb_triples,
+        },
+    )
 
 
 @socketio.on("update_annot_bioschemas")
@@ -806,7 +810,7 @@ def handle_annotationn(data):
         print("***** JSON-LD syntax *****")
         print()
         print("**************************")
-        emit("send_bs_annot", str(new_kg.serialize(format="json-ld").decode()))
+        emit("send_bs_annot", str(new_kg.serialize(format="json-ld")))
 
 
 @socketio.on("describe_opencitation")
@@ -823,7 +827,15 @@ def handle_describe_opencitation(data):
         uri = util.get_DOI(uri)
         print(f"FOUND DOI: {uri}")
     kg = util.describe_opencitation(uri, kg)
-    emit("send_annot_2", str(kg.serialize(format=RDF_TYPE[sid]).decode()))
+
+    nb_triples = len(kg)
+    emit(
+        "send_annot_2",
+        {
+            "kg": str(kg.serialize(format=RDF_TYPE[sid])),
+            "nb_triples": nb_triples,
+        },
+    )
 
 
 @socketio.on("describe_wikidata")
@@ -840,7 +852,14 @@ def handle_describe_wikidata(data):
         uri = util.get_DOI(uri)
         print(f"FOUND DOI: {uri}")
     kg = util.describe_wikidata(uri, kg)
-    emit("send_annot_2", str(kg.serialize(format=RDF_TYPE[sid]).decode()))
+    nb_triples = len(kg)
+    emit(
+        "send_annot_2",
+        {
+            "kg": str(kg.serialize(format=RDF_TYPE[sid])),
+            "nb_triples": nb_triples,
+        },
+    )
 
 
 @socketio.on("describe_biotools")
@@ -853,7 +872,14 @@ def handle_describe_biotools(data):
     # kg = ConjunctiveGraph()
     # kg.parse(data=graph, format="turtle")
     kg = util.describe_biotools(uri, kg)
-    emit("send_annot_2", str(kg.serialize(format=RDF_TYPE[sid]).decode()))
+    nb_triples = len(kg)
+    emit(
+        "send_annot_2",
+        {
+            "kg": str(kg.serialize(format=RDF_TYPE[sid])),
+            "nb_triples": nb_triples,
+        },
+    )
 
 
 @socketio.on("describe_loa")
@@ -870,7 +896,14 @@ def handle_describe_loa(data):
         uri = util.get_DOI(uri)
         print(f"FOUND DOI: {uri}")
     kg = util.describe_loa(uri, kg)
-    emit("send_annot_2", str(kg.serialize(format=RDF_TYPE[sid]).decode()))
+    nb_triples = len(kg)
+    emit(
+        "send_annot_2",
+        {
+            "kg": str(kg.serialize(format=RDF_TYPE[sid])),
+            "nb_triples": nb_triples,
+        },
+    )
 
 
 @socketio.on("retrieve_embedded_annot")
@@ -1018,6 +1051,9 @@ def check_kg(data):
         if util.ask_LOV(c["name"]):
             c["tag"].append("LOV")
             emit("done_check", table_content)
+        if util.ask_BioPortal(c["name"], "class"):
+            c["tag"].append("BioPortal")
+            emit("done_check", table_content)
 
     for p in table_content["properties"]:
         if util.ask_OLS(p["name"]):
@@ -1025,6 +1061,9 @@ def check_kg(data):
             emit("done_check", table_content)
         if util.ask_LOV(p["name"]):
             p["tag"].append("LOV")
+            emit("done_check", table_content)
+        if util.ask_BioPortal(p["name"], "property"):
+            p["tag"].append("BioPortal")
             emit("done_check", table_content)
 
 
@@ -1169,24 +1208,22 @@ def base_metrics():
             }
         )
 
-    print(METRICS["Unique Identifier"])
-    for key in METRICS.keys():
-        print()
-        metrics.append(
-            {
-                "name": METRICS[key].get_name(),
-                "implem": METRICS[key].get_implem(),
-                "description": METRICS[key].get_desc(),
-                "api_url": METRICS[key].get_api(),
-                "id": "metric_" + METRICS[key].get_id().rsplit("/", 1)[-1],
-                "principle": METRICS[key].get_principle(),
-                "principle_tag": METRICS[key].get_principle().rsplit("/", 1)[-1],
-                "principle_category": METRICS[key]
-                .get_principle()
-                .rsplit("/", 1)[-1][0],
-            }
-        )
-    print(metrics[1])
+    # for key in METRICS.keys():
+    #     print()
+    #     metrics.append(
+    #         {
+    #             "name": METRICS[key].get_name(),
+    #             "implem": METRICS[key].get_implem(),
+    #             "description": METRICS[key].get_desc(),
+    #             "api_url": METRICS[key].get_api(),
+    #             "id": "metric_" + METRICS[key].get_id().rsplit("/", 1)[-1],
+    #             "principle": METRICS[key].get_principle(),
+    #             "principle_tag": METRICS[key].get_principle().rsplit("/", 1)[-1],
+    #             "principle_category": METRICS[key]
+    #             .get_principle()
+    #             .rsplit("/", 1)[-1][0],
+    #         }
+    #     )
 
     # response =
     return make_response(
@@ -1394,39 +1431,45 @@ if __name__ == "__main__":
             for m in track(metrics_collection, "Processing FAIR metrics ..."):
                 logging.info(m.get_name())
                 res = m.evaluate()
-                if m.get_name().startswith("F"):
+                if m.get_principle_tag().startswith("F"):
                     table.add_row(
                         Text(
-                            m.get_name() + " " + str(res), style=get_result_style(res)
+                            m.get_name() + " " + str(res.get_score()),
+                            style=get_result_style(res),
                         ),
                         "",
                         "",
                         "",
                     )
-                elif m.get_name().startswith("A"):
+                elif m.get_principle_tag().startswith("A"):
                     table.add_row(
                         "",
                         Text(
-                            m.get_name() + " " + str(res), style=get_result_style(res)
+                            m.get_name() + " " + str(res.get_score()),
+                            style=get_result_style(res),
                         ),
                         "",
                         "",
                     )
-                elif m.get_name().startswith("I"):
+                elif m.get_principle_tag().startswith("I"):
                     table.add_row(
                         "",
                         "",
                         Text(
-                            m.get_name() + " " + str(res), style=get_result_style(res)
+                            m.get_name() + " " + str(res.get_score()),
+                            style=get_result_style(res),
                         ),
                         "",
                     )
-                elif m.get_name().startswith("R"):
+                elif m.get_principle_tag().startswith("R"):
                     table.add_row(
                         "",
                         "",
                         "",
-                        Text(f"{m.get_name()} {str(res)}", style=get_result_style(res)),
+                        Text(
+                            f"{m.get_name()} {str(res.get_score())}",
+                            style=get_result_style(res),
+                        ),
                     )
 
         console.rule(f"[bold red]FAIRness evaluation for URL {url}")
@@ -1435,6 +1478,7 @@ if __name__ == "__main__":
         logging.info(f"FAIR metrics evaluated in {elapsed_time} s")
 
     elif args.web:
+        logging.info("Starting webserver")
         # context = ('server.crt', 'server.key')
         # app.run(host='0.0.0.0', port=5000, debug=True, ssl_context=context)
         socketio.run(app, host="0.0.0.0", port=5000, debug=True)

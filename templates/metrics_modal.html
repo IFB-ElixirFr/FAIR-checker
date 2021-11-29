@@ -1,0 +1,55 @@
+{% for f in f_metrics %}
+<div class="modal" id="modal_{{ f.id }}">
+  <div class="modal-background" id="modal_bg_{{ f.id }}"></div>
+  <div class="modal-card" id="metrics_modal_{{ f.id }}">
+    <header class="modal-card-head">
+      <p class="modal-card-title">{{ f.principle_tag }} - {{ f.name }}</p>
+
+      <button class="delete" aria-label="close" id="modal_close_{{ f.id }}"></button>
+    </header>
+    <section class="modal-card-body">
+      <article class="message">
+        <div class="message-header">
+          <p>Metrics info</p>
+        </div>
+        <div class="message-body">
+          <div class="box">
+            Principle: {{ f.principle_tag }}<br>
+            Implem: {{ f.implem }}<br>
+            </div>
+            <div class="box">
+            Description:<br>
+              {{ f.description }}
+            </div>
+          </div>
+      </article>
+      <article class="message">
+        <div class="message-header">
+          <p>Metrics evaluation results</p>
+        </div>
+        <div class="message-body">
+          <div class="box" >
+            Score: <div id="modal_score_{{f.id}}"></div>
+          </div>
+          <div class="box">
+            Time: <div id="modal_time_{{f.id}}"></div>
+          </div>
+          <div class="box">
+            Comment: <div id="modal_comment_{{f.id}}"></div>
+          </div>
+          <div class="box">
+            Guideline: <div id="modal_guideline_{{f.id}}"></div>
+          </div>
+        </div>
+      </article>
+
+
+
+    </section>
+<!--    <footer class="modal-card-foot">-->
+<!--      <button class="button is-success">Save changes</button>-->
+<!--      <button class="button">Cancel</button>-->
+<!--    </footer>-->
+  </div>
+</div>
+{% endfor %}

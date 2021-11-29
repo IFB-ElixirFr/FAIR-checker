@@ -9,7 +9,7 @@ class R12_Impl(AbstractFAIRMetrics):
 
     def __init__(self, web_resource=None):
         super().__init__(web_resource)
-        self.name = "Metric name 13"
+        self.name = "Metadata includes provenance"
         self.id = "13"
         self.principle = "https://w3id.org/fair/principles/terms/R1.2"
         self.principle_tag = "R1.2"

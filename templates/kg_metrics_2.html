@@ -1,6 +1,7 @@
 {% extends "layout.html" %}
 
 {% block nav %}
+{% include 'nav_bar.html' %}
 {% include 'nav.html' %}
 {% endblock %}
 
@@ -330,7 +331,8 @@
              //cm.setValue(value);
              $("#article-describe").find(".message-body").removeClass("is-hidden");
              $("#article-bioschemas-check").find(".message-body").removeClass("is-hidden");
-             $("#microdata").val(value);
+             $("#microdata").val(value["kg"]);
+             $("#nb_triples").text(value["nb_triples"] + " Triples listed");
              $("#btn_describe_opencitation").removeClass("is-loading");
              $("#btn_describe_wikidata").removeClass("is-loading");
              $("#btn_describe_biotools").removeClass("is-loading");
@@ -609,19 +611,20 @@
         </div> -->
         <div class="field is-grouped is-grouped-centered">
             <p class="control"><a id="btn_describe_wikidata" class="button is-success">Wikidata</a></p>
-            <p class="control"><a id="btn_describe_opencitation" class="button is-link">OpenCitation</a></p>
-            <p class="control"><a id="btn_describe_loa" class="button is-info">Lod Openair</a></p>
+            <p class="control"><a id="btn_describe_opencitation" class="button is-link">OpenCitations</a></p>
+            <p class="control"><a id="btn_describe_loa" class="button is-info">OpenAIRE</a></p>
             <p class="control"><a id="btn_describe_biotools" class="button is-warning">Bio.tools</a></p>
         </div>
         <div class="control">
             <textarea id="microdata" class="textarea is-small" placeholder="Knowledge graph, in RDF, turtle syntax"
                       rows="15"></textarea>
         </div>
+        <a id="nb_triples" class="button is-success is-small">[] Triples</a>
         <br>
         <div class="field is-grouped is-grouped-centered">
-            <p class="control"><a id="btn_rdf_json-ld" data-rdf="json-ld" class="button is-success">JSON-LD</a></p>
-            <p class="control"><a id="btn_rdf_turtle" data-rdf="turtle" class="button is-link">Turtle</a></p>
-            <p class="control"><a id="btn_rdf_nt" data-rdf="nt" class="button is-warning">NT</a></p>
+            <p class="control"><a id="btn_rdf_json-ld" data-rdf="json-ld" class="button is-info">JSON-LD</a></p>
+            <p class="control"><a id="btn_rdf_turtle" data-rdf="turtle" class="button is-info">Turtle</a></p>
+            <p class="control"><a id="btn_rdf_nt" data-rdf="nt" class="button is-info">NT</a></p>
             <p class="control"><a id="btn_rdf_xml" data-rdf="xml" class="button is-info">XML</a></p>
         </div>
     </div>
@@ -803,18 +806,18 @@
 </article>
 
 
-<article id="article-KGdisplay" class="message is-info">
-    <div class="message-header">
-        <p>Graph Display</p>
-    </div>
-    <div class="message-body">
-        <div class="field">
-            <div class="control">
-                <div id="svg-body" class="panel-body"></div>
-            </div>
-        </div>
-    </div>
-</article>
+<!--<article id="article-KGdisplay" class="message is-info">-->
+<!--    <div class="message-header">-->
+<!--        <p>Graph Display</p>-->
+<!--    </div>-->
+<!--    <div class="message-body">-->
+<!--        <div class="field">-->
+<!--            <div class="control">-->
+<!--                <div id="svg-body" class="panel-body"></div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</article>-->
 
 <script>
     	// var triples = [

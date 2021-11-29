@@ -11,7 +11,7 @@ class R13_Impl(AbstractFAIRMetrics):
 
     def __init__(self, web_resource=None):
         super().__init__(web_resource)
-        self.name = "Metric name 14"
+        self.name = "Community standards"
         self.id = "14"
         self.principle = "https://w3id.org/fair/principles/terms/R1.3"
         self.principle_tag = "R1.3"

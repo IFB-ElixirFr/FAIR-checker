@@ -10,7 +10,7 @@ class I1B_Impl(AbstractFAIRMetrics):
 
     def __init__(self, web_resource=None):
         super().__init__(web_resource)
-        self.name = "Metric name 7"
+        self.name = "Ontological and machine-resolvable formats"
         self.id = "7"
         self.principle = "https://w3id.org/fair/principles/terms/I1"
         self.principle_tag = "I1B"

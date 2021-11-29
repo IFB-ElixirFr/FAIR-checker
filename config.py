@@ -14,8 +14,8 @@ class Config(object):
     TESTING = False
     SERVER_NAME = "0.0.0.0:5000"
     # Flask-Caching related configs
-    CACHE_TYPE= "SimpleCache"
-    CACHE_DEFAULT_TIMEOUT= 60
+    CACHE_TYPE = "SimpleCache"
+    CACHE_DEFAULT_TIMEOUT = 60
 
 
 class ProductionConfig(Config):

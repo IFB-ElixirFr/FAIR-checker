@@ -1,6 +1,7 @@
 {% extends "layout.html" %}
 
 {% block nav %}
+{% include 'nav_bar.html' %}
 {% include 'nav.html' %}
 {% endblock %}
 
@@ -63,6 +64,7 @@
         });
         {% endfor %}
 
+
         //////////////////
         // event handlers
         //////////////////
@@ -79,20 +81,37 @@
         });
 
 
+
         var csv_lines = []
 
         {% for f in f_metrics %}
+        // modal listner
+        $('[id^=modal_details_{{ f.id }}]').on('click', function($e){
+            target_id = $(this).data("target");
+            $("#" + target_id).addClass("is-active");
+            // $("#" + target_id).addClass("is-clipped");
+        });
+        // close with BG
+        $('[id^=modal_bg_{{ f.id }}]').on('click', function($e){
+            $('[id^=modal_{{ f.id }}]').removeClass("is-active");
+        });
+        // close with close button
+        $('[id^=modal_close_{{ f.id }}]').on('click', function($e){
+            $('[id^=modal_{{ f.id }}]').removeClass("is-active");
+        });
+
+        // metrics tests results handling
         socket.on('error_{{f.id}}', function(value) {
             $("#test_{{f.id}}").removeClass("is-loading");
-            $("#status_{{f.id}}").text("Error");
-            $("#status_{{f.id}}").addClass("is-warning");
+            $("#row_status_{{f.id}}").text("Error");
+            $("#row_status_{{f.id}}").addClass("is-warning");
             $("#metrics_row_{{ f.id }}").css('background-color','#FFF7DF');
-            $("#score_{{f.id}}").text("NA");
+            $("#row_score_{{f.id}}").text("NA");
             // show comment buttpn
-            $("#comment_{{f.id}}").parent("div").find('button').show();
+            $("#row_comment_{{f.id}}").parent("div").find('button').show();
             // add comment to result
-            $("#comment_{{f.id}}").children("article").removeClass("is-info");
-            $("#comment_{{f.id}}").children("article").children("div").text("Error with FAIR-Checker or FAIRMetrics API, don't hesitate to contact the support with the URL that give an error, thank you.");
+            $("#row_comment_{{f.id}}").children("article").removeClass("is-info");
+            $("#row_comment_{{f.id}}").children("article").children("div").text("Error with FAIR-Checker or FAIRMetrics API, don't hesitate to contact the support with the URL that give an error, thank you.");
 
             // check if all metric are done
             is_loading = false
@@ -128,17 +147,17 @@
 
             // change status color
             if (value['score'] >= 1) {
-              $("#status_{{f.id}}").removeClass("is-danger");
-              $("#status_{{f.id}}").addClass("is-success");
-              $("#status_{{f.id}}").text("Success");
+              $("#row_status_{{f.id}}").removeClass("is-danger");
+              $("#row_status_{{f.id}}").addClass("is-success");
+              $("#row_status_{{f.id}}").text("Success");
               $("#result_{{f.id}}").addClass("is-success");
               // update_checkbox color
               $("#checkbox_test_{{f.id}}").parent("label").parent("td").css('background-color','#DBF2F2');
               $("#metrics_row_{{ f.id }}").css('background-color','#DBF2F2');
             } else {
-              $("#status_{{f.id}}").removeClass("is-success");
-              $("#status_{{f.id}}").addClass("is-danger");
-              $("#status_{{f.id}}").text("Failure");
+              $("#row_status_{{f.id}}").removeClass("is-success");
+              $("#row_status_{{f.id}}").addClass("is-danger");
+              $("#row_status_{{f.id}}").text("Failure");
               $("#result_{{f.id}}").addClass("is-danger");
               // update_checkbox color
               $("#checkbox_test_{{f.id}}").parent("label").parent("td").css('background-color','#FFE0E6');
@@ -146,20 +165,23 @@
             }
 
             // add score to result
-            $("#score_{{f.id}}").text(value['score']);
+            $("#row_score_{{f.id}}").text(value['score']);
+            $("#modal_score_{{f.id}}").text(value['score']);
             // add time to result
-            $("#time_{{f.id}}").text(value['time']);
+            $("#row_time_{{f.id}}").text(value['time']);
+            $("#modal_time_{{f.id}}").text(value['time']);
             // show comment buttpn
-            $("#comment_{{f.id}}").parent("div").find('button').show();
+            $("#row_comment_{{f.id}}").parent("div").find('button').show();
             // add comment to result
-            $("#comment_{{f.id}}").children("article").removeClass("is-info");
-            $("#comment_{{f.id}}").children("article").children("div").text(value['comment']);
+            $("#row_comment_{{f.id}}").children("article").removeClass("is-info");
+            $("#row_comment_{{f.id}}").children("article").children("div").text(value['comment']);
+            $("#modal_comment_{{f.id}}").text(value['comment']);
 
             //update progressbar
             // current = parseInt($("#p1").attr("value"));
             progress = 0
             $("#p1").attr("value", progress);
-            $('[id^=score_metric_]').each(function( progress ) {
+            $('[id^=row_score]').each(function( progress ) {
               if ($(this).text() != "") {
                   $("#p1").attr("value", progress+1);
 
@@ -170,11 +192,11 @@
 
             // add recommandation if score == 0
             if (value['score'] == 0) {
-              $("#guideline_{{f.id}}").parent("div").find('button').show()
-              $("#guideline_{{f.id}}").children("article").children("div").text(value['recommendation']);
-
+              $("#row_guideline_{{f.id}}").parent("div").find('button').show()
+              $("#row_guideline_{{f.id}}").children("article").children("div").text(value['recommendation']);
+              $("#modal_guideline_{{f.id}}").text(value['recommendation']);
             } else  {
-              $("#guideline_{{f.id}}").parent("div").find('button').hide()
+              $("#row_guideline_{{f.id}}").parent("div").find('button').hide()
             }
 
             // // show table
@@ -272,7 +294,7 @@
           $("#btn_test_all").addClass("is-loading");
 
 
-          $('[id^=test_metric_]').each(function( id ) {
+          $('[id^=test_]').each(function( id ) {
             $(this).trigger( "click" );
             // console.log($(this).attr('id'))
           });
@@ -514,7 +536,7 @@
             </p>
         </div> -->
 
-        <progress id="p1" class="progress is-primary" value="0" max="22"></progress>
+        <progress id="p1" class="progress is-primary" value="0" max="12"></progress>
 
         <div class="field is-grouped is-grouped-centered">
             <p class="control">
@@ -624,6 +646,9 @@
     </div>
 
 </article>
+
+{% include 'metrics_modal.html' %}
+
 
 
 <!-- <article id="metrics_details_rec" class="message is-info">

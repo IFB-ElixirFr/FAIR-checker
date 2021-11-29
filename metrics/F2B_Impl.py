@@ -20,7 +20,7 @@ class F2B_Impl(AbstractFAIRMetrics):
 
     def __init__(self, web_resource=None):
         super().__init__(web_resource)
-        self.name = "Metric name 4"
+        self.name = "Shared vocabularies for metadata"
         self.id = "4"
         self.principle = "https://w3id.org/fair/principles/terms/F2"
         self.principle_tag = "F2B"
