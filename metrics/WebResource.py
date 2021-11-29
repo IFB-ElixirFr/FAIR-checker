@@ -56,6 +56,7 @@ class WebResource:
                 ):
                     md["@context"] = static_file_path
             kg.parse(data=json.dumps(md, ensure_ascii=False), format="json-ld")
+
         for md in data["rdfa"]:
             if "@context" in md.keys():
                 if ("https://schema.org" in md["@context"]) or (
@@ -63,6 +64,7 @@ class WebResource:
                 ):
                     md["@context"] = static_file_path
             kg.parse(data=json.dumps(md, ensure_ascii=False), format="json-ld")
+
         for md in data["microdata"]:
             if "@context" in md.keys():
                 if ("https://schema.org" in md["@context"]) or (
@@ -71,7 +73,7 @@ class WebResource:
                     md["@context"] = static_file_path
             kg.parse(data=json.dumps(md, ensure_ascii=False), format="json-ld")
 
-        logging.debug(kg.serialize(format="turtle").decode())
+        # logging.debug(kg.serialize(format="turtle"))
         return kg
 
     @staticmethod
@@ -82,14 +84,13 @@ class WebResource:
         browser.get(url)
         # self.html_source = browser.page_source
         # browser.quit()
-        logging.debug(type(browser.page_source))
+        # logging.debug(type(browser.page_source))
 
         try:
             element = browser.find_element_by_xpath(
                 "//script[@type='application/ld+json']"
             )
             element = element.get_attribute("outerHTML")
-            # browser.quit()
 
             tree = html.fromstring(element)
             jsonld_string = tree.xpath('//script[@type="application/ld+json"]//text()')
@@ -99,19 +100,43 @@ class WebResource:
                 (base_path / "static/data/jsonldcontext.json").resolve()
             )
 
+            # print()
+            # print("***************")
+            # print(jsonld_string)
+            # print("***************")
+
             for json_ld_annots in jsonld_string:
                 jsonld = json.loads(json_ld_annots)
-                if "@context" in jsonld.keys():
-                    if "//schema.org" in jsonld["@context"]:
-                        jsonld["@context"] = static_file_path
-                kg.parse(data=json.dumps(jsonld, ensure_ascii=False), format="json-ld")
-                logging.debug(f"{len(kg)} retrieved triples in KG")
-                logging.debug(kg.serialize(format="turtle").decode())
+                print(jsonld)
+                if isinstance(jsonld, list):
+                    for el in jsonld:
+                        print(el.keys())
+                        if "@context" in el.keys():
+                            if "//schema.org" in el["@context"]:
+                                el["@context"] = static_file_path
+                        kg.parse(
+                            data=json.dumps(jsonld, ensure_ascii=False),
+                            format="json-ld",
+                        )
+                else:
+                    if "@context" in jsonld.keys():
+                        if "//schema.org" in jsonld["@context"]:
+                            jsonld["@context"] = static_file_path
+                    kg.parse(
+                        data=json.dumps(jsonld, ensure_ascii=False), format="json-ld"
+                    )
+
+                print(f"{len(kg)} retrieved triples in KG")
+                # logging.debug(kg.serialize(format="turtle"))
 
         except NoSuchElementException:
             logging.warning('Can\'t find "application/ld+json" content')
-            pass
+            # print('Can\'t find "application/ld+json" content')
+            # print()
+            # browser.quit()
+            return kg
 
+        # browser.quit()
         return kg
 
     def __init__(self, url) -> None:
@@ -121,6 +146,7 @@ class WebResource:
         # get static RDF metadata (already available in html sources)
         kg_2 = WebResource.extract_rdf_extruct(self.url)
         self.rdf = kg_1 + kg_2
+        # self.rdf = kg_2
 
     def get_url(self):
         return self.url
@@ -129,5 +155,5 @@ class WebResource:
         return self.rdf
 
     def __str__(self) -> str:
-        out = f"Web resource under FAIR assesment:\n\t- {self.url} \n\t- {len(self.rdf)} embedded RDF triples"
+        out = f"Web resource under Bioschemas validation:\n\t- {self.url} \n\t- {len(self.rdf)} embedded RDF triples"
         return out
