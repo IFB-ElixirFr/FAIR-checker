@@ -5,12 +5,12 @@ from enum import Enum, unique
 
 @unique
 class Result(Enum):
-    NO = 1
-    WEAK = 2
-    STRONG = 3
+    NO = 0
+    WEAK = 1
+    STRONG = 2
 
     def __repr__(self):
-        return self.name
+        return self.value
 
     def __str__(self):
         return self.name
@@ -90,6 +90,6 @@ class Evaluation:
             f"FAIR metrics evaluation : "
             f"\n\t started at {self.start_time} "
             f"\n\t lasted {self.get_test_time()} "
-            f"\n\t score {self.score} "
-            f"\n\t reason {self.reason} "
+            if self.end_time
+            else "" f"\n\t score {self.score} " f"\n\t reason {self.reason} "
         )
