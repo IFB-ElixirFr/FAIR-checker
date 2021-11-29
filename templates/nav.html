@@ -1,3 +1,18 @@
+<script type="text/javascript" charset="utf-8">
+    $( document ).ready(function() {
+
+        var menu_list_elem = $(".menu-list").find("li > a");
+        menu_list_elem.each(function() {
+            menu_href = $(this).attr('href');
+            page_href = $(location).attr('pathname');
+            if ( menu_href == page_href) {
+                $(this).addClass("is-active");
+            }
+
+        });
+    });
+</script>
+
 <aside class="menu">
 <!--    <ul class="menu-list">-->
 <!--        <li><a href="{{ url_for('index') }}">Home</a></li>-->
