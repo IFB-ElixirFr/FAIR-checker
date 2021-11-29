@@ -67,20 +67,36 @@ class GenSHACLTestCase(unittest.TestCase):
         )
 
     def test_any_resource(self):
-        # todo assertions on error count for each test
-        validate_any_from_RDF(
-            input_url="https://bio.tools/api/jaspar?format=jsonld", rdf_syntax="json-ld"
-        )
-        validate_any_from_microdata(
-            input_url="https://data.inrae.fr/dataset.xhtml?persistentId=doi:10.15454/PL3HWQ"
-        )
-        # todo assertions : no errors
-        validate_any_from_microdata(
-            input_url="https://doi.pangaea.de/10.1594/PANGAEA.914331"
-        )
+        # # todo assertions on error count for each test
+        # res = validate_any_from_RDF(
+        #     input_url="https://bio.tools/api/jaspar?format=jsonld", rdf_syntax="json-ld"
+        # )
+        # print(res)
+
+        # res = validate_any_from_microdata(
+        #     input_url="https://data.inrae.fr/dataset.xhtml?persistentId=doi:10.15454/PL3HWQ"
+        # )
+        # print(
+        #     "Metatata validation for https://data.inrae.fr/dataset.xhtml?persistentId=doi:10.15454/PL3HWQ"
+        # )
+        # print(res)
+
+        # # todo assertions : no errors
+        # res = validate_any_from_microdata(
+        #     input_url="https://doi.pangaea.de/10.1594/PANGAEA.914331"
+        # )
+        # print(res)
+
+        # res = validate_any_from_microdata(
+        #     input_url="https://search.datacite.org/works/10.7892/boris.108387"
+        # )
         res = validate_any_from_microdata(
-            input_url="https://search.datacite.org/works/10.7892/boris.108387"
+            # input_url="https://bgee.org/?page=gene&gene_id=ENSMUSG00000038170"
+            input_url="https://bgee.org/?page=gene&gene_id=ENSG00000274928"
         )
+        # res = validate_any_from_microdata(
+        #     input_url="https://massbank.eu/MassBank/RecordDisplay?id=HB001948"
+        # )
         print(res)
 
 
