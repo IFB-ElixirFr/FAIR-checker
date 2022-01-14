@@ -26,7 +26,7 @@ class F2B_Impl(AbstractFAIRMetrics):
 
     def weak_evaluate(self) -> bool:
         """
-        at least one used ontology classe or property known in major ontology registries (OLS, BioPortal, LOV)
+        at least one used ontology class or property known in major ontology registries (OLS, BioPortal, LOV)
         """
         kg = self.get_web_resource().get_rdf()
 
@@ -59,7 +59,7 @@ class F2B_Impl(AbstractFAIRMetrics):
 
     def strong_evaluate(self) -> bool:
         """
-        all used ontology classes and properties  known in major ontology registries (OLS, BioPortal, LOV)
+        all used ontology classes and properties known in major ontology registries (OLS, BioPortal, LOV)
         """
         kg = self.get_web_resource().get_rdf()
 
