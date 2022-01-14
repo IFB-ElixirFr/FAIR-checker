@@ -22,6 +22,6 @@ class I1B_Impl(AbstractFAIRMetrics):
 
     def strong_evaluate(self) -> bool:
         """
-        Delegated to F2B
+        Delegated to F2A
         """
         return F2A_Impl(self.get_web_resource()).strong_evaluate()
