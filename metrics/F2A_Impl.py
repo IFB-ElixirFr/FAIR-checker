@@ -26,24 +26,43 @@ class F2A_Impl(AbstractFAIRMetrics):
         self.principle = "https://w3id.org/fair/principles/terms/F2"
         self.principle_tag = "F2A"
         self.implem = "FAIR-Checker"
-        self.desc = ""
+        self.desc = """
+            FAIR-Checker verifies that at least one RDF triple can be found in metadata. 
+        """
 
     def weak_evaluate(self, eval=None) -> Evaluation:
         if not eval:
             eval = self.get_evaluation()
+            eval.set_implem(self.implem)
+            eval.set_metrics(self.principle_tag)
         return eval
 
     def strong_evaluate(self, eval=None) -> Evaluation:
         """
         at least one embedded RDF triple
         """
+
         if not eval:
             eval = self.get_evaluation()
+            eval.set_implem(self.implem)
+            eval.set_metrics(self.principle_tag)
+        eval.log_info("Checking if data is structured, looking for at least one RDF triple...")
+
         kg = self.get_web_resource().get_rdf()
 
         if len(kg) > 0:
+            eval.log_info( str(len(kg)) + " RDF triples were found, thus data is in a well structured graph format")
             print(len(kg))
             eval.set_score(2)
             return eval
+        eval.log_info("No RDF triples found, thus data is probably not structured as needed")
+        eval.set_recommendations("""
+            Your metadata seem to not be conforming to the researched format, which is RDF (Resource Description Framework), 
+            Resource Description Framework a W3C standard specification for representing information in the form of 
+            subject / predicate / object statements known as triples.
+            This structured format enable links between multiple data on the web using controlled
+            vocabularies, learn more here:
+            https://www.w3.org/TR/rdf11-primer/
+        """)
         eval.set_score(0)
         return eval

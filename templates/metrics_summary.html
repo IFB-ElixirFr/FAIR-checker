@@ -1,7 +1,6 @@
 {% extends "layout.html" %}
 
 {% block nav %}
-{% include 'nav_bar.html' %}
 {% include 'nav.html' %}
 {% endblock %}
 
@@ -50,11 +49,17 @@
             console.log("Value: " + "{{f.api_url}}");
             $(this).addClass("is-loading");
 
+            let url;
+            if ($("#doi_button").val() === $("#url").val()) {
+                url = "https://doi.org/" + $("#url").val();
+            } else {
+                url = $("#url").val();
+            }
 
             // socket.emit('evaluate_{{f.id}}', {
             socket.emit('evaluate_metric', {
                           metric_name: "{{ f.name }}",
-                          url: $("#url").val(),
+                          url: url,
                           api_url: "{{f.api_url}}",
                           id: "{{f.id}}",
                           principle: "{{f.principle}}",
@@ -174,8 +179,9 @@
             $("#row_comment_{{f.id}}").parent("div").find('button').show();
             // add comment to result
             $("#row_comment_{{f.id}}").children("article").removeClass("is-info");
-            $("#row_comment_{{f.id}}").children("article").children("div").text(value['comment']);
-            $("#modal_comment_{{f.id}}").text(value['comment']);
+            $("#row_comment_{{f.id}}").children("article").children("div").html(value['comment']);
+            $("#modal_comment_{{f.id}}").html(value['comment']);
+
 
             //update progressbar
             // current = parseInt($("#p1").attr("value"));
@@ -193,8 +199,8 @@
             // add recommandation if score == 0
             if (value['score'] == 0) {
               $("#row_guideline_{{f.id}}").parent("div").find('button').show()
-              $("#row_guideline_{{f.id}}").children("article").children("div").text(value['recommendation']);
-              $("#modal_guideline_{{f.id}}").text(value['recommendation']);
+              $("#row_guideline_{{f.id}}").children("article").children("div").html(value['recommendation']);
+              $("#modal_guideline_{{f.id}}").html(value['recommendation']);
             } else  {
               $("#row_guideline_{{f.id}}").parent("div").find('button').hide()
             }
@@ -289,7 +295,10 @@
 
         // start all metrics test
         $("#btn_test_all").on('click', function($e){
-
+          if ($(url).val() === "") {
+              alert("Please, enter a resource identifier !");
+              return false;
+          }
           $("#btn_test_checked").prop('disabled', true);
           $("#btn_test_all").addClass("is-loading");
 
@@ -300,28 +309,34 @@
           });
         });
 
+
+
         //  detect doi regex
         $("#url").on('input', function( id ) {
           console.log("url updated");
-          doi_regex = /10.\d{4,9}\/[-._;()\/:A-Z0-9]+/gmi;
-          str_url = $(this).val()
-          var result = str_url.match(doi_regex);
-
+          str_url = $(this).val();
+          result = test_DOI(str_url);
           // console.log(n)
           if (result) {
 
-            var doi_button = $('<button/>', {
+
+
+            var doi_button = $('<button>', {
+                                              "id": "doi_button",
                                               "class": "button is-small is-info is-light",
-                                              "title": "Click to select only the DOI"
+                                              "title": "Click to select only the DOI",
+                                              "value": result,
                                             })
+
                 .text(result)
+                // .append('<i class="fa fa-clipboard is-pulled-left"></i>')
                 .click(function () {
                   $("#url").val(result) ;
                 });
-
+            doi_button.prepend('<i class="fa fa-clipboard is-pulled-left"></i>&ensp;');
             console.log("It is a DOI !");
-            $("#is_doi").text("The input contains the following DOIs that you can also test: ");
 
+            $("#is_doi").html('&ensp;-&ensp;The input contains the following DOIs that you can also test: ');
             $("#is_doi").append(doi_button);
 
             console.log(result);
@@ -330,23 +345,40 @@
           };
         });
 
-        function is_valide_http_url(string) {
-          let url;
 
-          try {
-            url = new URL(string);
-          } catch (_) {
-            return false;
-          }
-
-          return url.protocol === "http:" || url.protocol === "https:";
-        }
 
         $("#url").on('input', function( id ) {
               str_url = $(this).val();
-              if (is_valide_http_url(str_url)) {
+              helper = $("#url_helper");
+              statut_logo = $("#url_statut");
+              if (is_valid_http_url(str_url) || test_DOI(str_url)) {
                   socket.emit('webresource', str_url)
-              }
+                  console.log("Is valid !");
+                  $(this).removeClass("is-danger");
+                  $(this).addClass("is-success");
+                  helper.removeClass("is-danger");
+                  helper.addClass("is-success");
+                  helper.text("The URL/DOI is valid");
+                  statut_logo.addClass("fa-check");
+                  statut_logo.removeClass("fa-exclamation-triangle");
+              } else if (str_url === "") {
+                  $(this).removeClass("is-danger");
+                  $(this).removeClass("is-success");
+                  helper.removeClass("is-danger");
+                  helper.removeClass("is-success");
+                  helper.text("");
+                  statut_logo.removeClass("fa-check");
+                  statut_logo.removeClass("fa-exclamation-triangle");
+              } else{
+                  console.log("Is not valid !");
+                  $(this).removeClass("is-success");
+                  $(this).addClass("is-danger");
+                  helper.removeClass("is-success");
+                  helper.addClass("is-danger");
+                  helper.text("The URL/DOI is not valid");
+                  statut_logo.removeClass("fa-check");
+                  statut_logo.addClass("fa-exclamation-triangle");
+              };
         });
 
         // show examples
@@ -422,15 +454,31 @@
         //socket.emit('long');
     });
 
+    function test_DOI(str_url) {
+          doi_regex = /10.\d{4,9}\/[-._;()\/:A-Z0-9]+/gmi;
+          return str_url.match(doi_regex);
+    }
+
+    function is_valid_http_url(string) {
+      let url;
+
+      try {
+        url = new URL(string);
+      } catch (_) {
+        return false;
+      }
+
+      return url.protocol === "http:" || url.protocol === "https:";
+    }
+
+
 </script>
-
-
-<article id="disclaimer" class="message is-warning">
-    <div class="message-body">
-        <b>Disclaimer:</b> FAIR-Checker is under active development and is not intended to be used yet in production
-        environment.
-    </div>
-</article>
+<!--<article id="disclaimer" class="message is-warning">-->
+<!--    <div class="message-body">-->
+<!--        <b>Disclaimer:</b> FAIR-Checker is under active development and is not intended to be used yet in production-->
+<!--        environment.-->
+<!--    </div>-->
+<!--</article>-->
 
 
 <h1 class="title">How FAIR is my resource ?</h1>
@@ -441,12 +489,24 @@
         <p>Enter resource identifier (URL/DOI)</p>
     </div>
     <div class="message-body">
-        <input id="url" name="url" class="input is-large" type="text" placeholder="FAIR resource URL">
-        <span><p id="is_doi"></p></span>
+
+        <div class="field">
+          <div class="control has-icons-left has-icons-right">
+            <input id="url" name="url" class="input is-large" type="text" placeholder="FAIR resource URL">
+            <span class="icon is-small is-left">
+              <i class="fa fa-link"></i>
+            </span>
+            <span class="icon is-small is-right">
+              <i id="url_statut" class="fa"></i>
+            </span>
+          </div>
+          <div class="help_wrapper"><span id="url_helper" class="help"></span><span class="help" id="is_doi"></span></div>
+        </div>
+
         <br>
         <div class="field is-grouped is-grouped-centered">
             <p class="control">
-                <button id="btn_test_all" class="button is-info is-large"><i class="fa fa-bar-chart fa-fw"></i>Test all
+                <button id="btn_test_all" class="button is-info is-large"><i class="fa fa-bar-chart fa-fw"></i>&nbsp;Test all
                     metrics
                 </button>
             </p>
@@ -479,13 +539,13 @@
           </article>
         </div> -->
         <!-- <div class="section"> -->
+        <br>
         {% for k in sample_data.keys() %}
-        <p class="button is-info is-small">{{k}}<i class="fa fa-chevron-down fa-fw"></i></p>
-        <!-- <br> -->
-        <!-- <br> -->
+
         <div class="panel">
             <div class="panel-block is-centered">
                 <div class="field is-grouped is-grouped-centered">
+                    <p class="button is-info is-small">{{k}}&nbsp;<i class="fa fa-chevron-right fa-fw"></i></p>
                     {% for s in sample_data[k] %}
                     <p id="resource_{{k}}_{{loop.index}}" class="control"><a class="button is-small is-text"
                                                                              data-url="{{ s.url }}">{{ s.text }}</a></p>
@@ -540,7 +600,7 @@
 
         <div class="field is-grouped is-grouped-centered">
             <p class="control">
-                <button onClick="window.location.reload();" class="button is-primary"><i class="fa fa-undo fa-fw"></i>Clean
+                <button onClick="window.location.reload();" class="button is-primary"><i class="fa fa-undo fa-fw"></i>&nbsp;Clean
                     results
                 </button>
             </p>
@@ -608,6 +668,7 @@
     </div>
 
 </article>
+
 
 
 <article id="radar_chart" class="message is-info">

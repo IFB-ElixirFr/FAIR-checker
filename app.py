@@ -103,36 +103,36 @@ metrics = [
 ]
 
 
-METRICS = {}
-json_metrics = test_metric.getMetrics()
+# METRICS = {}
+# json_metrics = test_metric.getMetrics()
 factory = FAIRMetricsFactory()
+#
+# # for i in range(1,3):
+# try:
+#     # metrics.append(factory.get_metric("test_f1"))
+#     # metrics.append(factory.get_metric("test_r2"))
+#     for metric in json_metrics:
+#         # remove "FAIR Metrics Gen2" from metric name
+#         name = metric["name"].replace("FAIR Metrics Gen2- ", "")
+#         # same but other syntax because of typo
+#         name = name.replace("FAIR Metrics Gen2 - ", "")
+#         principle = metric["principle"]
+#         METRICS[name] = factory.get_metric(
+#             name,
+#             metric["@id"],
+#             metric["description"],
+#             metric["smarturl"],
+#             principle,
+#             metric["creator"],
+#             metric["created_at"],
+#             metric["updated_at"],
+#         )
 
-# for i in range(1,3):
-try:
-    # metrics.append(factory.get_metric("test_f1"))
-    # metrics.append(factory.get_metric("test_r2"))
-    for metric in json_metrics:
-        # remove "FAIR Metrics Gen2" from metric name
-        name = metric["name"].replace("FAIR Metrics Gen2- ", "")
-        # same but other syntax because of typo
-        name = name.replace("FAIR Metrics Gen2 - ", "")
-        principle = metric["principle"]
-        METRICS[name] = factory.get_metric(
-            name,
-            metric["@id"],
-            metric["description"],
-            metric["smarturl"],
-            principle,
-            metric["creator"],
-            metric["created_at"],
-            metric["updated_at"],
-        )
-
-except ValueError as e:
-    print(f"no metrics implemention for {e}")
-
-# A DEPLACER AU LANCEMENT DU SERVEUR ######
-METRICS_RES = test_metric.getMetrics()
+# except ValueError as e:
+#     print(f"no metrics implemention for {e}")
+#
+# # A DEPLACER AU LANCEMENT DU SERVEUR ######
+# METRICS_RES = test_metric.getMetrics()
 
 METRICS_CUSTOM = factory.get_FC_metrics()
 
@@ -214,6 +214,7 @@ def handle_metric(json):
     metric_name = json["metric_name"]
     client_metric_id = json["id"]
     url = json["url"]
+    print("Testing: " + url)
     # principle = json['principle']
     #
     # data = '{"subject": "' + url + '"}'
@@ -335,6 +336,7 @@ def evaluate_fc_metrics(metric_name, client_metric_id, url):
         webresource = cache.get(url)
 
     METRICS_CUSTOM[metric_name].set_web_resource(webresource)
+    name = METRICS_CUSTOM[metric_name].get_principle_tag()
     print("Evaluating: " + metric_name)
     result = METRICS_CUSTOM[metric_name].evaluate()
 
@@ -344,13 +346,23 @@ def evaluate_fc_metrics(metric_name, client_metric_id, url):
         microseconds=result.get_test_time().microseconds
     )
     # comment = result.get_reason()
-    comment = result.get_log()
-    print(comment)
+    comment = result.get_log_html()
+    recommendation = result.get_recommendation()
+    print(recommendation)
+
+    # Persist Evaluation oject in MongoDB
+
+    implem = METRICS_CUSTOM[metric_name].get_implem()
+
+    # result.set_metrics(name)
+    # result.set_implem(implem)
+    result.persist()
     # result.close_log_stream()
     emit_json = {
         "score": str(score),
         "time": str(evaluation_time),
         "comment": comment,
+        "recommendation": recommendation,
         # "name": name,
     }
     emit("done_" + client_metric_id, emit_json)
@@ -693,14 +705,18 @@ def handle_embedded_annot_2(data):
     # page = requests.get(uri)
     # html = page.content
 
+
     # use selenium to retrieve Javascript genereted content
     html = util.get_html_selenium(uri)
+
+    # web_resource = WebResource(uri)
+    # html = web_resource.get_html_selenium(uri)
 
     d = extruct.extract(
         html, syntaxes=["microdata", "rdfa", "json-ld"], errors="ignore"
     )
 
-    # remove whitespaces from @id values after axtruct
+    # remove whitespaces from @id values after extruct
     for key, val in d.items():
         for dict in d[key]:
             list(util.replace_value_char_for_key("@id", dict, " ", "_"))

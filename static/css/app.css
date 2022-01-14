@@ -167,3 +167,35 @@ svg{
 }
 
 /* END Graph Display */
+
+.content.is-vcentered {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center; /* used this for multiple child */
+  align-items: center; /* if an only child */
+  justify-content: center;
+}
+
+.content.is-vcentered > a {
+    padding-right: 25px;
+}
+
+.help_wrapper {
+    position: absolute!important;
+}
+
+.help {
+    display: inline-block;
+}
+
+#doi_button{
+    height: 20px;
+}
+
+/*.modal-card-head {*/
+/*    background-color: #417da7;*/
+/*}*/
+
+/*.modal-card-body {*/
+/*    background-color: #ffffff70;*/
+/*}*/

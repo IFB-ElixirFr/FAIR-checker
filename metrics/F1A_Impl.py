@@ -31,6 +31,8 @@ class F1A_Impl(AbstractFAIRMetrics):
 
     def weak_evaluate(self) -> Evaluation:
         eval = self.get_evaluation()
+        eval.set_implem(self.implem)
+        eval.set_metrics(self.principle_tag)
         return eval
 
     def strong_evaluate(self) -> Evaluation:
@@ -38,6 +40,8 @@ class F1A_Impl(AbstractFAIRMetrics):
         We check here that embedded metadata do not contain RDF blank nodes.
         """
         eval = self.get_evaluation()
+        eval.set_implem(self.implem)
+        eval.set_metrics(self.principle_tag)
 
         query_blank_nodes = """ 
 ASK {  
@@ -46,6 +50,8 @@ ASK {
     FILTER ( isBlank(?o) )
 }
             """
+
+        eval.log_info("Looking for structured metadata in the web page")
         kg = self.get_web_resource().get_rdf()
         if len(kg) == 0:
             eval.set_score(0)
@@ -71,7 +77,7 @@ ASK {
                     eval.set_score(0)
                 else:
                     # if no blank node
-                    eval.log_info("No blank node found !")
+                    eval.log_info("No blank node found, meaning every identifiers should be unique")
                     # eval.append_reason("No blank node found !")
                     eval.set_score(2)
                 print(eval.get_reason())

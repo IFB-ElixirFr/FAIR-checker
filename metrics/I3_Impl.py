@@ -17,16 +17,23 @@ class I3_Impl(AbstractFAIRMetrics):
         self.principle = "https://w3id.org/fair/principles/terms/I3"
         self.principle_tag = "I3"
         self.implem = "FAIR-Checker"
-        self.desc = ""
+        self.desc = """
+            FAIR-Checker verifies that at least 3 different URL authorities are used in the URIs of RDF metadata. 
+        """
 
     def weak_evaluate(self):
         eval = self.get_evaluation()
+        eval.set_implem(self.implem)
+        eval.set_metrics(self.principle_tag)
         return eval
 
     def strong_evaluate(self):
         """at least 3 different URL authorities in URIs"""
         eval = self.get_evaluation()
+        eval.set_implem(self.implem)
+        eval.set_metrics(self.principle_tag)
         kg = self.get_web_resource().get_rdf()
+        eval.log_info("Checking that at least 3 different URL authorities are used in the URIs of RDF metadata")
         domains = []
         for s, p, o in kg:
             for term in [s, o]:
@@ -38,8 +45,13 @@ class I3_Impl(AbstractFAIRMetrics):
         logging.debug(f"Domain names found in URis: {domains}")
 
         if len(domains) > 3:
+            eval.log_info("At least 3 different domains were found in metadata (" + str(len(domains)) + ")")
             eval.set_score(2)
             return eval
         else:
+            eval.log_info("Less than 3 different domains were found in metadata (" + str(len(domains)) + ")")
+            eval.set_recommendations("""
+                You should add other external links that uses different domains name from what you already have.
+            """)
             eval.set_score(0)
             return eval

@@ -28,10 +28,13 @@ def success_this_week():
     nb_eval = evaluations.count_documents(
         {"started_at": {"$gt": a_week_ago}, "success": "1"}
     )
-    return nb_eval
+    nb_eval_2 = evaluations.count_documents(
+        {"started_at": {"$gt": a_week_ago}, "success": "2"}
+    )
+    return nb_eval + nb_eval_2
 
 
-def this_week_for_named_metrics(prefix="F", success=0):
+def this_week_for_named_metrics(prefix="F", success="0"):
     client = MongoClient()
     db = client.fair_checker
     evaluations = db.evaluations
@@ -40,13 +43,24 @@ def this_week_for_named_metrics(prefix="F", success=0):
     a_week_ago = datetime.now() - timedelta(7)
     a_month_ago = datetime.now() - timedelta(30)
 
-    evals = evaluations.find(
-        {"started_at": {"$gt": a_week_ago}, "success": str(success)}
-    )
+    if success == 1:
+        evals = evaluations.find(
+            {'$or': [
+                {"started_at": {"$gt": a_week_ago}, "success": "1"},
+                {"started_at": {"$gt": a_week_ago}, "success": "2"}
+            ]}
+        )
+    else:
+        evals = evaluations.find(
+            {"started_at": {"$gt": a_week_ago}, "success": "0"}
+        )
+    print(evals)
     count = 0
     for e in evals:
+        print(e)
         if e.get("metrics"):
             if e["metrics"].startswith(prefix):
+
                 count += 1
     return count
 
@@ -73,11 +87,13 @@ def success_weekly_one_year():
 
     a_year_ago = datetime.now() - timedelta(356)
 
+    success = ["1", "2"]
+
     pipeline = [
         {
             "$match": {
                 "started_at": {"$gt": a_year_ago},
-                "success": "1",
+                "success": {"$in": success},
             }
         },
         {
@@ -162,11 +178,16 @@ def weekly_named_metrics(prefix="F", success=0):
 
     a_year_ago = datetime.now() - timedelta(356)
 
+    if success == 1:
+        success = ["1", "2"]
+    else:
+        success = ["0"]
+
     pipeline = [
         {
             "$match": {
                 "started_at": {"$gt": a_year_ago},
-                "success": str(success),
+                "success": {"$in": success},
                 "metrics": {"$regex": "^" + prefix},
             }
         },

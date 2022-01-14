@@ -20,6 +20,7 @@
     <link rel="stylesheet" type="text/css" href="https://rawgit.com/tpreusse/radar-chart-d3/master/src/radar-chart.css">
 
     <script src="{{ url_for('static',filename='js/main.js') }}"></script>
+    <script src="{{ url_for('static',filename='js/BulmaJS-master/dist/alert.js') }}"></script>
     <!--<script src="{{ url_for('static',filename='js/uikit-icons.min.js') }}"></script>-->
 
     <!--<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/uikit.min.css') }}">-->
@@ -45,6 +46,16 @@
 
 <body>
 
+<section class="hero is-info">
+  <div class="hero-body has-text-centered">
+    <p class="title">
+      FAIR-Checker
+    </p>
+    <p class="subtitle">
+      Improve your resource FAIRness
+    </p>
+  </div>
+</section>
 
 <div class="columns">
 
@@ -63,9 +74,16 @@
             {% block body %}
             {% endblock %}
             <!--</div>-->
+
         </section>
     </div>
-</div>
 
+
+</div>
+<div>
+    {% block footer %}
+    {% include 'footer.html' %}
+    {% endblock %}
+</div>
 </body>
 </html>
