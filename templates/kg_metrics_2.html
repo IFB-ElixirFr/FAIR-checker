@@ -572,14 +572,14 @@
             <!--        <p class="control"><a id="btn_fairness" class="button is-primary">Vocab. checks</a></p>-->
             <!--        <p class="control"><a id="btn_bioschemas" class="button is-warning">BioSchemas checks</a></p>-->
         </div>
+        <br>
         <!-- <div class="section"> -->
         {% for k in sample_data.keys() %}
-        <p class="button is-info is-small">{{k}}<i class="fa fa-chevron-down fa-fw"></i></p>
-        <!-- <br> -->
-        <!-- <br> -->
+
         <div class="panel">
             <div class="panel-block is-centered">
                 <div class="field is-grouped is-grouped-centered">
+                    <p class="button is-info is-small">{{k}}&nbsp;<i class="fa fa-chevron-right fa-fw"></i></p>
                     {% for s in sample_data[k] %}
                     <p id="resource_{{k}}_{{loop.index}}" class="control"><a class="button is-small is-text"
                                                                              data-url="{{ s.url }}">{{ s.text }}</a></p>
