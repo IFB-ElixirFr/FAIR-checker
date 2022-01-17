@@ -109,7 +109,7 @@
         socket.on('error_{{f.id}}', function(value) {
             $("#test_{{f.id}}").removeClass("is-loading");
             $("#row_status_{{f.id}}").text("Error");
-            $("#row_status_{{f.id}}").addClass("is-warning");
+            $("#row_status_{{f.id}}").addClass("is-primary");
             $("#metrics_row_{{ f.id }}").css('background-color','#FFF7DF');
             $("#row_score_{{f.id}}").text("NA");
             // show comment buttpn
@@ -473,7 +473,7 @@
 
 
 </script>
-<!--<article id="disclaimer" class="message is-warning">-->
+<!--<article id="disclaimer" class="message is-primary">-->
 <!--    <div class="message-body">-->
 <!--        <b>Disclaimer:</b> FAIR-Checker is under active development and is not intended to be used yet in production-->
 <!--        environment.-->
@@ -481,18 +481,17 @@
 <!--</article>-->
 
 
-<h1 class="title">How FAIR is my resource ?</h1>
+{#<h1 class="title">How FAIR is my resource ?</h1>#}
 
 <!-- input uri section -->
-<article id="url_selection" class="message is-info">
+<article id="url_selection" class="message is-primary">
     <div class="message-header">
-        <p>Enter resource identifier (URL/DOI)</p>
+        <p>Identifier</p>
     </div>
     <div class="message-body">
-
-        <div class="field">
-          <div class="control has-icons-left has-icons-right">
-            <input id="url" name="url" class="input is-large" type="text" placeholder="FAIR resource URL">
+        <div class="field has-addons">
+          <div class="control is-expanded has-icons-left has-icons-right">
+            <input id="url" name="url" class="input" type="text" placeholder="URL or DOI identifying your resource">
             <span class="icon is-small is-left">
               <i class="fa fa-link"></i>
             </span>
@@ -500,17 +499,25 @@
               <i id="url_statut" class="fa"></i>
             </span>
           </div>
-          <div class="help_wrapper"><span id="url_helper" class="help"></span><span class="help" id="is_doi"></span></div>
-        </div>
-
-        <br>
-        <div class="field is-grouped is-grouped-centered">
             <p class="control">
-                <button id="btn_test_all" class="button is-info is-large"><i class="fa fa-bar-chart fa-fw"></i>&nbsp;Test all
+                <button id="btn_test_all" class="button is-primary"><i class="fa fa-bar-chart fa-fw"></i>&nbsp;Test all
                     metrics
                 </button>
             </p>
+          <div class="help_wrapper"><span id="url_helper" class="help"></span><span class="help" id="is_doi"></span></div>
         </div>
+
+{#        <br>#}
+{#        <div class="field is-grouped is-grouped-centered">#}
+{#            <p class="control">#}
+{#                <button id="btn_test_all" class="button is-info is-large"><i class="fa fa-bar-chart fa-fw"></i>&nbsp;Test all#}
+{#                    metrics#}
+{#                </button>#}
+{#            </p>#}
+{#        </div>#}
+
+        <progress id="p1" class="progress is-primary" value="0" max="12"></progress>
+
         <!-- <button class="button is-info is-small" id="show_examples">Example<i class="fa fa-chevron-down fa-fw" aria-hidden="true"></i></button> -->
         <!-- <div id="url_examples" style="display: none;">
           <br>
@@ -539,20 +546,20 @@
           </article>
         </div> -->
         <!-- <div class="section"> -->
-        <br>
+{#        <br>#}
         {% for k in sample_data.keys() %}
 
-        <div class="panel">
-            <div class="panel-block is-centered">
+{#        <div class="panel">#}
+{#            <div class="panel-block is-centered">#}
                 <div class="field is-grouped is-grouped-centered">
-                    <p class="button is-info is-small">{{k}}&nbsp;<i class="fa fa-chevron-right fa-fw"></i></p>
+                    <p class="is-small">{{k}}:&nbsp;{# <i class="fa fa-chevron-right fa-fw"></i>#}</p>
                     {% for s in sample_data[k] %}
                     <p id="resource_{{k}}_{{loop.index}}" class="control"><a class="button is-small is-text"
                                                                              data-url="{{ s.url }}">{{ s.text }}</a></p>
                     {% endfor %}
                 </div>
-            </div>
-        </div>
+{#            </div>#}
+{#        </div>#}
         {% endfor %}
 
         <!-- </div> -->
@@ -583,42 +590,43 @@
     </div> -->
 
 </article>
+<br>
 
 <!-- Start metric section -->
-<article id="start_test" class="message is-info">
-    <div class="message-header">
-        <p>Progress</p>
-    </div>
-    <div class="message-body">
-        <!-- <div class="field is-grouped is-grouped-centered">
-            <p class="control">
-                <button id="btn_test_all" class="button is-info is-large"><i class="fa fa-bar-chart fa-fw"></i>Test all metrics</button>
-            </p>
-        </div> -->
-
-        <progress id="p1" class="progress is-primary" value="0" max="12"></progress>
-
-        <div class="field is-grouped is-grouped-centered">
-            <p class="control">
-                <button onClick="window.location.reload();" class="button is-primary"><i class="fa fa-undo fa-fw"></i>&nbsp;Clean
-                    results
-                </button>
-            </p>
-            <!-- <p class="control">
-              <button id="btn_advanced_test" class="button is-info"><i class="fa fa-bar-chart fa-fw"></i>Advanced Test</button>
-            </p> -->
-
-            <p hidden class="control">
-                <a id="download_csv" data-dl="{{ uuid }}" class="button is-info"><i class="fa fa-download fa-fw"></i>CSV</a>
-            </p>
-        </div>
-    </div>
-
-</article>
+{#<article id="start_test" class="message is-info">#}
+{#    <div class="message-header">#}
+{#        <p>Progress</p>#}
+{#    </div>#}
+{#    <div class="message-body">#}
+{#        <!-- <div class="field is-grouped is-grouped-centered">#}
+{#            <p class="control">#}
+{#                <button id="btn_test_all" class="button is-info is-large"><i class="fa fa-bar-chart fa-fw"></i>Test all metrics</button>#}
+{#            </p>#}
+{#        </div> -->#}
+{##}
+{#        <progress id="p1" class="progress is-primary" value="0" max="12"></progress>#}
+{##}
+{#        <div class="field is-grouped is-grouped-centered">#}
+{#            <p class="control">#}
+{#                <button onClick="window.location.reload();" class="button is-primary"><i class="fa fa-undo fa-fw"></i>&nbsp;Clean#}
+{#                    results#}
+{#                </button>#}
+{#            </p>#}
+{#            <!-- <p class="control">#}
+{#              <button id="btn_advanced_test" class="button is-info"><i class="fa fa-bar-chart fa-fw"></i>Advanced Test</button>#}
+{#            </p> -->#}
+{##}
+{#            <p hidden class="control">#}
+{#                <a id="download_csv" data-dl="{{ uuid }}" class="button is-info"><i class="fa fa-download fa-fw"></i>CSV</a>#}
+{#            </p>#}
+{#        </div>#}
+{#    </div>#}
+{##}
+{#</article>#}
 
 
 <!-- Metrics sselection checkboxes section -->
-<article id="select_metrics" class="message is-info" style="display: none;">
+<article id="select_metrics" class="message is-primary" style="display: none;">
     <div class="message-header">
         <p>Select the metrics you want to test</p>
     </div>
@@ -661,17 +669,17 @@
         </div>
         <br>
         <p class="columns is-centered">
-            <button id="btn_test_checked" class="button is-info" disabled="disabled"><i
+            <button id="btn_test_checked" class="button is-primary" disabled="disabled"><i
                     class="fa fa-bar-chart fa-fw"></i>Test checked metrics
             </button>
         </p>
     </div>
 
 </article>
+<br>
 
 
-
-<article id="radar_chart" class="message is-info">
+<article id="radar_chart" class="message is-primary">
     <div class="message-header">
         <p>Radar chart of metrics completion</p>
     </div>
@@ -679,16 +687,16 @@
         {% include 'radar_chart.html' %}
     </div>
 </article>
+<br>
 
-
-<article id="metrics_details_rec" class="message is-info">
+<article id="metrics_details_rec" class="message is-primary">
     <div class="message-header">
         <p>List of metrics with details and results</p>
 
         <div class="popover is-popover-left">
             <i class="fa fa-info-circle popover-trigger" aria-hidden="true"></i>
             <div class="popover-content" style="text-align: left; padding: 0;">
-                <article class="message is-info">
+                <article class="message is-primary">
                     <div class="message-body is-size-7">
                         Help comming soon
                     </div>
@@ -705,8 +713,8 @@
         <a href="https://fairplus.github.io/the-fair-cookbook/content/home.html" target="_blank"
            rel="noopener noreferrer">https://fairplus.github.io/the-fair-cookbook/content/home.html</a>
     </div>
-
 </article>
+<br>
 
 {% include 'metrics_modal.html' %}
 
