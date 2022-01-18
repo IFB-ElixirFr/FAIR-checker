@@ -23,11 +23,11 @@ jobs:
     #  -----  install & configure conda  
     #----------------------------------------------
     - uses: conda-incubator/setup-miniconda@v2
-        with:
-          python-version: 3.9
-          mamba-version: "*"
-          channels: conda-forge,defaults
-          channel-priority: true
+      with:
+        python-version: 3.9
+        mamba-version: "*"
+        channels: conda-forge,defaults
+        channel-priority: true
 
     - shell: bash -l {0}
         run: |
