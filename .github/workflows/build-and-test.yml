@@ -5,56 +5,57 @@ name: Build and test
 
 on:
   push:
-    branches: [ dev_alban, dev_thomas, master ]
+    branches: [dev_alban, dev_thomas, master]
   pull_request:
-    branches: [ dev_alban, dev_thomas, master]
-    
+    branches: [dev_alban, dev_thomas, master]
+
 jobs:
   build:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v2
-    - name: Set up Python 3.9
-      uses: actions/setup-python@v2
-      with:
-        python-version: 3.9
-    #----------------------------------------------
-    #  -----  install & configure conda  
-    #----------------------------------------------
-    - uses: conda-incubator/setup-miniconda@v2
-      with:
-        python-version: 3.9
-        mamba-version: "*"
-        channels: conda-forge,defaults
-        channel-priority: true
+      - uses: actions/checkout@v2
+      - name: Set up Python 3.9
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.9
+      #----------------------------------------------
+      #  -----  install & configure conda
+      #----------------------------------------------
+      - uses: conda-incubator/setup-miniconda@v2
+        with:
+          python-version: 3.9
+          mamba-version: "*"
+          channels: conda-forge,defaults
+          channel-priority: true
 
-    - shell: bash -l {0}
+      - shell: bash -l {0}
         run: |
           conda info
           conda list
           conda config --show-sources
           conda config --show
           printenv | sort
+
       - shell: bash -l {0}
-        run: | 
+        run: |
           mamba install --file requirements.txt
-    
-    #----------------------------------------------
-    # Code quality check
-    #----------------------------------------------      
-    - name: Lint with flake8
-      run: |
-        source .venv/bin/activate
-        # stop the build if there are Python syntax errors or undefined names
-        flake8 . --exclude=.venv,.git --count --select=E9,F63,F7,F82 --show-source --statistics
-        # exit-zero treats all errors as warnings. The GitHub editor is 127 chars wide
-        flake8 . --exclude=.venv,.git --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
-    #----------------------------------------------
-    #              run test suite   
-    #----------------------------------------------
-    - name: Run tests
-      run: |
-        source .venv/bin/activate
-        coverage run --omit '.venv/*' -m pytest tests
-        coverage report -m
+
+      #----------------------------------------------
+      # Code quality check
+      #----------------------------------------------
+      - name: Lint with flake8
+        run: |
+          source .venv/bin/activate
+          # stop the build if there are Python syntax errors or undefined names
+          flake8 . --exclude=.venv,.git --count --select=E9,F63,F7,F82 --show-source --statistics
+          # exit-zero treats all errors as warnings. The GitHub editor is 127 chars wide
+          flake8 . --exclude=.venv,.git --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
+      #----------------------------------------------
+      #              run test suite
+      #----------------------------------------------
+      - name: Run tests
+        run: |
+          source .venv/bin/activate
+          coverage run --omit '.venv/*' -m pytest tests
+          coverage report -m
