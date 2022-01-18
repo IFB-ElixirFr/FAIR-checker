@@ -22,23 +22,66 @@ class WebResource:
     )
     WEB_BROWSER_HEADLESS.implicitly_wait(20)
 
+    status_code = None
+    browser_selenium = None
+    html_selenium = None
+    html_requests = None
+
+    def __init__(self, url) -> None:
+        self.url = url
+        self.id = "WebResource Unique ID for cache"
+        # get dynamic RDF metadata (generated from JS)
+        kg_1 = WebResource.extract_rdf_selenium(self.url)
+        # get static RDF metadata (already available in html sources)
+        kg_2 = WebResource.extract_rdf_extruct(self.url)
+        self.rdf = kg_1 + kg_2
+
+    # def __init__(self, url) -> None:
+    #     self.url = url
+    #     self.id = "WebResource Unique ID for cache"
+    #
+    #     # Retrieve HTML with both methods
+    #     self.retrieve_html_selenium()
+    #     self.retrieve_html_request()
+    #
+    #     kg_1 = WebResource.html_to_rdf_extruct(self.html_selenium)
+    #     kg_2 = WebResource.html_to_rdf_extruct(self.html_requests)
+    #     kg_3 = WebResource.html_to_rdf_parse_ld(self.html_selenium)
+    #     kg_4 = WebResource.html_to_rdf_parse_ld(self.html_requests)
+    #
+    #     self.rdf = kg_1 + kg_2 + kg_3 + kg_4
+
+    def get_url(self):
+        return self.url
+
+    def get_rdf(self):
+        return self.rdf
+
+    def get_status_code(self):
+        return self.status_code
+
+    def get_html_selenium(self):
+        return self.html_selenium
+
+    def get_html_requests(self):
+        return self.html_requests
     # TODO Extruct can work with Selenium
 
-    @staticmethod
-    def get_html_selenium(url):
+    def retrieve_html_selenium(self):
         browser = WebResource.WEB_BROWSER_HEADLESS
-        try:
-            browser.get(url)
-            return browser.page_source
 
-        finally:
-            browser.quit()
+        self.browser_selenium = browser.get(self.url)
+        self.html_selenium = browser.page_source
+            # return browser.page_source
 
-    @staticmethod
-    def get_html_request(url):
+        # finally:
+        #     browser.quit()
+
+
+    def retrieve_html_request(self):
         while True:
             try:
-                response = requests.get(url=url, timeout=10)
+                response = requests.get(url=self.url, timeout=10)
                 break
             except SSLError:
                 time.sleep(5)
@@ -50,9 +93,8 @@ class WebResource:
                 print("ConnectionError, retrying...")
                 time.sleep(10)
 
-        requests_status_code = response.status_code
-        html_source = response.content
-        return html_source
+        self.status_code = response.status_code
+        self.html_requests = response.content
 
     @staticmethod
     def html_to_rdf_extruct(html_source):
@@ -92,7 +134,29 @@ class WebResource:
 
     @staticmethod
     def html_to_rdf_parse_ld(html_source):
-        return url
+        kg = ConjunctiveGraph()
+        try:
+            jsonld_string = html.fromstring(html_source).xpath('//script[@type="application/ld+json"]//text()')
+
+            base_path = Path(__file__).parent.parent  # current directory
+            static_file_path = str(
+                (base_path / "static/data/jsonldcontext.json").resolve()
+            )
+
+            for json_ld_annots in jsonld_string:
+                jsonld = json.loads(json_ld_annots)
+                if "@context" in jsonld.keys():
+                    if "//schema.org" in jsonld["@context"]:
+                        jsonld["@context"] = static_file_path
+                kg.parse(data=json.dumps(jsonld, ensure_ascii=False), format="json-ld")
+                logging.debug(f"{len(kg)} retrieved triples in KG")
+                logging.debug(kg.serialize(format="turtle"))
+
+        except NoSuchElementException:
+            logging.warning('Can\'t find "application/ld+json" content')
+            pass
+
+        return kg
 
     @staticmethod
     def extract_rdf_extruct(url) -> ConjunctiveGraph:
@@ -186,21 +250,6 @@ class WebResource:
             pass
 
         return kg
-
-    def __init__(self, url) -> None:
-        self.url = url
-        self.id = "WebResource Unique ID for cache"
-        # get dynamic RDF metadata (generated from JS)
-        kg_1 = WebResource.extract_rdf_selenium(self.url)
-        # get static RDF metadata (already available in html sources)
-        kg_2 = WebResource.extract_rdf_extruct(self.url)
-        self.rdf = kg_1 + kg_2
-
-    def get_url(self):
-        return self.url
-
-    def get_rdf(self):
-        return self.rdf
 
     def __str__(self) -> str:
         out = f"Web resource under FAIR assesment:\n\t- {self.url} \n\t- {len(self.rdf)} embedded RDF triples"

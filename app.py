@@ -347,6 +347,7 @@ def evaluate_fc_metrics(metric_name, client_metric_id, url):
     )
     # comment = result.get_reason()
     comment = result.get_log_html()
+
     recommendation = result.get_recommendation()
     print(recommendation)
 
@@ -709,46 +710,46 @@ def handle_embedded_annot_2(data):
     # use selenium to retrieve Javascript genereted content
     html = util.get_html_selenium(uri)
 
-    # web_resource = WebResource(uri)
+    kg = WebResource(uri)
     # html = web_resource.get_html_selenium(uri)
 
-    d = extruct.extract(
-        html, syntaxes=["microdata", "rdfa", "json-ld"], errors="ignore"
-    )
-
-    # remove whitespaces from @id values after extruct
-    for key, val in d.items():
-        for dict in d[key]:
-            list(util.replace_value_char_for_key("@id", dict, " ", "_"))
-
-    # print(d)
-    kg = ConjunctiveGraph()
-
-    base_path = Path(__file__).parent  # current directory
-    static_file_path = str((base_path / "static/data/jsonldcontext.json").resolve())
-
-    for md in d["json-ld"]:
-        if "@context" in md.keys():
-            print(md["@context"])
-            if ("https://schema.org" in md["@context"]) or (
-                "http://schema.org" in md["@context"]
-            ):
-                md["@context"] = static_file_path
-        kg.parse(data=json.dumps(md, ensure_ascii=False), format="json-ld")
-    for md in d["rdfa"]:
-        if "@context" in md.keys():
-            if ("https://schema.org" in md["@context"]) or (
-                "http://schema.org" in md["@context"]
-            ):
-                md["@context"] = static_file_path
-        kg.parse(data=json.dumps(md, ensure_ascii=False), format="json-ld")
-    for md in d["microdata"]:
-        if "@context" in md.keys():
-            if ("https://schema.org" in md["@context"]) or (
-                "http://schema.org" in md["@context"]
-            ):
-                md["@context"] = static_file_path
-        kg.parse(data=json.dumps(md, ensure_ascii=False), format="json-ld")
+    # d = extruct.extract(
+    #     html, syntaxes=["microdata", "rdfa", "json-ld"], errors="ignore"
+    # )
+    #
+    # # remove whitespaces from @id values after extruct
+    # for key, val in d.items():
+    #     for dict in d[key]:
+    #         list(util.replace_value_char_for_key("@id", dict, " ", "_"))
+    #
+    # # print(d)
+    # kg = ConjunctiveGraph()
+    #
+    # base_path = Path(__file__).parent  # current directory
+    # static_file_path = str((base_path / "static/data/jsonldcontext.json").resolve())
+    #
+    # for md in d["json-ld"]:
+    #     if "@context" in md.keys():
+    #         print(md["@context"])
+    #         if ("https://schema.org" in md["@context"]) or (
+    #             "http://schema.org" in md["@context"]
+    #         ):
+    #             md["@context"] = static_file_path
+    #     kg.parse(data=json.dumps(md, ensure_ascii=False), format="json-ld")
+    # for md in d["rdfa"]:
+    #     if "@context" in md.keys():
+    #         if ("https://schema.org" in md["@context"]) or (
+    #             "http://schema.org" in md["@context"]
+    #         ):
+    #             md["@context"] = static_file_path
+    #     kg.parse(data=json.dumps(md, ensure_ascii=False), format="json-ld")
+    # for md in d["microdata"]:
+    #     if "@context" in md.keys():
+    #         if ("https://schema.org" in md["@context"]) or (
+    #             "http://schema.org" in md["@context"]
+    #         ):
+    #             md["@context"] = static_file_path
+    #     kg.parse(data=json.dumps(md, ensure_ascii=False), format="json-ld")
 
     KGS[sid] = kg
     nb_triples = len(kg)
@@ -1205,8 +1206,6 @@ def base_metrics():
     print(app.config)
 
     metrics = []
-
-    cache.set("TOTO", "Toto cache !")
 
     for key in METRICS_CUSTOM.keys():
         metrics.append(
