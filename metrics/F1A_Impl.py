@@ -77,7 +77,9 @@ ASK {
                     eval.set_score(0)
                 else:
                     # if no blank node
-                    eval.log_info("No blank node found, meaning every identifiers should be unique")
+                    eval.log_info(
+                        "No blank node found, meaning every identifiers should be unique"
+                    )
                     # eval.append_reason("No blank node found !")
                     eval.set_score(2)
                 print(eval.get_reason())

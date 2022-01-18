@@ -33,7 +33,9 @@ class I3_Impl(AbstractFAIRMetrics):
         eval.set_implem(self.implem)
         eval.set_metrics(self.principle_tag)
         kg = self.get_web_resource().get_rdf()
-        eval.log_info("Checking that at least 3 different URL authorities are used in the URIs of RDF metadata")
+        eval.log_info(
+            "Checking that at least 3 different URL authorities are used in the URIs of RDF metadata"
+        )
         domains = []
         for s, p, o in kg:
             for term in [s, o]:
@@ -45,13 +47,23 @@ class I3_Impl(AbstractFAIRMetrics):
         logging.debug(f"Domain names found in URis: {domains}")
 
         if len(domains) > 3:
-            eval.log_info("At least 3 different domains were found in metadata (" + str(len(domains)) + ")")
+            eval.log_info(
+                "At least 3 different domains were found in metadata ("
+                + str(len(domains))
+                + ")"
+            )
             eval.set_score(2)
             return eval
         else:
-            eval.log_info("Less than 3 different domains were found in metadata (" + str(len(domains)) + ")")
-            eval.set_recommendations("""
+            eval.log_info(
+                "Less than 3 different domains were found in metadata ("
+                + str(len(domains))
+                + ")"
+            )
+            eval.set_recommendations(
+                """
                 You should add other external links that uses different domains name from what you already have.
-            """)
+            """
+            )
             eval.set_score(0)
             return eval

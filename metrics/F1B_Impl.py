@@ -101,7 +101,9 @@ class F1B_Impl(AbstractFAIRMetrics):
         kg = self.get_web_resource().get_rdf()
         namespaces = F1B_Impl.get_known_namespaces()
         eval.log_info("Weak evaluation:")
-        eval.log_info("Checking that at least one namespace from identifiers.org is in metadata")
+        eval.log_info(
+            "Checking that at least one namespace from identifiers.org is in metadata"
+        )
         for s, p, o in kg:
             for term in [s, o]:
                 if F1B_Impl.is_known_pid_scheme(str(term), namespaces):
@@ -109,10 +111,12 @@ class F1B_Impl(AbstractFAIRMetrics):
                     eval.set_score(1)
                     return eval
         eval.log_info("No namespace from identifiers.org found")
-        eval.set_recommendations("""
+        eval.set_recommendations(
+            """
             You should use a namespace that can be found in Identifiers.org
             here: https://registry.identifiers.org/registry#!
-        """)
+        """
+        )
         eval.set_score(0)
         return eval
 
@@ -135,7 +139,9 @@ ASK {
         )
         # eval.log_info(f"Running query:" + f"\n{query_identifiers}")
         eval.log_info("Strong evaluation:")
-        eval.log_info("Checking if there is either schema:identifier or dct:identifier property in metadata")
+        eval.log_info(
+            "Checking if there is either schema:identifier or dct:identifier property in metadata"
+        )
         res = self.get_web_resource().get_rdf().query(query_identifiers)
         for bool_res in res:
             if bool_res:

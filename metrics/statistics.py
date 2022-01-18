@@ -45,15 +45,15 @@ def this_week_for_named_metrics(prefix="F", success="0"):
 
     if success == 1:
         evals = evaluations.find(
-            {'$or': [
-                {"started_at": {"$gt": a_week_ago}, "success": "1"},
-                {"started_at": {"$gt": a_week_ago}, "success": "2"}
-            ]}
+            {
+                "$or": [
+                    {"started_at": {"$gt": a_week_ago}, "success": "1"},
+                    {"started_at": {"$gt": a_week_ago}, "success": "2"},
+                ]
+            }
         )
     else:
-        evals = evaluations.find(
-            {"started_at": {"$gt": a_week_ago}, "success": "0"}
-        )
+        evals = evaluations.find({"started_at": {"$gt": a_week_ago}, "success": "0"})
     print(evals)
     count = 0
     for e in evals:
