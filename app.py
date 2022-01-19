@@ -706,11 +706,10 @@ def handle_embedded_annot_2(data):
     # page = requests.get(uri)
     # html = page.content
 
-
     # use selenium to retrieve Javascript genereted content
-    html = util.get_html_selenium(uri)
+    # html = util.get_html_selenium(uri)
 
-    kg = WebResource(uri)
+    kg = WebResource(uri).get_rdf()
     # html = web_resource.get_html_selenium(uri)
 
     # d = extruct.extract(

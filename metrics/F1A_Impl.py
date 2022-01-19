@@ -11,6 +11,7 @@ from metrics.AbstractFAIRMetrics import AbstractFAIRMetrics
 from datetime import timedelta
 from metrics.FairCheckerExceptions import FairCheckerException
 from metrics.Evaluation import Evaluation
+import validators
 
 
 class F1A_Impl(AbstractFAIRMetrics):
@@ -27,15 +28,57 @@ class F1A_Impl(AbstractFAIRMetrics):
         self.principle = "https://w3id.org/fair/principles/terms/F1"
         self.principle_tag = "F1A"
         self.implem = "FAIR-Checker"
-        self.desc = "FAIRChecker Implem of F1A, more details soon"
+        self.desc = """
+            FAIRChecker Implem of F1A, more details soon
+        """
 
     def weak_evaluate(self) -> Evaluation:
         eval = self.get_evaluation()
         eval.set_implem(self.implem)
         eval.set_metrics(self.principle_tag)
-        return eval
+
+        eval.log_info(
+            "Checking if the URL is reachable, status code: " + str(status_code)
+        )
+        if status_code == 200:
+            eval.log_info("Status code is OK, meaning the url is Unique.")
+            eval.set_score(1)
+            return eval
+        else:
+            eval.log_info(
+                "Status code is different than 200, thus, the resource is not reachable."
+            )
+            eval.set_score(0)
+            eval.set_recommendation("Ensure that the url you used is valid.")
+            return eval
 
     def strong_evaluate(self) -> Evaluation:
+        eval = self.get_evaluation()
+        eval.set_implem(self.implem)
+        eval.set_metrics(self.principle_tag)
+
+        status_code = eval.get_web_resource().get_status_code()
+
+        # TODO add doi testing instead of url
+        eval.log_info("Checking if URL is valid...")
+        if validators.url(eval.get_target_uri()):
+            eval.log_info("The URL structure is valid !")
+            eval.log_info(
+                "Checking if the URL is reachable, status code: " + str(status_code)
+            )
+            if status_code == 200:
+                eval.log_info("Status code is OK, meaning the url is Unique.")
+                eval.set_score(1)
+                return eval
+        else:
+            eval.log_info(
+                "Status code is different than 200, thus, the resource is not reachable."
+            )
+            eval.set_score(0)
+            eval.set_recommendation("")
+            return eval
+
+    def blank_node_evaluate(self) -> Evaluation:
         """
         We check here that embedded metadata do not contain RDF blank nodes.
         """
@@ -77,7 +120,9 @@ ASK {
                     eval.set_score(0)
                 else:
                     # if no blank node
-                    eval.log_info("No blank node found, meaning every identifiers should be unique")
+                    eval.log_info(
+                        "No blank node found, meaning every identifiers should be unique"
+                    )
                     # eval.append_reason("No blank node found !")
                     eval.set_score(2)
                 print(eval.get_reason())

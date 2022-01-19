@@ -54,26 +54,37 @@ class R11_Impl(AbstractFAIRMetrics):
             self.COMMON_SPARQL_PREFIX
             + """
 ASK {
-    VALUES ?p {""" + checked_properties + """ } .
+    VALUES ?p {"""
+            + checked_properties
+            + """ } .
     ?s ?p ?o .
     #FILTER( NOT (isBlank(?o))) .
 }
         """
         )
 
-        eval.log_info("Checking that at least one of the following licence properties is found in metadata:\n" + checked_properties)
+        eval.log_info(
+            "Checking that at least one of the following licence properties is found in metadata:\n"
+            + checked_properties
+        )
         # print(self.rdf_jsonld.serialize(format="turtle").decode())
         res = self.get_web_resource().get_rdf().query(query_licenses)
         for bool_r in res:
             if bool_r:
-                eval.log_info("At least one of the licence property was found in metadata !")
+                eval.log_info(
+                    "At least one of the licence property was found in metadata !"
+                )
                 eval.set_score(2)
                 return eval
             else:
                 eval.log_info("None of the licence property were found in metadata")
-                eval.set_recommendations("""
+                eval.set_recommendations(
+                    """
                     You should look to annotate your metadata with one of the licence properties that can be found in
-                    the following list: <br><br>""" + checked_properties + """
-                """)
+                    the following list: <br><br>"""
+                    + checked_properties
+                    + """
+                """
+                )
                 eval.set_score(0)
                 return eval

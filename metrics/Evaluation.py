@@ -54,7 +54,6 @@ class Evaluation:
         console_handler = logging.StreamHandler(self.log_capture_string)
         # console_handler.setLevel(logging.DEBUG)
 
-
         ### Add a formatter
         formatter = logging.Formatter(
             "%(levelname)s - %(message)s",
@@ -141,7 +140,6 @@ class Evaluation:
     def get_reason(self):
         return self.reason
 
-
     def get_metrics(self):
         return self.metrics
 
@@ -164,7 +162,7 @@ class Evaluation:
             "ended_at": self.end_time,
             "success": self.score,
             "reason": self.reason,
-            "log": self.log_capture_string.getvalue()
+            "log": self.log_capture_string.getvalue(),
         }
 
         r = db_eval.insert_one(eval)

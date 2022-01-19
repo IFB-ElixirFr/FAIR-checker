@@ -33,7 +33,7 @@ class WebResource:
         # get dynamic RDF metadata (generated from JS)
         kg_1 = WebResource.extract_rdf_selenium(self.url)
         # get static RDF metadata (already available in html sources)
-        kg_2 = WebResource.extract_rdf_extruct(self.url)
+        kg_2 = self.extract_rdf_extruct(self.url)
         self.rdf = kg_1 + kg_2
 
     # def __init__(self, url) -> None:
@@ -44,10 +44,10 @@ class WebResource:
     #     self.retrieve_html_selenium()
     #     self.retrieve_html_request()
     #
-    #     kg_1 = WebResource.html_to_rdf_extruct(self.html_selenium)
-    #     kg_2 = WebResource.html_to_rdf_extruct(self.html_requests)
-    #     kg_3 = WebResource.html_to_rdf_parse_ld(self.html_selenium)
-    #     kg_4 = WebResource.html_to_rdf_parse_ld(self.html_requests)
+    #     kg_1 = self.html_to_rdf_extruct(self.html_selenium)
+    #     kg_2 = self.html_to_rdf_extruct(self.html_requests)
+    #     kg_3 = self.html_to_rdf_parse_ld(self.html_selenium)
+    #     kg_4 = self.html_to_rdf_parse_ld(self.html_requests)
     #
     #     self.rdf = kg_1 + kg_2 + kg_3 + kg_4
 
@@ -65,18 +65,16 @@ class WebResource:
 
     def get_html_requests(self):
         return self.html_requests
+
     # TODO Extruct can work with Selenium
 
     def retrieve_html_selenium(self):
         browser = WebResource.WEB_BROWSER_HEADLESS
 
-        self.browser_selenium = browser.get(self.url)
+        browser.get(self.url)
         self.html_selenium = browser.page_source
-            # return browser.page_source
-
-        # finally:
-        #     browser.quit()
-
+        self.browser_selenium = browser
+        print(len(self.html_selenium))
 
     def retrieve_html_request(self):
         while True:
@@ -132,12 +130,26 @@ class WebResource:
         logging.debug(kg.serialize(format="turtle"))
         return kg
 
-    @staticmethod
-    def html_to_rdf_parse_ld(html_source):
+    # @staticmethod
+    def html_to_rdf_parse_ld(self, html_source):
         kg = ConjunctiveGraph()
-        try:
-            jsonld_string = html.fromstring(html_source).xpath('//script[@type="application/ld+json"]//text()')
 
+        browser = self.browser_selenium
+        logging.debug(type(browser.page_source))
+        print(len(browser.page_source))
+
+        try:
+            element = browser.find_element_by_xpath(
+                "//script[@type='application/ld+json']"
+            )
+            element = element.get_attribute("outerHTML")
+            # browser.quit()
+
+            tree = html.fromstring(element)
+            jsonld_string = tree.xpath('//script[@type="application/ld+json"]//text()')
+            # try:
+            #     jsonld_string = html.fromstring(html_source).xpath('//script[@type="application/ld+json"]//text()')
+            print(jsonld_string)
             base_path = Path(__file__).parent.parent  # current directory
             static_file_path = str(
                 (base_path / "static/data/jsonldcontext.json").resolve()
@@ -158,8 +170,8 @@ class WebResource:
 
         return kg
 
-    @staticmethod
-    def extract_rdf_extruct(url) -> ConjunctiveGraph:
+    # @staticmethod
+    def extract_rdf_extruct(self, url) -> ConjunctiveGraph:
         while True:
             try:
                 response = requests.get(url=url, timeout=10)
@@ -174,7 +186,7 @@ class WebResource:
                 print("ConnectionError, retrying...")
                 time.sleep(10)
 
-        requests_status_code = response.status_code
+        self.status_code = response.status_code
         html_source = response.content
 
         data = extruct.extract(
@@ -220,6 +232,7 @@ class WebResource:
         # self.html_source = browser.page_source
         # browser.quit()
         logging.debug(type(browser.page_source))
+        print(len(browser.page_source))
 
         try:
             element = browser.find_element_by_xpath(
