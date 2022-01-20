@@ -1,4 +1,4 @@
-{% extends "layout.html" %}
+<link rel="stylesheet" href="../static/css/bulma-divider.min.css">{% extends "layout.html" %}
 
 {% block nav %}
 {% include 'nav.html' %}
@@ -326,6 +326,7 @@
             }
          });
          socket.on('send_annot_2', function(value) {
+             console.log(value);
              // console.log(value);
              //cm.setValue(value);
              $("#article-describe").find(".message-body").removeClass("is-hidden");

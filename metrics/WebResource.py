@@ -148,7 +148,7 @@ class WebResource:
             tree = html.fromstring(element)
             jsonld_string = tree.xpath('//script[@type="application/ld+json"]//text()')
             # try:
-            #     jsonld_string = html.fromstring(html_source).xpath('//script[@type="application/ld+json"]//text()')
+            # jsonld_string = html.fromstring(html_source).xpath('//script[@type="application/ld+json"]//text()')
             print(jsonld_string)
             base_path = Path(__file__).parent.parent  # current directory
             static_file_path = str(

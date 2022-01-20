@@ -37,6 +37,8 @@ class F1A_Impl(AbstractFAIRMetrics):
         eval.set_implem(self.implem)
         eval.set_metrics(self.principle_tag)
 
+        status_code = eval.get_web_resource().get_status_code()
+
         eval.log_info(
             "Checking if the URL is reachable, status code: " + str(status_code)
         )
@@ -68,7 +70,7 @@ class F1A_Impl(AbstractFAIRMetrics):
             )
             if status_code == 200:
                 eval.log_info("Status code is OK, meaning the url is Unique.")
-                eval.set_score(1)
+                eval.set_score(2)
                 return eval
         else:
             eval.log_info(

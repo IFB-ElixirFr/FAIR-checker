@@ -490,27 +490,31 @@
     </div>
     <div class="message-body">
 
-        <div class="field">
-          <div class="control has-icons-left has-icons-right">
-            <input id="url" name="url" class="input is-large" type="text" placeholder="FAIR resource URL">
-            <span class="icon is-small is-left">
-              <i class="fa fa-link"></i>
-            </span>
-            <span class="icon is-small is-right">
-              <i id="url_statut" class="fa"></i>
-            </span>
-          </div>
-          <div class="help_wrapper"><span id="url_helper" class="help"></span><span class="help" id="is_doi"></span></div>
-        </div>
+        <div class="field has-addons">
+            <div class="control is-expanded">
 
-        <br>
-        <div class="field is-grouped is-grouped-centered">
+              <div class="control has-icons-left has-icons-right">
+                <input id="url" name="url" class="input is-large" type="text" placeholder="FAIR resource URL">
+                <span class="icon is-small is-left">
+                  <i class="fa fa-link"></i>
+                </span>
+                <span class="icon is-small is-right">
+                  <i id="url_statut" class="fa"></i>
+                </span>
+              </div>
+              <div class="help_wrapper"><span id="url_helper" class="help"></span><span class="help" id="is_doi"></span></div>
+            </div>
+            <div class="field is-grouped is-grouped-centered">
             <p class="control">
                 <button id="btn_test_all" class="button is-info is-large"><i class="fa fa-bar-chart fa-fw"></i>&nbsp;Test all
                     metrics
                 </button>
             </p>
         </div>
+        </div>
+
+        <br>
+
         <!-- <button class="button is-info is-small" id="show_examples">Example<i class="fa fa-chevron-down fa-fw" aria-hidden="true"></i></button> -->
         <!-- <div id="url_examples" style="display: none;">
           <br>
@@ -539,19 +543,39 @@
           </article>
         </div> -->
         <!-- <div class="section"> -->
-        <br>
+        <div class="columns is-centered is-vcentered">
+          <div class="column is-half">
+            <progress id="p1" class="progress is-primary is-centered" value="0" max="12"></progress>
+
+          </div>
+          <div class="column is-narrow">
+            <p  class="control">
+                <button onClick="window.location.reload();" class="button is-primary is-small"><i class="fa fa-undo fa-fw"></i>&nbsp;Clean
+                    results
+                </button>
+            </p>
+          </div>
+
+
+        </div>
+
+
         {% for k in sample_data.keys() %}
 
-        <div class="panel">
-            <div class="panel-block is-centered">
-                <div class="field is-grouped is-grouped-centered">
-                    <p class="button is-info is-small">{{k}}&nbsp;<i class="fa fa-chevron-right fa-fw"></i></p>
-                    {% for s in sample_data[k] %}
-                    <p id="resource_{{k}}_{{loop.index}}" class="control"><a class="button is-small is-text"
-                                                                             data-url="{{ s.url }}">{{ s.text }}</a></p>
-                    {% endfor %}
+        <div class="columns is-centered">
+          <div class="column is-narrow">
+            <div class="panel">
+                <div class="panel-block is-centered is-vcentered">
+                    <div class="field is-grouped ">
+                        <p class="button is-info is-small">{{k}}&nbsp;<i class="fa fa-chevron-right fa-fw"></i></p>
+                        {% for s in sample_data[k] %}
+                        <p id="resource_{{k}}_{{loop.index}}" class="control"><a class="button is-small is-text"
+                                                                                 data-url="{{ s.url }}">{{ s.text }}</a></p>
+                        {% endfor %}
+                    </div>
                 </div>
             </div>
+          </div>
         </div>
         {% endfor %}
 
@@ -584,37 +608,15 @@
 
 </article>
 
-<!-- Start metric section -->
-<article id="start_test" class="message is-info">
-    <div class="message-header">
-        <p>Progress</p>
-    </div>
-    <div class="message-body">
-        <!-- <div class="field is-grouped is-grouped-centered">
-            <p class="control">
-                <button id="btn_test_all" class="button is-info is-large"><i class="fa fa-bar-chart fa-fw"></i>Test all metrics</button>
-            </p>
-        </div> -->
 
-        <progress id="p1" class="progress is-primary" value="0" max="12"></progress>
 
-        <div class="field is-grouped is-grouped-centered">
-            <p class="control">
-                <button onClick="window.location.reload();" class="button is-primary"><i class="fa fa-undo fa-fw"></i>&nbsp;Clean
-                    results
-                </button>
-            </p>
-            <!-- <p class="control">
-              <button id="btn_advanced_test" class="button is-info"><i class="fa fa-bar-chart fa-fw"></i>Advanced Test</button>
-            </p> -->
+<!-- <p class="control">
+  <button id="btn_advanced_test" class="button is-info"><i class="fa fa-bar-chart fa-fw"></i>Advanced Test</button>
+</p> -->
 
-            <p hidden class="control">
-                <a id="download_csv" data-dl="{{ uuid }}" class="button is-info"><i class="fa fa-download fa-fw"></i>CSV</a>
-            </p>
-        </div>
-    </div>
-
-</article>
+<p hidden class="control">
+    <a id="download_csv" data-dl="{{ uuid }}" class="button is-info"><i class="fa fa-download fa-fw"></i>CSV</a>
+</p>
 
 
 <!-- Metrics sselection checkboxes section -->
