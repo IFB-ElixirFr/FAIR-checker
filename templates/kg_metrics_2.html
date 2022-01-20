@@ -8,143 +8,143 @@
 
 <!-- TESTING Display -->
 <script>
-  function filterNodesById(nodes,id){
-    return nodes.filter(function(n) { return n.id === id; });
-  }
+    function filterNodesById(nodes, id) {
+        return nodes.filter(function (n) { return n.id === id; });
+    }
 
-  function triplesToGraph(triples){
+    function triplesToGraph(triples) {
 
-    svg.html("");
-    //Graph
-    var graph={nodes:[], links:[]};
+        svg.html("");
+        //Graph
+        var graph = { nodes: [], links: [] };
 
-    //Initial Graph from triples
-    triples.forEach(function(triple){
-      var subjId = triple.subject;
-      var predId = triple.predicate;
-      var objId = triple.object;
+        //Initial Graph from triples
+        triples.forEach(function (triple) {
+            var subjId = triple.subject;
+            var predId = triple.predicate;
+            var objId = triple.object;
 
-      var subjNode = filterNodesById(graph.nodes, subjId)[0];
-      var objNode  = filterNodesById(graph.nodes, objId)[0];
+            var subjNode = filterNodesById(graph.nodes, subjId)[0];
+            var objNode = filterNodesById(graph.nodes, objId)[0];
 
-      if(subjNode==null){
-        subjNode = {id:subjId, label:subjId, weight:1};
-        graph.nodes.push(subjNode);
-      }
+            if (subjNode == null) {
+                subjNode = { id: subjId, label: subjId, weight: 1 };
+                graph.nodes.push(subjNode);
+            }
 
-      if(objNode==null){
-        objNode = {id:objId, label:objId, weight:1};
-        graph.nodes.push(objNode);
-      }
+            if (objNode == null) {
+                objNode = { id: objId, label: objId, weight: 1 };
+                graph.nodes.push(objNode);
+            }
 
 
-      graph.links.push({source:subjNode, target:objNode, predicate:predId, weight:1});
-    });
+            graph.links.push({ source: subjNode, target: objNode, predicate: predId, weight: 1 });
+        });
 
-    return graph;
-  }
+        return graph;
+    }
 
-  function addNewTriples(triples_list){
+    function addNewTriples(triples_list) {
 
-    graph = triplesToGraph(triples_list);
-    update();
-  }
+        graph = triplesToGraph(triples_list);
+        update();
+    }
 
-  function update(){
-    // ==================== Add Marker ====================
-    svg.append("svg:defs").selectAll("marker")
-        .data(["end"])
-      .enter().append("svg:marker")
-        .attr("id", String)
-        .attr("viewBox", "0 -5 10 10")
-        .attr("refX", 30)
-        .attr("refY", -0.5)
-        .attr("markerWidth", 6)
-        .attr("markerHeight", 6)
-        .attr("orient", "auto")
-      .append("svg:polyline")
-        .attr("points", "0,-5 10,0 0,5")
-        ;
+    function update() {
+        // ==================== Add Marker ====================
+        svg.append("svg:defs").selectAll("marker")
+            .data(["end"])
+            .enter().append("svg:marker")
+            .attr("id", String)
+            .attr("viewBox", "0 -5 10 10")
+            .attr("refX", 30)
+            .attr("refY", -0.5)
+            .attr("markerWidth", 6)
+            .attr("markerHeight", 6)
+            .attr("orient", "auto")
+            .append("svg:polyline")
+            .attr("points", "0,-5 10,0 0,5")
+            ;
 
-    // ==================== Add Links ====================
-    var links = svg.selectAll(".link")
-              .data(graph.links)
-              .enter()
-              .append("line")
-                .attr("marker-end", "url(#end)")
-                .attr("class", "link")
-                .attr("stroke-width",1)
+        // ==================== Add Links ====================
+        var links = svg.selectAll(".link")
+            .data(graph.links)
+            .enter()
+            .append("line")
+            .attr("marker-end", "url(#end)")
+            .attr("class", "link")
+            .attr("stroke-width", 1)
             ;//links
 
-    // ==================== Add Link Names =====================
-    var linkTexts = svg.selectAll(".link-text")
-                  .data(graph.links)
-                  .enter()
-                  .append("text")
+        // ==================== Add Link Names =====================
+        var linkTexts = svg.selectAll(".link-text")
+            .data(graph.links)
+            .enter()
+            .append("text")
             .attr("class", "link-text")
-            .text( function (d) { return d.predicate; })
-          ;
+            .text(function (d) { return d.predicate; })
+            ;
 
-      //linkTexts.append("title")
-      //		.text(function(d) { return d.predicate; });
+        //linkTexts.append("title")
+        //		.text(function(d) { return d.predicate; });
 
-    // ==================== Add Link Names =====================
-    var nodeTexts = svg.selectAll(".node-text")
-                  .data(graph.nodes)
-                  .enter()
-                  .append("text")
+        // ==================== Add Link Names =====================
+        var nodeTexts = svg.selectAll(".node-text")
+            .data(graph.nodes)
+            .enter()
+            .append("text")
             .attr("class", "node-text")
-            .text( function (d) { return d.label; })
-          ;
+            .text(function (d) { return d.label; })
+            ;
 
-      //nodeTexts.append("title")
-      //		.text(function(d) { return d.label; });
+        //nodeTexts.append("title")
+        //		.text(function(d) { return d.label; });
 
-    // ==================== Add Node =====================
-    var nodes = svg.selectAll(".node")
-              .data(graph.nodes)
-              .enter()
-              .append("circle")
-                .attr("class", "node")
-                .attr("r",8)
-                .call(force.drag)
+        // ==================== Add Node =====================
+        var nodes = svg.selectAll(".node")
+            .data(graph.nodes)
+            .enter()
+            .append("circle")
+            .attr("class", "node")
+            .attr("r", 8)
+            .call(force.drag)
             ;//nodes
 
-    // ==================== Force ====================
-    force.on("tick", function() {
-      nodes
-        .attr("cx", function(d){ return d.x; })
-        .attr("cy", function(d){ return d.y; })
-        ;
+        // ==================== Force ====================
+        force.on("tick", function () {
+            nodes
+                .attr("cx", function (d) { return d.x; })
+                .attr("cy", function (d) { return d.y; })
+                ;
 
-      links
-        .attr("x1", 	function(d)	{ return d.source.x; })
-            .attr("y1", 	function(d) { return d.source.y; })
-            .attr("x2", 	function(d) { return d.target.x; })
-            .attr("y2", 	function(d) { return d.target.y; })
-           ;
+            links
+                .attr("x1", function (d) { return d.source.x; })
+                .attr("y1", function (d) { return d.source.y; })
+                .attr("x2", function (d) { return d.target.x; })
+                .attr("y2", function (d) { return d.target.y; })
+                ;
 
-      nodeTexts
-        .attr("x", function(d) { return d.x + 12 ; })
-        .attr("y", function(d) { return d.y + 3; })
-        ;
+            nodeTexts
+                .attr("x", function (d) { return d.x + 12; })
+                .attr("y", function (d) { return d.y + 3; })
+                ;
 
 
-      linkTexts
-        .attr("x", function(d) { return 4 + (d.source.x + d.target.x)/2  ; })
-        .attr("y", function(d) { return 4 + (d.source.y + d.target.y)/2 ; })
-        ;
-    });
+            linkTexts
+                .attr("x", function (d) { return 4 + (d.source.x + d.target.x) / 2; })
+                .attr("y", function (d) { return 4 + (d.source.y + d.target.y) / 2; })
+                ;
+        });
 
-    // ==================== Run ====================
-    force
-        .nodes(graph.nodes)
-        .links(graph.links)
-      .charge(-500)
-      .linkDistance(100)
-        .start()
-      ;
-  }
+        // ==================== Run ====================
+        force
+            .nodes(graph.nodes)
+            .links(graph.links)
+            .charge(-500)
+            .linkDistance(100)
+            .start()
+            ;
+    }
 
 
 
@@ -152,346 +152,343 @@
 
 <script type="text/javascript" charset="utf-8">
 
-    $( document ).ready(function() {
+    $(document).ready(function () {
 
-//        var cm = new CodeMirror.fromTextArea(document.getElementById("editor"), {-->
-// <!--            lineNumbers: true,-->
-// <!--            lineWrapping: true,-->
-// <!--         });
+        //        var cm = new CodeMirror.fromTextArea(document.getElementById("editor"), {-->
+        // <!--            lineNumbers: true,-->
+        // <!--            lineWrapping: true,-->
+        // <!--         });
 
-        console.log( "ready!" );
+        console.log("ready!");
         $("#notif").addClass("is-hidden");
 
         console.log('trying to connect...');
-        var socket = io.connect({{ config['SERVER_IP']|tojson }});
-        //var socket = io();
-        console.log('connected');
+        var socket = io.connect({{ config['SERVER_IP']| tojson }});
+    //var socket = io();
+    console.log('connected');
 
-        //////////////////
-        // click handlers
-        //////////////////
+    //////////////////
+    // click handlers
+    //////////////////
 
-        {% for f in f_metrics %}
-            $("#test_{{f.id}}").click(function(){
-                console.log("Testing metric {{f.name}}");
-                console.log("ID: " + "{{f.id}}");
-                console.log("Value: " + "{{f.api_url}}");
-                $(this).addClass("is-loading");
+    {% for f in f_metrics %}
+    $("#test_{{f.id}}").click(function () {
+        console.log("Testing metric {{f.name}}");
+        console.log("ID: " + "{{f.id}}");
+        console.log("Value: " + "{{f.api_url}}");
+        $(this).addClass("is-loading");
 
-                socket.emit('retrieve_embedded_annot', {
-                              url: $("#url").val()
+        socket.emit('retrieve_embedded_annot', {
+            url: $("#url").val()
+        });
+    });
+    {% endfor %}
+
+    // Exemple selector List
+    {% for k in sample_data.keys() %}
+    $("#sample_{{k}}").on("change", function () {
+        console.log(this.value);
+        $("#url").val(this.value);
+        $('#sample_{{k}} option[value="{{ k }}"]').attr("selected", "selected");
+    });
+    {% endfor %}
+
+    // Exemple selector Button
+    $('[id^="resource_"]').on("click", function () {
+        console.log($(this).children("a").text());
+        $("#url").val($(this).children("a").data("url"));
+    });
+
+
+    $("#btn_kg").click(function () {
+        $(this).addClass("is-loading");
+        socket.emit('retrieve_embedded_annot_2', { url: $("#url").val() });
+
+    });
+
+    $("#btn_describe_biotools").click(function () {
+        $(this).addClass("is-loading");
+        graph = $("#microdata").val();
+        url = $("#url").val();
+        socket.emit('describe_biotools', { url: url, graph: graph });
+    });
+
+    $("#btn_describe_loa").click(function () {
+        $(this).addClass("is-loading");
+        graph = $("#microdata").val();
+        url = $("#url").val();
+        socket.emit('describe_loa', { url: url, graph: graph });
+    });
+
+    $("#btn_describe_wikidata").click(function () {
+        $(this).addClass("is-loading");
+        graph = $("#microdata").val();
+        url = $("#url").val();
+        socket.emit('describe_wikidata', { url: url, graph: graph });
+    });
+
+    $("#btn_describe_opencitation").click(function () {
+        $(this).addClass("is-loading");
+        graph = $("#microdata").val();
+        url = $("#url").val();
+        socket.emit('describe_opencitation', { url: url, graph: graph });
+    });
+
+    $("#btn_annot_bioschemas").click(function () {
+        $("#article-BioSchemas-annot").removeClass("is-hidden");
+    });
+
+    $("#btn_fairness").click(function () {
+        $(this).addClass("is-loading");
+        $("#section-KG").removeClass("is-hidden");
+        $("#section-LinkedData").removeClass("is-hidden");
+        $("#section-BioSchemas").addClass("is-hidden");
+        socket.emit('check_kg', { url: $("#url").val() });
+    });
+
+    $("#btn_bioschemas").click(function () {
+        $(this).addClass("is-loading");
+        $("#section-KG").removeClass("is-hidden");
+        // $("#section-LinkedData").addClass("is-hidden");
+        // $("#section-BioSchemas").removeClass("is-hidden");
+        socket.emit('check_kg_shape_2', { url: $("#url").val(), kg: $("#microdata").val() });
+    });
+
+    // Change RDF type button
+
+    $('[id^="btn_rdf_"]').click(function () {
+        var rdf_type = $(this).data("rdf");
+        console.log("change RDF syntax to " + rdf_type);
+        socket.emit('change_rdf_type', { rdf_type: rdf_type });
+    });
+
+    // TABS for Step 3
+
+    $("#bioschemas_tab").click(function () {
+        $(this).addClass("is-active");
+        $("#linkeddata_tab").removeClass("is-active");
+
+        $("#section-LinkedData").addClass("is-hidden");
+        $("#section-BioSchemas").removeClass("is-hidden");
+    });
+
+    $("#linkeddata_tab").click(function () {
+        $(this).addClass("is-active");
+        $("#bioschemas_tab").removeClass("is-active");
+
+        $("#section-LinkedData").removeClass("is-hidden");
+        $("#section-BioSchemas").addClass("is-hidden");
+    });
+
+
+    $("#btn_submit_annot_bioschemas").click(function () {
+
+        var err_selector = $('[id^="bs_err_annot_"]');
+        var warn_selector = $('[id^="bs_warn_annot_"]');
+        var url = $('#url').val();
+
+        var err = {};
+        err_selector.each(function () {
+            val = $(this).val();
+            property = $(this).parent("div").parent().children("label").children("a").text();
+            err[property] = val;
+        });
+
+        var warn = {};
+        warn_selector.each(function () {
+            val = $(this).val();
+            property = $(this).parent("div").parent().children("label").children("a").text();
+            warn[property] = val;
+        });
+        console.log(warn);
+        socket.emit('update_annot_bioschemas', { err: err, warn: warn, url: url });
+    });
+
+    //////////////////
+    // event handlers
+    //////////////////
+
+    socket.on('connect', function () {
+        socket.emit('hello', { data: 'I\'m connected!' });
+        console.log('hello message sent');
+    });
+
+    socket.on('update_annot_2', function (value) {
+        console.log("UPDATE ANNOT 2")
+        if ("done".includes(value)) {
+            $("#p1").attr("value", 4);
+        } else {
+            console.log('received ' + value + ' for p1');
+            $("#p1").attr("value", value);
+        }
+    });
+    socket.on('send_annot_2', function (value) {
+        // console.log(value);
+        //cm.setValue(value);
+        $("#article-describe").find(".message-body").removeClass("is-hidden");
+        $("#article-bioschemas-check").find(".message-body").removeClass("is-hidden");
+        $("#microdata").val(value["kg"]);
+        $("#nb_triples").text(value["nb_triples"] + " Triples listed");
+        $("#btn_describe_opencitation").removeClass("is-loading");
+        $("#btn_describe_wikidata").removeClass("is-loading");
+        $("#btn_describe_biotools").removeClass("is-loading");
+        $("#btn_describe_loa").removeClass("is-loading");
+        $("#btn_kg").removeClass("is-loading");
+        // Call Graph display update here
+        socket.emit('get_latest_triples');
+    });
+
+    socket.on('send_bs_annot', function (value) {
+        $("#annotated_bioschemas").val(value);
+    });
+
+    socket.on('done_check', function (value) {
+        console.log(value);
+        var rows = '';
+        $.each(value['classes'], function (index, item) {
+            var row = '<tr>';
+            row += '<td>' + item['name'];
+            if (item['tag'].length == 0) {
+                row += ' <span class="tag is-danger is-pulled-right"> unknown</span>'
+            } else {
+                $.each(item['tag'], function (index, t) {
+                    row += ' <span class="tag is-primary is-pulled-right">' + t + '</span>'
                 });
-            });
-        {% endfor %}
-
-        // Exemple selector List
-        {% for k in sample_data.keys() %}
-            $("#sample_{{k}}").on("change", function(){
-                console.log(this.value) ;
-                $("#url").val(this.value) ;
-                $('#sample_{{k}} option[value="{{ k }}"]').attr("selected", "selected");
-            });
-        {% endfor %}
-
-        // Exemple selector Button
-        $('[id^="resource_"]').on("click", function(){
-            console.log($(this).children("a").text());
-            $("#url").val($(this).children("a").data("url")) ;
-        });
-
-
-        $("#btn_kg").click(function(){
-            $(this).addClass("is-loading");
-            // $("#article-KG").find(".message-body").removeClass("is-hidden");
-
-            // $("#section-LinkedData").addClass("is-hidden");
-            // $("#section-BioSchemas").addClass("is-hidden");
-            socket.emit('retrieve_embedded_annot_2', {url: $("#url").val()});
-
-        });
-
-        $("#btn_describe_biotools").click(function(){
-            $(this).addClass("is-loading");
-            graph = $("#microdata").val();
-            url = $("#url").val();
-            socket.emit('describe_biotools', {url: url, graph: graph});
-        });
-
-        $("#btn_describe_loa").click(function(){
-            $(this).addClass("is-loading");
-            graph = $("#microdata").val();
-            url = $("#url").val();
-            socket.emit('describe_loa', {url: url, graph: graph});
-        });
-
-        $("#btn_describe_wikidata").click(function(){
-            $(this).addClass("is-loading");
-            graph = $("#microdata").val();
-            url = $("#url").val();
-            socket.emit('describe_wikidata', {url: url, graph: graph});
-        });
-
-        $("#btn_describe_opencitation").click(function(){
-            $(this).addClass("is-loading");
-            graph = $("#microdata").val();
-            url = $("#url").val();
-            socket.emit('describe_opencitation', {url: url, graph: graph});
-        });
-
-        $("#btn_annot_bioschemas").click(function(){
-          $("#article-BioSchemas-annot").removeClass("is-hidden");
-        });
-
-        $("#btn_fairness").click(function(){
-            $(this).addClass("is-loading");
-            $("#section-KG").removeClass("is-hidden");
-            $("#section-LinkedData").removeClass("is-hidden");
-            $("#section-BioSchemas").addClass("is-hidden");
-            socket.emit('check_kg', {url: $("#url").val()});
-        });
-
-        $("#btn_bioschemas").click(function(){
-            $(this).addClass("is-loading");
-            $("#section-KG").removeClass("is-hidden");
-            // $("#section-LinkedData").addClass("is-hidden");
-            // $("#section-BioSchemas").removeClass("is-hidden");
-            socket.emit('check_kg_shape_2', {url: $("#url").val(), kg: $("#microdata").val()});
-        });
-
-        // Change RDF type button
-
-        $('[id^="btn_rdf_"]').click(function(){
-            var rdf_type = $(this).data("rdf");
-            console.log(rdf_type);
-            socket.emit('change_rdf_type', {rdf_type: rdf_type});
-        });
-
-        // TABS for Step 3
-
-        $("#bioschemas_tab").click(function(){
-            $(this).addClass("is-active");
-            $("#linkeddata_tab").removeClass("is-active");
-
-            $("#section-LinkedData").addClass("is-hidden");
-            $("#section-BioSchemas").removeClass("is-hidden");
-        });
-
-        $("#linkeddata_tab").click(function(){
-            $(this).addClass("is-active");
-            $("#bioschemas_tab").removeClass("is-active");
-
-            $("#section-LinkedData").removeClass("is-hidden");
-            $("#section-BioSchemas").addClass("is-hidden");
-        });
-
-
-        $("#btn_submit_annot_bioschemas").click(function(){
-
-            var err_selector = $('[id^="bs_err_annot_"]');
-            var warn_selector = $('[id^="bs_warn_annot_"]');
-            var url = $('#url').val();
-
-            var err = {};
-            err_selector.each(function() {
-                val = $(this).val();
-                property = $(this).parent("div").parent().children("label").children("a").text();
-                err[property] = val;
-            });
-
-            var warn = {};
-            warn_selector.each(function() {
-                val = $(this).val();
-                property = $(this).parent("div").parent().children("label").children("a").text();
-                warn[property] = val;
-            });
-            console.log(warn);
-            socket.emit('update_annot_bioschemas', {err: err, warn: warn, url: url});
-        });
-
-        //////////////////
-        // event handlers
-        //////////////////
-
-        socket.on('connect', function() {
-            socket.emit('hello', {data: 'I\'m connected!'});
-            console.log('hello message sent');
-        });
-
-         socket.on('update_annot_2', function(value) {
-             if ("done".includes(value)) {
-                $("#p1").attr("value", 4);
-            } else {
-                console.log('received '+value+' for p1');
-                $("#p1").attr("value",value);
             }
-         });
-         socket.on('send_annot_2', function(value) {
-             // console.log(value);
-             //cm.setValue(value);
-             $("#article-describe").find(".message-body").removeClass("is-hidden");
-             $("#article-bioschemas-check").find(".message-body").removeClass("is-hidden");
-             $("#microdata").val(value["kg"]);
-             $("#nb_triples").text(value["nb_triples"] + " Triples listed");
-             $("#btn_describe_opencitation").removeClass("is-loading");
-             $("#btn_describe_wikidata").removeClass("is-loading");
-             $("#btn_describe_biotools").removeClass("is-loading");
-             $("#btn_describe_loa").removeClass("is-loading");
-             $("#btn_kg").removeClass("is-loading");
-             // Call Graph display update here
-             socket.emit('get_latest_triples');
+            row += '</td>';
+            rows += row + '<tr>';
         });
+        $('#t_classes').html(rows);
 
-        socket.on('send_bs_annot', function(value) {
-          $("#annotated_bioschemas").val(value);
-        });
-
-        socket.on('done_check', function(value) {
-            console.log(value);
-            var rows = '';
-            $.each(value['classes'], function(index, item) {
-                var row = '<tr>';
-                row += '<td>' + item['name'] ;
-                if (item['tag'].length == 0) {
-                    row += ' <span class="tag is-danger is-pulled-right"> unknown</span>'
-                } else {
-                    $.each(item['tag'], function(index, t) {
-                        row += ' <span class="tag is-primary is-pulled-right">' + t + '</span>'
-                    });
-                }
-                row += '</td>';
-                rows += row + '<tr>';
-            });
-            $('#t_classes').html(rows);
-
-            var rows = '';
-            $.each(value['properties'], function(index, item) {
-                var row = '<tr>';
-                row += '<td>' + item['name'] ;
-                if (item['tag'].length == 0) {
-                    row += ' <span class="tag is-danger is-pulled-right"> unknown</span>'
-                } else {
-                    $.each(item['tag'], function(index, t) {
-                        row += ' <span class="tag is-primary is-pulled-right">' + t + '</span>'
-                    });
-                }
-                row += '</td>';
-                rows += row + '<tr>';
-            });
-            $('#t_properties').html(rows);
-
-             $("#btn_fairness").removeClass("is-loading");
-         });
-
-         socket.on('done_check_shape', function(value) {
-            console.log(value);
-            // results table
-            var rows = '';
-            $.each(value['errors'], function(index, item) {
-                var row = '<tr>';
-                row += '<td>' + item + '</td>';
-                rows += row + '</tr>';
-            });
-            $('#t_errors').html(rows);
-
-            var rows = '';
-            $.each(value['warnings'], function(index, item) {
-                var row = '<tr>';
-                row += '<td>' + item + '</td>';
-                rows += row + '</tr>';
-            });
-            $('#t_warnings').html(rows);
-
-            // annot table
-            var rows = '';
-            $.each(value['errors'], function(index, item) {
-                item = item.match(/\bhttps?:\/\/\S+/gi);
-                var row = '<tr>';
-                row += '<td>';
-                row +=  '<div class="field">';
-                row +=   '<label class="label"><a href="' + item + '" target="_blank">' + item + '</a></label>';
-                row +=   '<div class="control">';
-                row +=    '<input id="bs_err_annot_' + index + '" class="input" type="text">';
-                row +=   '</div>';
-                row +=  '</div>';
-                rows += row + '</tr>';
-
-            });
-            $('#t_errors_annot').html(rows);
-
-            var rows = '';
-            $.each(value['warnings'], function(index, item) {
-                item = item.match(/\bhttps?:\/\/\S+/gi);
-                var row = '<tr>';
-                row += '<td>';
-                row +=  '<div class="field">';
-                row +=   '<label class="label"><a href="' + item + '" target="_blank">' + item + '</a></label>';
-                row +=   '<div class="control">';
-                row +=    '<input id="bs_warn_annot_' + index + '" class="input" type="text">';
-                row +=   '</div>';
-                row +=  '</div>';
-                rows += row + '</tr>';
-            });
-            $('#t_warnings_annot').html(rows);
-
-
-            $("#btn_bioschemas").removeClass("is-loading");
-            $("#btn_annot_bioschemas").removeClass("is-hidden");
-         });
-
-
-
-        {% for f in f_metrics %}
-        socket.on('done_{{f.id}}', function(value) {
-            console.log('DONE {{f.name}}');
-            $("#test_{{f.id}}").removeClass("is-loading");
-
-            console.log(value['score']);
-            if (value['score'] == 1) {
-              $("#status_{{f.id}}").addClass("is-success");
+        var rows = '';
+        $.each(value['properties'], function (index, item) {
+            var row = '<tr>';
+            row += '<td>' + item['name'];
+            if (item['tag'].length == 0) {
+                row += ' <span class="tag is-danger is-pulled-right"> unknown</span>'
             } else {
-              $("#status_{{f.id}}").addClass("is-danger");
+                $.each(item['tag'], function (index, t) {
+                    row += ' <span class="tag is-primary is-pulled-right">' + t + '</span>'
+                });
             }
-            console.log(value['comment']);
+            row += '</td>';
+            rows += row + '<tr>';
+        });
+        $('#t_properties').html(rows);
+
+        $("#btn_fairness").removeClass("is-loading");
+    });
+
+    socket.on('done_check_shape', function (value) {
+        console.log(value);
+        // results table
+        var rows = '';
+        $.each(value['errors'], function (index, item) {
+            var row = '<tr>';
+            row += '<td>' + item + '</td>';
+            rows += row + '</tr>';
+        });
+        $('#t_errors').html(rows);
+
+        var rows = '';
+        $.each(value['warnings'], function (index, item) {
+            var row = '<tr>';
+            row += '<td>' + item + '</td>';
+            rows += row + '</tr>';
+        });
+        $('#t_warnings').html(rows);
+
+        // annot table
+        var rows = '';
+        $.each(value['errors'], function (index, item) {
+            item = item.match(/\bhttps?:\/\/\S+/gi);
+            var row = '<tr>';
+            row += '<td>';
+            row += '<div class="field">';
+            row += '<label class="label"><a href="' + item + '" target="_blank">' + item + '</a></label>';
+            row += '<div class="control">';
+            row += '<input id="bs_err_annot_' + index + '" class="input" type="text">';
+            row += '</div>';
+            row += '</div>';
+            rows += row + '</tr>';
 
         });
-        {% endfor %}
+        $('#t_errors_annot').html(rows);
 
-        socket.on('fast', function(value) {
-            if ("done".includes(value)) {
-                $("#p1").attr("value", 100);
-            } else {
-                console.log('received '+value+' for p1');
-                $("#p1").attr("value",value);
-            }
+        var rows = '';
+        $.each(value['warnings'], function (index, item) {
+            item = item.match(/\bhttps?:\/\/\S+/gi);
+            var row = '<tr>';
+            row += '<td>';
+            row += '<div class="field">';
+            row += '<label class="label"><a href="' + item + '" target="_blank">' + item + '</a></label>';
+            row += '<div class="control">';
+            row += '<input id="bs_warn_annot_' + index + '" class="input" type="text">';
+            row += '</div>';
+            row += '</div>';
+            rows += row + '</tr>';
         });
+        $('#t_warnings_annot').html(rows);
 
-        socket.on('slow', function(value) {
-            if ("done".includes(value)) {
-                $("#p2").attr("value", 100);
-            } else {
-                console.log('received '+value+' for p2');
-                $("#p2").attr("value", value);
-            }
-        });
 
-        socket.on('long', function(value) {
-            console.log('END LONG');
-            $("#notif").text(value);
-            $("#notif").removeClass("is-hidden");
-        });
+        $("#btn_bioschemas").removeClass("is-loading");
+        $("#btn_annot_bioschemas").removeClass("is-hidden");
+    });
 
-        socket.on('send_triples', function(value) {
-          var new_triples = value["triples"];
-          // console.log(triples);
-          // var new_triples = [
-          //     {subject:"ex:ThaiLand", 	predicate:"ex:hasFood", 	object:"ex:TomYumKung"},
-          //     {subject:"ex:TomYumKung", 	predicate:"rdf:type", 		object:"ex:SpicyFood"},
-          //     {subject:"ex:TomYumKung", 	predicate:"ex:includes", 	object:"ex:shrimp"},
-          //     {subject:"ex:TomYumKung", 	predicate:"ex:includes", 	object:"ex:chilly"},
-          //     {subject:"ex:TomYumKung", 	predicate:"ex:includes", 	object:"ex:lemon"},
-          //     {subject:"ex:lemon", 		predicate:"ex:hasTaste", 	object:"ex:sour"},
-          //     {subject:"ex:chilly", 		predicate:"ex:hasTaste", 	object:"ex:spicy"}
-          //   ];
+
+
+    {% for f in f_metrics %}
+    socket.on('done_{{f.id}}', function (value) {
+        console.log('DONE {{f.name}}');
+        $("#test_{{f.id}}").removeClass("is-loading");
+
+        console.log(value['score']);
+        if (value['score'] == 1) {
+            $("#status_{{f.id}}").addClass("is-success");
+        } else {
+            $("#status_{{f.id}}").addClass("is-danger");
+        }
+        console.log(value['comment']);
+
+    });
+    {% endfor %}
+
+    socket.on('fast', function (value) {
+        if ("done".includes(value)) {
+            $("#p1").attr("value", 100);
+        } else {
+            console.log('received ' + value + ' for p1');
+            $("#p1").attr("value", value);
+        }
+    });
+
+    socket.on('slow', function (value) {
+        if ("done".includes(value)) {
+            $("#p2").attr("value", 100);
+        } else {
+            console.log('received ' + value + ' for p2');
+            $("#p2").attr("value", value);
+        }
+    });
+
+    socket.on('long', function (value) {
+        console.log('END LONG');
+        $("#notif").text(value);
+        $("#notif").removeClass("is-hidden");
+    });
+
+    socket.on('send_triples', function (value) {
+        var new_triples = value["triples"];
+        // console.log(triples);
+        // var new_triples = [
+        //     {subject:"ex:ThaiLand", 	predicate:"ex:hasFood", 	object:"ex:TomYumKung"},
+        //     {subject:"ex:TomYumKung", 	predicate:"rdf:type", 		object:"ex:SpicyFood"},
+        //     {subject:"ex:TomYumKung", 	predicate:"ex:includes", 	object:"ex:shrimp"},
+        //     {subject:"ex:TomYumKung", 	predicate:"ex:includes", 	object:"ex:chilly"},
+        //     {subject:"ex:TomYumKung", 	predicate:"ex:includes", 	object:"ex:lemon"},
+        //     {subject:"ex:lemon", 		predicate:"ex:hasTaste", 	object:"ex:sour"},
+        //     {subject:"ex:chilly", 		predicate:"ex:hasTaste", 	object:"ex:spicy"}
+        //   ];
         console.log(new_triples);
 
         // for(let i = 0; i < new_triples.length; i++){
@@ -504,7 +501,7 @@
 
         // update();
         console.log("updated graph")
-        });
+    });
 
         //socket.emit('fast');
 
@@ -520,11 +517,7 @@
 </article>
 
 <h1 class="title">How to enhance metadata quality for my tools, datasets, workflows ?</h1>
-<!--<article id="Aims" class="message">-->
-<!--    <div class="message-header">-->
-<!--        <p>Aims</p>-->
-<!--    </div>-->
-<!--    <div class="message-body">-->
+
 <p> These automated validations leverage semantic web technologies and check that metadata use standards and recognized
     ontologies or controlled vocabularies.</p>
 <br>
@@ -533,29 +526,6 @@
     Finally, the resulting knowledge graph is tested to check that classes and properties are recognized through Linked
     Open Vocabularies (LOV), or Ontology Lookup Service (OLS)</p>
 <br>
-<!--    </div>-->
-<!--</article>-->
-
-<!--<div class="section">-->
-<!--    <div class="columns is-multiline is-mobile">-->
-<!--        {% for k in sample_data.keys() %}-->
-<!--            <div class="column is-4">-->
-<!--                <div class="field">-->
-<!--                    <label class="label">{{k}}</label>-->
-<!--                    <div class="control">-->
-<!--                        <div class="select">-->
-<!--                            <select id="sample_{{k}}">-->
-<!--                                {% for s in sample_data[k] %}-->
-<!--                                <option>{{ s }}</option>-->
-<!--                                {% endfor %}-->
-<!--                            </select>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--            </div>-->
-<!--        {% endfor %}-->
-<!--    </div>-->
-<!--</div>-->
 
 <!-- <div id="section-build-KG" class="section"> -->
 <article id="article-build-KG" class="message is-info">
@@ -566,7 +536,7 @@
         <div class="field is-grouped">
             <p class="control is-expanded">
                 <input id="url" name="url" class="input" type="text" placeholder="Resource URL"
-                       value="https://bio.tools/bwa">
+                    value="https://bio.tools/bwa">
             </p>
             <p class="control"><a id="btn_kg" class="button is-info">Build Knowledge Graph</a></p>
             <!--        <p class="control"><a id="btn_fairness" class="button is-primary">Vocab. checks</a></p>-->
@@ -582,7 +552,7 @@
                 <div class="field is-grouped is-grouped-centered">
                     {% for s in sample_data[k] %}
                     <p id="resource_{{k}}_{{loop.index}}" class="control"><a class="button is-small is-text"
-                                                                             data-url="{{ s.url }}">{{ s.text }}</a></p>
+                            data-url="{{ s.url }}">{{ s.text }}</a></p>
                     {% endfor %}
                 </div>
             </div>
@@ -593,30 +563,26 @@
 </article>
 <!-- </div> -->
 
-<!--<div class="section is-hidden">-->
-<!--&lt;!&ndash;<div class="section">&ndash;&gt;-->
-<!--    <progress id="p1" class="progress is-primary"  value="0" max="5"></progress>-->
-<!--</div>-->
 
 
 <!-- <section id="section-describe" class="section"> -->
 <article id="article-describe" class="message is-info">
     <div class="message-header">
-        <p>Step 2: Enrich Graph [Optional]</p>
+        <p>Step 2: Enrich Graph</p>
     </div>
     <div class="message-body is-hidden">
         <!-- <div class="field is-grouped is-grouped-centered">
           <p class="control"><a class="button is-primary is-large" disabled>Describe All</a></p>
         </div> -->
         <div class="field is-grouped is-grouped-centered">
-            <p class="control"><a id="btn_describe_wikidata" class="button is-success">Wikidata</a></p>
-            <p class="control"><a id="btn_describe_opencitation" class="button is-link">OpenCitations</a></p>
-            <p class="control"><a id="btn_describe_loa" class="button is-info">OpenAIRE</a></p>
-            <p class="control"><a id="btn_describe_biotools" class="button is-warning">Bio.tools</a></p>
+            <p class="control"><a id="btn_describe_wikidata" class="button is-warning">... from Wikidata</a></p>
+            <p class="control"><a id="btn_describe_opencitation" class="button is-warning">... from OpenCitations</a>
+            </p>
+            <p class="control"><a id="btn_describe_loa" class="button is-warning">... from OpenAIRE</a></p>
         </div>
         <div class="control">
             <textarea id="microdata" class="textarea is-small" placeholder="Knowledge graph, in RDF, turtle syntax"
-                      rows="15"></textarea>
+                rows="15"></textarea>
         </div>
         <a id="nb_triples" class="button is-success is-small">[] Triples</a>
         <br>
@@ -664,10 +630,12 @@
                 provide other information for better findability ?</p>
             <br>
             At the moment, profiles supported are: <a
-                href="https://bioschemas.org/profiles/ScholarlyArticle/0.2-DRAFT-2020_12_03/" target="_blank"><u>ScholarlyArticle</u></a>,
-            <a href="https://bioschemas.org/profiles/Dataset/0.3-RELEASE-2019_06_14/" target="_blank"><u>Dataset</u></a>,
+                href="https://bioschemas.org/profiles/ScholarlyArticle/0.2-DRAFT-2020_12_03/"
+                target="_blank"><u>ScholarlyArticle</u></a>,
+            <a href="https://bioschemas.org/profiles/Dataset/0.3-RELEASE-2019_06_14/"
+                target="_blank"><u>Dataset</u></a>,
             <a href="https://bioschemas.org/profiles/ComputationalTool/0.5-DRAFT/"
-               target="_blank"><u>ComputationalTool</u></a>
+                target="_blank"><u>ComputationalTool</u></a>
             <br>
             <br>
             <div class="field is-grouped is-grouped-centered">
@@ -679,9 +647,9 @@
                 <div class="column is-one-half">
                     <table class="table is-striped is-fullwidth">
                         <thead>
-                        <tr>
-                            <th>Requirements</th>
-                        </tr>
+                            <tr>
+                                <th>Requirements</th>
+                            </tr>
                         </thead>
                         <tbody id="t_errors">
                         </tbody>
@@ -690,9 +658,9 @@
                 <div class="column is-one-half">
                     <table class="table is-striped is-fullwidth">
                         <thead>
-                        <tr>
-                            <th>Improvements</th>
-                        </tr>
+                            <tr>
+                                <th>Improvements</th>
+                            </tr>
                         </thead>
                         <tbody id="t_warnings">
                         </tbody>
@@ -702,7 +670,7 @@
             <div class="field is-grouped is-grouped-centered">
                 <!-- <p class="control"><a id="btn_fairness" class="button is-primary">Vocab. checks</a></p> -->
                 <p class="control"><a id="btn_annot_bioschemas" class="button is-warning is-hidden">Annotate missing
-                    BioSchemas properties</a></p>
+                        BioSchemas properties</a></p>
             </div>
         </section>
         <section id="section-LinkedData" class="section">
@@ -720,9 +688,9 @@
                 <div class="column is-one-half">
                     <table class="table is-striped is-fullwidth">
                         <thead>
-                        <tr>
-                            <th>Classes</th>
-                        </tr>
+                            <tr>
+                                <th>Classes</th>
+                            </tr>
                         </thead>
                         <tbody id="t_classes">
                         </tbody>
@@ -731,9 +699,9 @@
                 <div class="column is-one-half">
                     <table class="table is-striped is-fullwidth">
                         <thead>
-                        <tr>
-                            <th>Properties</th>
-                        </tr>
+                            <tr>
+                                <th>Properties</th>
+                            </tr>
                         </thead>
                         <tbody id="t_properties">
                         </tbody>
@@ -756,9 +724,9 @@
                 <div class="column is-one-half">
                     <table class="table is-striped is-fullwidth">
                         <thead>
-                        <tr>
-                            <th>Requirements</th>
-                        </tr>
+                            <tr>
+                                <th>Requirements</th>
+                            </tr>
                         </thead>
                         <tbody id="t_errors_annot">
                         </tbody>
@@ -767,9 +735,9 @@
                 <div class="column is-one-half">
                     <table class="table is-striped is-fullwidth">
                         <thead>
-                        <tr>
-                            <th>Improvements</th>
-                        </tr>
+                            <tr>
+                                <th>Improvements</th>
+                            </tr>
                         </thead>
                         <tbody id="t_warnings_annot">
                         </tbody>
@@ -779,11 +747,11 @@
             <div class="field is-grouped is-grouped-centered">
                 <!-- <p class="control"><a id="btn_fairness" class="button is-primary">Vocab. checks</a></p> -->
                 <p class="control"><a id="btn_submit_annot_bioschemas" class="button is-warning">Annotate Bioschemas
-                    profile</a></p>
+                        profile</a></p>
             </div>
             <div class="control">
                 <textarea id="annotated_bioschemas" class="textarea is-small"
-                          placeholder="BioSchemas annotation will be shown here" rows="15"></textarea>
+                    placeholder="BioSchemas annotation will be shown here" rows="15"></textarea>
             </div>
         </section>
     </div>
@@ -798,7 +766,7 @@
         <div class="field">
             <div class="control">
                 <textarea id="microdata" class="textarea is-small" placeholder="Knowledge graph, in RDF, turtle syntax"
-                          rows="15"></textarea>
+                    rows="15"></textarea>
             </div>
         </div>
     </div>
@@ -819,19 +787,19 @@
 <!--</article>-->
 
 <script>
-    	// var triples = [
-    	// 		{subject:"ex:ThaiLand", 	predicate:"ex:hasFood", 	object:"ex:TomYumKung"},
-      //
-    	// 	];
+    // var triples = [
+    // 		{subject:"ex:ThaiLand", 	predicate:"ex:hasFood", 	object:"ex:TomYumKung"},
+    //
+    // 	];
 
 
-  	var svg = d3.select("#svg-body").append("svg")
-  				.attr("width", "auto")
-  				.attr("height", 600)
-          .attr("display", "block")
-  				;
+    var svg = d3.select("#svg-body").append("svg")
+        .attr("width", "auto")
+        .attr("height", 600)
+        .attr("display", "block")
+        ;
 
-  	var force = d3.layout.force().size([800, 600]);
+    var force = d3.layout.force().size([800, 600]);
 
   	// var graph = triplesToGraph(triples);
 

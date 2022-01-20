@@ -632,36 +632,6 @@ def handle_disconnected():
         os.remove("./temp/" + sid)
 
 
-# @socketio.on('hello')
-# def handle_hello(json):
-#     print(request.sid)
-#     print('received hello from client: ' + str(json))
-#     #socketio.emit('ack', 'everything is fine', broadcast=True)
-#     #emit('ack', 'everything is fine', broadcast=True)
-#     emit('ack', 'everything is fine')
-#
-# @socketio.on('slow')
-# def handle_slow():
-#     print('received slow from client: ' + str(request.sid))
-#     #socketio.emit('ack', 'everything is fine', broadcast=True)
-#     #emit('ack', 'everything is fine', broadcast=True)
-#     for i in range(0,100):
-#         time.sleep(0.5)
-#         emit('slow', i)
-#         i+=10
-#     emit('slow', 'done')
-#
-# @socketio.on('fast')
-# def handle_fast():
-#     print('received fast client: ' + str(request.sid))
-#     #socketio.emit('ack', 'everything is fine', broadcast=True)
-#     #emit('ack', 'everything is fine', broadcast=True)
-#     for i in range(0,100):
-#         time.sleep(0.01)
-#         emit('fast', i)
-#     emit('fast', 'done')
-
-
 #######################################
 #######################################
 
@@ -683,7 +653,15 @@ def handle_change_rdf_type(data):
     sid = request.sid
     RDF_TYPE[sid] = data["rdf_type"]
     kg = KGS[sid]
-    emit("send_annot_2", str(kg.serialize(format=RDF_TYPE[sid])))
+    nb_triples = len(kg)
+    emit(
+        "send_annot_2",
+        {
+            "kg": str(kg.serialize(format=RDF_TYPE[sid])),
+            "nb_triples": nb_triples,
+        },
+    )
+    # emit("send_annot_2", str(kg.serialize(format=RDF_TYPE[sid])))
 
 
 @socketio.on("retrieve_embedded_annot_2")
@@ -702,58 +680,14 @@ def handle_embedded_annot_2(data):
     uri = str(data["url"])
     print("retrieving embedded annotations for " + uri)
     print("Retrieve KG for uri: " + uri)
-    # page = requests.get(uri)
-    # html = page.content
 
-    # use selenium to retrieve Javascript genereted content
-    html = util.get_html_selenium(uri)
-
-    # web_resource = WebResource(uri)
-    # html = web_resource.get_html_selenium(uri)
-
-    d = extruct.extract(
-        html, syntaxes=["microdata", "rdfa", "json-ld"], errors="ignore"
-    )
-
-    # remove whitespaces from @id values after extruct
-    for key, val in d.items():
-        for dict in d[key]:
-            list(util.replace_value_char_for_key("@id", dict, " ", "_"))
-
-    # print(d)
-    kg = ConjunctiveGraph()
-
-    base_path = Path(__file__).parent  # current directory
-    static_file_path = str((base_path / "static/data/jsonldcontext.json").resolve())
-
-    for md in d["json-ld"]:
-        if "@context" in md.keys():
-            print(md["@context"])
-            if ("https://schema.org" in md["@context"]) or (
-                "http://schema.org" in md["@context"]
-            ):
-                md["@context"] = static_file_path
-        kg.parse(data=json.dumps(md, ensure_ascii=False), format="json-ld")
-    for md in d["rdfa"]:
-        if "@context" in md.keys():
-            if ("https://schema.org" in md["@context"]) or (
-                "http://schema.org" in md["@context"]
-            ):
-                md["@context"] = static_file_path
-        kg.parse(data=json.dumps(md, ensure_ascii=False), format="json-ld")
-    for md in d["microdata"]:
-        if "@context" in md.keys():
-            if ("https://schema.org" in md["@context"]) or (
-                "http://schema.org" in md["@context"]
-            ):
-                md["@context"] = static_file_path
-        kg.parse(data=json.dumps(md, ensure_ascii=False), format="json-ld")
+    web_resource = WebResource(uri)
+    kg = web_resource.get_rdf()
+    nb_triples = len(kg)
+    print(nb_triples)
 
     KGS[sid] = kg
-    nb_triples = len(kg)
-    # step += 1
-    print(nb_triples)
-    # emit('update_annot_2', step)
+
     emit(
         "send_annot_2",
         {
@@ -765,37 +699,6 @@ def handle_embedded_annot_2(data):
 
 @socketio.on("update_annot_bioschemas")
 def handle_annotationn(data):
-    # url = data['url']
-    # errors = data["err"]
-    # warnings = data["warn"]
-    # print(warnings)
-
-    # sid = request.sid
-    # kg = KGS[sid]
-
-    # class_list = [
-    #     rdflib.URIRef("http://schema.org/SoftwareApplication"),
-    #     rdflib.URIRef("http://schema.org/ScholarlyArticle"),
-    #     rdflib.URIRef("http://schema.org/Dataset")
-    # ]
-    #
-    # for class_elem in class_list:
-    #     uri = ''
-    #     for s, p, o in kg.triples((None, rdflib.namespace.RDF.type, class_elem)):
-    #         uri = s
-    #     if (class_elem, None, None) in kg:
-    #         print("software_application in KG !")
-    #         for property in warnings.keys():
-    #             print(property)
-    #             value = warnings[property]
-    #             if value != '':
-    #                 value = rdflib.Literal(value)
-    #                 property = rdflib.URIRef(property)
-    #
-    #                 print("Adding property")
-    #                 kg.add((uri, property, value))
-    # print(kg.serialize(format='json-ld').decode())
-    # emit('send_annot_2', str(kg.serialize(format=RDF_TYPE[sid]).decode()))
     new_kg = rdflib.ConjunctiveGraph()
 
     # TODO check that url is well formed
@@ -1494,7 +1397,8 @@ if __name__ == "__main__":
 
     elif args.web:
         logging.info("Starting webserver")
-        # context = ('server.crt', 'server.key')
-        # app.run(host='0.0.0.0', port=5000, debug=True, ssl_context=context)
-        socketio.run(app, host="0.0.0.0", port=5000, debug=True)
-        # app.run(host='0.0.0.0', port=5000, debug=True)
+        try:
+            socketio.run(app, host="0.0.0.0", port=5000, debug=True)
+        finally:
+            browser = WebResource.WEB_BROWSER_HEADLESS
+            browser.quit()
