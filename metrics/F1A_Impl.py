@@ -12,6 +12,7 @@ from datetime import timedelta
 from metrics.FairCheckerExceptions import FairCheckerException
 from metrics.Evaluation import Evaluation
 import validators
+import re
 
 
 class F1A_Impl(AbstractFAIRMetrics):
@@ -38,7 +39,7 @@ class F1A_Impl(AbstractFAIRMetrics):
         eval.set_metrics(self.principle_tag)
 
         status_code = eval.get_web_resource().get_status_code()
-
+        print(eval)
         eval.log_info(
             "Checking if the URL is reachable, status code: " + str(status_code)
         )
@@ -51,7 +52,7 @@ class F1A_Impl(AbstractFAIRMetrics):
                 "Status code is different than 200, thus, the resource is not reachable."
             )
             eval.set_score(0)
-            eval.set_recommendation("Ensure that the url you used is valid.")
+            eval.set_recommendations("Ensure that the url you used is valid.")
             return eval
 
     def strong_evaluate(self) -> Evaluation:
@@ -60,13 +61,16 @@ class F1A_Impl(AbstractFAIRMetrics):
         eval.set_metrics(self.principle_tag)
 
         status_code = eval.get_web_resource().get_status_code()
+        doi_regex = "10.\d{4,9}\/[-._;()\/:A-Z0-9]+"
 
-        # TODO add doi testing instead of url
-        eval.log_info("Checking if URL is valid...")
-        if validators.url(eval.get_target_uri()):
-            eval.log_info("The URL structure is valid !")
+        res = re.search(doi_regex, eval.get_target_uri())
+
+        eval.log_info("Checking if URI contains DOI...")
+        print(eval)
+        if res:
+            eval.log_info("The URI contains a DOI")
             eval.log_info(
-                "Checking if the URL is reachable, status code: " + str(status_code)
+                "Checking if the URI is reachable, status code: " + str(status_code)
             )
             if status_code == 200:
                 eval.log_info("Status code is OK, meaning the url is Unique.")
@@ -74,10 +78,10 @@ class F1A_Impl(AbstractFAIRMetrics):
                 return eval
         else:
             eval.log_info(
-                "Status code is different than 200, thus, the resource is not reachable."
+                "The URI doesn't contains a DOI"
             )
             eval.set_score(0)
-            eval.set_recommendation("")
+            eval.set_recommendations("")
             return eval
 
     def blank_node_evaluate(self) -> Evaluation:
