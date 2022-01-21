@@ -79,18 +79,17 @@ COPY app.py .
 COPY templates templates
 COPY static static
 COPY metrics metrics
-COPY .env .
-COPY launch_dev.sh .
+COPY launch.sh .
 COPY config.py .
 
 
-RUN chmod +x launch_dev.sh
+RUN chmod +x launch.sh
 
-#ENTRYPOINT [ "sh", "./launch_dev.sh" ]
+#ENTRYPOINT [ "sh", "./launch.sh" ]
 #CMD [ "python3", "app.py"]
 #CMD ["gunicorn"  , "-b", "0.0.0.0:5000", "app:app"]
 
 #ENTRYPOINT ["conda", "run", "-n", "fair-checker-webapp", "python3", "app.py"]
-#ENTRYPOINT ["conda", "run", "-n", "fair-checker-webapp", "sh", "./launch_dev.sh"]
+#ENTRYPOINT ["conda", "run", "-n", "fair-checker-webapp", "sh", "./launch.sh"]
 
-CMD /bin/bash -c 'source activate fair-checker-webapp && sh ./launch_dev.sh'
+CMD /bin/bash -c 'source activate fair-checker-webapp && sh ./launch.sh'

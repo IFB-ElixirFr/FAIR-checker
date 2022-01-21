@@ -28,6 +28,7 @@ PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
         self.id = "My id"
         self.desc = "My desc"
         self.implem = "My implem"
+        self.implem_source = "Source code of implementation"
         self.principle = "My principle (an URI describing the metric)"
         self.principle_tag = "My principle TAG"
         self.creator = "My creator name"
@@ -35,7 +36,7 @@ PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
         self.updated_at = "My update date"
         self.requests_status_code = "Status code for requests"
         self.web_resource = web_resource
-        self.evaluation = Evaluation
+        self.evaluation = "My evaluation"
 
     # name
     def get_name(self):
@@ -151,12 +152,16 @@ PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
         self.set_new_evaluation()
         eval = self.get_evaluation()
         eval.set_start_time()
+
         logging.info(eval)
+        print(eval)
 
         # Check in the cache if the metrics has not been computed yet
         try:
 
             url = self.get_web_resource().get_url()
+            eval.set_target_uri(url)
+            eval.set_web_resource(self.get_web_resource())
             if url in AbstractFAIRMetrics.cache.keys():
 
                 if self.get_principle_tag() in AbstractFAIRMetrics.cache[url].keys():

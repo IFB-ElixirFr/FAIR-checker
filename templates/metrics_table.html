@@ -26,7 +26,7 @@
                 <div class="popover-content" style="text-align: left; padding: 0;">
                     <article class="message is-info">
                         <div class="message-body is-size-7">
-                            {{ f.description }}
+                            {{ f.description|safe }}
                             <br>
                             <br>
                             <a href="{{ f.principle }}" target="_blank">{{ f.principle }}</a>

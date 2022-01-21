@@ -26,6 +26,7 @@ class ProductionConfig(Config):
 class DevelopmentConfig(Config):
     DEBUG = True
     SERVER_IP = "http://0.0.0.0:5000"
+    CACHE_DEFAULT_TIMEOUT = 15
 
 
 class TestingConfig(Config):
