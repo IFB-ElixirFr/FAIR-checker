@@ -77,9 +77,7 @@ class F1A_Impl(AbstractFAIRMetrics):
                 eval.set_score(2)
                 return eval
         else:
-            eval.log_info(
-                "The URI doesn't contains a DOI"
-            )
+            eval.log_info("The URI doesn't contains a DOI")
             eval.set_score(0)
             eval.set_recommendations("")
             return eval

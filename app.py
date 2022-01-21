@@ -686,13 +686,13 @@ def handle_change_rdf_type(data):
     RDF_TYPE[sid] = data["rdf_type"]
     kg = KGS[sid]
     nb_triples = len(kg)
-    emit("send_annot_2",
+    emit(
+        "send_annot_2",
         {
             "kg": str(kg.serialize(format=RDF_TYPE[sid])),
             "nb_triples": nb_triples,
         },
     )
-
 
 
 @socketio.on("retrieve_embedded_annot_2")
