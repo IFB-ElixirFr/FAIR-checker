@@ -348,6 +348,7 @@ def evaluate_fc_metrics(metric_name, client_metric_id, url):
     )
     # comment = result.get_reason()
     comment = result.get_log_html()
+
     recommendation = result.get_recommendation()
     print(recommendation)
 
@@ -651,6 +652,7 @@ def handle_get_latest_triples():
 
 @socketio.on("change_rdf_type")
 def handle_change_rdf_type(data):
+
     sid = request.sid
     RDF_TYPE[sid] = data["rdf_type"]
     kg = KGS[sid]
@@ -662,7 +664,6 @@ def handle_change_rdf_type(data):
             "nb_triples": nb_triples,
         },
     )
-    # emit("send_annot_2", str(kg.serialize(format=RDF_TYPE[sid])))
 
 
 @socketio.on("retrieve_embedded_annot_2")
@@ -1081,8 +1082,6 @@ def base_metrics():
     print(app.config)
 
     metrics = []
-
-    cache.set("TOTO", "Toto cache !")
 
     for key in METRICS_CUSTOM.keys():
         metrics.append(

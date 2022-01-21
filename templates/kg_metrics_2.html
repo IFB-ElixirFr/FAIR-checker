@@ -1,4 +1,4 @@
-{% extends "layout.html" %}
+<link rel="stylesheet" href="../static/css/bulma-divider.min.css">{% extends "layout.html" %}
 
 {% block nav %}
 {% include 'nav.html' %}
@@ -557,6 +557,7 @@
         <div class="panel">
             <div class="panel-block is-centered">
                 <div class="field is-grouped is-grouped-centered">
+                    <p class="button is-info is-small">{{k}}&nbsp;<i class="fa fa-chevron-right fa-fw"></i></p>
                     {% for s in sample_data[k] %}
                     <p id="resource_{{k}}_{{loop.index}}" class="control"><a class="button is-small is-text"
                             data-url="{{ s.url }}">{{ s.text }}</a></p>

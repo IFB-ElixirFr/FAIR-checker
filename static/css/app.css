@@ -43,8 +43,24 @@ span.tag.is-danger {
   text-align: center;
 }
 
+article.message.is-success > div:first-child.message-header {
+    background-color: #C9D400;
+}
+
 article.message.is-info > div:first-child.message-header {
-    background-color: #417da7;
+    background-color: #0081D8;
+}
+
+#landing_check {
+    background-color: #C9D400;
+}
+
+#landing_inspect {
+    background-color: #0081D8;
+}
+
+.hero {
+    background-color: #fafafa;
 }
 
 /* article.message.is-primary > div:first-child.message-header {
@@ -191,6 +207,12 @@ svg{
 #doi_button{
     height: 20px;
 }
+
+.menu-list a.is-active {
+    background-color: #fafafa;
+    color: #4a4a4a;
+}
+
 
 /*.modal-card-head {*/
 /*    background-color: #417da7;*/

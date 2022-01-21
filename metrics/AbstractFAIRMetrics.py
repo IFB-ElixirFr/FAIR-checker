@@ -161,6 +161,7 @@ PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
 
             url = self.get_web_resource().get_url()
             eval.set_target_uri(url)
+            eval.set_web_resource(self.get_web_resource())
             if url in AbstractFAIRMetrics.cache.keys():
 
                 if self.get_principle_tag() in AbstractFAIRMetrics.cache[url].keys():

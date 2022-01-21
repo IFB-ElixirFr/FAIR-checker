@@ -484,43 +484,38 @@
 {#<h1 class="title">How FAIR is my resource ?</h1>#}
 
 <!-- input uri section -->
-<article id="url_selection" class="message is-primary">
-  <div class="message-header">
-    <p>Identifier</p>
-  </div>
-  <div class="message-body">
-    <div class="field has-addons">
-      <div class="control is-expanded has-icons-left has-icons-right">
-        <input id="url" name="url" class="input" type="text" placeholder="URL or DOI identifying your resource">
-        <span class="icon is-small is-left">
-          <i class="fa fa-link"></i>
-        </span>
-        <span class="icon is-small is-right">
-          <i id="url_statut" class="fa"></i>
-        </span>
-      </div>
-      <p class="control">
-        <button id="btn_test_all" class="button is-primary"><i class="fa fa-bar-chart fa-fw"></i>&nbsp;Test all
-          metrics
-        </button>
-      </p>
-      <div class="help_wrapper"><span id="url_helper" class="help"></span><span class="help" id="is_doi"></span></div>
+<article id="url_selection" class="message is-success">
+    <div class="message-header">
+        <p>Enter resource identifier (URL/DOI)</p>
     </div>
 
-    {# <br>#}
-    {# <div class="field is-grouped is-grouped-centered">#}
-      {# <p class="control">#}
-        {# <button id="btn_test_all" class="button is-info is-large"><i class="fa fa-bar-chart fa-fw"></i>&nbsp;Test
-          all#}
-          {# metrics#}
-          {# </button>#}
-        {# </p>#}
-      {# </div>#}
+        <div class="field has-addons">
+            <div class="control is-expanded">
 
-    <progress id="p1" class="progress is-primary" value="0" max="12"></progress>
+              <div class="control has-icons-left has-icons-right">
+                <input id="url" name="url" class="input is-large" type="text" placeholder="FAIR resource URL">
+                <span class="icon is-small is-left">
+                  <i class="fa fa-link"></i>
+                </span>
+                <span class="icon is-small is-right">
+                  <i id="url_statut" class="fa"></i>
+                </span>
+              </div>
+              <div class="help_wrapper"><span id="url_helper" class="help"></span><span class="help" id="is_doi"></span></div>
+            </div>
+            <div class="field is-grouped is-grouped-centered">
+            <p class="control">
+                <button id="btn_test_all" class="button is-info is-large"><i class="fa fa-bar-chart fa-fw"></i>&nbsp;Test all
+                    metrics
+                </button>
+            </p>
+        </div>
+        </div>
 
-    <!-- <button class="button is-info is-small" id="show_examples">Example<i class="fa fa-chevron-down fa-fw" aria-hidden="true"></i></button> -->
-    <!-- <div id="url_examples" style="display: none;">
+        <br>
+
+        <!-- <button class="button is-info is-small" id="show_examples">Example<i class="fa fa-chevron-down fa-fw" aria-hidden="true"></i></button> -->
+        <!-- <div id="url_examples" style="display: none;">
           <br>
           <article class="message is-info" >
             <div class="message-body">
@@ -546,9 +541,43 @@
               </div>
           </article>
         </div> -->
-    <!-- <div class="section"> -->
-    {# <br>#}
-    {% for k in sample_data.keys() %}
+
+        <!-- <div class="section"> -->
+        <div class="columns is-centered is-vcentered">
+          <div class="column is-half">
+            <progress id="p1" class="progress is-primary is-centered" value="0" max="12"></progress>
+
+          </div>
+          <div class="column is-narrow">
+            <p  class="control">
+                <button onClick="window.location.reload();" class="button is-primary is-small"><i class="fa fa-undo fa-fw"></i>&nbsp;Clean
+                    results
+                </button>
+            </p>
+          </div>
+
+
+        </div>
+
+
+        {% for k in sample_data.keys() %}
+
+        <div class="columns is-centered">
+          <div class="column is-narrow">
+            <div class="panel">
+                <div class="panel-block is-centered is-vcentered">
+                    <div class="field is-grouped ">
+                        <p class="button is-info is-small">{{k}}&nbsp;<i class="fa fa-chevron-right fa-fw"></i></p>
+                        {% for s in sample_data[k] %}
+                        <p id="resource_{{k}}_{{loop.index}}" class="control"><a class="button is-small is-text"
+                                                                                 data-url="{{ s.url }}">{{ s.text }}</a></p>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
 
     {# <div class="panel">#}
       {# <div class="panel-block is-centered">#}
@@ -594,80 +623,56 @@
 </article>
 <br>
 
-<!-- Start metric section -->
-{#<article id="start_test" class="message is-info">#}
-  {# <div class="message-header">#}
-    {# <p>Progress</p>#}
-    {# </div>#}
-  {# <div class="message-body">#}
-    {#
-    <!-- <div class="field is-grouped is-grouped-centered">#}
-{#            <p class="control">#}
-{#                <button id="btn_test_all" class="button is-info is-large"><i class="fa fa-bar-chart fa-fw"></i>Test all metrics</button>#}
-{#            </p>#}
-{#        </div> -->#}
-    {##}
-    {# <progress id="p1" class="progress is-primary" value="0" max="12"></progress>#}
-    {##}
-    {# <div class="field is-grouped is-grouped-centered">#}
-      {# <p class="control">#}
-        {# <button onClick="window.location.reload();" class="button is-primary"><i
-            class="fa fa-undo fa-fw"></i>&nbsp;Clean#}
-          {# results#}
-          {# </button>#}
-        {# </p>#}
-      {#
-      <!-- <p class="control">#}
-{#              <button id="btn_advanced_test" class="button is-info"><i class="fa fa-bar-chart fa-fw"></i>Advanced Test</button>#}
-{#            </p> -->#}
-      {##}
-      {# <p hidden class="control">#}
-        {# <a id="download_csv" data-dl="{{ uuid }}" class="button is-info"><i
-            class="fa fa-download fa-fw"></i>CSV</a>#}
-        {# </p>#}
-      {#
-    </div>#}
-    {#
-  </div>#}
-  {##}
-  {#</article>#}
+
+<!-- <p class="control">
+  <button id="btn_advanced_test" class="button is-info"><i class="fa fa-bar-chart fa-fw"></i>Advanced Test</button>
+</p> -->
+
+<p hidden class="control">
+    <a id="download_csv" data-dl="{{ uuid }}" class="button is-info"><i class="fa fa-download fa-fw"></i>CSV</a>
+</p>
 
 
 <!-- Metrics sselection checkboxes section -->
-<article id="select_metrics" class="message is-primary" style="display: none;">
-  <div class="message-header">
-    <p>Select the metrics you want to test</p>
-  </div>
-  <div class="message-body">
-    <div class="columns is-centered">
-      {% for category in ['F', 'A', 'I', 'R'] %}
-      <div class="is-one-quarter">
-        <table id="metrics_checkboxes" class="table is-hoverable is-bordered is-striped is-fullwidth">
-          <thead>
-            <th>
-              <label class="checkbox">
-                <input id="checkbox_all_{{ category }}" data-target="checkbox_{{ category }}" type="checkbox">
-                {{ category }} - All
+<article id="select_metrics" class="message is-success" style="display: none;">
+    <div class="message-header">
+        <p>Select the metrics you want to test</p>
+    </div>
+    <div class="message-body">
+        <div class="columns is-centered">
+            {% for category in ['F', 'A', 'I', 'R'] %}
+            <div class="is-one-quarter">
+                <table id="metrics_checkboxes" class="table is-hoverable is-bordered is-striped">
+                    <thead>
+                    <th>
+                        <label class="checkbox">
+                            <input id="checkbox_all_{{ category }}" data-target="checkbox_{{ category }}"
+                                   type="checkbox">
+                            {{ category }} - All
 
-              </label>
-            </th>
-          </thead>
-          <!-- Remove hidden to show tables -->
-          <tbody>
-            <!-- <tbody hidden> -->
-            {% for f in f_metrics %}
-            {% if f.principle_category == category %}
-            <tr>
-              <td>
-                <label class="checkbox">
-                  <input name="checkbox_{{ category }}" id="checkbox_test_{{ f.id }}" data-target="test_{{ f.id }}"
-                    data-tested=false type="checkbox">
-                  {{ f.principle_tag }} - {{ f.name }}
+                        </label>
+                    </th>
+                    </thead>
+                    <!-- Remove hidden to show tables -->
+                    <tbody>
+                    <!-- <tbody hidden> -->
+                    {% for f in f_metrics %}
+                    {% if f.principle_category == category %}
+                    <tr>
+                        <td>
+                            <label class="checkbox">
+                                <input name="checkbox_{{ category }}" id="checkbox_test_{{ f.id }}"
+                                       data-target="test_{{ f.id }}" data-tested=false type="checkbox">
+                                {{ f.principle_tag }} - {{ f.name }}
 
-                </label>
-              </td>
-            </tr>
-            {% endif %}
+                            </label>
+                        </td>
+                    </tr>
+                    {% endif %}
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
             {% endfor %}
           </tbody>
         </table>
@@ -685,30 +690,39 @@
 </article>
 <br>
 
-
-<article id="radar_chart" class="message is-primary">
-  <div class="message-header">
-    <p>Radar chart of metrics completion</p>
-  </div>
-  <div class="message-body">
-    {% include 'radar_chart.html' %}
-  </div>
+<article id="radar_chart" class="message is-success">
+    <div class="message-header">
+        <p>Radar chart of metrics completion</p>
+    </div>
+    <div class="message-body">
+        {% include 'radar_chart.html' %}
+    </div>
 </article>
-<br>
 
-<article id="metrics_details_rec" class="message is-primary">
-  <div class="message-header">
-    <p>List of metrics with details and results</p>
 
-    <div class="popover is-popover-left">
-      <i class="fa fa-info-circle popover-trigger" aria-hidden="true"></i>
-      <div class="popover-content" style="text-align: left; padding: 0;">
-        <article class="message is-primary">
-          <div class="message-body is-size-7">
-            Help comming soon
-          </div>
-        </article>
-      </div>
+<article id="metrics_details_rec" class="message is-success">
+    <div class="message-header">
+        <p>List of metrics with details and results</p>
+
+        <div class="popover is-popover-left">
+            <i class="fa fa-info-circle popover-trigger" aria-hidden="true"></i>
+            <div class="popover-content" style="text-align: left; padding: 0;">
+                <article class="message is-info">
+                    <div class="message-body is-size-7">
+                        Help comming soon
+                    </div>
+                </article>
+            </div>
+        </div>
+    </div>
+    <div class="message-body">
+        {% include 'metrics_table.html' %}
+    </div>
+    <div class="message-body">
+        For additional tips and recommandations on how to improve your resource, we recommand you to use the FAIR
+        Cookbook:
+        <a href="https://fairplus.github.io/the-fair-cookbook/content/home.html" target="_blank"
+           rel="noopener noreferrer">https://fairplus.github.io/the-fair-cookbook/content/home.html</a>
     </div>
   </div>
   <div class="message-body">

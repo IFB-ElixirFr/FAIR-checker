@@ -6,6 +6,54 @@
 
 {% block body %}
 
-<h1 class="title">IFB Interoperability WG Demos</h1>
+<h1 class="title">Welcome to FAIR-Checker</h1>
+
+<div class="columns is-centered">
+    <div class="column is-half">
+        <div class="section">
+            <div class="box">
+                <h1 class="title">Welcome</h1>
+                <hr>
+                <div class="columns is-centered">
+                    <div class="column is-half has-text-centered">
+                        <h2>To evaluate how FAIR are your web resources</h2>
+                        <br>
+                        <a href="{{ url_for('base_metrics') }}"><p id="landing_check" class="button is-large is-success">Check</p></a>
+                    </div>
+<!--                    <div class="divider is-vertical">OR</div>-->
+                    <div class="column is-half has-text-centered">
+                        <h2>To explore and improve metadata exposed in your web resources</h2>
+                        <br>
+                        <a href="{{ url_for('kg_metrics_2') }}"><p id="landing_inspect" class="button is-large is-info">Inspect</p></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="columns is-centered">
+    <div class="column is-3 has-text-centered">
+        <div class="section">
+            <div class="box">
+                <h2>Poster</h2>
+            </div>
+        </div>
+    </div>
+    <div class="column is-3 has-text-centered">
+        <div class="section">
+            <div class="box">
+                <h2>Article</h2>
+            </div>
+        </div>
+    </div>
+    <div class="column is-3 has-text-centered">
+        <div class="section">
+            <div class="box">
+                <h2>Demo</h2>
+            </div>
+        </div>
+    </div>
+</div>
 
 {% endblock %}

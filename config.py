@@ -19,13 +19,13 @@ class Config(object):
 
 
 class ProductionConfig(Config):
-    # SERVER_IP = "https://134.158.247.212"
     SERVER_IP = "https://fair-checker.france-bioinformatique.fr"
 
 
 class DevelopmentConfig(Config):
     DEBUG = True
-    SERVER_IP = "http://127.0.0.1:5000"
+    SERVER_IP = "http://0.0.0.0:5000"
+    CACHE_DEFAULT_TIMEOUT = 15
 
 
 class TestingConfig(Config):

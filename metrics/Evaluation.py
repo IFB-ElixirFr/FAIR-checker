@@ -22,7 +22,7 @@ class Result(Enum):
 #########################
 class Evaluation:
     eval_logger = None
-    log_capture_string = StringIO()
+    log_capture_string = None
 
     start_time = None
     end_time = None
@@ -33,6 +33,7 @@ class Evaluation:
     result_text = None
     reason = None
 
+    web_resource = None
     metrics = None
     target_uri = None
     implem = None
@@ -41,6 +42,7 @@ class Evaluation:
     #     pass
 
     def __init__(self):
+        self.log_capture_string = StringIO()
         ### Create the logger
         # self.eval_logger = logging.getLogger("eval_logger")
         logger_id = str(uuid.uuid4())
@@ -107,6 +109,9 @@ class Evaluation:
     def append_reason(self, r):
         self.reason = self.reason + "\n" + r
 
+    def set_web_resource(self, web_resource):
+        self.web_resource = web_resource
+
     def set_metrics(self, metrics):
         self.metrics = str(metrics)
 
@@ -127,6 +132,9 @@ class Evaluation:
 
     def get_recommendation(self):
         return self.recommendation
+
+    def get_web_resource(self):
+        return self.web_resource
 
     # used by FAIRMetrics, will probably be replaced by logs
     def get_reason(self):
