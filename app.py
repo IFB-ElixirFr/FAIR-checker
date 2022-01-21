@@ -49,8 +49,9 @@ from metrics.AbstractFAIRMetrics import AbstractFAIRMetrics
 from metrics.WebResource import WebResource
 from metrics.Evaluation import Result
 from metrics.FAIRMetricsFactory import Implem
-
 from metrics.F1A_Impl import F1A_Impl
+
+from profiles.bioschemas_shape_gen import validate_any_from_KG
 
 app = Flask(__name__)
 CORS(app)
@@ -780,26 +781,6 @@ def handle_describe_wikidata(data):
     )
 
 
-@socketio.on("describe_biotools")
-def handle_describe_biotools(data):
-    print("describing biotools")
-    sid = request.sid
-    kg = KGS[sid]
-    uri = str(data["url"])
-    graph = str(data["graph"])
-    # kg = ConjunctiveGraph()
-    # kg.parse(data=graph, format="turtle")
-    kg = util.describe_biotools(uri, kg)
-    nb_triples = len(kg)
-    emit(
-        "send_annot_2",
-        {
-            "kg": str(kg.serialize(format=RDF_TYPE[sid])),
-            "nb_triples": nb_triples,
-        },
-    )
-
-
 @socketio.on("describe_loa")
 def handle_describe_loa(data):
     print("describing loa")
@@ -824,6 +805,7 @@ def handle_describe_loa(data):
     )
 
 
+@DeprecationWarning
 @socketio.on("retrieve_embedded_annot")
 def handle_embedded_annot(data):
     """
@@ -985,6 +967,7 @@ def check_kg(data):
             emit("done_check", table_content)
 
 
+@DeprecationWarning
 @socketio.on("check_kg_shape")
 def check_kg_shape(data):
     step = 0
@@ -1019,17 +1002,8 @@ def check_kg_shape_2(data):
     #     handle_embedded_annot(data)
     kg = KGS[sid]
 
-    print("titi")
-
-    # TODO replace this code with profiles.bioschemas_shape_gen
-    warnings, errors = util.shape_checks(kg)
-    data = {"errors": errors, "warnings": warnings}
-    emit("done_check_shape", data)
-
-    # replacement
-    print("TITI")
-    # results = bioschemas_shape.validate_any_from_KG(kg)
-    # print(results)
+    results = validate_any_from_KG(kg)
+    emit("done_check_shape", results)
 
 
 #######################################

@@ -379,56 +379,71 @@
         $("#btn_fairness").removeClass("is-loading");
     });
 
-    socket.on('done_check_shape', function (value) {
-        console.log(value);
-        // results table
-        var rows = '';
-        $.each(value['errors'], function (index, item) {
-            var row = '<tr>';
-            row += '<td>' + item + '</td>';
-            rows += row + '</tr>';
-        });
-        $('#t_errors').html(rows);
+    socket.on('done_check_shape', function (data) {
+        console.log(data);
+        var valid_html = "";
+        $.each(data, function (key, value) {
+            var resource = key
+            var type = data[key]['type']
+            valid_html += '<h5 class="title is-5">' + resource + '</h5>'
+            valid_html += '<p>' + type + '</p>'
+            valid_html += '<div class="columns is-multiline is-mobile">'
+            valid_html += '<div class="column is-one-half">'
+            valid_html += '<table class="table is-striped is-fullwidth">'
+            valid_html += '<thead><tr><th>Requirements</th></tr></thead>'
+            valid_html += '<tbody>'
+            $.each(data[key]['errors'], function (index, item) {
+                var row = '<tr>';
+                row += '<td>' + item + ' <span class="has-text-danger has-text-weight-bold">must be</span> provided</td>';
+                valid_html += row + '</tr>';
+            });
+            valid_html += '</tbody></table></div>'
+            valid_html += '<div class="column is-one-half">'
+            valid_html += '<table class="table is-striped is-fullwidth">'
+            valid_html += '<thead><tr><th>Improvements</th></tr></thead>'
+            valid_html += '<tbody>'
+            $.each(data[key]['warnings'], function (index, item) {
+                var row = '<tr>';
+                row += '<td>' + item + ' <span class="has-text-warning has-text-weight-bold">should be</span> provided</td>';
+                valid_html += row + '</tr>';
+            });
+            valid_html += '</tbody></table></div>'
+            valid_html += '</div>'
 
-        var rows = '';
-        $.each(value['warnings'], function (index, item) {
-            var row = '<tr>';
-            row += '<td>' + item + '</td>';
-            rows += row + '</tr>';
         });
-        $('#t_warnings').html(rows);
+        $('#block_valid').html(valid_html);
 
         // annot table
-        var rows = '';
-        $.each(value['errors'], function (index, item) {
-            item = item.match(/\bhttps?:\/\/\S+/gi);
-            var row = '<tr>';
-            row += '<td>';
-            row += '<div class="field">';
-            row += '<label class="label"><a href="' + item + '" target="_blank">' + item + '</a></label>';
-            row += '<div class="control">';
-            row += '<input id="bs_err_annot_' + index + '" class="input" type="text">';
-            row += '</div>';
-            row += '</div>';
-            rows += row + '</tr>';
+        // var rows = '';
+        // $.each(value['errors'], function (index, item) {
+        //     item = item.match(/\bhttps?:\/\/\S+/gi);
+        //     var row = '<tr>';
+        //     row += '<td>';
+        //     row += '<div class="field">';
+        //     row += '<label class="label"><a href="' + item + '" target="_blank">' + item + '</a></label>';
+        //     row += '<div class="control">';
+        //     row += '<input id="bs_err_annot_' + index + '" class="input" type="text">';
+        //     row += '</div>';
+        //     row += '</div>';
+        //     rows += row + '</tr>';
 
-        });
-        $('#t_errors_annot').html(rows);
+        // });
+        // $('#t_errors_annot').html(rows);
 
-        var rows = '';
-        $.each(value['warnings'], function (index, item) {
-            item = item.match(/\bhttps?:\/\/\S+/gi);
-            var row = '<tr>';
-            row += '<td>';
-            row += '<div class="field">';
-            row += '<label class="label"><a href="' + item + '" target="_blank">' + item + '</a></label>';
-            row += '<div class="control">';
-            row += '<input id="bs_warn_annot_' + index + '" class="input" type="text">';
-            row += '</div>';
-            row += '</div>';
-            rows += row + '</tr>';
-        });
-        $('#t_warnings_annot').html(rows);
+        // var rows = '';
+        // $.each(value['warnings'], function (index, item) {
+        //     item = item.match(/\bhttps?:\/\/\S+/gi);
+        //     var row = '<tr>';
+        //     row += '<td>';
+        //     row += '<div class="field">';
+        //     row += '<label class="label"><a href="' + item + '" target="_blank">' + item + '</a></label>';
+        //     row += '<div class="control">';
+        //     row += '<input id="bs_warn_annot_' + index + '" class="input" type="text">';
+        //     row += '</div>';
+        //     row += '</div>';
+        //     rows += row + '</tr>';
+        // });
+        // $('#t_warnings_annot').html(rows);
 
 
         $("#btn_bioschemas").removeClass("is-loading");
@@ -509,12 +524,6 @@
 
 </script>
 
-<article id="disclaimer" class="message is-warning">
-    <div class="message-body">
-        <b>Disclaimer:</b> FAIR-Checker is under active development and is not intended to be used yet in production
-        environment.
-    </div>
-</article>
 
 <h1 class="title">How to enhance metadata quality for my tools, datasets, workflows ?</h1>
 
@@ -528,7 +537,8 @@
 <br>
 
 <!-- <div id="section-build-KG" class="section"> -->
-<article id="article-build-KG" class="message is-info">
+
+<!-- <article id="article-build-KG" class="message is-info">
     <div class="message-header">
         <p>Step 1: Build Graph from resource identifier (URL/DOI)</p>
     </div>
@@ -539,14 +549,11 @@
                     value="https://bio.tools/bwa">
             </p>
             <p class="control"><a id="btn_kg" class="button is-info">Build Knowledge Graph</a></p>
-            <!--        <p class="control"><a id="btn_fairness" class="button is-primary">Vocab. checks</a></p>-->
-            <!--        <p class="control"><a id="btn_bioschemas" class="button is-warning">BioSchemas checks</a></p>-->
         </div>
-        <!-- <div class="section"> -->
+
         {% for k in sample_data.keys() %}
         <p class="button is-info is-small">{{k}}<i class="fa fa-chevron-down fa-fw"></i></p>
-        <!-- <br> -->
-        <!-- <br> -->
+
         <div class="panel">
             <div class="panel-block is-centered">
                 <div class="field is-grouped is-grouped-centered">
@@ -558,12 +565,30 @@
             </div>
         </div>
         {% endfor %}
-        <!-- </div> -->
     </div>
-</article>
-<!-- </div> -->
+</article> -->
 
-
+<div class="box">
+    <div class="block">
+        <h2 class="subtitle">Step 1: fetch RDF metadata from the resource URL or DOI</h2>
+    </div>
+    {% for k in sample_data.keys() %}
+    <div class="field is-grouped">
+        <p class="is-small">{{k}}:&nbsp;</p>
+        {% for s in sample_data[k] %}
+        <p id="resource_{{k}}_{{loop.index}}" class="control"><a class="button is-small is-text"
+                data-url="{{ s.url }}">{{ s.text
+                }}</a></p>
+        {% endfor %}
+    </div>
+    {% endfor %}
+    <div class="field is-grouped">
+        <p class="control is-expanded">
+            <input id="url" name="url" class="input" type="text" placeholder="your URL or DOI">
+        </p>
+        <p class="control"><a id="btn_kg" class="button is-info">Build Knowledge Graph</a></p>
+    </div>
+</div>
 
 <!-- <section id="section-describe" class="section"> -->
 <article id="article-describe" class="message is-info">
@@ -642,37 +667,17 @@
                 <!-- <p class="control"><a id="btn_fairness" class="button is-primary">Vocab. checks</a></p> -->
                 <p class="control"><a id="btn_bioschemas" class="button is-warning is-large">Check BioSchemas </a></p>
             </div>
-            <br>
-            <div class="columns is-multiline is-mobile">
-                <div class="column is-one-half">
-                    <table class="table is-striped is-fullwidth">
-                        <thead>
-                            <tr>
-                                <th>Requirements</th>
-                            </tr>
-                        </thead>
-                        <tbody id="t_errors">
-                        </tbody>
-                    </table>
-                </div>
-                <div class="column is-one-half">
-                    <table class="table is-striped is-fullwidth">
-                        <thead>
-                            <tr>
-                                <th>Improvements</th>
-                            </tr>
-                        </thead>
-                        <tbody id="t_warnings">
-                        </tbody>
-                    </table>
-                </div>
+
+            <div id="block_valid" class="block">
+
             </div>
-            <div class="field is-grouped is-grouped-centered">
-                <!-- <p class="control"><a id="btn_fairness" class="button is-primary">Vocab. checks</a></p> -->
+
+            <!-- <div class="field is-grouped is-grouped-centered">
                 <p class="control"><a id="btn_annot_bioschemas" class="button is-warning is-hidden">Annotate missing
                         BioSchemas properties</a></p>
-            </div>
+            </div> -->
         </section>
+
         <section id="section-LinkedData" class="section">
             <!-- <h3 class="title is-3">Controlled vocabulary checks</h3> -->
             <p>We now have a Knowledge Graph grounded to ontology concepts (classes) and relations (properties). Are
