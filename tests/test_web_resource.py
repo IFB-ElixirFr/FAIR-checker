@@ -13,7 +13,7 @@ class WebResourceTestCase(unittest.TestCase):
     def test_biotools(self):
         bwa = WebResource("http://bio.tools/bwa")
         logging.info(f"{len(bwa.get_rdf())} loaded RDF triples")
-        self.assertGreaterEqual(len(bwa.get_rdf()), 48)
+        self.assertGreaterEqual(len(bwa.get_rdf()), 124)
 
     def test_dataverse(self):
         dataverse = WebResource(
