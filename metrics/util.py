@@ -118,6 +118,7 @@ def describe_wikidata(uri, g):
             PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
             PREFIX bd: <http://www.bigdata.com/rdf#>
 
+            # retrieve entities by DOIs (P356 property)
             DESCRIBE ?x WHERE {
                 ?x wdt:P356 '"""
         + uri
@@ -128,11 +129,11 @@ def describe_wikidata(uri, g):
 
     print(query)
 
-    h = {"Accept": "text/turtle"}
+    h = {"Accept": "application/sparql-results+xml"}
     p = {"query": query}
 
     res = requests.get(endpoint, headers=h, params=p, verify=False)
-    g.parse(data=res.text, format="turtle")
+    g.parse(data=res.text, format="xml")
 
     graph_post_size = len(g)
     logging.debug(f"{graph_post_size - graph_pre_size} added new triples")
