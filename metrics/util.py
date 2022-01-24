@@ -74,7 +74,7 @@ def describe_opencitation(uri, g):
 
 
 # Describe lod.openaire
-def describe_loa(uri, g):
+def describe_openaire(uri, g):
     # g = Graph()
     graph_pre_size = len(g)
     logging.debug(f"SPARQL for [ {uri} ] with enpoint [ LOA ]")

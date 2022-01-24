@@ -795,7 +795,7 @@ def handle_describe_loa(data):
     if util.is_DOI(uri):
         uri = util.get_DOI(uri)
         print(f"FOUND DOI: {uri}")
-    kg = util.describe_loa(uri, kg)
+    kg = util.describe_openaire(uri, kg)
     nb_triples = len(kg)
     emit(
         "send_annot_2",
@@ -881,7 +881,7 @@ def handle_embedded_annot(data):
         # describe on lod.openair
 
         # @TODO fix wikidata / LOA / etc. access
-        kg = util.describe_loa(uri, kg)
+        kg = util.describe_openaire(uri, kg)
         step += 1
         emit("update_annot", step)
         emit("send_annot", str(kg.serialize(format="turtle").decode()))

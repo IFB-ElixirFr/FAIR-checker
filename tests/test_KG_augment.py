@@ -2,7 +2,7 @@ import unittest
 
 import requests
 
-from metrics.util import describe_loa
+from metrics.util import describe_openaire
 from metrics.util import describe_biotools
 from metrics.util import describe_wikidata
 from metrics.util import describe_opencitation
@@ -73,68 +73,36 @@ class KGAugmentTestCase(unittest.TestCase):
         kg = describe_wikidata(url, kg)
         print(kg.serialize(format="turtle"))
 
-    def test_wikidata_http(self):
+    def test_wikidata_alive(self):
         endpoint = "https://query.wikidata.org/sparql"
-
-        uri = "https://www.wikidata.org/entity/Q1684014"
         uri = "wd:Q1684014"
         h = {"Accept": "application/sparql-results+xml"}
         p = {"query": "DESCRIBE " + uri}
+
         res = requests.get(endpoint, headers=h, params=p, verify=True)
         print(res.url)
         print(res)
         print(res.text)
+
         kg = ConjunctiveGraph()
         kg.parse(data=res.text, format="xml")
         print(f"loaded {len(kg)} triples")
-        self.assertEqual(55, len(kg))
+        self.assertEqual(len(kg), 55)
 
-    # @unittest.skip("To be done by a CRON")
-    def test_biotools(self):
-        # r2 = R2Impl()
-        # r2.set_url("https://workflowhub.eu/workflows/45")
-        # r2.extract_html_requests()
-        # r2.extract_rdf()
-        # kg = r2.get_jsonld()
-        # print(len(kg))
-        # print(kg)
-        # print(kg.serialize(format='turtle').decode())
-
-        url = "http://www.wikidata.org/entity/Q28665865"
-        url = "https://workflowhub.eu/workflows/45"
-        url = "https://bio.tools/bwa"
-
-        kg = ConjunctiveGraph()
-        kg = describe_biotools(url, kg)
-        print(kg.serialize(format="turtle").decode())
-
-        # self.assertEqual(True, False)
-
-    # @unittest.skip("To be done by a CRON")
-    def test_loa(self):
-        # r2 = R2Impl()
-        # r2.set_url("https://workflowhub.eu/workflows/45")
-        # r2.extract_html_requests()
-        # r2.extract_rdf()
-        # kg = r2.get_jsonld()
-        # print(len(kg))
-        # print(kg)
-        # print(kg.serialize(format='turtle').decode())
-
-        url = "http://www.wikidata.org/entity/Q28665865"
-        url = "https://workflowhub.eu/workflows/45"
+    def test_openaire_alive(self):
         url = "https://search.datacite.org/works/10.7892/boris.108387"
 
         # check if id or doi in uri
         if is_DOI(url):
             uri = get_DOI(url)
             print(f"FOUND DOI: {uri}")
-            # describe on lod.openair
+            # describe on lod.openaire
             kg = ConjunctiveGraph()
-            kg = describe_loa(uri, kg)
-            print(kg.serialize(format="turtle").decode())
-
-        # self.assertEqual(True, False)
+            kg = describe_openaire(uri, kg)
+            print(kg.serialize(format="turtle"))
+            self.assertGreaterEqual(len(kg), 10)
+        else:
+            self.fail()
 
     # @unittest.skip("To be done by a CRON")
     def test_opencitation(self):
@@ -174,7 +142,7 @@ class KGAugmentTestCase(unittest.TestCase):
         url = "https://bio.tools/bwa"
 
         kg = ConjunctiveGraph()
-        kg = describe_loa(url, kg)
+        kg = describe_openaire(url, kg)
         kg = describe_opencitation(url, kg)
         kg = describe_wikidata(url, kg)
         kg = describe_biotools(url, kg)
