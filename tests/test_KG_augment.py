@@ -28,7 +28,7 @@ class KGAugmentTestCase(unittest.TestCase):
         """
         kg = ConjunctiveGraph()
         kg.parse(data=rdf_triples_base, format="turtle")
-        print(kg.serialize(format="turtle").decode())
+        print(kg.serialize(format="turtle"))
 
         rdf_triples_NO_base = """
         @prefix category: <http://example.org/> .
@@ -43,7 +43,7 @@ class KGAugmentTestCase(unittest.TestCase):
         """
         kg = ConjunctiveGraph()
         kg.parse(data=rdf_triples_NO_base, format="turtle")
-        print(kg.serialize(format="turtle").decode())
+        print(kg.serialize(format="turtle"))
 
         # from scratch
         kg2 = ConjunctiveGraph()
@@ -54,9 +54,7 @@ class KGAugmentTestCase(unittest.TestCase):
                 Literal("2"),
             )
         )
-        print(
-            kg2.serialize(format="turtle", base="http://fair-checker/example/").decode()
-        )
+        print(kg2.serialize(format="turtle", base="http://fair-checker/example/"))
 
         kg3 = ConjunctiveGraph()
         kg3.parse(
@@ -64,44 +62,32 @@ class KGAugmentTestCase(unittest.TestCase):
             format="turtle",
         )
         kg3 = kg3 + kg2
-        print(
-            kg3.serialize(format="turtle", base="http://fair-checker/example/").decode()
-        )
+        print(kg3.serialize(format="turtle", base="http://fair-checker/example/"))
 
-    # @unittest.skip("To be done by a CRON, find example with added triples")
+    @unittest.skip("To be done by a CRON, find example with added triples")
     def test_wikidata_sparqlwrapper(self):
-        # r2 = R2Impl()
-        # r2.set_url("https://workflowhub.eu/workflows/45")
-        # r2.extract_html_requests()
-        # r2.extract_rdf()
-        # kg = r2.get_jsonld()
-        # print(len(kg))
-        # print(kg)
-        # print(kg.serialize(format='turtle').decode())
-
         url = "http://www.wikidata.org/entity/Q28665865"
         # url = "https://search.datacite.org/works/10.7892/boris.108387"
 
         kg = ConjunctiveGraph()
         kg = describe_wikidata(url, kg)
-        print(kg.serialize(format="turtle").decode())
+        print(kg.serialize(format="turtle"))
 
-    @unittest.skip("wikidata sparql endpoint access 403 error")
     def test_wikidata_http(self):
         endpoint = "https://query.wikidata.org/sparql"
 
         uri = "https://www.wikidata.org/entity/Q1684014"
         uri = "wd:Q1684014"
-        h = {"Accept": "text/csv"}
-        p = {"query": "'DESCRIBE " + uri + "'"}
+        h = {"Accept": "application/sparql-results+xml"}
+        p = {"query": "DESCRIBE " + uri}
         res = requests.get(endpoint, headers=h, params=p, verify=True)
         print(res.url)
         print(res)
         print(res.text)
         kg = ConjunctiveGraph()
-        kg.parse(data=res.text, format="turtle")
+        kg.parse(data=res.text, format="xml")
         print(f"loaded {len(kg)} triples")
-        self.assertEqual(49, len(kg))
+        self.assertEqual(55, len(kg))
 
     # @unittest.skip("To be done by a CRON")
     def test_biotools(self):
