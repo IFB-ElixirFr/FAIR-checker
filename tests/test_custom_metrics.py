@@ -13,7 +13,7 @@ from metrics.util import ask_OLS, ask_LOV
 import random
 
 
-class MyTestCase(unittest.TestCase):
+class OlsLovTestCase(unittest.TestCase):
     @classmethod
     def setUpClass(cls) -> None:
         super().setUpClass()
@@ -24,16 +24,14 @@ class MyTestCase(unittest.TestCase):
         super().tearDownClass()
         print("ENDING all tests")
 
-    @unittest.skip("To be done by a CRON")
     def test_OLS(self):
         uri1 = "https://bio.tools/bwa"
         self.assertFalse(ask_OLS(uri1))
         uri2 = "http://schema.org/Organization"
         self.assertFalse(ask_OLS(uri2))
-        uri3 = "http://www.ebi.ac.uk/efo/EFO_0000001"
+        uri3 = "http://purl.obolibrary.org/obo/RO_0002175"
         self.assertTrue(ask_OLS(uri3))
 
-    @unittest.skip("To be done by a CRON")
     def test_LOV(self):
         uri1 = "https://bio.tools/bwa"
         self.assertFalse(ask_LOV(uri1))

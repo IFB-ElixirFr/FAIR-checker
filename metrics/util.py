@@ -220,6 +220,7 @@ def ask_OLS(uri):
     # uri = requests.compat.quote_plus(uri)
     h = {"Accept": "application/json"}
     p = {"iri": uri}
+    # TODO we are only checking for properties and not classes, to be fixed.
     res = requests.get(
         "https://www.ebi.ac.uk/ols/api/properties", headers=h, params=p, verify=True
     )
