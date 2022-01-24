@@ -8,12 +8,12 @@ import uuid
 
 @unique
 class Result(Enum):
-    NO = 1
-    WEAK = 2
-    STRONG = 3
+    NO = 0
+    WEAK = 1
+    STRONG = 2
 
     def __repr__(self):
-        return self.name
+        return self.value
 
     def __str__(self):
         return self.name
