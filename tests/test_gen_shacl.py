@@ -84,9 +84,7 @@ class GenSHACLTestCase(unittest.TestCase):
         shape = gen_SHACL_from_target_class(target_class=target_class)
         self.assertTrue("sh:path" in shape)
 
-    def test_any_resource(self):
-
-        # todo assertions on error count for each test
+    def test_biotools_validation(self):
         res = validate_any_from_RDF(
             input_url="https://bio.tools/api/jaspar?format=jsonld", rdf_syntax="json-ld"
         )
@@ -94,15 +92,14 @@ class GenSHACLTestCase(unittest.TestCase):
         self.assertEquals(len(res["https://bio.tools/jaspar"]["warnings"]), 5)
         self.assertEquals(len(res["https://bio.tools/jaspar"]["errors"]), 3)
 
-        # self.assertTrue(res["conforms"])
-
-        # todo assertions : no errors
+    def test_pangaea_validation(self):
         res = validate_any_from_microdata(
             input_url="https://doi.pangaea.de/10.1594/PANGAEA.914331"
         )
         self.assertGreater(len(res), 0)
         self.assertTrue(res["https://doi.org/10.1594/PANGAEA.914331"]["conforms"])
 
+    def test_datacite_validation(self):
         res = validate_any_from_microdata(
             input_url="https://search.datacite.org/works/10.7892/boris.108387"
         )
@@ -113,10 +110,11 @@ class GenSHACLTestCase(unittest.TestCase):
             len(res["https://doi.org/10.7892/boris.108387"]["warnings"]), 11
         )
 
+    def test_inrae_dataverse_validation(self):
         res = validate_any_from_microdata(
             input_url="https://data.inrae.fr/dataset.xhtml?persistentId=doi:10.15454/PL3HWQ"
         )
-        self.assertGreater(len(res), 0)
+        self.assertEqual(len(res), 0)
 
 
 if __name__ == "__main__":
