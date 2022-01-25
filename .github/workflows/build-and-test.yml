@@ -4,6 +4,7 @@
 name: Build and test
 
 on:
+  workflow_dispatch:
   push:
     branches: [dev_alban, dev_thomas, master, pre_deploy_1.1]
   pull_request:
