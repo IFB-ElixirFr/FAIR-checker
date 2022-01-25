@@ -147,6 +147,7 @@ class CommunityVocabTestCase(unittest.TestCase):
 
         self.assertTrue(class_or_property_found, True)
 
+    # TODO find a solution
     @unittest.skip("Need API key to work")
     def test_BioPortal(self):
         turtle_edam = self.turtle_edam
