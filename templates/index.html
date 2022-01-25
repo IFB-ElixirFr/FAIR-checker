@@ -1,12 +1,16 @@
 {% extends "layout.html" %}
 
+
 {% block nav %}
 {% include 'nav.html' %}
 {% endblock %}
 
+
+
 {% block body %}
 
-<h1 class="title">Welcome to FAIR-Checker</h1>
+
+{#<h1 class="title">Welcome to FAIR-Checker</h1>#}
 
 <div class="columns is-centered is-vcentered">
     <div class="column is-half">
@@ -32,10 +36,15 @@
     </div>
     <div class="column is-one-quarter">
         <img src="{{ url_for('static',filename='images/logo-ifb-couleur.svg') }}">
-
     </div>
     <div class="column is-one-quarter">
         <img src="{{ url_for('static',filename='images/ELIXIR_Node_FRANCE.png') }}">
+    </div>
+</div>
+
+<div class="columns is-centered">
+    <div class="column is-6">
+        <div class="box">FAIR-Checker is a Web tool to assess FAIR principles and promote their implementation.</div>
     </div>
 </div>
 
@@ -47,13 +56,7 @@
             </div>
         </div>
     </div>
-    <div class="column is-3 has-text-centered">
-        <div class="section">
-            <div class="box">
-                <h2>Article</h2>
-            </div>
-        </div>
-    </div>
+
     <div class="column is-3 has-text-centered">
         <div class="section">
             <div class="box">
