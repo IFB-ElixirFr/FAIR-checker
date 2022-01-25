@@ -10,27 +10,39 @@
             }
 
         });
+
+        // Check for click events on the navbar burger icon
+        $(".navbar-burger").click(function() {
+
+          // Toggle the "is-active" class on both the "navbar-burger" and the "navbar-menu"
+          $(".navbar-burger").toggleClass("is-active");
+          $(".navbar-menu").toggleClass("is-active");
+
+        });
     });
 </script>
 
 <nav class="navbar is-fixed-top is-light" role="navigation" aria-label="main navigation">
-{#  <div class="navbar-brand">#}
-{##}
-{##}
-{#    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">#}
-{#      <span aria-hidden="true"></span>#}
-{#      <span aria-hidden="true"></span>#}
-{#      <span aria-hidden="true"></span>#}
-{#    </a>#}
-{#  </div>#}
-
-  <div id="fc_navbar" class="navbar-menu">
-    <div class="navbar-start">
+  <div class="navbar-brand">
+{#      <a class="navbar-item">#}
+{#        FAIR-Checker#}
+{#      </a>#}
       <a class="navbar-item" href="https://www.france-bioinformatique.fr/" target="_blank">
         <img src="https://www.france-bioinformatique.fr/wp-content/uploads/logo-ifb-couleur.svg" alt="ifb_logo" width="112" height="28">
       </a>
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+
+  </div>
+
+  <div id="fc_navbar" class="navbar-menu">
+    <div class="navbar-start">
+
       <a class="navbar-item" href="{{ url_for('index') }}">
-        FAIR-Checker
+        Home
       </a>
 
       <a class="navbar-item" href="{{ url_for('base_metrics') }}">
