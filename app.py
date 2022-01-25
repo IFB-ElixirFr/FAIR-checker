@@ -1,13 +1,7 @@
-# from https://github.com/eventlet/eventlet/issues/670
 import eventlet
-
-eventlet.monkey_patch()
 import sys
-
 from flask import (
     Flask,
-    redirect,
-    url_for,
     request,
     render_template,
     session,
@@ -28,7 +22,6 @@ import argparse
 from argparse import RawTextHelpFormatter
 from datetime import datetime
 from datetime import timedelta
-from io import StringIO
 import json
 from json import JSONDecodeError
 from pathlib import Path
@@ -40,18 +33,16 @@ from rich.console import Console
 from rich.table import Table
 from rich.text import Text
 from rich.progress import track
-
 import metrics.util as util
 import metrics.statistics as stats
 from metrics import test_metric
 from metrics.FAIRMetricsFactory import FAIRMetricsFactory
-from metrics.AbstractFAIRMetrics import AbstractFAIRMetrics
 from metrics.WebResource import WebResource
 from metrics.Evaluation import Result
-from metrics.FAIRMetricsFactory import Implem
-from metrics.F1A_Impl import F1A_Impl
-
 from profiles.bioschemas_shape_gen import validate_any_from_KG
+
+# from https://github.com/eventlet/eventlet/issues/670
+eventlet.monkey_patch()
 
 app = Flask(__name__)
 CORS(app)
