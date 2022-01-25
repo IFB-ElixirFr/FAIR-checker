@@ -26,7 +26,7 @@ class KG_ask(unittest.TestCase):
                 """
         cls.kg = ConjunctiveGraph()
         cls.kg.parse(data=rdf_triples_base, format="turtle")
-        print(cls.kg.serialize(format="turtle").decode())
+        print(cls.kg.serialize(format="turtle"))
 
     def test_ask_filter(self):
         q1 = """
