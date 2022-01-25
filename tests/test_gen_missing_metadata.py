@@ -2,9 +2,16 @@ import unittest
 import rdflib
 
 import metrics.util as util
+from metrics.WebResource import WebResource
 
 
 class MissingMetadataTestCase(unittest.TestCase):
+    @classmethod
+    def tearDownClass(cls) -> None:
+        super().tearDownClass()
+        browser = WebResource.WEB_BROWSER_HEADLESS
+        browser.quit()
+
     def test_url(self):
         self.assertFalse(
             util.is_URL("qsd jqshgd"), "This is not an URL, result should be False"

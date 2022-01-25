@@ -6,11 +6,18 @@ from metrics.util import describe_openaire
 from metrics.util import describe_wikidata
 from metrics.util import describe_opencitation
 from metrics.util import is_DOI, get_DOI
+from metrics.WebResource import WebResource
 
 from rdflib import Graph, ConjunctiveGraph, Namespace, URIRef, Literal, BNode
 
 
 class KGAugmentTestCase(unittest.TestCase):
+    @classmethod
+    def tearDownClass(cls) -> None:
+        super().tearDownClass()
+        browser = WebResource.WEB_BROWSER_HEADLESS
+        browser.quit()
+
     def test_base_url(selfself):
         # from https://github.com/RDFLib/rdflib/issues/1003
         rdf_triples_base = """

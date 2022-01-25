@@ -2,8 +2,16 @@ import unittest
 from rdflib import Graph, ConjunctiveGraph, Namespace
 import metrics.util as util
 
+from metrics.WebResource import WebResource
+
 
 class CommunityVocabTestCase(unittest.TestCase):
+    @classmethod
+    def tearDownClass(cls) -> None:
+        super().tearDownClass()
+        browser = WebResource.WEB_BROWSER_HEADLESS
+        browser.quit()
+
     turtle_edam = """
                 @prefix biotools: <https://bio.tools/ontology/> .
                 @prefix bsc: <http://bioschemas.org/> .

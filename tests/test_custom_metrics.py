@@ -11,6 +11,7 @@ from metrics.util import ask_OLS, ask_LOV
 # from metrics.util import ask_BioPortal
 
 import random
+import metrics.WebResource as WebResource
 
 
 class OlsLovTestCase(unittest.TestCase):
@@ -22,7 +23,8 @@ class OlsLovTestCase(unittest.TestCase):
     @classmethod
     def tearDownClass(cls) -> None:
         super().tearDownClass()
-        print("ENDING all tests")
+        browser = WebResource.WEB_BROWSER_HEADLESS
+        browser.quit()
 
     def test_OLS(self):
         uri1 = "https://bio.tools/bwa"

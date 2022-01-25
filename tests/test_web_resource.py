@@ -10,6 +10,12 @@ logging.basicConfig(
 
 
 class WebResourceTestCase(unittest.TestCase):
+    @classmethod
+    def tearDownClass(cls) -> None:
+        super().tearDownClass()
+        browser = WebResource.WEB_BROWSER_HEADLESS
+        browser.quit()
+
     def test_biotools(self):
         bwa = WebResource("http://bio.tools/bwa")
         logging.info(f"{len(bwa.get_rdf())} loaded RDF triples")
