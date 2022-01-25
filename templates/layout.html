@@ -45,6 +45,13 @@
 
 <body>
 
+
+
+{% include 'nav_bar.html' %}
+
+<br>
+<br>
+
 <section class="hero">
   <div class="hero-body has-text-centered">
     <p class="title">
@@ -56,24 +63,21 @@
   </div>
 </section>
 
-<div class="columns">
+<div class="columns is-centered">
 
-    <div class="column is-2">
-        <section class="section sticky">
-            <!--<div class="container">-->
-            {% block nav %}
-            {% endblock %}
-            <!--</div>-->
-        </section>
-    </div>
-
-    <div class="column">
-{#        <section class="hero">#}
-{#            <div class="hero-body has-text-centered">#}
-{#                <p class="title">FAIR-Checker</p>#}
-{#                <p class="subtitle">Improve your resource FAIRness</p>#}
-{#            </div>#}
+{#    <div class="column is-2">#}
+{#        <section class="section sticky">#}
+{#            <!--<div class="container">-->#}
+{##}
+{##}
+{#            {% block nav %}#}
+{##}
+{#            {% endblock %}#}
+{#            <!--</div>-->#}
 {#        </section>#}
+{#    </div>#}
+
+    <div class="column is-four-fifths">
         <section class="section">
             {% block body %}
             {% endblock %}
