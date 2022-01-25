@@ -53,11 +53,11 @@ class MissingMetadataTestCase(unittest.TestCase):
                         new_kg.add((uri, rdflib.URIRef(p), rdflib.Literal(value)))
 
             print("****** Turtle syntax *****")
-            print(new_kg.serialize(format="turtle").decode())
+            print(new_kg.serialize(format="turtle"))
             print("**************************")
 
             print("***** JSON-LD syntax *****")
-            print(new_kg.serialize(format="json-ld").decode())
+            print(new_kg.serialize(format="json-ld"))
             print("**************************")
 
         self.assertEqual(len(new_kg), 4)
