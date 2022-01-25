@@ -104,7 +104,7 @@ metrics = [
 ]
 
 
-# METRICS = {}
+METRICS = {}
 # json_metrics = test_metric.getMetrics()
 factory = FAIRMetricsFactory()
 #
@@ -216,17 +216,10 @@ def handle_metric(json):
     client_metric_id = json["id"]
     url = json["url"]
     print("Testing: " + url)
-    # principle = json['principle']
-    #
-    # data = '{"subject": "' + url + '"}'
 
-    # NEW class IMPLE
-
-    if implem == "FAIRMetrics":
-        print("not our implem !")
-        evaluate_fairmetrics(json, metric_name, client_metric_id, url)
-    elif implem == "FAIR-Checker":
-        print("hey our IMPLEM !")
+    # if implem == "FAIRMetrics":
+    # evaluate_fairmetrics(json, metric_name, client_metric_id, url)
+    if implem == "FAIR-Checker":
         evaluate_fc_metrics(metric_name, client_metric_id, url)
     else:
         print("Invalid implem")
