@@ -3,7 +3,7 @@ from rdflib import Graph, ConjunctiveGraph, Namespace
 import metrics.util as util
 
 
-class GenSHACLTestCase(unittest.TestCase):
+class CommunityVocabTestCase(unittest.TestCase):
     turtle_edam = """
                 @prefix biotools: <https://bio.tools/ontology/> .
                 @prefix bsc: <http://bioschemas.org/> .
@@ -97,20 +97,22 @@ class GenSHACLTestCase(unittest.TestCase):
 
         for row in qres:
             table_content["classes"].append({"name": row["class"], "tag": []})
-            print(f'{row["class"]}')
 
         qres = kg.query(query_properties)
-        print("Prop")
         for row in qres:
             table_content["properties"].append({"name": row["prop"], "tag": []})
-            print(f'{row["prop"]}')
 
+        class_or_property_found = False
         for c in table_content["classes"]:
             if util.ask_OLS(c["name"]):
                 c["tag"].append("OLS")
+                class_or_property_found = True
         for p in table_content["properties"]:
             if util.ask_OLS(p["name"]):
                 p["tag"].append("OLS")
+                class_or_property_found = True
+
+        self.assertTrue(class_or_property_found, True)
 
     def test_LOV(self):
         turtle_edam = self.turtle_edam
@@ -133,12 +135,17 @@ class GenSHACLTestCase(unittest.TestCase):
             table_content["properties"].append({"name": row["prop"], "tag": []})
             print(f'{row["prop"]}')
 
+        class_or_property_found = False
         for c in table_content["classes"]:
             if util.ask_LOV(c["name"]):
                 c["tag"].append("LOV")
+                class_or_property_found = True
         for p in table_content["properties"]:
             if util.ask_LOV(p["name"]):
                 p["tag"].append("LOV")
+                class_or_property_found = True
+
+        self.assertTrue(class_or_property_found, True)
 
     @unittest.skip("Need API key to work")
     def test_BioPortal(self):
@@ -169,43 +176,6 @@ class GenSHACLTestCase(unittest.TestCase):
         for p in table_content["properties"]:
             if util.ask_BioPortal(c["name"], "property"):
                 c["tag"].append("BioPortal")
-
-    @unittest.skip("Bioportal not working because of API key")
-    def test_validate_shape_tool(self):
-        turtle_edam = self.turtle_edam
-        kg = ConjunctiveGraph()
-        kg.parse(data=turtle_edam, format="turtle")
-
-        query_classes = self.query_classes
-        query_properties = self.query_properties
-
-        table_content = {"classes": [], "properties": []}
-        qres = kg.query(query_classes)
-        print("Class")
-        for row in qres:
-            table_content["classes"].append({"name": row["class"], "tag": []})
-            print(f'{row["class"]}')
-
-        qres = kg.query(query_properties)
-        print("Prop")
-        for row in qres:
-            table_content["properties"].append({"name": row["prop"], "tag": []})
-            print(f'{row["prop"]}')
-
-        for c in table_content["classes"]:
-            print(util.ask_BioPortal(c["name"], "class"))
-            if util.ask_OLS(c["name"]):
-                c["tag"].append("OLS")
-            if util.ask_LOV(c["name"]):
-                c["tag"].append("LOV")
-
-        for p in table_content["properties"]:
-            print(util.ask_BioPortal(p["name"], "property"))
-            # print(util.ask_OLS(p['name']))
-            if util.ask_OLS(p["name"]):
-                p["tag"].append("OLS")
-            if util.ask_LOV(p["name"]):
-                p["tag"].append("LOV")
 
 
 if __name__ == "__main__":
