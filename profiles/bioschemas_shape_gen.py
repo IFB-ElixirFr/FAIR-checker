@@ -391,11 +391,12 @@ def validate_any_from_KG(kg):
             for x, y, z in kg.triples((s, None, None)):
                 sub_kg.add((x, y, z))
 
-            warnings, errors = validate_shape(
+            conforms, warnings, errors = validate_shape(
                 knowledge_graph=sub_kg, shacl_shape=shacl_shape
             )
             results[str(s)] = {
                 "type": str(o),
+                "conforms": conforms,
                 "warnings": warnings,
                 "errors": errors,
             }
@@ -424,11 +425,12 @@ def validate_any_from_RDF(input_url, rdf_syntax):
             for x, y, z in kg.triples((s, None, None)):
                 sub_kg.add((x, y, z))
 
-            warnings, errors = validate_shape(
+            conforms, warnings, errors = validate_shape(
                 knowledge_graph=sub_kg, shacl_shape=shacl_shape
             )
             results[str(s)] = {
                 "type": str(o),
+                "conforms": conforms,
                 "warnings": warnings,
                 "errors": errors,
             }
@@ -461,11 +463,12 @@ def validate_any_from_microdata(input_url):
             for x, y, z in kg.triples((s, None, None)):
                 sub_kg.add((x, y, z))
 
-            warnings, errors = validate_shape(
+            conforms, warnings, errors = validate_shape(
                 knowledge_graph=sub_kg, shacl_shape=shacl_shape
             )
             results[str(s)] = {
                 "type": str(o),
+                "conforms": conforms,
                 "warnings": warnings,
                 "errors": errors,
             }
@@ -478,14 +481,18 @@ def validate_any_from_microdata(input_url):
 def validate_shape_from_RDF(input_uri, rdf_syntax, shacl_shape):
     kg = ConjunctiveGraph()
     kg.parse(location=input_uri, format=rdf_syntax)
-    warnings, errors = validate_shape(knowledge_graph=kg, shacl_shape=shacl_shape)
-    return warnings, errors
+    conforms, warnings, errors = validate_shape(
+        knowledge_graph=kg, shacl_shape=shacl_shape
+    )
+    return conforms, warnings, errors
 
 
 def validate_shape_from_microdata(input_uri, shacl_shape):
     kg = WebResource(input_uri).get_rdf()
-    warnings, errors = validate_shape(knowledge_graph=kg, shacl_shape=shacl_shape)
-    return warnings, errors
+    conforms, warnings, errors = validate_shape(
+        knowledge_graph=kg, shacl_shape=shacl_shape
+    )
+    return conforms, warnings, errors
 
 
 def validate_shape(knowledge_graph, shacl_shape):
@@ -530,4 +537,4 @@ def validate_shape(knowledge_graph, shacl_shape):
             print(f'ERROR: Property {r["path"]} must be provided for {r["node"]}')
             errors.append(f'{r["path"]}')
 
-    return warnings, errors
+    return conforms, warnings, errors
