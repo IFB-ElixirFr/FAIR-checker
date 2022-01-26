@@ -977,15 +977,15 @@ def check_kg_shape(data):
 
 @socketio.on("check_kg_shape_2")
 def check_kg_shape_2(data):
-    step = 0
+    logging.debug("shape validation started")
     sid = request.sid
     print(sid)
-    uri = str(data["url"])
-    # if (not sid in KGS.keys()):
-    #     handle_embedded_annot(data)
-    # elif (not KGS[sid]):
-    #     handle_embedded_annot(data)
     kg = KGS[sid]
+
+    if not kg:
+        logging.error("cannot access current knowledge graph")
+    elif len(kg) == 0:
+        logging.error("cannot validate an empty knowledge graph")
 
     results = validate_any_from_KG(kg)
     emit("done_check_shape", results)
