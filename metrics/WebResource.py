@@ -36,21 +36,6 @@ class WebResource:
         kg_2 = self.extract_rdf_extruct(self.url)
         self.rdf = kg_1 + kg_2
 
-    # def __init__(self, url) -> None:
-    #     self.url = url
-    #     self.id = "WebResource Unique ID for cache"
-    #
-    #     # Retrieve HTML with both methods
-    #     self.retrieve_html_selenium()
-    #     self.retrieve_html_request()
-    #
-    #     kg_1 = self.html_to_rdf_extruct(self.html_selenium)
-    #     kg_2 = self.html_to_rdf_extruct(self.html_requests)
-    #     kg_3 = self.html_to_rdf_parse_ld(self.html_selenium)
-    #     kg_4 = self.html_to_rdf_parse_ld(self.html_requests)
-    #
-    #     self.rdf = kg_1 + kg_2 + kg_3 + kg_4
-
     def get_url(self):
         return self.url
 
@@ -70,11 +55,9 @@ class WebResource:
 
     def retrieve_html_selenium(self):
         browser = WebResource.WEB_BROWSER_HEADLESS
-
         browser.get(self.url)
         self.html_selenium = browser.page_source
         self.browser_selenium = browser
-        print(len(self.html_selenium))
 
     def retrieve_html_request(self):
         while True:
@@ -133,10 +116,8 @@ class WebResource:
     # @staticmethod
     def html_to_rdf_parse_ld(self, html_source):
         kg = ConjunctiveGraph()
-
         browser = self.browser_selenium
         logging.debug(type(browser.page_source))
-        print(len(browser.page_source))
 
         try:
             element = browser.find_element_by_xpath(

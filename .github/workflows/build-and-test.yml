@@ -41,6 +41,7 @@ jobs:
       - shell: bash -l {0}
         run: |
           mamba install --file requirements.txt
+          pip install extruct
 
       #----------------------------------------------
       # Code quality check
