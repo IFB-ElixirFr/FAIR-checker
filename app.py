@@ -151,18 +151,28 @@ def favicon():
 
 @app.route("/")
 def home():
-    return render_template("index.html")
+    return render_template(
+        "index.html",
+        title="FAIR-Checker",
+        subtitle="Improve your FAIRness",
+    )
 
 
 @app.route("/about")
 def about():
-    return render_template("about.html")
+    return render_template(
+        "about.html",
+        title="About",
+        subtitle="About and feedbacks",
+    )
 
 
 @app.route("/statistics")
 def statistics():
     return render_template(
         "statistics.html",
+        title="Statistics",
+        subtitle="Visualize usage statistics of FAIR-Checker",
         evals=stats.evaluations_this_week(),
         success=stats.success_this_week(),
         success_weekly=stats.success_weekly_one_year(),
@@ -997,7 +1007,10 @@ def check_kg_shape_2(data):
 
 @app.route("/")
 def index():
-    return render_template("index.html")
+    return render_template(
+        "index.html",
+
+    )
 
 
 def cb():
@@ -1108,6 +1121,8 @@ def base_metrics():
             sample_data=sample_resources,
             jld=raw_jld,
             uuid=content_uuid,
+            title="Check",
+            subtitle="How FAIR is my resource ?",
         )
     )
     # )).headers.add('Access-Control-Allow-Origin', '*')
@@ -1139,7 +1154,11 @@ def kg_metrics_2():
     #         "principle": "principle for i1" }]
     m = []
     return render_template(
-        "kg_metrics_2.html", f_metrics=m, sample_data=sample_resources
+        "kg_metrics_2.html",
+        f_metrics=m,
+        sample_data=sample_resources,
+        title="Inspect",
+        subtitle="How to enhance metadata quality for my tools, datasets, workflows ?",
     )
 
 
