@@ -50,11 +50,35 @@
     </div>
 </div> -->
 
+<div class="section">
+<h2 class="title">Abstract</h2>
+<hr>
+    <div class="columns ">
+        <div class="column is-one-thirds">
+            Illustration Here
+        </div>
+
+        <div class="column is-two-thirds">
+            We propose a web interface aimed at empowering scientists to progress in the FAIRification of their resources. This tool benefits from FAIRMetrics APIsto provide a global assessment and recommendations. We also leverage semantic technologies to help users in annotating their resources with high-quality metadata. For each evaluated resource, we build a knowledge graph based on embedded RDF triples (microdata, json-ld), as well as external knowledge(public SPARQL endpoints). To evaluate metadata quality, we check that used ontology terms are already known in reference registries. Finally, we leverage Bioschemas, the extension of Schema.org for life sciences, to automatically generate SHACL constraints. Their evaluation informs users on missing metadata, required or recommended for specific types of resources (genes, proteins, training material,computational tools, etc.). This also results in a form to annotate and produce enriched metadata.
+        </div>
+    </div>
+
+</div>
+
+<div class="section">
+<h2 class="title">Poster</h2>
+<hr>
+    <a href={{ url_for('static',filename='images/FAIR_Checker_poster.pdf') }} target="_blank" >
+        <img src={{ url_for('static',filename='images/FAIR_Checker_poster.png') }} width="150">
+    </a>
+</div>
+
 <div class="columns is-centered">
     <div class="column is-3 has-text-centered">
         <div class="section">
             <div class="box">
-                <h2>Poster</h2>
+
+                <h2><a href={{ url_for('static',filename='images/FAIR_Checker_poster.pdf') }} target="_blank">Poster</a></h2>
             </div>
         </div>
     </div>
