@@ -154,7 +154,7 @@ def home():
     return render_template(
         "index.html",
         title="FAIR-Checker",
-        subtitle="Improve your FAIRness",
+        subtitle="Improve the FAIRness of your web resources",
     )
 
 
