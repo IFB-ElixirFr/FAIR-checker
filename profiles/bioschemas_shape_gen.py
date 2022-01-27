@@ -371,6 +371,8 @@ def gen_SHACL_from_profile(shape_name, target_classes, min_props, rec_props):
 def validate_any_from_KG(kg):
     kg.namespace_manager.bind("sc", URIRef("http://schema.org/"))
     kg.namespace_manager.bind("bsc", URIRef("https://bioschemas.org/"))
+    kg.namespace_manager.bind("dct", URIRef("http://purl.org/dc/terms/"))
+
     print(len(kg))
     print(kg.serialize(format="turtle"))
 
@@ -407,7 +409,8 @@ def validate_any_from_KG(kg):
 def validate_any_from_RDF(input_url, rdf_syntax):
     kg = ConjunctiveGraph()
     kg.namespace_manager.bind("sc", URIRef("http://schema.org/"))
-    # kg.namespace_manager.bind('schema', URIRef('http://schema.org/'))
+    kg.namespace_manager.bind("bsc", URIRef("https://bioschemas.org/"))
+    kg.namespace_manager.bind("dct", URIRef("http://purl.org/dc/terms/"))
     kg.parse(location=input_url, format=rdf_syntax)
 
     results = {}
