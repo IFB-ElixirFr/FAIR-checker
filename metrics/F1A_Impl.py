@@ -39,7 +39,6 @@ class F1A_Impl(AbstractFAIRMetrics):
         eval.set_metrics(self.principle_tag)
 
         status_code = eval.get_web_resource().get_status_code()
-        print(eval)
         eval.log_info(
             "Checking if the URL is reachable, status code: " + str(status_code)
         )

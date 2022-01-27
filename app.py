@@ -163,7 +163,7 @@ def about():
     return render_template(
         "about.html",
         title="About",
-        subtitle="About and feedbacks",
+        subtitle="More about FAIR-Checker",
     )
 
 
