@@ -1,10 +1,13 @@
 from logging import warning
 import unittest
 
+from rdflib import Namespace
+
 from profiles.bioschemas_shape_gen import gen_SHACL_from_profile
 from profiles.bioschemas_shape_gen import gen_SHACL_from_target_class
 from profiles.bioschemas_shape_gen import validate_shape_from_RDF
 from profiles.bioschemas_shape_gen import validate_any_from_RDF
+from profiles.bioschemas_shape_gen import validate_any_from_KG
 from profiles.bioschemas_shape_gen import validate_any_from_microdata
 from profiles.bioschemas_shape_gen import validate_shape_from_microdata
 
@@ -103,6 +106,21 @@ class GenSHACLTestCase(unittest.TestCase):
         res = validate_any_from_microdata(
             input_url="https://search.datacite.org/works/10.7892/boris.108387"
         )
+        self.assertGreater(len(res), 0)
+        self.assertFalse(res["https://doi.org/10.7892/boris.108387"]["conforms"])
+        self.assertEquals(len(res["https://doi.org/10.7892/boris.108387"]["errors"]), 2)
+        self.assertEquals(
+            len(res["https://doi.org/10.7892/boris.108387"]["warnings"]), 11
+        )
+
+    def test_datacite_validation_kg(self):
+        input_url = "https://search.datacite.org/works/10.7892/boris.108387"
+        datacite_md = WebResource(input_url)
+        kg = datacite_md.get_rdf()
+
+        print(f"{len(kg)} loaded RDF triples")
+        print(kg.serialize(format="turtle"))
+        res = validate_any_from_KG(kg=kg)
         self.assertGreater(len(res), 0)
         self.assertFalse(res["https://doi.org/10.7892/boris.108387"]["conforms"])
         self.assertEquals(len(res["https://doi.org/10.7892/boris.108387"]["errors"]), 2)
