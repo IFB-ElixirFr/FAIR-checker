@@ -26,7 +26,7 @@ import json
 from json import JSONDecodeError
 from pathlib import Path
 import rdflib
-from rdflib import ConjunctiveGraph
+from rdflib import ConjunctiveGraph, URIRef
 import extruct
 import logging
 from rich.console import Console
@@ -269,15 +269,15 @@ def evaluate_fairmetrics(json, metric_name, client_metric_id, url):
     # select only success and failure
     comment = test_metric.filterComment(comment, "sf")
 
-    json_result = {
-        "url": url,
-        "api_url": api_url,
-        "principle": principle,
-        "id": id,
-        "score": score,
-        "exec_time": str(evaluation_time),
-        "date": str(datetime.now().isoformat()),
-    }
+    # json_result = {
+    #     "url": url,
+    #     "api_url": api_url,
+    #     "principle": principle,
+    #     "id": id,
+    #     "score": score,
+    #     "exec_time": str(evaluation_time),
+    #     "date": str(datetime.now().isoformat()),
+    # }
 
     # print(json_result)
     # might be removed
@@ -696,6 +696,9 @@ def handle_embedded_annot_2(data):
 @socketio.on("update_annot_bioschemas")
 def handle_annotationn(data):
     new_kg = rdflib.ConjunctiveGraph()
+    new_kg.namespace_manager.bind("sc", URIRef("http://schema.org/"))
+    new_kg.namespace_manager.bind("bsc", URIRef("https://bioschemas.org/"))
+    new_kg.namespace_manager.bind("dct", URIRef("http://purl.org/dc/terms/"))
 
     # TODO check that url is well formed
     if util.is_URL(data["url"]):
@@ -987,15 +990,15 @@ def check_kg_shape(data):
 
 @socketio.on("check_kg_shape_2")
 def check_kg_shape_2(data):
-    logging.debug("shape validation started")
+    print("shape validation started")
     sid = request.sid
     print(sid)
     kg = KGS[sid]
 
     if not kg:
-        logging.error("cannot access current knowledge graph")
+        print("cannot access current knowledge graph")
     elif len(kg) == 0:
-        logging.error("cannot validate an empty knowledge graph")
+        print("cannot validate an empty knowledge graph")
 
     results = validate_any_from_KG(kg)
     emit("done_check_shape", results)
@@ -1009,7 +1012,6 @@ def check_kg_shape_2(data):
 def index():
     return render_template(
         "index.html",
-
     )
 
 
