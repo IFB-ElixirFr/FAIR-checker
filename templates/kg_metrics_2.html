@@ -202,8 +202,12 @@
 
     $("#btn_kg").click(function () {
         $(this).addClass("is-loading");
+        $("#microdata").val("");
+        $("#nb_triples").text("0" + " triples");
+        $('#block_valid').html("");
+        $('#t_classes').html("");
+        $('#t_properties').html("");
         socket.emit('retrieve_embedded_annot_2', { url: $("#url").val() });
-
     });
 
     $("#btn_describe_biotools").click(function () {
