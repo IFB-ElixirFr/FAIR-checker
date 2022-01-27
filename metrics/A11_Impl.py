@@ -1,6 +1,7 @@
 from metrics.AbstractFAIRMetrics import AbstractFAIRMetrics
 import requests
 
+
 class A11_Impl(AbstractFAIRMetrics):
     """
     GOAL : retrieve embedded semantic annotations
@@ -35,24 +36,20 @@ class A11_Impl(AbstractFAIRMetrics):
         eval.set_metrics(self.principle_tag)
 
         status_code = eval.get_web_resource().get_status_code()
-        eval.log_info(
-            "Checking if the URL uses HTTP protocol"
-        )
+        eval.log_info("Checking if the URL uses HTTP protocol")
         if status_code != 404:
             eval.log_info("The resource use HTTP protocol")
             eval.set_score(2)
             return eval
         elif status_code == 404:
-            eval.log_info(
-                "The resource can't be found: 404 error"
-            )
+            eval.log_info("The resource can't be found: 404 error")
             eval.set_score(0)
-            eval.set_recommendations("Ensure that the resource is accessible using the provided URL")
+            eval.set_recommendations(
+                "Ensure that the resource is accessible using the provided URL"
+            )
             return eval
         else:
-            eval.log_info(
-                "The resource seems to not be using HTTP protocol"
-            )
+            eval.log_info("The resource seems to not be using HTTP protocol")
             eval.set_score(0)
             eval.set_recommendations("You may consider to use the HTTP protocol")
             return eval
