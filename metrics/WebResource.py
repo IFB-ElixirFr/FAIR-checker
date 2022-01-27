@@ -8,13 +8,12 @@ from selenium.webdriver.chrome.options import Options
 from selenium.common.exceptions import NoSuchElementException
 import extruct
 from pathlib import Path
-from rdflib import ConjunctiveGraph
+from rdflib import ConjunctiveGraph, URIRef
 import requests
 import json
 
 
 class WebResource:
-    print("in webresouirce")
     chrome_options = Options()
     chrome_options.add_argument("--headless")
     WEB_BROWSER_HEADLESS = webdriver.Chrome(
@@ -78,13 +77,16 @@ class WebResource:
         self.html_requests = response.content
 
     @staticmethod
-    def html_to_rdf_extruct(html_source):
+    def html_to_rdf_extruct(html_source) -> ConjunctiveGraph:
         data = extruct.extract(
             html_source, syntaxes=["microdata", "rdfa", "json-ld"], errors="ignore"
         )
         kg = ConjunctiveGraph()
+        kg.namespace_manager.bind("sc", URIRef("http://schema.org/"))
+        kg.namespace_manager.bind("bsc", URIRef("https://bioschemas.org/"))
+        kg.namespace_manager.bind("dct", URIRef("http://purl.org/dc/terms/"))
 
-        base_path = Path(__file__).parent.parent  ## current directory
+        base_path = Path(__file__).parent.parent  # current directory
         static_file_path = str((base_path / "static/data/jsonldcontext.json").resolve())
 
         for md in data["json-ld"]:
@@ -114,44 +116,6 @@ class WebResource:
         return kg
 
     # @staticmethod
-    def html_to_rdf_parse_ld(self, html_source):
-        kg = ConjunctiveGraph()
-        browser = self.browser_selenium
-        logging.debug(type(browser.page_source))
-
-        try:
-            element = browser.find_element_by_xpath(
-                "//script[@type='application/ld+json']"
-            )
-            element = element.get_attribute("outerHTML")
-            # browser.quit()
-
-            tree = html.fromstring(element)
-            jsonld_string = tree.xpath('//script[@type="application/ld+json"]//text()')
-            # try:
-            # jsonld_string = html.fromstring(html_source).xpath('//script[@type="application/ld+json"]//text()')
-            print(jsonld_string)
-            base_path = Path(__file__).parent.parent  # current directory
-            static_file_path = str(
-                (base_path / "static/data/jsonldcontext.json").resolve()
-            )
-
-            for json_ld_annots in jsonld_string:
-                jsonld = json.loads(json_ld_annots)
-                if "@context" in jsonld.keys():
-                    if "//schema.org" in jsonld["@context"]:
-                        jsonld["@context"] = static_file_path
-                kg.parse(data=json.dumps(jsonld, ensure_ascii=False), format="json-ld")
-                logging.debug(f"{len(kg)} retrieved triples in KG")
-                logging.debug(kg.serialize(format="turtle"))
-
-        except NoSuchElementException:
-            logging.warning('Can\'t find "application/ld+json" content')
-            pass
-
-        return kg
-
-    # @staticmethod
     def extract_rdf_extruct(self, url) -> ConjunctiveGraph:
         while True:
             try:
@@ -173,9 +137,13 @@ class WebResource:
         data = extruct.extract(
             html_source, syntaxes=["microdata", "rdfa", "json-ld"], errors="ignore"
         )
-        kg = ConjunctiveGraph()
 
-        base_path = Path(__file__).parent.parent  ## current directory
+        kg = ConjunctiveGraph()
+        kg.namespace_manager.bind("sc", URIRef("http://schema.org/"))
+        kg.namespace_manager.bind("bsc", URIRef("https://bioschemas.org/"))
+        kg.namespace_manager.bind("dct", URIRef("http://purl.org/dc/terms/"))
+
+        base_path = Path(__file__).parent.parent  # current directory
         static_file_path = str((base_path / "static/data/jsonldcontext.json").resolve())
 
         for md in data["json-ld"]:
@@ -207,13 +175,16 @@ class WebResource:
     @staticmethod
     def extract_rdf_selenium(url) -> ConjunctiveGraph:
         kg = ConjunctiveGraph()
+        kg.namespace_manager.bind("sc", URIRef("http://schema.org/"))
+        kg.namespace_manager.bind("bsc", URIRef("https://bioschemas.org/"))
+        kg.namespace_manager.bind("dct", URIRef("http://purl.org/dc/terms/"))
 
         browser = WebResource.WEB_BROWSER_HEADLESS
         browser.get(url)
         # self.html_source = browser.page_source
         # browser.quit()
         logging.debug(type(browser.page_source))
-        print(len(browser.page_source))
+        logging.info(f"size of the parsed web page: {len(browser.page_source)}")
 
         try:
             element = browser.find_element_by_xpath(
@@ -246,5 +217,7 @@ class WebResource:
         return kg
 
     def __str__(self) -> str:
-        out = f"Web resource under FAIR assesment:\n\t- {self.url} \n\t- {len(self.rdf)} embedded RDF triples"
+        out = """Web resource under FAIR assesment:\n\t"""
+        out += self.url + "\n\t"
+        out += len(self.rdf) + " embedded RDF triples"
         return out
