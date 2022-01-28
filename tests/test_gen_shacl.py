@@ -135,6 +135,14 @@ class GenSHACLTestCase(unittest.TestCase):
         )
         self.assertEqual(len(res), 0)
 
+    def test_workflow_validation(self):
+        res = validate_any_from_microdata(
+            input_url="https://workflowhub.eu/workflows/263"
+        )
+        self.assertEqual(
+            len(res["https://workflowhub.eu/workflows/263?version=1"]["errors"]), 4
+        )
+
     def test_base_prefix_rdf(self):
         rdf = """
         @prefix rdfs: <http://my/prefix/> .
