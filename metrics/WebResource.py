@@ -34,6 +34,9 @@ class WebResource:
         # get static RDF metadata (already available in html sources)
         kg_2 = self.extract_rdf_extruct(self.url)
         self.rdf = kg_1 + kg_2
+        self.rdf.namespace_manager.bind("sc", URIRef("http://schema.org/"))
+        self.rdf.namespace_manager.bind("bsc", URIRef("https://bioschemas.org/"))
+        self.rdf.namespace_manager.bind("dct", URIRef("http://purl.org/dc/terms/"))
 
     def get_url(self):
         return self.url
@@ -82,9 +85,6 @@ class WebResource:
             html_source, syntaxes=["microdata", "rdfa", "json-ld"], errors="ignore"
         )
         kg = ConjunctiveGraph()
-        kg.namespace_manager.bind("sc", URIRef("http://schema.org/"))
-        kg.namespace_manager.bind("bsc", URIRef("https://bioschemas.org/"))
-        kg.namespace_manager.bind("dct", URIRef("http://purl.org/dc/terms/"))
 
         base_path = Path(__file__).parent.parent  # current directory
         static_file_path = str((base_path / "static/data/jsonldcontext.json").resolve())
@@ -113,6 +113,11 @@ class WebResource:
             kg.parse(data=json.dumps(md, ensure_ascii=False), format="json-ld")
 
         logging.debug(kg.serialize(format="turtle"))
+
+        kg.namespace_manager.bind("sc", URIRef("http://schema.org/"))
+        kg.namespace_manager.bind("bsc", URIRef("https://bioschemas.org/"))
+        kg.namespace_manager.bind("dct", URIRef("http://purl.org/dc/terms/"))
+
         return kg
 
     # @staticmethod
@@ -139,9 +144,6 @@ class WebResource:
         )
 
         kg = ConjunctiveGraph()
-        kg.namespace_manager.bind("sc", URIRef("http://schema.org/"))
-        kg.namespace_manager.bind("bsc", URIRef("https://bioschemas.org/"))
-        kg.namespace_manager.bind("dct", URIRef("http://purl.org/dc/terms/"))
 
         base_path = Path(__file__).parent.parent  # current directory
         static_file_path = str((base_path / "static/data/jsonldcontext.json").resolve())
@@ -170,14 +172,16 @@ class WebResource:
             kg.parse(data=json.dumps(md, ensure_ascii=False), format="json-ld")
 
         logging.debug(kg.serialize(format="turtle"))
+
+        kg.namespace_manager.bind("sc", URIRef("http://schema.org/"))
+        kg.namespace_manager.bind("bsc", URIRef("https://bioschemas.org/"))
+        kg.namespace_manager.bind("dct", URIRef("http://purl.org/dc/terms/"))
+
         return kg
 
     @staticmethod
     def extract_rdf_selenium(url) -> ConjunctiveGraph:
         kg = ConjunctiveGraph()
-        kg.namespace_manager.bind("sc", URIRef("http://schema.org/"))
-        kg.namespace_manager.bind("bsc", URIRef("https://bioschemas.org/"))
-        kg.namespace_manager.bind("dct", URIRef("http://purl.org/dc/terms/"))
 
         browser = WebResource.WEB_BROWSER_HEADLESS
         browser.get(url)
@@ -213,6 +217,10 @@ class WebResource:
         except NoSuchElementException:
             logging.warning('Can\'t find "application/ld+json" content')
             pass
+
+        kg.namespace_manager.bind("sc", URIRef("http://schema.org/"))
+        kg.namespace_manager.bind("bsc", URIRef("https://bioschemas.org/"))
+        kg.namespace_manager.bind("dct", URIRef("http://purl.org/dc/terms/"))
 
         return kg
 
