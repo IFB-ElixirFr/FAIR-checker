@@ -1,8 +1,6 @@
-from logging import warning
 import unittest
 
-from rdflib import ConjunctiveGraph, Literal, BNode, URIRef
-from rdflib.namespace import RDFS
+from rdflib import ConjunctiveGraph, URIRef
 
 from profiles.bioschemas_shape_gen import gen_SHACL_from_profile
 from profiles.bioschemas_shape_gen import gen_SHACL_from_target_class
@@ -134,6 +132,14 @@ class GenSHACLTestCase(unittest.TestCase):
             input_url="https://data.inrae.fr/dataset.xhtml?persistentId=doi:10.15454/PL3HWQ"
         )
         self.assertEqual(len(res), 0)
+
+    def test_workflow_validation(self):
+        res = validate_any_from_microdata(
+            input_url="https://workflowhub.eu/workflows/263"
+        )
+        self.assertEqual(
+            len(res["https://workflowhub.eu/workflows/263?version=1"]["errors"]), 4
+        )
 
     def test_base_prefix_rdf(self):
         rdf = """

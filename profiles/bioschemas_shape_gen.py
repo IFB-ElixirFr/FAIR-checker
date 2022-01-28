@@ -294,7 +294,7 @@ def checktype(obj):
 def gen_SHACL_from_target_class(target_class):
     print(f"Generating SHACL shape for {target_class}")
 
-    if not target_class in bs_profiles.keys():
+    if target_class not in bs_profiles.keys():
         raise BioschemasProfileError(class_name=target_class)
 
     name = target_class.rsplit(":", 1)[1]
@@ -363,7 +363,7 @@ def gen_SHACL_from_profile(shape_name, target_classes, min_props, rec_props):
         min_props=min_props,
         rec_props=rec_props,
     )
-    # print(shape)
+    print(shape)
 
     return shape
 
@@ -515,18 +515,21 @@ def validate_shape(knowledge_graph, shacl_shape):
     conforms, results_graph, results_text = r
 
     report_query = """
-            SELECT ?node ?path ?severity WHERE {
+            SELECT ?node ?path ?path ?severity WHERE {
                 ?v rdf:type sh:ValidationReport ;
                    sh:result ?r .
                 ?r sh:focusNode ?node ;
                    sh:sourceShape ?s .
-                ?s sh:path ?path ;
-                   sh:severity ?severity .
+                { ?s sh:path ?path ;
+                   sh:severity ?severity . }
+                UNION { ?s sh:path/sh:alternativePath/rdf:rest*/rdf:first ?path ;
+                   sh:severity ?severity . }
+                FILTER (! isBlank(?path))
             }
         """
 
     results = results_graph.query(report_query)
-    # print('VALIDATION RESULTS')
+    # print("VALIDATION RESULTS")
     # print(results_text)
     # print(conforms)
     # print(results_graph.serialize(format="turtle"))
