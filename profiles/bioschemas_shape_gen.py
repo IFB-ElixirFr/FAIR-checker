@@ -294,7 +294,7 @@ def checktype(obj):
 def gen_SHACL_from_target_class(target_class):
     print(f"Generating SHACL shape for {target_class}")
 
-    if not target_class in bs_profiles.keys():
+    if target_class not in bs_profiles.keys():
         raise BioschemasProfileError(class_name=target_class)
 
     name = target_class.rsplit(":", 1)[1]

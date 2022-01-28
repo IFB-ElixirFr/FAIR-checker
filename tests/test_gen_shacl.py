@@ -1,8 +1,6 @@
-from logging import warning
 import unittest
 
-from rdflib import ConjunctiveGraph, Literal, BNode, URIRef
-from rdflib.namespace import RDFS
+from rdflib import ConjunctiveGraph, URIRef
 
 from profiles.bioschemas_shape_gen import gen_SHACL_from_profile
 from profiles.bioschemas_shape_gen import gen_SHACL_from_target_class
