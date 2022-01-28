@@ -57,22 +57,24 @@
     <h2 class="title">How it works ?</h2>
     <hr>
     <div class="block ">
-        We propose a web interface aimed at empowering scientists to progress in the FAIRification of their
-        resources. This tool benefits from FAIR checks to provide a global assessment and recommendations. We also
-        leverage semantic technologies to help users in annotating their resources with high-quality metadata. For
-        each evaluated resource, we build a knowledge graph based on embedded RDF triples (microdata, json-ld), as
-        well as external knowledge(public SPARQL endpoints). To evaluate metadata quality, we check that used
-        ontology terms are already known in reference registries. Finally, we leverage Bioschemas, the extension of
-        Schema.org for life sciences, to automatically generate SHACL constraints. Their evaluation informs users on
-        missing metadata, required or recommended for specific types of resources (genes, proteins, training
-        material,computational tools, etc.). This also results in a form to annotate and produce enriched metadata.
+        For each evaluated resource, FAIR-Checker builds a knowledge graph based on embedded RDF triples (microdata,
+        json-ld, RDFa), as well as external knowledge provided by public SPARQL endpoints.
     </div>
+    <div class="block ">
+        FAIR-Checker then verifies that used ontology terms are already known in reference registries. Finally,
+        leveraging on Bioschemas, the extension of Schema.org for life sciences, FAIR-Checker automatically generate
+        SHACL constraints. Their evaluation informs users on missing metadata, required or recommended for specific
+        types of resources (genes, proteins, training material,computational tools, etc.).
+    </div>
+    <div class="block ">
+        The metadata assesment flow:
+    </div>
+
     <div class="block has-text-centered">
         <figure class="image">
             <img src={{ url_for('static',filename='images/pres_fc.png' ) }}>
         </figure>
     </div>
-
 </div>
 
 <div class="section">
