@@ -1160,7 +1160,7 @@ def kg_metrics_2():
         f_metrics=m,
         sample_data=sample_resources,
         title="Inspect",
-        subtitle="How to enhance metadata quality for my tools, datasets, workflows ?",
+        subtitle="to enhance metadata quality",
     )
 
 

@@ -535,17 +535,18 @@
 
 </script>
 
+<div class="block">
+    FAIR-checker leverages semantic web technologies to check that metadata use standards
+    and recognized ontologies or controlled vocabularies.
+</div>
 
-{#<h1 class="title">How to enhance metadata quality for my tools, datasets, workflows ?</h1>#}
-
-<p> These automated validations leverage semantic web technologies and check that metadata use standards and recognized
-    ontologies or controlled vocabularies.</p>
-<br>
-<p> First, embedded semantic annotations are extracted from web pages, forming a minimal knowledge graph. Then, this
-    minimal knowledge graph is completed based on already deployed knowledge graphs (Datacite, OpenAire, WikiData).
-    Finally, the resulting knowledge graph is tested to check that classes and properties are recognized through Linked
-    Open Vocabularies (LOV), or Ontology Lookup Service (OLS)</p>
-<br>
+<div class="block">
+    First, embedded semantic annotations are extracted from web pages, forming a minimal knowledge graph (Step 1). Then,
+    this minimal knowledge graph is completed based on already deployed knowledge graphs: Datacite, OpenAire, WikiData
+    (Step 2). Finally (Step 3), the resulting knowledge graph is tested to check that classes and properties are
+    recognized through Linked Open Vocabularies (LOV), Ontology Lookup Service (OLS), or Bioportal. The last
+    verification consists in validating the resource metadata against Bioschemas community profiles.
+</div>
 
 <!-- <div id="section-build-KG" class="section"> -->
 
@@ -616,8 +617,8 @@
                     <p class="control"><a id="btn_describe_loa" class="button is-warning">... from OpenAIRE</a></p>
                 </div>
                 <div class="control">
-                    <textarea id="microdata" class="textarea is-small" placeholder="Knowledge graph, in RDF, turtle syntax"
-                        rows="15"></textarea>
+                    <textarea id="microdata" class="textarea is-small"
+                        placeholder="Knowledge graph, in RDF, turtle syntax" rows="15"></textarea>
                 </div>
                 <a id="nb_triples" class="button is-success is-small">[] Triples</a>
                 <br>
@@ -664,12 +665,14 @@
 
                 <section id="section-LinkedData" class="section">
                     <!-- <h3 class="title is-3">Controlled vocabulary checks</h3> -->
-                    <p>We now have a Knowledge Graph grounded to ontology concepts (classes) and relations (properties). Are
+                    <p>We now have a Knowledge Graph grounded to ontology concepts (classes) and relations (properties).
+                        Are
                         these classes and properties already known in reference ontology registries such as LOV, OLS or
                         BioPortal ? </p>
                     <br>
                     <div class="field is-grouped is-grouped-centered">
-                        <p class="control"><a id="btn_fairness" class="button is-primary is-large">Check Vocabularies</a>
+                        <p class="control"><a id="btn_fairness" class="button is-primary is-large">Check
+                                Vocabularies</a>
                         </p>
                         <!-- <p class="control"><a id="btn_bioschemas" class="button is-warning is-large">BioSchemas checks</a></p> -->
                     </div>
@@ -703,9 +706,12 @@
                 <section id="section-BioSchemas" class="section  is-hidden">
 
                     <!-- <h3 class="title is-3">BioSchemas profiles checks</h3> -->
-                    <p>Bioschemas is a community effort aimed at reusing and extending Schema.org for better life science
-                        digital resource findability. Several profiles are defined for each kind of Life Science resources,
-                        specifying minimal, recommended or optional information. Am I missing minimal information ? Should I
+                    <p>Bioschemas is a community effort aimed at reusing and extending Schema.org for better life
+                        science
+                        digital resource findability. Several profiles are defined for each kind of Life Science
+                        resources,
+                        specifying minimal, recommended or optional information. Am I missing minimal information ?
+                        Should I
                         provide other information for better findability ?</p>
                     <br>
                     At the moment, profiles supported are: <a
@@ -719,7 +725,8 @@
                     <br>
                     <div class="field is-grouped is-grouped-centered">
                         <!-- <p class="control"><a id="btn_fairness" class="button is-primary">Vocab. checks</a></p> -->
-                        <p class="control"><a id="btn_bioschemas" class="button is-warning is-large">Check BioSchemas </a>
+                        <p class="control"><a id="btn_bioschemas" class="button is-warning is-large">Check BioSchemas
+                            </a>
                         </p>
                     </div>
 
