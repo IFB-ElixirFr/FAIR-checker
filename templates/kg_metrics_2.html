@@ -536,16 +536,22 @@
 </script>
 
 
-{#<h1 class="title">How to enhance metadata quality for my tools, datasets, workflows ?</h1>#}
+<h2 class="title">Inspect web pages to enhance metadata quality</h2>
+<hr>
 
-<p> These automated validations leverage semantic web technologies and check that metadata use standards and recognized
-    ontologies or controlled vocabularies.</p>
-<br>
-<p> First, embedded semantic annotations are extracted from web pages, forming a minimal knowledge graph. Then, this
-    minimal knowledge graph is completed based on already deployed knowledge graphs (Datacite, OpenAire, WikiData).
-    Finally, the resulting knowledge graph is tested to check that classes and properties are recognized through Linked
-    Open Vocabularies (LOV), or Ontology Lookup Service (OLS)</p>
-<br>
+
+<div class="block">
+    FAIR-checker leverages semantic web technologies to check that metadata use standards
+    and recognized ontologies or controlled vocabularies.
+</div>
+
+<div class="block">
+    First, embedded semantic annotations are extracted from web pages, forming a minimal knowledge graph (Step 1). Then,
+    this minimal knowledge graph is completed based on already deployed knowledge graphs: Datacite, OpenAire, WikiData
+    (Step 2). Finally (Step 3), the resulting knowledge graph is tested to check that classes and properties are
+    recognized through Linked Open Vocabularies (LOV), Ontology Lookup Service (OLS), or Bioportal. The last
+    verification consists in validating the resource metadata against Bioschemas community profiles.
+</div>
 
 <!-- <div id="section-build-KG" class="section"> -->
 
