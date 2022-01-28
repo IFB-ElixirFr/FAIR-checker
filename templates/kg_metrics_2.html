@@ -586,11 +586,9 @@
     </div>
 </article> -->
 
-<div class="block">
-    <div class="box">
-        <div class="block">
-            <h2 class="subtitle">Step 1: fetch RDF metadata from the resource URL or DOI</h2>
-        </div>
+<article class="message">
+    <div class="message-body is-inspect">
+        <h2 class="subtitle"><b>Step 1: fetch RDF metadata from the resource URL or DOI</b></h2>
         {% for k in sample_data.keys() %}
         <div class="field is-grouped">
             <p class="is-small">{{k}}:&nbsp;</p>
@@ -608,140 +606,143 @@
             <p class="control"><a id="btn_kg" class="button is-info">Build Knowledge Graph</a></p>
         </div>
     </div>
-</div>
+</article>
 
 <!-- <section id="section-describe" class="section"> -->
-<div class="block">
-    <div id="section-describe" class="box">
-        <div class="block">
-            <h2 class="subtitle">Step 2: Enrich Graph</h2>
-        </div>
-        <!-- <div class="message-body is-hidden"> -->
-        <div class="block is-hidden">
-            <div class="field is-grouped is-grouped-centered">
-                <p class="control"><a id="btn_describe_wikidata" class="button is-warning">... from Wikidata</a></p>
-                <p class="control"><a id="btn_describe_opencitation" class="button is-warning">... from
-                        OpenCitations</a>
-                </p>
-                <p class="control"><a id="btn_describe_loa" class="button is-warning">... from OpenAIRE</a></p>
-            </div>
-            <div class="control">
-                <textarea id="microdata" class="textarea is-small" placeholder="Knowledge graph, in RDF, turtle syntax"
-                    rows="15"></textarea>
-            </div>
-            <a id="nb_triples" class="button is-success is-small">[] Triples</a>
-            <br>
-            <div class="field is-grouped is-grouped-centered">
-                <p class="control"><a id="btn_rdf_json-ld" data-rdf="json-ld" class="button is-info">JSON-LD</a></p>
-                <p class="control"><a id="btn_rdf_turtle" data-rdf="turtle" class="button is-info">Turtle</a></p>
-                <p class="control"><a id="btn_rdf_nt" data-rdf="nt" class="button is-info">NT</a></p>
-                <p class="control"><a id="btn_rdf_xml" data-rdf="xml" class="button is-info">XML</a></p>
+<article class="message">
+    <div id="section-describe">
+        <div class="message-body is-inspect">
+            <h2 class="subtitle"><b>Step 2: Enrich Graph</b></h2>
+            <div class="block is-hidden">
+                <div class="field is-grouped is-grouped-centered">
+                    <p class="control"><a id="btn_describe_wikidata" class="button is-warning">... from Wikidata</a></p>
+                    <p class="control"><a id="btn_describe_opencitation" class="button is-warning">... from
+                            OpenCitations</a>
+                    </p>
+                    <p class="control"><a id="btn_describe_loa" class="button is-warning">... from OpenAIRE</a></p>
+                </div>
+                <div class="control">
+                    <textarea id="microdata" class="textarea is-small" placeholder="Knowledge graph, in RDF, turtle syntax"
+                        rows="15"></textarea>
+                </div>
+                <a id="nb_triples" class="button is-success is-small">[] Triples</a>
+                <br>
+                <div class="field is-grouped is-grouped-centered">
+                    <p class="control"><a id="btn_rdf_json-ld" data-rdf="json-ld" class="button is-info">JSON-LD</a></p>
+                    <p class="control"><a id="btn_rdf_turtle" data-rdf="turtle" class="button is-info">Turtle</a></p>
+                    <p class="control"><a id="btn_rdf_nt" data-rdf="nt" class="button is-info">NT</a></p>
+                    <p class="control"><a id="btn_rdf_xml" data-rdf="xml" class="button is-info">XML</a></p>
+                </div>
             </div>
         </div>
     </div>
-</div>
+</article>
+
+
+
+
 <!-- </article> -->
 <!-- </section> -->
 
-<div class="block">
-    <div id="article-bioschemas-check" class="box">
-        <div class="block">
-            <h2 class="subtitle">Step 3: Metadata quality checks</h2>
-        </div>
-        <!-- <div class="message-body is-hidden"> -->
-        <div class="block is-hidden">
-            <div class="tabs is-boxed">
-                <ul>
-                    <li id="linkeddata_tab" class="is-active">
-                        <a>
-                            <span class="icon is-small"><i class="fa fa-share-alt" aria-hidden="true"></i></span>
-                            <span>Controlled vocabularies</span>
-                        </a>
-                    </li>
-                    <li id="bioschemas_tab">
-                        <a>
-                            <span class="icon is-small"><i class="fa fa-pencil" aria-hidden="true"></i></span>
-                            <span>Bioschemas</span>
-                        </a>
-                    </li>
+<article class="message">
+    <div id="article-bioschemas-check">
+        <div class="message-body is-inspect">
+            <h1 class="subtitle"><b>Step 3: Metadata quality checks</b></h1>
+            <!-- <div class="message-body is-hidden"> -->
+            <div class="block is-hidden">
+                <div class="tabs is-boxed">
+                    <ul>
+                        <li id="linkeddata_tab" class="is-active">
+                            <a>
+                                <span class="icon is-small"><i class="fa fa-share-alt" aria-hidden="true"></i></span>
+                                <span>Controlled vocabularies</span>
+                            </a>
+                        </li>
+                        <li id="bioschemas_tab">
+                            <a>
+                                <span class="icon is-small"><i class="fa fa-pencil" aria-hidden="true"></i></span>
+                                <span>Bioschemas</span>
+                            </a>
+                        </li>
 
-                </ul>
+                    </ul>
+                </div>
+
+                <section id="section-LinkedData" class="section">
+                    <!-- <h3 class="title is-3">Controlled vocabulary checks</h3> -->
+                    <p>We now have a Knowledge Graph grounded to ontology concepts (classes) and relations (properties). Are
+                        these classes and properties already known in reference ontology registries such as LOV, OLS or
+                        BioPortal ? </p>
+                    <br>
+                    <div class="field is-grouped is-grouped-centered">
+                        <p class="control"><a id="btn_fairness" class="button is-primary is-large">Check Vocabularies</a>
+                        </p>
+                        <!-- <p class="control"><a id="btn_bioschemas" class="button is-warning is-large">BioSchemas checks</a></p> -->
+                    </div>
+                    <br>
+                    <div class="columns is-multiline is-mobile">
+                        <div class="column is-one-half">
+                            <table class="table is-striped is-fullwidth">
+                                <thead>
+                                    <tr>
+                                        <th>Classes</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="t_classes">
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="column is-one-half">
+                            <table class="table is-striped is-fullwidth">
+                                <thead>
+                                    <tr>
+                                        <th>Properties</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="t_properties">
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="section-BioSchemas" class="section  is-hidden">
+
+                    <!-- <h3 class="title is-3">BioSchemas profiles checks</h3> -->
+                    <p>Bioschemas is a community effort aimed at reusing and extending Schema.org for better life science
+                        digital resource findability. Several profiles are defined for each kind of Life Science resources,
+                        specifying minimal, recommended or optional information. Am I missing minimal information ? Should I
+                        provide other information for better findability ?</p>
+                    <br>
+                    At the moment, profiles supported are: <a
+                        href="https://bioschemas.org/profiles/ScholarlyArticle/0.2-DRAFT-2020_12_03/"
+                        target="_blank"><u>ScholarlyArticle</u></a>,
+                    <a href="https://bioschemas.org/profiles/Dataset/0.3-RELEASE-2019_06_14/"
+                        target="_blank"><u>Dataset</u></a>,
+                    <a href="https://bioschemas.org/profiles/ComputationalTool/0.5-DRAFT/"
+                        target="_blank"><u>ComputationalTool</u></a>
+                    <br>
+                    <br>
+                    <div class="field is-grouped is-grouped-centered">
+                        <!-- <p class="control"><a id="btn_fairness" class="button is-primary">Vocab. checks</a></p> -->
+                        <p class="control"><a id="btn_bioschemas" class="button is-warning is-large">Check BioSchemas </a>
+                        </p>
+                    </div>
+
+                    <div id="block_valid" class="block">
+
+                    </div>
+
+                    <!-- <div class="field is-grouped is-grouped-centered">
+                    <p class="control"><a id="btn_annot_bioschemas" class="button is-warning is-hidden">Annotate missing
+                            BioSchemas properties</a></p>
+                </div> -->
+                </section>
+
             </div>
-
-            <section id="section-LinkedData" class="section">
-                <!-- <h3 class="title is-3">Controlled vocabulary checks</h3> -->
-                <p>We now have a Knowledge Graph grounded to ontology concepts (classes) and relations (properties). Are
-                    these classes and properties already known in reference ontology registries such as LOV, OLS or
-                    BioPortal ? </p>
-                <br>
-                <div class="field is-grouped is-grouped-centered">
-                    <p class="control"><a id="btn_fairness" class="button is-primary is-large">Check Vocabularies</a>
-                    </p>
-                    <!-- <p class="control"><a id="btn_bioschemas" class="button is-warning is-large">BioSchemas checks</a></p> -->
-                </div>
-                <br>
-                <div class="columns is-multiline is-mobile">
-                    <div class="column is-one-half">
-                        <table class="table is-striped is-fullwidth">
-                            <thead>
-                                <tr>
-                                    <th>Classes</th>
-                                </tr>
-                            </thead>
-                            <tbody id="t_classes">
-                            </tbody>
-                        </table>
-                    </div>
-                    <div class="column is-one-half">
-                        <table class="table is-striped is-fullwidth">
-                            <thead>
-                                <tr>
-                                    <th>Properties</th>
-                                </tr>
-                            </thead>
-                            <tbody id="t_properties">
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </section>
-
-            <section id="section-BioSchemas" class="section  is-hidden">
-
-                <!-- <h3 class="title is-3">BioSchemas profiles checks</h3> -->
-                <p>Bioschemas is a community effort aimed at reusing and extending Schema.org for better life science
-                    digital resource findability. Several profiles are defined for each kind of Life Science resources,
-                    specifying minimal, recommended or optional information. Am I missing minimal information ? Should I
-                    provide other information for better findability ?</p>
-                <br>
-                At the moment, profiles supported are: <a
-                    href="https://bioschemas.org/profiles/ScholarlyArticle/0.2-DRAFT-2020_12_03/"
-                    target="_blank"><u>ScholarlyArticle</u></a>,
-                <a href="https://bioschemas.org/profiles/Dataset/0.3-RELEASE-2019_06_14/"
-                    target="_blank"><u>Dataset</u></a>,
-                <a href="https://bioschemas.org/profiles/ComputationalTool/0.5-DRAFT/"
-                    target="_blank"><u>ComputationalTool</u></a>
-                <br>
-                <br>
-                <div class="field is-grouped is-grouped-centered">
-                    <!-- <p class="control"><a id="btn_fairness" class="button is-primary">Vocab. checks</a></p> -->
-                    <p class="control"><a id="btn_bioschemas" class="button is-warning is-large">Check BioSchemas </a>
-                    </p>
-                </div>
-
-                <div id="block_valid" class="block">
-
-                </div>
-
-                <!-- <div class="field is-grouped is-grouped-centered">
-                <p class="control"><a id="btn_annot_bioschemas" class="button is-warning is-hidden">Annotate missing
-                        BioSchemas properties</a></p>
-            </div> -->
-            </section>
-
         </div>
     </div>
-</div>
+</article>
 <!--    </div>-->
 <!-- </section> -->
 <div class="block">

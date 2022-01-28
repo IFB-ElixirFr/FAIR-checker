@@ -484,12 +484,13 @@
 {#<h1 class="title">How FAIR is my resource ?</h1>#}
 
 <!-- input uri section -->
-<article id="url_selection" class="message is-success">
-    <div class="message-header">
-        <p>Enter resource identifier (URL/DOI)</p>
-    </div>
-    <div class="message-body">
+<article id="url_selection" class="message">
+{#    <div class="subtitle">#}
 
+{#    </div>#}
+    <div class="message-body is-check">
+        <h1 class="subtitle"><b>Enter resource identifier (URL/DOI)</b></h1>
+{#        <hr style="width:10%">#}
         <div class="field has-addons">
             <div class="control is-expanded">
 
@@ -608,8 +609,6 @@
 
 </article>
 
-
-
 <!-- <p class="control">
   <button id="btn_advanced_test" class="button is-info"><i class="fa fa-bar-chart fa-fw"></i>Advanced Test</button>
 </p> -->
@@ -619,8 +618,10 @@
 </p>
 
 
+
+
 <!-- Metrics sselection checkboxes section -->
-<article id="select_metrics" class="message is-success" style="display: none;">
+<article id="select_metrics" class="message" style="display: none;">
     <div class="message-header">
         <p>Select the metrics you want to test</p>
     </div>
@@ -669,44 +670,48 @@
         </p>
     </div>
 
+
 </article>
 
 
-
-<article id="radar_chart" class="message is-success">
-    <div class="message-header">
-        <p>Radar chart of metrics completion</p>
-    </div>
-    <div class="message-body">
+<article id="radar_chart" class="message">
+{#    <div class="message-header">#}
+{#        <p>Radar chart of metrics completion</p>#}
+{#    </div>#}
+    <div class="message-body is-check">
+        <h1 class="subtitle"><b>Radar chart of metrics completion</b></h1>
         {% include 'radar_chart.html' %}
     </div>
 </article>
 
 
-<article id="metrics_details_rec" class="message is-success">
-    <div class="message-header">
-        <p>List of metrics with details and results</p>
-
-        <div class="popover is-popover-left">
-            <i class="fa fa-info-circle popover-trigger" aria-hidden="true"></i>
-            <div class="popover-content" style="text-align: left; padding: 0;">
-                <article class="message is-info">
-                    <div class="message-body is-size-7">
-                        Help comming soon
-                    </div>
-                </article>
-            </div>
+<article id="metrics_details_rec" class="message">
+{#    <div class="message-header">#}
+{#        <p>List of metrics with details and results</p>#}
+{##}
+{#        <div class="popover is-popover-left">#}
+{#            <i class="fa fa-info-circle popover-trigger" aria-hidden="true"></i>#}
+{#            <div class="popover-content" style="text-align: left; padding: 0;">#}
+{#                <article class="message is-info">#}
+{#                    <div class="message-body is-size-7">#}
+{#                        Help comming soon#}
+{#                    </div>#}
+{#                </article>#}
+{#            </div>#}
+{#        </div>#}
+{#    </div>#}
+    <div class="message-body is-check">
+        <h1 class="subtitle"><b>List of metrics with details and results</b></h1>
+        {% include 'metrics_table.html' %}
+        <br>
+        <div class="content">
+            For additional tips and recommandations on how to improve your resource, we recommand you to use the FAIR
+            Cookbook:
+            <a href="https://fairplus.github.io/the-fair-cookbook/content/home.html" target="_blank"
+               rel="noopener noreferrer">https://fairplus.github.io/the-fair-cookbook/content/home.html</a>
         </div>
     </div>
-    <div class="message-body">
-        {% include 'metrics_table.html' %}
-    </div>
-    <div class="message-body">
-        For additional tips and recommandations on how to improve your resource, we recommand you to use the FAIR
-        Cookbook:
-        <a href="https://fairplus.github.io/the-fair-cookbook/content/home.html" target="_blank"
-           rel="noopener noreferrer">https://fairplus.github.io/the-fair-cookbook/content/home.html</a>
-    </div>
+
 
 </article>
 

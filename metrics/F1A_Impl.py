@@ -30,7 +30,8 @@ class F1A_Impl(AbstractFAIRMetrics):
         self.principle_tag = "F1A"
         self.implem = "FAIR-Checker"
         self.desc = """
-            FAIRChecker Implem of F1A, more details soon
+            FAIRChecker check that the resource identifier is an URL that can be reach, meaning it is unique, it is even
+             better if the URL refer to a DOI.
         """
 
     def weak_evaluate(self) -> Evaluation:
