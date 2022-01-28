@@ -389,29 +389,36 @@
         $.each(data, function (key, value) {
             var resource = key
             var type = data[key]['type']
-            valid_html += '<h5 class="title is-5">' + resource + '</h5>'
-            valid_html += '<p>' + type + '</p>'
-            valid_html += '<div class="columns is-multiline is-mobile">'
-            valid_html += '<div class="column is-one-half">'
-            valid_html += '<table class="table is-striped is-fullwidth">'
-            valid_html += '<thead><tr><th>Requirements</th></tr></thead>'
-            valid_html += '<tbody>'
-            $.each(data[key]['errors'], function (index, item) {
-                var row = '<tr>';
-                row += '<td>' + item + ' <span class="has-text-danger has-text-weight-bold">must be</span> provided</td>';
-                valid_html += row + '</tr>';
-            });
-            valid_html += '</tbody></table></div>'
-            valid_html += '<div class="column is-one-half">'
-            valid_html += '<table class="table is-striped is-fullwidth">'
-            valid_html += '<thead><tr><th>Improvements</th></tr></thead>'
-            valid_html += '<tbody>'
-            $.each(data[key]['warnings'], function (index, item) {
-                var row = '<tr>';
-                row += '<td>' + item + ' <span class="has-text-warning has-text-weight-bold">should be</span> provided</td>';
-                valid_html += row + '</tr>';
-            });
-            valid_html += '</tbody></table></div>'
+            var conforms = data[key]['conforms']
+            valid_html += '<div class="block">'
+            valid_html += '<h5 class="subtitle is-5">' + resource + ' <span class="tag is-black">' + type + '</span> </h5>'
+            // valid_html += '<span class="tag is-black">' + type + '</span>'
+            if (conforms == true) {
+                valid_html += '<p> has a <span class="has-text-success has-text-weight-bold">valid</span> Bioschemas profile</p>'
+            } else {
+                valid_html += '<div class="columns is-multiline is-mobile">'
+                valid_html += '<div class="column is-one-half">'
+                valid_html += '<table class="table is-striped is-fullwidth">'
+                valid_html += '<thead><tr><th>Requirements</th></tr></thead>'
+                valid_html += '<tbody>'
+                $.each(data[key]['errors'], function (index, item) {
+                    var row = '<tr>';
+                    row += '<td>' + item + ' <span class="has-text-danger has-text-weight-bold">must be</span> provided</td>';
+                    valid_html += row + '</tr>';
+                });
+                valid_html += '</tbody></table></div>'
+                valid_html += '<div class="column is-one-half">'
+                valid_html += '<table class="table is-striped is-fullwidth">'
+                valid_html += '<thead><tr><th>Improvements</th></tr></thead>'
+                valid_html += '<tbody>'
+                $.each(data[key]['warnings'], function (index, item) {
+                    var row = '<tr>';
+                    row += '<td>' + item + ' <span class="has-text-warning has-text-weight-bold">should be</span> provided</td>';
+                    valid_html += row + '</tr>';
+                });
+                valid_html += '</tbody></table></div>'
+                valid_html += '</div>'
+            }
             valid_html += '</div>'
 
         });
