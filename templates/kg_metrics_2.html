@@ -583,7 +583,7 @@
 
 <article class="message">
     <div class="message-body is-inspect">
-        <h2 class="subtitle"><b>Step 1: fetch RDF metadata from the resource URL or DOI</b></h2>
+        <h2 class="subtitle"><b>Step 1: fetch RDF metadata from the resource URL</b></h2>
         {% for k in sample_data.keys() %}
         <div class="field is-grouped">
             <p class="is-small">{{k}}:&nbsp;</p>
@@ -594,11 +594,21 @@
             {% endfor %}
         </div>
         {% endfor %}
-        <div class="field is-grouped has-addons">
-            <p class="control is-expanded">
-                <input id="url" name="url" class="input" type="text" placeholder="your URL or DOI">
-            </p>
-            <p class="control"><a id="btn_kg" class="button is-info">Build Knowledge Graph</a></p>
+        <div class="field has-addons">
+            <div class="control is-expanded">
+
+              <div class="control has-icons-left has-icons-right">
+                <input id="url" name="url" class="input" type="text" placeholder="FAIR resource URL">
+                <span class="icon is-small is-left">
+                  <i class="fa fa-link"></i>
+                </span>
+              </div>
+            </div>
+            <div class="field is-grouped is-grouped-centered">
+                <p class="control">
+                    <a id="btn_kg" class="button is-info">Build Knowledge Graph</a>
+                </p>
+            </div>
         </div>
     </div>
 </article>
