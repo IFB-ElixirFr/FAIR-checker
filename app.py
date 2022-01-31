@@ -157,6 +157,11 @@ def home():
         subtitle="Improve the FAIRness of your web resources",
     )
 
+@app.route("/")
+def index():
+    return render_template(
+        "index.html",
+    )
 
 @app.route("/about")
 def about():
@@ -1008,11 +1013,7 @@ def check_kg_shape_2(data):
 #######################################
 
 
-@app.route("/")
-def index():
-    return render_template(
-        "index.html",
-    )
+
 
 
 def cb():
