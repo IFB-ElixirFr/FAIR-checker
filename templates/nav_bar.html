@@ -1,13 +1,12 @@
 <script type="text/javascript" charset="utf-8">
   $(document).ready(function () {
 
-    var menu_list_elem = $("#fc_navbar").find("div > a");
+    var menu_list_elem = $("#fc_navbar").find("a.navbar-item");
     menu_list_elem.each(function () {
       menu_href = $(this).attr('href');
       page_href = $(location).attr('pathname');
       if (menu_href == page_href) {
         $(this).addClass("is-active");
-
       }
     });
 
@@ -22,7 +21,7 @@
   });
 </script>
 
-<nav class="navbar is-fixed-top is-light" role="navigation" aria-label="main navigation">
+<nav  id="fc_navbar" class="navbar is-fixed-top is-light" role="navigation" aria-label="main navigation">
   <div class="navbar-brand">
     <a class="navbar-item" href="{{ url_for('index') }}">
       <b>FAIR-Checker</b>
@@ -35,7 +34,7 @@
 
   </div>
 
-  <div id="fc_navbar" class="navbar-menu">
+  <div class="navbar-menu">
     <div class="navbar-start">
 
       <!-- <a class="navbar-item" href="{{ url_for('index') }}">
