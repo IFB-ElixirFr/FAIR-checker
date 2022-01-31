@@ -1,23 +1,13 @@
-import time
-from ssl import SSLError
-
-import extruct
-import json
 from rdflib import ConjunctiveGraph, URIRef
 from rdflib.namespace import RDF
 from jinja2 import Template
 from pyshacl import validate
-import requests
-from selenium import webdriver
-from selenium.webdriver.chrome.options import Options
 
-# from webdriver_manager.chrome import ChromeDriverManager
+import os
+from os import walk
+import json
 
-from pathlib import Path
-
-from metrics.AbstractFAIRMetrics import AbstractFAIRMetrics
-
-# driver = webdriver.Chrome(ChromeDriverManager().install())
+from metrics.WebResource import WebResource
 
 
 class BioschemasProfileError(Exception):
@@ -28,6 +18,67 @@ class BioschemasProfileError(Exception):
 
     def __str__(self):
         return f"{self.class_name} -> {self.message}"
+
+
+def generate_profiles_from_files():
+    profile_files = []
+
+    # get list of path of .json bioschemas profiles
+    dir_path = os.path.join(os.path.dirname(__file__), "../data/specifications")
+    for (sub_dir_path, dirnames, filenames) in walk(dir_path):
+        # print(dirnames)
+
+        for (dirpath, dirnames, filenames) in walk(sub_dir_path):
+            for filename in filenames:
+                if filename.endswith("RELEASE.json"):
+                    profile_files.append(dirpath + "/" + filename)
+                    # print(dirpath + "/" + filename)
+        break
+
+    bs_profiles = {}
+
+    # retrieve and parse content of .json profiles files
+    for profile_file in profile_files:
+
+        with open(profile_file) as f:
+            profile = json.load(f)
+
+            bs_id = profile["@graph"][0]["@id"]
+            bs_profiles[bs_id] = {"min_props": [], "rec_props": []}
+
+            for g in profile["@graph"]:
+                if ("$validation") in g.keys():
+                    for k in g["$validation"]["required"]:
+                        bs_profiles[bs_id]["min_props"].append("schema:" + k)
+                    if "recommended" in g["$validation"].keys():
+                        for k in g["$validation"]["recommended"]:
+                            bs_profiles[bs_id]["rec_props"].append("schema:" + k)
+    return bs_profiles
+
+
+def gen_shacl_alternatives(bs_profiles):
+    res = {}
+    for p in bs_profiles.keys():
+        res[p] = {}
+        min = []
+        rec = []
+        for prop in bs_profiles[p]["min_props"]:
+            if "|" in prop:
+                shacl_alt = f'[ sh:alternativePath (  {" ".join(prop.split("|"))} ) ]'
+                min.append(shacl_alt)
+            else:
+                min.append(prop)
+
+        for prop in bs_profiles[p]["rec_props"]:
+            if "|" in prop:
+                shacl_alt = f'[ sh:alternativePath (  {" ".join(prop.split("|"))} ) ]'
+                rec.append(shacl_alt)
+            else:
+                rec.append(prop)
+
+        res[p]["rec_props"] = rec
+        res[p]["min_props"] = min
+    return res
 
 
 bs_profiles = {
@@ -74,84 +125,162 @@ bs_profiles = {
             "sc:url",
         ],
     },
+    "sc:MolecularEntity": {
+        "min_props": ["sc:identifier", "sc:name", "dct:conformsTo", "sc:url"],
+        "rec_props": [
+            "sc:inChI",
+            "sc:inChIKey",
+            "sc:iupacName",
+            "sc:molecularFormula",
+            "sc:molecularWeight",
+            "sc:smiles",
+        ],
+    },
+    "sc:Gene": {
+        "min_props": ["sc:identifier", "sc:name", "dct:conformsTo"],
+        "rec_props": [
+            "sc:description",
+            "sc:encodesBioChemEntity",
+            "sc:isPartOfBioChemEntity",
+            "sc:url",
+        ],
+    },
+    "bsc:Gene": {
+        "min_props": ["sc:identifier", "sc:name", "dct:conformsTo"],
+        "rec_props": [
+            "sc:description",
+            "sc:encodesBioChemEntity",
+            "sc:isPartOfBioChemEntity",
+            "sc:url",
+        ],
+    },
+    "sc:Study": {
+        "min_props": [
+            "sc:identifier",
+            "sc:name",
+            "dct:conformsTo",
+            "sc:author",
+            "sc:datePublished",
+            "sc:description",
+            "bsc:studyDomain",
+            "sc:studySubject",
+        ],
+        "rec_props": [
+            "sc:about",
+            "sc:additionnalProperty",
+            "sc:citation",
+            "sc:creator",
+            "sc:dateCreated",
+            "sc:endDate",
+            "sc:keywords",
+            "sc:startDate",
+            "sc:studyLocation",
+            "bsc:studyProcess",
+            "sc:url",
+        ],
+    },
+    "sc:Person": {
+        "min_props": [
+            "sc:description",
+            "sc:name",
+            "dct:conformsTo",
+            "sc:mainEntityOfPage",
+        ],
+        "rec_props": [
+            "sc:email",
+            "bsc:expertise",
+            "sc:homeLocation",
+            "sc:image",
+            "sc:memberOf",
+            "bsc:orcid",
+            "sc:worksFor",
+        ],
+    },
+    "sc:SoftwareSourceCode": {
+        "min_props": [
+            "dct:conformsTo",
+            "sc:creator",
+            "sc:dateCreated",
+            "bsc:input|sc:input",
+            "sc:license",
+            "sc:name",
+            "bsc:output|sc:output",
+            "sc:programmingLanguage",
+            "sc:sdPublisher",
+            "sc:url",
+            "sc:version",
+        ],
+        "rec_props": [
+            "sc:citation",
+            "sc:contributor",
+            "sc:creativeWorkStatus",
+            "sc:description",
+            "sc:documentation",
+            "sc:funding",
+            "sc:hasPart",
+            "sc:isBasedOn",
+            "sc:keywords",
+            "sc:maintainer",
+            "sc:producer",
+            "sc:publisher",
+            "sc:runtimePlatform",
+            "sc:sofwtareRequirement",
+            "sc:targetProduct",
+        ],
+    },
+    "sc:Protein": {
+        "min_props": ["dct:conformsTo", "sc:identifier", "sc:name"],
+        "rec_props": [
+            "bsc:associatedDisease",
+            "sc:description",
+            "bsc:isEncodedByBioChemEntity",
+            "bsc:taxonomicRange",
+            "sc:url",
+        ],
+    },
+    "sc:SequenceAnnotation": {
+        # "min_props":["dct:conformsTo", "bsc:sequenceLocation"],
+        "min_props": ["dct:conformsTo", "bsc:sequenceLocation|sc:sequenceLocation"],
+        "rec_props": [
+            "bsc:creationMethod",
+            "sc:description",
+            "sc:image",
+            "sc:name",
+            "sc:sameAs",
+            "bsc:sequenceOrientation",
+            "bsc:sequenceValue",
+            "sc:url",
+        ],
+    },
+    "sc:SequenceRange": {
+        "min_props": ["dct:conformsTo", "bsc:rangeStart", "bsc:rangeEnd"],
+        "rec_props": ["bsc:endUncertainty", "bsc:startUncertainty"],
+    },
+    "sc:CreativeWork": {
+        "min_props": ["dct:conformsTo", "sc:description", "sc:keywords", "sc:name"],
+        "rec_props": [
+            "sc:about",
+            "sc:abstract",
+            "sc:audience",
+            "sc:author",
+            "sc:competencyRequired",
+            "sc:educationalLevel",
+            "sc:identifier",
+            "sc:inLanguage",
+            "sc:learningResourceType",
+            "sc:license",
+            "sc:mentions",
+            "sc:teaches",
+            "sc:timeRequired",
+            "sc:url",
+        ],
+    },
 }
 
-
-def get_html_from_requests(url):
-    while True:
-        try:
-            response = requests.get(url=url, timeout=10)
-            break
-        except SSLError:
-            time.sleep(5)
-        except requests.exceptions.Timeout:
-            print("Timeout, retrying")
-            time.sleep(5)
-        except requests.exceptions.ConnectionError as e:
-            print(e)
-            print("ConnectionError, retrying...")
-            time.sleep(10)
-
-    return response.content, response.status_code
+bs_profiles = gen_shacl_alternatives(bs_profiles)
 
 
-def get_html_from_selenium(url):
-    chrome_options = Options()
-    chrome_options.add_argument("--headless")
-    browser = webdriver.Chrome(options=chrome_options)
-
-    try:
-        browser.get(url)
-        return browser.page_source
-
-    finally:
-        browser.quit()
-
-
-def get_rdf(html_source):
-    # data = extruct.extract(html_source, syntaxes=['microdata', 'rdfa', 'json-ld'], )
-    data = extruct.extract(
-        str(html_source), syntaxes=["microdata", "rdfa", "json-ld"], errors="ignore"
-    )
-    print(data)
-    print("ici")
-    kg = ConjunctiveGraph()
-
-    # kg = util.get_rdf_selenium(uri, kg)
-    # print(html_source)
-    # print(data.keys())
-
-    base_path = Path(__file__).parent  ## current directory
-    static_file_path = str((base_path / "../static/data/jsonldcontext.json").resolve())
-
-    if "json-ld" in data.keys():
-        for md in data["json-ld"]:
-            if "@context" in md.keys():
-                print(md["@context"])
-                if ("https://schema.org" in md["@context"]) or (
-                    "http://schema.org" in md["@context"]
-                ):
-                    md["@context"] = static_file_path
-            kg.parse(data=json.dumps(md, ensure_ascii=False), format="json-ld")
-    if "rdfa" in data.keys():
-        for md in data["rdfa"]:
-            if "@context" in md.keys():
-                if ("https://schema.org" in md["@context"]) or (
-                    "http://schema.org" in md["@context"]
-                ):
-                    md["@context"] = static_file_path
-            kg.parse(data=json.dumps(md, ensure_ascii=False), format="json-ld")
-
-    if "microdata" in data.keys():
-        for md in data["microdata"]:
-            if "@context" in md.keys():
-                if ("https://schema.org" in md["@context"]) or (
-                    "http://schema.org" in md["@context"]
-                ):
-                    md["@context"] = static_file_path
-            kg.parse(data=json.dumps(md, ensure_ascii=False), format="json-ld")
-
-    return kg
+# bs_profiles = generate_profiles_from_files()
 
 
 def checktype(obj):
@@ -163,9 +292,9 @@ def checktype(obj):
 
 
 def gen_SHACL_from_target_class(target_class):
-    print(target_class)
+    print(f"Generating SHACL shape for {target_class}")
 
-    if not target_class in bs_profiles.keys():
+    if target_class not in bs_profiles.keys():
         raise BioschemasProfileError(class_name=target_class)
 
     name = target_class.rsplit(":", 1)[1]
@@ -193,6 +322,8 @@ def gen_SHACL_from_profile(shape_name, target_classes, min_props, rec_props):
         @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
         @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
         @prefix sc: <http://schema.org/> .
+        @prefix bsc: <https://bioschemas.org/> .
+        @prefix dct: <http://purl.org/dc/terms/> .
         @prefix sh: <http://www.w3.org/ns/shacl#> .
         @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
         @prefix edam: <http://edamontology.org/> .
@@ -200,7 +331,7 @@ def gen_SHACL_from_profile(shape_name, target_classes, min_props, rec_props):
 
         ns:{{shape_name}}
             a sh:NodeShape ;
-            #sh:targetSubjectsOf sc:name ;
+            #sh:targetSubjectsOf schema:name ;
             {% for c in target_classes %}
             sh:targetClass  {{c}} ;
             {% endfor %}
@@ -223,6 +354,8 @@ def gen_SHACL_from_profile(shape_name, target_classes, min_props, rec_props):
         .
     """
 
+    # [sh: alternativePath(ex:father ex: mother  )]
+
     template = Template(shape_template)
     shape = template.render(
         shape_name=shape_name,
@@ -230,35 +363,42 @@ def gen_SHACL_from_profile(shape_name, target_classes, min_props, rec_props):
         min_props=min_props,
         rec_props=rec_props,
     )
-    # print(shape)
-
-    # todo try catch to validate the generated shape
-    # g = ConjunctiveGraph()
-    # g.parse(data=shape, format='turtle')
+    print(shape)
 
     return shape
 
 
 def validate_any_from_KG(kg):
     kg.namespace_manager.bind("sc", URIRef("http://schema.org/"))
-    # kg.namespace_manager.bind('schema', URIRef('http://schema.org/'))
-    print("tata")
+    kg.namespace_manager.bind("bsc", URIRef("https://bioschemas.org/"))
+    kg.namespace_manager.bind("dct", URIRef("http://purl.org/dc/terms/"))
+
     print(len(kg))
-    print(kg.serialize(format="turtle").decode())
+    print(kg.serialize(format="turtle"))
 
     results = {}
 
     # list classes
     for s, p, o in kg.triples((None, RDF.type, None)):
+        print()
         print(f"{s.n3(kg.namespace_manager)} is a {o.n3(kg.namespace_manager)}")
+        print(bs_profiles.keys())
+        print(o.n3(kg.namespace_manager))
         if o.n3(kg.namespace_manager) in bs_profiles.keys():
+            print()
             print(f"Trying to validate {s} as a(n) {o} resource")
             shacl_shape = gen_SHACL_from_target_class(o.n3(kg.namespace_manager))
-            warnings, errors = validate_shape(
-                knowledge_graph=kg, shacl_shape=shacl_shape
+
+            sub_kg = ConjunctiveGraph()
+            for x, y, z in kg.triples((s, None, None)):
+                sub_kg.add((x, y, z))
+
+            conforms, warnings, errors = validate_shape(
+                knowledge_graph=sub_kg, shacl_shape=shacl_shape
             )
             results[str(s)] = {
                 "type": str(o),
+                "conforms": conforms,
                 "warnings": warnings,
                 "errors": errors,
             }
@@ -269,22 +409,31 @@ def validate_any_from_KG(kg):
 def validate_any_from_RDF(input_url, rdf_syntax):
     kg = ConjunctiveGraph()
     kg.namespace_manager.bind("sc", URIRef("http://schema.org/"))
-    # kg.namespace_manager.bind('schema', URIRef('http://schema.org/'))
+    kg.namespace_manager.bind("bsc", URIRef("https://bioschemas.org/"))
+    kg.namespace_manager.bind("dct", URIRef("http://purl.org/dc/terms/"))
     kg.parse(location=input_url, format=rdf_syntax)
 
     results = {}
 
     # list classes
     for s, p, o in kg.triples((None, RDF.type, None)):
+        print()
         print(f"{s.n3(kg.namespace_manager)} is a {o.n3(kg.namespace_manager)}")
         if o.n3(kg.namespace_manager) in bs_profiles.keys():
+            print()
             print(f"Trying to validate {s} as a(n) {o} resource")
             shacl_shape = gen_SHACL_from_target_class(o.n3(kg.namespace_manager))
-            warnings, errors = validate_shape(
-                knowledge_graph=kg, shacl_shape=shacl_shape
+
+            sub_kg = ConjunctiveGraph()
+            for x, y, z in kg.triples((s, None, None)):
+                sub_kg.add((x, y, z))
+
+            conforms, warnings, errors = validate_shape(
+                knowledge_graph=sub_kg, shacl_shape=shacl_shape
             )
             results[str(s)] = {
                 "type": str(o),
+                "conforms": conforms,
                 "warnings": warnings,
                 "errors": errors,
             }
@@ -292,49 +441,64 @@ def validate_any_from_RDF(input_url, rdf_syntax):
 
 
 def validate_any_from_microdata(input_url):
-    html = get_html_from_selenium(input_url)
-    kg = get_rdf(html)
+    web_resource = WebResource(input_url)
+    kg = web_resource.get_rdf()
     kg.namespace_manager.bind("sc", URIRef("http://schema.org/"))
+    kg.namespace_manager.bind("bsc", URIRef("https://bioschemas.org/"))
+    kg.namespace_manager.bind("dct", URIRef("http://purl.org/dc/terms/"))
 
     results = {}
-    # print(kg.serialize(format="turtle").decode())
+    print(kg.serialize(format="turtle"))
 
     # list classes
     for s, p, o in kg.triples((None, RDF.type, None)):
+        print()
         print(f"{s.n3(kg.namespace_manager)} is a {o.n3(kg.namespace_manager)}")
+        # print(o.n3(kg.namespace_manager))
+        # print(bs_profiles.keys())
+
         if o.n3(kg.namespace_manager) in bs_profiles.keys():
+            print()
             print(f"Trying to validate {s} as a(n) {o} resource")
             shacl_shape = gen_SHACL_from_target_class(o.n3(kg.namespace_manager))
-            warnings, errors = validate_shape(
-                knowledge_graph=kg, shacl_shape=shacl_shape
+
+            sub_kg = ConjunctiveGraph()
+            for x, y, z in kg.triples((s, None, None)):
+                sub_kg.add((x, y, z))
+
+            conforms, warnings, errors = validate_shape(
+                knowledge_graph=sub_kg, shacl_shape=shacl_shape
             )
             results[str(s)] = {
                 "type": str(o),
+                "conforms": conforms,
                 "warnings": warnings,
                 "errors": errors,
             }
-    print(len(kg))
+        else:
+            print(f"Could not find a suitable profile for {s} typed {o}")
+    # print(len(kg))
     return results
 
 
 def validate_shape_from_RDF(input_uri, rdf_syntax, shacl_shape):
     kg = ConjunctiveGraph()
     kg.parse(location=input_uri, format=rdf_syntax)
-    warnings, errors = validate_shape(knowledge_graph=kg, shacl_shape=shacl_shape)
-    return warnings, errors
+    conforms, warnings, errors = validate_shape(
+        knowledge_graph=kg, shacl_shape=shacl_shape
+    )
+    return conforms, warnings, errors
 
 
 def validate_shape_from_microdata(input_uri, shacl_shape):
-    # html = get_html_from_requests(input_uri)
-    html = get_html_from_selenium(input_uri)
-    kg = get_rdf(html)
-    # print(kg.serialize(format='turtle').decode())
-    warnings, errors = validate_shape(knowledge_graph=kg, shacl_shape=shacl_shape)
-    return warnings, errors
+    kg = WebResource(input_uri).get_rdf()
+    conforms, warnings, errors = validate_shape(
+        knowledge_graph=kg, shacl_shape=shacl_shape
+    )
+    return conforms, warnings, errors
 
 
 def validate_shape(knowledge_graph, shacl_shape):
-    # print(knowledge_graph.serialize(format="turtle").decode())
     r = validate(
         data_graph=knowledge_graph,
         data_graph_format="turtle",
@@ -343,7 +507,7 @@ def validate_shape(knowledge_graph, shacl_shape):
         shacl_graph_format="turtle",
         ont_graph=None,
         inference="rdfs",
-        abort_on_error=False,
+        abort_on_first=False,
         meta_shacl=False,
         debug=False,
     )
@@ -351,21 +515,24 @@ def validate_shape(knowledge_graph, shacl_shape):
     conforms, results_graph, results_text = r
 
     report_query = """
-            SELECT ?node ?path ?severity WHERE {
+            SELECT ?node ?path ?path ?severity WHERE {
                 ?v rdf:type sh:ValidationReport ;
                    sh:result ?r .
                 ?r sh:focusNode ?node ;
                    sh:sourceShape ?s .
-                ?s sh:path ?path ;
-                   sh:severity ?severity .
+                { ?s sh:path ?path ;
+                   sh:severity ?severity . }
+                UNION { ?s sh:path/sh:alternativePath/rdf:rest*/rdf:first ?path ;
+                   sh:severity ?severity . }
+                FILTER (! isBlank(?path))
             }
         """
 
     results = results_graph.query(report_query)
-    # print('VALIDATION RESULTS')
+    # print("VALIDATION RESULTS")
     # print(results_text)
     # print(conforms)
-    # print(results_graph.serialize(format="turtle").decode())
+    # print(results_graph.serialize(format="turtle"))
     warnings = []
     errors = []
     for r in results:
@@ -376,4 +543,4 @@ def validate_shape(knowledge_graph, shacl_shape):
             print(f'ERROR: Property {r["path"]} must be provided for {r["node"]}')
             errors.append(f'{r["path"]}')
 
-    return warnings, errors
+    return conforms, warnings, errors

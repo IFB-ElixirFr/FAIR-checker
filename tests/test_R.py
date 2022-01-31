@@ -29,13 +29,21 @@ class ReuseTestCase(unittest.TestCase):
         cls.tool = WebResource(cls.uri_tool)
         cls.wf = WebResource(cls.uri_wf)
 
+    @classmethod
+    def tearDownClass(cls) -> None:
+        super().tearDownClass()
+        browser = WebResource.WEB_BROWSER_HEADLESS
+        browser.quit()
+
     def test_R11_biotools(self):
         biotools = ReuseTestCase.tool
         res = FAIRMetricsFactory.get_R11(
             web_resource=biotools, impl=Implem.FAIR_CHECKER
         ).evaluate()
         logging.info(res)
-        self.assertEqual(res, Result.STRONG)
+        self.assertEqual(
+            res.get_score(), str(Result.NO.value)
+        )  # TODO to be fixed with Thomas use the Result enum rather than int values
 
     def test_R12_biotools(self):
         biotools = ReuseTestCase.tool
@@ -43,7 +51,7 @@ class ReuseTestCase(unittest.TestCase):
             web_resource=biotools, impl=Implem.FAIR_CHECKER
         ).evaluate()
         logging.info(res)
-        self.assertEqual(res, Result.NO)
+        self.assertEqual(res.get_score(), str(Result.NO.value))
 
     def test_R13_biotools(self):
         biotools = ReuseTestCase.tool
@@ -51,7 +59,7 @@ class ReuseTestCase(unittest.TestCase):
             web_resource=biotools, impl=Implem.FAIR_CHECKER
         ).evaluate()
         logging.info(res)
-        self.assertEqual(res, Result.WEAK)
+        self.assertEqual(res.get_score(), str(Result.WEAK.value))
 
     def test_R11_workflowhub(self):
         wf = ReuseTestCase.wf
@@ -59,7 +67,7 @@ class ReuseTestCase(unittest.TestCase):
             web_resource=wf, impl=Implem.FAIR_CHECKER
         ).evaluate()
         logging.info(res)
-        self.assertEqual(res, Result.STRONG)
+        self.assertEqual(res.get_score(), str(Result.STRONG.value))
 
     def test_R12_workflowhub(self):
         wf = ReuseTestCase.wf
@@ -67,7 +75,7 @@ class ReuseTestCase(unittest.TestCase):
             web_resource=wf, impl=Implem.FAIR_CHECKER
         ).evaluate()
         logging.info(res)
-        self.assertEqual(res, Result.NO)
+        self.assertEqual(res.get_score(), str(Result.NO.value))
 
     def test_R13_workflowhub(self):
         wf = ReuseTestCase.wf
@@ -75,7 +83,7 @@ class ReuseTestCase(unittest.TestCase):
             web_resource=wf, impl=Implem.FAIR_CHECKER
         ).evaluate()
         logging.info(res)
-        self.assertEqual(res, Result.WEAK)
+        self.assertEqual(res.get_score(), str(Result.WEAK.value))
 
 
 if __name__ == "__main__":

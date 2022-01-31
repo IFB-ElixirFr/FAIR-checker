@@ -1,61 +1,46 @@
 {% extends "layout.html" %}
 
 {% block nav %}
-{% include 'nav_bar.html' %}
 {% include 'nav.html' %}
 {% endblock %}
 
 {% block body %}
 
+<div class="section">
+    <h1 class="subtitle">The team</h1>
+    <hr>
+    <div class="content">
+        FAIR-checker is developed by the interoperability working group of the French Institute for Bioinformatics :
 
-<h1 class="title">About us</h1>
-
-<!-- description section -->
-<article id="Aims" class="message">
-    <!--    <div class="message-header">-->
-    <!--        <p>Aims</p>-->
-    <!--    </div>-->
-    <div class="message-body">
-        In this work we propose a web demonstrator, aimed at i) evaluating FAIR maturity indicators and ii) providing
-        hints to progress in the FAIRification process.
-        <br><br>
-        This web page relies on <a href="https://github.com/FAIRMetrics/Metrics" class="has-text-link" target="_blank"
-                                   rel="noopener noreferrer">FAIRMetrics</a> implementation and the online APIs.
-        We are grateful to Mark D. Wilkinson for is technical support on using the APIs.
-
-        <br><br>
-        FAIR-checker is funded and developed by the <a href="https://www.france-bioinformatique.fr"
-                                                       class="has-text-link" target="_blank" rel="noopener noreferrer">French
-        Institute for Bioinformatics (Elixir-France)</a>.
-        Source code and technical issue are accessible through GitHub: <a
-            href="https://github.com/IFB-ElixirFr/fair-checker.git" class="has-text-link" target="_blank"
-            rel="noopener noreferrer">https://github.com/IFB-ElixirFr/fair-checker.git</a>
-
-        <br><br>
-        Main developers are Thomas Rosnet (thomas.rosnet /at/ france-bioinformatique.fr) and Alban Gaignard
-        (alban.gaignard /at/ univ-nantes.fr).
-
-        Feel free to contact us !
-
+        <ul>
+            <li>Thomas Rosnet (<a
+                    href="mailto:thomas.rosnet@france-bioinformatique.fr">thomas.rosnet@france-bioinformatique.fr)</a>
+            </li>
+            <li>Alban Gaignard (<a href="mailto:alban.gaignard@univ-nantes.fr">alban.gaignard@univ-nantes.fr</a>)</li>
+            <li>Marie-Dominique Devignes (<a
+                    href="mailto:marie-dominique.devignes@loria.fr">marie-dominique.devignes@loria.fr</a>)</li>
+        </ul>
+        <div class="block">
+            The source code is accessible through <a href="https://github.com/IFB-ElixirFr/fair-checker"
+                target="_blank">GitHub</a>. Please submit GitHub issues to provide feedback or ask for new features,
+            and contact us for any related question.
+        </div>
     </div>
-</article>
+</div>
 
-<!-- description section -->
-<article id="feedback" class="message is-info">
-    <div class="message-header">
-        <p>Feedback</p>
-
+<div class="section">
+    <h2 class="subtitle">Acknowledments</h2>
+    <hr>
+    <div class="block">We are grateful to all members of the <a href="https://france-bioinformatique.fr"
+            target="_blank">IFB</a> interoperability working group for providing ideas, feedback and extensive testing.
     </div>
-    <div class="message-body">
-        Feedbacks are greatly appreciated at the following link:
-        <!-- </div> -->
-        <!-- <div class="message-body"> -->
-        <br>
-        <br>
-        <a href="https://github.com/IFB-ElixirFr/fair-checker/issues" target="_blank" rel="noopener noreferrer">https://github.com/IFB-ElixirFr/fair-checker/issues</a>
+    <div class="block">We would also like to thank M. Wilkinson and V. Emonet for their time and the shared technical
+        expertise regarding automated FAIR assesment.</div>
+    <div class="block">Many thanks to the <a href="https://elixir-europe.org" target="_blank">Elixir</a> and <a
+            href="https://bioschemas.org" target="_blank">Bioschemas</a> initiatives for promoting
+        and supporting life science metadata standards and their tooling.
     </div>
-
-</article>
+</div>
 
 
 {% endblock %}

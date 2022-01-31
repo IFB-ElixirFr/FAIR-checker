@@ -1,7 +1,7 @@
 {% for f in f_metrics %}
 <div class="modal" id="modal_{{ f.id }}">
   <div class="modal-background" id="modal_bg_{{ f.id }}"></div>
-  <div class="modal-card" id="metrics_modal_{{ f.id }}">
+  <div class="modal-card is-info" id="metrics_modal_{{ f.id }}">
     <header class="modal-card-head">
       <p class="modal-card-title">{{ f.principle_tag }} - {{ f.name }}</p>
 
@@ -9,37 +9,50 @@
     </header>
     <section class="modal-card-body">
       <article class="message">
-        <div class="message-header">
-          <p>Metrics info</p>
-        </div>
-        <div class="message-body">
-          <div class="box">
-            Principle: {{ f.principle_tag }}<br>
-            Implem: {{ f.implem }}<br>
+{#        <div class="message-header">#}
+{#          <p>Metrics info</p>#}
+{#        </div>#}
+        <div class="message-body is-check">
+            <h1 class="subtitle"><b>Metric information</b></h1>
+            <div class="columns">
+
+              <div class="column is-half">
+                <div class="box">
+                  <b>Implementation:</b> {{ f.implem }}
+                </div>
+              </div>
             </div>
             <div class="box">
-            Description:<br>
-              {{ f.description }}
+            <b>Description:</b><br>
+              {{ f.description|safe }}
             </div>
           </div>
       </article>
       <article class="message">
-        <div class="message-header">
-          <p>Metrics evaluation results</p>
-        </div>
-        <div class="message-body">
-          <div class="box" >
-            Score: <div id="modal_score_{{f.id}}"></div>
+{#        <div class="message-header">#}
+{#          <p>Metrics evaluation results</p>#}
+{#        </div>#}
+        <div class="message-body is-check">
+            <h1 class="subtitle"><b>Metric evaluation results</b></h1>
+          <div class="columns">
+            <div class="column">
+              <div class="box" >
+                <b>Score:</b> <span id="modal_score_{{f.id}}"></span>
+              </div>
+            </div>
+            <div class="column">
+              <div class="box">
+                <b>Time:</b> <span id="modal_time_{{f.id}}"></span>
+              </div>
+            </div>
           </div>
           <div class="box">
-            Time: <div id="modal_time_{{f.id}}"></div>
+            <b>Comment:</b> <div id="modal_comment_{{f.id}}"></div>
           </div>
           <div class="box">
-            Comment: <div id="modal_comment_{{f.id}}"></div>
+            <b>Guideline:</b> <div id="modal_guideline_{{f.id}}"></div>
           </div>
-          <div class="box">
-            Guideline: <div id="modal_guideline_{{f.id}}"></div>
-          </div>
+
         </div>
       </article>
 

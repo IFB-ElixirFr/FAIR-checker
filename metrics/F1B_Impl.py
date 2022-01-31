@@ -85,22 +85,38 @@ class F1B_Impl(AbstractFAIRMetrics):
         self.principle = "https://w3id.org/fair/principles/terms/F1"
         self.principle_tag = "F1B"
         self.implem = "FAIR-Checker"
-        self.desc = ""
+        self.desc = """
+            Weak : FAIR-Checker verifies that at least one namespace from identifiers.org is used in metadata.<br><br>
+            Strong : FAIR-Checker verifies that the  “identifier” property from DCTerms or Schema.org vocabularies is present in metadata. 
+        """
 
     def weak_evaluate(self):
         """
         at least one of the RDF term (subject, predicate, or object) reuse one of the Identifiers.org namespaces
         """
         eval = self.get_evaluation()
+        eval.set_implem(self.implem)
+        eval.set_metrics(self.principle_tag)
+
         kg = self.get_web_resource().get_rdf()
         namespaces = F1B_Impl.get_known_namespaces()
-
+        eval.log_info("Weak evaluation:")
+        eval.log_info(
+            "Checking that at least one namespace from identifiers.org is in metadata"
+        )
         for s, p, o in kg:
             for term in [s, o]:
                 if F1B_Impl.is_known_pid_scheme(str(term), namespaces):
-                    logging.info(f"Found an Identifiers.org namespace for {str(term)}")
+                    eval.log_info(f"Found an Identifiers.org namespace for {str(term)}")
                     eval.set_score(1)
                     return eval
+        eval.log_info("No namespace from identifiers.org found")
+        eval.set_recommendations(
+            """
+            You should use a namespace that can be found in Identifiers.org
+            here: https://registry.identifiers.org/registry#!
+        """
+        )
         eval.set_score(0)
         return eval
 
@@ -109,6 +125,9 @@ class F1B_Impl(AbstractFAIRMetrics):
         dcterms:identifiers or schema:identifier and known in Identifiers.org
         """
         eval = self.get_evaluation()
+        eval.set_implem(self.implem)
+        eval.set_metrics(self.principle_tag)
+
         query_identifiers = (
             self.COMMON_SPARQL_PREFIX
             + """ 
@@ -118,12 +137,19 @@ ASK {
 }
             """
         )
-        logging.debug(f"running query:" + f"\n{query_identifiers}")
+        # eval.log_info(f"Running query:" + f"\n{query_identifiers}")
+        eval.log_info("Strong evaluation:")
+        eval.log_info(
+            "Checking if there is either schema:identifier or dct:identifier property in metadata"
+        )
         res = self.get_web_resource().get_rdf().query(query_identifiers)
         for bool_res in res:
             if bool_res:
+                eval.log_info("Found at least one of those property in metadata")
                 eval.set_score(2)
             else:
+                eval.log_info("None of those property were found in metadata")
+                eval.log_info("Trying weaker evaluation")
                 eval.set_score(0)
             return eval
         pass

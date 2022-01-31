@@ -1,47 +1,69 @@
-<nav class="navbar is-fixed-top is-light" role="navigation" aria-label="main navigation">
-  <div class="navbar-brand">
-    <a class="navbar-item" href="https://www.france-bioinformatique.fr/" target="_blank">
-      <img src="https://www.france-bioinformatique.fr/wp-content/uploads/logo-ifb-couleur.svg" width="150" height="75">
-    </a>
+<script type="text/javascript" charset="utf-8">
+  $(document).ready(function () {
 
+    var menu_list_elem = $("#fc_navbar").find("a.navbar-item");
+    menu_list_elem.each(function () {
+      menu_href = $(this).attr('href');
+      page_href = $(location).attr('pathname');
+      if (menu_href == page_href) {
+        $(this).addClass("is-active");
+      }
+    });
+
+    // Check for click events on the navbar burger icon
+    $(".navbar-burger").click(function () {
+
+      // Toggle the "is-active" class on both the "navbar-burger" and the "navbar-menu"
+      $(".navbar-burger").toggleClass("is-active");
+      $(".navbar-menu").toggleClass("is-active");
+
+    });
+  });
+</script>
+
+<nav  id="fc_navbar" class="navbar is-fixed-top is-light" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a class="navbar-item" href="{{ url_for('index') }}">
+      <b>FAIR-Checker</b>
+    </a>
     <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
       <span aria-hidden="true"></span>
       <span aria-hidden="true"></span>
       <span aria-hidden="true"></span>
     </a>
+
   </div>
 
-  <div id="navbar_example" class="navbar-menu">
+  <div class="navbar-menu">
     <div class="navbar-start">
-      <a class="navbar-item" href="{{ url_for('index') }}">
+
+      <!-- <a class="navbar-item" href="{{ url_for('index') }}">
         Home
+      </a> -->
+
+      <a class="navbar-item" href="{{ url_for('base_metrics') }}">
+        Check
+      </a>
+      <a class="navbar-item" href="{{ url_for('kg_metrics_2') }}">
+        Inspect
+      </a>
+      <a class="navbar-item" href="{{ url_for('about') }}">
+        About us
       </a>
 
-      <a class="navbar-item" >
-        Documentation
+    </div>
+    <div class="navbar-end">
+
+      <a class="navbar-item" href="{{ url_for('statistics') }}">
+        Statistics
       </a>
 
-<!--      <div class="navbar-item has-dropdown is-hoverable">-->
-<!--        <a class="navbar-link">-->
-<!--          More-->
-<!--        </a>-->
-
-<!--        <div class="navbar-dropdown">-->
-<!--          <a class="navbar-item">-->
-<!--            About-->
-<!--          </a>-->
-<!--          <a class="navbar-item">-->
-<!--            Jobs-->
-<!--          </a>-->
-<!--          <a class="navbar-item">-->
-<!--            Contact-->
-<!--          </a>-->
-<!--          <hr class="navbar-divider">-->
-<!--          <a class="navbar-item">-->
-<!--            Report an issue-->
-<!--          </a>-->
-<!--        </div>-->
-<!--      </div>-->
+      <a class="navbar-item" href="https://github.com/IFB-ElixirFr/fair-checker/issues" target="_blank">
+        Feedbacks
+      </a>
+      <a class="navbar-item" href="https://github.com/IFB-ElixirFr/fair-checker" target="_blank">
+        <i class="fa fa-github fa-fw"></i>&nbsp;Github
+      </a>
     </div>
   </div>
 </nav>

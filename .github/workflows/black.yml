@@ -5,9 +5,9 @@ on:
   #  workflows: ["Python application"]
   #  types: [completed]
   push:
-    branches: [ dev_alban, dev_thomas, master ]
+    branches: [dev_alban, dev_thomas, master, pre_deploy_1.1]
   pull_request:
-    branches: [ dev_alban, dev_thomas, master ]
+    branches: [dev_alban, dev_thomas, master, pre_deploy_1.1]
 
 jobs:
   build:

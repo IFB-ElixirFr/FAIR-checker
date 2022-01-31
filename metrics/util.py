@@ -74,7 +74,7 @@ def describe_opencitation(uri, g):
 
 
 # Describe lod.openaire
-def describe_loa(uri, g):
+def describe_openaire(uri, g):
     # g = Graph()
     graph_pre_size = len(g)
     logging.debug(f"SPARQL for [ {uri} ] with enpoint [ LOA ]")
@@ -118,6 +118,7 @@ def describe_wikidata(uri, g):
             PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
             PREFIX bd: <http://www.bigdata.com/rdf#>
 
+            # retrieve entities by DOIs (P356 property)
             DESCRIBE ?x WHERE {
                 ?x wdt:P356 '"""
         + uri
@@ -128,11 +129,11 @@ def describe_wikidata(uri, g):
 
     print(query)
 
-    h = {"Accept": "text/turtle"}
+    h = {"Accept": "application/sparql-results+xml"}
     p = {"query": query}
 
     res = requests.get(endpoint, headers=h, params=p, verify=False)
-    g.parse(data=res.text, format="turtle")
+    g.parse(data=res.text, format="xml")
 
     graph_post_size = len(g)
     logging.debug(f"{graph_post_size - graph_pre_size} added new triples")
@@ -219,6 +220,7 @@ def ask_OLS(uri):
     # uri = requests.compat.quote_plus(uri)
     h = {"Accept": "application/json"}
     p = {"iri": uri}
+    # TODO we are only checking for properties and not classes, to be fixed.
     res = requests.get(
         "https://www.ebi.ac.uk/ols/api/properties", headers=h, params=p, verify=True
     )
@@ -548,12 +550,10 @@ def get_rdf_selenium(uri, kg):
 
 def get_html_selenium(url):
     chrome_options = Options()
-    chrome_options.add_argument("--no-sandbox")
     chrome_options.add_argument("--headless")
     browser = webdriver.Chrome(options=chrome_options)
 
     try:
-        browser.implicitly_wait(10)
         browser.get(url)
         return browser.page_source
 
