@@ -1,17 +1,12 @@
 import sys
-
-sys.path.insert(1, "..")
-
 import unittest
-import json
 import requests
-from rdflib import ConjunctiveGraph, Graph
 from metrics.util import ask_OLS, ask_LOV
 
 # from metrics.util import ask_BioPortal
+from metrics.WebResource import WebResource
 
-import random
-import metrics.WebResource as WebResource
+sys.path.insert(1, "..")
 
 
 class OlsLovTestCase(unittest.TestCase):
@@ -21,8 +16,8 @@ class OlsLovTestCase(unittest.TestCase):
         print("STARTING all tests")
 
     @classmethod
-    def tearDownClass(cls) -> None:
-        super().tearDownClass()
+    def tearDownModule(cls) -> None:
+        super().tearDownModule()
         browser = WebResource.WEB_BROWSER_HEADLESS
         browser.quit()
 

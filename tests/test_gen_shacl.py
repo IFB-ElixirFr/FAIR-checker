@@ -15,8 +15,8 @@ from metrics.WebResource import WebResource
 
 class GenSHACLTestCase(unittest.TestCase):
     @classmethod
-    def tearDownClass(cls) -> None:
-        super().tearDownClass()
+    def tearDownModule(cls) -> None:
+        super().tearDownModule()
         browser = WebResource.WEB_BROWSER_HEADLESS
         browser.quit()
 
