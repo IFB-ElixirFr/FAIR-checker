@@ -8,6 +8,7 @@ from rdflib import ConjunctiveGraph, URIRef
 
 from metrics.F1B_Impl import F1B_Impl
 from metrics.util import describe_biotools
+from metrics.WebResource import WebResource
 
 logging.basicConfig(
     level=logging.DEBUG,
@@ -21,6 +22,12 @@ if not logger.handlers:
 
 
 class TestingUrlPatterns(unittest.TestCase):
+    @classmethod
+    def tearDownModule(cls) -> None:
+        super().tearDownModule()
+        browser = WebResource.WEB_BROWSER_HEADLESS
+        browser.quit()
+
     def test_persistent_ids(self):
         list_known_schemes = F1B_Impl.get_known_namespaces()
 

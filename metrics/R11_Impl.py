@@ -31,32 +31,60 @@ class R11_Impl(AbstractFAIRMetrics):
         self.principle = "https://w3id.org/fair/principles/terms/R1.1"
         self.principle_tag = "R1.1"
         self.implem = "FAIR-Checker"
-        self.desc = "Metadata includes license. Evaluate if dct:license or schema:license properties exist."
+        self.desc = """
+            Metadata includes license. <br>
+            FAIR-Checker verifies that at least one license property from Schema.org, DCTerms, or DOAP ontologies are found in metadata. 
+        """
 
     def weak_evaluate(self):
         eval = self.get_evaluation()
+        eval.set_implem(self.implem)
+        eval.set_metrics(self.principle_tag)
         return eval
 
     def strong_evaluate(self):
         eval = self.get_evaluation()
+        eval.set_implem(self.implem)
+        eval.set_metrics(self.principle_tag)
+
+        checked_properties = """schema:license dct:license doap:license dbpedia-owl:license \
+            cc:license xhv:license sto:license nie:license
+        """
         query_licenses = (
             self.COMMON_SPARQL_PREFIX
             + """
 ASK {
-    VALUES ?p {schema:license dct:license doap:license dbpedia-owl:license \
-    cc:license xhv:license sto:license nie:license } .
+    VALUES ?p {"""
+            + checked_properties
+            + """ } .
     ?s ?p ?o .
     #FILTER( NOT (isBlank(?o))) .
 }
         """
         )
 
+        eval.log_info(
+            "Checking that at least one of the following licence properties is found in metadata:\n"
+            + checked_properties
+        )
         # print(self.rdf_jsonld.serialize(format="turtle").decode())
         res = self.get_web_resource().get_rdf().query(query_licenses)
         for bool_r in res:
             if bool_r:
+                eval.log_info(
+                    "At least one of the licence property was found in metadata !"
+                )
                 eval.set_score(2)
                 return eval
             else:
+                eval.log_info("None of the licence property were found in metadata")
+                eval.set_recommendations(
+                    """
+                    You should look to annotate your metadata with one of the licence properties that can be found in
+                    the following list: <br><br>"""
+                    + checked_properties
+                    + """
+                """
+                )
                 eval.set_score(0)
                 return eval

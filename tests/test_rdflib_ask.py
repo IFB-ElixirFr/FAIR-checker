@@ -1,5 +1,7 @@
 import unittest
 
+from metrics.WebResource import WebResource
+
 from rdflib import Graph, ConjunctiveGraph, Namespace, URIRef, Literal, BNode
 
 
@@ -26,7 +28,13 @@ class KG_ask(unittest.TestCase):
                 """
         cls.kg = ConjunctiveGraph()
         cls.kg.parse(data=rdf_triples_base, format="turtle")
-        print(cls.kg.serialize(format="turtle").decode())
+        print(cls.kg.serialize(format="turtle"))
+
+    @classmethod
+    def tearDownModule(cls) -> None:
+        super().tearDownModule()
+        browser = WebResource.WEB_BROWSER_HEADLESS
+        browser.quit()
 
     def test_ask_filter(self):
         q1 = """

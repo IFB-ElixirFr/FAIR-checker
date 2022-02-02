@@ -1,14 +1,12 @@
 import sys
-
-sys.path.insert(1, "..")
-
 from metrics.FAIRMetricsFactory import FAIRMetricsFactory
 from metrics.test_metric import getMetrics
 
 # from metrics.evaluation import Evaluation
-from pymongo import MongoClient
 
 import unittest
+
+sys.path.insert(1, "..")
 
 
 @unittest.skip("long test, to be run through a cron @GitHub ?")

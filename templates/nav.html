@@ -14,27 +14,20 @@
 </script>
 
 <aside class="menu">
-<!--    <ul class="menu-list">-->
-<!--        <li><a href="{{ url_for('index') }}">Home</a></li>-->
-<!--    </ul>-->
-    <br>
     <p class="menu-label">Automated evaluations</p>
+
     <ul class="menu-list">
+        <li><a href="{{ url_for('index') }}">FAIR-Checker</a></li>
         <li><a href="{{ url_for('base_metrics') }}">How FAIR is my resource ?</a></li>
         <li><a href="{{ url_for('kg_metrics_2') }}">How to improve metadata ?</a></li>
-        <!-- <ul>
-          <li><a href="#description"><i class="fa fa-info-circle"></i> Description</a></li>
-          <li><a href="#url_selection"><i class="fa fa-link"></i> URL Selection</a></li>
-          <li><a href="#start_test"><i class="fa fa-play"></i> Start test</a></li>
-          <li><a href="#select_metrics"><i class="fa fa-check"></i> Select metrics</a></li>
-          <li><a href="#radar_chart"><i class="fa fa-pie-chart"></i> Radar chart</a></li>
-          <li><a href="#metrics_details_rec"><i class="fa fa-book"></i> Metrics list details and recommendations</a></li>
-        </ul> -->
-        <!-- </li> -->
     </ul>
     <p class="menu-label">About</p>
     <ul class="menu-list">
         <li><a href="{{ url_for('about') }}">About & Feedbacks</a></li>
         <li><a href="{{ url_for('statistics') }}">Usage statistics</a></li>
     </ul>
+    <br>
+    <a class="navbar-item" href="https://www.france-bioinformatique.fr/" target="_blank">
+      <img src="https://www.france-bioinformatique.fr/wp-content/uploads/logo-ifb-couleur.svg" width="200" height="100">
+    </a>
 </aside>

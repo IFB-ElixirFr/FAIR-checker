@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>FAIR-Checker</title>
     <meta charset="utf-8">
@@ -8,9 +9,9 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script type="text/javascript" charset="utf8"
-            src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js"></script>
+        src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js"></script>
     <script type="text/javascript" charset="utf8"
-            src="https://cdn.datatables.net/responsive/2.2.3/js/dataTables.responsive.min.js"></script>
+        src="https://cdn.datatables.net/responsive/2.2.3/js/dataTables.responsive.min.js"></script>
     <!--    <script src="//cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.js" integrity="sha256-yr4fRk/GU1ehYJPAs8P4JlTgu0Hdsp4ZKrx8bDEDC3I=" crossorigin="anonymous"></script>-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.2.0/socket.io.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.32.0/codemirror.min.js"></script>
@@ -20,52 +21,63 @@
     <link rel="stylesheet" type="text/css" href="https://rawgit.com/tpreusse/radar-chart-d3/master/src/radar-chart.css">
 
     <script src="{{ url_for('static',filename='js/main.js') }}"></script>
+    <script src="{{ url_for('static',filename='js/BulmaJS-master/dist/alert.js') }}"></script>
     <!--<script src="{{ url_for('static',filename='js/uikit-icons.min.js') }}"></script>-->
 
     <!--<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/uikit.min.css') }}">-->
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css">
     <link rel="stylesheet" type="text/css"
-          href="https://cdn.datatables.net/responsive/2.2.3/css/responsive.dataTables.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.32.0/codemirror.min.css"/>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css"/>
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/bulma.min.css') }}"/>
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/bulma-tooltip.min.css') }}"/>
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/bulma-popover.min.css') }}"/>
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/app.css')}}">
+        href="https://cdn.datatables.net/responsive/2.2.3/css/responsive.dataTables.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.32.0/codemirror.min.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/bulma.min.css') }}" />
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/bulma-tooltip.min.css') }}" />
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/bulma-divider.min.css') }}" />
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/bulma-popover.min.css') }}" />
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/app.css') }}" />
 
     <!-- JSONLD -->
     <script type="application/ld+json">
-        {{
-            jld
+        {{ jld
             |
-            safe
-        }}
+            safe }}
     </script>
 </head>
 
 <body>
 
 
-<div class="columns">
 
-    <div class="column is-2">
-        <section class="section sticky">
-            <!--<div class="container">-->
-            {% block nav %}
-            {% endblock %}
-            <!--</div>-->
-        </section>
+    {% include 'nav_bar.html' %}
+
+    <br>
+    <br>
+
+    <!-- CHECK IF WE REALLY NEED IT -->
+    <section class="hero">
+        <div class="hero-body has-text-centered">
+            <p class="title" id="hero_title">
+                {{ title }}
+            </p>
+            <p class="subtitle" id="hero_subtitle">
+                {{ subtitle }}
+            </p>
+        </div>
+    </section>
+
+    <div class="columns is-centered">
+        <div class="column is-four-fifths">
+            <section class="section">
+                {% block body %}
+                {% endblock %}
+            </section>
+        </div>
     </div>
-
-    <div class="column">
-        <section class="section">
-            <!--<div class="container">-->
-            {% block body %}
-            {% endblock %}
-            <!--</div>-->
-        </section>
+    <div>
+        {% block footer %}
+        {% include 'footer.html' %}
+        {% endblock %}
     </div>
-</div>
-
 </body>
+
 </html>

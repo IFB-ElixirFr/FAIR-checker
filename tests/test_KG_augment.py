@@ -2,16 +2,22 @@ import unittest
 
 import requests
 
-from metrics.util import describe_loa
-from metrics.util import describe_biotools
+from metrics.util import describe_openaire
 from metrics.util import describe_wikidata
 from metrics.util import describe_opencitation
 from metrics.util import is_DOI, get_DOI
+from metrics.WebResource import WebResource
 
 from rdflib import Graph, ConjunctiveGraph, Namespace, URIRef, Literal, BNode
 
 
 class KGAugmentTestCase(unittest.TestCase):
+    @classmethod
+    def tearDownModule(cls) -> None:
+        super().tearDownModule()
+        browser = WebResource.WEB_BROWSER_HEADLESS
+        browser.quit()
+
     def test_base_url(selfself):
         # from https://github.com/RDFLib/rdflib/issues/1003
         rdf_triples_base = """
@@ -28,7 +34,7 @@ class KGAugmentTestCase(unittest.TestCase):
         """
         kg = ConjunctiveGraph()
         kg.parse(data=rdf_triples_base, format="turtle")
-        print(kg.serialize(format="turtle").decode())
+        print(kg.serialize(format="turtle"))
 
         rdf_triples_NO_base = """
         @prefix category: <http://example.org/> .
@@ -43,7 +49,7 @@ class KGAugmentTestCase(unittest.TestCase):
         """
         kg = ConjunctiveGraph()
         kg.parse(data=rdf_triples_NO_base, format="turtle")
-        print(kg.serialize(format="turtle").decode())
+        print(kg.serialize(format="turtle"))
 
         # from scratch
         kg2 = ConjunctiveGraph()
@@ -54,9 +60,7 @@ class KGAugmentTestCase(unittest.TestCase):
                 Literal("2"),
             )
         )
-        print(
-            kg2.serialize(format="turtle", base="http://fair-checker/example/").decode()
-        )
+        print(kg2.serialize(format="turtle", base="http://fair-checker/example/"))
 
         kg3 = ConjunctiveGraph()
         kg3.parse(
@@ -64,137 +68,52 @@ class KGAugmentTestCase(unittest.TestCase):
             format="turtle",
         )
         kg3 = kg3 + kg2
-        print(
-            kg3.serialize(format="turtle", base="http://fair-checker/example/").decode()
-        )
+        print(kg3.serialize(format="turtle", base="http://fair-checker/example/"))
 
-    # @unittest.skip("To be done by a CRON, find example with added triples")
-    def test_wikidata_sparqlwrapper(self):
-        # r2 = R2Impl()
-        # r2.set_url("https://workflowhub.eu/workflows/45")
-        # r2.extract_html_requests()
-        # r2.extract_rdf()
-        # kg = r2.get_jsonld()
-        # print(len(kg))
-        # print(kg)
-        # print(kg.serialize(format='turtle').decode())
-
-        url = "http://www.wikidata.org/entity/Q28665865"
-        # url = "https://search.datacite.org/works/10.7892/boris.108387"
-
-        kg = ConjunctiveGraph()
-        kg = describe_wikidata(url, kg)
-        print(kg.serialize(format="turtle").decode())
-
-    @unittest.skip("wikidata sparql endpoint access 403 error")
-    def test_wikidata_http(self):
+    def test_wikidata_alive(self):
         endpoint = "https://query.wikidata.org/sparql"
-
-        uri = "https://www.wikidata.org/entity/Q1684014"
         uri = "wd:Q1684014"
-        h = {"Accept": "text/csv"}
-        p = {"query": "'DESCRIBE " + uri + "'"}
+        h = {"Accept": "application/sparql-results+xml"}
+        p = {"query": "DESCRIBE " + uri}
+
         res = requests.get(endpoint, headers=h, params=p, verify=True)
         print(res.url)
         print(res)
         print(res.text)
+
         kg = ConjunctiveGraph()
-        kg.parse(data=res.text, format="turtle")
+        kg.parse(data=res.text, format="xml")
         print(f"loaded {len(kg)} triples")
-        self.assertEqual(49, len(kg))
+        self.assertEqual(len(kg), 55)
 
-    # @unittest.skip("To be done by a CRON")
-    def test_biotools(self):
-        # r2 = R2Impl()
-        # r2.set_url("https://workflowhub.eu/workflows/45")
-        # r2.extract_html_requests()
-        # r2.extract_rdf()
-        # kg = r2.get_jsonld()
-        # print(len(kg))
-        # print(kg)
-        # print(kg.serialize(format='turtle').decode())
-
-        url = "http://www.wikidata.org/entity/Q28665865"
-        url = "https://workflowhub.eu/workflows/45"
-        url = "https://bio.tools/bwa"
-
-        kg = ConjunctiveGraph()
-        kg = describe_biotools(url, kg)
-        print(kg.serialize(format="turtle").decode())
-
-        # self.assertEqual(True, False)
-
-    # @unittest.skip("To be done by a CRON")
-    def test_loa(self):
-        # r2 = R2Impl()
-        # r2.set_url("https://workflowhub.eu/workflows/45")
-        # r2.extract_html_requests()
-        # r2.extract_rdf()
-        # kg = r2.get_jsonld()
-        # print(len(kg))
-        # print(kg)
-        # print(kg.serialize(format='turtle').decode())
-
-        url = "http://www.wikidata.org/entity/Q28665865"
-        url = "https://workflowhub.eu/workflows/45"
+    def test_openaire(self):
         url = "https://search.datacite.org/works/10.7892/boris.108387"
 
         # check if id or doi in uri
         if is_DOI(url):
             uri = get_DOI(url)
             print(f"FOUND DOI: {uri}")
-            # describe on lod.openair
+            # describe on lod.openaire
             kg = ConjunctiveGraph()
-            kg = describe_loa(uri, kg)
-            print(kg.serialize(format="turtle").decode())
+            kg = describe_openaire(uri, kg)
+            print(kg.serialize(format="turtle"))
+            self.assertGreaterEqual(len(kg), 10)
+        else:
+            self.fail()
 
-        # self.assertEqual(True, False)
-
-    # @unittest.skip("To be done by a CRON")
     def test_opencitation(self):
-        # r2 = R2Impl()
-        # r2.set_url("https://workflowhub.eu/workflows/45")
-        # r2.extract_html_requests()
-        # r2.extract_rdf()
-        # kg = r2.get_jsonld()
-        # print(len(kg))
-        # print(kg)
-        # print(kg.serialize(format='turtle').decode())
-
-        url = "http://www.wikidata.org/entity/Q28665865"
-        url = "https://doi.pangaea.de/10.1594/PANGAEA.914331"
-        url = "https://search.datacite.org/works/10.7892/boris.108387"
-
+        test_id = "10.1371/journal.pone.0097158"
         kg = ConjunctiveGraph()
-        kg = describe_opencitation(url, kg)
-        print(kg.serialize(format="turtle").decode())
+        kg = describe_opencitation(test_id, kg)
+        print(kg.serialize(format="turtle"))
+        self.assertGreaterEqual(len(kg), 10)
 
-        # self.assertEqual(True, False)
-
-    @unittest.skip("To be done by a CRON")
-    def test_all(self):
-        # r2 = R2Impl()
-        # r2.set_url("https://workflowhub.eu/workflows/45")
-        # r2.extract_html_requests()
-        # r2.extract_rdf()
-        # kg = r2.get_jsonld()
-        # print(len(kg))
-        # print(kg)
-        # print(kg.serialize(format='turtle').decode())
-
-        url = "http://www.wikidata.org/entity/Q28665865"
-        url = "https://doi.pangaea.de/10.1594/PANGAEA.914331"
-        url = "https://search.datacite.org/works/10.7892/boris.108387"
-        url = "https://bio.tools/bwa"
-
+    def test_wikidata_doi(self):
+        uri = "10.1126/SCIENCE.97.2524.434"
         kg = ConjunctiveGraph()
-        kg = describe_loa(url, kg)
-        kg = describe_opencitation(url, kg)
-        kg = describe_wikidata(url, kg)
-        kg = describe_biotools(url, kg)
-        print(kg.serialize(format="turtle").decode())
-
-        # self.assertEqual(True, False)
+        kg = describe_wikidata(uri, kg)
+        print(kg.serialize(format="turtle"))
+        self.assertGreaterEqual(len(kg), 10)
 
 
 if __name__ == "__main__":

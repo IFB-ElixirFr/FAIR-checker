@@ -28,6 +28,7 @@ PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
         self.id = "My id"
         self.desc = "My desc"
         self.implem = "My implem"
+        self.implem_source = "Source code of implementation"
         self.principle = "My principle (an URI describing the metric)"
         self.principle_tag = "My principle TAG"
         self.creator = "My creator name"
@@ -35,7 +36,7 @@ PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
         self.updated_at = "My update date"
         self.requests_status_code = "Status code for requests"
         self.web_resource = web_resource
-        self.evaluation = Evaluation
+        self.evaluation = "My evaluation"
 
     # name
     def get_name(self):
@@ -85,64 +86,6 @@ PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
     def set_new_evaluation(self):
         self.evaluation = Evaluation()
 
-    # @staticmethod
-    # def extract_html_requests(url):
-    #     while True:
-    #         try:
-    #             response = requests.get(url=url, timeout=10)
-    #             break
-    #         except SSLError:
-    #             time.sleep(5)
-    #         except requests.exceptions.Timeout:
-    #             print("Timeout, retrying")
-    #             time.sleep(5)
-    #         except requests.exceptions.ConnectionError as e:
-    #             print(e)
-    #             print("ConnectionError, retrying...")
-    #             time.sleep(10)
-    #
-    #     # self.requests_status_code = response.status_code
-    #     # self.html_source = response.content
-    #     return response.content, response.status_code
-    #
-    # def extract_rdf(self):
-    #     html_source = self.html_source
-    #     data = extruct.extract(
-    #         html_source, syntaxes=["microdata", "rdfa", "json-ld"], errors="ignore"
-    #     )
-    #     kg = ConjunctiveGraph()
-    #
-    #     base_path = Path(__file__).parent.parent  ## current directory
-    #     static_file_path = str((base_path / "static/data/jsonldcontext.json").resolve())
-    #
-    #     # kg = util.get_rdf_selenium(uri, kg)
-    #
-    #     for md in data["json-ld"]:
-    #         if "@context" in md.keys():
-    #             print(md["@context"])
-    #             if ("https://schema.org" in md["@context"]) or (
-    #                 "http://schema.org" in md["@context"]
-    #             ):
-    #                 md["@context"] = static_file_path
-    #         kg.parse(data=json.dumps(md, ensure_ascii=False), format="json-ld")
-    #     for md in data["rdfa"]:
-    #         if "@context" in md.keys():
-    #             if ("https://schema.org" in md["@context"]) or (
-    #                 "http://schema.org" in md["@context"]
-    #             ):
-    #                 md["@context"] = static_file_path
-    #         kg.parse(data=json.dumps(md, ensure_ascii=False), format="json-ld")
-    #     for md in data["microdata"]:
-    #         if "@context" in md.keys():
-    #             if ("https://schema.org" in md["@context"]) or (
-    #                 "http://schema.org" in md["@context"]
-    #             ):
-    #                 md["@context"] = static_file_path
-    #         kg.parse(data=json.dumps(md, ensure_ascii=False), format="json-ld")
-    #
-    #     self.LOGGER.debug(kg.serialize(format="turtle").decode())
-    #     self.rdf_jsonld = kg
-
     def evaluate(self) -> Evaluation:
 
         # print([cls.get_implem(self) for cls in AbstractFAIRMetrics.__subclasses__()])
@@ -151,12 +94,16 @@ PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
         self.set_new_evaluation()
         eval = self.get_evaluation()
         eval.set_start_time()
+
         logging.info(eval)
+        print(eval)
 
         # Check in the cache if the metrics has not been computed yet
         try:
 
             url = self.get_web_resource().get_url()
+            eval.set_target_uri(url)
+            eval.set_web_resource(self.get_web_resource())
             if url in AbstractFAIRMetrics.cache.keys():
 
                 if self.get_principle_tag() in AbstractFAIRMetrics.cache[url].keys():

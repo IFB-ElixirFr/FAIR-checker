@@ -10,10 +10,16 @@ logging.basicConfig(
 
 
 class WebResourceTestCase(unittest.TestCase):
+    @classmethod
+    def tearDownModule(cls) -> None:
+        super().tearDownModule()
+        browser = WebResource.WEB_BROWSER_HEADLESS
+        browser.quit()
+
     def test_biotools(self):
         bwa = WebResource("http://bio.tools/bwa")
         logging.info(f"{len(bwa.get_rdf())} loaded RDF triples")
-        self.assertGreaterEqual(len(bwa.get_rdf()), 48)
+        self.assertGreaterEqual(len(bwa.get_rdf()), 124)
 
     def test_dataverse(self):
         dataverse = WebResource(
@@ -21,6 +27,13 @@ class WebResourceTestCase(unittest.TestCase):
         )
         logging.info(f"{len(dataverse.get_rdf())} loaded RDF triples")
         self.assertGreaterEqual(len(dataverse.get_rdf()), 93)
+
+    def test_workflowhub(self):
+        bwa = WebResource("https://workflowhub.eu/workflows/263")
+        logging.info(f"{len(bwa.get_rdf())} loaded RDF triples")
+        self.assertGreaterEqual(len(bwa.get_rdf()), 50)
+        turtle = bwa.get_rdf().serialize(format="turtle")
+        self.assertTrue("sc:ComputationalWorkflow" in turtle)
 
 
 if __name__ == "__main__":

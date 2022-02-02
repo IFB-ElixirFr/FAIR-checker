@@ -2,9 +2,16 @@ import unittest
 import rdflib
 
 import metrics.util as util
+from metrics.WebResource import WebResource
 
 
 class MissingMetadataTestCase(unittest.TestCase):
+    @classmethod
+    def tearDownModule(cls) -> None:
+        super().tearDownModule()
+        browser = WebResource.WEB_BROWSER_HEADLESS
+        browser.quit()
+
     def test_url(self):
         self.assertFalse(
             util.is_URL("qsd jqshgd"), "This is not an URL, result should be False"
@@ -53,11 +60,11 @@ class MissingMetadataTestCase(unittest.TestCase):
                         new_kg.add((uri, rdflib.URIRef(p), rdflib.Literal(value)))
 
             print("****** Turtle syntax *****")
-            print(new_kg.serialize(format="turtle").decode())
+            print(new_kg.serialize(format="turtle"))
             print("**************************")
 
             print("***** JSON-LD syntax *****")
-            print(new_kg.serialize(format="json-ld").decode())
+            print(new_kg.serialize(format="json-ld"))
             print("**************************")
 
         self.assertEqual(len(new_kg), 4)
