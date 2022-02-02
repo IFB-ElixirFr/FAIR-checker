@@ -1,4 +1,5 @@
-# fair-checker
+[![Actions Status](https://github.com/IFB-ElixirFr/fair-checker/workflows/Build%20and%20test/badge.svg)](https://github.com/IFB-ElixirFr/fair-checker/actions)
+# FAIR-checker
 
 Web tool to assess FAIR principles and promote their implementation.
 
