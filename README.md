@@ -1,87 +1,48 @@
-[![Actions Status](https://github.com/IFB-ElixirFr/fair-checker/workflows/Build%20and%20test/badge.svg)](https://github.com/IFB-ElixirFr/fair-checker/actions)
+[![Actions Status](https://github.com/IFB-ElixirFr/fair-checker/workflows/Build%20and%20test/badge.svg)](https://github.com/IFB-ElixirFr/fair-checker/actions) [![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE) [![Version 1.0.1](https://img.shields.io/badge/version-v1.0.1-blue)]()
+
+
 # FAIR-checker
+FAIR-Checker is a tool aimed at assessing FAIR principles and empowering data provider to enhance the quality of their digital resources.
 
-Web tool to assess FAIR principles and promote their implementation.
+Data providers and consumers can check how FAIR are web resources. Developers can explore and inspect metadata exposed in web resources.
 
-## Monitoring progress in FAIRification through self-assessment of resources maturity indicators
+FAIR-Checker is deployed at [http://fair-checker.france-bioinformatique.fr](http://fair-checker.france-bioinformatique.fr).
 
-### FAIRMetrics based part
+Main contributors are: 
+- [Thomas Rosnet](https://github.com/thomasrosnet)
+- [Alban Gaignard](https://github.com/albangaignard)
+- [Marie-Dominique Devignes](https://members.loria.fr/MDDevignes/)
 
-This demo is based on the FAIRMetrics framework [Wilkinson, Dumontier et al., Scientific Data 6:174] that is composed of Maturity Indicators (MI), compliance tests and the evaluator application itself.
 
-Few efforts have been done so far to take advantage from their concrete implementation, in the process of improving FAIRness of users/community resources. Furthermore, this does not provide concrete help or guidelines to developers for better sharing their published works.
+## Main features
+- extracts embedded metatdata from web pages, currently supporting RDFa, JSON-LD, and microdata formats
+- evaluates FAIR metrics on these metadata 
+- provides a graphical summary on FAIR assesment 
+- provides detailed evaluations for each metric with technical recommendations
+- explore the content of metadata
+- enrich metadata based on live SPARQL endpoints, currently relying on [Wikidata](https://www.wikidata.org), [OpenAIRE](https://graph.openaire.eu/develop/), and [OpenCitations](https://opencitations.net)
+- evaluate [Bioschemas community profiles](https://bioschemas.org/profiles/) to check if important metada is missing
+## Known bugs
+- too few results retrieved from external SPARQL endpoints
 
-In this repository we propose a web demonstrator, leveraging existing web APIs, aimed at i) evaluating FAIR maturity indicators and ii) providing hints to progress in the FAIRification process.
+## Contribute
+Please submit GitHub issues to provide feedback or ask for new features, and contact us for any related question.
 
-### Custom part
 
-These FAIR checks aim at leveraging semantic web technologies to check that metadata use standards and recognized ontologies or controlled vocabularies.
-
-First, embedded semantic annotations are extracted from web pages, forming a minimal knowledge graph. Then, these knowledge graphs are completed based on already deployed knowledge graphs (Datacite, OpenAire, WikiData). Finally, the resulting knowledge graph is tested to check that classes and properties are recognized through Linked Open Vocabularies (LOV), or Ontology Lookup Service (OLS). In addition we implemented SHACL validation to check the conformance with BioSchemas profiles.
-
-## Installation
-
-### Using Docker
-
-Clone the repo:
+## Install
+### With Conda 
 ```
 git clone https://github.com/IFB-ElixirFr/fair-checker.git
-```
-Move to the folder:
-```
 cd fair-checker
+conda create --name fair-checker-env --file requirements.txt
+conda activate fair-checker-env
+pip install extruct
+
+./launch_dev.sh
 ```
 
-Build with the correct env: 'production' or 'development':
-```
-sudo docker build -t fair-checker-webapp --build-arg FLASK_ENV=production .
-```
+## License
+FAIR-Checker is released under the [MIT License](LICENSE). Some third-party components are included. They are subject to their own licenses. All of the license information can be found in the included [LICENSE](LICENSE) file.
 
-Run attached:
-```
-sudo docker run --network="host" -p 5000:5000 --name fair-checker-webapp fair-checker-webapp
-```
-Run dettached:
-```
-sudo docker run --network="host" -p 5000:5000 --name fair-checker-webapp -d fair-checker-webapp
-```
-
-In case of code update:
-```
-sudo docker rm -f fair-checker-webapp
-```
-Then build and run again
-
-
-### Using Conda
-
-Clone the repo:
-```
-git clone https://github.com/IFB-ElixirFr/fair-checker.git
-```
-
-Move to the folder:
-```
-cd fair-checker
-```
-
-Create a new conda ENV:
-```
-conda create --name fair-check-env
-```
-
-Activate the new ENV:
-```
-conda activate fair-check-env
-```
-
-Run:
-```
-while read requirement; do conda install -c conda-forge --yes $requirement || pip install $requirement; done < requirements.txt
-```
-
-Start local server:
-```
-export FLASK_ENV=development
-python3 app.py
-```
+## Funding
+This project is funded by the [French institute for Bioinformatics (IFB)](https://france-bioinformatique.fr/) through the [PIA2 11-INBS-0013 grant](https://anr.fr/ProjetIA-11-INBS-0013).
