@@ -1,5 +1,6 @@
 import logging
 from metrics.AbstractFAIRMetrics import AbstractFAIRMetrics
+from metrics.recommendation import json_rec
 
 
 class I2A_Impl(AbstractFAIRMetrics):
@@ -56,14 +57,7 @@ class I2A_Impl(AbstractFAIRMetrics):
                 "No RDF metadata were found, thus with existence of the properties can't be verified"
             )
             eval.set_recommendations(
-                """
-                Your metadata seem to not be conforming to the researched format, which is RDF (Resource Description Framework), 
-                Resource Description Framework a W3C standard specification for representing information in the form of 
-                subject / predicate / object statements known as triples.
-                This structured format enable links between multiple data on the web using controlled
-                vocabularies, learn more here:
-                https://www.w3.org/TR/rdf11-primer/
-            """
+                json_rec["I2A"]["reco2"]
             )
             return eval
         else:
@@ -82,9 +76,7 @@ class I2A_Impl(AbstractFAIRMetrics):
                     )
                     eval.set_score(0)
                     eval.set_recommendations(
-                        """
-                        You should look to annotate your metadata with one of the property that can be found in
-                        the following list: <br><br>"""
+                        json_rec["I2A"]["reco1"]
                         + checked_properties
                         + """
                     """

@@ -13,6 +13,7 @@ from metrics.FairCheckerExceptions import FairCheckerException
 from metrics.Evaluation import Evaluation
 import validators
 import re
+from metrics.recommendation import json_rec
 
 
 class F1A_Impl(AbstractFAIRMetrics):
@@ -52,7 +53,7 @@ class F1A_Impl(AbstractFAIRMetrics):
                 "Status code is different than 200, thus, the resource is not reachable."
             )
             eval.set_score(0)
-            eval.set_recommendations("Ensure that the url you used is valid.")
+            eval.set_recommendations(json_rec["F1A"]["reco2"])
             return eval
 
     def strong_evaluate(self) -> Evaluation:
@@ -79,7 +80,7 @@ class F1A_Impl(AbstractFAIRMetrics):
         else:
             eval.log_info("The URI doesn't contains a DOI")
             eval.set_score(0)
-            eval.set_recommendations("")
+            eval.set_recommendations(json_rec["F1A"]["reco1"])
             return eval
 
     def blank_node_evaluate(self) -> Evaluation:

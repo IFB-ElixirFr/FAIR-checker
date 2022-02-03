@@ -9,6 +9,7 @@ from rdflib import URIRef
 
 from metrics.AbstractFAIRMetrics import AbstractFAIRMetrics
 from metrics.FairCheckerExceptions import FairCheckerException
+from metrics.recommendation import json_rec
 
 
 class F1B_Impl(AbstractFAIRMetrics):
@@ -112,10 +113,7 @@ class F1B_Impl(AbstractFAIRMetrics):
                     return eval
         eval.log_info("No namespace from identifiers.org found")
         eval.set_recommendations(
-            """
-            You should use a namespace that can be found in Identifiers.org
-            here: https://registry.identifiers.org/registry#!
-        """
+            json_rec["F1B"]["reco1"]
         )
         eval.set_score(0)
         return eval

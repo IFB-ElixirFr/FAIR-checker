@@ -2,6 +2,7 @@ import logging
 
 from metrics.AbstractFAIRMetrics import AbstractFAIRMetrics
 from metrics.util import ask_BioPortal, ask_OLS, ask_LOV
+from metrics.recommendation import json_rec
 
 
 class F2B_Impl(AbstractFAIRMetrics):
@@ -88,11 +89,7 @@ class F2B_Impl(AbstractFAIRMetrics):
             "No classes nor properties were found in one of the ontology registries"
         )
         eval.set_recommendations(
-            """
-            You should try to use standard classes and properties, controlled vocabularies that are defined 
-            and used by the community. These standards can be found in the following registries: "Ontology Lookup 
-            Service", "Linked Open Vocabulary", and BioPortal.
-        """
+            json_rec["F2B"]["reco3"]
         )
         eval.set_score(0)
         return eval
@@ -132,10 +129,7 @@ class F2B_Impl(AbstractFAIRMetrics):
         # True if one of the classes is not in OLS, LOV or BioPortal
         if class_not_in_registries:
             eval.set_recommendations(
-                """
-                Maybe you should try to find a similar class to the one you used that can be found in one of the
-                 registry.
-            """
+                json_rec["F2B"]["reco1"]
             )
         else:
             eval.log_info("All classes found in those ontology registries")
@@ -163,10 +157,7 @@ class F2B_Impl(AbstractFAIRMetrics):
         # True if one of the properties is not in OLS, LOV or BioPortal
         if property_not_in_registries:
             eval.set_recommendations(
-                """
-                Maybe you should try to find a similar property to the one you used that can be found in one of the
-                 registry.
-            """
+                json_rec["F2B"]["reco2"]
             )
         else:
             eval.log_info("All properties found in those ontology registries")
