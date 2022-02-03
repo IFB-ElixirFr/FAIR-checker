@@ -56,9 +56,7 @@ class I2A_Impl(AbstractFAIRMetrics):
             eval.log_info(
                 "No RDF metadata were found, thus with existence of the properties can't be verified"
             )
-            eval.set_recommendations(
-                json_rec["I2A"]["reco2"]
-            )
+            eval.set_recommendations(json_rec["I2A"]["reco2"])
             return eval
         else:
             logging.debug(f"running query:" + f"\n{query_human}")

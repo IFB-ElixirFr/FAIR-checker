@@ -64,8 +64,6 @@ class F2A_Impl(AbstractFAIRMetrics):
         eval.log_info(
             "No RDF triples found, thus data is probably not structured as needed"
         )
-        eval.set_recommendations(
-            json_rec["F2A"]["reco1"]
-        )
+        eval.set_recommendations(json_rec["F2A"]["reco1"])
         eval.set_score(0)
         return eval

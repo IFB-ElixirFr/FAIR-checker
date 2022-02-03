@@ -112,9 +112,7 @@ class F1B_Impl(AbstractFAIRMetrics):
                     eval.set_score(1)
                     return eval
         eval.log_info("No namespace from identifiers.org found")
-        eval.set_recommendations(
-            json_rec["F1B"]["reco1"]
-        )
+        eval.set_recommendations(json_rec["F1B"]["reco1"])
         eval.set_score(0)
         return eval
 

@@ -61,8 +61,6 @@ class I3_Impl(AbstractFAIRMetrics):
                 + str(len(domains))
                 + ")"
             )
-            eval.set_recommendations(
-                json_rec["I3"]["reco1"]
-            )
+            eval.set_recommendations(json_rec["I3"]["reco1"])
             eval.set_score(0)
             return eval

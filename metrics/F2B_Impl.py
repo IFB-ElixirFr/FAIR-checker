@@ -88,9 +88,7 @@ class F2B_Impl(AbstractFAIRMetrics):
         eval.log_info(
             "No classes nor properties were found in one of the ontology registries"
         )
-        eval.set_recommendations(
-            json_rec["F2B"]["reco3"]
-        )
+        eval.set_recommendations(json_rec["F2B"]["reco3"])
         eval.set_score(0)
         return eval
 
@@ -128,9 +126,7 @@ class F2B_Impl(AbstractFAIRMetrics):
 
         # True if one of the classes is not in OLS, LOV or BioPortal
         if class_not_in_registries:
-            eval.set_recommendations(
-                json_rec["F2B"]["reco1"]
-            )
+            eval.set_recommendations(json_rec["F2B"]["reco1"])
         else:
             eval.log_info("All classes found in those ontology registries")
 
@@ -156,9 +152,7 @@ class F2B_Impl(AbstractFAIRMetrics):
 
         # True if one of the properties is not in OLS, LOV or BioPortal
         if property_not_in_registries:
-            eval.set_recommendations(
-                json_rec["F2B"]["reco2"]
-            )
+            eval.set_recommendations(json_rec["F2B"]["reco2"])
         else:
             eval.log_info("All properties found in those ontology registries")
 
