@@ -391,7 +391,8 @@
             var type = data[key]['type']
             var conforms = data[key]['conforms']
             valid_html += '<div class="block">'
-            valid_html += '<h5 class="subtitle is-5">' + resource + ' <span class="tag is-black">' + type + '</span> </h5>'
+            valid_html += '<h5 class="subtitle is-5"> <span class="tag is-info is-light"><a target=_blank href=' + resource + '>'
+                + resource + '</a></span> has type <span class="tag is-black"><a target=_blank href=' + type + '>' + type + '</a></span> </h5>'
             // valid_html += '<span class="tag is-black">' + type + '</span>'
             if (conforms == true) {
                 valid_html += '<p> has a <span class="has-text-success has-text-weight-bold">valid</span> Bioschemas profile</p>'
@@ -399,7 +400,7 @@
                 valid_html += '<div class="columns is-multiline is-mobile">'
                 valid_html += '<div class="column is-one-half">'
                 valid_html += '<table class="table is-striped is-fullwidth">'
-                valid_html += '<thead><tr><th>Requirements</th></tr></thead>'
+                valid_html += '<thead><tr><th>Required missing properties</th></tr></thead>'
                 valid_html += '<tbody>'
                 $.each(data[key]['errors'], function (index, item) {
                     var row = '<tr>';
