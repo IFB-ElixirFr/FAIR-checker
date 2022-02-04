@@ -404,7 +404,7 @@
                 valid_html += '<tbody>'
                 $.each(data[key]['errors'], function (index, item) {
                     var row = '<tr>';
-                    row += '<td>' + item + ' <span class="has-text-danger has-text-weight-bold">must be</span> provided</td>';
+                    row += '<td> <span class="tag is-light"><a target=_blank href=' + item + '>' + item + '</a></span> <span class="has-text-danger has-text-weight-bold">must be</span> provided</td>';
                     valid_html += row + '</tr>';
                 });
                 valid_html += '</tbody></table></div>'
@@ -414,7 +414,7 @@
                 valid_html += '<tbody>'
                 $.each(data[key]['warnings'], function (index, item) {
                     var row = '<tr>';
-                    row += '<td>' + item + ' <span class="has-text-warning has-text-weight-bold">should be</span> provided</td>';
+                    row += '<td><span class="tag is-light"><a target=_blank href=' + item + '>' + item + '</a></span> <span class="has-text-warning has-text-weight-bold">should be</span> provided</td>';
                     valid_html += row + '</tr>';
                 });
                 valid_html += '</tbody></table></div>'
