@@ -83,7 +83,7 @@ class GenSHACLTestCase(unittest.TestCase):
 
     def test_generate_right_shape(self):
         target_class = "sc:SoftwareApplication"
-        shape = gen_SHACL_from_target_class(target_class=target_class)
+        shape, ref_profile = gen_SHACL_from_target_class(target_class=target_class)
         self.assertTrue("sh:path" in shape)
 
     def test_biotools_validation(self):
