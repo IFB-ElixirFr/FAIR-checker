@@ -939,37 +939,53 @@ def check_kg(data):
     table_content = {"classes": [], "properties": []}
     qres = kg.query(query_classes)
     for row in qres:
-        table_content["classes"].append({"name": row["class"], "tag": []})
+        table_content["classes"].append({"name": row["class"], "tag": {"OLS": None, "LOV": None, "BioPortal": None}})
         print(f'{row["class"]}')
 
     qres = kg.query(query_properties)
     for row in qres:
-        table_content["properties"].append({"name": row["prop"], "tag": []})
+        table_content["properties"].append({"name": row["prop"], "tag": {"OLS": None, "LOV": None, "BioPortal": None}})
         print(f'{row["prop"]}')
 
     emit("done_check", table_content)
 
     for c in table_content["classes"]:
         if util.ask_OLS(c["name"]):
-            c["tag"].append("OLS")
-            emit("done_check", table_content)
+            c["tag"]["OLS"] = True
+        else:
+            c["tag"]["OLS"] = False
+        emit("done_check", table_content)
+
         if util.ask_LOV(c["name"]):
-            c["tag"].append("LOV")
-            emit("done_check", table_content)
+            c["tag"]["LOV"] = True
+        else:
+            c["tag"]["LOV"] = False
+        emit("done_check", table_content)
+
         if util.ask_BioPortal(c["name"], "class"):
-            c["tag"].append("BioPortal")
-            emit("done_check", table_content)
+            c["tag"]["BioPortal"] = True
+        else:
+            c["tag"]["BioPortal"] = False
+        emit("done_check", table_content)
 
     for p in table_content["properties"]:
         if util.ask_OLS(p["name"]):
-            p["tag"].append("OLS")
-            emit("done_check", table_content)
+            p["tag"]["OLS"] = True
+        else:
+            p["tag"]["OLS"] = False
+        emit("done_check", table_content)
+
         if util.ask_LOV(p["name"]):
-            p["tag"].append("LOV")
-            emit("done_check", table_content)
+            p["tag"]["LOV"] = True
+        else:
+            p["tag"]["LOV"] = False
+        emit("done_check", table_content)
+
         if util.ask_BioPortal(p["name"], "property"):
-            p["tag"].append("BioPortal")
-            emit("done_check", table_content)
+            p["tag"]["BioPortal"] = True
+        else:
+            p["tag"]["BioPortal"] = False
+        emit("done_check", table_content)
 
 
 @DeprecationWarning

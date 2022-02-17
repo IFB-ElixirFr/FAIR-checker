@@ -49,6 +49,22 @@ class StatisticsTestCase(unittest.TestCase):
         except ValueError as e:
             print(f"no metrics implemention for {e}")
 
+    def test_number_eva(self):
+        client = MongoClient()
+        db = client.fair_checker
+        evaluations = db.evaluations
+        all_eval = evaluations.count_documents({})
+        print(f"{all_eval} stored evaluation")
+
+        unique_eval = evaluations.distinct('target_uri')
+        print(unique_eval)
+
+        six_month_ago = datetime.now() - timedelta(180)
+        print(six_month_ago.isoformat())
+        print(datetime.now().isoformat())
+        sixm_eval = evaluations.count_documents({"started_at": {"$gt": six_month_ago}})
+        print(sixm_eval)
+
     def test_basic_stats(self):
         client = MongoClient()
         db = client.fair_checker
