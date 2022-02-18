@@ -15,12 +15,13 @@ Main contributors are:
 
 
 ## Main features
-- extracts embedded metatdata from web pages, currently supporting RDFa, JSON-LD, and microdata formats
-- evaluates FAIR metrics on these metadata 
-- provides a graphical summary on FAIR assesment 
-- provides detailed evaluations for each metric with technical recommendations
+- extract embedded metadata from web pages, currently supporting RDFa, JSON-LD, and microdata formats
+- evaluate [FAIR metrics](https://www.go-fair.org/fair-principles/) on these metadata 
+- provide a graphical summary on FAIR assesment 
+- provide detailed evaluations for each metric with technical recommendations
 - explore the content of metadata
 - enrich metadata based on live SPARQL endpoints, currently relying on [Wikidata](https://www.wikidata.org), [OpenAIRE](https://graph.openaire.eu/develop/), and [OpenCitations](https://opencitations.net)
+- evaluate if used controled vocabularies / ontologies are indexed in community registries, currently supported by [OLS](https://www.ebi.ac.uk/ols), [LOV](https://lov.linkeddata.es/dataset/lov/) and [BioPortal](https://bioportal.bioontology.org)
 - evaluate [Bioschemas community profiles](https://bioschemas.org/profiles/) to check if important metada is missing
 ## Known bugs
 - too few results retrieved from external SPARQL endpoints
