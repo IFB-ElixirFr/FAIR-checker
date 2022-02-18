@@ -197,7 +197,7 @@
     $("#p1").parent().closest('div').data("label", "toto");
 
     // add recommandation if score == 0
-    if (value['score'] == 0) {
+    if (value['recommendation'] != "No recommendation yet") {
       $("#row_guideline_{{f.id}}").parent("div").find('button').show()
       $("#row_guideline_{{f.id}}").children("article").children("div").html(value['recommendation']);
       $("#modal_guideline_{{f.id}}").html(value['recommendation']);

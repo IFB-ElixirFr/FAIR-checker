@@ -2,6 +2,7 @@ import logging
 from rdflib import URIRef
 from urllib.parse import urlparse
 from metrics.AbstractFAIRMetrics import AbstractFAIRMetrics
+from metrics.recommendation import json_rec
 
 
 class I3_Impl(AbstractFAIRMetrics):
@@ -60,10 +61,6 @@ class I3_Impl(AbstractFAIRMetrics):
                 + str(len(domains))
                 + ")"
             )
-            eval.set_recommendations(
-                """
-                You should add other external links that uses different domains name from what you already have.
-            """
-            )
+            eval.set_recommendations(json_rec["I3"]["reco1"])
             eval.set_score(0)
             return eval

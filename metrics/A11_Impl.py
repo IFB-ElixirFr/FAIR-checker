@@ -1,5 +1,6 @@
 from metrics.AbstractFAIRMetrics import AbstractFAIRMetrics
 import requests
+from metrics.recommendation import json_rec
 
 
 class A11_Impl(AbstractFAIRMetrics):
@@ -44,12 +45,10 @@ class A11_Impl(AbstractFAIRMetrics):
         elif status_code == 404:
             eval.log_info("The resource can't be found: 404 error")
             eval.set_score(0)
-            eval.set_recommendations(
-                "Ensure that the resource is accessible using the provided URL"
-            )
+            eval.set_recommendations(json_rec["A11"]["reco2"])
             return eval
         else:
             eval.log_info("The resource seems to not be using HTTP protocol")
             eval.set_score(0)
-            eval.set_recommendations("You may consider to use the HTTP protocol")
+            eval.set_recommendations(json_rec["A11"]["reco1"])
             return eval
