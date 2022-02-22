@@ -11,11 +11,17 @@ from pathlib import Path
 from rdflib import ConjunctiveGraph, URIRef
 import requests
 import json
+import os
 
 
 class WebResource:
     chrome_options = Options()
     chrome_options.add_argument("--headless")
+    chrome_options.add_argument("--no-sandbox")
+    proxy = os.getenv("HTTP_PROXY")
+    if proxy:
+        chrome_options.add_argument("--proxy-server=" + proxy)
+
     WEB_BROWSER_HEADLESS = webdriver.Chrome(
         ChromeDriverManager().install(), options=chrome_options
     )
