@@ -12,6 +12,7 @@ import json
 import validators
 
 from metrics.util import ask_LOV as is_in_LOV
+from metrics.recommendation import json_rec
 
 
 class R11_Impl(AbstractFAIRMetrics):
@@ -79,9 +80,7 @@ ASK {
             else:
                 eval.log_info("None of the licence property were found in metadata")
                 eval.set_recommendations(
-                    """
-                    You should look to annotate your metadata with one of the licence properties that can be found in
-                    the following list: <br><br>"""
+                    json_rec["R11"]["reco1"]
                     + checked_properties
                     + """
                 """

@@ -10,6 +10,7 @@ from rdflib import URIRef
 from metrics.AbstractFAIRMetrics import AbstractFAIRMetrics
 from metrics.FairCheckerExceptions import FairCheckerException
 from metrics.Evaluation import Evaluation
+from metrics.recommendation import json_rec
 
 
 class F2A_Impl(AbstractFAIRMetrics):
@@ -63,15 +64,6 @@ class F2A_Impl(AbstractFAIRMetrics):
         eval.log_info(
             "No RDF triples found, thus data is probably not structured as needed"
         )
-        eval.set_recommendations(
-            """
-            Your metadata seem to not be conforming to the researched format, which is RDF (Resource Description Framework), 
-            Resource Description Framework a W3C standard specification for representing information in the form of 
-            subject / predicate / object statements known as triples.
-            This structured format enable links between multiple data on the web using controlled
-            vocabularies, learn more here:
-            https://www.w3.org/TR/rdf11-primer/
-        """
-        )
+        eval.set_recommendations(json_rec["F2A"]["reco1"])
         eval.set_score(0)
         return eval

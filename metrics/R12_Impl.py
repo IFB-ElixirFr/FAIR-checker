@@ -1,5 +1,6 @@
 from metrics.AbstractFAIRMetrics import AbstractFAIRMetrics
 import validators
+from metrics.recommendation import json_rec
 
 
 class R12_Impl(AbstractFAIRMetrics):
@@ -65,9 +66,7 @@ ASK {
                     "None of the provenance property were found in metadata !"
                 )
                 eval.set_recommendations(
-                    """
-                    You should look to annotate your metadata with one of the provenance properties that can be found in
-                    the following list: <br><br>"""
+                    json_rec["R12"]["reco1"]
                     + checked_properties
                     + """
                 """

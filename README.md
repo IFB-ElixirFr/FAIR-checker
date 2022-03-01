@@ -16,12 +16,13 @@ Main contributors are:
 
 ## Main features
 - extracts embedded metatdata from web pages, currently supporting RDFa, JSON-LD, and microdata formats
-- evaluates FAIR metrics on these metadata 
+- evaluates FAIR metrics on these metadata (supported by [Identifiers.org](https://www.identifiers.org)). 
 - provides a graphical summary on FAIR assesment 
 - provides detailed evaluations for each metric with technical recommendations
 - explore the content of metadata
 - enrich metadata based on live SPARQL endpoints, currently relying on [Wikidata](https://www.wikidata.org), [OpenAIRE](https://graph.openaire.eu/develop/), and [OpenCitations](https://opencitations.net)
 - evaluate [Bioschemas community profiles](https://bioschemas.org/profiles/) to check if important metada is missing
+
 ## Known bugs
 - too few results retrieved from external SPARQL endpoints
 
