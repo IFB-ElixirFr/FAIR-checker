@@ -25,7 +25,6 @@ def success_this_week():
     a_week_ago = datetime.now() - timedelta(7)
     a_month_ago = datetime.now() - timedelta(30)
 
-
     nb_eval = evaluations.count_documents(
         {"started_at": {"$gt": a_week_ago}, "success": "1"}
     )

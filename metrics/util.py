@@ -225,7 +225,7 @@ def ask_OLS(uri):
         "https://www.ebi.ac.uk/ols/api/properties", headers=h, params=p, verify=True
     )
     print(res.status_code)
-    print(res.headers['content-type'])
+    print(res.headers["content-type"])
     print(res.headers)
     print(res.encoding)
     print(res.json())

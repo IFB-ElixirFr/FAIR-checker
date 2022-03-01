@@ -939,12 +939,16 @@ def check_kg(data):
     table_content = {"classes": [], "properties": []}
     qres = kg.query(query_classes)
     for row in qres:
-        table_content["classes"].append({"name": row["class"], "tag": {"OLS": None, "LOV": None, "BioPortal": None}})
+        table_content["classes"].append(
+            {"name": row["class"], "tag": {"OLS": None, "LOV": None, "BioPortal": None}}
+        )
         print(f'{row["class"]}')
 
     qres = kg.query(query_properties)
     for row in qres:
-        table_content["properties"].append({"name": row["prop"], "tag": {"OLS": None, "LOV": None, "BioPortal": None}})
+        table_content["properties"].append(
+            {"name": row["prop"], "tag": {"OLS": None, "LOV": None, "BioPortal": None}}
+        )
         print(f'{row["prop"]}')
 
     emit("done_check", table_content)
