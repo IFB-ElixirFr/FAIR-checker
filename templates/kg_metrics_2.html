@@ -352,13 +352,17 @@
         $.each(value['classes'], function (index, item) {
             var row = '<tr>';
             row += '<td>' + item['name'];
-            if (item['tag'].length == 0) {
-                row += ' <span class="tag is-danger is-pulled-right"> unknown</span>'
-            } else {
-                $.each(item['tag'], function (index, t) {
-                    row += ' <span class="tag is-primary is-pulled-right">' + t + '</span>'
-                });
-            }
+
+            $.each(item['tag'], function (key, item) {
+                if (item === true) {
+                    row += ' <span class="tag is-success is-light is-pulled-right">' + key + '</span>'
+                } else if (item === false) {
+                    row += ' <span class="tag is-danger is-light is-pulled-right">' + key + '</span>'
+                } else {
+                    row += ' <span class="tag is-light is-pulled-right">' + key + '</span>'
+                }
+            });
+
             row += '</td>';
             rows += row + '<tr>';
         });
@@ -368,18 +372,23 @@
         $.each(value['properties'], function (index, item) {
             var row = '<tr>';
             row += '<td>' + item['name'];
-            if (item['tag'].length == 0) {
-                row += ' <span class="tag is-danger is-pulled-right"> unknown</span>'
-            } else {
-                $.each(item['tag'], function (index, t) {
-                    row += ' <span class="tag is-primary is-pulled-right">' + t + '</span>'
-                });
-            }
+
+            $.each(item['tag'], function (key, item) {
+                if (item === true) {
+                    row += ' <span class="tag is-success is-light is-pulled-right">' + key + '</span>'
+                } else if (item === false) {
+                    row += ' <span class="tag is-danger is-light is-pulled-right">' + key + '</span>'
+                } else {
+                    row += ' <span class="tag is-light is-pulled-right">' + key + '</span>'
+                }
+            });
+
             row += '</td>';
             rows += row + '<tr>';
         });
         $('#t_properties').html(rows);
 
+        // Do we remove it after all tests or only after the first ?
         $("#btn_fairness").removeClass("is-loading");
     });
 
@@ -691,7 +700,7 @@
                     <br>
                     <div class="columns is-multiline is-mobile">
                         <div class="column is-one-half">
-                            <table class="table is-striped is-fullwidth">
+                            <table class="table is-striped is-fullwidth is-hoverable">
                                 <thead>
                                     <tr>
                                         <th>Classes</th>
@@ -702,7 +711,7 @@
                             </table>
                         </div>
                         <div class="column is-one-half">
-                            <table class="table is-striped is-fullwidth">
+                            <table class="table is-striped is-fullwidth is-hoverable">
                                 <thead>
                                     <tr>
                                         <th>Properties</th>
