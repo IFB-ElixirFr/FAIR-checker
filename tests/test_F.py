@@ -80,6 +80,7 @@ class FindabilityTestCase(unittest.TestCase):
         logging.info(res3)
         self.assertEqual(res3.get_score(), str(Result.WEAK.value))
 
+    @unittest.skip("too long")
     def test_F1A_dataverse(self):
         dataverse = WebResource(
             # "https://data.inrae.fr/dataset.xhtml?persistentId=doi:10.15454/P27LDX"
@@ -116,6 +117,7 @@ class FindabilityTestCase(unittest.TestCase):
         logging.info(res)
         self.assertEqual(res.get_score(), str(Result.WEAK.value))
 
+    @unittest.skip("too long")
     def test_identifiers_dataverse(self):
         dataverse = WebResource(
             "https://data.inrae.fr/dataset.xhtml?persistentId=doi:10.15454/P27LDX"

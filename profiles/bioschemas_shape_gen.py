@@ -78,6 +78,7 @@ def gen_shacl_alternatives(bs_profiles):
 
         res[p]["rec_props"] = rec
         res[p]["min_props"] = min
+        res[p]["ref_profile"] = bs_profiles[p]["ref_profile"]
     return res
 
 
@@ -94,6 +95,7 @@ bs_profiles = {
             "sc:featureList",
             "sc:softwareVersion",
         ],
+        "ref_profile": "https://bioschemas.org/profiles/ComputationalTool/1.0-RELEASE",
     },
     "sc:Dataset": {
         "min_props": [
@@ -101,9 +103,21 @@ bs_profiles = {
             "sc:description",
             "sc:identifier",
             "sc:keywords",
+            "sc:license",
             "sc:url",
         ],
-        "rec_props": ["sc:license", "sc:creator", "sc:citation"],
+        "rec_props": [
+            "sc:alternateName",
+            "sc:creator",
+            "sc:citation",
+            "sc:distribution",
+            "sc:includedInDataCatalog",
+            "sc:isBasedOn",
+            "sc:measurementTechnique",
+            "sc:variableMeasured",
+            "sc:version",
+        ],
+        "ref_profile": "https://bioschemas.org/profiles/Dataset/0.4-DRAFT",
     },
     "sc:ScholarlyArticle": {
         "min_props": ["sc:headline", "sc:identifier"],
@@ -124,6 +138,7 @@ bs_profiles = {
             "sc:pageStart",
             "sc:url",
         ],
+        "ref_profile": "https://bioschemas.org/profiles/ScholarlyArticle/0.2-DRAFT-2020_12_03",
     },
     "sc:MolecularEntity": {
         "min_props": ["sc:identifier", "sc:name", "dct:conformsTo", "sc:url"],
@@ -135,6 +150,7 @@ bs_profiles = {
             "sc:molecularWeight",
             "sc:smiles",
         ],
+        "ref_profile": "https://bioschemas.org/profiles/MolecularEntity/0.5-RELEASE",
     },
     "sc:Gene": {
         "min_props": ["sc:identifier", "sc:name", "dct:conformsTo"],
@@ -144,6 +160,7 @@ bs_profiles = {
             "sc:isPartOfBioChemEntity",
             "sc:url",
         ],
+        "ref_profile": "https://bioschemas.org/profiles/Gene/1.0-RELEASE",
     },
     "bsc:Gene": {
         "min_props": ["sc:identifier", "sc:name", "dct:conformsTo"],
@@ -153,6 +170,7 @@ bs_profiles = {
             "sc:isPartOfBioChemEntity",
             "sc:url",
         ],
+        "ref_profile": "https://bioschemas.org/profiles/Gene/1.0-RELEASE",
     },
     "sc:Study": {
         "min_props": [
@@ -178,6 +196,7 @@ bs_profiles = {
             "bsc:studyProcess",
             "sc:url",
         ],
+        "ref_profile": "https://bioschemas.org/profiles/Study/0.2-DRAFT",
     },
     "sc:Person": {
         "min_props": [
@@ -195,6 +214,7 @@ bs_profiles = {
             "bsc:orcid",
             "sc:worksFor",
         ],
+        "ref_profile": "https://bioschemas.org/profiles/Person/0.2-DRAFT-2019_07_19",
     },
     "sc:SoftwareSourceCode": {
         "min_props": [
@@ -227,6 +247,7 @@ bs_profiles = {
             "sc:sofwtareRequirement",
             "sc:targetProduct",
         ],
+        "ref_profile": "https://bioschemas.org/profiles/ComputationalWorkflow/1.0-RELEASE",
     },
     "sc:Protein": {
         "min_props": ["dct:conformsTo", "sc:identifier", "sc:name"],
@@ -237,9 +258,9 @@ bs_profiles = {
             "bsc:taxonomicRange",
             "sc:url",
         ],
+        "ref_profile": "https://bioschemas.org/profiles/Protein/0.11-RELEASE",
     },
     "sc:SequenceAnnotation": {
-        # "min_props":["dct:conformsTo", "bsc:sequenceLocation"],
         "min_props": ["dct:conformsTo", "bsc:sequenceLocation|sc:sequenceLocation"],
         "rec_props": [
             "bsc:creationMethod",
@@ -251,10 +272,12 @@ bs_profiles = {
             "bsc:sequenceValue",
             "sc:url",
         ],
+        "ref_profile": "https://bioschemas.org/profiles/SequenceAnnotation/0.7-DRAFT",
     },
     "sc:SequenceRange": {
         "min_props": ["dct:conformsTo", "bsc:rangeStart", "bsc:rangeEnd"],
         "rec_props": ["bsc:endUncertainty", "bsc:startUncertainty"],
+        "ref_profile": "https://bioschemas.org/profiles/SequenceRange/0.1-DRAFT",
     },
     "sc:CreativeWork": {
         "min_props": ["dct:conformsTo", "sc:description", "sc:keywords", "sc:name"],
@@ -274,6 +297,7 @@ bs_profiles = {
             "sc:timeRequired",
             "sc:url",
         ],
+        "ref_profile": "https://bioschemas.org/profiles/TrainingMaterial/0.9-DRAFT-2020_12_08",
     },
 }
 
@@ -300,12 +324,15 @@ def gen_SHACL_from_target_class(target_class):
     name = target_class.rsplit(":", 1)[1]
     # targets = []
     # targets.append(target_class)
-
-    return gen_SHACL_from_profile(
-        name,
-        [target_class],
-        bs_profiles[target_class]["min_props"],
-        bs_profiles[target_class]["rec_props"],
+    # print(bs_profiles[target_class])
+    return (
+        gen_SHACL_from_profile(
+            name,
+            [target_class],
+            bs_profiles[target_class]["min_props"],
+            bs_profiles[target_class]["rec_props"],
+        ),
+        bs_profiles[target_class]["ref_profile"],
     )
 
 
@@ -387,7 +414,9 @@ def validate_any_from_KG(kg):
         if o.n3(kg.namespace_manager) in bs_profiles.keys():
             print()
             print(f"Trying to validate {s} as a(n) {o} resource")
-            shacl_shape = gen_SHACL_from_target_class(o.n3(kg.namespace_manager))
+            shacl_shape, ref_profile = gen_SHACL_from_target_class(
+                o.n3(kg.namespace_manager)
+            )
 
             sub_kg = ConjunctiveGraph()
             for x, y, z in kg.triples((s, None, None)):
@@ -398,6 +427,7 @@ def validate_any_from_KG(kg):
             )
             results[str(s)] = {
                 "type": str(o),
+                "ref_profile": ref_profile,
                 "conforms": conforms,
                 "warnings": warnings,
                 "errors": errors,
@@ -422,7 +452,9 @@ def validate_any_from_RDF(input_url, rdf_syntax):
         if o.n3(kg.namespace_manager) in bs_profiles.keys():
             print()
             print(f"Trying to validate {s} as a(n) {o} resource")
-            shacl_shape = gen_SHACL_from_target_class(o.n3(kg.namespace_manager))
+            shacl_shape, ref_profile = gen_SHACL_from_target_class(
+                o.n3(kg.namespace_manager)
+            )
 
             sub_kg = ConjunctiveGraph()
             for x, y, z in kg.triples((s, None, None)):
@@ -433,6 +465,7 @@ def validate_any_from_RDF(input_url, rdf_syntax):
             )
             results[str(s)] = {
                 "type": str(o),
+                "ref_profile": ref_profile,
                 "conforms": conforms,
                 "warnings": warnings,
                 "errors": errors,
@@ -460,7 +493,9 @@ def validate_any_from_microdata(input_url):
         if o.n3(kg.namespace_manager) in bs_profiles.keys():
             print()
             print(f"Trying to validate {s} as a(n) {o} resource")
-            shacl_shape = gen_SHACL_from_target_class(o.n3(kg.namespace_manager))
+            shacl_shape, ref_profile = gen_SHACL_from_target_class(
+                o.n3(kg.namespace_manager)
+            )
 
             sub_kg = ConjunctiveGraph()
             for x, y, z in kg.triples((s, None, None)):
@@ -471,6 +506,7 @@ def validate_any_from_microdata(input_url):
             )
             results[str(s)] = {
                 "type": str(o),
+                "ref_profile": ref_profile,
                 "conforms": conforms,
                 "warnings": warnings,
                 "errors": errors,
