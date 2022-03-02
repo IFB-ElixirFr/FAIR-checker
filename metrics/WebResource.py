@@ -32,17 +32,20 @@ class WebResource:
     html_selenium = None
     html_requests = None
 
-    def __init__(self, url) -> None:
-        self.url = url
+    def __init__(self, url=None, rdf_graph=None) -> None:
         self.id = "WebResource Unique ID for cache"
-        # get dynamic RDF metadata (generated from JS)
-        kg_1 = WebResource.extract_rdf_selenium(self.url)
-        # get static RDF metadata (already available in html sources)
-        kg_2 = self.extract_rdf_extruct(self.url)
-        self.rdf = kg_1 + kg_2
-        self.rdf.namespace_manager.bind("sc", URIRef("http://schema.org/"))
-        self.rdf.namespace_manager.bind("bsc", URIRef("https://bioschemas.org/"))
-        self.rdf.namespace_manager.bind("dct", URIRef("http://purl.org/dc/terms/"))
+        self.url = url
+        if rdf_graph is None:
+            # get dynamic RDF metadata (generated from JS)
+            kg_1 = WebResource.extract_rdf_selenium(self.url)
+            # get static RDF metadata (already available in html sources)
+            kg_2 = self.extract_rdf_extruct(self.url)
+            self.rdf = kg_1 + kg_2
+            self.rdf.namespace_manager.bind("sc", URIRef("http://schema.org/"))
+            self.rdf.namespace_manager.bind("bsc", URIRef("https://bioschemas.org/"))
+            self.rdf.namespace_manager.bind("dct", URIRef("http://purl.org/dc/terms/"))
+        else :
+            self.rdf = rdf_graph
 
     def get_url(self):
         return self.url
@@ -233,5 +236,5 @@ class WebResource:
     def __str__(self) -> str:
         out = """Web resource under FAIR assesment:\n\t"""
         out += self.url + "\n\t"
-        out += len(self.rdf) + " embedded RDF triples"
+        out += str(len(self.rdf)) + " embedded RDF triples"
         return out

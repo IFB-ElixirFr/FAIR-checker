@@ -89,27 +89,26 @@ PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
     def evaluate(self) -> Evaluation:
 
         # print([cls.get_implem(self) for cls in AbstractFAIRMetrics.__subclasses__()])
-        logging.debug(f"Evaluating metrics {self.get_name()}")
-        logging.debug(f"Evaluating metrics {self.get_principle_tag()}")
+        # logging.debug(f"Evaluating metrics {self.get_name()}")
+        # logging.debug(f"Evaluating metrics {self.get_principle_tag()}")
         self.set_new_evaluation()
         eval = self.get_evaluation()
         eval.set_start_time()
 
-        logging.info(eval)
-        print(eval)
+        # logging.info(eval)
+        # print(eval)
 
         # Check in the cache if the metrics has not been computed yet
         try:
-
             url = self.get_web_resource().get_url()
             eval.set_target_uri(url)
-            eval.set_web_resource(self.get_web_resource())
+            eval.set_web_resource(url)
             if url in AbstractFAIRMetrics.cache.keys():
 
                 if self.get_principle_tag() in AbstractFAIRMetrics.cache[url].keys():
-                    logging.warning(
-                        f"Reusing cached result from {self.get_principle_tag()}"
-                    )
+                    # logging.warning(
+                    #    f"Reusing cached result from {self.get_principle_tag()}"
+                    # )
                     return AbstractFAIRMetrics.cache[url][self.get_principle_tag()]
             else:
                 AbstractFAIRMetrics.cache[url] = {}
@@ -139,8 +138,8 @@ PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
 
                 return self.get_evaluation()
         except AttributeError as err:
-            print(err)
-            logging.warning("No web_resource set")
+            # print(err)
+            logging.warning("No web_resource set " + err)
 
     @abstractmethod
     def weak_evaluate(self) -> Evaluation:

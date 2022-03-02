@@ -3,6 +3,7 @@ from metrics.Evaluation import Evaluation
 from metrics.test_metric import testMetric, requestResultSparql
 
 
+@DeprecationWarning
 class FAIRMetricsImpl(AbstractFAIRMetrics):
     def __init__(self, name, id, desc, api, principle, creator, created_at, updated_at):
         self.name = name
