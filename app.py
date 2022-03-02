@@ -1060,6 +1060,7 @@ def buildJSONLD():
             "familyName": "Gaignard"
         }],
         "citation": "https://dx.doi.org/10.1038%2Fsdata.2018.118",
+        "license": "https://spdx.org/licenses/MIT.html",
     }
     print(jld)
     raw_jld = json.dumps(jld)
