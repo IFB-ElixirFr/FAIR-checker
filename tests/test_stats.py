@@ -56,7 +56,7 @@ class StatisticsTestCase(unittest.TestCase):
         all_eval = evaluations.count_documents({})
         print(f"{all_eval} stored evaluation")
 
-        unique_eval = evaluations.distinct('target_uri')
+        unique_eval = evaluations.distinct("target_uri")
         print(unique_eval)
 
         six_month_ago = datetime.now() - timedelta(180)
