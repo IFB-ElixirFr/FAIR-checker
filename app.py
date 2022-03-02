@@ -41,6 +41,9 @@ from metrics.WebResource import WebResource
 from metrics.Evaluation import Result
 from profiles.bioschemas_shape_gen import validate_any_from_KG
 
+import git
+
+
 # from https://github.com/eventlet/eventlet/issues/670
 eventlet.monkey_patch()
 
@@ -155,6 +158,7 @@ def home():
         "index.html",
         title="FAIR-Checker",
         subtitle="Improve the FAIRness of your web resources",
+        jld=buildJSONLD(),
     )
 
 
@@ -171,6 +175,7 @@ def about():
         "about.html",
         title="About",
         subtitle="More about FAIR-Checker",
+        jld=buildJSONLD(),
     )
 
 
@@ -180,6 +185,7 @@ def statistics():
         "statistics.html",
         title="Statistics",
         subtitle="Visualize usage statistics of FAIR-Checker",
+        jld=buildJSONLD(),
         evals=stats.evaluations_this_week(),
         success=stats.success_this_week(),
         success_weekly=stats.success_weekly_one_year(),
@@ -1019,23 +1025,40 @@ def cb():
     print("received message originating from server")
 
 
-def buidJSONLD():
+def buildJSONLD():
     """
     Create the Advanced page JSON-LD annotation using schema.org
 
     @return str
     """
+
+    repo = git.Repo('.')
+    tags = sorted(repo.tags, key=lambda t: t.commit.committed_datetime)
+    latest_tag = tags[-1]
+
     jld = {
         "@context": "https://schema.org/",
         "@type": "WebApplication",
-        "@id": "https://github.com/IFB-ElixirFr/interop-wg/tree/master/linked-data-webapp",
-        "name": "FAIR playground",
-        "applicationCategory": "FAIR Test",
-        "applicationSubCategory": "Demonstrator",
+        "@id": "https://github.com/IFB-ElixirFr/FAIR-checker",
+        "name": "FAIR-Checker",
+        "applicationCategory": "Bioinformatics",
+        "applicationSubCategory": "Automated FAIR testing",
+        "softwareVersion": str(latest_tag),
         "operatingSystem": "Any",
-        "description": """This demo is based on the FAIRMetrics framework [Wilkinson, Dumontier et al., Scientific Data 6:174] that is composed of Maturity Indicators (MI), compliance tests and the evaluator application itself.
-                        For now, few efforts have been done so far to take advantage from their concrete implementation, in the process of improving FAIRness of users/community resources.
-                        Furthermore, this does not provide concrete help or guidelines to developers for better sharing their published works. In this work we propose a web demonstrator, leveraging existing web APIs, aimed at i) evaluating FAIR maturity indicators and ii) providing hints to progress in the FAIRification process.""",
+        "description": """FAIR-Checker is a tool aimed at assessing FAIR principles and empowering data provider to enhance the quality of their digital resources.
+            Data providers and consumers can check how FAIR are web resources. Developers can explore and inspect metadata exposed in web resources.""",
+        "author": [{
+            "@type": "Person",
+            "@id": "https://orcid.org/0000-0003-0676-5461",
+            "givenName": "Thomas",
+            "familyName": "Rosnet"
+        },
+        {
+            "@type": "Person",
+            "@id": "https://orcid.org/0000-0002-3597-8557",
+            "givenName": "Alban",
+            "familyName": "Gaignard"
+        }],
         "citation": "https://dx.doi.org/10.1038%2Fsdata.2018.118",
     }
     print(jld)
@@ -1077,7 +1100,7 @@ def base_metrics():
     #         "principle_category": metric["principle"].rsplit('/', 1)[-1][0],
     #     })
 
-    raw_jld = buidJSONLD()
+    raw_jld = buildJSONLD()
     print(app.config)
 
     metrics = []
@@ -1161,6 +1184,7 @@ def kg_metrics_2():
         sample_data=sample_resources,
         title="Inspect",
         subtitle="to enhance metadata quality",
+        jld=buildJSONLD(),
     )
 
 
