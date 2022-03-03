@@ -1032,7 +1032,7 @@ def buildJSONLD():
     @return str
     """
 
-    repo = git.Repo('.')
+    repo = git.Repo(".")
     tags = sorted(repo.tags, key=lambda t: t.commit.committed_datetime)
     latest_tag = tags[-1]
 
@@ -1048,29 +1048,31 @@ def buildJSONLD():
         "operatingSystem": "Any",
         "description": """FAIR-Checker is a tool aimed at assessing FAIR principles and empowering data provider to enhance the quality of their digital resources.
             Data providers and consumers can check how FAIR are web resources. Developers can explore and inspect metadata exposed in web resources.""",
-        "author": [{
-            "@type": "Person",
-            "@id": "https://orcid.org/0000-0003-0676-5461",
-            "givenName": "Thomas",
-            "familyName": "Rosnet"
-        },
-        {
-            "@type": "Person",
-            "@id": "https://orcid.org/0000-0002-3597-8557",
-            "givenName": "Alban",
-            "familyName": "Gaignard"
-        },
-        {
-            "@type": "Person",
-            "@id": "https://orcid.org/0000-0002-0399-8713",
-            "givenName": "Marie-Dominique",
-            "familyName": "Devignes"
-        }],
+        "author": [
+            {
+                "@type": "Person",
+                "@id": "https://orcid.org/0000-0003-0676-5461",
+                "givenName": "Thomas",
+                "familyName": "Rosnet",
+            },
+            {
+                "@type": "Person",
+                "@id": "https://orcid.org/0000-0002-3597-8557",
+                "givenName": "Alban",
+                "familyName": "Gaignard",
+            },
+            {
+                "@type": "Person",
+                "@id": "https://orcid.org/0000-0002-0399-8713",
+                "givenName": "Marie-Dominique",
+                "familyName": "Devignes",
+            },
+        ],
         "citation": [
             "https://dx.doi.org/10.1038%2Fsdata.2018.118",
             "https://doi.org/10.5281/zenodo.5914307",
             "https://doi.org/10.5281/zenodo.5914367",
-    ],
+        ],
         "license": "https://spdx.org/licenses/MIT.html",
     }
     raw_jld = json.dumps(jld)
