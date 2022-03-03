@@ -1041,6 +1041,7 @@ def buildJSONLD():
         "@type": "WebApplication",
         "@id": "https://github.com/IFB-ElixirFr/FAIR-checker",
         "name": "FAIR-Checker",
+        "url": "https://fair-checker.france-bioinformatique.fr",
         "applicationCategory": "Bioinformatics",
         "applicationSubCategory": "Automated FAIR testing",
         "softwareVersion": str(latest_tag),
@@ -1058,11 +1059,20 @@ def buildJSONLD():
             "@id": "https://orcid.org/0000-0002-3597-8557",
             "givenName": "Alban",
             "familyName": "Gaignard"
+        },
+        {
+            "@type": "Person",
+            "@id": "https://orcid.org/0000-0002-0399-8713",
+            "givenName": "Marie-Dominique",
+            "familyName": "Devignes"
         }],
-        "citation": "https://dx.doi.org/10.1038%2Fsdata.2018.118",
+        "citation": [
+            "https://dx.doi.org/10.1038%2Fsdata.2018.118",
+            "https://doi.org/10.5281/zenodo.5914307",
+            "https://doi.org/10.5281/zenodo.5914367",
+    ],
         "license": "https://spdx.org/licenses/MIT.html",
     }
-    print(jld)
     raw_jld = json.dumps(jld)
     return raw_jld
 
