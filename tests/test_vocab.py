@@ -1,7 +1,6 @@
 import unittest
-from rdflib import Graph, ConjunctiveGraph, Namespace
+from rdflib import ConjunctiveGraph
 import metrics.util as util
-
 from metrics.WebResource import WebResource
 
 
