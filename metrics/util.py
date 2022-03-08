@@ -144,14 +144,12 @@ def describe_wikidata(uri, g):
 
 # Describe a tool based on experimental bio.tools SPARQL endpoint
 def describe_biotools(uri, g):
-    logging.debug(
-        f"SPARQL for [ {uri} ] with enpoint [ https://134.158.247.157/sparql ]"
-    )
+    logging.debug(f"SPARQL for [ {uri} ] with enpoint [ https://130.226.25.41/sparql ]")
 
     h = {"Accept": "text/turtle"}
     p = {"query": "DESCRIBE <" + uri + ">"}
     res = requests.get(
-        "https://134.158.247.157/sparql", headers=h, params=p, verify=False
+        "https://130.226.25.41/sparql", headers=h, params=p, verify=False
     )
 
     g.parse(data=res.text, format="turtle")
