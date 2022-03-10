@@ -1057,9 +1057,13 @@ def buildJSONLD():
     latest_tag = tags[-1]
 
     jld = {
-        "@context": "https://schema.org/",
+        "@context": [
+            "https://schema.org/",
+            {"dct": "https://purl.org/dc/terms/"}
+        ],
         "@type": "WebApplication",
         "@id": "https://github.com/IFB-ElixirFr/FAIR-checker",
+        "dct:conformsTo": "https://bioschemas.org/profiles/ComputationalTool/1.0-RELEASE",
         "name": "FAIR-Checker",
         "url": "https://fair-checker.france-bioinformatique.fr",
         "applicationCategory": "Bioinformatics",
