@@ -144,6 +144,7 @@
 
     console.log(value['time']);
     console.log(value['score']);
+    console.log("toto");
     console.log(value['csv_line']);
     csv_lines.push(value['csv_line']);
 
@@ -414,10 +415,14 @@
 
   $("#download_csv").on('click', function ($e) {
     console.log("try download");
-    console.log(csv_lines.join("\n"));
+    console.log(csv_lines);
+    csv_lines.sort(function (a, b) {
+        console.log(a.id);
+        console.log(b.id);
+        return a.id - b.id;
+    });
     let csv_content = "data:text/csv;charset=utf-8," + csv_lines.join("\n");
-    var encoded_uri = encodeURI(csv_content);
-    window.open(encoded_uri);
+    window.open(csv_content);
   });
 
 
@@ -570,7 +575,6 @@
         <div class="panel">
           <div class="panel-block is-centered is-vcentered">
             <div class="field is-grouped ">
-              <p class="button is-info is-small">{{k}}&nbsp;<i class="fa fa-chevron-right fa-fw"></i></p>
               {% for s in sample_data[k] %}
               <p id="resource_{{k}}_{{loop.index}}" class="control"><a class="button is-small is-text"
                   data-url="{{ s.url }}">{{ s.text }}</a></p>
@@ -615,7 +619,7 @@
   <button id="btn_advanced_test" class="button is-info"><i class="fa fa-bar-chart fa-fw"></i>Advanced Test</button>
 </p> -->
 
-<p hidden class="control">
+<p class="control">
   <a id="download_csv" data-dl="{{ uuid }}" class="button is-info"><i class="fa fa-download fa-fw"></i>CSV</a>
 </p>
 
