@@ -417,9 +417,7 @@
     console.log("try download");
     console.log(csv_lines);
     csv_lines.sort(function (a, b) {
-        console.log(a.id);
-        console.log(b.id);
-        return a.id - b.id;
+        return a.id.substring(3) - b.id.substring(3);
     });
     let csv_content = "data:text/csv;charset=utf-8," + csv_lines.join("\n");
     window.open(csv_content);
