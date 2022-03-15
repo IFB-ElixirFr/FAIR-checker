@@ -420,18 +420,21 @@
         return a.id.substring(3) - b.id.substring(3);
     });
 
-    var str_csv_export = "";
+    let csv_export = Array();
     for (const csv_line of csv_lines) {
-        console.log("toto");
+        let array_csv_line = Array();
         for ( const [key, value] of Object.entries(csv_line)) {
-            console.log(value);
-            str_csv_export.concat('\t', value);
+
+            array_csv_line.push('"' + value + '"');
+
         }
-        str_csv_export = str_csv_export + '\n';
+
+        csv_export.push(array_csv_line.join("\t"));
 
     }
-    console.log(str_csv_export);
-    let csv_content = "data:text/csv;charset=utf-8," + csv_lines.join("\n");
+
+    console.log(csv_export);
+    let csv_content = "data:text/csv;charset=utf-8," + csv_export.join("\n");
     window.open(csv_content);
   });
 
