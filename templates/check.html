@@ -414,8 +414,6 @@
   });
 
   $("#download_csv").on('click', function ($e) {
-    console.log("try download");
-    console.log(csv_lines);
     csv_lines.sort(function (a, b) {
         return a.id.substring(3) - b.id.substring(3);
     });
@@ -424,19 +422,36 @@
     for (const csv_line of csv_lines) {
         let array_csv_line = Array();
         for ( const [key, value] of Object.entries(csv_line)) {
-
-            array_csv_line.push('"' + value + '"');
-
+            value_clean = value.replace("<br>", "\n");
+            array_csv_line.push('"' + value_clean + '"');
         }
-
-        csv_export.push(array_csv_line.join("\t"));
-
+        csv_export.push(array_csv_line.join(","));
     }
 
-    console.log(csv_export);
-    let csv_content = "data:text/csv;charset=utf-8," + csv_export.join("\n");
-    window.open(csv_content);
+    let uri = "data:text/csv;charset=utf-8," + csv_export.join("\n");
+    let downloadLink = document.createElement("a");
+    downloadLink.href = uri;
+    downloadLink.download = "fc_results.csv";
+    document.body.appendChild(downloadLink);
+    downloadLink.click();
+    document.body.removeChild(downloadLink);
   });
+
+  function download(filename, text) {
+    var pom = document.createElement('a');
+    pom.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
+    pom.setAttribute('download', filename);
+
+    if (document.createEvent) {
+        var event = document.createEvent('MouseEvents');
+        event.initEvent('click', true, true);
+
+        pom.dispatchEvent(event);
+    }
+    else {
+        pom.click();
+    }
+  }
 
 
   socket.on('long', function (value) {
@@ -632,9 +647,7 @@
   <button id="btn_advanced_test" class="button is-info"><i class="fa fa-bar-chart fa-fw"></i>Advanced Test</button>
 </p> -->
 
-<p class="control">
-  <a id="download_csv" data-dl="{{ uuid }}" class="button is-info"><i class="fa fa-download fa-fw"></i>CSV</a>
-</p>
+
 
 
 
@@ -702,7 +715,10 @@
 
 <article id="metrics_details_rec" class="message">
   <div class="message-body is-check">
-    <h1 class="subtitle"><b>List of metrics with details and results</b></h1>
+    <h1 class="subtitle is-inline-block"><b>List of metrics with details and results</b></h1>
+
+    <a id="download_csv" data-dl="{{ uuid }}" download="results.csv" class="button is-info is-small is-pulled-right"><i class="fa fa-download fa-fw"></i>&nbsp;Export</a>
+
     <div class="content">{% include 'metrics_table.html' %}</div>
     <br>
     <div class="content">
