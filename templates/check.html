@@ -424,7 +424,10 @@
         for ( const [key, value] of Object.entries(csv_line)) {
             let value_clean = value;
             if (key === "comment") {
-                value_clean = value.replace("<br>", "\n");
+                value_clean = value.replaceAll("<br>", "\n");
+                if (value_clean.slice(-1) === "\n") {
+                    value_clean = value_clean.slice(0, -1);
+                }
             }
 
             array_csv_line.push('"' + value_clean + '"');
