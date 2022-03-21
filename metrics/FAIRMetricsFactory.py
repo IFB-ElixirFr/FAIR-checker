@@ -4,6 +4,7 @@ from metrics.F1A_Impl import F1A_Impl
 from metrics.F1B_Impl import F1B_Impl
 from metrics.F2A_Impl import F2A_Impl
 from metrics.F2B_Impl import F2B_Impl
+from metrics.F2B_weakonly_Impl import F2B_weak_Impl
 from metrics.A11_Impl import A11_Impl
 from metrics.I1_Impl import I1_Impl
 from metrics.I1A_Impl import I1A_Impl
@@ -82,6 +83,13 @@ class FAIRMetricsFactory:
             raise NotYetImplementedException
         else:
             return F2B_Impl(web_resource)
+
+    @staticmethod
+    def get_F2B_weak(web_resource, impl=Implem.FAIR_CHECKER):
+        if impl == Implem.FAIR_METRICS_API:
+            raise NotYetImplementedException
+        else:
+            return F2B_weak_Impl(web_resource)
 
     @staticmethod
     def get_A11(web_resource, impl=Implem.FAIR_CHECKER):

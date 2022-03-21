@@ -67,7 +67,7 @@ class F1A_Impl(AbstractFAIRMetrics):
         res = re.search(doi_regex, eval.get_target_uri())
 
         eval.log_info("Checking if URI contains DOI...")
-        print(eval)
+        # print(eval)
         if res:
             eval.log_info("The URI contains a DOI")
             eval.log_info(
@@ -114,7 +114,7 @@ ASK {
             eval.log_info(
                 "Found metadata in RDF format ! (" + str(len(kg)) + " triples)"
             )
-            logging.debug(f"running query:" + f"\n{query_blank_nodes}")
+            logging.debug("running query:" + f"\n{query_blank_nodes}")
             res = kg.query(query_blank_nodes)
             logging.debug(str(res.serialize(format="json")))
             for bool_res in res:
@@ -130,7 +130,7 @@ ASK {
                     )
                     # eval.append_reason("No blank node found !")
                     eval.set_score(2)
-                print(eval.get_reason())
+                # print(eval.get_reason())
                 return eval
 
             pass

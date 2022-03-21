@@ -7,6 +7,8 @@ from metrics.FAIRMetricsFactory import Implem
 from metrics.Evaluation import Result
 from metrics.WebResource import WebResource
 
+from rdflib import ConjunctiveGraph
+
 logging.basicConfig(
     level=logging.DEBUG,
     format="[%(asctime)s] {%(filename)s:%(lineno)d} %(levelname)-8s %(message)s",
@@ -116,6 +118,27 @@ class FindabilityTestCase(unittest.TestCase):
         ).evaluate()
         logging.info(res)
         self.assertEqual(res.get_score(), str(Result.WEAK.value))
+
+    def test_F2B_weak_biotools(self):
+        biotools = FindabilityTestCase.tool
+        res = FAIRMetricsFactory.get_F2B_weak(
+            web_resource=biotools, impl=Implem.FAIR_CHECKER
+        ).evaluate()
+        logging.info(res)
+        self.assertEqual(res.get_score(), str(Result.WEAK.value))
+
+    def test_F1A_raw_rdf(self):
+        kg = ConjunctiveGraph()
+        kg.parse("https://bio.tools/api/jaspar?format=jsonld", format="json-ld")
+        print(kg.serialize(format="turtle"))
+
+        wr = WebResource(url="http://myToolID", rdf_graph=kg)
+
+        res = FAIRMetricsFactory.get_F1A(
+            web_resource=wr, impl=Implem.FAIR_CHECKER
+        ).evaluate()
+        logging.info(res)
+        self.assertEqual(res.get_score(), str(Result.NO.value))
 
     @unittest.skip("too long")
     def test_identifiers_dataverse(self):

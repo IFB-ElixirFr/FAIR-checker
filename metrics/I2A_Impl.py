@@ -59,7 +59,7 @@ class I2A_Impl(AbstractFAIRMetrics):
             eval.set_recommendations(json_rec["I2A"]["reco2"])
             return eval
         else:
-            logging.debug(f"running query:" + f"\n{query_human}")
+            logging.debug("running query:" + f"\n{query_human}")
             res = kg.query(query_human)
             logging.debug(str(res.serialize(format="json")))
             for bool_res in res:

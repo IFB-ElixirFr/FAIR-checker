@@ -1,17 +1,4 @@
 from metrics.AbstractFAIRMetrics import AbstractFAIRMetrics
-from selenium import webdriver
-from selenium.webdriver.chrome.options import Options
-import requests
-import extruct
-
-import rdflib
-from rdflib import ConjunctiveGraph
-
-import json
-
-import validators
-
-from metrics.util import ask_LOV as is_in_LOV
 from metrics.recommendation import json_rec
 
 

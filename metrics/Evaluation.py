@@ -1,4 +1,4 @@
-from datetime import datetime, timedelta
+from datetime import datetime
 from pymongo import MongoClient
 from enum import Enum, unique
 import logging
@@ -38,23 +38,20 @@ class Evaluation:
     target_uri = None
     implem = None
 
-    # def __init__(self):
-    #     pass
-
     def __init__(self):
         self.log_capture_string = StringIO()
-        ### Create the logger
+        # Create the logger
         # self.eval_logger = logging.getLogger("eval_logger")
         logger_id = str(uuid.uuid4())
         self.eval_logger = logging.getLogger(logger_id)
-        self.eval_logger.setLevel(logging.DEBUG)
+        self.eval_logger.setLevel(logging.CRITICAL)
         # self.eval_logger.propagate = False
 
-        ### Setup the console handler with a StringIO object
+        # Setup the console handler with a StringIO object
         console_handler = logging.StreamHandler(self.log_capture_string)
-        # console_handler.setLevel(logging.DEBUG)
+        console_handler.setLevel(logging.CRITICAL)
 
-        ### Add a formatter
+        # Add a formatter
         formatter = logging.Formatter(
             "%(levelname)s - %(message)s",
             "%Y-%m-%d %H:%M:%S"
@@ -62,7 +59,7 @@ class Evaluation:
         )
         console_handler.setFormatter(formatter)
 
-        ### Add the console handler to the logger
+        # Add the console handler to the logger
         self.eval_logger.addHandler(console_handler)
 
     def log_debug(self, message):
