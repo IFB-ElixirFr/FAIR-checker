@@ -31,20 +31,27 @@ class WebResource:
     browser_selenium = None
     html_selenium = None
     html_requests = None
+    headers = None
 
     def __init__(self, url=None, rdf_graph=None) -> None:
         self.id = "WebResource Unique ID for cache"
         self.url = url
+
+        self.retrieve_headers()
+
         if rdf_graph is None:
             # get dynamic RDF metadata (generated from JS)
-            kg_1 = WebResource.extract_rdf_selenium(self.url)
+            kg_1, html_selenium = WebResource.extract_rdf_selenium(self.url)
             # get static RDF metadata (already available in html sources)
-            kg_2 = self.extract_rdf_extruct(self.url)
+            kg_2, html_requests = self.extract_rdf_extruct(self.url)
             self.rdf = kg_1 + kg_2
             self.rdf.namespace_manager.bind("sc", URIRef("http://schema.org/"))
             self.rdf.namespace_manager.bind("bsc", URIRef("https://bioschemas.org/"))
             self.rdf.namespace_manager.bind("dct", URIRef("http://purl.org/dc/terms/"))
-        else :
+
+            self.html_selenium = html_selenium
+            self.html_requests = html_requests
+        else:
             self.rdf = rdf_graph
 
     def get_url(self):
@@ -62,7 +69,12 @@ class WebResource:
     def get_html_requests(self):
         return self.html_requests
 
-    # TODO Extruct can work with Selenium
+    def get_headers(self):
+        return self.headers
+
+    def retrieve_headers(self):
+        response = requests.get(url=self.url, timeout=10)
+        self.headers = response.headers
 
     def retrieve_html_selenium(self):
         browser = WebResource.WEB_BROWSER_HEADLESS
@@ -186,7 +198,7 @@ class WebResource:
         kg.namespace_manager.bind("bsc", URIRef("https://bioschemas.org/"))
         kg.namespace_manager.bind("dct", URIRef("http://purl.org/dc/terms/"))
 
-        return kg
+        return kg, html_source
 
     @staticmethod
     def extract_rdf_selenium(url) -> ConjunctiveGraph:
@@ -194,10 +206,9 @@ class WebResource:
 
         browser = WebResource.WEB_BROWSER_HEADLESS
         browser.get(url)
-        # self.html_source = browser.page_source
-        # browser.quit()
-        logging.debug(type(browser.page_source))
-        logging.info(f"size of the parsed web page: {len(browser.page_source)}")
+
+        # logging.debug(type(browser.page_source))
+        # logging.info(f"size of the parsed web page: {len(browser.page_source)}")
 
         try:
             element = browser.find_element_by_xpath(
@@ -231,7 +242,7 @@ class WebResource:
         kg.namespace_manager.bind("bsc", URIRef("https://bioschemas.org/"))
         kg.namespace_manager.bind("dct", URIRef("http://purl.org/dc/terms/"))
 
-        return kg
+        return kg, browser.page_source
 
     def __str__(self) -> str:
         out = """Web resource under FAIR assesment:\n\t"""
