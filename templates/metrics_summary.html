@@ -48,6 +48,12 @@
     console.log("ID: " + "{{f.id}}");
     console.log("Value: " + "{{f.api_url}}");
     $(this).addClass("is-loading");
+    if( !$("#btn_test_all").hasClass("is-loading") ){
+      $("#btn_test_all").addClass("is-loading");
+    }
+    if( !$("#download_csv").hasClass("is-loading") ){
+      $("#download_csv").prop("disabled", true);
+    }
 
     let url;
     if ($("#doi_button").val() === $("#url").val()) {
@@ -213,7 +219,7 @@
 
     // check if all metric are done
     is_loading = false
-    $('[id^=test_metric_]').each(function (id) {
+    $('[id^=test_]').each(function (id) {
       if ($(this).hasClass("is-loading")) {
         is_loading = true;
       }
@@ -223,6 +229,7 @@
       $("#btn_test_checked").removeClass("is-loading");
       $("#btn_test_all").removeClass("is-loading");
       // $("#btn_test_all").prop("disabled", false);
+      $("#download_csv").prop("disabled", false);
       $("#btn_test_checked").prop("disabled", false);
     }
 
@@ -707,7 +714,7 @@
   <div class="message-body is-check">
     <h1 class="subtitle is-inline-block"><b>List of metrics with details and results</b></h1>
 
-    <a id="download_csv" data-dl="{{ uuid }}" download="results.csv" class="button is-info is-small is-pulled-right"><i class="fa fa-download fa-fw"></i>&nbsp;Export</a>
+    <button id="download_csv" data-dl="{{ uuid }}" download="results.csv" class="button is-info is-small is-pulled-right" disabled><i class="fa fa-download fa-fw"></i>&nbsp;Export</button>
 
     <div class="content">{% include 'metrics_table.html' %}</div>
     <br>
