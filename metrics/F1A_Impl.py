@@ -35,14 +35,14 @@ class F1A_Impl(AbstractFAIRMetrics):
              better if the URL refer to a DOI.
         """
 
-    def weak_evaluate(self) -> Evaluation:
+    def weak_evaluate(self, eval=None) -> Evaluation:
         if not eval:
             eval = self.get_evaluation()
             eval.set_implem(self.implem)
             eval.set_metrics(self.principle_tag)
         return eval
 
-    def strong_evaluate(self) -> Evaluation:
+    def strong_evaluate(self, eval=None) -> Evaluation:
         eval = self.get_evaluation()
         eval.set_implem(self.implem)
         eval.set_metrics(self.principle_tag)
