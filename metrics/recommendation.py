@@ -9,7 +9,8 @@ json_rec = {
     },
     "F1A": {
         "reco1": """
-            TBD
+            The webpage you are evaluating is not reachable. You should make sure that it can be reached properly with 
+            an HTTP request.
         """,
     },
     "F1B": {
