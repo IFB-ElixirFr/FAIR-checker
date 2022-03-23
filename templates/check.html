@@ -442,7 +442,7 @@
         csv_export.push(array_csv_line.join(","));
     }
 
-    let uri = "data:text/csv;charset=utf-8," + csv_export.join("\n");
+    let uri = "data:text/csv;charset=utf-8," + encodeURIComponent(csv_export.join("\n"));
     let downloadLink = document.createElement("a");
     downloadLink.href = uri;
     downloadLink.download = "fc_results.csv";
