@@ -36,9 +36,8 @@ Please submit GitHub issues to provide feedback or ask for new features, and con
 ```
 git clone https://github.com/IFB-ElixirFr/fair-checker.git
 cd fair-checker
-conda create --name fair-checker-env --file requirements.txt
+conda env create --file environment.yml
 conda activate fair-checker-env
-pip install extruct
 
 ./launch_dev.sh
 ```
