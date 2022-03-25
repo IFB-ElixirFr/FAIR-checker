@@ -1064,6 +1064,7 @@ def buildJSONLD():
         ],
         "@type": ["WebApplication", "prov:Entity"],
         "@id": "https://github.com/IFB-ElixirFr/FAIR-checker",
+        "dct:conformsTo": "https://bioschemas.org/profiles/ComputationalTool/1.0-RELEASE",
         "name": "FAIR-Checker",
         "url": "https://fair-checker.france-bioinformatique.fr",
         "applicationCategory": "Bioinformatics",
@@ -1111,7 +1112,7 @@ def buildJSONLD():
     return raw_jld
 
 
-@app.route("/base_metrics", methods=["GET"])
+@app.route("/check", methods=["GET"])
 def base_metrics():
     """
     Load the Advanced page elements loading informations from FAIRMetrics API.
@@ -1186,7 +1187,7 @@ def base_metrics():
     # response =
     return make_response(
         render_template(
-            "metrics_summary.html",
+            "check.html",
             f_metrics=metrics,
             sample_data=sample_resources,
             jld=raw_jld,
@@ -1216,7 +1217,7 @@ def kg_metrics():
     return render_template("kg_metrics.html", f_metrics=m, sample_data=sample_resources)
 
 
-@app.route("/kg_metrics_2")
+@app.route("/inspect")
 def kg_metrics_2():
     # m = [{  "name": "i1",
     #         "description": "desc i1",
@@ -1224,7 +1225,7 @@ def kg_metrics_2():
     #         "principle": "principle for i1" }]
     m = []
     return render_template(
-        "kg_metrics_2.html",
+        "inspect.html",
         f_metrics=m,
         sample_data=sample_resources,
         title="Inspect",
