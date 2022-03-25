@@ -53,7 +53,7 @@ class F1A_Impl(AbstractFAIRMetrics):
         )
         if status_code == 200:
             eval.log_info("Status code is OK, meaning the url is Unique.")
-            eval.set_score(1)
+            eval.set_score(2)
             return eval
         else:
             eval.log_info(
