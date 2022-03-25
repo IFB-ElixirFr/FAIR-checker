@@ -43,7 +43,7 @@ class FindabilityTestCase(unittest.TestCase):
         print(metric_f1a)
         res = metric_f1a.evaluate()
         logging.info(res)
-        self.assertEqual(res.get_score(), str(Result.WEAK.value))
+        self.assertEqual(res.get_score(), str(Result.STRONG.value))
 
     def test_F1A_biotools(self):
         biotools = FindabilityTestCase.tool
@@ -51,7 +51,7 @@ class FindabilityTestCase(unittest.TestCase):
             web_resource=biotools, impl=Implem.FAIR_CHECKER
         ).evaluate()
         logging.info(res)
-        self.assertEqual(res.get_score(), str(Result.WEAK.value))
+        self.assertEqual(res.get_score(), str(Result.STRONG.value))
 
     def test_cached_F2B_biotools(self):
         biotools = FindabilityTestCase.tool
