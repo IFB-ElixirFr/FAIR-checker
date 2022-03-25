@@ -362,16 +362,28 @@ def evaluate_fc_metrics(metric_name, client_metric_id, url):
     # Persist Evaluation oject in MongoDB
 
     implem = METRICS_CUSTOM[metric_name].get_implem()
+    id = METRICS_CUSTOM[metric_name].get_id()
 
     # result.set_metrics(name)
     # result.set_implem(implem)
     result.persist()
     # result.close_log_stream()
+    csv_line = '"{}"\t"{}"\t"{}"\t"{}"\t"{}"'.format(
+        id, name, score, str(evaluation_time), comment
+    )
+    csv_line = {
+        "id": id,
+        "name": name,
+        "score": score,
+        "time": str(evaluation_time),
+        "comment": comment,
+    }
     emit_json = {
         "score": str(score),
         "time": str(evaluation_time),
         "comment": comment,
         "recommendation": recommendation,
+        "csv_line": csv_line,
         # "name": name,
     }
     emit("done_" + client_metric_id, emit_json)
