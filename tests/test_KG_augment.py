@@ -84,7 +84,7 @@ class KGAugmentTestCase(unittest.TestCase):
         kg = ConjunctiveGraph()
         kg.parse(data=res.text, format="xml")
         print(f"loaded {len(kg)} triples")
-        self.assertEqual(len(kg), 55)
+        self.assertEqual(len(kg), 57)
 
     def test_openaire(self):
         url = "https://search.datacite.org/works/10.7892/boris.108387"
