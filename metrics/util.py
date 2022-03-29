@@ -515,54 +515,6 @@ def rdf_to_triple_list(graph):
     #     print("{} => {}".format(p, o))
 
 
-def get_rdf_selenium(uri, kg):
-    # uri = 'https://workflowhub.eu/workflows/45'
-    # uri = 'https://bio.tools/jaspar'
-
-    chrome_options = Options()
-    chrome_options.add_argument("--headless")
-
-    browser = webdriver.Chrome(options=chrome_options)
-    browser.get(uri)
-
-    html_source = browser.page_source
-    # print(html_source)
-    browser.quit()
-    tree = html.fromstring(html_source)
-    jsonld_string = tree.xpath('//script[@type="application/ld+json"]//text()')
-
-    kg = ConjunctiveGraph()
-
-    base_path = Path(__file__).parent  ## current directory
-    static_file_path = str((base_path / "../static/data/jsonldcontext.json").resolve())
-
-    for json_ld_annots in jsonld_string:
-        jsonld = json.loads(json_ld_annots)
-
-        if "@context" in jsonld.keys():
-            if "//schema.org" in jsonld["@context"]:
-                jsonld["@context"] = static_file_path
-        kg.parse(data=json.dumps(jsonld, ensure_ascii=False), format="json-ld")
-
-        print(f"{len(kg)} retrieved triples in KG")
-        print(kg.serialize(format="turtle").decode())
-
-    return kg
-
-
-def get_html_selenium(url):
-    chrome_options = Options()
-    chrome_options.add_argument("--headless")
-    browser = webdriver.Chrome(options=chrome_options)
-
-    try:
-        browser.get(url)
-        return browser.page_source
-
-    finally:
-        browser.quit()
-
-
 # TODO @Thomas, to be fixed (imports)
 # def download_csv(uri):
 #
