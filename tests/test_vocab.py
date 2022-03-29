@@ -185,20 +185,29 @@ class CommunityVocabTestCase(unittest.TestCase):
             if util.ask_BioPortal(c["name"], "property"):
                 c["tag"].append("BioPortal")
 
-    def test_exclude_xhtml(self):
-        ns = "http://www.w3.org/1999/xhtml/vocab#"
+    def test_exclude_ns_prefix(self):
         turtle_edam = self.turtle_edam
         kg = ConjunctiveGraph()
         kg.parse(data=turtle_edam, format="turtle")
-        print(kg.serialize(format="turtle"))
+        # KG contains 2 xhtml triples
 
-        # kg.add(
-        #     (
-        #         BNode(),
-        #         URIRef("http://www.w3.org/1999/xhtml/vocab#role"),
-        #         URIRef("http://www.w3.org/1999/xhtml/vocab#button"),
-        #     )
-        # )
+        ns = "http://www.w3.org/1999/xhtml/vocab#"
+        cleaned_kg = util.clean_kg_excluding_ns_prefix(kg, ns)
+        # cleaned KG should contain 0 xhtml triples
+
+        self.assertEquals(len(kg) - 2, len(cleaned_kg))
+
+    def test_exclude_xhtml(self):
+        ns = "http://www.w3.org/1999/xhtml/vocab#"
+        kg = ConjunctiveGraph()
+        kg.add(
+            (
+                BNode(),
+                URIRef("http://www.w3.org/1999/xhtml/vocab#role"),
+                URIRef("http://www.w3.org/1999/xhtml/vocab#button"),
+            )
+        )
+        print(kg.serialize(format="turtle"))
 
         q_xhtml = (
             'SELECT * WHERE { ?s ?p ?o . FILTER (strstarts(str(?p), "' + ns + '"))}'
@@ -206,7 +215,7 @@ class CommunityVocabTestCase(unittest.TestCase):
         print(q_xhtml)
 
         res = kg.query(q_xhtml)
-        self.assertEquals(len(res), 2)
+        self.assertEquals(len(res), 1)
 
         q_del = (
             'DELETE {?s ?p ?o} WHERE { ?s ?p ?o . FILTER (strstarts(str(?p), "'
