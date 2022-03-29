@@ -1219,16 +1219,6 @@ def base_metrics():
 #   return response
 
 
-@app.route("/kg_metrics")
-def kg_metrics():
-    # m = [{  "name": "i1",
-    #         "description": "desc i1",
-    #         "id": "metric_i1",
-    #         "principle": "principle for i1" }]
-    m = []
-    return render_template("kg_metrics.html", f_metrics=m, sample_data=sample_resources)
-
-
 @app.route("/inspect")
 def kg_metrics_2():
     # m = [{  "name": "i1",
@@ -1458,7 +1448,7 @@ if __name__ == "__main__":
     elif args.web:
         logging.info("Starting webserver")
         try:
-            socketio.run(app, host="0.0.0.0", port=5000, debug=True)
+            socketio.run(app, host="127.0.0.1", port=5000, debug=True)
         finally:
             browser = WebResource.WEB_BROWSER_HEADLESS
             browser.quit()

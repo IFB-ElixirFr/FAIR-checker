@@ -526,6 +526,19 @@ def rdf_to_triple_list(graph):
 #     pass
 
 
+def clean_kg_excluding_ns_prefix(kg, ns_prefix) -> ConjunctiveGraph:
+    cleaned_kg = ConjunctiveGraph()
+    cleaned_kg += kg
+    q_del = (
+        'DELETE {?s ?p ?o} WHERE { ?s ?p ?o . FILTER (strstarts(str(?p), "'
+        + ns_prefix
+        + '"))}'
+    )
+    cleaned_kg.update(q_del)
+    assert len(cleaned_kg) <= len(kg)
+    return cleaned_kg
+
+
 def replace_value_char_for_key(key, var, old_char, new_char):
     if hasattr(var, "items"):
         for k, v in var.items():
