@@ -1,4 +1,8 @@
 import eventlet
+
+# from https://github.com/eventlet/eventlet/issues/670
+eventlet.monkey_patch(select=False)
+
 import sys
 from flask import (
     Flask,
@@ -42,10 +46,6 @@ from metrics.Evaluation import Result
 from profiles.bioschemas_shape_gen import validate_any_from_KG
 
 import git
-
-
-# from https://github.com/eventlet/eventlet/issues/670
-eventlet.monkey_patch()
 
 app = Flask(__name__)
 CORS(app)
@@ -1448,7 +1448,7 @@ if __name__ == "__main__":
     elif args.web:
         logging.info("Starting webserver")
         try:
-            socketio.run(app, host="0.0.0.0", port=5000, debug=True)
+            socketio.run(app, host="127.0.0.1", port=5000, debug=True)
         finally:
             browser = WebResource.WEB_BROWSER_HEADLESS
             browser.quit()
