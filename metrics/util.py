@@ -36,7 +36,7 @@ regex = r"10.\d{4,9}\/[-._;()\/:A-Z0-9]+"
 def describe_opencitation(uri, g):
     graph_pre_size = len(g)
     endpoint = "https://opencitations.net/sparql"
-    print(f"SPARQL for [ {uri} ] with enpoint [ {endpoint} ]")
+    # print(f"SPARQL for [ {uri} ] with enpoint [ {endpoint} ]")
     # sparql = SPARQLWrapper("https://query.wikidata.org/sparql")
     query = (
         """
@@ -56,7 +56,7 @@ def describe_opencitation(uri, g):
     """
     )
 
-    print(query)
+    # print(query)
 
     h = {"Accept": "text/turtle"}
     p = {"query": query}
@@ -65,7 +65,7 @@ def describe_opencitation(uri, g):
     g.parse(data=res.text, format="turtle")
 
     graph_post_size = len(g)
-    print(f"{graph_post_size - graph_pre_size} added new triples")
+    # print(f"{graph_post_size - graph_pre_size} added new triples")
 
     ######################
 
@@ -92,10 +92,10 @@ def describe_openaire(uri, g):
     g_len = Graph()
     sparql.setReturnFormat(N3)
     results = sparql.query().convert()
-    print("Results: " + str(len(g_len.parse(data=results, format="n3"))))
+    # print("Results: " + str(len(g_len.parse(data=results, format="n3"))))
     g.parse(data=results, format="turtle")
     graph_post_size = len(g)
-    print(f"{graph_post_size - graph_pre_size} added new triples")
+    # print(f"{graph_post_size - graph_pre_size} added new triples")
     # print(g.serialize(format='turtle').decode())
     return g
 
@@ -127,7 +127,7 @@ def describe_wikidata(uri, g):
     """
     )
 
-    print(query)
+    # print(query)
 
     h = {"Accept": "application/sparql-results+xml"}
     p = {"query": query}
@@ -222,11 +222,11 @@ def ask_OLS(uri):
     res = requests.get(
         "https://www.ebi.ac.uk/ols/api/properties", headers=h, params=p, verify=True
     )
-    print(res.status_code)
-    print(res.headers["content-type"])
-    print(res.headers)
-    print(res.encoding)
-    print(res.json())
+    # print(res.status_code)
+    # print(res.headers["content-type"])
+    # print(res.headers)
+    # print(res.encoding)
+    # print(res.json())
     if res.json()["page"]["totalElements"] > 0:
         return True
     else:
@@ -427,10 +427,10 @@ def shape_checks(kg):
 
     template = Template(shape_template)
     shape = template.render(data=data)
-    print(shape)
+    # print(shape)
     g = ConjunctiveGraph()
     g.parse(data=shape, format="turtle")
-    print(len(g))
+    # print(len(g))
 
     r = validate(
         data_graph=kg,
@@ -458,14 +458,14 @@ def shape_checks(kg):
         }
     """
 
-    print("toto")
-    print(results_graph.serialize(format="turtle"))
+    # print("toto")
+    # print(results_graph.serialize(format="turtle"))
 
     results = results_graph.query(report_query)
     warnings = []
     errors = []
     for r in results:
-        print(r)
+        # print(r)
         if "#Warning" in r["severity"]:
             warnings.append(
                 f'Property {r["path"]} <span class="has-text-warning has-text-weight-bold">should be</span> provided'
@@ -507,7 +507,7 @@ def extruct_to_rdf(extruct_str):
 def rdf_to_triple_list(graph):
     tuple_list = []
     for s, p, o in graph.triples((None, None, None)):
-        print("{} => {} => {}".format(s, p, o))
+        # print("{} => {} => {}".format(s, p, o))
         tuple_list.append((str(s), str(p), str(o)))
 
     return tuple_list
