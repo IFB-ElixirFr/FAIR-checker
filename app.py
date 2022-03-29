@@ -1,3 +1,4 @@
+from asyncio.log import logger
 import eventlet
 
 # from https://github.com/eventlet/eventlet/issues/670
@@ -44,6 +45,7 @@ from metrics.FAIRMetricsFactory import FAIRMetricsFactory
 from metrics.WebResource import WebResource
 from metrics.Evaluation import Result
 from profiles.bioschemas_shape_gen import validate_any_from_KG
+from profiles.bioschemas_shape_gen import validate_any_from_microdata
 
 import git
 
@@ -1218,6 +1220,55 @@ def base_metrics():
 #   response.headers.add('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS')
 #   return response
 
+import functools
+
+
+def update_bioschemas_valid(func):
+    @functools.wraps(func)
+    def wrapper_decorator(*args, **kwargs):
+        # Do something before
+        value = func(*args, **kwargs)
+        # Do something after
+        print("After Bioschemas call")
+
+        uri = request.args.get("uri")
+        logging.debug(f"Validating Bioschemas markup fr {uri}")
+
+        start_time = time.time()
+        console = Console()
+        table = Table(show_header=True, header_style="bold magenta")
+        table.add_column("Errors", justify="right")
+        table.add_column("Warnings", justify="right")
+
+        console.rule(f"[bold red]Bioschemas validation for URL {uri}")
+        res = validate_any_from_microdata(input_url=uri)
+        console.print(res)
+
+        print(res)
+
+        console.rule(f"[bold red]Bioschemas validation for URL {uri}")
+        elapsed_time = round((time.time() - start_time), 2)
+        logging.info(f"Bioschemas validation processed in {elapsed_time} s")
+
+        emit("done_check_shape", res)
+        return value
+
+    return wrapper_decorator
+
+
+@app.route("/validate_bioschemas")
+@update_bioschemas_valid
+def validate_bioschemas():
+    m = []
+    return render_template(
+        "bioschemas.html",
+        f_metrics=m,
+        sample_data=sample_resources,
+        title="Inspect",
+        subtitle="to enhance metadata quality",
+        jld=buildJSONLD(),
+    )
+
 
 @app.route("/inspect")
 def kg_metrics_2():
@@ -1233,13 +1284,6 @@ def kg_metrics_2():
         title="Inspect",
         subtitle="to enhance metadata quality",
         jld=buildJSONLD(),
-    )
-
-
-@app.route("/is_it_fair")
-def is_it_fair():
-    return render_template(
-        "is_it_fair.html",
     )
 
 
@@ -1396,54 +1440,59 @@ if __name__ == "__main__":
             metrics_collection.append(FAIRMetricsFactory.get_R12(web_res))
             metrics_collection.append(FAIRMetricsFactory.get_R13(web_res))
 
-            for m in track(metrics_collection, "Processing FAIR metrics ..."):
-                logging.info(m.get_name())
-                res = m.evaluate()
-                if m.get_principle_tag().startswith("F"):
-                    table.add_row(
-                        Text(
-                            m.get_name() + " " + str(res.get_score()),
-                            style=get_result_style(res),
-                        ),
-                        "",
-                        "",
-                        "",
-                    )
-                elif m.get_principle_tag().startswith("A"):
-                    table.add_row(
-                        "",
-                        Text(
-                            m.get_name() + " " + str(res.get_score()),
-                            style=get_result_style(res),
-                        ),
-                        "",
-                        "",
-                    )
-                elif m.get_principle_tag().startswith("I"):
-                    table.add_row(
-                        "",
-                        "",
-                        Text(
-                            m.get_name() + " " + str(res.get_score()),
-                            style=get_result_style(res),
-                        ),
-                        "",
-                    )
-                elif m.get_principle_tag().startswith("R"):
-                    table.add_row(
-                        "",
-                        "",
-                        "",
-                        Text(
-                            f"{m.get_name()} {str(res.get_score())}",
-                            style=get_result_style(res),
-                        ),
-                    )
+            if args.bioschemas:
+                logging.info("Bioschemas eval")
 
-        console.rule(f"[bold red]FAIRness evaluation for URL {url}")
-        console.print(table)
-        elapsed_time = round((time.time() - start_time), 2)
-        logging.info(f"FAIR metrics evaluated in {elapsed_time} s")
+            else:
+
+                for m in track(metrics_collection, "Processing FAIR metrics ..."):
+                    logging.info(m.get_name())
+                    res = m.evaluate()
+                    if m.get_principle_tag().startswith("F"):
+                        table.add_row(
+                            Text(
+                                m.get_name() + " " + str(res.get_score()),
+                                style=get_result_style(res),
+                            ),
+                            "",
+                            "",
+                            "",
+                        )
+                    elif m.get_principle_tag().startswith("A"):
+                        table.add_row(
+                            "",
+                            Text(
+                                m.get_name() + " " + str(res.get_score()),
+                                style=get_result_style(res),
+                            ),
+                            "",
+                            "",
+                        )
+                    elif m.get_principle_tag().startswith("I"):
+                        table.add_row(
+                            "",
+                            "",
+                            Text(
+                                m.get_name() + " " + str(res.get_score()),
+                                style=get_result_style(res),
+                            ),
+                            "",
+                        )
+                    elif m.get_principle_tag().startswith("R"):
+                        table.add_row(
+                            "",
+                            "",
+                            "",
+                            Text(
+                                f"{m.get_name()} {str(res.get_score())}",
+                                style=get_result_style(res),
+                            ),
+                        )
+
+            console.rule(f"[bold red]FAIRness evaluation for URL {url}")
+            console.print(table)
+            elapsed_time = round((time.time() - start_time), 2)
+            logging.info(f"FAIR metrics evaluated in {elapsed_time} s")
 
     elif args.web:
         logging.info("Starting webserver")
