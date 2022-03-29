@@ -207,6 +207,7 @@ def ask_BioPortal(uri, type):
         logging.error(res.text)
         return False
 
+
 def get_html_selenium(url):
     chrome_options = Options()
     chrome_options.add_argument("--headless")
