@@ -1,5 +1,5 @@
 import unittest
-from rdflib import ConjunctiveGraph
+from rdflib import BNode, ConjunctiveGraph, URIRef
 import metrics.util as util
 from metrics.WebResource import WebResource
 
@@ -184,6 +184,40 @@ class CommunityVocabTestCase(unittest.TestCase):
         for p in table_content["properties"]:
             if util.ask_BioPortal(c["name"], "property"):
                 c["tag"].append("BioPortal")
+
+    def test_exclude_xhtml(self):
+        ns = "http://www.w3.org/1999/xhtml/vocab#"
+        turtle_edam = self.turtle_edam
+        kg = ConjunctiveGraph()
+        kg.parse(data=turtle_edam, format="turtle")
+        print(kg.serialize(format="turtle"))
+
+        # kg.add(
+        #     (
+        #         BNode(),
+        #         URIRef("http://www.w3.org/1999/xhtml/vocab#role"),
+        #         URIRef("http://www.w3.org/1999/xhtml/vocab#button"),
+        #     )
+        # )
+
+        q_xhtml = (
+            'SELECT * WHERE { ?s ?p ?o . FILTER (strstarts(str(?p), "' + ns + '"))}'
+        )
+        print(q_xhtml)
+
+        res = kg.query(q_xhtml)
+        self.assertEquals(len(res), 2)
+
+        q_del = (
+            'DELETE {?s ?p ?o} WHERE { ?s ?p ?o . FILTER (strstarts(str(?p), "'
+            + ns
+            + '"))}'
+        )
+        kg.update(q_del)
+        print(kg.serialize(format="turtle"))
+
+        res = kg.query(q_xhtml)
+        self.assertEquals(len(res), 0)
 
 
 if __name__ == "__main__":
