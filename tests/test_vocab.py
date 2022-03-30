@@ -194,7 +194,9 @@ class CommunityVocabTestCase(unittest.TestCase):
         ns = "http://www.w3.org/1999/xhtml/vocab#"
         cleaned_kg = util.clean_kg_excluding_ns_prefix(kg, ns)
         # cleaned KG should contain 0 xhtml triples
-
+        print("toto")
+        print(len(kg))
+        print(len(cleaned_kg))
         self.assertEquals(len(kg) - 2, len(cleaned_kg))
 
     def test_exclude_xhtml(self):
