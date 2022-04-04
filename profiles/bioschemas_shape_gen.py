@@ -514,7 +514,7 @@ def validate_any_from_microdata(input_url):
         else:
             print(f"Could not find a suitable profile for {s} typed {o}")
     # print(len(kg))
-    return results
+    return results, kg
 
 
 def validate_shape_from_RDF(input_uri, rdf_syntax, shacl_shape):

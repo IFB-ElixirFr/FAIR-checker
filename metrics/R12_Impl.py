@@ -31,11 +31,30 @@ class R12_Impl(AbstractFAIRMetrics):
         eval.set_implem(self.implem)
         eval.set_metrics(self.principle_tag)
 
-        checked_properties = """prov:wasGeneratedBy prov:wasDerivedFrom prov:wasAttributedTo prov:used prov:wasInformedBy prov:wasAssociatedWith
-            prov:startedAtTime prov:endedAtTime
-            dct:hasVersion dct:creator dct:contributor 
-            pav:hasVersion pav:hasCurrentVersion pav:createdBy pav:authoredBy pav:retrievedFrom pav:importedFrom pav:createdWith 
-            pav:retrievedBy pav:importedBy pav:curatedBy pav:createdBy pav:createdAt pav:previousVersion
+        checked_properties = """
+            prov:wasGeneratedBy 
+            prov:wasDerivedFrom 
+            prov:wasAttributedTo 
+            prov:used 
+            prov:wasInformedBy 
+            prov:wasAssociatedWith
+            prov:startedAtTime 
+            prov:endedAtTime
+            dct:hasVersion 
+            dct:creator 
+            dct:contributor 
+            pav:hasVersion 
+            pav:hasCurrentVersion 
+            pav:createdBy 
+            pav:authoredBy 
+            pav:retrievedFrom 
+            pav:importedFrom 
+            pav:createdWith 
+            pav:retrievedBy 
+            pav:importedBy 
+            pav:curatedBy 
+            pav:createdAt 
+            pav:previousVersion
         """
         query_prov = (
             self.COMMON_SPARQL_PREFIX

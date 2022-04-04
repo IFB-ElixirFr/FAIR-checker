@@ -1,5 +1,7 @@
 from asyncio.log import logger
+from unittest import result
 import eventlet
+from numpy import broadcast
 
 # from https://github.com/eventlet/eventlet/issues/670
 eventlet.monkey_patch(select=False)
@@ -24,6 +26,7 @@ import os
 import io
 import uuid
 import argparse
+import functools
 from argparse import RawTextHelpFormatter
 from datetime import datetime
 from datetime import timedelta
@@ -619,12 +622,12 @@ def csv_download(uuid):
         return str(e)
 
 
-# not working
-@socketio.on("connected")
-def handle_connected(json):
+# # not working
+# @socketio.on("connected")
+# def handle_connected(json):
 
-    print(request.namespace.socket.sessid)
-    print(request.namespace)
+#     print(request.namespace.socket.sessid)
+#     print(request.namespace)
 
 
 @socketio.on("connect")
@@ -1220,37 +1223,20 @@ def base_metrics():
 #   response.headers.add('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS')
 #   return response
 
-import functools
-
 
 def update_bioschemas_valid(func):
     @functools.wraps(func)
     def wrapper_decorator(*args, **kwargs):
         # Do something before
-        value = func(*args, **kwargs)
-        # Do something after
-        print("After Bioschemas call")
-
-        uri = request.args.get("uri")
-        logging.debug(f"Validating Bioschemas markup fr {uri}")
-
         start_time = time.time()
-        console = Console()
-        table = Table(show_header=True, header_style="bold magenta")
-        table.add_column("Errors", justify="right")
-        table.add_column("Warnings", justify="right")
 
-        console.rule(f"[bold red]Bioschemas validation for URL {uri}")
-        res = validate_any_from_microdata(input_url=uri)
-        console.print(res)
+        value = func(*args, **kwargs)
 
-        print(res)
-
-        console.rule(f"[bold red]Bioschemas validation for URL {uri}")
+        # Do something after
         elapsed_time = round((time.time() - start_time), 2)
         logging.info(f"Bioschemas validation processed in {elapsed_time} s")
-
-        emit("done_check_shape", res)
+        # emit("done_check_shape", res, namespace="/validate_bioschemas")
+        # socketio.emit("done_check_shape", res, namespace="/inspect")
         return value
 
     return wrapper_decorator
@@ -1259,9 +1245,16 @@ def update_bioschemas_valid(func):
 @app.route("/validate_bioschemas")
 @update_bioschemas_valid
 def validate_bioschemas():
+    uri = request.args.get("uri")
+    logging.debug(f"Validating Bioschemas markup fr {uri}")
+
+    res, kg = validate_any_from_microdata(input_url=uri)
+
     m = []
     return render_template(
         "bioschemas.html",
+        results=res,
+        kg=kg,
         f_metrics=m,
         sample_data=sample_resources,
         title="Inspect",

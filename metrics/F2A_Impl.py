@@ -58,7 +58,7 @@ class F2A_Impl(AbstractFAIRMetrics):
                 str(len(kg))
                 + " RDF triples were found, thus data is in a well structured graph format"
             )
-            print(len(kg))
+            # print(len(kg))
             eval.set_score(2)
             return eval
         eval.log_info(

@@ -95,8 +95,8 @@ PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
         eval = self.get_evaluation()
         eval.set_start_time()
 
-        logging.info(eval)
-        print(eval)
+        # logging.info(eval)
+        # print(eval)
 
         # Check in the cache if the metrics has not been computed yet
         try:
@@ -107,15 +107,15 @@ PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
             if url in AbstractFAIRMetrics.cache.keys():
 
                 if self.get_principle_tag() in AbstractFAIRMetrics.cache[url].keys():
-                    logging.warning(
-                        f"Reusing cached result from {self.get_principle_tag()}"
-                    )
+                    # logging.warning(
+                    #    f"Reusing cached result from {self.get_principle_tag()}"
+                    # )
                     return AbstractFAIRMetrics.cache[url][self.get_principle_tag()]
             else:
                 AbstractFAIRMetrics.cache[url] = {}
 
             if self.strong_evaluate().get_score() == "2":
-                print("STRONG")
+                # print("STRONG")
                 self.get_evaluation().set_end_time()
                 AbstractFAIRMetrics.cache[url][
                     self.get_principle_tag()
@@ -123,7 +123,7 @@ PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
 
                 return self.get_evaluation()
             elif self.weak_evaluate().get_score() == "1":
-                print("WEAK")
+                # print("WEAK")
                 self.get_evaluation().set_end_time()
                 AbstractFAIRMetrics.cache[url][
                     self.get_principle_tag()
@@ -131,7 +131,7 @@ PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
 
                 return self.get_evaluation()
             else:
-                print("NO")
+                # print("NO")
                 self.get_evaluation().set_end_time()
                 AbstractFAIRMetrics.cache[url][
                     self.get_principle_tag()
