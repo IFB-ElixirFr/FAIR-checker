@@ -42,15 +42,13 @@ class WebResource:
         # get static RDF metadata (already available in html sources)
         kg_2 = self.extract_rdf_extruct(self.url)
         self.rdf = kg_1 + kg_2
-        self.rdf = clean_kg_excluding_ns_prefix(
-            self.rdf, "http://www.w3.org/1999/xhtml/vocab#"
-        )
-
-        print(self.rdf.serialize(format="turtle"))
 
         self.rdf.namespace_manager.bind("sc", URIRef("http://schema.org/"))
         self.rdf.namespace_manager.bind("bsc", URIRef("https://bioschemas.org/"))
         self.rdf.namespace_manager.bind("dct", URIRef("http://purl.org/dc/terms/"))
+        self.rdf = clean_kg_excluding_ns_prefix(
+            self.rdf, "http://www.w3.org/1999/xhtml/vocab#"
+        )
 
     def get_url(self):
         return self.url

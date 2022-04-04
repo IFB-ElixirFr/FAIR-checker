@@ -541,7 +541,6 @@ def rdf_to_triple_list(graph):
 
 
 def clean_kg_excluding_ns_prefix(kg, ns_prefix) -> ConjunctiveGraph:
-    new_kg = ConjunctiveGraph()
     cleaned_kg = new_kg + kg
     q_del = (
         'DELETE {?s ?p ?o} WHERE { ?s ?p ?o . FILTER (strstarts(str(?p), "'
