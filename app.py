@@ -1219,16 +1219,6 @@ def base_metrics():
 #   return response
 
 
-@app.route("/kg_metrics")
-def kg_metrics():
-    # m = [{  "name": "i1",
-    #         "description": "desc i1",
-    #         "id": "metric_i1",
-    #         "principle": "principle for i1" }]
-    m = []
-    return render_template("kg_metrics.html", f_metrics=m, sample_data=sample_resources)
-
-
 @app.route("/inspect")
 def kg_metrics_2():
     # m = [{  "name": "i1",

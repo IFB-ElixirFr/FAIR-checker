@@ -1,5 +1,5 @@
 import unittest
-from rdflib import ConjunctiveGraph
+from rdflib import BNode, ConjunctiveGraph, URIRef
 import metrics.util as util
 from metrics.WebResource import WebResource
 
@@ -184,6 +184,51 @@ class CommunityVocabTestCase(unittest.TestCase):
         for p in table_content["properties"]:
             if util.ask_BioPortal(c["name"], "property"):
                 c["tag"].append("BioPortal")
+
+    def test_exclude_ns_prefix(self):
+        turtle_edam = self.turtle_edam
+        kg = ConjunctiveGraph()
+        kg.parse(data=turtle_edam, format="turtle")
+        # KG contains 2 xhtml triples
+
+        ns = "http://www.w3.org/1999/xhtml/vocab#"
+        cleaned_kg = util.clean_kg_excluding_ns_prefix(kg, ns)
+        # cleaned KG should contain 0 xhtml triples
+        print("toto")
+        print(len(kg))
+        print(len(cleaned_kg))
+        self.assertEquals(len(kg) - 2, len(cleaned_kg))
+
+    def test_exclude_xhtml(self):
+        ns = "http://www.w3.org/1999/xhtml/vocab#"
+        kg = ConjunctiveGraph()
+        kg.add(
+            (
+                BNode(),
+                URIRef("http://www.w3.org/1999/xhtml/vocab#role"),
+                URIRef("http://www.w3.org/1999/xhtml/vocab#button"),
+            )
+        )
+        print(kg.serialize(format="turtle"))
+
+        q_xhtml = (
+            'SELECT * WHERE { ?s ?p ?o . FILTER (strstarts(str(?p), "' + ns + '"))}'
+        )
+        print(q_xhtml)
+
+        res = kg.query(q_xhtml)
+        self.assertEquals(len(res), 1)
+
+        q_del = (
+            'DELETE {?s ?p ?o} WHERE { ?s ?p ?o . FILTER (strstarts(str(?p), "'
+            + ns
+            + '"))}'
+        )
+        kg.update(q_del)
+        print(kg.serialize(format="turtle"))
+
+        res = kg.query(q_xhtml)
+        self.assertEquals(len(res), 0)
 
 
 if __name__ == "__main__":

@@ -16,6 +16,7 @@ from flask import Flask
 
 import logging
 
+import copy
 import re
 import validators
 from requests.auth import HTTPBasicAuth
@@ -206,6 +207,19 @@ def ask_BioPortal(uri, type):
         logging.error("Cound not contact BioPortal")
         logging.error(res.text)
         return False
+
+
+def get_html_selenium(url):
+    chrome_options = Options()
+    chrome_options.add_argument("--headless")
+    browser = webdriver.Chrome(options=chrome_options)
+
+    try:
+        browser.get(url)
+        return browser.page_source
+
+    finally:
+        browser.quit()
 
 
 def ask_OLS(uri):
@@ -515,54 +529,6 @@ def rdf_to_triple_list(graph):
     #     print("{} => {}".format(p, o))
 
 
-def get_rdf_selenium(uri, kg):
-    # uri = 'https://workflowhub.eu/workflows/45'
-    # uri = 'https://bio.tools/jaspar'
-
-    chrome_options = Options()
-    chrome_options.add_argument("--headless")
-
-    browser = webdriver.Chrome(options=chrome_options)
-    browser.get(uri)
-
-    html_source = browser.page_source
-    # print(html_source)
-    browser.quit()
-    tree = html.fromstring(html_source)
-    jsonld_string = tree.xpath('//script[@type="application/ld+json"]//text()')
-
-    kg = ConjunctiveGraph()
-
-    base_path = Path(__file__).parent  ## current directory
-    static_file_path = str((base_path / "../static/data/jsonldcontext.json").resolve())
-
-    for json_ld_annots in jsonld_string:
-        jsonld = json.loads(json_ld_annots)
-
-        if "@context" in jsonld.keys():
-            if "//schema.org" in jsonld["@context"]:
-                jsonld["@context"] = static_file_path
-        kg.parse(data=json.dumps(jsonld, ensure_ascii=False), format="json-ld")
-
-        print(f"{len(kg)} retrieved triples in KG")
-        print(kg.serialize(format="turtle").decode())
-
-    return kg
-
-
-def get_html_selenium(url):
-    chrome_options = Options()
-    chrome_options.add_argument("--headless")
-    browser = webdriver.Chrome(options=chrome_options)
-
-    try:
-        browser.get(url)
-        return browser.page_source
-
-    finally:
-        browser.quit()
-
-
 # TODO @Thomas, to be fixed (imports)
 # def download_csv(uri):
 #
@@ -572,6 +538,17 @@ def get_html_selenium(url):
 #
 #     a_day_ago = datetime.now() - timedelta(1)
 #     pass
+
+
+def clean_kg_excluding_ns_prefix(kg, ns_prefix) -> ConjunctiveGraph:
+    cleaned_kg = copy.deepcopy(kg)
+    q_del = (
+        'DELETE {?s ?p ?o} WHERE { ?s ?p ?o . FILTER (strstarts(str(?p), "'
+        + ns_prefix
+        + '"))}'
+    )
+    cleaned_kg.update(q_del)
+    return cleaned_kg
 
 
 def replace_value_char_for_key(key, var, old_char, new_char):
