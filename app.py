@@ -362,16 +362,28 @@ def evaluate_fc_metrics(metric_name, client_metric_id, url):
     # Persist Evaluation oject in MongoDB
 
     implem = METRICS_CUSTOM[metric_name].get_implem()
+    id = METRICS_CUSTOM[metric_name].get_id()
 
     # result.set_metrics(name)
     # result.set_implem(implem)
     result.persist()
     # result.close_log_stream()
+    csv_line = '"{}"\t"{}"\t"{}"\t"{}"\t"{}"'.format(
+        id, name, score, str(evaluation_time), comment
+    )
+    csv_line = {
+        "id": id,
+        "name": name,
+        "score": score,
+        "time": str(evaluation_time),
+        "comment": comment,
+    }
     emit_json = {
         "score": str(score),
         "time": str(evaluation_time),
         "comment": comment,
         "recommendation": recommendation,
+        "csv_line": csv_line,
         # "name": name,
     }
     emit("done_" + client_metric_id, emit_json)
@@ -1057,9 +1069,14 @@ def buildJSONLD():
     latest_tag = tags[-1]
 
     jld = {
-        "@context": "https://schema.org/",
-        "@type": "WebApplication",
+        "@context": [
+            "https://schema.org/",
+            {"dct": "https://purl.org/dc/terms/"},
+            {"prov": "http://www.w3.org/ns/prov#"},
+        ],
+        "@type": ["WebApplication", "prov:Entity"],
         "@id": "https://github.com/IFB-ElixirFr/FAIR-checker",
+        "dct:conformsTo": "https://bioschemas.org/profiles/ComputationalTool/1.0-RELEASE",
         "name": "FAIR-Checker",
         "url": "https://fair-checker.france-bioinformatique.fr",
         "applicationCategory": "Bioinformatics",
@@ -1070,22 +1087,25 @@ def buildJSONLD():
             Data providers and consumers can check how FAIR are web resources. Developers can explore and inspect metadata exposed in web resources.""",
         "author": [
             {
-                "@type": "Person",
+                "@type": ["Person", "prov:Person"],
                 "@id": "https://orcid.org/0000-0003-0676-5461",
                 "givenName": "Thomas",
                 "familyName": "Rosnet",
+                "prov:actedOnBehalfOf": {"@id": "https://ror.org/045f7pv37"},
             },
             {
-                "@type": "Person",
+                "@type": ["Person", "prov:Person"],
                 "@id": "https://orcid.org/0000-0002-3597-8557",
                 "givenName": "Alban",
                 "familyName": "Gaignard",
+                "prov:actedOnBehalfOf": {"@id": "https://ror.org/045f7pv37"},
             },
             {
-                "@type": "Person",
+                "@type": ["Person", "prov:Person"],
                 "@id": "https://orcid.org/0000-0002-0399-8713",
                 "givenName": "Marie-Dominique",
                 "familyName": "Devignes",
+                "prov:actedOnBehalfOf": {"@id": "https://ror.org/045f7pv37"},
             },
         ],
         "citation": [
@@ -1094,12 +1114,17 @@ def buildJSONLD():
             "https://doi.org/10.5281/zenodo.5914367",
         ],
         "license": "https://spdx.org/licenses/MIT.html",
+        "prov:wasAttributedTo": [
+            {"@id": "https://orcid.org/0000-0003-0676-5461"},
+            {"@id": "https://orcid.org/0000-0002-3597-8557"},
+            {"@id": "https://orcid.org/0000-0002-0399-8713"},
+        ],
     }
     raw_jld = json.dumps(jld)
     return raw_jld
 
 
-@app.route("/base_metrics", methods=["GET"])
+@app.route("/check", methods=["GET"])
 def base_metrics():
     """
     Load the Advanced page elements loading informations from FAIRMetrics API.
@@ -1174,7 +1199,7 @@ def base_metrics():
     # response =
     return make_response(
         render_template(
-            "metrics_summary.html",
+            "check.html",
             f_metrics=metrics,
             sample_data=sample_resources,
             jld=raw_jld,
@@ -1204,7 +1229,7 @@ def kg_metrics():
     return render_template("kg_metrics.html", f_metrics=m, sample_data=sample_resources)
 
 
-@app.route("/kg_metrics_2")
+@app.route("/inspect")
 def kg_metrics_2():
     # m = [{  "name": "i1",
     #         "description": "desc i1",
@@ -1212,7 +1237,7 @@ def kg_metrics_2():
     #         "principle": "principle for i1" }]
     m = []
     return render_template(
-        "kg_metrics_2.html",
+        "inspect.html",
         f_metrics=m,
         sample_data=sample_resources,
         title="Inspect",

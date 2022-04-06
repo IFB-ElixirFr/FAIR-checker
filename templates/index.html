@@ -79,7 +79,7 @@
 
     <div class="block has-text-centered">
         <figure class="image">
-            <img src={{ url_for('static',filename='images/pres_fc.png' ) }}>
+            <img class="is-bordered" src={{ url_for('static',filename='images/pres_fc.png' ) }}>
         </figure>
     </div>
 </div>
@@ -87,21 +87,30 @@
 <div class="section">
     <h2 class="title">Resources</h2>
     <hr>
-    <div class="block">
+    <div class="columns is-vcentered">
+      <div class="column has-text-centered">
         <a href={{ url_for('static',filename='images/FAIR_Checker_poster.pdf' ) }} target="_blank">
-            <img src={{ url_for('static',filename='images/FAIR_Checker_poster.png' ) }} width="96">
+            <img class="is-bordered" src={{ url_for('static',filename='images/FAIR_Checker_poster.png' ) }} width="96">
         </a>
+      </div>
+      <div class="column is-10">
         Rosnet, Thomas, Lefort, Vincent, Devignes, Marie-Dominique, & Gaignard, Alban. (2021). FAIR-Checker, a web tool
         to support the findability and reusability of digital life science resources (1.0). JOBIM (JOBIM), Paris.
         <a href="https://doi.org/10.5281/zenodo.5914307" target="_blank">https://doi.org/10.5281/zenodo.5914307</a>
+      </div>
     </div>
-    <div class="block">
+
+    <div class="columns is-vcentered">
+      <div class="column has-text-centered">
         <a href={{ url_for('static',filename='images/Slides_FAIR_checker-2021.pdf' ) }} target="_blank">
-            <img src={{ url_for('static',filename='images/Slides_FAIR_checker-2021.png' ) }} width="96">
+            <img class="is-bordered" src={{ url_for('static',filename='images/Slides_FAIR_checker-2021.png' ) }} width="96">
         </a>
+      </div>
+      <div class="column is-10">
         Gaignard, Alban, Rosnet, Thomas, de Lamotte, Frédéric, & Devignes, Marie-Dominique. (2021, June 4). Automatic
         evaluation of FAIR metrics. Elixir All-Hands (Elixir All-Hands).
         <a href="https://doi.org/10.5281/zenodo.5914367" target="_blank">https://doi.org/10.5281/zenodo.5914367</a>
+      </div>
     </div>
 </div>
 
