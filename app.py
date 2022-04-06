@@ -150,9 +150,11 @@ def inject_app_version():
     latest_tag = tags[-1]
     return dict(version_tag=latest_tag)
 
+
 @app.context_processor
 def inject_jsonld():
     return dict(jld=buildJSONLD())
+
 
 @app.route("/favicon.ico")
 def favicon():
