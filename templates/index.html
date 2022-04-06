@@ -56,20 +56,6 @@
 <div class="section">
     <h2 class="title">Inspect: how it works ?</h2>
     <hr>
-    <div class="block ">
-        For each evaluated resource, FAIR-Checker builds a knowledge graph (1) based on embedded RDF triples (microdata,
-        json-ld, RDFa), as well as external knowledge provided by public SPARQL endpoints (2).
-    </div>
-    <div class="block ">
-        FAIR-Checker then verifies that used ontology terms are already known in reference registries (3). Finally,
-        leveraging on Bioschemas, the extension of Schema.org for life sciences, FAIR-Checker automatically generate
-        SHACL constraints. Their evaluation (4) informs users on missing metadata, required or recommended for specific
-        types of resources (genes, proteins, training material,computational tools, etc.).
-    </div>
-    <div class="block ">
-        The metadata assesment flow:
-    </div>
-    <hr>
     <div class="block">
         FAIR-Checker leverages semantic web technologies to check that metadata use standards
         and recognized ontologies or controlled vocabularies.
@@ -77,10 +63,18 @@
 
     <div class="block">
         First, embedded semantic annotations are extracted from web pages, forming a minimal knowledge graph (Step 1). Then,
-        this minimal knowledge graph is completed based on already deployed knowledge graphs: Datacite, OpenAire, WikiData
+        this minimal knowledge graph is completed based on already deployed knowledge graphs:
+        <a href="https://datacite.org/">Datacite</a>, <a href="https://www.openaire.eu/">OpenAire</a>,
+        <a href="https://www.wikidata.org/wiki/Wikidata:Main_Page">WikiData</a>
         (Step 2). Finally (Step 3), the resulting knowledge graph is tested to check that classes and properties are
-        recognized through Linked Open Vocabularies (LOV), Ontology Lookup Service (OLS), or Bioportal. The last
-        verification (Step 4) consists in validating the resource metadata against Bioschemas community profiles.
+        recognized through <a href="https://lov.linkeddata.es/dataset/lov/">Linked Open Vocabularies (LOV)</a>,
+        <a href="https://www.ebi.ac.uk/ols/index">Ontology Lookup Service (OLS)</a>, or
+        <a href="https://bioportal.bioontology.org/">Bioportal</a>. The last
+        verification (Step 4) consists in validating the resource metadata against
+        <a href="https://bioschemas.org/profiles/">Bioschemas community profiles</a>.
+    </div>
+    <div class="block ">
+        The metadata assesment flow:
     </div>
 
     <div class="block has-text-centered">
