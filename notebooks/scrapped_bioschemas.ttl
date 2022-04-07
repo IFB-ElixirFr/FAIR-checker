@@ -1,57 +1,371 @@
+@prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix ns1: <http://schema.org/> .
+@prefix ns2: <http://bioschemas.org/> .
+@prefix ns3: <https://bio.tools/ontology/> .
+@prefix ns4: <http://ogp.me/ns#> .
 
-<http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=261983> a ns1:MedicalCondition ;
-    ns1:alternateName "Partial deletion of chromosome 19p",
-        "Partial monosomy of chromosome 19p",
-        "Partial monosomy of the short arm of chromosome 19" ;
-    ns1:code [ a ns1:MedicalCode ;
-            ns1:codeValue "ORPHA:261983" ;
-            ns1:codingSystem "ORPHAcode" ],
-        [ a ns1:MedicalCode ;
-            ns1:codeValue "ORPHA:261983" ;
-            ns1:codingSystem "ORPHAcode" ],
-        [ a ns1:MedicalCode ;
-            ns1:codeValue "Q93.5" ;
-            ns1:codingSystem "ICD-10" ],
-        [ a ns1:MedicalCode ;
-            ns1:codeValue "Q93.5" ;
-            ns1:codingSystem "ICD-10" ] ;
-    ns1:description "" ;
-    ns1:epidemiology "Prevalence : " ;
-    ns1:identifier "261983" ;
-    ns1:name [ a ns1:PronounceableText ;
-            ns1:inLanguage "EN" ;
-            ns1:textValue "Partial deletion of the short arm of chromosome 19" ],
-        [ a ns1:PronounceableText ;
-            ns1:inLanguage "EN" ;
-            ns1:textValue "Partial deletion of the short arm of chromosome 19" ] .
+<file:///Users/frikha-s/Documents/FAIR-checker/notebooks/> ns4:description "{{ngMeta['og:description']}}" ;
+    ns4:image "{{ngMeta['og:image']}}" ;
+    ns4:title "{{ngMeta['og:title']}}" .
 
-<http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=71213> a ns1:MedicalCondition ;
+<http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=166029> a ns1:MedicalCondition ;
     ns1:code [ a ns1:MedicalCode ;
-            ns1:codeValue "C0730304" ;
+            ns1:codeValue "C1836315" ;
             ns1:codingSystem "UMLS" ],
         [ a ns1:MedicalCode ;
-            ns1:codeValue "D18.0" ;
+            ns1:codeValue "609324" ;
+            ns1:codingSystem "OMIM" ],
+        [ a ns1:MedicalCode ;
+            ns1:codeValue "Q77.3" ;
             ns1:codingSystem "ICD-10" ],
         [ a ns1:MedicalCode ;
-            ns1:codeValue "D18.0" ;
+            ns1:codeValue "C1836315" ;
+            ns1:codingSystem "UMLS" ],
+        [ a ns1:MedicalCode ;
+            ns1:codeValue "ORPHA:166029" ;
+            ns1:codingSystem "ORPHAcode" ],
+        [ a ns1:MedicalCode ;
+            ns1:codeValue "ORPHA:166029" ;
+            ns1:codingSystem "ORPHAcode" ],
+        [ a ns1:MedicalCode ;
+            ns1:codeValue "Q77.3" ;
             ns1:codingSystem "ICD-10" ],
         [ a ns1:MedicalCode ;
-            ns1:codeValue "ORPHA:71213" ;
-            ns1:codingSystem "ORPHAcode" ],
-        [ a ns1:MedicalCode ;
-            ns1:codeValue "ORPHA:71213" ;
-            ns1:codingSystem "ORPHAcode" ],
-        [ a ns1:MedicalCode ;
-            ns1:codeValue "C0730304" ;
-            ns1:codingSystem "UMLS" ] ;
-    ns1:description "Retinal cavernous hemangioma is a rare, benign, usually unilateral retinal vascular hamartoma that in most cases is asymptomatic but in some patients may present with blurred vision or floaters and that is characterized by the presence of grape-like vacuoles." ;
-    ns1:epidemiology "Prevalence : Unknown" ;
-    ns1:identifier "71213" ;
+            ns1:codeValue "609324" ;
+            ns1:codingSystem "OMIM" ] ;
+    ns1:description "Multiple epiphyseal dysplasia, with severe proximal femoral dysplasia is a rare primary bone dysplasia characterized by severe, early-onset dysplasia of the proximal femurs, with almost complete absence of the secondary ossification centers and abnormal development of the femoral necks (short and broad with irregular metaphyses). It is associated with gait abnormality, mild short stature, arthralgia, joint stiffness with limited mobility of the hips and irregular acetabula, and hip and knee pain. Coxa vara and mild spinal changes are also associated." ;
+    ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+    ns1:identifier "166029" ;
     ns1:name [ a ns1:PronounceableText ;
             ns1:inLanguage "EN" ;
-            ns1:textValue "Retinal capillary malformation" ],
+            ns1:textValue "Multiple epiphyseal dysplasia, with severe proximal femoral dysplasia" ],
         [ a ns1:PronounceableText ;
             ns1:inLanguage "EN" ;
-            ns1:textValue "Retinal capillary malformation" ] .
+            ns1:textValue "Multiple epiphyseal dysplasia, with severe proximal femoral dysplasia" ] .
+
+<http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=166032> a ns1:MedicalCondition ;
+    ns1:code [ a ns1:MedicalCode ;
+            ns1:codeValue "Q77.3" ;
+            ns1:codingSystem "ICD-10" ],
+        [ a ns1:MedicalCode ;
+            ns1:codeValue "ORPHA:166032" ;
+            ns1:codingSystem "ORPHAcode" ],
+        [ a ns1:MedicalCode ;
+            ns1:codeValue "609325" ;
+            ns1:codingSystem "OMIM" ],
+        [ a ns1:MedicalCode ;
+            ns1:codeValue "C1836307" ;
+            ns1:codingSystem "UMLS" ],
+        [ a ns1:MedicalCode ;
+            ns1:codeValue "Q77.3" ;
+            ns1:codingSystem "ICD-10" ],
+        [ a ns1:MedicalCode ;
+            ns1:codeValue "ORPHA:166032" ;
+            ns1:codingSystem "ORPHAcode" ],
+        [ a ns1:MedicalCode ;
+            ns1:codeValue "609325" ;
+            ns1:codingSystem "OMIM" ],
+        [ a ns1:MedicalCode ;
+            ns1:codeValue "C1836307" ;
+            ns1:codingSystem "UMLS" ] ;
+    ns1:description "Multiple epiphyseal dysplasia, with miniepiphyses is a rare primary bone dysplasia disorder characterized by strikingly small secondary ossification centers (mini-epiphyses) in all or only some joints, resulting in severe bone dysplasia of the proximal femoral heads. Short stature, increased lumbar lordosis, genua vara and generalized joint laxity have also been reported." ;
+    ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+    ns1:identifier "166032" ;
+    ns1:name [ a ns1:PronounceableText ;
+            ns1:inLanguage "EN" ;
+            ns1:textValue "Multiple epiphyseal dysplasia, with miniepiphyses" ],
+        [ a ns1:PronounceableText ;
+            ns1:inLanguage "EN" ;
+            ns1:textValue "Multiple epiphyseal dysplasia, with miniepiphyses" ] .
+
+<http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=166038> a ns1:MedicalCondition ;
+    ns1:code [ a ns1:MedicalCode ;
+            ns1:codeValue "250230" ;
+            ns1:codingSystem "OMIM" ],
+        [ a ns1:MedicalCode ;
+            ns1:codeValue "ORPHA:166038" ;
+            ns1:codingSystem "ORPHAcode" ],
+        [ a ns1:MedicalCode ;
+            ns1:codeValue "Q78.5" ;
+            ns1:codingSystem "ICD-10" ],
+        [ a ns1:MedicalCode ;
+            ns1:codeValue "ORPHA:166038" ;
+            ns1:codingSystem "ORPHAcode" ],
+        [ a ns1:MedicalCode ;
+            ns1:codeValue "C1855217" ;
+            ns1:codingSystem "UMLS" ],
+        [ a ns1:MedicalCode ;
+            ns1:codeValue "C1855217" ;
+            ns1:codingSystem "UMLS" ],
+        [ a ns1:MedicalCode ;
+            ns1:codeValue "Q78.5" ;
+            ns1:codingSystem "ICD-10" ],
+        [ a ns1:MedicalCode ;
+            ns1:codeValue "250230" ;
+            ns1:codingSystem "OMIM" ] ;
+    ns1:description "Metaphyseal chondrodysplasia, Kaitila type is a rare multiple metaphyseal dysplasia disease characterized by disproportionate short stature, short limbs and digits, tracheobronchial malacia and progressive thoracolumbar scoliosis. Radiographic imaging shows progression from marked metaphyseal dysplasia of tubular bones in childhood to short and broad bones with mild dysplasia of the joints in adulthood. There have been no further descriptions in the literature since 1982." ;
+    ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+    ns1:identifier "166038" ;
+    ns1:name [ a ns1:PronounceableText ;
+            ns1:inLanguage "EN" ;
+            ns1:textValue "Metaphyseal chondrodysplasia, Kaitila type" ],
+        [ a ns1:PronounceableText ;
+            ns1:inLanguage "EN" ;
+            ns1:textValue "Metaphyseal chondrodysplasia, Kaitila type" ] .
+
+<http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=61> a ns1:MedicalCondition ;
+    ns1:alternateName "Lysosomal alpha-D-mannosidase deficiency" ;
+    ns1:code [ a ns1:MedicalCode ;
+            ns1:codeValue "C0024748" ;
+            ns1:codingSystem "UMLS" ],
+        [ a ns1:MedicalCode ;
+            ns1:codeValue "ORPHA:61" ;
+            ns1:codingSystem "ORPHAcode" ],
+        [ a ns1:MedicalCode ;
+            ns1:codeValue "6968" ;
+            ns1:codingSystem "GARD" ],
+        [ a ns1:MedicalCode ;
+            ns1:codeValue "6968" ;
+            ns1:codingSystem "GARD" ],
+        [ a ns1:MedicalCode ;
+            ns1:codeValue "248500" ;
+            ns1:codingSystem "OMIM" ],
+        [ a ns1:MedicalCode ;
+            ns1:codeValue "D008363" ;
+            ns1:codingSystem "MeSH" ],
+        [ a ns1:MedicalCode ;
+            ns1:codeValue "D008363" ;
+            ns1:codingSystem "MeSH" ],
+        [ a ns1:MedicalCode ;
+            ns1:codeValue "C0024748" ;
+            ns1:codingSystem "UMLS" ],
+        [ a ns1:MedicalCode ;
+            ns1:codeValue "ORPHA:61" ;
+            ns1:codingSystem "ORPHAcode" ],
+        [ a ns1:MedicalCode ;
+            ns1:codeValue "E77.1" ;
+            ns1:codingSystem "ICD-10" ],
+        [ a ns1:MedicalCode ;
+            ns1:codeValue "248500" ;
+            ns1:codingSystem "OMIM" ],
+        [ a ns1:MedicalCode ;
+            ns1:codeValue "E77.1" ;
+            ns1:codingSystem "ICD-10" ] ;
+    ns1:description "An inherited lysosomal storage disorder characterized by immune deficiency, facial and skeletal abnormalities, hearing impairment, and intellectual deficit." ;
+    ns1:epidemiology "Prevalence : 1-9 / 1 000 000" ;
+    ns1:identifier "61" ;
+    ns1:name [ a ns1:PronounceableText ;
+            ns1:inLanguage "EN" ;
+            ns1:textValue "Alpha-mannosidosis" ],
+        [ a ns1:PronounceableText ;
+            ns1:inLanguage "EN" ;
+            ns1:textValue "Alpha-mannosidosis" ] .
+
+<http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=93> a ns1:MedicalCondition ;
+    ns1:alternateName "Aspartylglucosaminidase deficiency" ;
+    ns1:code [ a ns1:MedicalCode ;
+            ns1:codeValue "ORPHA:93" ;
+            ns1:codingSystem "ORPHAcode" ],
+        [ a ns1:MedicalCode ;
+            ns1:codeValue "D054880" ;
+            ns1:codingSystem "MeSH" ],
+        [ a ns1:MedicalCode ;
+            ns1:codeValue "C0268225" ;
+            ns1:codingSystem "UMLS" ],
+        [ a ns1:MedicalCode ;
+            ns1:codeValue "10068220" ;
+            ns1:codingSystem "MedDRA" ],
+        [ a ns1:MedicalCode ;
+            ns1:codeValue "5854" ;
+            ns1:codingSystem "GARD" ],
+        [ a ns1:MedicalCode ;
+            ns1:codeValue "C2931840" ;
+            ns1:codingSystem "UMLS" ],
+        [ a ns1:MedicalCode ;
+            ns1:codeValue "ORPHA:93" ;
+            ns1:codingSystem "ORPHAcode" ],
+        [ a ns1:MedicalCode ;
+            ns1:codeValue "208400" ;
+            ns1:codingSystem "OMIM" ],
+        [ a ns1:MedicalCode ;
+            ns1:codeValue "D054880" ;
+            ns1:codingSystem "MeSH" ],
+        [ a ns1:MedicalCode ;
+            ns1:codeValue "10068220" ;
+            ns1:codingSystem "MedDRA" ],
+        [ a ns1:MedicalCode ;
+            ns1:codeValue "E77.1" ;
+            ns1:codingSystem "ICD-10" ],
+        [ a ns1:MedicalCode ;
+            ns1:codeValue "208400" ;
+            ns1:codingSystem "OMIM" ],
+        [ a ns1:MedicalCode ;
+            ns1:codeValue "C0268225" ;
+            ns1:codingSystem "UMLS" ],
+        [ a ns1:MedicalCode ;
+            ns1:codeValue "E77.1" ;
+            ns1:codingSystem "ICD-10" ],
+        [ a ns1:MedicalCode ;
+            ns1:codeValue "C2931840" ;
+            ns1:codingSystem "UMLS" ],
+        [ a ns1:MedicalCode ;
+            ns1:codeValue "C538402" ;
+            ns1:codingSystem "MeSH" ],
+        [ a ns1:MedicalCode ;
+            ns1:codeValue "C538402" ;
+            ns1:codingSystem "MeSH" ],
+        [ a ns1:MedicalCode ;
+            ns1:codeValue "5854" ;
+            ns1:codingSystem "GARD" ] ;
+    ns1:description "An autosomal recessive lysosomal storage disease belonging to the oligosaccharidosis group (also called glycoproteinosis)." ;
+    ns1:epidemiology "Prevalence : Unknown" ;
+    ns1:identifier "93" ;
+    ns1:name [ a ns1:PronounceableText ;
+            ns1:inLanguage "EN" ;
+            ns1:textValue "Aspartylglucosaminuria" ],
+        [ a ns1:PronounceableText ;
+            ns1:inLanguage "EN" ;
+            ns1:textValue "Aspartylglucosaminuria" ] .
+
+<https://bio.tools/bwa> a ns1:SoftwareApplication ;
+    ns2:input <https://bio.tools/bwa/op_1/in_1>,
+        <https://bio.tools/bwa/op_2/in_1>,
+        <https://bio.tools/bwa/op_2/in_2>,
+        <https://bio.tools/bwa/op_3/in_1>,
+        <https://bio.tools/bwa/op_3/in_2>,
+        <https://bio.tools/bwa/op_4/in_1>,
+        <https://bio.tools/bwa/op_4/in_2>,
+        <https://bio.tools/bwa/op_4/in_3>,
+        <https://bio.tools/bwa/op_5/in_1>,
+        <https://bio.tools/bwa/op_5/in_2>,
+        <https://bio.tools/bwa/op_5/in_3>,
+        <https://bio.tools/bwa/op_6/in_1>,
+        <https://bio.tools/bwa/op_6/in_2> ;
+    ns2:output <https://bio.tools/bwa/op_1/in_1>,
+        <https://bio.tools/bwa/op_2/in_1>,
+        <https://bio.tools/bwa/op_3/in_1>,
+        <https://bio.tools/bwa/op_4/in_1>,
+        <https://bio.tools/bwa/op_5/in_1>,
+        <https://bio.tools/bwa/op_6/in_1> ;
+    dcterms:conformsTo "https://bioschemas.org/profiles/ComputationalTool/1.0-RELEASE" ;
+    ns1:applicationSubCategory <http://edamontology.org/topic_0102> ;
+    ns1:citation <https://doi.org/10.1016/j.ygeno.2017.03.001>,
+        <https://doi.org/10.1093/bioinformatics/btp324>,
+        <https://doi.org/10.1093/bioinformatics/btp698>,
+        <https://doi.org/10.1093/bioinformatics/btu146>,
+        <https://doi.org/10.1186/1471-2105-14-184>,
+        <https://doi.org/10.1186/1471-2164-15-264>,
+        "pmcid:PMC2705234",
+        "pmcid:PMC3694458",
+        "pmcid:PMC4051166",
+        "pubmed:19451168",
+        "pubmed:20080505",
+        "pubmed:23758764",
+        "pubmed:24626854",
+        "pubmed:24708189",
+        "pubmed:28286147" ;
+    ns1:contributor <http://orcid.org/0000-0003-4874-2874> ;
+    ns1:featureList <http://edamontology.org/operation_0292>,
+        <http://edamontology.org/operation_3198>,
+        <http://edamontology.org/operation_3211>,
+        <http://edamontology.org/operation_3429> ;
+    ns1:softwareHelp <http://bio-bwa.sourceforge.net/bwa.shtml> ;
+    ns3:primaryContact "bwa team" .
+
+<http://orcid.org/0000-0003-4874-2874> a <schema:Person> .
+
+<https://bio.tools/bwa/op_2/in_2> a <http://bioschemas.org/types/FormalParameter> ;
+    ns1:identifier "http://edamontology.org/data_2044" ;
+    ns1:name "Sequence" ;
+    ns1:sameAs "http://edamontology.org/data_2044" .
+
+<https://bio.tools/bwa/op_3/in_2> a <http://bioschemas.org/types/FormalParameter> ;
+    ns1:identifier "http://edamontology.org/data_2044" ;
+    ns1:name "Sequence" ;
+    ns1:sameAs "http://edamontology.org/data_2044" .
+
+<https://bio.tools/bwa/op_4/in_2> a <http://bioschemas.org/types/FormalParameter> ;
+    ns1:identifier "http://edamontology.org/data_2044" ;
+    ns1:name "Sequence" ;
+    ns1:sameAs "http://edamontology.org/data_2044" .
+
+<https://bio.tools/bwa/op_4/in_3> a <http://bioschemas.org/types/FormalParameter> ;
+    ns1:identifier "http://edamontology.org/data_2044" ;
+    ns1:name "Sequence" ;
+    ns1:sameAs "http://edamontology.org/data_2044" .
+
+<https://bio.tools/bwa/op_5/in_2> a <http://bioschemas.org/types/FormalParameter> ;
+    ns1:identifier "http://edamontology.org/data_2044" ;
+    ns1:name "Sequence" ;
+    ns1:sameAs "http://edamontology.org/data_2044" .
+
+<https://bio.tools/bwa/op_5/in_3> a <http://bioschemas.org/types/FormalParameter> ;
+    ns1:identifier "http://edamontology.org/data_2044" ;
+    ns1:name "Sequence" ;
+    ns1:sameAs "http://edamontology.org/data_2044" .
+
+<https://bio.tools/bwa/op_6/in_2> a <http://bioschemas.org/types/FormalParameter> ;
+    ns1:identifier "http://edamontology.org/data_2044" ;
+    ns1:name "Sequence" ;
+    ns1:sameAs "http://edamontology.org/data_2044" .
+
+<https://doi.org/10.1016/j.ygeno.2017.03.001> a ns1:CreativeWork .
+
+<https://doi.org/10.1093/bioinformatics/btp324> a ns1:CreativeWork .
+
+<https://doi.org/10.1093/bioinformatics/btp698> a ns1:CreativeWork .
+
+<https://doi.org/10.1093/bioinformatics/btu146> a ns1:CreativeWork .
+
+<https://doi.org/10.1186/1471-2105-14-184> a ns1:CreativeWork .
+
+<https://doi.org/10.1186/1471-2164-15-264> a ns1:CreativeWork .
+
+<https://bio.tools/bwa/op_1/in_1> a <http://bioschemas.org/types/FormalParameter> ;
+    ns1:identifier "http://edamontology.org/data_2044",
+        "http://edamontology.org/data_3210" ;
+    ns1:name "Genome index",
+        "Sequence" ;
+    ns1:sameAs "http://edamontology.org/data_2044",
+        "http://edamontology.org/data_3210" .
+
+<https://bio.tools/bwa/op_2/in_1> a <http://bioschemas.org/types/FormalParameter> ;
+    ns1:identifier "http://edamontology.org/data_1916",
+        "http://edamontology.org/data_3210" ;
+    ns1:name "Alignment",
+        "Genome index" ;
+    ns1:sameAs "http://edamontology.org/data_1916",
+        "http://edamontology.org/data_3210" .
+
+<https://bio.tools/bwa/op_3/in_1> a <http://bioschemas.org/types/FormalParameter> ;
+    ns1:identifier "http://edamontology.org/data_2012",
+        "http://edamontology.org/data_2044" ;
+    ns1:name "Sequence",
+        "Sequence coordinates" ;
+    ns1:sameAs "http://edamontology.org/data_2012",
+        "http://edamontology.org/data_2044" .
+
+<https://bio.tools/bwa/op_4/in_1> a <http://bioschemas.org/types/FormalParameter> ;
+    ns1:identifier "http://edamontology.org/data_0863",
+        "http://edamontology.org/data_2044" ;
+    ns1:name "Sequence",
+        "Sequence alignment" ;
+    ns1:sameAs "http://edamontology.org/data_0863",
+        "http://edamontology.org/data_2044" .
+
+<https://bio.tools/bwa/op_5/in_1> a <http://bioschemas.org/types/FormalParameter> ;
+    ns1:identifier "http://edamontology.org/data_0863",
+        "http://edamontology.org/data_2044" ;
+    ns1:name "Sequence",
+        "Sequence alignment" ;
+    ns1:sameAs "http://edamontology.org/data_0863",
+        "http://edamontology.org/data_2044" .
+
+<https://bio.tools/bwa/op_6/in_1> a <http://bioschemas.org/types/FormalParameter> ;
+    ns1:identifier "http://edamontology.org/data_0863",
+        "http://edamontology.org/data_2044" ;
+    ns1:name "Sequence",
+        "Sequence alignment" ;
+    ns1:sameAs "http://edamontology.org/data_0863",
+        "http://edamontology.org/data_2044" .
 
