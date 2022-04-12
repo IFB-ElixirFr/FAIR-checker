@@ -107,7 +107,6 @@ class WebResource:
 
         for md in data["json-ld"]:
             if "@context" in md.keys():
-                print(md["@context"])
                 if ("https://schema.org" in md["@context"]) or (
                     "http://schema.org" in md["@context"]
                 ):
@@ -166,7 +165,6 @@ class WebResource:
 
         for md in data["json-ld"]:
             if "@context" in md.keys():
-                print(md["@context"])
                 if ("https://schema.org" in md["@context"]) or (
                     "http://schema.org" in md["@context"]
                 ):
