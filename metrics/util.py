@@ -1,4 +1,6 @@
 from SPARQLWrapper import SPARQLWrapper, N3, JSON, RDF, TURTLE, JSONLD
+from importlib_metadata import Deprecated
+from numpy import deprecate
 from rdflib import Graph, ConjunctiveGraph, Namespace
 from rdflib.namespace import RDF
 import requests
@@ -143,6 +145,7 @@ def describe_wikidata(uri, g):
 
 
 # Describe a tool based on experimental bio.tools SPARQL endpoint
+@Deprecated
 def describe_biotools(uri, g):
     logging.debug(f"SPARQL for [ {uri} ] with enpoint [ https://130.226.25.41/sparql ]")
 
@@ -255,6 +258,7 @@ def ask_LOV(uri):
     return res.json()["boolean"]
 
 
+@Deprecated
 def gen_shape(property_list=None, class_list=None, recommendation=None):
     """
 
@@ -269,6 +273,7 @@ def gen_shape(property_list=None, class_list=None, recommendation=None):
     return None
 
 
+@Deprecated
 def shape_checks(kg):
     """
 
