@@ -34,7 +34,7 @@ class I1_Impl(AbstractFAIRMetrics):
 
     def strong_evaluate(self):
         """
-        Delegated to F2B
+        Delegated to F2A
         """
         eval = self.get_evaluation()
         eval.set_implem(self.implem)
