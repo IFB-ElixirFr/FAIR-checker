@@ -34,14 +34,18 @@ class WebResource:
     html_selenium = None
     html_requests = None
 
-    def __init__(self, url) -> None:
-        self.url = url
+    def __init__(self, url, rdf_graph=None) -> None:
         self.id = "WebResource Unique ID for cache"
-        # get dynamic RDF metadata (generated from JS)
-        kg_1 = WebResource.extract_rdf_selenium(self.url)
-        # get static RDF metadata (already available in html sources)
-        kg_2 = self.extract_rdf_extruct(self.url)
-        self.rdf = kg_1 + kg_2
+        self.url = url
+
+        if rdf_graph is None:
+            # get dynamic RDF metadata (generated from JS)
+            kg_1 = WebResource.extract_rdf_selenium(self.url)
+            # get static RDF metadata (already available in html sources)
+            kg_2 = self.extract_rdf_extruct(self.url)
+            self.rdf = kg_1 + kg_2
+        else:
+            self.rdf = rdf_graph
 
         self.rdf.namespace_manager.bind("sc", URIRef("http://schema.org/"))
         self.rdf.namespace_manager.bind("bsc", URIRef("https://bioschemas.org/"))
