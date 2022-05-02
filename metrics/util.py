@@ -18,6 +18,7 @@ from flask import Flask
 
 import logging
 
+import copy
 import re
 import validators
 from requests.auth import HTTPBasicAuth
@@ -209,6 +210,19 @@ def ask_BioPortal(uri, type):
         logging.error("Cound not contact BioPortal")
         logging.error(res.text)
         return False
+
+
+def get_html_selenium(url):
+    chrome_options = Options()
+    chrome_options.add_argument("--headless")
+    browser = webdriver.Chrome(options=chrome_options)
+
+    try:
+        browser.get(url)
+        return browser.page_source
+
+    finally:
+        browser.quit()
 
 
 def ask_OLS(uri):
@@ -532,15 +546,13 @@ def rdf_to_triple_list(graph):
 
 
 def clean_kg_excluding_ns_prefix(kg, ns_prefix) -> ConjunctiveGraph:
-    cleaned_kg = ConjunctiveGraph()
-    cleaned_kg += kg
+    cleaned_kg = copy.deepcopy(kg)
     q_del = (
         'DELETE {?s ?p ?o} WHERE { ?s ?p ?o . FILTER (strstarts(str(?p), "'
         + ns_prefix
         + '"))}'
     )
     cleaned_kg.update(q_del)
-    assert len(cleaned_kg) <= len(kg)
     return cleaned_kg
 
 

@@ -41,6 +41,10 @@ class F2B_Impl(AbstractFAIRMetrics):
             eval.set_metrics(self.principle_tag)
         kg = self.get_web_resource().get_rdf()
 
+        if len(kg) == 0:
+            eval.set_score(0)
+            return eval
+
         eval.log_info("Weak evaluation:")
         eval.log_info(
             "Checking if at least one class used in RDF is known in OLS, LOV, or BioPortal"
@@ -102,11 +106,20 @@ class F2B_Impl(AbstractFAIRMetrics):
             eval.set_metrics(self.principle_tag)
         kg = self.get_web_resource().get_rdf()
 
+        if len(kg) == 0:
+            eval.log_info(
+                "No RDF found in the web page, can't evaluate if classes or properties are known in OLS, LOV, or BioPortal"
+            )
+            eval.set_recommendations(json_rec["F2A"]["reco1"])
+            eval.set_score(0)
+            return eval
+
         eval.log_info("Strong evaluation:")
 
         eval.log_info(
             "Checking if all classes used in RDF are known in OLS, LOV, or BioPortal"
         )
+
         qres = kg.query(self.query_classes)
         class_not_in_registries = False
         for row in qres:

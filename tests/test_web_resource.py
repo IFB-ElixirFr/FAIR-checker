@@ -26,12 +26,12 @@ class WebResourceTestCase(unittest.TestCase):
             "https://data.inrae.fr/dataset.xhtml?persistentId=doi:10.15454/P27LDX"
         )
         logging.info(f"{len(dataverse.get_rdf())} loaded RDF triples")
-        self.assertGreaterEqual(len(dataverse.get_rdf()), 93)
+        self.assertGreaterEqual(len(dataverse.get_rdf()), 9)
 
     def test_workflowhub(self):
         bwa = WebResource("https://workflowhub.eu/workflows/263")
         logging.info(f"{len(bwa.get_rdf())} loaded RDF triples")
-        self.assertGreaterEqual(len(bwa.get_rdf()), 50)
+        self.assertGreaterEqual(len(bwa.get_rdf()), 28)
         turtle = bwa.get_rdf().serialize(format="turtle")
         self.assertTrue("sc:ComputationalWorkflow" in turtle)
 
