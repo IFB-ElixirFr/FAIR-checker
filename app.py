@@ -148,6 +148,19 @@ FILE_UUID = ""
 DICT_TEMP_RES = {}
 
 
+@app.context_processor
+def inject_app_version():
+    repo = git.Repo(".")
+    tags = sorted(repo.tags, key=lambda t: t.commit.committed_datetime)
+    latest_tag = tags[-1]
+    return dict(version_tag=latest_tag)
+
+
+@app.context_processor
+def inject_jsonld():
+    return dict(jld=buildJSONLD())
+
+
 @app.route("/favicon.ico")
 def favicon():
     return send_from_directory(
@@ -163,7 +176,6 @@ def home():
         "index.html",
         title="FAIR-Checker",
         subtitle="Improve the FAIRness of your web resources",
-        jld=buildJSONLD(),
     )
 
 
@@ -180,7 +192,6 @@ def about():
         "about.html",
         title="About",
         subtitle="More about FAIR-Checker",
-        jld=buildJSONLD(),
     )
 
 
@@ -190,7 +201,6 @@ def statistics():
         "statistics.html",
         title="Statistics",
         subtitle="Visualize usage statistics of FAIR-Checker",
-        jld=buildJSONLD(),
         evals=stats.evaluations_this_week(),
         success=stats.success_this_week(),
         success_weekly=stats.success_weekly_one_year(),
@@ -1276,7 +1286,6 @@ def kg_metrics_2():
         sample_data=sample_resources,
         title="Inspect",
         subtitle="to enhance metadata quality",
-        jld=buildJSONLD(),
     )
 
 
