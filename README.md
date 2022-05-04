@@ -22,7 +22,7 @@ Main contributors are:
 - explore the content of metadata
 - enrich metadata based on live SPARQL endpoints, currently relying on [Wikidata](https://www.wikidata.org), [OpenAIRE](https://graph.openaire.eu/develop/), and [OpenCitations](https://opencitations.net)
 - evaluate if used controled vocabularies / ontologies are indexed in community registries, currently supported by [OLS](https://www.ebi.ac.uk/ols), [LOV](https://lov.linkeddata.es/dataset/lov/) and [BioPortal](https://bioportal.bioontology.org)
-- evaluate [Bioschemas community profiles](https://bioschemas.org/profiles/) to check if important metada is missing
+- evaluate [Bioschemas community profiles](https://bioschemas.org/profiles/) to check if required or recommended metadata is missing
 
 ## Known bugs
 - too few results retrieved from external SPARQL endpoints
