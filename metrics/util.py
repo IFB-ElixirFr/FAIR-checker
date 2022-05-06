@@ -1,5 +1,4 @@
 from SPARQLWrapper import SPARQLWrapper, N3, JSON, RDF, TURTLE, JSONLD
-from numpy import deprecate
 from rdflib import Graph, ConjunctiveGraph, Namespace
 from rdflib.namespace import RDF
 import requests
