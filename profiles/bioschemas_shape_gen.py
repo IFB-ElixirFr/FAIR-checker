@@ -316,7 +316,7 @@ def checktype(obj):
 
 
 def gen_SHACL_from_target_class(target_class):
-    print(f"Generating SHACL shape for {target_class}")
+    # print(f"Generating SHACL shape for {target_class}")
 
     if target_class not in bs_profiles.keys():
         raise BioschemasProfileError(class_name=target_class)
@@ -390,7 +390,7 @@ def gen_SHACL_from_profile(shape_name, target_classes, min_props, rec_props):
         min_props=min_props,
         rec_props=rec_props,
     )
-    print(shape)
+    # print(shape)
 
     return shape
 
@@ -400,20 +400,20 @@ def validate_any_from_KG(kg):
     kg.namespace_manager.bind("bsc", URIRef("https://bioschemas.org/"))
     kg.namespace_manager.bind("dct", URIRef("http://purl.org/dc/terms/"))
 
-    print(len(kg))
-    print(kg.serialize(format="turtle"))
+    # print(len(kg))
+    # print(kg.serialize(format="turtle"))
 
     results = {}
 
     # list classes
     for s, p, o in kg.triples((None, RDF.type, None)):
-        print()
-        print(f"{s.n3(kg.namespace_manager)} is a {o.n3(kg.namespace_manager)}")
-        print(bs_profiles.keys())
-        print(o.n3(kg.namespace_manager))
+        # print()
+        # print(f"{s.n3(kg.namespace_manager)} is a {o.n3(kg.namespace_manager)}")
+        # print(bs_profiles.keys())
+        # print(o.n3(kg.namespace_manager))
         if o.n3(kg.namespace_manager) in bs_profiles.keys():
-            print()
-            print(f"Trying to validate {s} as a(n) {o} resource")
+            # print()
+            # print(f"Trying to validate {s} as a(n) {o} resource")
             shacl_shape, ref_profile = gen_SHACL_from_target_class(
                 o.n3(kg.namespace_manager)
             )
@@ -447,10 +447,10 @@ def validate_any_from_RDF(input_url, rdf_syntax):
 
     # list classes
     for s, p, o in kg.triples((None, RDF.type, None)):
-        print()
-        print(f"{s.n3(kg.namespace_manager)} is a {o.n3(kg.namespace_manager)}")
+        # print()
+        # print(f"{s.n3(kg.namespace_manager)} is a {o.n3(kg.namespace_manager)}")
         if o.n3(kg.namespace_manager) in bs_profiles.keys():
-            print()
+            # print()
             print(f"Trying to validate {s} as a(n) {o} resource")
             shacl_shape, ref_profile = gen_SHACL_from_target_class(
                 o.n3(kg.namespace_manager)
@@ -481,17 +481,17 @@ def validate_any_from_microdata(input_url):
     kg.namespace_manager.bind("dct", URIRef("http://purl.org/dc/terms/"))
 
     results = {}
-    print(kg.serialize(format="turtle"))
+    # print(kg.serialize(format="turtle"))
 
     # list classes
     for s, p, o in kg.triples((None, RDF.type, None)):
-        print()
-        print(f"{s.n3(kg.namespace_manager)} is a {o.n3(kg.namespace_manager)}")
+        # print()
+        # print(f"{s.n3(kg.namespace_manager)} is a {o.n3(kg.namespace_manager)}")
         # print(o.n3(kg.namespace_manager))
         # print(bs_profiles.keys())
 
         if o.n3(kg.namespace_manager) in bs_profiles.keys():
-            print()
+            # print()
             print(f"Trying to validate {s} as a(n) {o} resource")
             shacl_shape, ref_profile = gen_SHACL_from_target_class(
                 o.n3(kg.namespace_manager)
@@ -514,7 +514,7 @@ def validate_any_from_microdata(input_url):
         else:
             print(f"Could not find a suitable profile for {s} typed {o}")
     # print(len(kg))
-    return results
+    return results, kg
 
 
 def validate_shape_from_RDF(input_uri, rdf_syntax, shacl_shape):
@@ -573,10 +573,10 @@ def validate_shape(knowledge_graph, shacl_shape):
     errors = []
     for r in results:
         if "#Warning" in r["severity"]:
-            print(f'WARNING: Property {r["path"]} should be provided for {r["node"]}')
+            # print(f'WARNING: Property {r["path"]} should be provided for {r["node"]}')
             warnings.append(f'{r["path"]}')
         if "#Violation" in r["severity"]:
-            print(f'ERROR: Property {r["path"]} must be provided for {r["node"]}')
+            # print(f'ERROR: Property {r["path"]} must be provided for {r["node"]}')
             errors.append(f'{r["path"]}')
 
     return conforms, warnings, errors

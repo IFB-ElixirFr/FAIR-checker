@@ -1,0 +1,935 @@
+@prefix ns1: <http://schema.org/> .
+@prefix ns2: <https://bio.tools/ontology/> .
+@prefix ns3: <http://purl.org/dc/terms/> .
+@prefix ns4: <http://bioschemas.org/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://bio.tools/2StrucCompare> a ns1:SoftwareApplication ;
+    ns3:conformsTo "https://bioschemas.org/profiles/ComputationalTool/0.6-DRAFT" ;
+    ns1:additionalType "Web application",
+        "Web service" ;
+    ns1:applicationSubCategory <http://edamontology.org/topic_0166>,
+        <http://edamontology.org/topic_0736>,
+        <http://edamontology.org/topic_3542> ;
+    ns1:citation <https://doi.org/10.1093/NAR/GKZ456>,
+        "pmcid:PMC6602421",
+        "pubmed:31114904" ;
+    ns1:description "Webserver for the comparison of secondary structure algorithms and the secondary structure of protein structures." ;
+    ns1:featureList <http://edamontology.org/operation_0267>,
+        <http://edamontology.org/operation_0319>,
+        <http://edamontology.org/operation_2488> ;
+    ns1:isAccessibleForFree true ;
+    ns1:license "Unlicense" ;
+    ns1:name "2StrucCompare" ;
+    ns1:operatingSystem "Linux",
+        "Mac",
+        "Windows" ;
+    ns1:softwareHelp <https://2struccompare.cryst.bbk.ac.uk/help.php> ;
+    ns1:url "http://2struccompare.cryst.bbk.ac.uk/index.php" ;
+    ns2:primaryContact "Elliot Drew",
+        "Robert W. Janes" .
+
+<https://bio.tools/BIGsDB> a ns1:SoftwareApplication ;
+    ns1:applicationSubCategory <http://edamontology.org/topic_0821>,
+        <http://edamontology.org/topic_2885>,
+        <http://edamontology.org/topic_3305> ;
+    ns1:citation <https://doi.org/10.1093/OFID/OFZ360.309>,
+        "pmcid:PMC6810522" ;
+    ns1:description """234. Reversal of Carbapenem and Amikacin Susceptibilities in Isogenic Klebsiella pneumoniae From a Patient with Persistent Bacteriuria.
+
+Institut Pasteur MLST databases and software.
+
+This site hosts databases of multilocus sequence typing (MLST) and whole-genome based typing schemes, which are used for genotyping of bacterial isolates. They provide reference nomenclatures of microbial strains and are mainly intended for molecular epidemiology of pathogens of public health importance, detection of virulence and antimicrobial resistance genes, and for population biology research. This site is powered by the BIGSdb software.
+
+||| CORRECT NAME OF TOOL COULD ALSO BE 'CGE', 'CLC Genomics', 'CLSI guidelines', 'cultures grew'""" ;
+    ns1:featureList <http://edamontology.org/operation_3482>,
+        <http://edamontology.org/operation_3803>,
+        <http://edamontology.org/operation_3840> ;
+    ns1:name "BIGsDB" ;
+    ns1:url "https://bigsdb.pasteur.fr" .
+
+<https://bio.tools/BactSNP> a ns1:SoftwareApplication ;
+    ns3:conformsTo "https://bioschemas.org/profiles/ComputationalTool/0.6-DRAFT" ;
+    ns1:additionalType "Command-line tool" ;
+    ns1:applicationSubCategory <http://edamontology.org/topic_0196>,
+        <http://edamontology.org/topic_2885>,
+        <http://edamontology.org/topic_3673> ;
+    ns1:citation <https://doi.org/10.1099/MGEN.0.000261>,
+        "pmcid:PMC6562250",
+        "pubmed:31099741" ;
+    ns1:description "Tool to identify SNPs among bacterial isolates. BactSNP can detect SNPs and create a simple TSV file with SNP information as well as an alignment FASTA file containing reconstructed pseudo-genomes of the target isolates in a one-step process." ;
+    ns1:featureList <http://edamontology.org/operation_0484>,
+        <http://edamontology.org/operation_3216>,
+        <http://edamontology.org/operation_3840> ;
+    ns1:isAccessibleForFree true ;
+    ns1:license "GPL-3.0" ;
+    ns1:name "BactSNP" ;
+    ns1:operatingSystem "Linux" ;
+    ns1:softwareHelp <https://github.com/IEkAdN/BactSNP/blob/master/README.md> ;
+    ns1:url "https://github.com/IEkAdN/BactSNP" ;
+    ns2:primaryContact "Takehiko Itoh" .
+
+<https://bio.tools/LDmotif> a ns1:SoftwareApplication ;
+    ns3:conformsTo "https://bioschemas.org/profiles/ComputationalTool/0.6-DRAFT" ;
+    ns1:additionalType "Command-line tool" ;
+    ns1:applicationSubCategory <http://edamontology.org/topic_0121>,
+        <http://edamontology.org/topic_0154>,
+        <http://edamontology.org/topic_0160>,
+        <http://edamontology.org/topic_0621>,
+        <http://edamontology.org/topic_3474> ;
+    ns1:citation <https://doi.org/10.1093/BIOINFORMATICS/BTZ703>,
+        "pubmed:31584626" ;
+    ns1:description """Proteome-level assessment of origin, prevalence and function of Leucine-Aspartic Acid (LD) motifs.
+
+Source code for LD motif detection.
+
+In this repository, we uploaded the necessary files to set up and environment to predict the LD motif from input sequence. We also have a server for LD motif predition : https://www.cbrc.kaust.edu.sa/ldmf/.
+
+Users need to run scripts after changing the value of input parameters. The deatils of each parameter is also provide. The code is shared in the folder "src". All external jars are shared in the folder "ExternalJar_Required" There are two files that should be used for Amino Acid index. These files are also shared.""" ;
+    ns1:featureList <http://edamontology.org/operation_0238>,
+        <http://edamontology.org/operation_0239>,
+        <http://edamontology.org/operation_0478> ;
+    ns1:name "LDmotif" ;
+    ns1:url "https://github.com/tanviralambd/LD/" .
+
+<https://bio.tools/LIQUID_lipids_identification> a ns1:SoftwareApplication ;
+    ns3:conformsTo "https://bioschemas.org/profiles/ComputationalTool/0.6-DRAFT" ;
+    ns1:additionalType "Desktop application" ;
+    ns1:applicationSubCategory <http://edamontology.org/topic_0153>,
+        <http://edamontology.org/topic_0154>,
+        <http://edamontology.org/topic_0780> ;
+    ns1:citation <https://doi.org/10.1093/bioinformatics/btx046> ;
+    ns1:description "Software for identifying lipids in LC-MS/MS-based lipidomics data." ;
+    ns1:isAccessibleForFree true ;
+    ns1:license "Apache-2.0" ;
+    ns1:name "LIQUID" ;
+    ns1:operatingSystem "Windows" ;
+    ns1:softwareHelp <https://github.com/PNNL-Comp-Mass-Spec/LIQUID/blob/master/README.md>,
+        <https://github.com/PNNL-Comp-Mass-Spec/LIQUID/blob/master/docs/LIQUID_installation_operation.pdf> ;
+    ns1:url "https://github.com/PNNL-Comp-Mass-Spec/LIQUID" .
+
+<https://bio.tools/MechSpy> a ns1:SoftwareApplication ;
+    ns3:conformsTo "https://bioschemas.org/profiles/ComputationalTool/0.6-DRAFT" ;
+    ns1:additionalType "Command-line tool" ;
+    ns1:applicationSubCategory <http://edamontology.org/topic_2840>,
+        <http://edamontology.org/topic_3292>,
+        <http://edamontology.org/topic_3378> ;
+    ns1:citation <https://doi.org/10.1101/782011> ;
+    ns1:description "Applying knowledge-driven mechanistic inference to toxicogenomics | Mechanistic inference of toxicity from gene expression time series and knowledge graphs | Mechanistic inference for toxicology | This repository provide the code for the publication \"Applying knowledge-driven mechanistic inference to toxicogenomics\" (DOI: xxxxxxxxxxxx) and contains the collection of scripts to reproduce the results obtained. Besides the code, this repository provides: | $ git clone git@github.com:ignaciot/MechSpy.git | You can add new mechanisms of your own to MechSpy by editing mechanisms.py. A mock, commented-out \"M12\" mechanism was added to illustrate where would new mechanisms need to go" ;
+    ns1:featureList <http://edamontology.org/operation_3501>,
+        <http://edamontology.org/operation_3642> ;
+    ns1:license "MIT" ;
+    ns1:name "MechSpy" ;
+    ns1:url "https://github.com/ignaciot/MechSpy" .
+
+<https://bio.tools/MultiWaver> a ns1:SoftwareApplication ;
+    ns3:conformsTo "https://bioschemas.org/profiles/ComputationalTool/0.6-DRAFT" ;
+    ns1:additionalType "Command-line tool" ;
+    ns1:applicationSubCategory <http://edamontology.org/topic_0625>,
+        <http://edamontology.org/topic_3056>,
+        <http://edamontology.org/topic_3299> ;
+    ns1:citation <https://doi.org/10.1038/s41431-018-0259-3>,
+        "pubmed:30206356" ;
+    ns1:description "Models discrete and continuous gene flow to reconstruct complex population admixtures." ;
+    ns1:featureList <http://edamontology.org/operation_0487>,
+        <http://edamontology.org/operation_3196>,
+        <http://edamontology.org/operation_3745> ;
+    ns1:isAccessibleForFree true ;
+    ns1:name "MultiWaver" ;
+    ns1:operatingSystem "Linux",
+        "Mac" ;
+    ns1:softwareVersion "2.0" ;
+    ns1:url "http://www.picb.ac.cn/PGG/resource.php" ;
+    ns2:primaryContact "Shuhua Xu" .
+
+<https://bio.tools/RsQTL> a ns1:SoftwareApplication ;
+    ns3:conformsTo "https://bioschemas.org/profiles/ComputationalTool/0.6-DRAFT" ;
+    ns1:applicationSubCategory <http://edamontology.org/topic_0121>,
+        <http://edamontology.org/topic_3170>,
+        <http://edamontology.org/topic_3308>,
+        <http://edamontology.org/topic_3320>,
+        <http://edamontology.org/topic_3512> ;
+    ns1:citation <https://doi.org/10.1101/840504> ;
+    ns1:description """correlation of expressed SNVs with splicing using RNA-sequencing data.
+
+RsQTL: correlation of expressed SNVs with splicing patterns using RNA-sequencing data.
+
+This toolkit contains the required scripts to transform sequencing files into RsQTL input files and run the MatrixEQTL R package to identify significant variation-splicing relationships""" ;
+    ns1:featureList <http://edamontology.org/operation_2939>,
+        <http://edamontology.org/operation_3800>,
+        <http://edamontology.org/operation_3891> ;
+    ns1:name "RsQTL" ;
+    ns1:url "https://github.com/HorvathLab/RsQTL" .
+
+<https://bio.tools/SAMIRIX> a ns1:SoftwareApplication ;
+    ns3:conformsTo "https://bioschemas.org/profiles/ComputationalTool/0.6-DRAFT" ;
+    ns1:applicationSubCategory <http://edamontology.org/topic_0769>,
+        <http://edamontology.org/topic_3384>,
+        <http://edamontology.org/topic_3452> ;
+    ns1:citation <https://doi.org/10.3389/FNEUR.2019.01117>,
+        "pmcid:PMC6886563",
+        "pubmed:31824393" ;
+    ns1:description "SAMIRIX is a custom-developed intraretinal segmentation pipeline. It modularly includes import filters for OCT data, a 3rd-party segmentation algorithm, a user interface for controlling and correcting segmentation results, and batch-operations for processing multiple OCT images." ;
+    ns1:featureList <http://edamontology.org/operation_3435> ;
+    ns1:license "MIT" ;
+    ns1:name "SAMIRIX" ;
+    ns1:url "https://github.com/neurodial/am_SAMIRIX.git" .
+
+<https://bio.tools/Variational_Bayes_approach_GEMINI> a ns1:SoftwareApplication ;
+    ns3:conformsTo "https://bioschemas.org/profiles/ComputationalTool/0.6-DRAFT" ;
+    ns1:additionalType "Library" ;
+    ns1:applicationSubCategory <http://edamontology.org/topic_0602>,
+        <http://edamontology.org/topic_3053> ;
+    ns1:citation <https://doi.org/10.1186/s13059-019-1745-9>,
+        "pmcid:PMC6624979",
+        "pubmed:31300006" ;
+    ns1:description "Variational Bayesian approach to identify genetic interactions from combinatorial CRISPR screens." ;
+    ns1:featureList <http://edamontology.org/operation_0487> ;
+    ns1:isAccessibleForFree true ;
+    ns1:license "BSD-3-Clause" ;
+    ns1:name "Variational Bayes approach (GEMINI)" ;
+    ns1:operatingSystem "Linux",
+        "Mac",
+        "Windows" ;
+    ns1:softwareHelp <https://github.com/sellerslab/gemini/blob/master/README.md>,
+        <https://github.com/sellerslab/gemini/blob/master/vignettes/gemini-quickstart.Rmd> ;
+    ns1:url "https://github.com/sellerslab/gemini" .
+
+<https://bio.tools/amlrs> a ns1:SoftwareApplication ;
+    ns3:conformsTo "https://bioschemas.org/profiles/ComputationalTool/0.6-DRAFT" ;
+    ns1:additionalType "Web application" ;
+    ns1:applicationSubCategory <http://edamontology.org/topic_0203>,
+        <http://edamontology.org/topic_3295>,
+        <http://edamontology.org/topic_3577> ;
+    ns1:citation <https://doi.org/10.1111/JCMM.15109>,
+        "pmcid:PMC7176885",
+        "pubmed:32150667" ;
+    ns1:description "a web‐based prognostic model to predict the prognosis of Acute myeloid leukaemia patients. Using log-rank test and univariate COX regression analysis as well as LASSO-COX, AML patients were divided into high-risk and low-risk groups based on AML risk score (AMLRS) which was constituted by 10 survival-related genes." ;
+    ns1:featureList <http://edamontology.org/operation_2428>,
+        <http://edamontology.org/operation_2495>,
+        <http://edamontology.org/operation_3659>,
+        <http://edamontology.org/operation_3891> ;
+    ns1:name "AMLRS" ;
+    ns1:url "https://tcgi.shinyapps.io/amlrs_nomogram/" .
+
+<https://bio.tools/blood-glucose-model-insulin-control> a ns1:SoftwareApplication ;
+    ns3:conformsTo "https://bioschemas.org/profiles/ComputationalTool/0.6-DRAFT" ;
+    ns1:additionalType "Library" ;
+    ns1:applicationSubCategory <http://edamontology.org/topic_3070>,
+        <http://edamontology.org/topic_3344>,
+        <http://edamontology.org/topic_3382> ;
+    ns1:description "A blood glucose model of type-1 diabetics." ;
+    ns1:isAccessibleForFree true ;
+    ns1:name "Blood Glucose Model for Insulin Control" ;
+    ns1:operatingSystem "Linux",
+        "Mac",
+        "Windows" ;
+    ns1:softwareVersion "1.0.0.0" ;
+    ns1:url "https://www.mathworks.com/matlabcentral/fileexchange/13554-blood-glucose-model-for-insulin-control" ;
+    ns2:primaryContact "John Hedengren" .
+
+<https://bio.tools/bsbolt> a ns1:SoftwareApplication ;
+    ns3:conformsTo "https://bioschemas.org/profiles/ComputationalTool/0.6-DRAFT" ;
+    ns1:additionalType "Library" ;
+    ns1:applicationSubCategory <http://edamontology.org/topic_0102>,
+        <http://edamontology.org/topic_0654>,
+        <http://edamontology.org/topic_3295>,
+        <http://edamontology.org/topic_3518>,
+        <http://edamontology.org/topic_3674> ;
+    ns1:citation <https://doi.org/10.1101/2020.10.06.328559> ;
+    ns1:description "BiSuflite Bolt (BSBolt) is a fast and scalable bisulfite sequencing processing platform. BSBolt is an integrated analysis platform that offers support for bisulfite sequencing read simulation, alignment, methylation calling, data aggregation, and data imputation. BSBolt has been validated to work with a wide array of bisulfite sequencing data,including whole genome bisulfite sequencing (WGBS), reduced representative bisulfite sequencing data (RRBS), and targeted methylation sequencing data. BSBolt utilizes forked versions of BWA and WGSIM for read alignment and read simulation respectively. BSBolt is released under the MIT license." ;
+    ns1:featureList <http://edamontology.org/operation_3186>,
+        <http://edamontology.org/operation_3198>,
+        <http://edamontology.org/operation_3557>,
+        <http://edamontology.org/operation_3919> ;
+    ns1:license "MIT" ;
+    ns1:name "BSBolt" ;
+    ns1:url "https://github.com/NuttyLogic/BSBolt" .
+
+<https://bio.tools/casq> a ns1:SoftwareApplication ;
+    ns3:conformsTo "https://bioschemas.org/profiles/ComputationalTool/0.6-DRAFT" ;
+    ns1:additionalType "Command-line tool" ;
+    ns1:applicationSubCategory <http://edamontology.org/topic_0102>,
+        <http://edamontology.org/topic_0602>,
+        <http://edamontology.org/topic_2259>,
+        <http://edamontology.org/topic_3315> ;
+    ns1:citation <https://doi.org/10.1093/BIOINFORMATICS/BTAA484>,
+        "pmcid:PMC7575051",
+        "pubmed:32403123" ;
+    ns1:description "CaSQ converts CellDesigner models to Boolean models encoded in SBML-Qual" ;
+    ns1:featureList <http://edamontology.org/operation_2429>,
+        <http://edamontology.org/operation_2476>,
+        <http://edamontology.org/operation_3927> ;
+    ns1:license "GPL-3.0" ;
+    ns1:name "CaSQ" ;
+    ns1:url "https://github.com/soli/casq" .
+
+<https://bio.tools/chesca-chespa-sparky> a ns1:SoftwareApplication ;
+    ns3:conformsTo "https://bioschemas.org/profiles/ComputationalTool/0.6-DRAFT" ;
+    ns1:additionalType "Plug-in" ;
+    ns1:applicationSubCategory <http://edamontology.org/topic_0078>,
+        <http://edamontology.org/topic_0593>,
+        <http://edamontology.org/topic_0602>,
+        <http://edamontology.org/topic_0769> ;
+    ns1:citation <https://doi.org/10.1093/BIOINFORMATICS/BTAA781>,
+        "pubmed:32926121" ;
+    ns1:description "CHEmical Shift Projection Analysis (CHESPA) and CHEmical Shift Covariance Analysis (CHESCA)  can help reveal pathways of allosteric transitions in biological macromolecules by identifying changes in correlated Nuclear Magnetic Resonance (NMR) chemical shifts. CHESCA-SPARKY and CHESPA-SPARKY are plugins for the NMR analysis software NMRFAM-SPARKY" ;
+    ns1:featureList <http://edamontology.org/operation_3925> ;
+    ns1:name "CHESCA-SPARKY and CHESPA-SPARKY" ;
+    ns1:url "https://sites.google.com/view/chescachespa-sparky" .
+
+<https://bio.tools/cladeoscope> a ns1:SoftwareApplication ;
+    ns3:conformsTo "https://bioschemas.org/profiles/ComputationalTool/0.6-DRAFT" ;
+    ns1:additionalType "Web application" ;
+    ns1:applicationSubCategory <http://edamontology.org/topic_0102>,
+        <http://edamontology.org/topic_0602>,
+        <http://edamontology.org/topic_0621>,
+        <http://edamontology.org/topic_3293>,
+        <http://edamontology.org/topic_3944> ;
+    ns1:citation <https://doi.org/10.1093/NARGAB/LQAB024>,
+        "pmcid:PMC8057497",
+        "pubmed:33928243" ;
+    ns1:description "CladeOScope is a tool for elucidating functional interactions via a clade co-evolution prism. CladeOScope is a bioinformatic method for the prediction of functional interactions between human genes based on their phylogenetic profile." ;
+    ns1:featureList <http://edamontology.org/operation_0337>,
+        <http://edamontology.org/operation_0533>,
+        <http://edamontology.org/operation_2436>,
+        <http://edamontology.org/operation_3929> ;
+    ns1:license "MIT" ;
+    ns1:name "CladeOScope" ;
+    ns1:url "http://cladeoscope.cs.huji.ac.il" ;
+    ns2:primaryContact <https://orcid.org/0000-0001-9521-3217> .
+
+<https://bio.tools/consept> a ns1:SoftwareApplication ;
+    ns3:conformsTo "https://bioschemas.org/profiles/ComputationalTool/0.6-DRAFT" ;
+    ns1:additionalType "Script" ;
+    ns1:applicationSubCategory <http://edamontology.org/topic_0749>,
+        <http://edamontology.org/topic_3173>,
+        <http://edamontology.org/topic_3306>,
+        <http://edamontology.org/topic_3308>,
+        <http://edamontology.org/topic_3474> ;
+    ns1:citation <https://doi.org/10.1101/2021.03.01.433444> ;
+    ns1:description "CoNSEPT (Convolutional Neural Network-based Sequence-to-Expression Prediction Tool) is a tool to predict gene expression in various cis and trans contexts. Inputs to CoNSEPT are enhancer sequence, transcription factor levels in one or many trans conditions, TF motifs (PWMs), and any prior knowledge of TF-TF interactions." ;
+    ns1:featureList <http://edamontology.org/operation_0331>,
+        <http://edamontology.org/operation_2575>,
+        <http://edamontology.org/operation_3927> ;
+    ns1:license "MIT" ;
+    ns1:name "CoNSEPT" ;
+    ns1:url "https://github.com/PayamDiba/CoNSEPT" .
+
+<https://bio.tools/crossrun> a ns1:SoftwareApplication ;
+    ns3:conformsTo "https://bioschemas.org/profiles/ComputationalTool/0.6-DRAFT" ;
+    ns1:additionalType "Library" ;
+    ns1:applicationSubCategory <http://edamontology.org/topic_2269> ;
+    ns1:citation <https://doi.org/10.1371/JOURNAL.PONE.0223233>,
+        "pmcid:PMC6772032",
+        "pubmed:31574115" ;
+    ns1:description """Joint distribution for number of crossings and longest run in independent Bernoulli observations. The R package crossrun.
+
+The R package crossrun computes the joint distribution of the number of crossings and the longest run in a sequence of independent Bernoulli observations. The main intended application is statistical process control where the joint distribution may be used for systematic investigation, and possibly refinement, of existing rules for distinguishing between signal and noise. While the crossrun vignette is written to assist in practical use, this article gives a hands-on explanation of why the procedures works. The article also includes a discussion of limitations of the present version of crossrun together with an outline of ongoing work to meet these limitations.""" ;
+    ns1:featureList <http://edamontology.org/operation_3435> ;
+    ns1:license "GPL-3.0" ;
+    ns1:name "crossrun" ;
+    ns1:url "https://cran.r-project.org/web/packages/crossrun/index.html" .
+
+<https://bio.tools/dbest> a ns1:SoftwareApplication ;
+    ns4:input [ ],
+        [ ],
+        [ ],
+        [ ],
+        [ ],
+        [ ],
+        [ ],
+        [ ],
+        [ ],
+        [ ] ;
+    ns4:output [ ],
+        [ ],
+        [ ],
+        [ ],
+        [ ],
+        [ ],
+        [ ],
+        [ ],
+        [ ],
+        [ ] ;
+    ns3:conformsTo "https://bioschemas.org/profiles/ComputationalTool/0.6-DRAFT" ;
+    ns1:additionalType "Database portal" ;
+    ns1:applicationSubCategory <http://edamontology.org/topic_3512> ;
+    ns1:citation "pubmed:8401577" ;
+    ns1:description "Division of GenBank that contains sequence data and other information on \"single-pass\" cDNA sequences, or \"Expressed Sequence Tags\", from a number of organisms." ;
+    ns1:featureList <http://edamontology.org/operation_0224> ;
+    ns1:name "dbEST database of EST sequences" ;
+    ns1:operatingSystem "Linux",
+        "Mac",
+        "Windows" ;
+    ns1:provider "NCBI" ;
+    ns1:softwareHelp <https://www.ncbi.nlm.nih.gov/dbEST/> ;
+    ns1:url "http://www.ncbi.nlm.nih.gov/dbEST/" .
+
+<https://bio.tools/diana-mited> a ns1:SoftwareApplication ;
+    ns3:conformsTo "https://bioschemas.org/profiles/ComputationalTool/0.6-DRAFT" ;
+    ns1:additionalType "Database portal" ;
+    ns1:applicationSubCategory <http://edamontology.org/topic_0108>,
+        <http://edamontology.org/topic_0203>,
+        <http://edamontology.org/topic_0659>,
+        <http://edamontology.org/topic_2640>,
+        <http://edamontology.org/topic_3170> ;
+    ns1:citation <https://doi.org/10.1093/NAR/GKAB733>,
+        "pubmed:34469540" ;
+    ns1:description "A microRNA tissue expression database." ;
+    ns1:featureList <http://edamontology.org/operation_0463>,
+        <http://edamontology.org/operation_2422>,
+        <http://edamontology.org/operation_3792> ;
+    ns1:isAccessibleForFree true ;
+    ns1:name "DIANA-miTED" ;
+    ns1:operatingSystem "Linux",
+        "Mac",
+        "Windows" ;
+    ns1:url "http://www.microrna.gr/mited" .
+
+<https://bio.tools/dinar> a ns1:SoftwareApplication ;
+    ns4:input [ ],
+        [ ] ;
+    ns4:output [ ],
+        [ ],
+        [ ],
+        [ ] ;
+    ns3:conformsTo "https://bioschemas.org/profiles/ComputationalTool/0.6-DRAFT" ;
+    ns1:additionalType "Desktop application",
+        "Web application" ;
+    ns1:applicationSubCategory <http://edamontology.org/topic_0091>,
+        <http://edamontology.org/topic_0092>,
+        <http://edamontology.org/topic_0602>,
+        <http://edamontology.org/topic_2259>,
+        <http://edamontology.org/topic_3307>,
+        <http://edamontology.org/topic_3391> ;
+    ns1:author <http://orcid.org/0000-0002-1669-6482> ;
+    ns1:citation <https://doi.org/10.1186/s13007-018-0345-0> ;
+    ns1:contributor <https://orcid.org/0000-0001-7484-6031> ;
+    ns1:description "Differential Network Analysis in R. Reveals hidden patterns of plant signaling dynamics. DiNAR presents three main functions: dynamic visualisation of complex multi-conditional experiments, identification of strong differential interactions, and recall of latent effects that are present in multi-conditional experiments. Furthermore, it can manage other background knowledge networks in combination with experimental dataset of interest such as transcriptomics, proteomics, metabolomics." ;
+    ns1:featureList <http://edamontology.org/operation_0337>,
+        <http://edamontology.org/operation_0571>,
+        <http://edamontology.org/operation_2495>,
+        <http://edamontology.org/operation_3083>,
+        <http://edamontology.org/operation_3432>,
+        <http://edamontology.org/operation_3744>,
+        <http://edamontology.org/operation_3925>,
+        <http://edamontology.org/operation_3926>,
+        <http://edamontology.org/operation_3927>,
+        <http://edamontology.org/operation_3928> ;
+    ns1:isAccessibleForFree true ;
+    ns1:license "GPL-3.0" ;
+    ns1:name "DiNAR" ;
+    ns1:operatingSystem "Linux",
+        "Mac",
+        "Windows" ;
+    ns1:softwareHelp <https://github.com/NIB-SI/DiNAR> ;
+    ns1:softwareVersion "3" ;
+    ns1:url "https://github.com/NIB-SI/DiNAR" ;
+    ns2:primaryContact <http://orcid.org/0000-0002-1669-6482> .
+
+<https://bio.tools/dnmfilter_indel> a ns1:SoftwareApplication ;
+    ns3:conformsTo "https://bioschemas.org/profiles/ComputationalTool/0.6-DRAFT" ;
+    ns1:additionalType "Command-line tool" ;
+    ns1:applicationSubCategory <http://edamontology.org/topic_0622>,
+        <http://edamontology.org/topic_3474>,
+        <http://edamontology.org/topic_3673>,
+        <http://edamontology.org/topic_3676> ;
+    ns1:citation <https://doi.org/10.1186/S12859-020-03900-Z>,
+        "pmcid:PMC7739476",
+        "pubmed:33323105" ;
+    ns1:description "DNMFilter_Indel is a machine learning based tool designed to filter out false positive de novo indels obtained by any computational approaches from whole genome or exome sequencing data. It can be used as either a stand-alone tool to detect de novo indels or coupled with other commonly used de novo indel detection tool to improve specificity." ;
+    ns1:featureList <http://edamontology.org/operation_0452>,
+        <http://edamontology.org/operation_3644>,
+        <http://edamontology.org/operation_3695> ;
+    ns1:name "DNMFilter_Indel" ;
+    ns1:url "https://github.com/yongzhuang/DNMFilter_Indel" .
+
+<https://bio.tools/electronic_pcr> a ns1:SoftwareApplication ;
+    ns3:conformsTo "https://bioschemas.org/profiles/ComputationalTool/0.6-DRAFT" ;
+    ns1:additionalType "Web application" ;
+    ns1:applicationSubCategory <http://edamontology.org/topic_0102>,
+        <http://edamontology.org/topic_0611>,
+        <http://edamontology.org/topic_0654>,
+        <http://edamontology.org/topic_3452>,
+        <http://edamontology.org/topic_3519> ;
+    ns1:citation "pubmed:15215361",
+        "pubmed:9149949" ;
+    ns1:description "Find sequence-based markers (STSs) and therefore, map location in a DNA sequence of interest, useful for detecting mis-priming events." ;
+    ns1:featureList <http://edamontology.org/operation_2429>,
+        <http://edamontology.org/operation_2520>,
+        <http://edamontology.org/operation_2871>,
+        <http://edamontology.org/operation_3186> ;
+    ns1:name "Electronic PCR" ;
+    ns1:url "http://www.ncbi.nlm.nih.gov/sutils/e-pcr" .
+
+<https://bio.tools/fasttargetpred> a ns1:SoftwareApplication ;
+    ns3:conformsTo "https://bioschemas.org/profiles/ComputationalTool/0.6-DRAFT" ;
+    ns1:additionalType "Script" ;
+    ns1:applicationSubCategory <http://edamontology.org/topic_0140>,
+        <http://edamontology.org/topic_0154>,
+        <http://edamontology.org/topic_0209>,
+        <http://edamontology.org/topic_3047>,
+        <http://edamontology.org/topic_3343> ;
+    ns1:citation <https://doi.org/10.1093/BIOINFORMATICS/BTAA494>,
+        "pubmed:32399567" ;
+    ns1:description "FastTargetPred is a program enabling the fast prediction of putative protein targets for input chemical databases. It allows to predict putative protein target(s) for a query compound or for a collection of compounds." ;
+    ns1:featureList <http://edamontology.org/operation_0224>,
+        <http://edamontology.org/operation_2489>,
+        <http://edamontology.org/operation_3938> ;
+    ns1:license "GPL-3.0" ;
+    ns1:name "FastTargetPred" ;
+    ns1:url "https://github.com/ludovicchaput/FastTargetPred" .
+
+<https://bio.tools/fourcseq> a ns1:SoftwareApplication ;
+    ns4:input [ ],
+        [ ] ;
+    ns4:output [ ],
+        [ ],
+        [ ] ;
+    ns3:conformsTo "https://bioschemas.org/profiles/ComputationalTool/0.6-DRAFT" ;
+    ns1:additionalType "Command-line tool",
+        "Library" ;
+    ns1:applicationSubCategory <http://edamontology.org/topic_3168> ;
+    ns1:citation <https://doi.org/10.1093/bioinformatics/btv335>,
+        "pmcid:PMC4576695",
+        "pubmed:26034064" ;
+    ns1:description "R package dedicated to the analysis of (multiplexed) 4C sequencing data. It provides a pipeline to detect specific interactions between DNA elements and identify differential interactions between conditions. The statistical analysis in R starts with individual bam files for each sample as inputs. To obtain these files, the package contains a python script to demultiplex libraries and trim off primer sequences. With a standard alignment software the required bam files can be then be generated." ;
+    ns1:featureList <http://edamontology.org/operation_2478> ;
+    ns1:license "GPL-3.0" ;
+    ns1:name "FourCSeq" ;
+    ns1:operatingSystem "Linux",
+        "Mac",
+        "Windows" ;
+    ns1:softwareHelp <http://bioconductor.org/packages/release/bioc/html/FourCSeq.html> ;
+    ns1:softwareVersion "1.8.0" ;
+    ns1:url "http://bioconductor.org/packages/release/bioc/html/FourCSeq.html" ;
+    ns2:primaryContact "Felix A. Klein" .
+
+<https://bio.tools/gene3d_structural> a ns1:SoftwareApplication ;
+    ns4:input [ ],
+        [ ],
+        [ ] ;
+    ns4:output [ ],
+        [ ],
+        [ ] ;
+    ns3:conformsTo "https://bioschemas.org/profiles/ComputationalTool/0.6-DRAFT" ;
+    ns1:additionalType "Database portal" ;
+    ns1:applicationSubCategory <http://edamontology.org/topic_0078>,
+        <http://edamontology.org/topic_0623> ;
+    ns1:citation <https://doi.org/10.1093/nar/gkm1019> ;
+    ns1:description "Structural and functional annotation of protein families incorporates several different sources including CATH, DRUGBANK, PFAM etc." ;
+    ns1:featureList <http://edamontology.org/operation_0224> ;
+    ns1:name "Gene3D structural" ;
+    ns1:operatingSystem "Linux",
+        "Mac",
+        "Windows" ;
+    ns1:provider "UCL" ;
+    ns1:softwareHelp <http://gene3d.biochem.ucl.ac.uk/about> ;
+    ns1:url "http://gene3d.biochem.ucl.ac.uk/Gene3D/" .
+
+<https://bio.tools/green-db> a ns1:SoftwareApplication ;
+    ns3:conformsTo "https://bioschemas.org/profiles/ComputationalTool/0.6-DRAFT" ;
+    ns1:additionalType "Database portal" ;
+    ns1:applicationSubCategory <http://edamontology.org/topic_0204>,
+        <http://edamontology.org/topic_0622>,
+        <http://edamontology.org/topic_0625>,
+        <http://edamontology.org/topic_0749>,
+        <http://edamontology.org/topic_3673> ;
+    ns1:citation <https://doi.org/10.1101/2020.09.17.301960> ;
+    ns1:description """A framework for the annotation and prioritization of non-coding regulatory variants in whole-genome sequencing.
+
+Genomic Regulatory Elements ENcyclopedia.
+
+This is the home of the GREEN-DB and companion tools (GREEN-VARAN).
+
+Genomic Regulatory Elements ENcyclopedia Database A collection of ~2.4M regulatory regions in the human genome, with information about controlled genes, tissues of activity and associated phenotypes. GREEN-DB is available for free for academic usage in a Zenodo repository.""" ;
+    ns1:featureList <http://edamontology.org/operation_0438>,
+        <http://edamontology.org/operation_3225>,
+        <http://edamontology.org/operation_3226> ;
+    ns1:license "MIT" ;
+    ns1:name "GREEN-DB" ;
+    ns1:url "https://github.com/edg1983/GREEN-VARAN" .
+
+<https://bio.tools/locpred> a ns1:SoftwareApplication ;
+    ns3:conformsTo "https://bioschemas.org/profiles/ComputationalTool/0.6-DRAFT" ;
+    ns1:additionalType "Web application" ;
+    ns1:applicationSubCategory <http://edamontology.org/topic_0078>,
+        <http://edamontology.org/topic_2814> ;
+    ns1:citation "pubmed:15724288" ;
+    ns1:description "Tool for local structure prediction from protein sequence using a structural alphabet approach." ;
+    ns1:featureList <http://edamontology.org/operation_0474> ;
+    ns1:name "LOCPRED" ;
+    ns1:operatingSystem "Linux",
+        "Mac",
+        "Windows" ;
+    ns1:softwareHelp <http://www.dsimb.inserm.fr/~debrevern/TOOLS/LOCPRED/EXPL/index.html> ;
+    ns1:url "http://www.dsimb.inserm.fr/~debrevern/TOOLS/LOCPRED/index.html" .
+
+<https://bio.tools/pardre> a ns1:SoftwareApplication ;
+    ns3:conformsTo "https://bioschemas.org/profiles/ComputationalTool/0.6-DRAFT" ;
+    ns1:additionalType "Command-line tool" ;
+    ns1:applicationSubCategory <http://edamontology.org/topic_0080>,
+        <http://edamontology.org/topic_3168> ;
+    ns1:citation "pubmed:26803159" ;
+    ns1:description "De novo parallel tool to remove duplicated and near-duplicated reads through the clustering of Single-End or Paired-End sequences from fasta or fastq files." ;
+    ns1:featureList <http://edamontology.org/operation_0231> ;
+    ns1:name "ParDRe" ;
+    ns1:operatingSystem "Linux" ;
+    ns1:softwareHelp <https://sourceforge.net/projects/pardre/> ;
+    ns1:url "http://sourceforge.net/projects/pardre/" ;
+    ns2:primaryContact "Jorge González-Domínguez" .
+
+<https://bio.tools/phyloflash> a ns1:SoftwareApplication ;
+    ns3:conformsTo "https://bioschemas.org/profiles/ComputationalTool/0.6-DRAFT" ;
+    ns1:applicationSubCategory <http://edamontology.org/topic_0196>,
+        <http://edamontology.org/topic_0659>,
+        <http://edamontology.org/topic_3174>,
+        <http://edamontology.org/topic_3697>,
+        <http://edamontology.org/topic_3941> ;
+    ns1:citation <https://doi.org/10.1128/MSYSTEMS.00920-20>,
+        "pmcid:PMC7593591",
+        "pubmed:33109753" ;
+    ns1:description """Rapid Small-Subunit rRNA Profiling and Targeted Assembly from Metagenomes.
+
+by Harald Gruber-Vodicka, Elmar A. Pruesse, and Brandon Seah.
+
+phyloFlash is a pipeline to rapidly reconstruct the SSU rRNAs and explore phylogenetic composition of an Illumina (meta)genomic or transcriptomic dataset. Manual.
+
+phyloFlash is a pipeline to rapidly reconstruct the SSU rRNAs and explore the phylogenetic composition of an Illumina (meta)genomic dataset.""" ;
+    ns1:featureList <http://edamontology.org/operation_0310>,
+        <http://edamontology.org/operation_3192>,
+        <http://edamontology.org/operation_3460>,
+        <http://edamontology.org/operation_3472>,
+        <http://edamontology.org/operation_3695> ;
+    ns1:license "GPL-3.0" ;
+    ns1:name "phyloFlash" ;
+    ns1:url "https://github.com/HRGV/phyloFlash" .
+
+<https://bio.tools/prep> a ns1:SoftwareApplication ;
+    ns3:conformsTo "https://bioschemas.org/profiles/ComputationalTool/0.6-DRAFT" ;
+    ns1:additionalType "Desktop application" ;
+    ns1:applicationSubCategory <http://edamontology.org/topic_0203> ;
+    ns1:citation <https://doi.org/10.1093/bioinformatics/btg318> ;
+    ns1:description "It is a standalone full-interactive graphical suite for the pre-processing of gene expression data that aims at identify and remove sources of systematic and random variation in the measured data, other than differential expression. It integrates a variety of analytical tools that in some cases can be applied in any context. Other techniques require some specific conditions." ;
+    ns1:featureList <http://edamontology.org/operation_2409>,
+        <http://edamontology.org/operation_2495> ;
+    ns1:name "PreP" ;
+    ns1:operatingSystem "Windows" ;
+    ns1:softwareHelp <http://chirimoyo.ac.uma.es/prep/documents/PreP-Uman.pdf> ;
+    ns1:softwareVersion "7" ;
+    ns1:url "http://chirimoyo.ac.uma.es/prep/index.html" .
+
+<https://bio.tools/prokevo> a ns1:SoftwareApplication ;
+    ns3:conformsTo "https://bioschemas.org/profiles/ComputationalTool/0.6-DRAFT" ;
+    ns1:applicationSubCategory <http://edamontology.org/topic_0610>,
+        <http://edamontology.org/topic_3301>,
+        <http://edamontology.org/topic_3305>,
+        <http://edamontology.org/topic_3673>,
+        <http://edamontology.org/topic_3796> ;
+    ns1:citation <https://doi.org/10.1101/2020.10.13.336479> ;
+    ns1:description "an automated, reproducible, and scalable framework for high-throughput bacterial population genomics analyses." ;
+    ns1:featureList <http://edamontology.org/operation_3192>,
+        <http://edamontology.org/operation_3359>,
+        <http://edamontology.org/operation_3644>,
+        <http://edamontology.org/operation_3840> ;
+    ns1:license "GPL-3.0" ;
+    ns1:name "ProkEvo" ;
+    ns1:url "https://github.com/npavlovikj/ProkEvo" .
+
+<https://bio.tools/proq2> a ns1:SoftwareApplication ;
+    ns3:conformsTo "https://bioschemas.org/profiles/ComputationalTool/0.6-DRAFT" ;
+    ns1:additionalType "Web application" ;
+    ns1:applicationSubCategory <http://edamontology.org/topic_0078>,
+        <http://edamontology.org/topic_0123>,
+        <http://edamontology.org/topic_3474> ;
+    ns1:citation "pubmed:26733453" ;
+    ns1:description "Neural network based predictor that based on a number of structural features predicts the quality of a protein model. It is optimized to find correct models in contrast to other methods which are optimized to find native structures." ;
+    ns1:featureList <http://edamontology.org/operation_0250>,
+        <http://edamontology.org/operation_2479> ;
+    ns1:name "ProQ2" ;
+    ns1:operatingSystem "Linux",
+        "Mac",
+        "Windows" ;
+    ns1:softwareHelp <http://bioinfo.ifm.liu.se/ProQ2/> ;
+    ns1:url "http://bioinfo.ifm.liu.se/ProQ2/" .
+
+<https://bio.tools/protocaller> a ns1:SoftwareApplication ;
+    ns3:conformsTo "https://bioschemas.org/profiles/ComputationalTool/0.6-DRAFT" ;
+    ns1:applicationSubCategory <http://edamontology.org/topic_3318>,
+        <http://edamontology.org/topic_3892> ;
+    ns1:citation <https://doi.org/10.1021/ACS.JCIM.9B01158>,
+        "pubmed:32092258" ;
+    ns1:description """Robust Automation of Binding Free Energy Calculations.
+
+ProtoCaller is a Python library which enables controlled automation of relative protein-ligand binding free energy calculations in GROMACS. ProtoCaller uses a variety of tools to automate the free energy calculation process, such as: Biopython, BioSimSpace, CHARMM-GUI, (optionally) Modeller, Open Babel, ParmEd, PDB2PQR, pdbfixer, RDKit.""" ;
+    ns1:featureList <http://edamontology.org/operation_2476>,
+        <http://edamontology.org/operation_3893> ;
+    ns1:license "GPL-3.0" ;
+    ns1:name "ProtoCaller" ;
+    ns1:softwareHelp <https://protocaller.readthedocs.io> ;
+    ns1:url "https://github.com/protocaller/protocaller" .
+
+<https://bio.tools/rMSIKeyIon> a ns1:SoftwareApplication ;
+    ns3:conformsTo "https://bioschemas.org/profiles/ComputationalTool/0.6-DRAFT" ;
+    ns1:additionalType "Library" ;
+    ns1:applicationSubCategory <http://edamontology.org/topic_2269>,
+        <http://edamontology.org/topic_3172>,
+        <http://edamontology.org/topic_3520> ;
+    ns1:citation <https://doi.org/10.3390/metabo9080162>,
+        "pubmed:31382415" ;
+    ns1:description "Ion Filtering R Package for Untargeted Analysis of Metabolomic LDI-MS Images." ;
+    ns1:featureList <http://edamontology.org/operation_1812>,
+        <http://edamontology.org/operation_3501> ;
+    ns1:isAccessibleForFree true ;
+    ns1:license "GPL-3.0" ;
+    ns1:name "rMSIKeyIon" ;
+    ns1:operatingSystem "Linux",
+        "Mac",
+        "Windows" ;
+    ns1:softwareHelp <https://github.com/LlucSF/rMSIKeyIon/blob/master/README.md> ;
+    ns1:url "https://github.com/LlucSF/rMSIKeyIon" ;
+    ns2:primaryContact "Esteban del Castillo" .
+
+<https://bio.tools/recipedb> a ns1:SoftwareApplication ;
+    ns3:conformsTo "https://bioschemas.org/profiles/ComputationalTool/0.6-DRAFT" ;
+    ns1:applicationSubCategory <http://edamontology.org/topic_0621>,
+        <http://edamontology.org/topic_0632>,
+        <http://edamontology.org/topic_2269>,
+        <http://edamontology.org/topic_3390>,
+        <http://edamontology.org/topic_3810> ;
+    ns1:citation <https://doi.org/10.1093/DATABASE/BAAA077>,
+        "pmcid:PMC7687679",
+        "pubmed:33238002" ;
+    ns1:description "RecipeDB is a structured compilation of recipes, ingredients, and nutrition profiles interlinked with flavor profiles and health associations." ;
+    ns1:featureList <http://edamontology.org/operation_0337>,
+        <http://edamontology.org/operation_2421> ;
+    ns1:name "RecipeDB" ;
+    ns1:url "https://cosylab.iiitd.edu.in/recipedb" .
+
+<https://bio.tools/riboexp> a ns1:SoftwareApplication ;
+    ns3:conformsTo "https://bioschemas.org/profiles/ComputationalTool/0.6-DRAFT" ;
+    ns1:additionalType "Command-line tool",
+        "Library" ;
+    ns1:applicationSubCategory <http://edamontology.org/topic_0108>,
+        <http://edamontology.org/topic_0203>,
+        <http://edamontology.org/topic_2229>,
+        <http://edamontology.org/topic_3474>,
+        <http://edamontology.org/topic_3512> ;
+    ns1:citation <https://doi.org/10.1093/BIB/BBAA412>,
+        "pubmed:33479731" ;
+    ns1:description """Riboexp is an interpretable reinforcement learning framework for ribosome density modeling.
+
+Train a neural network model to predict ribosome densities across a set of transcripts.""" ;
+    ns1:featureList <http://edamontology.org/operation_0253>,
+        <http://edamontology.org/operation_2962>,
+        <http://edamontology.org/operation_3454>,
+        <http://edamontology.org/operation_3927> ;
+    ns1:name "Riboexp" ;
+    ns1:url "https://github.com/Liuxg16/Riboexp" .
+
+<https://bio.tools/scepath> a ns1:SoftwareApplication ;
+    ns3:conformsTo "https://bioschemas.org/profiles/ComputationalTool/0.6-DRAFT" ;
+    ns1:additionalType "Library" ;
+    ns1:applicationSubCategory <http://edamontology.org/topic_2229>,
+        <http://edamontology.org/topic_3170>,
+        <http://edamontology.org/topic_3308> ;
+    ns1:citation <https://doi.org/10.1093/bioinformatics/bty058> ;
+    ns1:description "Energy landscape-based inference of transition probabilities and cellular trajectories from single-cell transcriptomic data." ;
+    ns1:featureList <http://edamontology.org/operation_3680> ;
+    ns1:name "scEpath" ;
+    ns1:operatingSystem "Linux",
+        "Mac",
+        "Windows" ;
+    ns1:softwareHelp <https://github.com/sqjin/scEpath> ;
+    ns1:url "https://github.com/sqjin/scEpath" ;
+    ns2:primaryContact "Qing Nie" .
+
+<https://bio.tools/sembionlqa> a ns1:SoftwareApplication ;
+    ns3:conformsTo "https://bioschemas.org/profiles/ComputationalTool/0.6-DRAFT" ;
+    ns1:applicationSubCategory <http://edamontology.org/topic_0218>,
+        <http://edamontology.org/topic_3063>,
+        <http://edamontology.org/topic_3474> ;
+    ns1:citation <https://doi.org/10.1016/J.ARTMED.2019.101767>,
+        "pubmed:31980104" ;
+    ns1:description """A semantic biomedical question answering system for retrieving exact and ideal answers to natural language questions.
+
+SemBioNLQA - Semantic Biomedical Natural Language Question Answering - has the ability to handle the kinds of yes/no questions, factoid questions, list questions and summary questions that are commonly asked in the biomedical domain. It consists of question classification, document retrieval, passage retrieval and answer extraction modules. It is aimed to be able to accept a variety of natural language questions and to generate appropriate natural language answers by providing both exact and ideal answers (paragraph-sized summaries). It provides exact answers “yes” or “no” for yes/no questions, biomedical named entities for factoid questions, and a list of biomedical named entities for list questions. In addition to exact answers for yes/no, factoid and list questions, SemBioNLQA also returns ideal answers, while it retrieves only ideal answers for summary questions.""" ;
+    ns1:featureList <http://edamontology.org/operation_2421>,
+        <http://edamontology.org/operation_2422>,
+        <http://edamontology.org/operation_3280> ;
+    ns1:name "SemBioNLQA" ;
+    ns1:url "https://github.com/sarrouti/sembionlqa" .
+
+<https://bio.tools/spatzie> a ns1:SoftwareApplication ;
+    ns3:conformsTo "https://bioschemas.org/profiles/ComputationalTool/0.6-DRAFT" ;
+    ns1:additionalType "Library",
+        "Web application" ;
+    ns1:applicationSubCategory <http://edamontology.org/topic_0621>,
+        <http://edamontology.org/topic_0749>,
+        <http://edamontology.org/topic_3169>,
+        <http://edamontology.org/topic_3179> ;
+    ns1:citation <https://doi.org/10.1101/2021.05.25.445606> ;
+    ns1:description "spatzie is an R package for identifying significant transcription factor motif co-enrichment from enhancer-promoter interactions. Given a database of DNA sequence motifs representing transcription factors and enhancer promoter interaction data, spatzie performs statistical analysis to identify co-enriched transcription factors." ;
+    ns1:featureList <http://edamontology.org/operation_0445>,
+        <http://edamontology.org/operation_2238>,
+        <http://edamontology.org/operation_2404> ;
+    ns1:license "GPL-3.0" ;
+    ns1:name "spatzie" ;
+    ns1:url "https://spatzie.mit.edu" ;
+    ns2:primaryContact <https://orcid.org/0000-0003-1709-4034> .
+
+<https://bio.tools/stjudecloud> a ns1:SoftwareApplication ;
+    ns3:conformsTo "https://bioschemas.org/profiles/ComputationalTool/0.6-DRAFT" ;
+    ns1:additionalType "Bioinformatics portal",
+        "Suite",
+        "Web application",
+        "Workflow" ;
+    ns1:applicationSubCategory <http://edamontology.org/topic_0622>,
+        <http://edamontology.org/topic_0769>,
+        <http://edamontology.org/topic_2640>,
+        <http://edamontology.org/topic_3418>,
+        <http://edamontology.org/topic_3676> ;
+    ns1:citation <https://doi.org/10.1158/2159-8290.CD-20-1230>,
+        "pubmed:33408242" ;
+    ns1:description """Pediatric Cancer Genomic Data Sharing Ecosystem.
+
+This repository contains all bioinformatics workflows used on the St. Jude Cloud project. Officially, the repository is in beta — the project is adding workflows as they are developed and put into production.
+
+St. Jude Cloud is a pediatric catastrophic disease data sharing ecosystem created by St. Jude Children's Research Hospital.""" ;
+    ns1:featureList <http://edamontology.org/operation_0314>,
+        <http://edamontology.org/operation_0337>,
+        <http://edamontology.org/operation_2871> ;
+    ns1:license "MIT" ;
+    ns1:name "St Jude Cloud" ;
+    ns1:url "https://www.stjude.cloud" .
+
+<https://bio.tools/symmetric> a ns1:SoftwareApplication ;
+    ns3:conformsTo "https://bioschemas.org/profiles/ComputationalTool/0.6-DRAFT" ;
+    ns1:applicationSubCategory <http://edamontology.org/topic_3303>,
+        <http://edamontology.org/topic_3318>,
+        <http://edamontology.org/topic_3384> ;
+    ns1:citation <https://doi.org/10.1007/s00381-019-04451-2>,
+        <https://doi.org/10.1101/19007054>,
+        "pubmed:31820081" ;
+    ns1:description """Computer-assisted craniometric evaluation for diagnosis and follow-up of craniofacial asymmetries.
+
+The current assessment of patients with craniofacial asymmetries is accomplished by physical examination, anamnesis and radiological imaging. We propose a semi-automated, computer-assisted craniofacial evaluation (SymMetric v 1.0) based on orthogonal photography of the patient's head in 3 positions. The system is simple, low-cost, no-radiation or special resources needed. Although it does not substitute CT in cases of doubt between craniosynostosis and positional plagiocephaly, multiple numeric evaluations indicate regional deformities and severity of the asymmetry, which can help in the clinical decision of indicating or not the orthosis in positional deformities, determining treatment duration or evaluating surgical outcomes after correction.""" ;
+    ns1:name "SymMetric" ;
+    ns1:softwareVersion "1.0" ;
+    ns1:url "https://github.com/ealho/SymMetric_v1.0" .
+
+<https://bio.tools/synbadm> a ns1:SoftwareApplication ;
+    ns3:conformsTo "https://bioschemas.org/profiles/ComputationalTool/0.6-DRAFT" ;
+    ns1:additionalType "Library" ;
+    ns1:applicationSubCategory <http://edamontology.org/topic_0203>,
+        <http://edamontology.org/topic_3053>,
+        <http://edamontology.org/topic_3297> ;
+    ns1:citation "pubmed:27402908" ;
+    ns1:description "A Matlab-based toolbox for the automatic design of gene circuits with targeted functions from libraries of components." ;
+    ns1:featureList <http://edamontology.org/operation_2430> ;
+    ns1:name "SYNBADm" ;
+    ns1:operatingSystem "Linux",
+        "Mac",
+        "Windows" ;
+    ns1:softwareHelp <https://sites.google.com/site/synbadm/documentation> ;
+    ns1:url "https://sites.google.com/site/synbadm/" .
+
+<https://bio.tools/tisan> a ns1:SoftwareApplication ;
+    ns3:conformsTo "https://bioschemas.org/profiles/ComputationalTool/0.6-DRAFT" ;
+    ns1:additionalType "Library" ;
+    ns1:applicationSubCategory <http://edamontology.org/topic_0199>,
+        <http://edamontology.org/topic_0622>,
+        <http://edamontology.org/topic_2815> ;
+    ns1:citation <https://doi.org/10.1093/bioinformatics/bty301> ;
+    ns1:description "Estimating tissue-specific effects of coding and non-coding variants." ;
+    ns1:featureList <http://edamontology.org/operation_3197> ;
+    ns1:name "TiSAn" ;
+    ns1:operatingSystem "Linux",
+        "Mac",
+        "Windows" ;
+    ns1:softwareHelp <https://github.com/kevinVervier/TiSAn> ;
+    ns1:url "https://github.com/kevinVervier/TiSAn" ;
+    ns2:primaryContact "Jacob J Michaelson" .
+
+<https://bio.tools/topmatch> a ns1:SoftwareApplication ;
+    ns3:conformsTo "https://bioschemas.org/profiles/ComputationalTool/0.6-DRAFT" ;
+    ns1:additionalType "Web application" ;
+    ns1:applicationSubCategory <http://edamontology.org/topic_0078>,
+        <http://edamontology.org/topic_0081>,
+        <http://edamontology.org/topic_0082>,
+        <http://edamontology.org/topic_0121>,
+        <http://edamontology.org/topic_0623>,
+        <http://edamontology.org/topic_2814> ;
+    ns1:citation "pubmed:18174182" ;
+    ns1:description "Computational tools for the alignment and superposition of protein structures are essential instruments in structural biology. TopMatch-web provides an easy-to-use interface to a suite of techniques for protein structure alignments. Given a pair of protein structures, TopMatch calculates a list of alignments ordered by structural similarity. The corresponding superpositions can be explored in a 3D molecule viewer which highlights the structurally equivalent parts of the proteins." ;
+    ns1:featureList <http://edamontology.org/operation_0295>,
+        <http://edamontology.org/operation_0510>,
+        <http://edamontology.org/operation_2480>,
+        <http://edamontology.org/operation_2488> ;
+    ns1:name "TopMatch" ;
+    ns1:operatingSystem "Linux",
+        "Mac",
+        "Windows" ;
+    ns1:softwareHelp <https://topmatch.services.came.sbg.ac.at/help/tm_help.html> ;
+    ns1:url "http://topmatch.services.came.sbg.ac.at/" ;
+    ns2:primaryContact "TopMatch Support" .
+
+<https://bio.tools/umi-atac-seq> a ns1:SoftwareApplication ;
+    ns3:conformsTo "https://bioschemas.org/profiles/ComputationalTool/0.6-DRAFT" ;
+    ns1:applicationSubCategory <http://edamontology.org/topic_0196>,
+        <http://edamontology.org/topic_0632>,
+        <http://edamontology.org/topic_0749>,
+        <http://edamontology.org/topic_0769>,
+        <http://edamontology.org/topic_3940> ;
+    ns1:citation <https://doi.org/10.1101/2020.10.22.351478> ;
+    ns1:description """ATAC-seq with unique molecular identifiers improves quantification and footprinting.
+
+This pipeline is used for UMI-ATAC-seq raw data processing, including removing the sequencing adapters, extracting UMIs from the original FASTQ read1 file, removing ME sequences and using the UMIs to remove PCR duplicates.""" ;
+    ns1:featureList <http://edamontology.org/operation_3192>,
+        <http://edamontology.org/operation_3222>,
+        <http://edamontology.org/operation_3237>,
+        <http://edamontology.org/operation_3799> ;
+    ns1:name "UMI-ATAC-seq" ;
+    ns1:url "https://github.com/tzhu-bio/UMI-ATAC-seq" .
+
+<https://bio.tools/vConTACT> a ns1:SoftwareApplication ;
+    ns3:conformsTo "https://bioschemas.org/profiles/ComputationalTool/0.6-DRAFT" ;
+    ns1:additionalType "Command-line tool" ;
+    ns1:applicationSubCategory <http://edamontology.org/topic_0637>,
+        <http://edamontology.org/topic_3174>,
+        <http://edamontology.org/topic_3697> ;
+    ns1:citation <https://doi.org/10.1038/S41587-019-0100-8>,
+        "pubmed:31061483" ;
+    ns1:description "Network-based application utilizing whole genome gene-sharing profiles for virus taxonomy that integrates distance-based hierarchical clustering and confidence scores for all taxonomic predictions." ;
+    ns1:featureList <http://edamontology.org/operation_0362>,
+        <http://edamontology.org/operation_3431>,
+        <http://edamontology.org/operation_3460> ;
+    ns1:isAccessibleForFree true ;
+    ns1:license "GPL-3.0" ;
+    ns1:name "vConTACT" ;
+    ns1:operatingSystem "Linux",
+        "Mac" ;
+    ns1:softwareHelp <https://bitbucket.org/MAVERICLab/vcontact2/src/master/README.md> ;
+    ns1:url "https://bitbucket.org/MAVERICLab/vcontact2" .
+
+<https://bio.tools/wescover> a ns1:SoftwareApplication ;
+    ns3:conformsTo "https://bioschemas.org/profiles/ComputationalTool/0.6-DRAFT" ;
+    ns1:additionalType "Web application" ;
+    ns1:applicationSubCategory <http://edamontology.org/topic_0102>,
+        <http://edamontology.org/topic_0622>,
+        <http://edamontology.org/topic_0625>,
+        <http://edamontology.org/topic_3512>,
+        <http://edamontology.org/topic_3676> ;
+    ns1:citation <https://doi.org/10.1186/S12859-021-04178-5>,
+        "pmcid:PMC8139020",
+        "pubmed:34016036" ;
+    ns1:description "WEScover is a novel web application that provides an interface for discovering breadth and depth of coverage across population scale WES datasets, searching either by phenotype, by targeted gene panels and by genes. Moreover, the application shows metrics from the Genome Aggregation Database (gnomAD) to provide gene-centric view on breadth of coverage. Through the efficent querying of genes and phenotypes for exome coverage of associated exons, WEScover provides recommendations for gene panel tests of genes that are not well covered by whole exome sequencing." ;
+    ns1:featureList <http://edamontology.org/operation_2421>,
+        <http://edamontology.org/operation_3436>,
+        <http://edamontology.org/operation_3920> ;
+    ns1:license "MIT" ;
+    ns1:name "WEScover" ;
+    ns1:url "https://tom.tch.harvard.edu/shinyapps/WEScover/" ;
+    ns2:primaryContact <https://orcid.org/0000-0003-4877-7567> .
+

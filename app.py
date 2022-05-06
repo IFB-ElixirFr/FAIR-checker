@@ -1,4 +1,11 @@
+from asyncio.log import logger
+from unittest import result
 import eventlet
+from numpy import broadcast
+
+# from https://github.com/eventlet/eventlet/issues/670
+eventlet.monkey_patch(select=False)
+
 import sys
 from flask import (
     Flask,
@@ -19,6 +26,7 @@ import os
 import io
 import uuid
 import argparse
+import functools
 from argparse import RawTextHelpFormatter
 from datetime import datetime
 from datetime import timedelta
@@ -40,12 +48,9 @@ from metrics.FAIRMetricsFactory import FAIRMetricsFactory
 from metrics.WebResource import WebResource
 from metrics.Evaluation import Result
 from profiles.bioschemas_shape_gen import validate_any_from_KG
+from profiles.bioschemas_shape_gen import validate_any_from_microdata
 
 import git
-
-
-# from https://github.com/eventlet/eventlet/issues/670
-eventlet.monkey_patch()
 
 app = Flask(__name__)
 CORS(app)
@@ -627,12 +632,12 @@ def csv_download(uuid):
         return str(e)
 
 
-# not working
-@socketio.on("connected")
-def handle_connected(json):
+# # not working
+# @socketio.on("connected")
+# def handle_connected(json):
 
-    print(request.namespace.socket.sessid)
-    print(request.namespace)
+#     print(request.namespace.socket.sessid)
+#     print(request.namespace)
 
 
 @socketio.on("connect")
@@ -1229,6 +1234,45 @@ def base_metrics():
 #   return response
 
 
+def update_bioschemas_valid(func):
+    @functools.wraps(func)
+    def wrapper_decorator(*args, **kwargs):
+        # Do something before
+        start_time = time.time()
+
+        value = func(*args, **kwargs)
+
+        # Do something after
+        elapsed_time = round((time.time() - start_time), 2)
+        logging.info(f"Bioschemas validation processed in {elapsed_time} s")
+        # emit("done_check_shape", res, namespace="/validate_bioschemas")
+        # socketio.emit("done_check_shape", res, namespace="/inspect")
+        return value
+
+    return wrapper_decorator
+
+
+@app.route("/validate_bioschemas")
+@update_bioschemas_valid
+def validate_bioschemas():
+    uri = request.args.get("uri")
+    logging.debug(f"Validating Bioschemas markup fr {uri}")
+
+    res, kg = validate_any_from_microdata(input_url=uri)
+
+    m = []
+    return render_template(
+        "bioschemas.html",
+        results=res,
+        kg=kg,
+        f_metrics=m,
+        sample_data=sample_resources,
+        title="Inspect",
+        subtitle="to enhance metadata quality",
+        jld=buildJSONLD(),
+    )
+
+
 @app.route("/inspect")
 def kg_metrics_2():
     # m = [{  "name": "i1",
@@ -1242,13 +1286,6 @@ def kg_metrics_2():
         sample_data=sample_resources,
         title="Inspect",
         subtitle="to enhance metadata quality",
-    )
-
-
-@app.route("/is_it_fair")
-def is_it_fair():
-    return render_template(
-        "is_it_fair.html",
     )
 
 
@@ -1405,59 +1442,64 @@ if __name__ == "__main__":
             metrics_collection.append(FAIRMetricsFactory.get_R12(web_res))
             metrics_collection.append(FAIRMetricsFactory.get_R13(web_res))
 
-            for m in track(metrics_collection, "Processing FAIR metrics ..."):
-                logging.info(m.get_name())
-                res = m.evaluate()
-                if m.get_principle_tag().startswith("F"):
-                    table.add_row(
-                        Text(
-                            m.get_name() + " " + str(res.get_score()),
-                            style=get_result_style(res),
-                        ),
-                        "",
-                        "",
-                        "",
-                    )
-                elif m.get_principle_tag().startswith("A"):
-                    table.add_row(
-                        "",
-                        Text(
-                            m.get_name() + " " + str(res.get_score()),
-                            style=get_result_style(res),
-                        ),
-                        "",
-                        "",
-                    )
-                elif m.get_principle_tag().startswith("I"):
-                    table.add_row(
-                        "",
-                        "",
-                        Text(
-                            m.get_name() + " " + str(res.get_score()),
-                            style=get_result_style(res),
-                        ),
-                        "",
-                    )
-                elif m.get_principle_tag().startswith("R"):
-                    table.add_row(
-                        "",
-                        "",
-                        "",
-                        Text(
-                            f"{m.get_name()} {str(res.get_score())}",
-                            style=get_result_style(res),
-                        ),
-                    )
+            if args.bioschemas:
+                logging.info("Bioschemas eval")
 
-        console.rule(f"[bold red]FAIRness evaluation for URL {url}")
-        console.print(table)
-        elapsed_time = round((time.time() - start_time), 2)
-        logging.info(f"FAIR metrics evaluated in {elapsed_time} s")
+            else:
+
+                for m in track(metrics_collection, "Processing FAIR metrics ..."):
+                    logging.info(m.get_name())
+                    res = m.evaluate()
+                    if m.get_principle_tag().startswith("F"):
+                        table.add_row(
+                            Text(
+                                m.get_name() + " " + str(res.get_score()),
+                                style=get_result_style(res),
+                            ),
+                            "",
+                            "",
+                            "",
+                        )
+                    elif m.get_principle_tag().startswith("A"):
+                        table.add_row(
+                            "",
+                            Text(
+                                m.get_name() + " " + str(res.get_score()),
+                                style=get_result_style(res),
+                            ),
+                            "",
+                            "",
+                        )
+                    elif m.get_principle_tag().startswith("I"):
+                        table.add_row(
+                            "",
+                            "",
+                            Text(
+                                m.get_name() + " " + str(res.get_score()),
+                                style=get_result_style(res),
+                            ),
+                            "",
+                        )
+                    elif m.get_principle_tag().startswith("R"):
+                        table.add_row(
+                            "",
+                            "",
+                            "",
+                            Text(
+                                f"{m.get_name()} {str(res.get_score())}",
+                                style=get_result_style(res),
+                            ),
+                        )
+
+            console.rule(f"[bold red]FAIRness evaluation for URL {url}")
+            console.print(table)
+            elapsed_time = round((time.time() - start_time), 2)
+            logging.info(f"FAIR metrics evaluated in {elapsed_time} s")
 
     elif args.web:
         logging.info("Starting webserver")
         try:
-            socketio.run(app, host="0.0.0.0", port=5000, debug=True)
+            socketio.run(app, host="127.0.0.1", port=5000, debug=True)
         finally:
             browser = WebResource.WEB_BROWSER_HEADLESS
             browser.quit()

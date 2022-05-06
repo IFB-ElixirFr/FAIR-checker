@@ -48,8 +48,15 @@ class R11_Impl(AbstractFAIRMetrics):
         eval.set_implem(self.implem)
         eval.set_metrics(self.principle_tag)
 
-        checked_properties = """schema:license dct:license doap:license dbpedia-owl:license \
-            cc:license xhv:license sto:license nie:license
+        checked_properties = """
+        schema:license 
+        dct:license 
+        doap:license 
+        dbpedia-owl:license 
+        cc:license 
+        xhv:license 
+        sto:license 
+        nie:license
         """
         query_licenses = (
             self.COMMON_SPARQL_PREFIX
