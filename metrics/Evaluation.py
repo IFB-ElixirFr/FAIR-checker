@@ -47,7 +47,7 @@ class Evaluation:
         # self.eval_logger = logging.getLogger("eval_logger")
         logger_id = str(uuid.uuid4())
         self.eval_logger = logging.getLogger(logger_id)
-        self.eval_logger.setLevel(logging.ERROR)
+        self.eval_logger.setLevel(logging.DEBUG)
         # self.eval_logger.propagate = False
 
         ### Setup the console handler with a StringIO object
