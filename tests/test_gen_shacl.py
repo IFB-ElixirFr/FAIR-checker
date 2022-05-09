@@ -109,7 +109,9 @@ class GenSHACLTestCase(unittest.TestCase):
         )
         self.assertGreater(len(res[0]), 0)
         self.assertFalse(res[0]["https://doi.org/10.7892/boris.108387"]["conforms"])
-        self.assertEquals(len(res[0]["https://doi.org/10.7892/boris.108387"]["errors"]), 2)
+        self.assertEquals(
+            len(res[0]["https://doi.org/10.7892/boris.108387"]["errors"]), 2
+        )
         self.assertEquals(
             len(res[0]["https://doi.org/10.7892/boris.108387"]["warnings"]), 11
         )
