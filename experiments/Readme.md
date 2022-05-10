@@ -13,7 +13,7 @@ conda env create --file binder/environment.yml
 conda activate fair-checker-experiments
 ```
 
-## Assessing metadata compliance with Bioschemas profiles with SHACL shapes 
+## Assessing metadata compliance with Bioschemas profiles and SHACL shapes 
 The notebook [biotools_experimental_sudy-bioschemas.ipynb](https://github.com/IFB-ElixirFr/FAIR-checker/blob/master/experiments/biotools_experimental_sudy-bioschemas.ipynb) describes how we evaluate te compliance of http://bio.tools software descriptions with the [Bioschemas Computational Tool profile](https://bioschemas.org/profiles/ComputationalTool/1.0-RELEASE). 
 
 
