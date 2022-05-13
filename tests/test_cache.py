@@ -1,28 +1,8 @@
-from functools import lru_cache, wraps
-from datetime import datetime, timedelta
 import random
 import time
-import requests
 import unittest
 
-# cache = dict()
-
-# def get_article_from_server(url):
-#     print("Fetching article from server...")
-#     response = requests.get(url)
-#     return response.text
-
-
-# def get_article(url):
-#     print("Getting article...")
-#     if url not in cache:
-#         cache[url] = get_article_from_server(url)
-
-#     return cache[url]
-
-
-# get_article("https://realpython.com/sorting-algorithms-python/")
-# get_article("https://realpython.com/sorting-algorithms-python/")
+from cachetools import cached, TTLCache
 
 
 def timeit(method):
@@ -40,44 +20,45 @@ def timeit(method):
     return timed
 
 
-def timed_lru_cache(seconds: int, maxsize: int = 128):
-    def wrapper_cache(func):
-        func = lru_cache(maxsize=maxsize)(func)
-        func.lifetime = timedelta(seconds=seconds)
-        func.expiration = datetime.utcnow() + func.lifetime
-
-        @wraps(func)
-        def wrapped_func(*args, **kwargs):
-            if datetime.utcnow() >= func.expiration:
-                func.cache_clear()
-                func.expiration = datetime.utcnow() + func.lifetime
-            return func(*args, **kwargs)
-
-        return wrapped_func
-
-    return wrapper_cache
+# cache = TTLCache(maxsize=100, ttl=3600)
+cache = TTLCache(maxsize=100, ttl=20)
 
 
-# @lru_cache(maxsize=2)
-@timed_lru_cache(8)
 @timeit
-def long_ask():
-    result = random.choice([True, False])
-    time.sleep(3)
-    return result
+@cached(cache)
+def long_ask(prop):
+    res = random.choice([True, False])
+    time.sleep(random.randint(1, 3))
+    return {"property": prop, "exists": res}
 
 
 class CacheTestCase(unittest.TestCase):
-    def test_cache(self):
+    def test_time_to_live_cachel(self):
+        list_of_props = []
+        for i in range(0, 10):
+            list_of_props.append(f"prop_{i}")
+
         print()
-        print(f"Result = {long_ask()}")
-        time.sleep(2)
-        print(f"Result = {long_ask()}")
-        time.sleep(2)
-        print(f"Result = {long_ask()}")
-        time.sleep(2)
-        print(f"Result = {long_ask()}")
-        time.sleep(2)
-        print(f"Result = {long_ask()}")
-        time.sleep(2)
-        print(f"Result = {long_ask()}")
+        print("ITERATION 1")
+        for p in list_of_props:
+            res = long_ask(p)
+            print(f'{res["property"]} exists ? {res["exists"]}')
+
+        print("ITERATION 2")
+        for p in list_of_props:
+            res = long_ask(p)
+            print(f'{res["property"]} exists ? {res["exists"]}')
+
+        print("ITERATION 3")
+        res = long_ask("prop_2")
+        print(f'{res["property"]} exists ? {res["exists"]}')
+        res = long_ask("prop_3")
+        print(f'{res["property"]} exists ? {res["exists"]}')
+        res = long_ask("prop_9")
+        print(f'{res["property"]} exists ? {res["exists"]}')
+        res = long_ask("prop_2")
+        print(f'{res["property"]} exists ? {res["exists"]}')
+        res = long_ask("prop_2")
+        print(f'{res["property"]} exists ? {res["exists"]}')
+        res = long_ask("prop_0")
+        print(f'{res["property"]} exists ? {res["exists"]}')
