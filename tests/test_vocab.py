@@ -1,4 +1,5 @@
 import unittest
+from datetime import datetime
 from rdflib import BNode, ConjunctiveGraph, URIRef
 import metrics.util as util
 from metrics.WebResource import WebResource
@@ -109,17 +110,41 @@ class CommunityVocabTestCase(unittest.TestCase):
         for row in qres:
             table_content["properties"].append({"name": row["prop"], "tag": []})
 
+        start = datetime.now().timestamp()
         class_or_property_found = False
         for c in table_content["classes"]:
             if util.ask_OLS(c["name"]):
                 c["tag"].append("OLS")
                 class_or_property_found = True
+            print(c)
         for p in table_content["properties"]:
             if util.ask_OLS(p["name"]):
                 p["tag"].append("OLS")
                 class_or_property_found = True
+            print(p)
+        end = datetime.now().timestamp()
+        delta = end - start
+        print(f"OLS check done in {delta}")
 
         self.assertTrue(class_or_property_found, True)
+        self.assertGreaterEqual(delta, 2)
+
+        # check that cache is working --> fast answers
+        start = datetime.now().timestamp()
+        for c in table_content["classes"]:
+            if util.ask_OLS(c["name"]):
+                c["tag"].append("OLS")
+                class_or_property_found = True
+            print(c)
+        for p in table_content["properties"]:
+            if util.ask_OLS(p["name"]):
+                p["tag"].append("OLS")
+                class_or_property_found = True
+            print(p)
+        end = datetime.now().timestamp()
+        delta = end - start
+        print(f"OLS check done in {delta}")
+        self.assertLessEqual(delta, 0.1)
 
     def test_LOV(self):
         turtle_edam = self.turtle_edam

@@ -11,7 +11,7 @@ from pathlib import Path
 from lxml import html
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
-
+from cachetools import cached, TTLCache
 from flask import Flask
 
 import logging
@@ -22,6 +22,11 @@ import validators
 from requests.auth import HTTPBasicAuth
 
 from flask import current_app
+
+# caching results during 24 hours
+cache_OLS = TTLCache(maxsize=500, ttl=24 * 3600)
+cache_LOV = TTLCache(maxsize=500, ttl=24 * 3600)
+cache_BP = TTLCache(maxsize=500, ttl=24 * 3600)
 
 app = Flask(__name__)
 
@@ -175,6 +180,7 @@ def get_DOI(uri):
     return match.group(0)
 
 
+@cached(cache_BP)
 def ask_BioPortal(uri, type):
 
     logging.debug(f"Call to the BioPortal REST API for [ {uri} ]")
@@ -209,6 +215,7 @@ def ask_BioPortal(uri, type):
         return False
 
 
+@cached(cache_OLS)
 def ask_OLS(uri):
     """
     Checks that the URI is registered in one of the ontologies indexed in OLS.
@@ -234,6 +241,7 @@ def ask_OLS(uri):
         return False
 
 
+@cached(cache_LOV)
 def ask_LOV(uri):
     """
     Checks that the URI is registered in one of the ontologies indexed in LOV (Linked Open Vocabularies).
