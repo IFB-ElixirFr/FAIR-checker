@@ -25,12 +25,14 @@ from requests.auth import HTTPBasicAuth
 
 from flask import current_app
 
+app = Flask(__name__)
+
 # caching results during 24 hours
+app.logger.info("new cache instances")
 cache_OLS = TTLCache(maxsize=5000, ttl=timedelta(hours=24), timer=datetime.now)
 cache_LOV = TTLCache(maxsize=5000, ttl=timedelta(hours=24), timer=datetime.now)
 cache_BP = TTLCache(maxsize=5000, ttl=timedelta(hours=24), timer=datetime.now)
 
-app = Flask(__name__)
 
 # if app.config["ENV"] == "production":
 app.config.from_object("config.Config")
@@ -185,7 +187,7 @@ def get_DOI(uri):
 @cached(cache_BP)
 def ask_BioPortal(uri, type):
 
-    logging.debug(f"Call to the BioPortal REST API for [ {uri} ]")
+    app.logger.debug(f"Call to the BioPortal REST API for [ {uri} ]")
     # print(app.config)
     with app.app_context():
         api_key = current_app.config["BIOPORTAL_APIKEY"]
@@ -212,8 +214,8 @@ def ask_BioPortal(uri, type):
         else:
             return False
     else:
-        logging.error("Cound not contact BioPortal")
-        logging.error(res.text)
+        app.logger.error("Cound not contact BioPortal")
+        app.logger.error(res.text)
         return False
 
 
@@ -224,7 +226,7 @@ def ask_OLS(uri):
     :param uri:
     :return: True if the URI is registered in one of the ontologies indexed in OLS, False otherwise.
     """
-    logging.debug(f"Call to the OLS REST API for [ {uri} ]")
+    app.logger.debug(f"Call to the OLS REST API for [ {uri} ]")
     # uri = requests.compat.quote_plus(uri)
     h = {"Accept": "application/json"}
     p = {"iri": uri}
@@ -232,11 +234,6 @@ def ask_OLS(uri):
     res = requests.get(
         "https://www.ebi.ac.uk/ols/api/properties", headers=h, params=p, verify=True
     )
-    # print(res.status_code)
-    # print(res.headers["content-type"])
-    # print(res.headers)
-    # print(res.encoding)
-    # print(res.json())
     if res.json()["page"]["totalElements"] > 0:
         return True
     else:
@@ -250,7 +247,7 @@ def ask_LOV(uri):
     :param uri:
     :return: True if the URI is registered in one of the ontologies indexed in LOV, False otherwise.
     """
-    logging.debug(
+    app.logger.debug(
         f"SPARQL for [ {uri} ] with enpoint [ https://lov.linkeddata.es/dataset/lov/sparql ]"
     )
 

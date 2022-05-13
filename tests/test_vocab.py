@@ -1,3 +1,4 @@
+from functools import cache
 import unittest
 from datetime import datetime
 from rdflib import BNode, ConjunctiveGraph, URIRef
@@ -93,6 +94,8 @@ class CommunityVocabTestCase(unittest.TestCase):
     """
 
     def test_OLS(self):
+        print(util.cache_OLS.values)
+
         turtle_edam = self.turtle_edam
         kg = ConjunctiveGraph()
         kg.parse(data=turtle_edam, format="turtle")
@@ -128,6 +131,7 @@ class CommunityVocabTestCase(unittest.TestCase):
 
         self.assertTrue(class_or_property_found, True)
         self.assertGreaterEqual(delta, 2)
+        print(util.cache_OLS.values)
 
         # check that cache is working --> fast answers
         start = datetime.now().timestamp()
@@ -145,6 +149,7 @@ class CommunityVocabTestCase(unittest.TestCase):
         delta = end - start
         print(f"OLS check done in {delta}")
         self.assertLessEqual(delta, 0.1)
+        print(util.cache_OLS.values)
 
     def test_LOV(self):
         turtle_edam = self.turtle_edam

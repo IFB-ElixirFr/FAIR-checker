@@ -53,6 +53,8 @@ from profiles.bioschemas_shape_gen import validate_any_from_microdata
 import git
 
 app = Flask(__name__)
+
+app.logger.setLevel(logging.DEBUG)
 CORS(app)
 app.config["CORS_HEADERS"] = "Content-Type"
 
