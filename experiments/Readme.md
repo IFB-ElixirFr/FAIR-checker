@@ -5,12 +5,14 @@ The file [bioschemas-dump.ttl](bioschemas-dump.ttl) contains Schema.org semantic
 
 ## Software environment
 Software dependencies are specified in the [environment.yml](../binder/environment.yml) file. 
-The software environment is prepared as follows :
+The software environment is prepared and launched as follows :
 ```
 git clone https://github.com/IFB-ElixirFr/fair-checker.git
 cd fair-checker
 conda env create --file binder/environment.yml
 conda activate fair-checker-experiments
+cd experiments
+jupyter-notebook
 ```
 
 ## Assessing metadata compliance with Bioschemas profiles and SHACL shapes 

@@ -1,0 +1,515 @@
+@prefix ns1: <http://schema.org/> .
+@prefix ns2: <http://bioschemas.org/> .
+@prefix ns3: <http://ogp.me/ns#> .
+@prefix ns4: <https://bio.tools/ontology/> .
+@prefix ns5: <http://purl.org/dc/terms/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<file:///Users/gaignard-a/Documents/Dev/fair-checker/notebooks/> ns3:description "This dataset contains impact metrics and indicators for a set of publications that are related to the COVID-19 infectious disease and the coronavirus that causes it. It is based on: Τhe CORD-19 dataset released by the team of Semantic Scholar1 and Τhe curated data provided by the LitCovid hub2. These data have been cleaned and integrated with data from COVID-19-TweetIDs and from other sources (e.g., PMC). The result was dataset of 503,979 unique articles along with relevant metadata (e.g., the underlying citation network). We utilized this dataset to produce, for each article, the values of the following impact measures: Influence: Citation-based measure reflecting the total impact of an article. This is based on the PageRank3 network analysis method. In the context of citation networks, it estimates the importance of each article based on its centrality in the whole network. This measure was calculated using the PaperRanking (https://github.com/diwis/PaperRanking) library4. Influence_alt: Citation-based measure reflecting the total impact of an article. This is the Citation Count of each article, calculated based on the citation network between the articles contained in the BIP4COVID19 dataset. Popularity: Citation-based measure reflecting the current impact of an article. This is based on the AttRank5 citation network analysis method. Methods like PageRank are biased against recently published articles (new articles need time to receive their first citations). AttRank alleviates this problem incorporating an attention-based mechanism, akin to a time-restricted version of preferential attachment, to explicitly capture a researcher's preference to read papers which received a lot of attention recently. This is why it is more suitable to capture the current \"hype\" of an article. Popularity alternative: An alternative citation-based measure reflecting the current impact of an article (this was the basic popularity measured provided by BIP4COVID19 until version 26). This is based on the RAM6 citation network analysis method. Methods like PageRank are biased against recently published articles (new articles need time to receive their first citations). RAM alleviates this problem using an approach known as \"time-awareness\". This is why it is more suitable to capture the current \"hype\" of an article. This measure was calculated using the PaperRanking (https://github.com/diwis/PaperRanking) library4. Social Media Attention: The number of tweets related to this article. Relevant data were collected from the COVID-19-TweetIDs dataset. In this version, tweets between 5/3/22-12/3/22 have been considered from the previous dataset.  We provide five CSV files, all containing the same information, however each having its entries ordered by a different impact measure. All CSV files are tab separated and have the same columns (PubMed_id, PMC_id, DOI, influence_score, popularity_alt_score, popularity score, influence_alt score, tweets count). The work is based on the following publications: COVID-19 Open Research Dataset (CORD-19). 2020. Version 2022-03-28 Retrieved from https://pages.semanticscholar.org/coronavirus-research. Accessed 2022-03-28. doi:10.5281/zenodo.3715506 Chen Q, Allot A, & Lu Z. (2020) Keep up with the latest coronavirus research, Nature 579:193 (version 2022-03-28) R. Motwani L. Page, S. Brin and T. Winograd. 1999. The PageRank Citation Ranking: Bringing Order to the Web. Technical Report. Stanford InfoLab. I. Kanellos, T. Vergoulis, D. Sacharidis, T. Dalamagas, Y. Vassiliou: Impact-Based Ranking of Scientific Publications: A Survey and Experimental Evaluation. TKDE 2019 I. Kanellos, T. Vergoulis, D. Sacharidis, T. Dalamagas, Y. Vassiliou: Ranking Papers by their Short-Term Scientific Impact. CoRR abs/2006.00951 (2020) Rumi Ghosh, Tsung-Ting Kuo, Chun-Nan Hsu, Shou-De Lin, and Kristina Lerman. 2011. Time-Aware Ranking in Dynamic Citation Networks. In Data Mining Workshops (ICDMW). 373–380 A Web user interface that uses these data to facilitate the COVID-19 literature exploration, can be found here. More details in our peer-reviewed publication here (also here there is an outdated preprint version). Funding: We acknowledge support of this work by the project \"Moving from Big Data Management to Data Science\" (MIS 5002437/3) which is implemented under the Action \"Reinforcement of the Research and Innovation Infrastructure\", funded by the Operational Programme \"Competitiveness, Entrepreneurship and Innovation\" (NSRF 2014-2020) and co-financed by Greece and the European Union (European Regional Development Fund). Terms of use: These data are provided \"as is\", without any warranties of any kind. The data are provided under the Creative Commons Attribution 4.0 International license.",
+        "{{ngMeta['og:description']}}" ;
+    ns3:image "https://www.pangaea.de/assets/social-icons/pangaea-share.png",
+        "{{ngMeta['og:image']}}" ;
+    ns3:site_name "Zenodo" ;
+    ns3:title "BIP4COVID19: Impact metrics and indicators for coronavirus related publications",
+        "{{ngMeta['og:title']}}" ;
+    ns3:url "https://zenodo.org/record/6411574" .
+
+<https://bio.tools/bwa> a ns1:SoftwareApplication ;
+    ns2:input <https://bio.tools/bwa/op_1/in_1>,
+        <https://bio.tools/bwa/op_2/in_1>,
+        <https://bio.tools/bwa/op_2/in_2>,
+        <https://bio.tools/bwa/op_3/in_1>,
+        <https://bio.tools/bwa/op_3/in_2>,
+        <https://bio.tools/bwa/op_4/in_1>,
+        <https://bio.tools/bwa/op_4/in_2>,
+        <https://bio.tools/bwa/op_4/in_3>,
+        <https://bio.tools/bwa/op_5/in_1>,
+        <https://bio.tools/bwa/op_5/in_2>,
+        <https://bio.tools/bwa/op_5/in_3>,
+        <https://bio.tools/bwa/op_6/in_1>,
+        <https://bio.tools/bwa/op_6/in_2> ;
+    ns2:output <https://bio.tools/bwa/op_1/in_1>,
+        <https://bio.tools/bwa/op_2/in_1>,
+        <https://bio.tools/bwa/op_3/in_1>,
+        <https://bio.tools/bwa/op_4/in_1>,
+        <https://bio.tools/bwa/op_5/in_1>,
+        <https://bio.tools/bwa/op_6/in_1> ;
+    ns5:conformsTo "https://bioschemas.org/profiles/ComputationalTool/1.0-RELEASE" ;
+    ns1:applicationSubCategory <http://edamontology.org/topic_0102> ;
+    ns1:citation <https://doi.org/10.1016/j.ygeno.2017.03.001>,
+        <https://doi.org/10.1093/bioinformatics/btp324>,
+        <https://doi.org/10.1093/bioinformatics/btp698>,
+        <https://doi.org/10.1093/bioinformatics/btu146>,
+        <https://doi.org/10.1186/1471-2105-14-184>,
+        <https://doi.org/10.1186/1471-2164-15-264>,
+        "pmcid:PMC2705234",
+        "pmcid:PMC3694458",
+        "pmcid:PMC4051166",
+        "pubmed:19451168",
+        "pubmed:20080505",
+        "pubmed:23758764",
+        "pubmed:24626854",
+        "pubmed:24708189",
+        "pubmed:28286147" ;
+    ns1:contributor <http://orcid.org/0000-0003-4874-2874> ;
+    ns1:featureList <http://edamontology.org/operation_0292>,
+        <http://edamontology.org/operation_3198>,
+        <http://edamontology.org/operation_3211>,
+        <http://edamontology.org/operation_3429> ;
+    ns1:softwareHelp <http://bio-bwa.sourceforge.net/bwa.shtml> ;
+    ns4:primaryContact "bwa team" .
+
+<https://bio.tools/jaspar> a ns1:SoftwareApplication ;
+    ns2:input <https://bio.tools/jaspar/op_1/in_1>,
+        <https://bio.tools/jaspar/op_1/in_2>,
+        <https://bio.tools/jaspar/op_1/in_3>,
+        <https://bio.tools/jaspar/op_1/in_4>,
+        <https://bio.tools/jaspar/op_1/in_5>,
+        <https://bio.tools/jaspar/op_1/in_6>,
+        <https://bio.tools/jaspar/op_1/in_7>,
+        <https://bio.tools/jaspar/op_2/in_1>,
+        <https://bio.tools/jaspar/op_2/in_2> ;
+    ns2:output <https://bio.tools/jaspar/op_1/in_1>,
+        <https://bio.tools/jaspar/op_2/in_1> ;
+    ns5:conformsTo "https://bioschemas.org/profiles/ComputationalTool/1.0-RELEASE" ;
+    ns1:applicationSubCategory <http://edamontology.org/topic_0204>,
+        <http://edamontology.org/topic_0621>,
+        <http://edamontology.org/topic_0622>,
+        <http://edamontology.org/topic_0749>,
+        <http://edamontology.org/topic_0780>,
+        <http://edamontology.org/topic_2815> ;
+    ns1:citation <https://doi.org/10.1093/bioinformatics/btx804>,
+        <https://doi.org/10.1093/nar/gkh012>,
+        <https://doi.org/10.1093/nar/gkj115>,
+        <https://doi.org/10.1093/nar/gkm955>,
+        <https://doi.org/10.1093/nar/gkp950>,
+        <https://doi.org/10.1093/nar/gkt997>,
+        <https://doi.org/10.1093/nar/gkv1176>,
+        <https://doi.org/10.1093/nar/gkx1126>,
+        "pubmed:14681366",
+        "pubmed:16381983",
+        "pubmed:18006571",
+        "pubmed:19906716",
+        "pubmed:24194598",
+        "pubmed:26531826",
+        "pubmed:29253085" ;
+    ns1:featureList <http://edamontology.org/operation_0445>,
+        <http://edamontology.org/operation_2421> ;
+    ns1:isAccessibleForFree true ;
+    ns1:softwareHelp <http://jaspar.genereg.net/api/v1/docs/>,
+        <http://jaspar.genereg.net/docs/>,
+        <http://jaspar.genereg.net/faq/> ;
+    ns4:primaryContact <http://orcid.org/0000-0001-5127-5459>,
+        "Albin Sandelin",
+        "Boris Lenhard",
+        "Wyeth Wasserman" .
+
+<https://doi.org/10.5281/zenodo.6411574> a ns1:Dataset ;
+    ns1:citation <https://github.com/diwis/PaperRanking>,
+        <https://pages.semanticscholar.org/coronavirus-research> ;
+    ns1:creator <https://orcid.org/0000-0002-3154-6212>,
+        <https://orcid.org/0000-0002-5002-7901>,
+        <https://orcid.org/0000-0003-0555-4128>,
+        <https://orcid.org/0000-0003-1714-5225>,
+        <https://orcid.org/0000-0003-2146-3795> ;
+    ns1:datePublished "2022-04-04"^^ns1:Date ;
+    ns1:description """<p>This dataset contains impact metrics and indicators for a set of publications that are related to the <a href="https://en.wikipedia.org/wiki/Coronavirus_disease_2019">COVID-19 infectious disease</a> and the coronavirus that causes it. It is based on:</p>
+
+<ol>
+	<li>&Tau;he <a href="https://pages.semanticscholar.org/coronavirus-research">CORD-19 dataset</a> released by the team of <a href="https://www.semanticscholar.org/">Semantic Scholar</a><sup>1</sup> and</li>
+	<li>&Tau;he curated data provided by the <a href="https://www.ncbi.nlm.nih.gov/research/coronavirus/">LitCovid hub</a><sup>2</sup>.</li>
+</ol>
+
+<p>These data have been cleaned and integrated with data from <a href="https://github.com/echen102/COVID-19-TweetIDs">COVID-19-TweetIDs</a> and from other sources (e.g., PMC). The result was dataset of&nbsp;503,979 unique articles along with relevant metadata (e.g., the underlying citation network). We utilized this dataset to produce, for each article, the values of the following impact measures:</p>
+
+<ul>
+	<li><em><strong>Influence:</strong></em> Citation-based measure reflecting the total impact of an article. This is based on the PageRank<sup>3</sup> network analysis method. In the context of citation networks, it estimates the importance of each article based on its centrality in the whole network. This measure was calculated using the PaperRanking (<a href="https://github.com/diwis/PaperRanking">https://github.com/diwis/PaperRanking</a>) library<sup>4</sup>.</li>
+	<li><strong><em>Influence_alt:</em></strong> Citation-based measure reflecting the total impact of an article. This is the Citation Count of each article, calculated based on the citation network between the articles contained in the BIP4COVID19 dataset.</li>
+	<li><em><strong>Popularity:</strong></em> Citation-based measure reflecting the current impact of an article. This is based on the AttRank<sup>5</sup> citation network analysis method. Methods like PageRank are biased against recently published articles (new articles need time to receive their first citations). AttRank alleviates this problem incorporating an attention-based mechanism, akin to a time-restricted version of preferential attachment, to explicitly capture a researcher&#39;s preference to read papers which received a lot of attention recently. This is why it is more suitable to capture the current &quot;hype&quot; of an article.</li>
+	<li><em><strong>Popularity alternative:</strong></em> An alternative citation-based measure reflecting the current impact of an article (this was the basic popularity measured provided by BIP4COVID19 until version 26). This is based on the RAM<sup>6</sup> citation network analysis method. Methods like PageRank are biased against recently published articles (new articles need time to receive their first citations). RAM alleviates this problem using an approach known as &quot;time-awareness&quot;. This is why it is more suitable to capture the current &quot;hype&quot; of an article. This measure was calculated using the PaperRanking (<a href="https://github.com/diwis/PaperRanking">https://github.com/diwis/PaperRanking</a>) library<sup>4</sup>.</li>
+	<li><em><strong>Social Media Attention: </strong></em>The number of tweets related to this article. Relevant data were collected from the <a href="https://github.com/echen102/COVID-19-TweetIDs">COVID-19-TweetIDs</a> dataset. In this version, tweets between 5/3/22-12/3/22 have been considered from the previous dataset.&nbsp;</li>
+</ul>
+
+<p>We provide five CSV files, all containing the same information, however each having its entries ordered by a different impact measure. All CSV files are tab separated and have the same columns (PubMed_id, PMC_id, DOI, influence_score, popularity_alt_score, popularity score, influence_alt score, tweets count).</p>
+
+<p>The work is based on the following publications:</p>
+
+<blockquote>
+<ol>
+	<li>COVID-19 Open Research Dataset (CORD-19). 2020. Version 2022-03-28 Retrieved from https://pages.semanticscholar.org/coronavirus-research. Accessed 2022-03-28. doi:10.5281/zenodo.3715506</li>
+	<li>Chen Q, Allot A, &amp; Lu Z. (2020) Keep up with the latest coronavirus research, Nature 579:193 (version 2022-03-28)</li>
+	<li>R. Motwani L. Page, S. Brin and T. Winograd. 1999. The PageRank Citation Ranking: Bringing Order to the Web. Technical Report. Stanford InfoLab.</li>
+	<li>I. Kanellos, T. Vergoulis, D. Sacharidis, T. Dalamagas, Y. Vassiliou: Impact-Based Ranking of Scientific Publications: A Survey and Experimental Evaluation. TKDE 2019</li>
+	<li>I. Kanellos, T. Vergoulis, D. Sacharidis, T. Dalamagas, Y. Vassiliou: Ranking Papers by their Short-Term Scientific Impact. CoRR abs/2006.00951 (2020)</li>
+	<li>Rumi Ghosh, Tsung-Ting Kuo, Chun-Nan Hsu, Shou-De Lin, and Kristina Lerman. 2011. Time-Aware Ranking in Dynamic Citation Networks. In Data Mining Workshops (ICDMW). 373&ndash;380</li>
+</ol>
+</blockquote>
+
+<p>A Web user interface that uses these data to facilitate the COVID-19 literature exploration, can be found <a href="https://bip.covid19.athenarc.gr">here</a>. More details in our peer-reviewed publication <a href="https://doi.org/10.1162/qss_a_00169">here</a> (also <a href="https://www.biorxiv.org/content/10.1101/2020.04.11.037093v2">here</a> there is an outdated preprint version).<br>
+<br>
+<em>Funding: We acknowledge support of this work by the project &quot;Moving from Big Data Management to Data Science&quot; (MIS 5002437/3) which is implemented under the Action &quot;Reinforcement of the Research and Innovation Infrastructure&quot;, funded by the Operational Programme &quot;Competitiveness, Entrepreneurship and Innovation&quot; (NSRF 2014-2020) and co-financed by Greece and the European Union (European Regional Development Fund).</em></p>
+
+<p><em><strong>Terms of use:</strong></em> These data are provided &quot;as is&quot;, without any warranties of any kind. The data are provided under the Creative Commons Attribution 4.0 International license.</p>""" ;
+    ns1:distribution [ a ns1:DataDownload ;
+            ns1:contentUrl <https://zenodo.org/api/files/da8ab994-0fa3-4d97-b198-779d085977c2/by_popularity_alt.csv> ;
+            ns1:encodingFormat "csv" ],
+        [ a ns1:DataDownload ;
+            ns1:contentUrl <https://zenodo.org/api/files/da8ab994-0fa3-4d97-b198-779d085977c2/by_influence.csv> ;
+            ns1:encodingFormat "csv" ],
+        [ a ns1:DataDownload ;
+            ns1:contentUrl <https://zenodo.org/api/files/da8ab994-0fa3-4d97-b198-779d085977c2/by_zenodo.csv> ;
+            ns1:encodingFormat "csv" ],
+        [ a ns1:DataDownload ;
+            ns1:contentUrl <https://zenodo.org/api/files/da8ab994-0fa3-4d97-b198-779d085977c2/by_popularity.csv> ;
+            ns1:encodingFormat "csv" ],
+        [ a ns1:DataDownload ;
+            ns1:contentUrl <https://zenodo.org/api/files/da8ab994-0fa3-4d97-b198-779d085977c2/by_influence_alt.csv> ;
+            ns1:encodingFormat "csv" ] ;
+    ns1:identifier "https://doi.org/10.5281/zenodo.6411574" ;
+    ns1:keywords "COVID-19",
+        "bibliometrics",
+        "coronavirus",
+        "scientometrics" ;
+    ns1:license <https://creativecommons.org/licenses/by/4.0/legalcode> ;
+    ns1:name "BIP4COVID19: Impact metrics and indicators for coronavirus related publications" ;
+    ns1:url <https://zenodo.org/record/6411574> ;
+    ns1:version "87" .
+
+<http://orcid.org/0000-0001-5127-5459> a <schema:Person> .
+
+<http://orcid.org/0000-0003-4874-2874> a <schema:Person> .
+
+<https://bio.tools/bwa/op_2/in_2> a <http://bioschemas.org/types/FormalParameter> ;
+    ns1:identifier "http://edamontology.org/data_2044" ;
+    ns1:name "Sequence" ;
+    ns1:sameAs "http://edamontology.org/data_2044" .
+
+<https://bio.tools/bwa/op_3/in_2> a <http://bioschemas.org/types/FormalParameter> ;
+    ns1:identifier "http://edamontology.org/data_2044" ;
+    ns1:name "Sequence" ;
+    ns1:sameAs "http://edamontology.org/data_2044" .
+
+<https://bio.tools/bwa/op_4/in_2> a <http://bioschemas.org/types/FormalParameter> ;
+    ns1:identifier "http://edamontology.org/data_2044" ;
+    ns1:name "Sequence" ;
+    ns1:sameAs "http://edamontology.org/data_2044" .
+
+<https://bio.tools/bwa/op_4/in_3> a <http://bioschemas.org/types/FormalParameter> ;
+    ns1:identifier "http://edamontology.org/data_2044" ;
+    ns1:name "Sequence" ;
+    ns1:sameAs "http://edamontology.org/data_2044" .
+
+<https://bio.tools/bwa/op_5/in_2> a <http://bioschemas.org/types/FormalParameter> ;
+    ns1:identifier "http://edamontology.org/data_2044" ;
+    ns1:name "Sequence" ;
+    ns1:sameAs "http://edamontology.org/data_2044" .
+
+<https://bio.tools/bwa/op_5/in_3> a <http://bioschemas.org/types/FormalParameter> ;
+    ns1:identifier "http://edamontology.org/data_2044" ;
+    ns1:name "Sequence" ;
+    ns1:sameAs "http://edamontology.org/data_2044" .
+
+<https://bio.tools/bwa/op_6/in_2> a <http://bioschemas.org/types/FormalParameter> ;
+    ns1:identifier "http://edamontology.org/data_2044" ;
+    ns1:name "Sequence" ;
+    ns1:sameAs "http://edamontology.org/data_2044" .
+
+<https://bio.tools/jaspar/op_1/in_2> a <http://bioschemas.org/types/FormalParameter> ;
+    ns1:identifier "http://edamontology.org/data_1077" ;
+    ns1:name "Transcription factor identifier" ;
+    ns1:sameAs "http://edamontology.org/data_1077" .
+
+<https://bio.tools/jaspar/op_1/in_3> a <http://bioschemas.org/types/FormalParameter> ;
+    ns1:identifier "http://edamontology.org/data_1868" ;
+    ns1:name "Taxon" ;
+    ns1:sameAs "http://edamontology.org/data_1868" .
+
+<https://bio.tools/jaspar/op_1/in_4> a <http://bioschemas.org/types/FormalParameter> ;
+    ns1:identifier "http://edamontology.org/data_2732" ;
+    ns1:name "Family name" ;
+    ns1:sameAs "http://edamontology.org/data_2732" .
+
+<https://bio.tools/jaspar/op_1/in_5> a <http://bioschemas.org/types/FormalParameter> ;
+    ns1:identifier "http://edamontology.org/data_1045" ;
+    ns1:name "Species name" ;
+    ns1:sameAs "http://edamontology.org/data_1045" .
+
+<https://bio.tools/jaspar/op_1/in_6> a <http://bioschemas.org/types/FormalParameter> ;
+    ns1:identifier "http://edamontology.org/data_2291" ;
+    ns1:name "UniProt ID" ;
+    ns1:sameAs "http://edamontology.org/data_2291" .
+
+<https://bio.tools/jaspar/op_1/in_7> a <http://bioschemas.org/types/FormalParameter> ;
+    ns1:identifier "http://edamontology.org/data_3671" ;
+    ns1:name "Text" ;
+    ns1:sameAs "http://edamontology.org/data_3671" .
+
+<https://bio.tools/jaspar/op_2/in_2> a <http://bioschemas.org/types/FormalParameter> ;
+    ns1:identifier "http://edamontology.org/data_1119" ;
+    ns1:name "JASPAR profile ID" ;
+    ns1:sameAs "http://edamontology.org/data_1119" .
+
+<https://doi.org/10.1016/j.ygeno.2017.03.001> a ns1:CreativeWork .
+
+<https://doi.org/10.1093/bioinformatics/btp324> a ns1:CreativeWork .
+
+<https://doi.org/10.1093/bioinformatics/btp698> a ns1:CreativeWork .
+
+<https://doi.org/10.1093/bioinformatics/btu146> a ns1:CreativeWork .
+
+<https://doi.org/10.1093/bioinformatics/btx804> a ns1:CreativeWork .
+
+<https://doi.org/10.1093/nar/gkh012> a ns1:CreativeWork .
+
+<https://doi.org/10.1093/nar/gkj115> a ns1:CreativeWork .
+
+<https://doi.org/10.1093/nar/gkm955> a ns1:CreativeWork .
+
+<https://doi.org/10.1093/nar/gkp950> a ns1:CreativeWork .
+
+<https://doi.org/10.1093/nar/gkt997> a ns1:CreativeWork .
+
+<https://doi.org/10.1093/nar/gkv1176> a ns1:CreativeWork .
+
+<https://doi.org/10.1093/nar/gkx1126> a ns1:CreativeWork .
+
+<https://doi.org/10.1186/1471-2105-14-184> a ns1:CreativeWork .
+
+<https://doi.org/10.1186/1471-2164-15-264> a ns1:CreativeWork .
+
+<https://github.com/diwis/PaperRanking> a ns1:SoftwareSourceCode .
+
+<https://orcid.org/0000-0002-0336-9669> a ns1:Person ;
+    ns1:email "tim.heitland@awi.de" ;
+    ns1:familyName "Heitland" ;
+    ns1:givenName "Tim" ;
+    ns1:identifier "https://orcid.org/0000-0002-0336-9669" ;
+    ns1:name "Tim Heitland" .
+
+<https://orcid.org/0000-0002-3154-6212> a ns1:Person ;
+    ns1:affiliation "Athena Research Center" ;
+    ns1:name "Danae Pla Karidi" .
+
+<https://orcid.org/0000-0002-5002-7901> a ns1:Person ;
+    ns1:affiliation "Athena Research Center" ;
+    ns1:name "Theodore Dalamagas" .
+
+<https://orcid.org/0000-0002-9786-4010> a ns1:Person ;
+    ns1:email "christine.wesche@awi.de" ;
+    ns1:familyName "Wesche" ;
+    ns1:givenName "Christine" ;
+    ns1:identifier "https://orcid.org/0000-0002-9786-4010" ;
+    ns1:name "Christine Wesche" ;
+    ns1:url <http://www.awi.de/en/about-us/organisation/staff/christine-wesche.html> .
+
+<https://orcid.org/0000-0003-0555-4128> a ns1:Person ;
+    ns1:affiliation "Athena Research Center" ;
+    ns1:name "Thanasis Vergoulis" .
+
+<https://orcid.org/0000-0003-1714-5225> a ns1:Person ;
+    ns1:affiliation "Athena Research Center" ;
+    ns1:name "Serafeim Chatzopoulos" .
+
+<https://orcid.org/0000-0003-2146-3795> a ns1:Person ;
+    ns1:affiliation "Athena Research Center" ;
+    ns1:name "Ilias Kanellos" .
+
+<https://pages.semanticscholar.org/coronavirus-research> a ns1:Dataset .
+
+<https://bio.tools/bwa/op_1/in_1> a <http://bioschemas.org/types/FormalParameter> ;
+    ns1:identifier "http://edamontology.org/data_2044",
+        "http://edamontology.org/data_3210" ;
+    ns1:name "Genome index",
+        "Sequence" ;
+    ns1:sameAs "http://edamontology.org/data_2044",
+        "http://edamontology.org/data_3210" .
+
+<https://bio.tools/bwa/op_2/in_1> a <http://bioschemas.org/types/FormalParameter> ;
+    ns1:identifier "http://edamontology.org/data_1916",
+        "http://edamontology.org/data_3210" ;
+    ns1:name "Alignment",
+        "Genome index" ;
+    ns1:sameAs "http://edamontology.org/data_1916",
+        "http://edamontology.org/data_3210" .
+
+<https://bio.tools/bwa/op_3/in_1> a <http://bioschemas.org/types/FormalParameter> ;
+    ns1:identifier "http://edamontology.org/data_2012",
+        "http://edamontology.org/data_2044" ;
+    ns1:name "Sequence",
+        "Sequence coordinates" ;
+    ns1:sameAs "http://edamontology.org/data_2012",
+        "http://edamontology.org/data_2044" .
+
+<https://bio.tools/bwa/op_4/in_1> a <http://bioschemas.org/types/FormalParameter> ;
+    ns1:identifier "http://edamontology.org/data_0863",
+        "http://edamontology.org/data_2044" ;
+    ns1:name "Sequence",
+        "Sequence alignment" ;
+    ns1:sameAs "http://edamontology.org/data_0863",
+        "http://edamontology.org/data_2044" .
+
+<https://bio.tools/bwa/op_5/in_1> a <http://bioschemas.org/types/FormalParameter> ;
+    ns1:identifier "http://edamontology.org/data_0863",
+        "http://edamontology.org/data_2044" ;
+    ns1:name "Sequence",
+        "Sequence alignment" ;
+    ns1:sameAs "http://edamontology.org/data_0863",
+        "http://edamontology.org/data_2044" .
+
+<https://bio.tools/bwa/op_6/in_1> a <http://bioschemas.org/types/FormalParameter> ;
+    ns1:identifier "http://edamontology.org/data_0863",
+        "http://edamontology.org/data_2044" ;
+    ns1:name "Sequence",
+        "Sequence alignment" ;
+    ns1:sameAs "http://edamontology.org/data_0863",
+        "http://edamontology.org/data_2044" .
+
+<https://bio.tools/jaspar/op_1/in_1> a <http://bioschemas.org/types/FormalParameter> ;
+    ns1:identifier "http://edamontology.org/data_1119",
+        "http://edamontology.org/data_2755" ;
+    ns1:name "JASPAR profile ID",
+        "Transcription factor name" ;
+    ns1:sameAs "http://edamontology.org/data_1119",
+        "http://edamontology.org/data_2755" .
+
+<https://bio.tools/jaspar/op_2/in_1> a <http://bioschemas.org/types/FormalParameter> ;
+    ns1:identifier "http://edamontology.org/data_1119",
+        "http://edamontology.org/data_3494" ;
+    ns1:name "DNA sequence",
+        "JASPAR profile ID" ;
+    ns1:sameAs "http://edamontology.org/data_1119",
+        "http://edamontology.org/data_3494" .
+
+<https://orcid.org/0000-0002-9022-3069> a ns1:Person ;
+    ns1:email "mia.wege@gmail.com" ;
+    ns1:familyName "Wege" ;
+    ns1:givenName "Mia" ;
+    ns1:identifier "https://orcid.org/0000-0002-9022-3069" ;
+    ns1:name "Mia Wege" .
+
+<https://orcid.org/0000-0002-9357-9853> a ns1:Person ;
+    ns1:email "hartmut.hellmer@awi.de" ;
+    ns1:familyName "Hellmer" ;
+    ns1:givenName "Hartmut H" ;
+    ns1:identifier "https://orcid.org/0000-0002-9357-9853" ;
+    ns1:name "Hartmut H Hellmer" ;
+    ns1:url <http://www.awi.de/en/about-us/organisation/staff/hartmut-hellmer.html> .
+
+<https://orcid.org/0000-0003-3060-0317> a ns1:Person ;
+    ns1:email "Elin.Darelius@uib.no" ;
+    ns1:familyName "Darelius" ;
+    ns1:givenName "Elin" ;
+    ns1:identifier "https://orcid.org/0000-0003-3060-0317" ;
+    ns1:name "Elin Darelius" .
+
+<https://doi.org/10.48433/BzPM_0758_2021> a ns1:CreativeWork,
+        ns1:PublicationIssue ;
+    ns1:creator [ a ns1:Person ;
+            ns1:email "Tanja.Fromm@awi.de" ;
+            ns1:familyName "Fromm" ;
+            ns1:givenName "Tanja" ;
+            ns1:name "Tanja Fromm" ],
+        [ a ns1:Person ;
+            ns1:familyName "Oberdieck" ;
+            ns1:givenName "Constance" ;
+            ns1:name "Constance Oberdieck" ],
+        [ a ns1:Person ;
+            ns1:familyName "Oberdieck" ;
+            ns1:givenName "Constance" ;
+            ns1:name "Constance Oberdieck" ],
+        [ a ns1:Person ;
+            ns1:email "Tanja.Fromm@awi.de" ;
+            ns1:familyName "Fromm" ;
+            ns1:givenName "Tanja" ;
+            ns1:name "Tanja Fromm" ],
+        <https://orcid.org/0000-0002-0336-9669>,
+        <https://orcid.org/0000-0002-9786-4010> ;
+    ns1:datePublished "2021"^^ns1:Date ;
+    ns1:identifier "https://doi.org/10.48433/BzPM_0758_2021" ;
+    ns1:isPartOf [ a ns1:CreativeWorkSeries ;
+            ns1:name "Berichte zur Polar- und Meeresforschung = Reports on Polar and Marine Research" ],
+        [ a ns1:CreativeWorkSeries ;
+            ns1:name "Berichte zur Polar- und Meeresforschung = Reports on Polar and Marine Research" ] ;
+    ns1:issueNumber "758" ;
+    ns1:name "Expeditions to Antarctica: ANT-Land 2020/21 NEUMAYER STATION III, Kohnen Station, Flight Operations and Field Campaigns" ;
+    ns1:pagination "99 pp" ;
+    ns1:url <https://doi.org/10.48433/BzPM_0758_2021> .
+
+[] a ns1:Dataset ;
+    ns1:abstract "Weddell seals (Leptonychotes weddellii) were instrumented during expedition PS124 (2021) for the purpose of deployments with satellite transmitters. The deployments (n=10) were located in the Filchner-Outflow-System (FOS), southern Weddell Sea. The seals (7 female, 3 male) were captured along the ships' tracks during ahead flights of the board helicopter and immobilised and instrumented on pack ice with Argos-linked (CLS, Toulouse, France) satellite-relayed dive loggers combined with CTD's (CTD-SRDLs, Sea Mammal Research Unit, UK) to investigate their ranging and foraging behaviour in the context of oceanographic features. Six of the ten CTD-SRDLs provided data. The average lifetime of PTTs was 124.7 days ( MIN 2; MAX 233). The entire workflow and data processing routines are outlined in a data processing report." ;
+    ns1:citation <https://doi.org/10.48433/BzPM_0758_2021> ;
+    ns1:conditionsOfAccess "access rights needed" ;
+    ns1:creator [ a ns1:Person ;
+            ns1:email "horst.bornemann@awi.de" ;
+            ns1:familyName "Bornemann" ;
+            ns1:givenName "Horst" ;
+            ns1:name "Horst Bornemann" ;
+            ns1:url <http://www.awi.de/en/about-us/organisation/staff/horst-bornemann.html> ],
+        <https://orcid.org/0000-0002-9022-3069>,
+        <https://orcid.org/0000-0002-9357-9853>,
+        <https://orcid.org/0000-0003-3060-0317> ;
+    ns1:datePublished "2022-04-05"^^ns1:Date ;
+    ns1:description "Weddell seals (Leptonychotes weddellii) were instrumented during expedition PS124 (2021) for the purpose of deployments with satellite transmitters. The deployments (n=10) were located in the Filchner-Outflow-System (FOS), southern Weddell Sea. The seals (7 female, 3 male) were captured along the ships' tracks during ahead flights of the board helicopter and immobilised and instrumented on pack ice with Argos-linked (CLS, Toulouse, France) satellite-relayed dive loggers combined with CTD's (CTD-SRDLs, Sea Mammal Research Unit, UK) to investigate their ranging and foraging behaviour in the context of oceanographic features. Six of the ten CTD-SRDLs provided data. The average lifetime of PTTs was 124.7 days ( MIN 2; MAX 233). The entire workflow and data processing routines are outlined in a data processing report." ;
+    ns1:distribution [ a ns1:DataDownload ;
+            ns1:contentUrl <https://doi.pangaea.de/10.1594/PANGAEA.942997?format=zip> ;
+            ns1:encodingFormat "application/zip" ] ;
+    ns1:inLanguage "en" ;
+    ns1:includedInDataCatalog [ a ns1:DataCatalog ;
+            ns1:disambiguatingDescription "Data Publisher for Earth & Environmental Science" ;
+            ns1:name "PANGAEA" ;
+            ns1:url <https://www.pangaea.de/> ] ;
+    ns1:isAccessibleForFree false ;
+    ns1:keywords "Leptonychotes weddellii; satellite tracking; Weddell seal" ;
+    ns1:name "Weddell seal tracking and diving data from expedition FIL2021" ;
+    ns1:publisher [ a ns1:Organization ;
+            ns1:disambiguatingDescription "Data Publisher for Earth & Environmental Science" ;
+            ns1:name "PANGAEA" ;
+            ns1:url <https://www.pangaea.de/> ] ;
+    ns1:size [ a ns1:QuantitativeValue ;
+            ns1:unitText "datasets" ;
+            ns1:value 1.9e+01 ] ;
+    ns1:spatialCoverage [ a ns1:Place ;
+            ns1:geo [ a ns1:GeoShape ;
+                    ns1:box "-77.726 -44.27600000000001 -74.074 -25.054" ] ] ;
+    ns1:temporalCoverage "2021-02-14T23:20:00/2021-10-09T07:20:00" ;
+    ns1:url <https://doi.pangaea.de/10.1594/PANGAEA.942997> .
+
+[] a ns1:Dataset ;
+    ns1:abstract "Weddell seals (Leptonychotes weddellii) were instrumented during expedition PS124 (2021) for the purpose of deployments with satellite transmitters. The deployments (n=10) were located in the Filchner-Outflow-System (FOS), southern Weddell Sea. The seals (7 female, 3 male) were captured along the ships' tracks during ahead flights of the board helicopter and immobilised and instrumented on pack ice with Argos-linked (CLS, Toulouse, France) satellite-relayed dive loggers combined with CTD's (CTD-SRDLs, Sea Mammal Research Unit, UK) to investigate their ranging and foraging behaviour in the context of oceanographic features. Six of the ten CTD-SRDLs provided data. The average lifetime of PTTs was 124.7 days ( MIN 2; MAX 233). The entire workflow and data processing routines are outlined in a data processing report." ;
+    ns1:citation <https://doi.org/10.48433/BzPM_0758_2021> ;
+    ns1:conditionsOfAccess "access rights needed" ;
+    ns1:creator [ a ns1:Person ;
+            ns1:email "horst.bornemann@awi.de" ;
+            ns1:familyName "Bornemann" ;
+            ns1:givenName "Horst" ;
+            ns1:name "Horst Bornemann" ;
+            ns1:url <http://www.awi.de/en/about-us/organisation/staff/horst-bornemann.html> ],
+        <https://orcid.org/0000-0002-9022-3069>,
+        <https://orcid.org/0000-0002-9357-9853>,
+        <https://orcid.org/0000-0003-3060-0317> ;
+    ns1:datePublished "2022-04-05"^^ns1:Date ;
+    ns1:description "Weddell seals (Leptonychotes weddellii) were instrumented during expedition PS124 (2021) for the purpose of deployments with satellite transmitters. The deployments (n=10) were located in the Filchner-Outflow-System (FOS), southern Weddell Sea. The seals (7 female, 3 male) were captured along the ships' tracks during ahead flights of the board helicopter and immobilised and instrumented on pack ice with Argos-linked (CLS, Toulouse, France) satellite-relayed dive loggers combined with CTD's (CTD-SRDLs, Sea Mammal Research Unit, UK) to investigate their ranging and foraging behaviour in the context of oceanographic features. Six of the ten CTD-SRDLs provided data. The average lifetime of PTTs was 124.7 days ( MIN 2; MAX 233). The entire workflow and data processing routines are outlined in a data processing report." ;
+    ns1:distribution [ a ns1:DataDownload ;
+            ns1:contentUrl <https://doi.pangaea.de/10.1594/PANGAEA.942997?format=zip> ;
+            ns1:encodingFormat "application/zip" ] ;
+    ns1:inLanguage "en" ;
+    ns1:includedInDataCatalog [ a ns1:DataCatalog ;
+            ns1:disambiguatingDescription "Data Publisher for Earth & Environmental Science" ;
+            ns1:name "PANGAEA" ;
+            ns1:url <https://www.pangaea.de/> ] ;
+    ns1:isAccessibleForFree false ;
+    ns1:keywords "Leptonychotes weddellii; satellite tracking; Weddell seal" ;
+    ns1:name "Weddell seal tracking and diving data from expedition FIL2021" ;
+    ns1:publisher [ a ns1:Organization ;
+            ns1:disambiguatingDescription "Data Publisher for Earth & Environmental Science" ;
+            ns1:name "PANGAEA" ;
+            ns1:url <https://www.pangaea.de/> ] ;
+    ns1:size [ a ns1:QuantitativeValue ;
+            ns1:unitText "datasets" ;
+            ns1:value 1.9e+01 ] ;
+    ns1:spatialCoverage [ a ns1:Place ;
+            ns1:geo [ a ns1:GeoShape ;
+                    ns1:box "-77.726 -44.27600000000001 -74.074 -25.054" ] ] ;
+    ns1:temporalCoverage "2021-02-14T23:20:00/2021-10-09T07:20:00" ;
+    ns1:url <https://doi.pangaea.de/10.1594/PANGAEA.942997> .
+
