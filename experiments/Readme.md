@@ -1,7 +1,7 @@
 # Computational experiments 
 In this directory, you will find the data and the python code used to computationnaly evaluate FAIR-Checker. 
 
-The file [bioschemas-dump.ttl](bioschemas-dump.ttl) contains Schema.org semantic markup associated to http://bio.tools software descriptions. It is regularly updated at [https://github.com/bio-tools/content/blob/master/datasets/bioschemas-dump.ttl](https://github.com/bio-tools/content/blob/master/datasets/bioschemas-dump.ttl). 
+The file [bioschemas-dump.ttl](./data/bioschemas-dump.ttl) contains Schema.org semantic markup associated to http://bio.tools software descriptions. It is regularly updated at [https://github.com/bio-tools/content/blob/master/datasets/bioschemas-dump.ttl](https://github.com/bio-tools/content/blob/master/datasets/bioschemas-dump.ttl). 
 
 ## Software environment
 Software dependencies are specified in the [environment.yml](../binder/environment.yml) file. 
