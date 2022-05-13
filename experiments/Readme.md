@@ -15,13 +15,16 @@ cd experiments
 jupyter-notebook
 ```
 
-## Assessing metadata compliance with Bioschemas profiles and SHACL shapes 
-The notebook [biotools_experimental_sudy-bioschemas.ipynb](https://github.com/IFB-ElixirFr/FAIR-checker/blob/master/experiments/biotools_experimental_sudy-bioschemas.ipynb) describes how we evaluate te compliance of http://bio.tools software descriptions with the [Bioschemas Computational Tool profile](https://bioschemas.org/profiles/ComputationalTool/1.0-RELEASE). 
-
-
 ## FAIR assessment of a large collection of software descriptions   
-[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/IFB-ElixirFr/fair-checker/HEAD?labpath=experiments) 
-#### 1. Data pre-processing 
-The bioschemas dump is splitted into chunks of ... 
-#### 2. FAIR assesment 
-#### 3. Data visualization 
+The notebook [biotools_25k_sudy.ipynb](https://github.com/IFB-ElixirFr/FAIR-checker/blob/master/experiments/notebooks/biotools_25k_sudy.ipynb) describes how we evaluate FAIR metrics on 25k+ http://bio.tools software descriptions. 
+
+## Assessing metadata compliance with Bioschemas profiles and SHACL shapes 
+The notebook [biotools_experimental_sudy-bioschemas.ipynb](https://github.com/IFB-ElixirFr/FAIR-checker/blob/master/experiments/notebooks/biotools_experimental_sudy-bioschemas.ipynb) describes how we evaluate te compliance of http://bio.tools software descriptions with the [Bioschemas Computational Tool profile](https://bioschemas.org/profiles/ComputationalTool/1.0-RELEASE). 
+
+## Comparing the FAIRness data preservation portals
+The 3 notebooks 
+ - [dryad_expe_data_study.ipynb](https://github.com/IFB-ElixirFr/FAIR-checker/blob/master/experiments/notebooks/biotools_experimental_sudy-bioschemas.ipynb) 
+ - [pangaea_expe_data_study.ipynb](https://github.com/IFB-ElixirFr/FAIR-checker/blob/master/experiments/notebooks/pangaea_expe_data_study.ipynb) 
+ - [zenodo_expe_data_study.ipynb](https://github.com/IFB-ElixirFr/FAIR-checker/blob/master/experiments/notebooks/zenodo_expe_data_study.ipynb) 
+   
+evalute the FAIRness of sample data entries hosted by Zenodo, Dryad, and Pangaea. 
