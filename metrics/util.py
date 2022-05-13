@@ -1,3 +1,4 @@
+from time import time
 from SPARQLWrapper import SPARQLWrapper, N3, JSON, RDF, TURTLE, JSONLD
 from rdflib import Graph, ConjunctiveGraph, Namespace
 from rdflib.namespace import RDF
@@ -7,6 +8,7 @@ from pyshacl import validate
 import extruct
 import json
 from pathlib import Path
+from datetime import datetime, timedelta
 
 from lxml import html
 from selenium import webdriver
@@ -24,9 +26,9 @@ from requests.auth import HTTPBasicAuth
 from flask import current_app
 
 # caching results during 24 hours
-cache_OLS = TTLCache(maxsize=500, ttl=24 * 3600)
-cache_LOV = TTLCache(maxsize=500, ttl=24 * 3600)
-cache_BP = TTLCache(maxsize=500, ttl=24 * 3600)
+cache_OLS = TTLCache(maxsize=5000, ttl=timedelta(hours=24), timer=datetime.now)
+cache_LOV = TTLCache(maxsize=5000, ttl=timedelta(hours=24), timer=datetime.now)
+cache_BP = TTLCache(maxsize=5000, ttl=timedelta(hours=24), timer=datetime.now)
 
 app = Flask(__name__)
 
