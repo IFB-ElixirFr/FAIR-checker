@@ -21,7 +21,7 @@ The notebook [biotools_25k_sudy.ipynb](https://github.com/IFB-ElixirFr/FAIR-chec
 ## Assessing metadata compliance with Bioschemas profiles and SHACL shapes 
 The notebook [biotools_experimental_sudy-bioschemas.ipynb](https://github.com/IFB-ElixirFr/FAIR-checker/blob/master/experiments/notebooks/biotools_experimental_sudy-bioschemas.ipynb) describes how we evaluate te compliance of http://bio.tools software descriptions with the [Bioschemas Computational Tool profile](https://bioschemas.org/profiles/ComputationalTool/1.0-RELEASE). 
 
-## Comparing the FAIRness data preservation portals
+## Comparing data preservation portals
 The 3 notebooks 
  - [dryad_expe_data_study.ipynb](https://github.com/IFB-ElixirFr/FAIR-checker/blob/master/experiments/notebooks/biotools_experimental_sudy-bioschemas.ipynb) 
  - [pangaea_expe_data_study.ipynb](https://github.com/IFB-ElixirFr/FAIR-checker/blob/master/experiments/notebooks/pangaea_expe_data_study.ipynb) 
