@@ -1,4 +1,3 @@
-from functools import cache
 import unittest
 from datetime import datetime
 from rdflib import BNode, ConjunctiveGraph, URIRef
