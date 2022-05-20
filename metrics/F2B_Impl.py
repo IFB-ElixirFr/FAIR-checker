@@ -110,7 +110,7 @@ class F2B_Impl(AbstractFAIRMetrics):
             eval.log_info(
                 "No RDF found in the web page, can't evaluate if classes or properties are known in OLS, LOV, or BioPortal"
             )
-            eval.set_recommendations(json_rec["F2A"]["reco1"])
+            eval.set_recommendations(json_rec["F2B"]["reco1"])
             eval.set_score(0)
             return eval
 
