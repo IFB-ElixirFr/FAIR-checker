@@ -44,15 +44,15 @@ class WebResource:
             # get static RDF metadata (already available in html sources)
             kg_2 = self.extract_rdf_extruct(self.url)
             self.rdf = kg_1 + kg_2
-            self.rdf = clean_kg_excluding_ns_prefix(
-                self.rdf, "http://www.w3.org/1999/xhtml/vocab#"
-            )
         else:
             self.rdf = rdf_graph
 
         self.rdf.namespace_manager.bind("sc", URIRef("http://schema.org/"))
         self.rdf.namespace_manager.bind("bsc", URIRef("https://bioschemas.org/"))
         self.rdf.namespace_manager.bind("dct", URIRef("http://purl.org/dc/terms/"))
+        self.rdf = clean_kg_excluding_ns_prefix(
+            self.rdf, "http://www.w3.org/1999/xhtml/vocab#"
+        )
 
     def get_url(self):
         return self.url
@@ -163,27 +163,33 @@ class WebResource:
         base_path = Path(__file__).parent.parent  # current directory
         static_file_path = str((base_path / "static/data/jsonldcontext.json").resolve())
 
-        for md in data["json-ld"]:
-            if "@context" in md.keys():
-                if ("https://schema.org" in md["@context"]) or (
-                    "http://schema.org" in md["@context"]
-                ):
-                    md["@context"] = static_file_path
-            kg.parse(data=json.dumps(md, ensure_ascii=False), format="json-ld")
-        for md in data["rdfa"]:
-            if "@context" in md.keys():
-                if ("https://schema.org" in md["@context"]) or (
-                    "http://schema.org" in md["@context"]
-                ):
-                    md["@context"] = static_file_path
-            kg.parse(data=json.dumps(md, ensure_ascii=False), format="json-ld")
-        for md in data["microdata"]:
-            if "@context" in md.keys():
-                if ("https://schema.org" in md["@context"]) or (
-                    "http://schema.org" in md["@context"]
-                ):
-                    md["@context"] = static_file_path
-            kg.parse(data=json.dumps(md, ensure_ascii=False), format="json-ld")
+        if "json-ld" in data.keys():
+            for md in data["json-ld"]:
+                if "@context" in md.keys():
+                    print(md["@context"])
+                    if ("https://schema.org" in md["@context"]) or (
+                        "http://schema.org" in md["@context"]
+                    ):
+                        md["@context"] = static_file_path
+                kg.parse(data=json.dumps(md, ensure_ascii=False), format="json-ld")
+
+        if "rdfa" in data.keys():
+            for md in data["rdfa"]:
+                if "@context" in md.keys():
+                    if ("https://schema.org" in md["@context"]) or (
+                        "http://schema.org" in md["@context"]
+                    ):
+                        md["@context"] = static_file_path
+                kg.parse(data=json.dumps(md, ensure_ascii=False), format="json-ld")
+
+        if "microdata" in data.keys():
+            for md in data["microdata"]:
+                if "@context" in md.keys():
+                    if ("https://schema.org" in md["@context"]) or (
+                        "http://schema.org" in md["@context"]
+                    ):
+                        md["@context"] = static_file_path
+                kg.parse(data=json.dumps(md, ensure_ascii=False), format="json-ld")
 
         logging.debug(kg.serialize(format="turtle"))
 

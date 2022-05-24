@@ -413,7 +413,7 @@ def validate_any_from_KG(kg):
         # print(o.n3(kg.namespace_manager))
         if o.n3(kg.namespace_manager) in bs_profiles.keys():
             # print()
-            print(f"Trying to validate {s} as a(n) {o} resource")
+            # print(f"Trying to validate {s} as a(n) {o} resource")
             shacl_shape, ref_profile = gen_SHACL_from_target_class(
                 o.n3(kg.namespace_manager)
             )
@@ -573,10 +573,10 @@ def validate_shape(knowledge_graph, shacl_shape):
     errors = []
     for r in results:
         if "#Warning" in r["severity"]:
-            print(f'WARNING: Property {r["path"]} should be provided for {r["node"]}')
+            # print(f'WARNING: Property {r["path"]} should be provided for {r["node"]}')
             warnings.append(f'{r["path"]}')
         if "#Violation" in r["severity"]:
-            print(f'ERROR: Property {r["path"]} must be provided for {r["node"]}')
+            # print(f'ERROR: Property {r["path"]} must be provided for {r["node"]}')
             errors.append(f'{r["path"]}')
 
     return conforms, warnings, errors

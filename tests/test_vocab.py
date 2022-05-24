@@ -1,4 +1,5 @@
 import unittest
+from datetime import datetime
 from rdflib import BNode, ConjunctiveGraph, URIRef
 import metrics.util as util
 from metrics.WebResource import WebResource
@@ -92,6 +93,8 @@ class CommunityVocabTestCase(unittest.TestCase):
     """
 
     def test_OLS(self):
+        print(util.cache_OLS.values)
+
         turtle_edam = self.turtle_edam
         kg = ConjunctiveGraph()
         kg.parse(data=turtle_edam, format="turtle")
@@ -109,17 +112,43 @@ class CommunityVocabTestCase(unittest.TestCase):
         for row in qres:
             table_content["properties"].append({"name": row["prop"], "tag": []})
 
+        start = datetime.now().timestamp()
         class_or_property_found = False
         for c in table_content["classes"]:
             if util.ask_OLS(c["name"]):
                 c["tag"].append("OLS")
                 class_or_property_found = True
+            print(c)
         for p in table_content["properties"]:
             if util.ask_OLS(p["name"]):
                 p["tag"].append("OLS")
                 class_or_property_found = True
+            print(p)
+        end = datetime.now().timestamp()
+        delta = end - start
+        print(f"OLS check done in {delta}")
 
         self.assertTrue(class_or_property_found, True)
+        self.assertGreaterEqual(delta, 2)
+        print(util.cache_OLS.values)
+
+        # check that cache is working --> fast answers
+        start = datetime.now().timestamp()
+        for c in table_content["classes"]:
+            if util.ask_OLS(c["name"]):
+                c["tag"].append("OLS")
+                class_or_property_found = True
+            print(c)
+        for p in table_content["properties"]:
+            if util.ask_OLS(p["name"]):
+                p["tag"].append("OLS")
+                class_or_property_found = True
+            print(p)
+        end = datetime.now().timestamp()
+        delta = end - start
+        print(f"OLS check done in {delta}")
+        self.assertLessEqual(delta, 0.1)
+        print(util.cache_OLS.values)
 
     def test_LOV(self):
         turtle_edam = self.turtle_edam
@@ -194,7 +223,9 @@ class CommunityVocabTestCase(unittest.TestCase):
         ns = "http://www.w3.org/1999/xhtml/vocab#"
         cleaned_kg = util.clean_kg_excluding_ns_prefix(kg, ns)
         # cleaned KG should contain 0 xhtml triples
-
+        print("toto")
+        print(len(kg))
+        print(len(cleaned_kg))
         self.assertEquals(len(kg) - 2, len(cleaned_kg))
 
     def test_exclude_xhtml(self):

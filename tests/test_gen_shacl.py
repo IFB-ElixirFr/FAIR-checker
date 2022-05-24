@@ -98,20 +98,22 @@ class GenSHACLTestCase(unittest.TestCase):
         res = validate_any_from_microdata(
             input_url="https://doi.pangaea.de/10.1594/PANGAEA.914331"
         )
-        self.assertGreater(len(res), 0)
+        self.assertGreater(len(res[0]), 0)
         self.assertEquals(
-            len(res["https://doi.org/10.1594/PANGAEA.914331"]["errors"]), 0
+            len(res[0]["https://doi.org/10.1594/PANGAEA.914331"]["errors"]), 0
         )
 
     def test_datacite_validation(self):
         res = validate_any_from_microdata(
             input_url="https://search.datacite.org/works/10.7892/boris.108387"
         )
-        self.assertGreater(len(res), 0)
-        self.assertFalse(res["https://doi.org/10.7892/boris.108387"]["conforms"])
-        self.assertEquals(len(res["https://doi.org/10.7892/boris.108387"]["errors"]), 2)
+        self.assertGreater(len(res[0]), 0)
+        self.assertFalse(res[0]["https://doi.org/10.7892/boris.108387"]["conforms"])
         self.assertEquals(
-            len(res["https://doi.org/10.7892/boris.108387"]["warnings"]), 11
+            len(res[0]["https://doi.org/10.7892/boris.108387"]["errors"]), 2
+        )
+        self.assertEquals(
+            len(res[0]["https://doi.org/10.7892/boris.108387"]["warnings"]), 11
         )
 
     def test_datacite_validation_kg(self):
@@ -133,14 +135,14 @@ class GenSHACLTestCase(unittest.TestCase):
         res = validate_any_from_microdata(
             input_url="https://data.inrae.fr/dataset.xhtml?persistentId=doi:10.15454/PL3HWQ"
         )
-        self.assertEqual(len(res), 0)
+        self.assertEqual(len(res[0]), 0)
 
     def test_workflow_validation(self):
         res = validate_any_from_microdata(
             input_url="https://workflowhub.eu/workflows/263"
         )
         self.assertEqual(
-            len(res["https://workflowhub.eu/workflows/263?version=1"]["errors"]), 4
+            len(res[0]["https://workflowhub.eu/workflows/263?version=1"]["errors"]), 4
         )
 
     def test_base_prefix_rdf(self):

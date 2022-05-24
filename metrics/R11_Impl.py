@@ -56,7 +56,7 @@ class R11_Impl(AbstractFAIRMetrics):
         cc:license 
         xhv:license 
         sto:license 
-        nie:license
+        nie:license 
         """
         query_licenses = (
             self.COMMON_SPARQL_PREFIX
