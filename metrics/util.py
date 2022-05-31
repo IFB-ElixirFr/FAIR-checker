@@ -27,17 +27,17 @@ from flask import current_app
 
 app = Flask(__name__)
 
-# caching results during 24 hours
-app.logger.info("new cache instances")
-cache_OLS = TTLCache(maxsize=5000, ttl=timedelta(hours=24), timer=datetime.now)
-cache_LOV = TTLCache(maxsize=5000, ttl=timedelta(hours=24), timer=datetime.now)
-cache_BP = TTLCache(maxsize=5000, ttl=timedelta(hours=24), timer=datetime.now)
-
-
 # if app.config["ENV"] == "production":
 app.config.from_object("config.Config")
 # else:
 #     app.config.from_object("config.DevelopmentConfig")
+
+# caching results (timer in config.py)
+with app.app_context():
+    ttl_cache_timer = current_app.config["CACHE_CONTROLLED_VOCAB"]
+cache_OLS = TTLCache(maxsize=5000, ttl=timedelta(hours=ttl_cache_timer), timer=datetime.now)
+cache_LOV = TTLCache(maxsize=5000, ttl=timedelta(hours=ttl_cache_timer), timer=datetime.now)
+cache_BP = TTLCache(maxsize=5000, ttl=timedelta(hours=ttl_cache_timer), timer=datetime.now)
 
 # DOI regex
 regex = r"10.\d{4,9}\/[-._;()\/:A-Z0-9]+"
