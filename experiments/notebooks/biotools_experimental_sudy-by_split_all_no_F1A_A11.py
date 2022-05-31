@@ -34,7 +34,7 @@ filename = sys.argv[1]
 
 def eval_metrics(web_res):
     metrics_collection = []
-#     metrics_collection.append(FAIRMetricsFactory.get_F1A(web_res))
+    #     metrics_collection.append(FAIRMetricsFactory.get_F1A(web_res))
     metrics_collection.append(FAIRMetricsFactory.get_F1B(web_res))
     metrics_collection.append(FAIRMetricsFactory.get_F2A(web_res))
     metrics_collection.append(FAIRMetricsFactory.get_F2B(web_res))
