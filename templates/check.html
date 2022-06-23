@@ -205,12 +205,31 @@
 
     // add recommandation if score == 0
     if (value['recommendation'] != "No recommendation yet") {
-      $("#row_guideline_{{f.id}}").parent("div").find('button').show()
+      {#$("#row_guideline_{{f.id}}").parent("div").find('button').show()#}
+      $("#show_more_reco_{{f.id}}").show()
       $("#row_guideline_{{f.id}}").children("article").children("div").html(value['recommendation']);
       $("#modal_guideline_{{f.id}}").html(value['recommendation']);
+      $("#test_row_guideline_{{f.id}}").html(value['recommendation']);
     } else {
       $("#row_guideline_{{f.id}}").parent("div").find('button').hide()
+      $("#show_more_reco_{{f.id}} a").hide()
     }
+
+    $("#show_more_reco_{{f.id}} a").on("click", function() {
+        var $this = $(this);
+        var $content = $this.parent().prev("div.content");
+        var linkText = $this.text().toUpperCase();
+
+        if(linkText === "... SHOW MORE"){
+            linkText = "... Show less";
+            $content.toggleClass("hide-content show-content", 400);
+        } else {
+            linkText = "... Show more";
+            $content.toggleClass("hide-content show-content", 400);
+        };
+
+        $this.text(linkText);
+    });
 
     // // show table
     $("#result_table_{{f.id}}").show();
