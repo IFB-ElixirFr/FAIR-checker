@@ -1080,50 +1080,50 @@ def buildJSONLD():
 
     jld = {
         "@context": [
-            "https://schema.org/",
+            {"sc": "https://schema.org/"},
             {"dct": "https://purl.org/dc/terms/"},
             {"prov": "http://www.w3.org/ns/prov#"},
         ],
         "@type": ["WebApplication", "prov:Entity"],
         "@id": "https://github.com/IFB-ElixirFr/FAIR-checker",
         "dct:conformsTo": "https://bioschemas.org/profiles/ComputationalTool/1.0-RELEASE",
-        "name": "FAIR-Checker",
-        "url": "https://fair-checker.france-bioinformatique.fr",
-        "applicationCategory": "Bioinformatics",
-        "applicationSubCategory": "Automated FAIR testing",
-        "softwareVersion": str(latest_tag),
-        "operatingSystem": "Any",
-        "description": """FAIR-Checker is a tool aimed at assessing FAIR principles and empowering data provider to enhance the quality of their digital resources.
+        "sc:name": "FAIR-Checker",
+        "sc:url": "https://fair-checker.france-bioinformatique.fr",
+        "sc:applicationCategory": "Bioinformatics",
+        "sc:applicationSubCategory": "Automated FAIR testing",
+        "sc:softwareVersion": str(latest_tag),
+        "sc:operatingSystem": "Any",
+        "sc:description": """FAIR-Checker is a tool aimed at assessing FAIR principles and empowering data provider to enhance the quality of their digital resources.
             Data providers and consumers can check how FAIR are web resources. Developers can explore and inspect metadata exposed in web resources.""",
-        "author": [
+        "sc:author": [
             {
                 "@type": ["Person", "prov:Person"],
                 "@id": "https://orcid.org/0000-0003-0676-5461",
-                "givenName": "Thomas",
-                "familyName": "Rosnet",
+                "sc:givenName": "Thomas",
+                "sc:familyName": "Rosnet",
                 "prov:actedOnBehalfOf": {"@id": "https://ror.org/045f7pv37"},
             },
             {
                 "@type": ["Person", "prov:Person"],
                 "@id": "https://orcid.org/0000-0002-3597-8557",
-                "givenName": "Alban",
-                "familyName": "Gaignard",
+                "sc:givenName": "Alban",
+                "sc:familyName": "Gaignard",
                 "prov:actedOnBehalfOf": {"@id": "https://ror.org/045f7pv37"},
             },
             {
                 "@type": ["Person", "prov:Person"],
                 "@id": "https://orcid.org/0000-0002-0399-8713",
-                "givenName": "Marie-Dominique",
-                "familyName": "Devignes",
+                "sc:givenName": "Marie-Dominique",
+                "sc:familyName": "Devignes",
                 "prov:actedOnBehalfOf": {"@id": "https://ror.org/045f7pv37"},
             },
         ],
-        "citation": [
+        "sc:citation": [
             "https://dx.doi.org/10.1038%2Fsdata.2018.118",
             "https://doi.org/10.5281/zenodo.5914307",
             "https://doi.org/10.5281/zenodo.5914367",
         ],
-        "license": "https://spdx.org/licenses/MIT.html",
+        "sc:license": "https://spdx.org/licenses/MIT.html",
         "prov:wasAttributedTo": [
             {"@id": "https://orcid.org/0000-0003-0676-5461"},
             {"@id": "https://orcid.org/0000-0002-3597-8557"},

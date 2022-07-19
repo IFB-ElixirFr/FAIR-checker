@@ -35,6 +35,10 @@ class WebResourceTestCase(unittest.TestCase):
         turtle = bwa.get_rdf().serialize(format="turtle")
         self.assertTrue("sc:ComputationalWorkflow" in turtle)
 
+    @unittest.skip("The test wont work without a fix")
+    def test_fairchecker(self):
+        bwa = WebResource("https://fair-checker.france-bioinformatique.fr/")
+        logging.info(f"{len(bwa.get_rdf())} loaded RDF triples")
 
 if __name__ == "__main__":
     unittest.main()

@@ -163,13 +163,11 @@ class WebResource:
         if "json-ld" in data.keys():
             for md in data["json-ld"]:
                 if "@context" in md.keys():
-                    print(md["@context"])
                     if ("https://schema.org" in md["@context"]) or (
                         "http://schema.org" in md["@context"]
                     ):
                         md["@context"] = static_file_path
                 kg.parse(data=json.dumps(md, ensure_ascii=False), format="json-ld")
-
         if "rdfa" in data.keys():
             for md in data["rdfa"]:
                 if "@context" in md.keys():
