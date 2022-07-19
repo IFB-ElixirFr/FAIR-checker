@@ -16,7 +16,7 @@ class Config(object):
     # Flask-Caching related configs
     CACHE_TYPE = "SimpleCache"
     CACHE_DEFAULT_TIMEOUT = 60  # timer in seconds
-    CACHE_CONTROLLED_VOCAB = 24  # timer in hours
+    CACHE_CONTROLLED_VOCAB = 168  # timer in hours
 
 class ProductionConfig(Config):
     SERVER_IP = "https://fair-checker.france-bioinformatique.fr"
@@ -26,6 +26,7 @@ class DevelopmentConfig(Config):
     DEBUG = True
     SERVER_IP = "http://0.0.0.0:5000"
     CACHE_DEFAULT_TIMEOUT = 30  # timer in seconds
+    CACHE_CONTROLLED_VOCAB = 24  # timer in hours
 
 
 class TestingConfig(Config):
