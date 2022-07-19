@@ -31,7 +31,7 @@ class WebResourceTestCase(unittest.TestCase):
     def test_workflowhub(self):
         bwa = WebResource("https://workflowhub.eu/workflows/263")
         logging.info(f"{len(bwa.get_rdf())} loaded RDF triples")
-        self.assertGreaterEqual(len(bwa.get_rdf()), 29)
+        self.assertGreaterEqual(len(bwa.get_rdf()), 28)
         turtle = bwa.get_rdf().serialize(format="turtle")
         self.assertTrue("sc:ComputationalWorkflow" in turtle)
 

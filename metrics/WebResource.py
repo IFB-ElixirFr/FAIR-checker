@@ -223,12 +223,8 @@ class WebResource:
             for json_ld_annots in jsonld_string:
                 jsonld = json.loads(json_ld_annots)
                 if "@context" in jsonld.keys():
-                    print(jsonld["@context"])
-                    for i, context in enumerate(jsonld["@context"]):
-                        if isinstance(context, str):
-                            if "//schema.org" in context:
-                                jsonld["@context"][i] = static_file_path
-                    print(jsonld["@context"])
+                    if "//schema.org" in jsonld["@context"]:
+                        jsonld["@context"] = static_file_path
                 kg.parse(data=json.dumps(jsonld, ensure_ascii=False), format="json-ld")
                 logging.debug(f"{len(kg)} retrieved triples in KG")
                 logging.debug(kg.serialize(format="turtle"))
