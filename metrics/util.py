@@ -35,9 +35,15 @@ app.config.from_object("config.Config")
 # caching results (timer in config.py)
 with app.app_context():
     ttl_cache_timer = current_app.config["CACHE_CONTROLLED_VOCAB"]
-cache_OLS = TTLCache(maxsize=5000, ttl=timedelta(hours=ttl_cache_timer), timer=datetime.now)
-cache_LOV = TTLCache(maxsize=5000, ttl=timedelta(hours=ttl_cache_timer), timer=datetime.now)
-cache_BP = TTLCache(maxsize=5000, ttl=timedelta(hours=ttl_cache_timer), timer=datetime.now)
+cache_OLS = TTLCache(
+    maxsize=5000, ttl=timedelta(hours=ttl_cache_timer), timer=datetime.now
+)
+cache_LOV = TTLCache(
+    maxsize=5000, ttl=timedelta(hours=ttl_cache_timer), timer=datetime.now
+)
+cache_BP = TTLCache(
+    maxsize=5000, ttl=timedelta(hours=ttl_cache_timer), timer=datetime.now
+)
 
 # DOI regex
 regex = r"10.\d{4,9}\/[-._;()\/:A-Z0-9]+"

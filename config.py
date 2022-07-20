@@ -18,6 +18,7 @@ class Config(object):
     CACHE_DEFAULT_TIMEOUT = 60  # timer in seconds
     CACHE_CONTROLLED_VOCAB = 168  # timer in hours
 
+
 class ProductionConfig(Config):
     SERVER_IP = "https://fair-checker.france-bioinformatique.fr"
 
