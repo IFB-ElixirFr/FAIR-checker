@@ -51,7 +51,7 @@
             </div>
         </td>
         <!-- <td id="comment_{{ f.id }}"></td> -->
-        <td class="vcenter hcenter">
+        <td class="vcenter hcenter" name="recommandation">
             <div id="test_row_guideline_{{ f.id }}" class="content hide-content">
 
             </div>
@@ -59,17 +59,17 @@
                     <a>... Show more</a>
                 </div>
 
-            <div class="popover is-popover-top">
-                <button class="button is-link popover-trigger" style="display: none;" title="Click to keep open"><i class="fa fa-lightbulb-o"></i>
-                </button>
-                <div id="row_guideline_{{ f.id }}" class="popover-content" style="text-align: left; padding: 0;">
-                    <article class="message is-link">
-                        <div class="message-body is-size-7">
-                            <!-- Guideline here ! -->
-                        </div>
-                    </article>
-                </div>
-            </div>
+{#            <div class="popover is-popover-top">#}
+{#                <button class="button is-link popover-trigger" style="display: none;" title="Click to keep open"><i class="fa fa-lightbulb-o"></i>#}
+{#                </button>#}
+{#                <div id="row_guideline_{{ f.id }}" class="popover-content" style="text-align: left; padding: 0;">#}
+{#                    <article class="message is-link">#}
+{#                        <div class="message-body is-size-7">#}
+{#                            <!-- Guideline here ! -->#}
+{#                        </div>#}
+{#                    </article>#}
+{#                </div>#}
+{#            </div>#}
         </td>
         <td class="vcenter hcenter" id="row_score_{{ f.id }}" data-category="{{ f.principle_category }}"></td>
         <td class="vcenter hcenter"><span id="row_status_{{ f.id }}" class="tag is-small">Status</span></td>

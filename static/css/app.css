@@ -136,7 +136,7 @@ section.sticky {
 }
 
 td.vcenter {
-  vertical-align: middle;
+  vertical-align: middle!important;
 }
 
 td.hcenter {
@@ -259,14 +259,25 @@ div.text-container {
 }
 
 .show-content {
+    margin-bottom: 0em;
     line-height: 1em;
     height: auto;
 }
 
-
-.show-more {
-    padding: 10px 0;
-    text-align: center;
+[id^=test_row_guideline_].content {
+    margin-bottom: 1em;
 }
 
+td[name="recommandation"]{
+    max-width: 400px;
+}
+
+.show-more {
+    /*padding: 10px 0;*/
+    /*text-align: center;*/
+}
 /* END Show more recommandation content */
+
+tr[id^=metrics_row_] {
+    line-height: 14px;
+}

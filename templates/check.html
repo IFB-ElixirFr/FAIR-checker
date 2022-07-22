@@ -212,7 +212,7 @@
       $("#test_row_guideline_{{f.id}}").html(value['recommendation']);
     } else {
       $("#row_guideline_{{f.id}}").parent("div").find('button').hide()
-      $("#show_more_reco_{{f.id}} a").hide()
+      $("#show_more_reco_{{f.id}}").hide()
     }
 
     $("#show_more_reco_{{f.id}} a").on("click", function() {
@@ -221,11 +221,13 @@
         var linkText = $this.text().toUpperCase();
 
         if(linkText === "... SHOW MORE"){
+            $content.addClass("show-content", 500)
+            $content.removeClass("hide-content", 500)
             linkText = "... Show less";
-            $content.toggleClass("hide-content show-content", 400);
         } else {
+            $content.addClass("hide-content", 500)
+            $content.removeClass("show-content", 500)
             linkText = "... Show more";
-            $content.toggleClass("hide-content show-content", 400);
         };
 
         $this.text(linkText);
