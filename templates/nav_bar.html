@@ -23,7 +23,7 @@
 
 <nav  id="fc_navbar" class="navbar is-fixed-top is-light" role="navigation" aria-label="main navigation">
   <div class="navbar-brand">
-    <a class="navbar-item" href="{{ url_for('index') }}">
+    <a class="navbar-item" href="{{ url_for('home') }}">
       <b>FAIR-Checker</b>
     </a>
     <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
@@ -49,6 +49,9 @@
       </a>
       <a class="navbar-item" href="{{ url_for('about') }}">
         About us
+      </a>
+      <a class="navbar-item" href="{{ url_for('doc') }}">
+        API Swagger
       </a>
 
     </div>
