@@ -1,3 +1,4 @@
+import copy
 from asyncio.log import logger
 from unittest import result
 import eventlet
@@ -68,23 +69,6 @@ def index():
         subtitle="Improve the FAIRness of your web resources",
     )
 
-# blueprint = Blueprint('api', __name__, url_prefix='/api')
-
-api = Api(app,
-    title='FAIR-Checker API',
-    doc='/swagger',
-    base_path='/api',
-    # base_url='/'
-    description='https://fair-checker.france-bioinformatique.fr/',
-    )
-
-# app.register_blueprint(blueprint)
-
-metrics_namespace = api.namespace('metrics', description='Metrics assessment')
-fc_check_namespace = api.namespace('api/check', description='FAIR Metrics assessment from Check')
-fc_inspect_namespace = api.namespace('api/inspect', description='FAIR improvement from Inspect')
-
-
 app.logger.setLevel(logging.DEBUG)
 CORS(app)
 app.config["CORS_HEADERS"] = "Content-Type"
@@ -95,6 +79,23 @@ else:
     app.config.from_object("config.DevelopmentConfig")
 
 print(f'ENV is set to: {app.config["ENV"]}')
+
+
+# blueprint = Blueprint('api', __name__, url_prefix='/api')
+
+api = Api(app,
+    title='FAIR-Checker API',
+    doc='/swagger',
+    base_path='/api',
+    # base_url='/'
+    description=app.config["SERVER_IP"],
+    )
+
+# app.register_blueprint(blueprint)
+
+metrics_namespace = api.namespace('metrics', description='Metrics assessment')
+fc_check_namespace = api.namespace('api/check', description='FAIR Metrics assessment from Check')
+fc_inspect_namespace = api.namespace('api/inspect', description='FAIR improvement from Inspect')
 
 cache = Cache(app)
 socketio = SocketIO(app)
@@ -263,17 +264,20 @@ def statistics():
     )
 
 my_fields = api.model('MyModel', {
-    'name': fields.String(description='The name', required=True),
+    'name': fields.String(description='The name'),
     'type': fields.String(description='The object type', enum=['A', 'B']),
     'age': fields.Integer(min=0),
+    'num': fields.Integer(description='The num to get the square of', min=0),
+    # 'url': fields.String(Description='The URL of the resource to be tested', required=True)
 })
 
 @api.route('/square/<int:num>')
 class TestSquare(Resource):
+    @api.marshal_with(my_fields)
     def get(self, num):
         return {'data': num ** 2}
 
-def generate_api(metric):
+def generate_check_api(metric):
     @fc_check_namespace.route("/metric_" + metric.get_principle_tag() + '/<path:url>')
     class MetricEval(Resource):
 
@@ -294,7 +298,7 @@ def generate_api(metric):
     MetricEval.__name__ = MetricEval.__name__ + metric.get_principle_tag()
 
 for key in METRICS_CUSTOM.keys():
-    generate_api(METRICS_CUSTOM[key])
+    generate_check_api(METRICS_CUSTOM[key])
 
 @fc_check_namespace.route('/metrics_all/<path:url>')
 class MetricEvalAll(Resource):
@@ -337,9 +341,58 @@ class RetrieveMetadata(Resource):
     @fc_inspect_namespace.produces(["application/ld+json"])
     def get(self, url):
         web_res = WebResource(url)
-        data = web_res.get_rdf().serialize(format="json-ld", auto_compact=True)
-        data = json.loads(data)
-        return data
+        data_str = web_res.get_rdf().serialize(format="json-ld")
+        data_json = json.loads(data_str)
+        return data_json
+
+describe_list = [
+    util.describe_opencitation,
+    util.describe_wikidata,
+    util.describe_openaire,
+]
+
+def generate_ask_api(describe):
+    @fc_inspect_namespace.route('/' + describe.__name__ + '/<path:url>')
+    class Ask(Resource):
+        def get(self, url):
+            web_res = WebResource(url)
+            kg = web_res.get_rdf()
+            old_kg = copy.deepcopy(kg)
+            if util.is_DOI(url):
+                url = util.get_DOI(url)
+            new_kg = describe(url, old_kg)
+            print(len(new_kg))
+            triples_before = len(kg)
+            triples_after = len(new_kg)
+            data = {
+                'triples_before': triples_before,
+                'triples_after': triples_after,
+                '@graph': json.loads(new_kg.serialize(format="json-ld")),
+            }
+            return data
+    Ask.__name__ = Ask.__name__ + describe.__name__.capitalize()
+
+for describe in describe_list:
+    generate_ask_api(describe)
+
+# @fc_inspect_namespace.route('/inspect_ask_openair/<path:url>')
+# class InspectOpenair(Resource):
+#     def get(self, url):
+#         web_res = WebResource(url)
+#         kg = web_res.get_rdf()
+#
+#         if util.is_DOI(url):
+#             url = util.get_DOI(url)
+#
+#         new_kg = util.describe_openaire(url, kg)
+#         triples_before = len(kg)
+#         triples_after = len (new_kg)
+#         data = {
+#             'triples_before': triples_before,
+#             'triples_after': triples_after,
+#             '@graph': json.loads(new_kg.serialize(format="json-ld")),
+#         }
+#         return data
 
 @fc_inspect_namespace.route('/inspect_ontologies/<path:url>')
 class InspectOntologies(Resource):
