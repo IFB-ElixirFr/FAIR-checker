@@ -246,5 +246,5 @@ class WebResource:
     def __str__(self) -> str:
         out = """Web resource under FAIR assesment:\n\t"""
         out += self.url + "\n\t"
-        out += len(self.rdf) + " embedded RDF triples"
+        out += str(len(self.rdf)) + " embedded RDF triples"
         return out

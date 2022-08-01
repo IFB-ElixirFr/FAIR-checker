@@ -27,7 +27,7 @@ class Evaluation:
     start_time = None
     end_time = None
     score = None
-    recommendation = "No recommendation yet"
+    recommendation = "No recommendation, metric validated"
 
     # Result_tet and reason are used by FAIRMetrics only (result_text: whole nanopub content, reason: comment/log)
     result_text = None

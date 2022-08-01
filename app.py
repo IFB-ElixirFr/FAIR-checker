@@ -17,7 +17,7 @@ from flask import (
     make_response,
     Blueprint
 )
-from flask_restx import Resource, Api
+from flask_restx import Resource, Api, fields
 from flask_swagger_ui import get_swaggerui_blueprint
 from flask_cors import CORS
 from flask_socketio import SocketIO
@@ -75,12 +75,14 @@ api = Api(app,
     doc='/swagger',
     base_path='/api',
     # base_url='/'
+    description='https://fair-checker.france-bioinformatique.fr/',
     )
 
 # app.register_blueprint(blueprint)
 
 metrics_namespace = api.namespace('metrics', description='Metrics assessment')
-fc_api_namespace = api.namespace('api', description='FAIR Metrics assessment')
+fc_check_namespace = api.namespace('api/check', description='FAIR Metrics assessment from Check')
+fc_inspect_namespace = api.namespace('api/inspect', description='FAIR improvement from Inspect')
 
 
 app.logger.setLevel(logging.DEBUG)
@@ -260,29 +262,41 @@ def statistics():
         r_failures=stats.this_week_for_named_metrics(prefix="R", success=0),
     )
 
-@fc_api_namespace.route('/square/<int:num>')
+my_fields = api.model('MyModel', {
+    'name': fields.String(description='The name', required=True),
+    'type': fields.String(description='The object type', enum=['A', 'B']),
+    'age': fields.Integer(min=0),
+})
+
+@api.route('/square/<int:num>')
 class TestSquare(Resource):
     def get(self, num):
         return {'data': num ** 2}
 
-@fc_api_namespace.route('/metric_F1A/<path:url>')
-class MetricEvalF1A(Resource):
-    def get(self, url):
-        web_res = WebResource(url)
-        metric = FAIRMetricsFactory.get_F1A(web_res)
-        result = metric.evaluate()
+def generate_api(metric):
+    @fc_check_namespace.route("/metric_" + metric.get_principle_tag() + '/<path:url>')
+    class MetricEval(Resource):
 
-        data = {
-            'score': result.get_score(),
-            'target_uri': result.get_target_uri(),
-            'metric': result.get_metrics(),
-            'eval_time': str(result.get_test_time()),
-            'recommendation': result.get_recommendation(),
-            'comment': result.get_log(),
-        }
-        return data
+        def get(self, url):
+            web_res = WebResource(url)
+            metric.set_web_resource(web_res)
+            result = metric.evaluate()
+            data = {
+                'metric': result.get_metrics(),
+                'score': result.get_score(),
+                'target_uri': result.get_target_uri(),
+                'eval_time': str(result.get_test_time()),
+                'recommendation': result.get_recommendation(),
+                'comment': result.get_log(),
+            }
+            return data
 
-@fc_api_namespace.route('/metrics_all/<path:url>')
+    MetricEval.__name__ = MetricEval.__name__ + metric.get_principle_tag()
+
+for key in METRICS_CUSTOM.keys():
+    generate_api(METRICS_CUSTOM[key])
+
+@fc_check_namespace.route('/metrics_all/<path:url>')
 class MetricEvalAll(Resource):
     def get(self, url):
         web_res = WebResource(url)
@@ -318,7 +332,71 @@ class MetricEvalAll(Resource):
 
         return results
 
+@fc_inspect_namespace.route('/get_rdf_metadata/<path:url>')
+class RetrieveMetadata(Resource):
+    @fc_inspect_namespace.produces(["application/ld+json"])
+    def get(self, url):
+        web_res = WebResource(url)
+        data = web_res.get_rdf().serialize(format="json-ld", auto_compact=True)
+        data = json.loads(data)
+        return data
 
+@fc_inspect_namespace.route('/inspect_ontologies/<path:url>')
+class InspectOntologies(Resource):
+    def get(self, url):
+        web_res = WebResource(url)
+        kg = web_res.get_rdf()
+        query_classes = """
+            SELECT DISTINCT ?class { ?s rdf:type ?class } ORDER BY ?class
+        """
+        query_properties = """
+            SELECT DISTINCT ?prop { ?s ?prop ?o } ORDER BY ?prop
+        """
+
+        table_content = {"classes": [], "properties": []}
+        qres = kg.query(query_classes)
+        for row in qres:
+            table_content["classes"].append(
+                {"name": row["class"], "tag": {"OLS": None, "LOV": None, "BioPortal": None}}
+            )
+
+        qres = kg.query(query_properties)
+        for row in qres:
+            table_content["properties"].append(
+                {"name": row["prop"], "tag": {"OLS": None, "LOV": None, "BioPortal": None}}
+            )
+
+        for c in table_content["classes"]:
+            if util.ask_OLS(c["name"]):
+                c["tag"]["OLS"] = True
+            else:
+                c["tag"]["OLS"] = False
+
+            if util.ask_LOV(c["name"]):
+                c["tag"]["LOV"] = True
+            else:
+                c["tag"]["LOV"] = False
+            if util.ask_BioPortal(c["name"], "class"):
+                c["tag"]["BioPortal"] = True
+            else:
+                c["tag"]["BioPortal"] = False
+
+        for p in table_content["properties"]:
+            if util.ask_OLS(c["name"]):
+                p["tag"]["OLS"] = True
+            else:
+                p["tag"]["OLS"] = False
+
+            if util.ask_LOV(p["name"]):
+                p["tag"]["LOV"] = True
+            else:
+                p["tag"]["LOV"] = False
+            if util.ask_BioPortal(p["name"], "property"):
+                p["tag"]["BioPortal"] = True
+            else:
+                p["tag"]["BioPortal"] = False
+
+        return table_content
 
 @socketio.on("webresource")
 def handle_webresource(url):
