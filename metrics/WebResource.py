@@ -80,7 +80,7 @@ class WebResource:
     def retrieve_html_request(self):
         while True:
             try:
-                response = requests.get(url=self.url, timeout=10)
+                response = requests.get(url=self.url, timeout=10, verify=False)
                 break
             except SSLError:
                 time.sleep(5)
@@ -140,7 +140,7 @@ class WebResource:
     def extract_rdf_extruct(self, url) -> ConjunctiveGraph:
         while True:
             try:
-                response = requests.get(url=url, timeout=10)
+                response = requests.get(url=url, timeout=10, verify=False)
                 break
             except SSLError:
                 time.sleep(5)
@@ -226,6 +226,10 @@ class WebResource:
 
             for json_ld_annots in jsonld_string:
                 jsonld = json.loads(json_ld_annots)
+                print(type(jsonld))
+                print(jsonld)
+                if type(jsonld) == list:
+                    jsonld = jsonld[0]
                 if "@context" in jsonld.keys():
                     if "//schema.org" in jsonld["@context"]:
                         jsonld["@context"] = static_file_path
