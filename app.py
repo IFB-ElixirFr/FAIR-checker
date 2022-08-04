@@ -971,7 +971,13 @@ def check_kg(data):
         SELECT DISTINCT ?prop { ?s ?prop ?o } ORDER BY ?prop
     """
 
-    table_content = {"classes": [], "properties": []}
+    table_content = {
+        "classes": [], 
+        "classes_false": [],
+        "properties": [], 
+        "properties_false": [],
+        "done": False
+    }
     qres = kg.query(query_classes)
     for row in qres:
         table_content["classes"].append(
@@ -1007,6 +1013,15 @@ def check_kg(data):
             c["tag"]["BioPortal"] = False
         emit("done_check", table_content)
 
+        all_false_rule = [
+            c["tag"]["OLS"] == False,
+            c["tag"]["LOV"] == False,
+            c["tag"]["BioPortal"] == False,
+        ]
+        if all(all_false_rule):
+            table_content["classes_false"].append(c["name"])
+
+
     for p in table_content["properties"]:
         if util.ask_OLS(p["name"]):
             p["tag"]["OLS"] = True
@@ -1025,6 +1040,17 @@ def check_kg(data):
         else:
             p["tag"]["BioPortal"] = False
         emit("done_check", table_content)
+
+        all_false_rule = [
+            p["tag"]["OLS"] == False,
+            p["tag"]["LOV"] == False,
+            p["tag"]["BioPortal"] == False,
+        ]
+        if all(all_false_rule):
+            table_content["properties_false"].append(p["name"])
+
+    table_content["done"] = True
+    emit("done_check", table_content)
 
 
 @DeprecationWarning

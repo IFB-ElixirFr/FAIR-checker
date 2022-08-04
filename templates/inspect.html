@@ -207,6 +207,7 @@
         $('#block_valid').html("");
         $('#t_classes').html("");
         $('#t_properties').html("");
+        $('#vocab_interpret').hide();
         socket.emit('retrieve_embedded_annot_2', { url: $("#url").val() });
     });
 
@@ -388,8 +389,43 @@
         });
         $('#t_properties').html(rows);
 
-        // Do we remove it after all tests or only after the first ?
-        $("#btn_fairness").removeClass("is-loading");
+        // When Check Vocab is completed, do this
+        if (value['done']) {
+            $("#btn_fairness").removeClass("is-loading");
+            var $banner_vocab = $('#vocab_interpret');
+            $banner_vocab.show();
+            var banner_message = '';
+
+            if (!(value['classes_false'].length === 0)) {
+                banner_message += 'The following classes are not found in regestries: <br><ul>';
+                for (c in value['classes_false']){
+                    banner_message += '<li>' + value['classes_false'][c] + '</li>'
+                }
+                banner_message += '</ul>'
+                $banner_vocab.html(banner_message)
+                $banner_vocab.parent('article').removeClass('is-success');
+                $banner_vocab.parent('article').addClass('is-warning');
+            }
+            if (!(value['properties_false'].length === 0)) {
+                banner_message += 'The following properties are not found in regestries: <br><ul>';
+                for (p in value['properties_false']){
+                    banner_message += '<li>' + value['properties_false'][p] +  '</li>'
+                }
+                banner_message += '</ul>'
+                $banner_vocab.html(banner_message)
+                $banner_vocab.parent('article').removeClass('is-success');
+                $banner_vocab.parent('article').addClass('is-warning');
+            }
+            if ((value['properties_false'].length === 0) && (value['classes_false'].length === 0)) {
+                banner_message += 'Congratulations ! All Classes and Properties are referenced in one or more of the regestries checked !'
+                $banner_vocab.html(banner_message)
+                $banner_vocab.parent('article').removeClass('is-warning');
+                $banner_vocab.parent('article').addClass('is-success');
+            }
+            
+            
+        }
+
     });
 
     socket.on('done_check_shape', function (data) {
@@ -686,11 +722,12 @@
                         </p>
                         <!-- <p class="control"><a id="btn_bioschemas" class="button is-warning is-large">BioSchemas checks</a></p> -->
                     </div>
-                    <article id="vocab_interpret" class="message is-warning">
-                        <div class="message-body">
-                            Toto
+                    <article class="message is-warning">
+                        <div id="vocab_interpret" class="message-body" hidden>
+
                         </div>
                     </article>
+                    
                     <div class="columns is-multiline is-mobile">
                         <div class="column is-one-half">
                             <table class="table is-striped is-fullwidth is-hoverable">
