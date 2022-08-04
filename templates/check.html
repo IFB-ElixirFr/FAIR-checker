@@ -218,19 +218,27 @@
     $("#show_more_reco_{{f.id}} a").on("click", function() {
         var $this = $(this);
         var $content = $this.parent().prev("div.content");
-        var linkText = $this.text().toUpperCase();
+        var linkText = $this.children('span');
+        var $img = $this.children('i');
+        var showing = $this.data("show");
 
-        if(linkText === "... SHOW MORE"){
-            $content.addClass("show-content", 500)
-            $content.removeClass("hide-content", 500)
-            linkText = "... Show less";
+        if(showing === "no"){
+            $content.addClass("show-content", 500);
+            $content.removeClass("hide-content", 500);
+            $img.addClass("fa-caret-up");
+            $img.removeClass("fa-caret-down");
+            $this.children('span').html('Read less');
+            $this.data("show", "yes");
         } else {
-            $content.addClass("hide-content", 500)
-            $content.removeClass("show-content", 500)
-            linkText = "... Show more";
+            $content.addClass("hide-content", 500);
+            $content.removeClass("show-content", 500);
+            $img.addClass("fa-caret-down");
+            $img.removeClass("fa-caret-up");
+            $this.children('span').html('Read more');
+            $this.data("show", "no");
         };
 
-        $this.text(linkText);
+        // $this.text(linkText);
     });
 
     // // show table
