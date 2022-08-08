@@ -16,8 +16,12 @@ class Config(object):
     # Flask-Caching related configs
     CACHE_TYPE = "SimpleCache"
     CACHE_DEFAULT_TIMEOUT = 60  # timer in seconds for metrics
-    CACHE_CONTROLLED_VOCAB_TIMER = 168  # timer in hours for Vocabularies (OLS, LOV, BioPortal)
-    CACHE_CONTROLLED_VOCAB_MAXSIZE = 10000 # Number of element stored for Vocabularies (OLS, LOV, BioPortal)
+    CACHE_CONTROLLED_VOCAB_TIMER = (
+        168  # timer in hours for Vocabularies (OLS, LOV, BioPortal)
+    )
+    CACHE_CONTROLLED_VOCAB_MAXSIZE = (
+        10000  # Number of element stored for Vocabularies (OLS, LOV, BioPortal)
+    )
 
 
 class ProductionConfig(Config):
@@ -28,8 +32,13 @@ class DevelopmentConfig(Config):
     DEBUG = True
     SERVER_IP = "http://0.0.0.0:5000"
     CACHE_DEFAULT_TIMEOUT = 30  # timer in seconds
-    CACHE_CONTROLLED_VOCAB_TIMER = 24  # timer in hours for Vocabularies (OLS, LOV, BioPortal)
-    CACHE_CONTROLLED_VOCAB_MAXSIZE = 500 # Number of element stored for Vocabularies (OLS, LOV, BioPortal)
+    CACHE_CONTROLLED_VOCAB_TIMER = (
+        24  # timer in hours for Vocabularies (OLS, LOV, BioPortal)
+    )
+    CACHE_CONTROLLED_VOCAB_MAXSIZE = (
+        500  # Number of element stored for Vocabularies (OLS, LOV, BioPortal)
+    )
+
 
 class TestingConfig(Config):
     TESTING = True
