@@ -972,11 +972,11 @@ def check_kg(data):
     """
 
     table_content = {
-        "classes": [], 
+        "classes": [],
         "classes_false": [],
-        "properties": [], 
+        "properties": [],
         "properties_false": [],
-        "done": False
+        "done": False,
     }
     qres = kg.query(query_classes)
     for row in qres:
@@ -1020,7 +1020,6 @@ def check_kg(data):
         ]
         if all(all_false_rule):
             table_content["classes_false"].append(c["name"])
-
 
     for p in table_content["properties"]:
         if util.ask_OLS(p["name"]):
