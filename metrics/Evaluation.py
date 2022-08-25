@@ -149,7 +149,7 @@ class Evaluation:
     def get_implem(self):
         return self.implem
 
-    def persist(self):
+    def persist(self, source):
         client = MongoClient()
         db = client.fair_checker
         db_eval = db.evaluations
@@ -163,6 +163,7 @@ class Evaluation:
             "success": self.score,
             "reason": self.reason,
             "log": self.log_capture_string.getvalue(),
+            "source": source,
         }
 
         r = db_eval.insert_one(eval)

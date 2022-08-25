@@ -332,6 +332,7 @@ class MetricEvalAll(Resource):
                 'recommendation': result.get_recommendation(),
                 'comment': result.get_log(),
             }
+            result.persist()
             results.append(data)
 
         return results
