@@ -292,6 +292,7 @@ def generate_check_api(metric):
                 'eval_time': str(result.get_test_time()),
                 'recommendation': result.get_recommendation(),
                 'comment': result.get_log(),
+                'source': 'api',
             }
             return data
 
@@ -332,7 +333,7 @@ class MetricEvalAll(Resource):
                 'recommendation': result.get_recommendation(),
                 'comment': result.get_log(),
             }
-            result.persist()
+            result.persist("API")
             results.append(data)
 
         return results

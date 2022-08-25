@@ -149,7 +149,7 @@ class Evaluation:
     def get_implem(self):
         return self.implem
 
-    def persist(self, source):
+    def persist(self, source="UI"):
         client = MongoClient()
         db = client.fair_checker
         db_eval = db.evaluations
