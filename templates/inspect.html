@@ -353,7 +353,7 @@
         $.each(value['classes'], function (index, item) {
             var row = '<tr>';
             row += '<td>' + item['name'];
-
+            row += '<div class="tags">'
             $.each(item['tag'], function (key, item) {
                 if (item === true) {
                     row += ' <span class="tag is-success is-light is-pulled-right">' + key + '</span>'
@@ -363,7 +363,7 @@
                     row += ' <span class="tag is-light is-pulled-right">' + key + '</span>'
                 }
             });
-
+            row += '</div>';
             row += '</td>';
             rows += row + '<tr>';
         });
@@ -373,7 +373,7 @@
         $.each(value['properties'], function (index, item) {
             var row = '<tr>';
             row += '<td>' + item['name'];
-
+            row += '<div class="tags">'
             $.each(item['tag'], function (key, item) {
                 if (item === true) {
                     row += ' <span class="tag is-success is-light is-pulled-right">' + key + '</span>'
@@ -383,7 +383,7 @@
                     row += ' <span class="tag is-light is-pulled-right">' + key + '</span>'
                 }
             });
-
+            row += '</div>';
             row += '</td>';
             rows += row + '<tr>';
         });
@@ -407,7 +407,7 @@
                 $banner_vocab.parent('article').addClass('is-warning');
             }
             if (!(value['properties_false'].length === 0)) {
-                banner_message += 'The following properties are not found in regestries: <br><ul>';
+                banner_message += '<br>The following properties are not found in regestries: <br><ul>';
                 for (p in value['properties_false']){
                     banner_message += '<li>' + value['properties_false'][p] +  '</li>'
                 }
