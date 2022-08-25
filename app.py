@@ -294,6 +294,7 @@ def generate_check_api(metric):
                 'comment': result.get_log(),
                 'source': 'api',
             }
+            result.persist("API")
             return data
 
     MetricEval.__name__ = MetricEval.__name__ + metric.get_principle_tag()
