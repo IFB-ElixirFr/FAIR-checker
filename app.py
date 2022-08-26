@@ -16,7 +16,7 @@ from flask import (
     send_file,
     send_from_directory,
     make_response,
-    Blueprint
+    Blueprint,
 )
 from flask_restx import Resource, Api, fields
 from flask_swagger_ui import get_swaggerui_blueprint
@@ -53,7 +53,7 @@ from metrics.WebResource import WebResource
 from metrics.Evaluation import Result
 from profiles.bioschemas_shape_gen import validate_any_from_KG
 from profiles.bioschemas_shape_gen import validate_any_from_microdata
-
+from metrics.util import SOURCE
 import git
 
 app = Flask(__name__)
@@ -61,13 +61,15 @@ app = Flask(__name__)
 app.config.SWAGGER_UI_OPERATION_ID = True
 app.config.SWAGGER_UI_REQUEST_DURATION = True
 
-@app.route('/')
+
+@app.route("/")
 def index():
     return render_template(
         "index.html",
         title="FAIR-Checker",
         subtitle="Improve the FAIRness of your web resources",
     )
+
 
 app.logger.setLevel(logging.DEBUG)
 CORS(app)
@@ -83,19 +85,24 @@ print(f'ENV is set to: {app.config["ENV"]}')
 
 # blueprint = Blueprint('api', __name__, url_prefix='/api')
 
-api = Api(app,
-    title='FAIR-Checker API',
-    doc='/swagger',
-    base_path='/api',
+api = Api(
+    app,
+    title="FAIR-Checker API",
+    doc="/swagger",
+    base_path="/api",
     # base_url='/'
     description=app.config["SERVER_IP"],
-    )
+)
 
 # app.register_blueprint(blueprint)
 
-metrics_namespace = api.namespace('metrics', description='Metrics assessment')
-fc_check_namespace = api.namespace('api/check', description='FAIR Metrics assessment from Check')
-fc_inspect_namespace = api.namespace('api/inspect', description='FAIR improvement from Inspect')
+metrics_namespace = api.namespace("metrics", description="Metrics assessment")
+fc_check_namespace = api.namespace(
+    "api/check", description="FAIR Metrics assessment from Check"
+)
+fc_inspect_namespace = api.namespace(
+    "api/inspect", description="FAIR improvement from Inspect"
+)
 
 cache = Cache(app)
 socketio = SocketIO(app)
@@ -215,7 +222,6 @@ def favicon():
 #         return redirect(url_for('home'), code=302)
 
 
-
 @app.route("/")
 def home():
     return render_template(
@@ -263,46 +269,52 @@ def statistics():
         r_failures=stats.this_week_for_named_metrics(prefix="R", success=0),
     )
 
-my_fields = api.model('MyModel', {
-    'name': fields.String(description='The name'),
-    'type': fields.String(description='The object type', enum=['A', 'B']),
-    'age': fields.Integer(min=0),
-    'num': fields.Integer(description='The num to get the square of', min=0),
-    # 'url': fields.String(Description='The URL of the resource to be tested', required=True)
-})
 
-@api.route('/square/<int:num>')
+my_fields = api.model(
+    "MyModel",
+    {
+        "name": fields.String(description="The name"),
+        "type": fields.String(description="The object type", enum=["A", "B"]),
+        "age": fields.Integer(min=0),
+        "num": fields.Integer(description="The num to get the square of", min=0),
+        # 'url': fields.String(Description='The URL of the resource to be tested', required=True)
+    },
+)
+
+
+@api.route("/square/<int:num>")
 class TestSquare(Resource):
     @api.marshal_with(my_fields)
     def get(self, num):
-        return {'data': num ** 2}
+        return {"data": num ** 2}
+
 
 def generate_check_api(metric):
-    @fc_check_namespace.route("/metric_" + metric.get_principle_tag() + '/<path:url>')
+    @fc_check_namespace.route("/metric_" + metric.get_principle_tag() + "/<path:url>")
     class MetricEval(Resource):
-
         def get(self, url):
             web_res = WebResource(url)
             metric.set_web_resource(web_res)
             result = metric.evaluate()
             data = {
-                'metric': result.get_metrics(),
-                'score': result.get_score(),
-                'target_uri': result.get_target_uri(),
-                'eval_time': str(result.get_test_time()),
-                'recommendation': result.get_recommendation(),
-                'comment': result.get_log(),
-                'source': 'api',
+                "metric": result.get_metrics(),
+                "score": result.get_score(),
+                "target_uri": result.get_target_uri(),
+                "eval_time": str(result.get_test_time()),
+                "recommendation": result.get_recommendation(),
+                "comment": result.get_log(),
             }
-            result.persist("API")
+            result.persist(str(SOURCE.API))
             return data
 
     MetricEval.__name__ = MetricEval.__name__ + metric.get_principle_tag()
 
+
 for key in METRICS_CUSTOM.keys():
     generate_check_api(METRICS_CUSTOM[key])
 
-@fc_check_namespace.route('/metrics_all/<path:url>')
+
+@fc_check_namespace.route("/metrics_all/<path:url>")
 class MetricEvalAll(Resource):
     def get(self, url):
         web_res = WebResource(url)
@@ -327,19 +339,20 @@ class MetricEvalAll(Resource):
         for metric in metrics_collection:
             result = metric.evaluate()
             data = {
-                'metric': result.get_metrics(),
-                'score': result.get_score(),
-                'target_uri': result.get_target_uri(),
-                'eval_time': str(result.get_test_time()),
-                'recommendation': result.get_recommendation(),
-                'comment': result.get_log(),
+                "metric": result.get_metrics(),
+                "score": result.get_score(),
+                "target_uri": result.get_target_uri(),
+                "eval_time": str(result.get_test_time()),
+                "recommendation": result.get_recommendation(),
+                "comment": result.get_log(),
             }
-            result.persist("API")
+            result.persist(str(SOURCE.API))
             results.append(data)
 
         return results
 
-@fc_inspect_namespace.route('/get_rdf_metadata/<path:url>')
+
+@fc_inspect_namespace.route("/get_rdf_metadata/<path:url>")
 class RetrieveMetadata(Resource):
     @fc_inspect_namespace.produces(["application/ld+json"])
     def get(self, url):
@@ -348,14 +361,16 @@ class RetrieveMetadata(Resource):
         data_json = json.loads(data_str)
         return data_json
 
+
 describe_list = [
     util.describe_opencitation,
     util.describe_wikidata,
     util.describe_openaire,
 ]
 
+
 def generate_ask_api(describe):
-    @fc_inspect_namespace.route('/' + describe.__name__ + '/<path:url>')
+    @fc_inspect_namespace.route("/" + describe.__name__ + "/<path:url>")
     class Ask(Resource):
         def get(self, url):
             web_res = WebResource(url)
@@ -368,12 +383,14 @@ def generate_ask_api(describe):
             triples_before = len(kg)
             triples_after = len(new_kg)
             data = {
-                'triples_before': triples_before,
-                'triples_after': triples_after,
-                '@graph': json.loads(new_kg.serialize(format="json-ld")),
+                "triples_before": triples_before,
+                "triples_after": triples_after,
+                "@graph": json.loads(new_kg.serialize(format="json-ld")),
             }
             return data
+
     Ask.__name__ = Ask.__name__ + describe.__name__.capitalize()
+
 
 for describe in describe_list:
     generate_ask_api(describe)
@@ -397,7 +414,8 @@ for describe in describe_list:
 #         }
 #         return data
 
-@fc_inspect_namespace.route('/inspect_ontologies/<path:url>')
+
+@fc_inspect_namespace.route("/inspect_ontologies/<path:url>")
 class InspectOntologies(Resource):
     def get(self, url):
         web_res = WebResource(url)
@@ -413,13 +431,19 @@ class InspectOntologies(Resource):
         qres = kg.query(query_classes)
         for row in qres:
             table_content["classes"].append(
-                {"name": row["class"], "tag": {"OLS": None, "LOV": None, "BioPortal": None}}
+                {
+                    "name": row["class"],
+                    "tag": {"OLS": None, "LOV": None, "BioPortal": None},
+                }
             )
 
         qres = kg.query(query_properties)
         for row in qres:
             table_content["properties"].append(
-                {"name": row["prop"], "tag": {"OLS": None, "LOV": None, "BioPortal": None}}
+                {
+                    "name": row["prop"],
+                    "tag": {"OLS": None, "LOV": None, "BioPortal": None},
+                }
             )
 
         for c in table_content["classes"]:
@@ -453,6 +477,7 @@ class InspectOntologies(Resource):
                 p["tag"]["BioPortal"] = False
 
         return table_content
+
 
 @socketio.on("webresource")
 def handle_webresource(url):
@@ -604,14 +629,10 @@ def evaluate_fc_metrics(metric_name, client_metric_id, url):
     print(recommendation)
 
     # Persist Evaluation oject in MongoDB
-
     implem = METRICS_CUSTOM[metric_name].get_implem()
-    id = METRICS_CUSTOM[metric_name].get_id()
+    result.persist(str(SOURCE.UI))
 
-    # result.set_metrics(name)
-    # result.set_implem(implem)
-    result.persist()
-    # result.close_log_stream()
+    id = METRICS_CUSTOM[metric_name].get_id()
     csv_line = '"{}"\t"{}"\t"{}"\t"{}"\t"{}"'.format(
         id, name, score, str(evaluation_time), comment
     )
