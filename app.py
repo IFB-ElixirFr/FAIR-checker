@@ -1338,7 +1338,7 @@ def buildJSONLD():
             {"dct": "https://purl.org/dc/terms/"},
             {"prov": "http://www.w3.org/ns/prov#"},
         ],
-        "@type": ["WebApplication", "prov:Entity"],
+        "@type": ["sc:WebApplication", "prov:Entity"],
         "@id": "https://github.com/IFB-ElixirFr/FAIR-checker",
         "dct:conformsTo": "https://bioschemas.org/profiles/ComputationalTool/1.0-RELEASE",
         "sc:name": "FAIR-Checker",
@@ -1351,21 +1351,21 @@ def buildJSONLD():
             Data providers and consumers can check how FAIR are web resources. Developers can explore and inspect metadata exposed in web resources.""",
         "sc:author": [
             {
-                "@type": ["Person", "prov:Person"],
+                "@type": ["sc:Person", "prov:Person"],
                 "@id": "https://orcid.org/0000-0003-0676-5461",
                 "sc:givenName": "Thomas",
                 "sc:familyName": "Rosnet",
                 "prov:actedOnBehalfOf": {"@id": "https://ror.org/045f7pv37"},
             },
             {
-                "@type": ["Person", "prov:Person"],
+                "@type": ["sc:Person", "prov:Person"],
                 "@id": "https://orcid.org/0000-0002-3597-8557",
                 "sc:givenName": "Alban",
                 "sc:familyName": "Gaignard",
                 "prov:actedOnBehalfOf": {"@id": "https://ror.org/045f7pv37"},
             },
             {
-                "@type": ["Person", "prov:Person"],
+                "@type": ["sc:Person", "prov:Person"],
                 "@id": "https://orcid.org/0000-0002-0399-8713",
                 "sc:givenName": "Marie-Dominique",
                 "sc:familyName": "Devignes",

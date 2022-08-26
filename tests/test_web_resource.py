@@ -40,7 +40,8 @@ class WebResourceTestCase(unittest.TestCase):
         turtle = bwa.get_rdf().serialize(format="turtle")
         self.assertTrue("sc:ComputationalWorkflow" in turtle)
 
-    @unittest.skip("Hard codded path cant validate test")
+
+    @unittest.skip("Using local hard path, should not be used in CI")
     def test_EDAM(self):
         EDAM_KG = ConjunctiveGraph()
         # EDAM_KG.parse("https://edamontology.org/EDAM.owl")
