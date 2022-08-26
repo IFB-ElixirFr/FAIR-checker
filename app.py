@@ -270,23 +270,22 @@ def statistics():
     )
 
 
-my_fields = api.model(
-    "MyModel",
-    {
-        "name": fields.String(description="The name"),
-        "type": fields.String(description="The object type", enum=["A", "B"]),
-        "age": fields.Integer(min=0),
-        "num": fields.Integer(description="The num to get the square of", min=0),
-        # 'url': fields.String(Description='The URL of the resource to be tested', required=True)
-    },
-)
+# my_fields = api.model(
+#     "MyModel",
+#     {
+#         "name": fields.String(description="The name"),
+#         "type": fields.String(description="The object type", enum=["A", "B"]),
+#         "age": fields.Integer(min=0),
+#         "num": fields.Integer(description="The num to get the square of", min=0),
+#         # 'url': fields.String(Description='The URL of the resource to be tested', required=True)
+#     },
+# )
 
-
-@api.route("/square/<int:num>")
-class TestSquare(Resource):
-    @api.marshal_with(my_fields)
-    def get(self, num):
-        return {"data": num ** 2}
+# @api.route("/square/<int:num>")
+# class TestSquare(Resource):
+#     @api.marshal_with(my_fields)
+#     def get(self, num):
+#         return {"data": num ** 2}
 
 
 def generate_check_api(metric):
