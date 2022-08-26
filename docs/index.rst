@@ -84,10 +84,13 @@ This screenshot displays the metadata retrieved through the resource (in RDF for
 
 Here it is possible to:
 Try to request public knowledge graphs (through their SPARQL endpoints) to incorporate linked metadata (yellow buttons):
-* Wikidata: …
-* Opencitation: …
-* OpenAIRE: …
+
+* `Wikidata <https://www.wikidata.org/wiki/Wikidata:Main_Page>`_: …
+* `OpenCitation <https://opencitations.net/>`_: …
+* `OpenAIRE <https://www.openaire.eu/>`_: …
+
 You can also change the format of the displayed RDF graph (blue buttons):
+
 * JSON-LD
 * Turtle (TTL)
 * N-triples (NT)
@@ -101,17 +104,19 @@ Here it is verified if metadata classes and properties are well described in ont
 .. image:: _static/images/inspect_3_vocab.png
 
 FAIR-Checker queries the following ontology registries:
-* LOV:
-* BioPortal:
-* OLS:
+
+* `LOV <https://lov.linkeddata.es/>`_:
+* `BioPortal <https://bioportal.bioontology.org/>`_:
+* `OLS <https://www.ebi.ac.uk/ols/index>`_:
+
 It assesses that the used properties and classes are found in these registries.
 
 Step 3: Metadata quality checks - Bioschemas
 --------------------------------------------
 
 Finally, FAIR-checker verifies if the resource metadata (RDF) is compliant with a specific metadata profile, as proposed through the Bioschemas initiative.
-e.g.: A property such as documentation will have a different importance depending on the resource type:
-it will be more important for a Software than for a Publication	.
-Thus, it is good practice to try and follow the specifications of the profile (here) that better suit the evaluated resource and will lead to a more FAIR resource.
+e.g.: A property such as `documentation <https://schema.org/documentation>`_ will have a different importance depending on the resource type:
+it will be more important for a `SoftwareApplication <https://schema.org/SoftwareApplication>`_ than for a `Publication <https://schema.org/ScholarlyArticle>`_	.
+Thus, it is good practice to try and follow the specifications of the profile (`here <https://bioschemas.org/profiles/>`_) that better suit the evaluated resource and will lead to a more FAIR resource.
 
 .. image:: _static/images/inspect_3_bioschemas.png
