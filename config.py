@@ -20,7 +20,7 @@ class Config(object):
         168  # timer in hours for Vocabularies (OLS, LOV, BioPortal)
     )
     CACHE_CONTROLLED_VOCAB_MAXSIZE = (
-        10000  # Number of element stored for Vocabularies (OLS, LOV, BioPortal)
+        20000  # Number of element stored for Vocabularies (OLS, LOV, BioPortal)
     )
 
 
