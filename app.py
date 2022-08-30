@@ -1370,6 +1370,14 @@ parser.add_argument(
     dest="urls",
 )
 parser.add_argument(
+    "-f",
+    "--files",
+    nargs="+",
+    required=False,
+    help="list of local files to be tested",
+    dest="files",
+)
+parser.add_argument(
     "-bs",
     "--bioschemas",
     action="store_true",
@@ -1495,6 +1503,124 @@ if __name__ == "__main__":
 
             console.rule(f"[bold red]FAIRness evaluation for URL {url}")
             console.print(table)
+            elapsed_time = round((time.time() - start_time), 2)
+            logging.info(f"FAIR metrics evaluated in {elapsed_time} s")
+
+    if args.files:
+        start_time = time.time()
+
+        console = Console()
+        table = Table(show_header=True, header_style="bold magenta")
+        table.add_column("Findable", justify="right")
+        table.add_column("Accessible", justify="right")
+        table.add_column("Interoperable", justify="right")
+        table.add_column("Reusable", justify="right")
+
+        for file in args.files:
+            logging.debug(f"Testing local file {file}")
+            file_KG = ConjunctiveGraph()
+            file_KG.parse(file, format="turtle")
+            web_res = WebResource(
+                "local.file",
+                rdf_graph=file_KG,
+            )
+            logging.info(f"Loaded {len(web_res.get_rdf())} triples")
+
+            metrics_collection = []
+            metrics_collection.append(FAIRMetricsFactory.get_F1A(web_res))
+            metrics_collection.append(FAIRMetricsFactory.get_F1B(web_res))
+            metrics_collection.append(FAIRMetricsFactory.get_F2A(web_res))
+            metrics_collection.append(FAIRMetricsFactory.get_F2B(web_res))
+            metrics_collection.append(FAIRMetricsFactory.get_I1(web_res))
+            metrics_collection.append(FAIRMetricsFactory.get_I1A(web_res))
+            metrics_collection.append(FAIRMetricsFactory.get_I1B(web_res))
+            metrics_collection.append(FAIRMetricsFactory.get_I2(web_res))
+            metrics_collection.append(FAIRMetricsFactory.get_I2A(web_res))
+            metrics_collection.append(FAIRMetricsFactory.get_I2B(web_res))
+            metrics_collection.append(FAIRMetricsFactory.get_I3(web_res))
+            metrics_collection.append(FAIRMetricsFactory.get_R11(web_res))
+            metrics_collection.append(FAIRMetricsFactory.get_R12(web_res))
+            metrics_collection.append(FAIRMetricsFactory.get_R13(web_res))
+
+            # metrics_collection.append(FAIRMetricsFactory.get_A11(web_res))
+
+            if args.bioschemas:
+                logging.info("Bioschemas eval")
+
+            else:
+                F_norm = 0
+                A_norm = 0
+                I_norm = 0
+                R_norm = 0
+
+                for m in track(metrics_collection, "Processing FAIR metrics ..."):
+                    logging.info(m.get_principle_tag())
+                    logging.info(m.get_name())
+                    res = m.evaluate()
+                    if m.get_principle_tag().startswith("F"):
+                        F_norm += int(res.get_score())
+                        table.add_row(
+                            Text(
+                                m.get_name() + " " + str(res.get_score()),
+                                style=get_result_style(res),
+                            ),
+                            "",
+                            "",
+                            "",
+                        )
+                    # elif m.get_principle_tag().startswith("A"):
+                    #     A_norm += int(res.get_score())
+                    #     table.add_row(
+                    #         "",
+                    #         Text(
+                    #             m.get_name() + " " + str(res.get_score()),
+                    #             style=get_result_style(res),
+                    #         ),
+                    #         "",
+                    #         "",
+                    #     )
+                    elif m.get_principle_tag().startswith("I"):
+                        I_norm += int(res.get_score())
+                        table.add_row(
+                            "",
+                            "",
+                            Text(
+                                m.get_name() + " " + str(res.get_score()),
+                                style=get_result_style(res),
+                            ),
+                            "",
+                        )
+                    elif m.get_principle_tag().startswith("R"):
+                        R_norm += int(res.get_score())
+                        table.add_row(
+                            "",
+                            "",
+                            "",
+                            Text(
+                                f"{m.get_name()} {str(res.get_score())}",
+                                style=get_result_style(res),
+                            ),
+                        )
+
+            console.rule(f"[bold red]FAIRness evaluation for file {file}")
+            console.print(table)
+            console.print(
+                Text("F normalized score: " + str(round(F_norm / 8 * 100, 1)) + "%")
+            )
+            console.print(Text("A normalized score: " + str(round(0, 1)) + "%"))
+            console.print(
+                Text("I normalized score: " + str(round(I_norm / 14 * 100, 1)) + "%")
+            )
+            console.print(
+                Text("R normalized score: " + str(round(R_norm / 6 * 100, 1)) + "%")
+            )
+            console.print(
+                Text(
+                    "FAIR normalized score: "
+                    + str(round((F_norm + A_norm + I_norm + R_norm) / 28 * 100, 1))
+                    + "%"
+                )
+            )
             elapsed_time = round((time.time() - start_time), 2)
             logging.info(f"FAIR metrics evaluated in {elapsed_time} s")
 
