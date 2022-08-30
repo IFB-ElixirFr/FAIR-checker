@@ -93,6 +93,7 @@ PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
         logging.debug(f"Evaluating metrics {self.get_principle_tag()}")
         self.set_new_evaluation()
         eval = self.get_evaluation()
+        eval.log_info(f"Evaluating metrics {self.get_name()}")
         eval.set_start_time()
 
         # logging.info(eval)
