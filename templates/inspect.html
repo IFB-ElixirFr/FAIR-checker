@@ -353,7 +353,7 @@
         $.each(value['classes'], function (index, item) {
             var row = '<tr>';
             row += '<td>' + item['name'];
-            row += '<div class="tags">'
+            row += '<div class="tags is-pulled-right">';
             $.each(item['tag'], function (key, item) {
                 if (item === true) {
                     row += ' <span class="tag is-success is-light is-pulled-right">' + key + '</span>'
@@ -373,7 +373,7 @@
         $.each(value['properties'], function (index, item) {
             var row = '<tr>';
             row += '<td>' + item['name'];
-            row += '<div class="tags">'
+            row += '<div class="tags is-pulled-right">'
             $.each(item['tag'], function (key, item) {
                 if (item === true) {
                     row += ' <span class="tag is-success is-light is-pulled-right">' + key + '</span>'
