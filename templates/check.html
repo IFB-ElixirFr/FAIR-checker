@@ -48,6 +48,20 @@
     console.log("ID: " + "{{f.id}}");
     console.log("Value: " + "{{f.api_url}}");
     $(this).addClass("is-loading");
+
+    $("#row_score_{{f.id}}").text("");
+    $("#row_time_{{f.id}}").text("");
+    $("#row_comment_{{f.id}}").parent("div").find('button').hide();
+    $("#row_status_{{f.id}}").removeClass("is-danger is-success");
+    $("#row_status_{{f.id}}").text("Status");
+    $("#row_guideline_{{f.id}}").parent("div").find('button').hide()
+    $("#metrics_row_{{ f.id }}").css('background-color', '');
+    $("#metrics_row_{{ f.id }}").hover(function(){
+      $(this).css("background-color", "");
+    }, function(){
+      $(this).css("background-color", "");
+    });
+
     if( !$("#btn_test_all").hasClass("is-loading") ){
       $("#btn_test_all").addClass("is-loading");
     }
@@ -165,7 +179,12 @@
       $("#result_{{f.id}}").addClass("is-success");
       // update_checkbox color
       $("#checkbox_test_{{f.id}}").parent("label").parent("td").css('background-color', '#DBF2F2');
-      $("#metrics_row_{{ f.id }}").css('background-color', '#DBF2F2');
+      $("#metrics_row_{{ f.id }}").css('background-color', '#ecf8f8');
+      $("#metrics_row_{{ f.id }}").hover(function(){
+        $(this).css("background-color", "#dbf2f2");
+      }, function(){
+        $(this).css("background-color", "#ecf8f8");
+      });
     } else {
       $("#row_status_{{f.id}}").removeClass("is-success");
       $("#row_status_{{f.id}}").addClass("is-danger");
@@ -173,7 +192,12 @@
       $("#result_{{f.id}}").addClass("is-danger");
       // update_checkbox color
       $("#checkbox_test_{{f.id}}").parent("label").parent("td").css('background-color', '#FFE0E6');
-      $("#metrics_row_{{ f.id }}").css('background-color', '#FFE0E6');
+      $("#metrics_row_{{ f.id }}").css('background-color', '#ffe6eb');
+      $("#metrics_row_{{ f.id }}").hover(function(){
+        $(this).css("background-color", "#ffccd6");
+      }, function(){
+        $(this).css("background-color", "#ffe6eb");
+      });
     }
 
     // add score to result
