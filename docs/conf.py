@@ -29,6 +29,10 @@ tags = sorted(repo.tags, key=lambda t: t.commit.committed_datetime)
 latest_tag = tags[-1]
 release = str(latest_tag)
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 42f3c05 (black)
 # -- General configuration ---------------------------------------------------
 
 # Add any Sphinx extension module names here, as strings. They can be
