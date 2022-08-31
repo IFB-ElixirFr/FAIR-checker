@@ -30,7 +30,6 @@ latest_tag = tags[-1]
 release = str(latest_tag)
 
 
-
 # -- General configuration ---------------------------------------------------
 
 # Add any Sphinx extension module names here, as strings. They can be
