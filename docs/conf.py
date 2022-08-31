@@ -1,3 +1,5 @@
+import git
+
 # Configuration file for the Sphinx documentation builder.
 #
 # This file only contains a selection of the most common options. For a full
@@ -22,7 +24,11 @@ copyright = "2022, Thomas Rosnet, Alban Gaignard, Marie-Dominique Devignes"
 author = "Thomas Rosnet, Alban Gaignard, Marie-Dominique Devignes"
 
 # The full version, including alpha/beta/rc tags
-release = "1.0.5"
+repo = git.Repo("..")
+tags = sorted(repo.tags, key=lambda t: t.commit.committed_datetime)
+latest_tag = tags[-1]
+release = str(latest_tag)
+
 
 
 # -- General configuration ---------------------------------------------------
