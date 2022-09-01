@@ -172,6 +172,11 @@ def favicon():
     )
 
 
+@app.route("/docs/<path:filename>")
+def documentation(filename):
+    return send_from_directory("docs/_build/html", filename)
+
+
 @app.route("/")
 def home():
     return render_template(

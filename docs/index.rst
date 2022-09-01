@@ -9,6 +9,8 @@ Welcome to FAIR-Checker's documentation!
 
 This is the user documentation of FAIR-Checker, it aims at guiding the user through the steps of evaluating and improving the FAIRness of life science web resources.
 
+`<https://fair-checker.france-bioinformatique.fr/>`_
+
 .. toctree::
    :maxdepth: 3
    :caption: Contents:
