@@ -19,7 +19,7 @@ from metrics.util import clean_kg_excluding_ns_prefix
 class WebResource:
     prefs = {
         "download_restrictions": 3,
-        "download.prompt_for_download": False, 
+        "download.prompt_for_download": False,
         "download.default_directory": "NUL",
     }
 
