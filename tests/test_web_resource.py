@@ -87,6 +87,10 @@ class WebResourceTestCase(unittest.TestCase):
         bwa = WebResource("https://fair-checker.france-bioinformatique.fr/")
         logging.info(f"{len(bwa.get_rdf())} loaded RDF triples")
 
+    def test_wr_response(self):
+        ncbi_wr = WebResource("http://identifiers.org/taxonomy/200361")
+        # TODO add response object tests
+
 
 if __name__ == "__main__":
     unittest.main()

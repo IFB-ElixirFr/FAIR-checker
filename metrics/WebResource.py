@@ -40,6 +40,8 @@ class WebResource:
 
     status_code = None
     content_type = None
+    response_history = None
+    response_url = None
     browser_selenium = None
     html_selenium = None
     html_requests = None
@@ -74,6 +76,18 @@ class WebResource:
 
     def get_rdf(self):
         return self.rdf
+
+    def get_content_type(self):
+        return self.content_type
+
+    def get_response_history(self):
+        history = []
+        for resp in self.response_history:
+            history.append((resp.status_code, resp.url, resp.headers["Content-Type"]))
+        return history
+
+    def get_response_url(self):
+        return self.response_url
 
     def get_status_code(self):
         return self.status_code
@@ -167,6 +181,14 @@ class WebResource:
                 print("ConnectionError, retrying...")
                 time.sleep(10)
 
+        print("elapsed: " + str(response.elapsed))
+        print("is_permanent_redirect: " + str(response.is_permanent_redirect))
+        print("is_redirect: " + str(response.is_redirect))
+        print("reason: " + response.reason)
+        print("links: " + str(response.links))
+        print("headers: " + str(response.headers))
+        self.response_history = response.history
+        self.response_url = response.url
         self.status_code = response.status_code
         self.content_type = response.headers["Content-Type"]
         html_source = response.content

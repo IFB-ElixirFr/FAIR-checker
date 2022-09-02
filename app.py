@@ -337,14 +337,9 @@ def evaluate_fairmetrics(json, metric_name, client_metric_id, url):
     print("DONE " + principle)
 
 
-def evaluate_fc_metrics(metric_name, client_metric_id, url):
-    # print("OK FC Metrics")
-    # print(cache.get("TOTO"))
-    # print(METRICS_CUSTOM)
-    logging.warning("Evaluating FAIR-Checker metric")
-    id = METRICS_CUSTOM[metric_name].get_id()
-    print("ID: " + id)
-    print("Client ID: " + client_metric_id)
+
+def init_webresource_w_cache(url):
+
     # Faire une fonction recursive ?
     if cache.get(url) == "pulling":
         while True:
@@ -354,11 +349,25 @@ def evaluate_fc_metrics(metric_name, client_metric_id, url):
                 break
 
     elif not isinstance(cache.get(url), WebResource):
+        emit("initiating_webresource")
         cache.set(url, "pulling")
         webresource = WebResource(url)
         cache.set(url, webresource)
     elif isinstance(cache.get(url), WebResource):
         webresource = cache.get(url)
+    emit("initiated_webresource")
+    return webresource
+
+def evaluate_fc_metrics(metric_name, client_metric_id, url):
+    # print("OK FC Metrics")
+    # print(cache.get("TOTO"))
+    # print(METRICS_CUSTOM)
+    logging.warning("Evaluating FAIR-Checker metric")
+    id = METRICS_CUSTOM[metric_name].get_id()
+    print("ID: " + id)
+    print("Client ID: " + client_metric_id)
+
+    webresource = init_webresource_w_cache(url)
 
     METRICS_CUSTOM[metric_name].set_web_resource(webresource)
     name = METRICS_CUSTOM[metric_name].get_principle_tag()
@@ -401,6 +410,11 @@ def evaluate_fc_metrics(metric_name, client_metric_id, url):
         "comment": comment,
         "recommendation": recommendation,
         "csv_line": csv_line,
+        "content_type": webresource.get_content_type(),
+        "status_code": webresource.get_status_code(),
+        "initial_url": url,
+        "response_url": webresource.get_response_url(),
+        "history": str(webresource.get_response_history()),
         # "name": name,
     }
     emit("done_" + client_metric_id, emit_json)

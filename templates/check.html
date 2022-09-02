@@ -154,8 +154,14 @@
     console.log(value['csv_line']);
     csv_lines.push(value['csv_line']);
 
-
-
+    // update info
+    $("#info_content_type").html(value['content_type']);
+    $("#info_initial_url").html(value['initial_url']);
+    $("#info_initial_url").attr("href", value['initial_url']);
+    $("#info_response_url").html(value['response_url']);
+    $("#info_response_url").attr("href", value['response_url']);
+    $("#info_status_code").html(value['status_code']);
+    $("#info_history").html(value['history']);
 
     // change status color
     if (value['score'] >= 1) {
@@ -241,6 +247,27 @@
 
   });
   {% endfor %}
+
+  // Update on webresource progress
+  var timer_interval = null;
+  socket.on('initiating_webresource', function () {
+    console.log("INITIATING");
+    var elapsed_seconds = 0;
+    timer_interval = setInterval(function() {
+      elapsed_seconds = elapsed_seconds + 1;
+      var date = new Date(null);
+      date.setSeconds(elapsed_seconds);
+      console.log(date.toISOString());
+      $('#webresource_timer').text(date.toISOString().substr(14, 5));
+    }, 1000); 
+  });
+
+  socket.on('initiated_webresource', function () {
+    console.log("INITIATED");
+    clearInterval(timer_interval);
+  });
+
+
 
   //////////////////
   // exec all button
@@ -705,7 +732,25 @@
 <article id="radar_chart" class="message">
   <div class="message-body is-check">
     <h1 class="subtitle"><b>Radar chart of metrics completion</b></h1>
-    <div class="content">{% include 'radar_chart.html' %}</div>
+    <div class="columns">
+      <div class="column is-half">
+        Initial URL:
+        <a id="info_initial_url" target="_blank"></a><br><br>
+        Retrieving metadata... 
+        <span id="webresource_timer"></span><br><br>
+        Tested URL:
+        <a id="info_response_url" target="_blank"></a><br><br>
+        Status code: 
+        <span id="info_status_code"></span><br><br>
+        Content Type: 
+        <span id="info_content_type"></span><br><br>
+        Redirections: <br>
+        <span id="info_history"></span>
+      </div>
+      <div class="column is-half">
+        <div class="content">{% include 'radar_chart.html' %}</div>
+      </div>
+    </div>
   </div>
 </article>
 
