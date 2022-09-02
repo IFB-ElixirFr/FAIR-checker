@@ -83,7 +83,7 @@ class WebResource:
     def get_response_history(self):
         history = []
         for resp in self.response_history:
-            history.append((resp.status_code, resp.url, resp.headers["Content-Type"]))
+            history.append((resp.status_code, resp.is_permanent_redirect, resp.url, resp.headers["Content-Type"]))
         return history
 
     def get_response_url(self):
