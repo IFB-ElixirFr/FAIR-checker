@@ -1,5 +1,6 @@
 import unittest
-
+from webbrowser import get
+import requests
 from rdflib import ConjunctiveGraph
 from metrics.Evaluation import Result
 from metrics.FAIRMetricsFactory import FAIRMetricsFactory, Implem
@@ -40,12 +41,12 @@ class WebResourceTestCase(unittest.TestCase):
         turtle = bwa.get_rdf().serialize(format="turtle")
         self.assertTrue("sc:ComputationalWorkflow" in turtle)
 
-    @unittest.skip("Using local hard path, should not be used in CI")
+    # @unittest.skip("Using local hard path, should not be used in CI")
     def test_EDAM(self):
         EDAM_KG = ConjunctiveGraph()
         # EDAM_KG.parse("https://edamontology.org/EDAM.owl")
         EDAM_KG.parse("/Users/gaignard-a/Documents/Dev/edamverify/src/EDAM.owl")
-        print(f"Loaded {len(EDAM_KG)} triples.")
+        # print(f"Loaded {len(EDAM_KG)} triples.")
         edam = WebResource(
             "file:///Users/gaignard-a/Documents/Dev/edamverify/src/EDAM.owl",
             rdf_graph=EDAM_KG,
@@ -55,7 +56,7 @@ class WebResourceTestCase(unittest.TestCase):
 
         web_res = edam
         metrics_collection = []
-        metrics_collection.append(FAIRMetricsFactory.get_2(web_res))
+        metrics_collection.append(FAIRMetricsFactory.get_F1A(web_res))
         metrics_collection.append(FAIRMetricsFactory.get_F1B(web_res))
         metrics_collection.append(FAIRMetricsFactory.get_F2A(web_res))
         metrics_collection.append(FAIRMetricsFactory.get_F2B(web_res))
@@ -84,8 +85,72 @@ class WebResourceTestCase(unittest.TestCase):
 
     @unittest.skip("The test wont work without a fix")
     def test_fairchecker(self):
-        bwa = WebResource("https://fair-checker.france-bioinformatique.fr/")
-        logging.info(f"{len(bwa.get_rdf())} loaded RDF triples")
+        fc = WebResource("https://fair-checker.france-bioinformatique.fr/")
+        logging.info(f"{len(fc.get_rdf())} loaded RDF triples")
+
+    def get_available_content(self, url):
+        head = requests.head(url)
+        print(head.status_code)
+        if "Content-Type" in head.headers.keys():
+            print("Content-Type: " + head.headers["Content-Type"])
+        if "Accept" in head.headers.keys():
+            print("Accept: " + head.headers["Content-Type"])
+        if "alternates" in head.headers.keys():
+            print("alternates: " + head.headers["alternates"])
+        if "location" in head.headers.keys():
+            print("location: " + head.headers["location"])
+
+    def test_content_neg(self):
+        # https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Location
+        # https://www.dbpedia.org/resources/linked-data/
+
+        u1 = "http://ontology.inrae.fr/ppdo/page/ontology"
+        # head = requests.head(u1)
+        # print(head.status_code)
+        # self.assertEquals(head.status_code, 200)
+        # print(head.headers["Content-Type"])
+        # self.assertIn("text/html", head.headers["Content-Type"])
+
+        u2 = "http://ontology.inrae.fr/ppdo/data/ontology?output=ttl"
+        # head = requests.head(u2)
+        # print(head.status_code)
+        # self.assertEquals(head.status_code, 200)
+        # print(head.headers["Content-Type"])
+        # self.assertIn("text/rdf+n3", head.headers["Content-Type"])
+
+        u3 = "https://www.data.gouv.fr/fr/datasets/r/620f7c74-a7f2-4358-895f-7651d4a0cad5"
+        # head = requests.head(u3)
+        # print(head.status_code)
+        # self.assertEquals(head.status_code, 302)
+        # print(head.headers["Content-Type"])
+        # print(head.headers)
+        # if head.headers["location"]:
+        #     u4 = head.headers["location"]
+        #     head = requests.head(u4)
+        #     print(head.status_code)
+        #     self.assertEquals(head.status_code, 200)
+        #     print(head.headers["Content-Type"])
+        #     self.assertIn("application/zip", head.headers["Content-Type"])
+
+        u5 = "http://ontology.inrae.fr/ppdo/data/ontology?output=ttl"
+        # head = requests.head(u5)
+        # print(head.status_code)
+        # self.assertEquals(head.status_code, 200)
+        # print(head.headers["Content-Type"])
+        # self.assertIn("text/rdf+n3", head.headers["Content-Type"])
+
+        u6 = "https://www.wikidata.org/wiki/Q71533"
+        u7 = "http://www.wikidata.org/entity/Q71533"
+        u8 = "http://dbpedia.org/resource/Leipzig"
+
+        self.get_available_content(u1)
+        self.get_available_content(u2)
+        self.get_available_content(u3)
+        # self.get_available_content(u4)
+        self.get_available_content(u5)
+        self.get_available_content(u6)
+        self.get_available_content(u7)
+        self.get_available_content(u8)
 
 
 if __name__ == "__main__":
