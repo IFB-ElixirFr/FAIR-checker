@@ -34,15 +34,16 @@ app.config.from_object("config.Config")
 
 # caching results (timer in config.py)
 with app.app_context():
-    ttl_cache_timer = current_app.config["CACHE_CONTROLLED_VOCAB"]
+    ttl_cache_timer = current_app.config["CACHE_CONTROLLED_VOCAB_TIMER"]
+    ttl_cache_maxsize = current_app.config["CACHE_CONTROLLED_VOCAB_MAXSIZE"]
 cache_OLS = TTLCache(
-    maxsize=5000, ttl=timedelta(hours=ttl_cache_timer), timer=datetime.now
+    maxsize=ttl_cache_maxsize, ttl=timedelta(hours=ttl_cache_timer), timer=datetime.now
 )
 cache_LOV = TTLCache(
-    maxsize=5000, ttl=timedelta(hours=ttl_cache_timer), timer=datetime.now
+    maxsize=ttl_cache_maxsize, ttl=timedelta(hours=ttl_cache_timer), timer=datetime.now
 )
 cache_BP = TTLCache(
-    maxsize=5000, ttl=timedelta(hours=ttl_cache_timer), timer=datetime.now
+    maxsize=ttl_cache_maxsize, ttl=timedelta(hours=ttl_cache_timer), timer=datetime.now
 )
 
 # DOI regex
