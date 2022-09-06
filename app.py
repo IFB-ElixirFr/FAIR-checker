@@ -149,6 +149,35 @@ FILE_UUID = ""
 
 DICT_TEMP_RES = {}
 
+import time
+import atexit
+import requests
+from apscheduler.schedulers.background import BackgroundScheduler
+
+STATUS_BIOPORTAL = requests.head("https://bioportal.bioontology.org/").status_code
+STATUS_OLS = requests.head("https://www.ebi.ac.uk/ols/index").status_code
+STATUS_LOV = requests.head("https://lov.linkeddata.es/dataset/lov/sparql").status_code
+
+def update_check_vocab_status():
+    print(time.strftime("%A, %d. %B %Y %I:%M:%S %p"))
+    r_bioportal = requests.head("https://bioportal.bioontology.org/")
+    r_ols = requests.head("https://www.ebi.ac.uk/ols/index")
+    r_lov = requests.head("https://lov.linkeddata.es/dataset/lov/sparql")
+    STATUS_BIOPORTAL = r_bioportal.status_code
+    STATUS_OLS = r_ols.status_code
+    STATUS_LOV = r_lov.status_code
+
+
+scheduler = BackgroundScheduler()
+scheduler.add_job(func=update_check_vocab_status, trigger="interval", seconds=60)
+scheduler.start()
+
+# Shut down the scheduler when exiting the app
+atexit.register(lambda: scheduler.shutdown())
+
+@app.context_processor
+def get_BioPortal_status():
+    return dict(status_bioportal=STATUS_BIOPORTAL)
 
 @app.context_processor
 def inject_app_version():
