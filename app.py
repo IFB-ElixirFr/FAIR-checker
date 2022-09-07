@@ -159,7 +159,7 @@ STATUS_OLS = requests.head("https://www.ebi.ac.uk/ols/index").status_code
 STATUS_LOV = requests.head("https://lov.linkeddata.es/dataset/lov/sparql").status_code
 
 def update_check_vocab_status():
-    print(time.strftime("%A, %d. %B %Y %I:%M:%S %p"))
+    # print(time.strftime("%A, %d. %B %Y %I:%M:%S %p"))
     r_bioportal = requests.head("https://bioportal.bioontology.org/")
     r_ols = requests.head("https://www.ebi.ac.uk/ols/index")
     r_lov = requests.head("https://lov.linkeddata.es/dataset/lov/sparql")
@@ -169,15 +169,29 @@ def update_check_vocab_status():
 
 
 scheduler = BackgroundScheduler()
-scheduler.add_job(func=update_check_vocab_status, trigger="interval", seconds=60)
+scheduler.add_job(func=update_check_vocab_status, trigger="interval", seconds=3600)
 scheduler.start()
 
 # Shut down the scheduler when exiting the app
 atexit.register(lambda: scheduler.shutdown())
 
 @app.context_processor
-def get_BioPortal_status():
-    return dict(status_bioportal=STATUS_BIOPORTAL)
+def display_vocab_status():
+    dict_status = dict(status_vocab=None, 
+        status_bioportal=STATUS_BIOPORTAL, 
+        status_ols=STATUS_OLS,
+        status_lov=STATUS_LOV
+    )
+    if STATUS_BIOPORTAL != 200 or STATUS_OLS != 200 or STATUS_LOV != 200:
+        dict_status["status_vocab"] = True
+        return dict_status
+    else:
+        dict_status["status_vocab"] = False
+        return dict_status
+
+# @app.context_processor
+# def get_bioprtal_status():
+#     return dict(status_bioportal=STATUS_BIOPORTAL)
 
 @app.context_processor
 def inject_app_version():
