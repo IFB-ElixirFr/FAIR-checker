@@ -6,13 +6,13 @@
         </p> -->
         <p class="subtitle">
             {% if status_bioportal != 200 %}
-              <span>BioPortal is not reachable. Status code: {{ status_bioportal }}</span>
+              <span>BioPortal might not be reachable. Status code: {{ status_bioportal }}</span>
             {% endif %}
             {% if status_ols != 200 %}
-              <span>OLS is not reachable. Status code: {{ status_ols }}</span>
+              <span>OLS might not be reachable. Status code: {{ status_ols }}</span>
             {% endif %}
             {% if status_lov != 200 %}
-              <span>LOV is not reachable. Status code: {{ status_lov }}</span>
+              <span>LOV might not be reachable. Status code: {{ status_lov }}</span>
             {% endif %}
         </p>
       </div>
