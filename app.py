@@ -986,12 +986,22 @@ def check_kg(data):
         class_entry = {}
 
         if namespace == "bioschemas.org":
-            class_entry = {"name": row["class"], "tag": {"OLS": None, "LOV": None, "BioPortal": None, "Bioschemas": True}}
+            class_entry = {
+                "name": row["class"],
+                "tag": {
+                    "OLS": None,
+                    "LOV": None,
+                    "BioPortal": None,
+                    "Bioschemas": True,
+                },
+            }
         else:
-            class_entry = {"name": row["class"], "tag": {"OLS": None, "LOV": None, "BioPortal": None}}
-        
-        table_content["classes"].append(class_entry)
+            class_entry = {
+                "name": row["class"],
+                "tag": {"OLS": None, "LOV": None, "BioPortal": None},
+            }
 
+        table_content["classes"].append(class_entry)
 
     qres = kg.query(query_properties)
     for row in qres:
@@ -999,12 +1009,22 @@ def check_kg(data):
         property_entry = {}
 
         if namespace == "bioschemas.org":
-            property_entry = {"name": row["prop"], "tag": {"OLS": None, "LOV": None, "BioPortal": None, "Bioschemas": True}}
+            property_entry = {
+                "name": row["prop"],
+                "tag": {
+                    "OLS": None,
+                    "LOV": None,
+                    "BioPortal": None,
+                    "Bioschemas": True,
+                },
+            }
         else:
-            property_entry = {"name": row["prop"], "tag": {"OLS": None, "LOV": None, "BioPortal": None}}
-        
-        table_content["properties"].append(property_entry)
+            property_entry = {
+                "name": row["prop"],
+                "tag": {"OLS": None, "LOV": None, "BioPortal": None},
+            }
 
+        table_content["properties"].append(property_entry)
 
     emit("done_check", table_content)
 
@@ -1032,7 +1052,6 @@ def check_kg(data):
             c["tag"]["LOV"] == False,
             c["tag"]["BioPortal"] == False,
         ]
-
 
         if all(all_false_rule) and not "Bioschemas" in c["tag"]:
             table_content["classes_false"].append(c["name"])
