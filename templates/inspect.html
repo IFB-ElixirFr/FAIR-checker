@@ -401,20 +401,24 @@
                 for (c in value['classes_false']){
                     banner_message += '<li>' + value['classes_false'][c] + '</li>'
                 }
-                banner_message += '</ul>'
-                $banner_vocab.html(banner_message)
+                banner_message += '</ul> <br>'
+                $banner_vocab.html(banner_message);
                 $banner_vocab.parent('article').removeClass('is-success');
                 $banner_vocab.parent('article').addClass('is-warning');
             }
             if (!(value['properties_false'].length === 0)) {
-                banner_message += '<br>The following properties are not found in regestries: <br><ul>';
+                banner_message += 'The following properties are not found in regestries: <br><ul>';
                 for (p in value['properties_false']){
                     banner_message += '<li>' + value['properties_false'][p] +  '</li>'
                 }
-                banner_message += '</ul>'
-                $banner_vocab.html(banner_message)
+                banner_message += '</ul><br>'
+                $banner_vocab.html(banner_message);
                 $banner_vocab.parent('article').removeClass('is-success');
                 $banner_vocab.parent('article').addClass('is-warning');
+            }
+            if (!(value['properties_false'].length === 0) || !(value['classes_false'].length === 0)) {
+                banner_message += 'Some terms have not been found in LOV, BioPortal, nor OLS.<br>You can use these semantics registries to search for already existing synonyms terms, or to propose new terms (Classes or Properties) to the community'
+                $banner_vocab.html(banner_message);
             }
             if ((value['properties_false'].length === 0) && (value['classes_false'].length === 0)) {
                 banner_message += 'Congratulations ! All Classes and Properties are referenced in one or more of the regestries checked !'
