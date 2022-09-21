@@ -215,10 +215,7 @@ def ask_BioPortal(uri, type):
         )
     # print(res)
     if res.status_code == 200:
-        if res.json()["totalCount"] > 0:
-            return True
-        else:
-            return False
+        return res.json()["totalCount"] > 0
     else:
         app.logger.error("Cound not connect to BioPortal")
         app.logger.error(res.text)
@@ -242,10 +239,7 @@ def ask_OLS(uri):
     )
 
     if res.status_code == 200:
-        if res.json()["page"]["totalElements"] > 0:
-            return True
-        else:
-            return False
+        return res.json()["page"]["totalElements"] > 0
     else:
         app.logger.error("Cound not connect to OLS")
         app.logger.error(res.text)
