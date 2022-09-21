@@ -994,41 +994,25 @@ def check_kg(data):
     emit("done_check", table_content)
 
     for c in table_content["classes"]:
-        if util.ask_OLS(c["name"]):
-            c["tag"]["OLS"] = True
-        else:
-            c["tag"]["OLS"] = False
+
+        c["tag"]["OLS"] = util.ask_OLS(c["name"])
         emit("done_check", table_content)
 
-        if util.ask_LOV(c["name"]):
-            c["tag"]["LOV"] = True
-        else:
-            c["tag"]["LOV"] = False
+        c["tag"]["LOV"] = util.ask_LOV(c["name"])
         emit("done_check", table_content)
 
-        if util.ask_BioPortal(c["name"], "class"):
-            c["tag"]["BioPortal"] = True
-        else:
-            c["tag"]["BioPortal"] = False
+        c["tag"]["BioPortal"] = util.ask_BioPortal(c["name"], "class")
         emit("done_check", table_content)
 
     for p in table_content["properties"]:
-        if util.ask_OLS(p["name"]):
-            p["tag"]["OLS"] = True
-        else:
-            p["tag"]["OLS"] = False
+
+        p["tag"]["OLS"] = util.ask_OLS(p["name"])
         emit("done_check", table_content)
 
-        if util.ask_LOV(p["name"]):
-            p["tag"]["LOV"] = True
-        else:
-            p["tag"]["LOV"] = False
+        p["tag"]["LOV"] = util.ask_LOV(p["name"])
         emit("done_check", table_content)
 
-        if util.ask_BioPortal(p["name"], "property"):
-            p["tag"]["BioPortal"] = True
-        else:
-            p["tag"]["BioPortal"] = False
+        p["tag"]["BioPortal"] = util.ask_BioPortal(p["name"], "property")
         emit("done_check", table_content)
 
 
