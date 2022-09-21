@@ -1519,7 +1519,8 @@ if __name__ == "__main__":
         for file in args.files:
             logging.debug(f"Testing local file {file}")
             file_KG = ConjunctiveGraph()
-            file_KG.parse(file, format="turtle")
+            # file_KG.parse(file, format="turtle")
+            file_KG.parse(file)
             web_res = WebResource(
                 "local.file",
                 rdf_graph=file_KG,
