@@ -20,6 +20,9 @@ from flask_cors import CORS
 from flask_socketio import SocketIO
 from flask_socketio import emit
 from flask_caching import Cache
+from flask import current_app
+from os import environ, path
+from dotenv import load_dotenv, dotenv_values
 import secrets
 import time
 import os
@@ -51,6 +54,8 @@ from profiles.bioschemas_shape_gen import validate_any_from_KG
 from profiles.bioschemas_shape_gen import validate_any_from_microdata
 
 import git
+
+basedir = path.abspath(path.dirname(__file__))
 
 app = Flask(__name__)
 
@@ -154,44 +159,76 @@ import atexit
 import requests
 from apscheduler.schedulers.background import BackgroundScheduler
 
-STATUS_BIOPORTAL = requests.head("https://bioportal.bioontology.org/").status_code
-STATUS_OLS = requests.head("https://www.ebi.ac.uk/ols/index").status_code
-STATUS_LOV = requests.head("https://lov.linkeddata.es/dataset/lov/sparql").status_code
+# STATUS_BIOPORTAL = requests.head("https://bioportal.bioontology.org/").status_code
+# STATUS_OLS = requests.head("https://www.ebi.ac.uk/ols/index").status_code
+# STATUS_LOV = requests.head("https://lov.linkeddata.es/dataset/lov/sparql").status_code
 
-def update_check_vocab_status():
-    # print(time.strftime("%A, %d. %B %Y %I:%M:%S %p"))
-    r_bioportal = requests.head("https://bioportal.bioontology.org/")
-    r_ols = requests.head("https://www.ebi.ac.uk/ols/index")
-    r_lov = requests.head("https://lov.linkeddata.es/dataset/lov/sparql")
-    STATUS_BIOPORTAL = r_bioportal.status_code
-    STATUS_OLS = r_ols.status_code
-    STATUS_LOV = r_lov.status_code
+STATUS_TEST = 200
+
+@app.context_processor
+def display_vocab_status():
+    global STATUS_TEST
+
+    STATUS_BIOPORTAL = requests.head("https://bioportal.bioontology.org/").status_code
+    STATUS_OLS = requests.head("https://www.ebi.ac.uk/ols/index").status_code
+    STATUS_LOV = requests.head("https://lov.linkeddata.es/dataset/lov/sparql").status_code
+
+    # print(STATUS_TEST)
+    # if STATUS_TEST == 200:
+    #     STATUS_TEST = 404
+    # else:
+    #     STATUS_TEST = 200
+
+    dict_status = dict(
+        display_status=None, 
+        status_bioportal=STATUS_BIOPORTAL, 
+        status_ols=STATUS_OLS,
+        status_lov=STATUS_LOV,
+    )
+    if STATUS_BIOPORTAL != 201 or STATUS_OLS != 201 or STATUS_LOV != 201:
+        dict_status["display_status"] = True
+        return dict_status
+    else:
+        dict_status["display_status"] = False
+        return dict_status
+
+  
 
 
-scheduler = BackgroundScheduler()
-scheduler.add_job(func=update_check_vocab_status, trigger="interval", seconds=3600)
+# def update_check_vocab_status():
+#     # print(time.strftime("%A, %d. %B %Y %I:%M:%S %p"))
+#     r_bioportal = requests.head("https://bioportal.bioontology.org/")
+#     r_ols = requests.head("https://www.ebi.ac.uk/ols/index")
+#     r_lov = requests.head("https://lov.linkeddata.es/dataset/lov/sparql")
+#     STATUS_BIOPORTAL = r_bioportal.status_code
+#     STATUS_OLS = r_ols.status_code
+#     STATUS_LOV = r_lov.status_code
+
+
+scheduler = BackgroundScheduler()   
+scheduler.add_job(func=display_vocab_status, trigger="interval", seconds=600)
+# scheduler.add_job(func=display_info, trigger="interval", seconds=600)
 scheduler.start()
 
 # Shut down the scheduler when exiting the app
 atexit.register(lambda: scheduler.shutdown())
 
-@app.context_processor
-def display_vocab_status():
-    dict_status = dict(status_vocab=None, 
-        status_bioportal=STATUS_BIOPORTAL, 
-        status_ols=STATUS_OLS,
-        status_lov=STATUS_LOV
-    )
-    if STATUS_BIOPORTAL != 200 or STATUS_OLS != 200 or STATUS_LOV != 200:
-        dict_status["status_vocab"] = True
-        return dict_status
-    else:
-        dict_status["status_vocab"] = False
-        return dict_status
 
-# @app.context_processor
-# def get_bioprtal_status():
-#     return dict(status_bioportal=STATUS_BIOPORTAL)
+# Update banner info with the message in .env
+@app.context_processor
+def display_info():
+    env_banner_info = dotenv_values(".env")["BANNER_INFO"]
+
+    dict_banner_info = dict(
+        display_info=None,
+        banner_info = env_banner_info
+    )
+    if env_banner_info != "":
+        dict_banner_info["display_info"] = True
+        return dict_banner_info
+    else:
+        dict_banner_info["display_info"] = False
+        return dict_banner_info      
 
 @app.context_processor
 def inject_app_version():
