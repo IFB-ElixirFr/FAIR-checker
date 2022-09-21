@@ -89,7 +89,7 @@ class WebResourceTestCase(unittest.TestCase):
         logging.info(f"{len(fc.get_rdf())} loaded RDF triples")
 
     def get_available_content(self, url):
-        head = requests.head(url)
+        head = requests.head(url, allow_redirects=True)
         print(head.status_code)
         if "Content-Type" in head.headers.keys():
             print("Content-Type: " + head.headers["Content-Type"])
@@ -105,43 +105,44 @@ class WebResourceTestCase(unittest.TestCase):
         # https://www.dbpedia.org/resources/linked-data/
 
         u1 = "http://ontology.inrae.fr/ppdo/page/ontology"
-        # head = requests.head(u1)
-        # print(head.status_code)
-        # self.assertEquals(head.status_code, 200)
-        # print(head.headers["Content-Type"])
-        # self.assertIn("text/html", head.headers["Content-Type"])
+        head = requests.head(u1)
+        print(head.status_code)
+        self.assertEquals(head.status_code, 200)
+        print(head.headers["Content-Type"])
+        self.assertIn("text/html", head.headers["Content-Type"])
 
         u2 = "http://ontology.inrae.fr/ppdo/data/ontology?output=ttl"
-        # head = requests.head(u2)
-        # print(head.status_code)
-        # self.assertEquals(head.status_code, 200)
-        # print(head.headers["Content-Type"])
-        # self.assertIn("text/rdf+n3", head.headers["Content-Type"])
+        head = requests.head(u2)
+        print(head.status_code)
+        self.assertEquals(head.status_code, 200)
+        print(head.headers["Content-Type"])
+        self.assertIn("text/rdf+n3", head.headers["Content-Type"])
 
         u3 = "https://www.data.gouv.fr/fr/datasets/r/620f7c74-a7f2-4358-895f-7651d4a0cad5"
-        # head = requests.head(u3)
-        # print(head.status_code)
-        # self.assertEquals(head.status_code, 302)
-        # print(head.headers["Content-Type"])
-        # print(head.headers)
-        # if head.headers["location"]:
-        #     u4 = head.headers["location"]
-        #     head = requests.head(u4)
-        #     print(head.status_code)
-        #     self.assertEquals(head.status_code, 200)
-        #     print(head.headers["Content-Type"])
-        #     self.assertIn("application/zip", head.headers["Content-Type"])
+        head = requests.head(u3)
+        print(head.status_code)
+        self.assertEquals(head.status_code, 302)
+        print(head.headers["Content-Type"])
+        print(head.headers)
+        if head.headers["location"]:
+            u4 = head.headers["location"]
+            head = requests.head(u4)
+            print(head.status_code)
+            self.assertEquals(head.status_code, 200)
+            print(head.headers["Content-Type"])
+            self.assertIn("application/zip", head.headers["Content-Type"])
 
         u5 = "http://ontology.inrae.fr/ppdo/data/ontology?output=ttl"
-        # head = requests.head(u5)
-        # print(head.status_code)
-        # self.assertEquals(head.status_code, 200)
-        # print(head.headers["Content-Type"])
-        # self.assertIn("text/rdf+n3", head.headers["Content-Type"])
+        head = requests.head(u5)
+        print(head.status_code)
+        self.assertEquals(head.status_code, 200)
+        print(head.headers["Content-Type"])
+        self.assertIn("text/rdf+n3", head.headers["Content-Type"])
 
         u6 = "https://www.wikidata.org/wiki/Q71533"
-        u7 = "http://www.wikidata.org/entity/Q71533"
-        u8 = "http://dbpedia.org/resource/Leipzig"
+        u7 = "https://www.wikidata.org/entity/Q71533"
+        u8 = "https://dbpedia.org/resource/Leipzig"
+        u9 = "http://dbpedia.org/resource/Leipzig"
 
         self.get_available_content(u1)
         self.get_available_content(u2)
@@ -151,6 +152,7 @@ class WebResourceTestCase(unittest.TestCase):
         self.get_available_content(u6)
         self.get_available_content(u7)
         self.get_available_content(u8)
+        self.get_available_content(u9)
 
 
 if __name__ == "__main__":
