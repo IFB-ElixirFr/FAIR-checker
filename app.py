@@ -49,6 +49,8 @@ from metrics.WebResource import WebResource
 from metrics.Evaluation import Result
 from profiles.bioschemas_shape_gen import validate_any_from_KG
 from profiles.bioschemas_shape_gen import validate_any_from_microdata
+from urllib.parse import urlparse
+
 
 import git
 
@@ -976,20 +978,58 @@ def check_kg(data):
         SELECT DISTINCT ?prop { ?s ?prop ?o } ORDER BY ?prop
     """
 
-    table_content = {"classes": [], "properties": []}
+    table_content = {
+        "classes": [],
+        "classes_false": [],
+        "properties": [],
+        "properties_false": [],
+        "done": False,
+    }
     qres = kg.query(query_classes)
     for row in qres:
-        table_content["classes"].append(
-            {"name": row["class"], "tag": {"OLS": None, "LOV": None, "BioPortal": None}}
-        )
-        print(f'{row["class"]}')
+        namespace = urlparse(row["class"]).netloc
+        class_entry = {}
+
+        if namespace == "bioschemas.org":
+            class_entry = {
+                "name": row["class"],
+                "tag": {
+                    "OLS": None,
+                    "LOV": None,
+                    "BioPortal": None,
+                    "Bioschemas": True,
+                },
+            }
+        else:
+            class_entry = {
+                "name": row["class"],
+                "tag": {"OLS": None, "LOV": None, "BioPortal": None},
+            }
+
+        table_content["classes"].append(class_entry)
 
     qres = kg.query(query_properties)
     for row in qres:
-        table_content["properties"].append(
-            {"name": row["prop"], "tag": {"OLS": None, "LOV": None, "BioPortal": None}}
-        )
-        print(f'{row["prop"]}')
+        namespace = urlparse(row["prop"]).netloc
+        property_entry = {}
+
+        if namespace == "bioschemas.org":
+            property_entry = {
+                "name": row["prop"],
+                "tag": {
+                    "OLS": None,
+                    "LOV": None,
+                    "BioPortal": None,
+                    "Bioschemas": True,
+                },
+            }
+        else:
+            property_entry = {
+                "name": row["prop"],
+                "tag": {"OLS": None, "LOV": None, "BioPortal": None},
+            }
+
+        table_content["properties"].append(property_entry)
 
     emit("done_check", table_content)
 
@@ -1004,6 +1044,15 @@ def check_kg(data):
         c["tag"]["BioPortal"] = util.ask_BioPortal(c["name"], "class")
         emit("done_check", table_content)
 
+        all_false_rule = [
+            c["tag"]["OLS"] == False,
+            c["tag"]["LOV"] == False,
+            c["tag"]["BioPortal"] == False,
+        ]
+
+        if all(all_false_rule) and not "Bioschemas" in c["tag"]:
+            table_content["classes_false"].append(c["name"])
+
     for p in table_content["properties"]:
 
         p["tag"]["OLS"] = util.ask_OLS(p["name"])
@@ -1014,6 +1063,17 @@ def check_kg(data):
 
         p["tag"]["BioPortal"] = util.ask_BioPortal(p["name"], "property")
         emit("done_check", table_content)
+
+        all_false_rule = [
+            p["tag"]["OLS"] == False,
+            p["tag"]["LOV"] == False,
+            p["tag"]["BioPortal"] == False,
+        ]
+        if all(all_false_rule) and not "Bioschemas" in p["tag"]:
+            table_content["properties_false"].append(p["name"])
+
+    table_content["done"] = True
+    emit("done_check", table_content)
 
 
 @DeprecationWarning
