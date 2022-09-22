@@ -417,7 +417,11 @@
                 $banner_vocab.parent('article').addClass('is-warning');
             }
             if (!(value['properties_false'].length === 0) || !(value['classes_false'].length === 0)) {
-                banner_message += 'Some terms have not been found in LOV, BioPortal, nor OLS.<br>You can use these semantics registries to search for already existing synonyms terms, or to propose new terms (Classes or Properties) to the community'
+                banner_message += 'Some terms have not been found in'
+                banner_message += ' <a href="https://lov.linkeddata.es/dataset/lov/" target="_blank">LOV</a>,'
+                banner_message += ' <a href="https://www.ebi.ac.uk/ols/index" target="_blank">OLS</a>,'
+                banner_message += ' nor <a href="https://bioportal.bioontology.org/" target="_blank">BioPortal</a>.'
+                banner_message += '<br>You can use these semantics registries to search for already existing synonyms terms, or to propose new terms (Classes or Properties) to the community'
                 $banner_vocab.html(banner_message);
             }
             if ((value['properties_false'].length === 0) && (value['classes_false'].length === 0)) {
@@ -716,9 +720,12 @@
 
                 <section id="section-LinkedData" class="section">
                     <!-- <h3 class="title is-3">Controlled vocabulary checks</h3> -->
+
                     <p>We now have a Knowledge Graph grounded to ontology concepts (classes) and relations (properties).
-                        Are these classes and properties already known in reference ontology registries such as LOV, OLS
-                        or BioPortal ? </p>
+                        Are these classes and properties already known in reference ontology registries such as 
+                        <a href="https://lov.linkeddata.es/dataset/lov/" target="_blank">LOV</a>, 
+                        <a href="https://www.ebi.ac.uk/ols/index" target="_blank">OLS</a>  
+                        or <a href="https://bioportal.bioontology.org/" target="_blank">BioPortal</a> ? </p>
                     <br>
                     <div class="field is-grouped is-grouped-centered">
                         <p class="control"><a id="btn_fairness" class="button is-primary is-large">Check
