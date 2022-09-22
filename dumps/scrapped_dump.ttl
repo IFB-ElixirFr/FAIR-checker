@@ -1,0 +1,14 @@
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix ns1: <http://ogp.me/ns#> .
+@prefix ns2: <http://schema.org/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<file:///Users/frikha-s/Documents/fair-checker-scrapper-cmd/FAIR-checker/> ns1:description "{{ngMeta['og:description']}}" ;
+    ns1:image "{{ngMeta['og:image']}}" ;
+    ns1:title "{{ngMeta['og:title']}}" .
+
+<https://bio.tools/fair_search_engine> a ns2:SoftwareApplication ;
+    dcterms:conformsTo "https://bioschemas.org/profiles/ComputationalTool/1.0-RELEASE" ;
+    ns2:applicationSubCategory <http://edamontology.org/topic_3077> ;
+    ns2:isAccessibleForFree true .
+

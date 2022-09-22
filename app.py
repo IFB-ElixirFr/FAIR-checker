@@ -2,6 +2,7 @@ from asyncio.log import logger
 from unittest import result
 import eventlet
 from numpy import broadcast
+import pandas as pd
 
 # from https://github.com/eventlet/eventlet/issues/670
 eventlet.monkey_patch(select=False)
@@ -1338,8 +1339,10 @@ Usage examples :
     python app.py --web
     python app.py --url http://bio.tools/bwa
     python app.py --bioschemas --url http://bio.tools/bwa
+    python app.py --scrapp --urls http://bio.tools/bwa
+    python app.py --scrapp --files file.txt
 
-Please report any issue to thomas.rosnet@france-bioinforatique.fr,
+Please report any issue to thomas.rosnet@france-bioinforatique.fr, sahar.frikha@france-bioinformatique.fr,
 or submit an issue to https://github.com/IFB-ElixirFr/fair-checker/issues.
 """,
     formatter_class=RawTextHelpFormatter,
@@ -1385,7 +1388,14 @@ parser.add_argument(
     help="validate Bioschemas profiles",
     dest="bioschemas",
 )
-
+parser.add_argument(
+    "-s",
+    "--scrapp",
+    action="store_true",
+    required=False,
+    help="extract RDF from a file containing a list of URLs",
+    dest="scrapp",
+)
 
 def get_result_style(result) -> str:
     if result == Result.NO:
@@ -1396,6 +1406,21 @@ def get_result_style(result) -> str:
         return "green"
     return ""
 
+def get_dataframe_from_query_results(res):    
+    return pd.DataFrame(res.bindings)
+
+def pourcentage(x,count_sum):
+        return x*100/count_sum
+def get_suffix(x):
+    return str(x).split(sep="/")[-1]
+def get_prefix(x):
+
+    if len(str(x).split('//'))>1:
+        return str(x).split('//')[1].split(sep="/")[0]
+    else:
+        return x
+def get_dataframe_from_query_results(res):    
+        return pd.DataFrame(res.bindings)
 
 if __name__ == "__main__":
 
@@ -1422,91 +1447,122 @@ if __name__ == "__main__":
     if not LOGGER.handlers:
         LOGGER.addHandler(logging.StreamHandler(sys.stdout))
 
-    if args.urls:
+    if args.scrapp:
         start_time = time.time()
+        KG_Total = ConjunctiveGraph()
 
-        console = Console()
-        table = Table(show_header=True, header_style="bold magenta")
-        table.add_column("Findable", justify="right")
-        table.add_column("Accessible", justify="right")
-        table.add_column("Interoperable", justify="right")
-        table.add_column("Reusable", justify="right")
+        urls=[]
+        if args.urls:
+            urls = args.urls
+        if args.files:
+            for file in args.files:
+                mydoc = open(file, 'r')
+                urls = mydoc.readlines()
+        if len(urls)>0:
+            for url in urls:
+                console = Console()
+                table_classes = Table(show_header=True, header_style="bold magenta")
+                table_classes.add_column("Class", justify="right")
+                table_classes.add_column("Count", justify="right")
+                table_classes.add_column("%", justify="right")
+                table_classes.add_column("Prefix", justify="right")
 
-        for url in args.urls:
-            logging.debug(f"Testing URL {url}")
-            web_res = WebResource(url)
+                table_props = Table(show_header=True, header_style="bold magenta")
+                table_props.add_column("Property Class", justify="right")
+                table_props.add_column("Count", justify="right")
+                table_props.add_column("%", justify="right")
+                table_props.add_column("Prefix", justify="right")
 
-            metrics_collection = []
-            metrics_collection.append(FAIRMetricsFactory.get_F1A(web_res))
-            metrics_collection.append(FAIRMetricsFactory.get_F1B(web_res))
-            metrics_collection.append(FAIRMetricsFactory.get_F2A(web_res))
-            metrics_collection.append(FAIRMetricsFactory.get_F2B(web_res))
-            metrics_collection.append(FAIRMetricsFactory.get_I1(web_res))
-            metrics_collection.append(FAIRMetricsFactory.get_I1A(web_res))
-            metrics_collection.append(FAIRMetricsFactory.get_I1B(web_res))
-            metrics_collection.append(FAIRMetricsFactory.get_I2(web_res))
-            metrics_collection.append(FAIRMetricsFactory.get_I2A(web_res))
-            metrics_collection.append(FAIRMetricsFactory.get_I2B(web_res))
-            metrics_collection.append(FAIRMetricsFactory.get_I3(web_res))
-            metrics_collection.append(FAIRMetricsFactory.get_R11(web_res))
-            metrics_collection.append(FAIRMetricsFactory.get_R12(web_res))
-            metrics_collection.append(FAIRMetricsFactory.get_R13(web_res))
+                logging.debug(f"Testing URL {url}")
+                web_res = WebResource(url)
+                KG_Total += web_res.get_rdf()
+                
+                KG = ConjunctiveGraph()
+                KG = web_res.get_rdf()
 
-            if args.bioschemas:
-                logging.info("Bioschemas eval")
+                ### Queries
+                classes_counts = """
+                SELECT ?c (count(?c) as ?count) WHERE {
+                    ?s rdf:type ?c .
+                } 
+                GROUP BY ?c
+                ORDER BY DESC(?count)
+                """
 
-            else:
+                property_counts = """
+                SELECT ?p (count(?p) as ?count) WHERE {
+                    ?s ?p ?o .
+                }
+                GROUP BY ?p
+                ORDER BY DESC(?count)
+                """
 
-                for m in track(metrics_collection, "Processing FAIR metrics ..."):
-                    logging.info(m.get_name())
-                    res = m.evaluate()
-                    if m.get_principle_tag().startswith("F"):
-                        table.add_row(
-                            Text(
-                                m.get_name() + " " + str(res.get_score()),
-                                style=get_result_style(res),
-                            ),
-                            "",
-                            "",
-                            "",
-                        )
-                    elif m.get_principle_tag().startswith("A"):
-                        table.add_row(
-                            "",
-                            Text(
-                                m.get_name() + " " + str(res.get_score()),
-                                style=get_result_style(res),
-                            ),
-                            "",
-                            "",
-                        )
-                    elif m.get_principle_tag().startswith("I"):
-                        table.add_row(
-                            "",
-                            "",
-                            Text(
-                                m.get_name() + " " + str(res.get_score()),
-                                style=get_result_style(res),
-                            ),
-                            "",
-                        )
-                    elif m.get_principle_tag().startswith("R"):
-                        table.add_row(
-                            "",
-                            "",
-                            "",
-                            Text(
-                                f"{m.get_name()} {str(res.get_score())}",
-                                style=get_result_style(res),
-                            ),
-                        )
+                ######## Classes
+                res_classes = KG.query(classes_counts)
+                
+                df_classes = pd.DataFrame(res_classes ,columns=['class','count'])
 
-            console.rule(f"[bold red]FAIRness evaluation for URL {url}")
-            console.print(table)
-            elapsed_time = round((time.time() - start_time), 2)
-            logging.info(f"FAIR metrics evaluated in {elapsed_time} s")
+                df_classes["class"] = df_classes["class"].astype("str")
+                df_classes["count"] = df_classes["count"].astype("int")
+                
+                sum_classes=0
+                for c in df_classes['count']:
+                    sum_classes+=c
 
-    if args.files:
+                df_classes_copy = df_classes.copy()
+                df_classes_copy["%"] = df_classes_copy['count'].apply(lambda x : x*100/sum_classes)
+                df_classes_copy["label"] = df_classes_copy['class'].apply(get_suffix) 
+                df_classes_copy["onlology"] = df_classes_copy['class'].apply(get_prefix) 
+
+                ######## Properties
+                res_props = KG.query(property_counts)
+                #df_props = get_dataframe_from_query_results(res_props)
+
+                df_props = pd.DataFrame(res_props ,columns=['prop','count'])
+
+                df_props["prop"] = df_props["prop"].astype("str")
+                df_props["count"] = df_props["count"].astype("int")
+                
+                sum_props=0
+                for c in df_props['count']:
+                    sum_props+=c
+
+                df_props_copy = df_props.copy()
+                df_props_copy["%"] = df_props_copy['count'].apply(lambda x : x*100/sum_props)
+                df_props_copy["label"] = df_props_copy['prop'].apply(get_suffix) 
+                df_props_copy["onlology"] = df_props_copy['prop'].apply(get_prefix) 
+
+                props = df_props_copy
+                classes=df_classes_copy
+
+                ## Classes Table
+                for index, row in classes.iterrows():
+                    table_classes.add_row(
+                        Text(row[3]),
+                        Text(str(row[1])),
+                        Text(str("%.2f"%row[2])),
+                        Text(row[4])
+                    )
+                ## Props Table
+                for index, row in props.iterrows():
+                    table_props.add_row(
+                        Text(row[3]),
+                        Text(str(row[1])),
+                        Text(str("%.2f"%row[2])),
+                        Text(row[4])
+                    )
+                
+                console.rule(f"[bold red]Classes evaluation for URL {url}")
+                console.print(table_classes)
+
+                console.rule(f"[bold red]Properties evaluation for URL {url}")
+                console.print(table_props)
+
+        elapsed_time = round((time.time() - start_time), 2)
+        logging.info(f"Metrics evaluated in {elapsed_time} s")
+        logging.info(f"Loaded {len(KG_Total)} triples, and saved in dumps/scrapped_dump.ttl")
+        KG_Total.serialize("dumps/scrapped_dump.ttl", format="turtle")
+    elif args.files:
         start_time = time.time()
 
         console = Console()
@@ -1624,7 +1680,6 @@ if __name__ == "__main__":
             )
             elapsed_time = round((time.time() - start_time), 2)
             logging.info(f"FAIR metrics evaluated in {elapsed_time} s")
-
     elif args.web:
         logging.info("Starting webserver")
         try:
@@ -1632,3 +1687,86 @@ if __name__ == "__main__":
         finally:
             browser = WebResource.WEB_BROWSER_HEADLESS
             browser.quit()
+    elif args.urls:
+        start_time = time.time()
+
+        console = Console()
+        table = Table(show_header=True, header_style="bold magenta")
+        table.add_column("Findable", justify="right")
+        table.add_column("Accessible", justify="right")
+        table.add_column("Interoperable", justify="right")
+        table.add_column("Reusable", justify="right")
+
+        for url in args.urls:
+            logging.debug(f"Testing URL {url}")
+            web_res = WebResource(url)
+
+            metrics_collection = []
+            metrics_collection.append(FAIRMetricsFactory.get_F1A(web_res))
+            metrics_collection.append(FAIRMetricsFactory.get_F1B(web_res))
+            metrics_collection.append(FAIRMetricsFactory.get_F2A(web_res))
+            metrics_collection.append(FAIRMetricsFactory.get_F2B(web_res))
+            metrics_collection.append(FAIRMetricsFactory.get_I1(web_res))
+            metrics_collection.append(FAIRMetricsFactory.get_I1A(web_res))
+            metrics_collection.append(FAIRMetricsFactory.get_I1B(web_res))
+            metrics_collection.append(FAIRMetricsFactory.get_I2(web_res))
+            metrics_collection.append(FAIRMetricsFactory.get_I2A(web_res))
+            metrics_collection.append(FAIRMetricsFactory.get_I2B(web_res))
+            metrics_collection.append(FAIRMetricsFactory.get_I3(web_res))
+            metrics_collection.append(FAIRMetricsFactory.get_R11(web_res))
+            metrics_collection.append(FAIRMetricsFactory.get_R12(web_res))
+            metrics_collection.append(FAIRMetricsFactory.get_R13(web_res))
+
+            if args.bioschemas:
+                logging.info("Bioschemas eval")
+
+            else:
+
+                for m in track(metrics_collection, "Processing FAIR metrics ..."):
+                    logging.info(m.get_name())
+                    res = m.evaluate()
+                    if m.get_principle_tag().startswith("F"):
+                        table.add_row(
+                            Text(
+                                m.get_name() + " " + str(res.get_score()),
+                                style=get_result_style(res),
+                            ),
+                            "",
+                            "",
+                            "",
+                        )
+                    elif m.get_principle_tag().startswith("A"):
+                        table.add_row(
+                            "",
+                            Text(
+                                m.get_name() + " " + str(res.get_score()),
+                                style=get_result_style(res),
+                            ),
+                            "",
+                            "",
+                        )
+                    elif m.get_principle_tag().startswith("I"):
+                        table.add_row(
+                            "",
+                            "",
+                            Text(
+                                m.get_name() + " " + str(res.get_score()),
+                                style=get_result_style(res),
+                            ),
+                            "",
+                        )
+                    elif m.get_principle_tag().startswith("R"):
+                        table.add_row(
+                            "",
+                            "",
+                            "",
+                            Text(
+                                f"{m.get_name()} {str(res.get_score())}",
+                                style=get_result_style(res),
+                            ),
+                        )
+
+            console.rule(f"[bold red]FAIRness evaluation for URL {url}")
+            console.print(table)
+            elapsed_time = round((time.time() - start_time), 2)
+            logging.info(f"FAIR metrics evaluated in {elapsed_time} s")
