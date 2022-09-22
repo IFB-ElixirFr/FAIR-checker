@@ -221,7 +221,9 @@
         var linkText = $this.children('span');
         var $img = $this.children('i');
         var showing = $this.data("show");
-
+        console.log($('#test_row_guideline_{{f.id}} :visible').text());
+        console.log("######");
+        console.log($('#test_row_guideline_{{f.id}} :hidden').text());
         if(showing === "no"){
             $content.addClass("show-content", 500);
             $content.removeClass("hide-content", 500);
