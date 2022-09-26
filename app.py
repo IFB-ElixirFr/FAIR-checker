@@ -187,14 +187,12 @@ def validate_status(url):
 
 @app.context_processor
 def display_vocab_status():
+    global STATUS_TEST
     global DICT_BANNER_INFO
 
     # status_bioportal = validate_status("https://bioportal.bioontology.org/")
     # status_ols = validate_status("https://www.ebi.ac.uk/ols/index")
     # status_lov = validate_status("https://lov.linkeddata.es/dataset/lov/sparql")
-
-
-
 
     STATUS_BIOPORTAL = requests.head("https://bioportal.bioontology.org/").status_code
     STATUS_OLS = requests.head("https://www.ebi.ac.uk/ols/index").status_code
@@ -207,15 +205,22 @@ def display_vocab_status():
     if STATUS_BIOPORTAL != 200: 
         info_bioportal = "BioPortal might not be reachable. Status code: " + str(STATUS_BIOPORTAL)
         DICT_BANNER_INFO["banner_message_info"]["status_bioportal"] = info_bioportal
-        # DICT_BANNER_INFO["display_info"] = True
+    else: 
+        DICT_BANNER_INFO["banner_message_info"].pop("status_bioportal", None)
+
+
     if STATUS_OLS != 200: 
         info_ols = "OLS might not be reachable. Status code: " + str(STATUS_OLS)
         DICT_BANNER_INFO["banner_message_info"]["status_ols"] = info_ols
-        # DICT_BANNER_INFO["display_info"] = True
+    else: 
+        DICT_BANNER_INFO["banner_message_info"].pop("status_ols", None)
+
+
     if STATUS_LOV != 200: 
         info_lov = "LOV might not be reachable. Status code: " + str(STATUS_LOV)
         DICT_BANNER_INFO["banner_message_info"]["status_lov"] = info_lov
-        # DICT_BANNER_INFO["display_info"] = True
+    else: 
+        DICT_BANNER_INFO["banner_message_info"].pop("status_lov", None)
 
     return DICT_BANNER_INFO
     
@@ -229,7 +234,7 @@ def display_vocab_status():
 
 
 scheduler = BackgroundScheduler()   
-scheduler.add_job(func=display_vocab_status, trigger="interval", seconds=600)
+scheduler.add_job(func=display_vocab_status, trigger="interval", seconds=6)
 # scheduler.add_job(func=display_info, trigger="interval", seconds=600)
 scheduler.start()
 
