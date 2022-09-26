@@ -53,6 +53,11 @@ from metrics.Evaluation import Result
 from profiles.bioschemas_shape_gen import validate_any_from_KG
 from profiles.bioschemas_shape_gen import validate_any_from_microdata
 
+import time
+import atexit
+import requests
+from apscheduler.schedulers.background import BackgroundScheduler
+
 import git
 
 basedir = path.abspath(path.dirname(__file__))
@@ -154,23 +159,19 @@ FILE_UUID = ""
 
 DICT_TEMP_RES = {}
 
-import time
-import atexit
-import requests
-from apscheduler.schedulers.background import BackgroundScheduler
-
-DICT_BANNER_INFO = {
-    "banner_message_info": {}
-}
+DICT_BANNER_INFO = {"banner_message_info": {}}
 
 # Update banner info with the message in .env
 @app.context_processor
 def display_info():
     global DICT_BANNER_INFO
+
     try:
         env_banner_info = dotenv_values(".env")["BANNER_INFO"]
     except KeyError:
-        logger.warning("BANNER_INFO is not set in .env (e.g. BANNER_INFO='Write your message here')")
+        logger.warning(
+            "BANNER_INFO is not set in .env (e.g. BANNER_INFO='Write your message here')"
+        )
         DICT_BANNER_INFO["banner_message_info"].pop("env_info", None)
         return DICT_BANNER_INFO
 
@@ -185,9 +186,9 @@ def display_info():
 def validate_status(url):
     return requests.head(url).status_code == 200
 
+
 @app.context_processor
 def display_vocab_status():
-    global STATUS_TEST
     global DICT_BANNER_INFO
 
     # status_bioportal = validate_status("https://bioportal.bioontology.org/")
@@ -196,44 +197,34 @@ def display_vocab_status():
 
     STATUS_BIOPORTAL = requests.head("https://bioportal.bioontology.org/").status_code
     STATUS_OLS = requests.head("https://www.ebi.ac.uk/ols/index").status_code
-    STATUS_LOV = requests.head("https://lov.linkeddata.es/dataset/lov/sparql").status_code
+    STATUS_LOV = requests.head(
+        "https://lov.linkeddata.es/dataset/lov/sparql"
+    ).status_code
 
-    # DICT_BANNER_INFO["banner_message_info"]["status_bioportal"]
-    # DICT_BANNER_INFO["banner_message_info"]["status_ols"]
-    # DICT_BANNER_INFO["banner_message_info"]["status_lov"]
-
-    if STATUS_BIOPORTAL != 200: 
-        info_bioportal = "BioPortal might not be reachable. Status code: " + str(STATUS_BIOPORTAL)
+    if STATUS_BIOPORTAL != 200:
+        info_bioportal = "BioPortal might not be reachable. Status code: " + str(
+            STATUS_BIOPORTAL
+        )
         DICT_BANNER_INFO["banner_message_info"]["status_bioportal"] = info_bioportal
-    else: 
+    else:
         DICT_BANNER_INFO["banner_message_info"].pop("status_bioportal", None)
 
-
-    if STATUS_OLS != 200: 
+    if STATUS_OLS != 200:
         info_ols = "OLS might not be reachable. Status code: " + str(STATUS_OLS)
         DICT_BANNER_INFO["banner_message_info"]["status_ols"] = info_ols
-    else: 
+    else:
         DICT_BANNER_INFO["banner_message_info"].pop("status_ols", None)
 
-
-    if STATUS_LOV != 200: 
+    if STATUS_LOV != 200:
         info_lov = "LOV might not be reachable. Status code: " + str(STATUS_LOV)
         DICT_BANNER_INFO["banner_message_info"]["status_lov"] = info_lov
-    else: 
+    else:
         DICT_BANNER_INFO["banner_message_info"].pop("status_lov", None)
 
     return DICT_BANNER_INFO
-    
-    # if STATUS_BIOPORTAL != 201 or STATUS_OLS != 201 or STATUS_LOV != 201:
-    #     DICT_BANNER_INFO["display_info"] = True
-    #     return DICT_BANNER_INFO
-    # else:
-    #     DICT_BANNER_INFO["display_info"] = False
-    #     return DICT_BANNER_INFO
 
 
-
-scheduler = BackgroundScheduler()   
+scheduler = BackgroundScheduler()
 scheduler.add_job(func=display_vocab_status, trigger="interval", seconds=6)
 # scheduler.add_job(func=display_info, trigger="interval", seconds=600)
 scheduler.start()
@@ -241,8 +232,6 @@ scheduler.start()
 # Shut down the scheduler when exiting the app
 atexit.register(lambda: scheduler.shutdown())
 
-
-   
 
 @app.context_processor
 def inject_app_version():
