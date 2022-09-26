@@ -159,50 +159,73 @@ import atexit
 import requests
 from apscheduler.schedulers.background import BackgroundScheduler
 
-# STATUS_BIOPORTAL = requests.head("https://bioportal.bioontology.org/").status_code
-# STATUS_OLS = requests.head("https://www.ebi.ac.uk/ols/index").status_code
-# STATUS_LOV = requests.head("https://lov.linkeddata.es/dataset/lov/sparql").status_code
+DICT_BANNER_INFO = {
+    "banner_message_info": {}
+}
 
-STATUS_TEST = 200
+# Update banner info with the message in .env
+@app.context_processor
+def display_info():
+    global DICT_BANNER_INFO
+    try:
+        env_banner_info = dotenv_values(".env")["BANNER_INFO"]
+    except KeyError:
+        logger.warning("BANNER_INFO is not set in .env (e.g. BANNER_INFO='Write your message here')")
+        DICT_BANNER_INFO["banner_message_info"].pop("env_info", None)
+        return DICT_BANNER_INFO
+
+    if env_banner_info != "":
+        DICT_BANNER_INFO["banner_message_info"]["env_info"] = env_banner_info
+    else:
+        DICT_BANNER_INFO["banner_message_info"].pop("env_info", None)
+
+    return DICT_BANNER_INFO
+
+
+def validate_status(url):
+    return requests.head(url).status_code == 200
 
 @app.context_processor
 def display_vocab_status():
-    global STATUS_TEST
+    global DICT_BANNER_INFO
+
+    # status_bioportal = validate_status("https://bioportal.bioontology.org/")
+    # status_ols = validate_status("https://www.ebi.ac.uk/ols/index")
+    # status_lov = validate_status("https://lov.linkeddata.es/dataset/lov/sparql")
+
+
+
 
     STATUS_BIOPORTAL = requests.head("https://bioportal.bioontology.org/").status_code
     STATUS_OLS = requests.head("https://www.ebi.ac.uk/ols/index").status_code
     STATUS_LOV = requests.head("https://lov.linkeddata.es/dataset/lov/sparql").status_code
 
-    # print(STATUS_TEST)
-    # if STATUS_TEST == 200:
-    #     STATUS_TEST = 404
+    # DICT_BANNER_INFO["banner_message_info"]["status_bioportal"]
+    # DICT_BANNER_INFO["banner_message_info"]["status_ols"]
+    # DICT_BANNER_INFO["banner_message_info"]["status_lov"]
+
+    if STATUS_BIOPORTAL != 200: 
+        info_bioportal = "BioPortal might not be reachable. Status code: " + str(STATUS_BIOPORTAL)
+        DICT_BANNER_INFO["banner_message_info"]["status_bioportal"] = info_bioportal
+        # DICT_BANNER_INFO["display_info"] = True
+    if STATUS_OLS != 200: 
+        info_ols = "OLS might not be reachable. Status code: " + str(STATUS_OLS)
+        DICT_BANNER_INFO["banner_message_info"]["status_ols"] = info_ols
+        # DICT_BANNER_INFO["display_info"] = True
+    if STATUS_LOV != 200: 
+        info_lov = "LOV might not be reachable. Status code: " + str(STATUS_LOV)
+        DICT_BANNER_INFO["banner_message_info"]["status_lov"] = info_lov
+        # DICT_BANNER_INFO["display_info"] = True
+
+    return DICT_BANNER_INFO
+    
+    # if STATUS_BIOPORTAL != 201 or STATUS_OLS != 201 or STATUS_LOV != 201:
+    #     DICT_BANNER_INFO["display_info"] = True
+    #     return DICT_BANNER_INFO
     # else:
-    #     STATUS_TEST = 200
+    #     DICT_BANNER_INFO["display_info"] = False
+    #     return DICT_BANNER_INFO
 
-    dict_status = dict(
-        display_status=None, 
-        status_bioportal=STATUS_BIOPORTAL, 
-        status_ols=STATUS_OLS,
-        status_lov=STATUS_LOV,
-    )
-    if STATUS_BIOPORTAL != 201 or STATUS_OLS != 201 or STATUS_LOV != 201:
-        dict_status["display_status"] = True
-        return dict_status
-    else:
-        dict_status["display_status"] = False
-        return dict_status
-
-  
-
-
-# def update_check_vocab_status():
-#     # print(time.strftime("%A, %d. %B %Y %I:%M:%S %p"))
-#     r_bioportal = requests.head("https://bioportal.bioontology.org/")
-#     r_ols = requests.head("https://www.ebi.ac.uk/ols/index")
-#     r_lov = requests.head("https://lov.linkeddata.es/dataset/lov/sparql")
-#     STATUS_BIOPORTAL = r_bioportal.status_code
-#     STATUS_OLS = r_ols.status_code
-#     STATUS_LOV = r_lov.status_code
 
 
 scheduler = BackgroundScheduler()   
@@ -214,21 +237,7 @@ scheduler.start()
 atexit.register(lambda: scheduler.shutdown())
 
 
-# Update banner info with the message in .env
-@app.context_processor
-def display_info():
-    env_banner_info = dotenv_values(".env")["BANNER_INFO"]
-
-    dict_banner_info = dict(
-        display_info=None,
-        banner_info = env_banner_info
-    )
-    if env_banner_info != "":
-        dict_banner_info["display_info"] = True
-        return dict_banner_info
-    else:
-        dict_banner_info["display_info"] = False
-        return dict_banner_info      
+   
 
 @app.context_processor
 def inject_app_version():

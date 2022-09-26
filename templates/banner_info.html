@@ -1,21 +1,16 @@
-{% if display_info or display_status %}
+{% if banner_message_info %}
 <section class="hero is-warning">
     <div class="hero-body">
         <!-- <p class="title">
           Warning hero
         </p> -->
         <p class="subtitle">
-            {% if status_bioportal != 201 %}
-              <span>BioPortal might not be reachable. Status code: {{ status_bioportal }}</span>
-            {% endif %}
-            {% if status_ols != 201 %}
-              <span>OLS might not be reachable. Status code: {{ status_ols }}</span>
-            {% endif %}
-            {% if status_lov != 201 %}
-              <span>LOV might not be reachable. Status code: {{ status_lov }}</span>
-            {% endif %}
-
-            {{ banner_info|safe }}
+          {% for message in banner_message_info %}
+            {{ banner_message_info[message]|safe }}
+            {%- if not loop.last %}
+            <br>
+            {% else %}{% endif %}
+          {% endfor %}
         </p>
       </div>
 </section>
