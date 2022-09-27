@@ -1486,7 +1486,6 @@ if __name__ == "__main__":
                 logging.debug(f"Testing URL {url}")
                 web_res = WebResource(url)
                 KG_Total += web_res.get_rdf()
-
                 KG = ConjunctiveGraph()
                 KG = web_res.get_rdf()
 
@@ -1571,13 +1570,15 @@ if __name__ == "__main__":
 
                 console.rule(f"[bold red]Properties evaluation for URL {url}")
                 console.print(table_props)
+                logging.info(
+                    f"Loaded {len(KG)} triples from {url}, and saved in dumps/{'_'.join(url.split('/'))}_{uuid.uuid4()}.ttl"
+                )
+                KG.serialize(f"dumps/{'$'.join(url.split('/'))}${uuid.uuid4()}.ttl", format="turtle")
 
         elapsed_time = round((time.time() - start_time), 2)
         logging.info(f"Metrics evaluated in {elapsed_time} s")
-        logging.info(
-            f"Loaded {len(KG_Total)} triples, and saved in dumps/{uuid.uuid4()}.ttl"
-        )
-        KG_Total.serialize(f"dumps/{uuid.uuid4()}.ttl", format="turtle")
+        logging.info(f"Loaded {len(KG_Total)} triples in total.")
+
     elif args.files:
         start_time = time.time()
 
