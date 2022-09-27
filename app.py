@@ -1397,6 +1397,7 @@ parser.add_argument(
     dest="scrapp",
 )
 
+
 def get_result_style(result) -> str:
     if result == Result.NO:
         return "red"
@@ -1406,21 +1407,30 @@ def get_result_style(result) -> str:
         return "green"
     return ""
 
-def get_dataframe_from_query_results(res):    
+
+def get_dataframe_from_query_results(res):
     return pd.DataFrame(res.bindings)
 
-def pourcentage(x,count_sum):
-        return x*100/count_sum
+
+def pourcentage(x, count_sum):
+    return x * 100 / count_sum
+
+
 def get_suffix(x):
     return str(x).split(sep="/")[-1]
+
+
 def get_prefix(x):
 
-    if len(str(x).split('//'))>1:
-        return str(x).split('//')[1].split(sep="/")[0]
+    if len(str(x).split("//")) > 1:
+        return str(x).split("//")[1].split(sep="/")[0]
     else:
         return x
-def get_dataframe_from_query_results(res):    
-        return pd.DataFrame(res.bindings)
+
+
+def get_dataframe_from_query_results(res):
+    return pd.DataFrame(res.bindings)
+
 
 if __name__ == "__main__":
 
@@ -1451,14 +1461,14 @@ if __name__ == "__main__":
         start_time = time.time()
         KG_Total = ConjunctiveGraph()
 
-        urls=[]
+        urls = []
         if args.urls:
             urls = args.urls
         if args.files:
             for file in args.files:
-                mydoc = open(file, 'r')
+                mydoc = open(file, "r")
                 urls = mydoc.readlines()
-        if len(urls)>0:
+        if len(urls) > 0:
             for url in urls:
                 console = Console()
                 table_classes = Table(show_header=True, header_style="bold magenta")
@@ -1476,7 +1486,7 @@ if __name__ == "__main__":
                 logging.debug(f"Testing URL {url}")
                 web_res = WebResource(url)
                 KG_Total += web_res.get_rdf()
-                
+
                 KG = ConjunctiveGraph()
                 KG = web_res.get_rdf()
 
@@ -1499,59 +1509,63 @@ if __name__ == "__main__":
 
                 ######## Classes
                 res_classes = KG.query(classes_counts)
-                
-                df_classes = pd.DataFrame(res_classes ,columns=['class','count'])
+
+                df_classes = pd.DataFrame(res_classes, columns=["class", "count"])
 
                 df_classes["class"] = df_classes["class"].astype("str")
                 df_classes["count"] = df_classes["count"].astype("int")
-                
-                sum_classes=0
-                for c in df_classes['count']:
-                    sum_classes+=c
+
+                sum_classes = 0
+                for c in df_classes["count"]:
+                    sum_classes += c
 
                 df_classes_copy = df_classes.copy()
-                df_classes_copy["%"] = df_classes_copy['count'].apply(lambda x : x*100/sum_classes)
-                df_classes_copy["label"] = df_classes_copy['class'].apply(get_suffix) 
-                df_classes_copy["onlology"] = df_classes_copy['class'].apply(get_prefix) 
+                df_classes_copy["%"] = df_classes_copy["count"].apply(
+                    lambda x: x * 100 / sum_classes
+                )
+                df_classes_copy["label"] = df_classes_copy["class"].apply(get_suffix)
+                df_classes_copy["onlology"] = df_classes_copy["class"].apply(get_prefix)
 
                 ######## Properties
                 res_props = KG.query(property_counts)
-                #df_props = get_dataframe_from_query_results(res_props)
+                # df_props = get_dataframe_from_query_results(res_props)
 
-                df_props = pd.DataFrame(res_props ,columns=['prop','count'])
+                df_props = pd.DataFrame(res_props, columns=["prop", "count"])
 
                 df_props["prop"] = df_props["prop"].astype("str")
                 df_props["count"] = df_props["count"].astype("int")
-                
-                sum_props=0
-                for c in df_props['count']:
-                    sum_props+=c
+
+                sum_props = 0
+                for c in df_props["count"]:
+                    sum_props += c
 
                 df_props_copy = df_props.copy()
-                df_props_copy["%"] = df_props_copy['count'].apply(lambda x : x*100/sum_props)
-                df_props_copy["label"] = df_props_copy['prop'].apply(get_suffix) 
-                df_props_copy["onlology"] = df_props_copy['prop'].apply(get_prefix) 
+                df_props_copy["%"] = df_props_copy["count"].apply(
+                    lambda x: x * 100 / sum_props
+                )
+                df_props_copy["label"] = df_props_copy["prop"].apply(get_suffix)
+                df_props_copy["onlology"] = df_props_copy["prop"].apply(get_prefix)
 
                 props = df_props_copy
-                classes=df_classes_copy
+                classes = df_classes_copy
 
                 ## Classes Table
                 for index, row in classes.iterrows():
                     table_classes.add_row(
                         Text(row[3]),
                         Text(str(row[1])),
-                        Text(str("%.2f"%row[2])),
-                        Text(row[4])
+                        Text(str("%.2f" % row[2])),
+                        Text(row[4]),
                     )
                 ## Props Table
                 for index, row in props.iterrows():
                     table_props.add_row(
                         Text(row[3]),
                         Text(str(row[1])),
-                        Text(str("%.2f"%row[2])),
-                        Text(row[4])
+                        Text(str("%.2f" % row[2])),
+                        Text(row[4]),
                     )
-                
+
                 console.rule(f"[bold red]Classes evaluation for URL {url}")
                 console.print(table_classes)
 
@@ -1560,8 +1574,10 @@ if __name__ == "__main__":
 
         elapsed_time = round((time.time() - start_time), 2)
         logging.info(f"Metrics evaluated in {elapsed_time} s")
-        logging.info(f"Loaded {len(KG_Total)} triples, and saved in dumps/scrapped_dump.ttl")
-        KG_Total.serialize("dumps/scrapped_dump.ttl", format="turtle")
+        logging.info(
+            f"Loaded {len(KG_Total)} triples, and saved in dumps/{uuid.uuid4()}.ttl"
+        )
+        KG_Total.serialize(f"dumps/{uuid.uuid4()}.ttl", format="turtle")
     elif args.files:
         start_time = time.time()
 

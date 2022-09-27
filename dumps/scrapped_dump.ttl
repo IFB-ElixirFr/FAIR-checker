@@ -1,14 +1,152 @@
 @prefix dcterms: <http://purl.org/dc/terms/> .
-@prefix ns1: <http://ogp.me/ns#> .
-@prefix ns2: <http://schema.org/> .
-@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix ns1: <http://schema.org/> .
+@prefix ns2: <http://bioschemas.org/> .
+@prefix ns3: <http://ogp.me/ns#> .
+@prefix ns4: <https://bio.tools/ontology/> .
 
-<file:///Users/frikha-s/Documents/fair-checker-scrapper-cmd/FAIR-checker/> ns1:description "{{ngMeta['og:description']}}" ;
-    ns1:image "{{ngMeta['og:image']}}" ;
-    ns1:title "{{ngMeta['og:title']}}" .
+<file:///Users/frikha-s/Documents/fair-checker-scrapper-cmd/FAIR-checker/> ns3:description "{{ngMeta['og:description']}}" ;
+    ns3:image "{{ngMeta['og:image']}}" ;
+    ns3:title "{{ngMeta['og:title']}}" .
 
-<https://bio.tools/fair_search_engine> a ns2:SoftwareApplication ;
+<https://bio.tools/bwa> a ns1:SoftwareApplication ;
+    ns2:input <https://bio.tools/bwa/op_1/in_1>,
+        <https://bio.tools/bwa/op_2/in_1>,
+        <https://bio.tools/bwa/op_2/in_2>,
+        <https://bio.tools/bwa/op_3/in_1>,
+        <https://bio.tools/bwa/op_3/in_2>,
+        <https://bio.tools/bwa/op_4/in_1>,
+        <https://bio.tools/bwa/op_4/in_2>,
+        <https://bio.tools/bwa/op_4/in_3>,
+        <https://bio.tools/bwa/op_5/in_1>,
+        <https://bio.tools/bwa/op_5/in_2>,
+        <https://bio.tools/bwa/op_5/in_3>,
+        <https://bio.tools/bwa/op_6/in_1>,
+        <https://bio.tools/bwa/op_6/in_2> ;
+    ns2:output <https://bio.tools/bwa/op_1/in_1>,
+        <https://bio.tools/bwa/op_2/in_1>,
+        <https://bio.tools/bwa/op_3/in_1>,
+        <https://bio.tools/bwa/op_4/in_1>,
+        <https://bio.tools/bwa/op_5/in_1>,
+        <https://bio.tools/bwa/op_6/in_1> ;
     dcterms:conformsTo "https://bioschemas.org/profiles/ComputationalTool/1.0-RELEASE" ;
-    ns2:applicationSubCategory <http://edamontology.org/topic_3077> ;
-    ns2:isAccessibleForFree true .
+    ns1:applicationSubCategory <http://edamontology.org/topic_0102> ;
+    ns1:citation <https://doi.org/10.1016/j.ygeno.2017.03.001>,
+        <https://doi.org/10.1093/bioinformatics/btp324>,
+        <https://doi.org/10.1093/bioinformatics/btp698>,
+        <https://doi.org/10.1093/bioinformatics/btu146>,
+        <https://doi.org/10.1186/1471-2105-14-184>,
+        <https://doi.org/10.1186/1471-2164-15-264>,
+        "pmcid:PMC2705234",
+        "pmcid:PMC3694458",
+        "pmcid:PMC4051166",
+        "pubmed:19451168",
+        "pubmed:20080505",
+        "pubmed:23758764",
+        "pubmed:24626854",
+        "pubmed:24708189",
+        "pubmed:28286147" ;
+    ns1:contributor <http://orcid.org/0000-0003-4874-2874> ;
+    ns1:featureList <http://edamontology.org/operation_0292>,
+        <http://edamontology.org/operation_3198>,
+        <http://edamontology.org/operation_3211>,
+        <http://edamontology.org/operation_3429> ;
+    ns1:softwareHelp <http://bio-bwa.sourceforge.net/bwa.shtml> ;
+    ns4:primaryContact "bwa team" .
+
+<http://orcid.org/0000-0003-4874-2874> a <schema:Person> .
+
+<https://bio.tools/bwa/op_2/in_2> a <http://bioschemas.org/types/FormalParameter> ;
+    ns1:identifier "http://edamontology.org/data_2044" ;
+    ns1:name "Sequence" ;
+    ns1:sameAs "http://edamontology.org/data_2044" .
+
+<https://bio.tools/bwa/op_3/in_2> a <http://bioschemas.org/types/FormalParameter> ;
+    ns1:identifier "http://edamontology.org/data_2044" ;
+    ns1:name "Sequence" ;
+    ns1:sameAs "http://edamontology.org/data_2044" .
+
+<https://bio.tools/bwa/op_4/in_2> a <http://bioschemas.org/types/FormalParameter> ;
+    ns1:identifier "http://edamontology.org/data_2044" ;
+    ns1:name "Sequence" ;
+    ns1:sameAs "http://edamontology.org/data_2044" .
+
+<https://bio.tools/bwa/op_4/in_3> a <http://bioschemas.org/types/FormalParameter> ;
+    ns1:identifier "http://edamontology.org/data_2044" ;
+    ns1:name "Sequence" ;
+    ns1:sameAs "http://edamontology.org/data_2044" .
+
+<https://bio.tools/bwa/op_5/in_2> a <http://bioschemas.org/types/FormalParameter> ;
+    ns1:identifier "http://edamontology.org/data_2044" ;
+    ns1:name "Sequence" ;
+    ns1:sameAs "http://edamontology.org/data_2044" .
+
+<https://bio.tools/bwa/op_5/in_3> a <http://bioschemas.org/types/FormalParameter> ;
+    ns1:identifier "http://edamontology.org/data_2044" ;
+    ns1:name "Sequence" ;
+    ns1:sameAs "http://edamontology.org/data_2044" .
+
+<https://bio.tools/bwa/op_6/in_2> a <http://bioschemas.org/types/FormalParameter> ;
+    ns1:identifier "http://edamontology.org/data_2044" ;
+    ns1:name "Sequence" ;
+    ns1:sameAs "http://edamontology.org/data_2044" .
+
+<https://doi.org/10.1016/j.ygeno.2017.03.001> a ns1:CreativeWork .
+
+<https://doi.org/10.1093/bioinformatics/btp324> a ns1:CreativeWork .
+
+<https://doi.org/10.1093/bioinformatics/btp698> a ns1:CreativeWork .
+
+<https://doi.org/10.1093/bioinformatics/btu146> a ns1:CreativeWork .
+
+<https://doi.org/10.1186/1471-2105-14-184> a ns1:CreativeWork .
+
+<https://doi.org/10.1186/1471-2164-15-264> a ns1:CreativeWork .
+
+<https://bio.tools/bwa/op_1/in_1> a <http://bioschemas.org/types/FormalParameter> ;
+    ns1:identifier "http://edamontology.org/data_2044",
+        "http://edamontology.org/data_3210" ;
+    ns1:name "Genome index",
+        "Sequence" ;
+    ns1:sameAs "http://edamontology.org/data_2044",
+        "http://edamontology.org/data_3210" .
+
+<https://bio.tools/bwa/op_2/in_1> a <http://bioschemas.org/types/FormalParameter> ;
+    ns1:identifier "http://edamontology.org/data_1916",
+        "http://edamontology.org/data_3210" ;
+    ns1:name "Alignment",
+        "Genome index" ;
+    ns1:sameAs "http://edamontology.org/data_1916",
+        "http://edamontology.org/data_3210" .
+
+<https://bio.tools/bwa/op_3/in_1> a <http://bioschemas.org/types/FormalParameter> ;
+    ns1:identifier "http://edamontology.org/data_2012",
+        "http://edamontology.org/data_2044" ;
+    ns1:name "Sequence",
+        "Sequence coordinates" ;
+    ns1:sameAs "http://edamontology.org/data_2012",
+        "http://edamontology.org/data_2044" .
+
+<https://bio.tools/bwa/op_4/in_1> a <http://bioschemas.org/types/FormalParameter> ;
+    ns1:identifier "http://edamontology.org/data_0863",
+        "http://edamontology.org/data_2044" ;
+    ns1:name "Sequence",
+        "Sequence alignment" ;
+    ns1:sameAs "http://edamontology.org/data_0863",
+        "http://edamontology.org/data_2044" .
+
+<https://bio.tools/bwa/op_5/in_1> a <http://bioschemas.org/types/FormalParameter> ;
+    ns1:identifier "http://edamontology.org/data_0863",
+        "http://edamontology.org/data_2044" ;
+    ns1:name "Sequence",
+        "Sequence alignment" ;
+    ns1:sameAs "http://edamontology.org/data_0863",
+        "http://edamontology.org/data_2044" .
+
+<https://bio.tools/bwa/op_6/in_1> a <http://bioschemas.org/types/FormalParameter> ;
+    ns1:identifier "http://edamontology.org/data_0863",
+        "http://edamontology.org/data_2044" ;
+    ns1:name "Sequence",
+        "Sequence alignment" ;
+    ns1:sameAs "http://edamontology.org/data_0863",
+        "http://edamontology.org/data_2044" .
 
