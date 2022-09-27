@@ -216,14 +216,11 @@ def ask_BioPortal(uri, type):
         )
     # print(res)
     if res.status_code == 200:
-        if res.json()["totalCount"] > 0:
-            return True
-        else:
-            return False
+        return res.json()["totalCount"] > 0
     else:
-        app.logger.error("Cound not contact BioPortal")
+        app.logger.error("Cound not connect to BioPortal")
         app.logger.error(res.text)
-        return False
+        return None
 
 
 @cached(cache_OLS)
@@ -241,10 +238,13 @@ def ask_OLS(uri):
     res = requests.get(
         "https://www.ebi.ac.uk/ols/api/properties", headers=h, params=p, verify=True
     )
-    if res.json()["page"]["totalElements"] > 0:
-        return True
+
+    if res.status_code == 200:
+        return res.json()["page"]["totalElements"] > 0
     else:
-        return False
+        app.logger.error("Cound not connect to OLS")
+        app.logger.error(res.text)
+        return None
 
 
 @cached(cache_LOV)
@@ -264,10 +264,12 @@ def ask_LOV(uri):
         "https://lov.linkeddata.es/dataset/lov/sparql", headers=h, params=p, verify=True
     )
 
-    # print(res.text)
-    # if res.text.startswith("Error 400: Parse error:"):
-    #     return False
-    return res.json()["boolean"]
+    if res.status_code == 200:
+        return res.json()["boolean"]
+    else:
+        app.logger.error("Cound not connect to LOV")
+        app.logger.error(res.text)
+        return None
 
 
 # @Deprecated
