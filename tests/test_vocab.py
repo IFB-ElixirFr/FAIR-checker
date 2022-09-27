@@ -129,7 +129,7 @@ class CommunityVocabTestCase(unittest.TestCase):
         print(f"OLS check done in {delta}")
 
         self.assertTrue(class_or_property_found, True)
-        self.assertGreaterEqual(delta, 2)
+        self.assertGreaterEqual(delta, 0.5)
         print(util.cache_OLS.values)
 
         # check that cache is working --> fast answers

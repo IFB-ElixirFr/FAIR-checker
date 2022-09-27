@@ -49,6 +49,8 @@ from metrics.WebResource import WebResource
 from metrics.Evaluation import Result
 from profiles.bioschemas_shape_gen import validate_any_from_KG
 from profiles.bioschemas_shape_gen import validate_any_from_microdata
+from urllib.parse import urlparse
+
 
 import git
 
@@ -170,6 +172,11 @@ def favicon():
         "favicon.ico",
         mimetype="image/vnd.microsoft.icon",
     )
+
+
+@app.route("/docs/<path:filename>")
+def documentation(filename):
+    return send_from_directory("docs/_build/html", filename)
 
 
 @app.route("/")
@@ -971,60 +978,102 @@ def check_kg(data):
         SELECT DISTINCT ?prop { ?s ?prop ?o } ORDER BY ?prop
     """
 
-    table_content = {"classes": [], "properties": []}
+    table_content = {
+        "classes": [],
+        "classes_false": [],
+        "properties": [],
+        "properties_false": [],
+        "done": False,
+    }
     qres = kg.query(query_classes)
     for row in qres:
-        table_content["classes"].append(
-            {"name": row["class"], "tag": {"OLS": None, "LOV": None, "BioPortal": None}}
-        )
-        print(f'{row["class"]}')
+        namespace = urlparse(row["class"]).netloc
+        class_entry = {}
+
+        if namespace == "bioschemas.org":
+            class_entry = {
+                "name": row["class"],
+                "tag": {
+                    "OLS": None,
+                    "LOV": None,
+                    "BioPortal": None,
+                    "Bioschemas": True,
+                },
+            }
+        else:
+            class_entry = {
+                "name": row["class"],
+                "tag": {"OLS": None, "LOV": None, "BioPortal": None},
+            }
+
+        table_content["classes"].append(class_entry)
 
     qres = kg.query(query_properties)
     for row in qres:
-        table_content["properties"].append(
-            {"name": row["prop"], "tag": {"OLS": None, "LOV": None, "BioPortal": None}}
-        )
-        print(f'{row["prop"]}')
+        namespace = urlparse(row["prop"]).netloc
+        property_entry = {}
+
+        if namespace == "bioschemas.org":
+            property_entry = {
+                "name": row["prop"],
+                "tag": {
+                    "OLS": None,
+                    "LOV": None,
+                    "BioPortal": None,
+                    "Bioschemas": True,
+                },
+            }
+        else:
+            property_entry = {
+                "name": row["prop"],
+                "tag": {"OLS": None, "LOV": None, "BioPortal": None},
+            }
+
+        table_content["properties"].append(property_entry)
 
     emit("done_check", table_content)
 
     for c in table_content["classes"]:
-        if util.ask_OLS(c["name"]):
-            c["tag"]["OLS"] = True
-        else:
-            c["tag"]["OLS"] = False
+
+        c["tag"]["OLS"] = util.ask_OLS(c["name"])
         emit("done_check", table_content)
 
-        if util.ask_LOV(c["name"]):
-            c["tag"]["LOV"] = True
-        else:
-            c["tag"]["LOV"] = False
+        c["tag"]["LOV"] = util.ask_LOV(c["name"])
         emit("done_check", table_content)
 
-        if util.ask_BioPortal(c["name"], "class"):
-            c["tag"]["BioPortal"] = True
-        else:
-            c["tag"]["BioPortal"] = False
+        c["tag"]["BioPortal"] = util.ask_BioPortal(c["name"], "class")
         emit("done_check", table_content)
+
+        all_false_rule = [
+            c["tag"]["OLS"] == False,
+            c["tag"]["LOV"] == False,
+            c["tag"]["BioPortal"] == False,
+        ]
+
+        if all(all_false_rule) and not "Bioschemas" in c["tag"]:
+            table_content["classes_false"].append(c["name"])
 
     for p in table_content["properties"]:
-        if util.ask_OLS(p["name"]):
-            p["tag"]["OLS"] = True
-        else:
-            p["tag"]["OLS"] = False
+
+        p["tag"]["OLS"] = util.ask_OLS(p["name"])
         emit("done_check", table_content)
 
-        if util.ask_LOV(p["name"]):
-            p["tag"]["LOV"] = True
-        else:
-            p["tag"]["LOV"] = False
+        p["tag"]["LOV"] = util.ask_LOV(p["name"])
         emit("done_check", table_content)
 
-        if util.ask_BioPortal(p["name"], "property"):
-            p["tag"]["BioPortal"] = True
-        else:
-            p["tag"]["BioPortal"] = False
+        p["tag"]["BioPortal"] = util.ask_BioPortal(p["name"], "property")
         emit("done_check", table_content)
+
+        all_false_rule = [
+            p["tag"]["OLS"] == False,
+            p["tag"]["LOV"] == False,
+            p["tag"]["BioPortal"] == False,
+        ]
+        if all(all_false_rule) and not "Bioschemas" in p["tag"]:
+            table_content["properties_false"].append(p["name"])
+
+    table_content["done"] = True
+    emit("done_check", table_content)
 
 
 @DeprecationWarning
@@ -1091,7 +1140,7 @@ def buildJSONLD():
             {"dct": "https://purl.org/dc/terms/"},
             {"prov": "http://www.w3.org/ns/prov#"},
         ],
-        "@type": ["WebApplication", "prov:Entity"],
+        "@type": ["sc:WebApplication", "prov:Entity"],
         "@id": "https://github.com/IFB-ElixirFr/FAIR-checker",
         "dct:conformsTo": "https://bioschemas.org/profiles/ComputationalTool/1.0-RELEASE",
         "sc:name": "FAIR-Checker",
@@ -1104,21 +1153,21 @@ def buildJSONLD():
             Data providers and consumers can check how FAIR are web resources. Developers can explore and inspect metadata exposed in web resources.""",
         "sc:author": [
             {
-                "@type": ["Person", "prov:Person"],
+                "@type": ["sc:Person", "prov:Person"],
                 "@id": "https://orcid.org/0000-0003-0676-5461",
                 "sc:givenName": "Thomas",
                 "sc:familyName": "Rosnet",
                 "prov:actedOnBehalfOf": {"@id": "https://ror.org/045f7pv37"},
             },
             {
-                "@type": ["Person", "prov:Person"],
+                "@type": ["sc:Person", "prov:Person"],
                 "@id": "https://orcid.org/0000-0002-3597-8557",
                 "sc:givenName": "Alban",
                 "sc:familyName": "Gaignard",
                 "prov:actedOnBehalfOf": {"@id": "https://ror.org/045f7pv37"},
             },
             {
-                "@type": ["Person", "prov:Person"],
+                "@type": ["sc:Person", "prov:Person"],
                 "@id": "https://orcid.org/0000-0002-0399-8713",
                 "sc:givenName": "Marie-Dominique",
                 "sc:familyName": "Devignes",
