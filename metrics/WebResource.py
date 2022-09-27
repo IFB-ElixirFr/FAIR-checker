@@ -48,6 +48,8 @@ class WebResource:
         self.id = "WebResource Unique ID for cache"
         self.url = url
 
+        self.get_http_header(url)
+
         if rdf_graph is None:
             # get static RDF metadata (already available in html sources)
             kg_1 = self.extract_rdf_extruct(self.url)
@@ -83,6 +85,14 @@ class WebResource:
 
     def get_html_requests(self):
         return self.html_requests
+
+    def get_http_header(self, url):
+        response = requests.head(url)
+        print("#########################\n#########################\n#########################\n")
+        print(response.headers)
+        content_type = response.headers["Content-Type"]
+        print(content_type)
+        # return None
 
     # TODO Extruct can work with Selenium
 
