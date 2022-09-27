@@ -221,9 +221,6 @@
         var linkText = $this.children('span');
         var $img = $this.children('i');
         var showing = $this.data("show");
-        console.log($('#test_row_guideline_{{f.id}} :visible').text());
-        console.log("######");
-        console.log($('#test_row_guideline_{{f.id}} :hidden').text());
         if(showing === "no"){
             $content.addClass("show-content", 500);
             $content.removeClass("hide-content", 500);
@@ -510,10 +507,10 @@
 
   });
 
-  socket.emit('fast');
-        //socket.emit('slow');
-        //socket.emit('long');
-    });
+  // socket.emit('fast');
+  //   socket.emit('slow');
+  //   socket.emit('long');
+  // });
 
   function test_DOI(str_url) {
     doi_regex = /10.\d{4,9}\/[-._;()\/:A-Z0-9]+/gmi;
