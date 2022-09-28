@@ -8,12 +8,11 @@ FAIR-Checker is a tool aimed at assessing FAIR principles and empowering data pr
 
 Data providers and consumers can check how FAIR are web resources. Developers can explore and inspect metadata exposed in web resources.
 
-FAIR-Checker, a web and command line tool to assess FAIRness of web accessible resources.
+FAIR-Checker is a web and command line tool to assess FAIRness of web resources:
 
 1. FAIR Checker web app, is deployed at http://fair-checker.france-bioinformatique.fr. 
-1. Scrapper command tool, is a Bioschemas markup scraper and extractor. URLs to be scraped are read from the command line or a provided file.
+1. Command line tool, is a metadata scraper and validator.
     **Usage examples :**
-        python app.py --web
         python app.py --url http://bio.tools/bwa
         python app.py --bioschemas --url http://bio.tools/bwa
         python app.py --scrapp --urls http://bio.tools/bwa
