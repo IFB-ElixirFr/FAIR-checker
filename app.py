@@ -227,7 +227,7 @@ def display_vocab_status():
 
 
 scheduler = BackgroundScheduler()
-scheduler.add_job(func=display_vocab_status, trigger="interval", seconds=6)
+scheduler.add_job(func=display_vocab_status, trigger="interval", seconds=600)
 # scheduler.add_job(func=display_info, trigger="interval", seconds=600)
 scheduler.start()
 
