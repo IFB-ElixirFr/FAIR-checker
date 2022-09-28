@@ -1573,7 +1573,10 @@ if __name__ == "__main__":
                 logging.info(
                     f"Loaded {len(KG)} triples from {url}, and saved in dumps/{'_'.join(url.split('/'))}_{uuid.uuid4()}.ttl"
                 )
-                KG.serialize(f"dumps/{'$'.join(url.split('/'))}${uuid.uuid4()}.ttl", format="turtle")
+                KG.serialize(
+                    f"dumps/{'$'.join(url.split('/'))}${uuid.uuid4()}.ttl",
+                    format="turtle",
+                )
 
         elapsed_time = round((time.time() - start_time), 2)
         logging.info(f"Metrics evaluated in {elapsed_time} s")
