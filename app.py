@@ -24,6 +24,9 @@ from flask_cors import CORS
 from flask_socketio import SocketIO
 from flask_socketio import emit
 from flask_caching import Cache
+from flask import current_app
+from os import environ, path
+from dotenv import load_dotenv, dotenv_values
 import secrets
 import time
 import os
@@ -54,7 +57,17 @@ from metrics.Evaluation import Result
 from profiles.bioschemas_shape_gen import validate_any_from_KG
 from profiles.bioschemas_shape_gen import validate_any_from_microdata
 from metrics.util import SOURCE
+from urllib.parse import urlparse
+
+
+import time
+import atexit
+import requests
+from apscheduler.schedulers.background import BackgroundScheduler
+
 import git
+
+basedir = path.abspath(path.dirname(__file__))
 
 app = Flask(__name__)
 
@@ -164,26 +177,78 @@ FILE_UUID = ""
 
 DICT_TEMP_RES = {}
 
-# SWAGGER_URL = '/api/docs'  # URL for exposing Swagger UI (without trailing '/')
-# API_URL = 'http://petstore.swagger.io/v2/swagger.json'  # Our API url (can of course be a local resource)
-# # Call factory function to create our blueprint
-# swaggerui_blueprint = get_swaggerui_blueprint(
-#     SWAGGER_URL,  # Swagger UI static files will be mapped to '{SWAGGER_URL}/dist/'
-#     API_URL,
-#     config={  # Swagger UI config overrides
-#         'app_name': "Test application"
-#     },
-#     # oauth_config={  # OAuth config. See https://github.com/swagger-api/swagger-ui#oauth2-configuration .
-#     #    'clientId': "your-client-id",
-#     #    'clientSecret': "your-client-secret-if-required",
-#     #    'realm': "your-realms",
-#     #    'appName': "your-app-name",
-#     #    'scopeSeparator': " ",
-#     #    'additionalQueryStringParams': {'test': "hello"}
-#     # }
-# )
-#
-# app.register_blueprint(swaggerui_blueprint)
+DICT_BANNER_INFO = {"banner_message_info": {}}
+
+# Update banner info with the message in .env
+@app.context_processor
+def display_info():
+    global DICT_BANNER_INFO
+
+    try:
+        env_banner_info = dotenv_values(".env")["BANNER_INFO"]
+    except KeyError:
+        logger.warning(
+            "BANNER_INFO is not set in .env (e.g. BANNER_INFO='Write your message here')"
+        )
+        DICT_BANNER_INFO["banner_message_info"].pop("env_info", None)
+        return DICT_BANNER_INFO
+
+    if env_banner_info != "":
+        DICT_BANNER_INFO["banner_message_info"]["env_info"] = env_banner_info
+    else:
+        DICT_BANNER_INFO["banner_message_info"].pop("env_info", None)
+
+    return DICT_BANNER_INFO
+
+
+def validate_status(url):
+    return requests.head(url).status_code == 200
+
+
+@app.context_processor
+def display_vocab_status():
+    global DICT_BANNER_INFO
+
+    # status_bioportal = validate_status("https://bioportal.bioontology.org/")
+    # status_ols = validate_status("https://www.ebi.ac.uk/ols/index")
+    # status_lov = validate_status("https://lov.linkeddata.es/dataset/lov/sparql")
+
+    STATUS_BIOPORTAL = requests.head("https://bioportal.bioontology.org/").status_code
+    STATUS_OLS = requests.head("https://www.ebi.ac.uk/ols/index").status_code
+    STATUS_LOV = requests.head(
+        "https://lov.linkeddata.es/dataset/lov/sparql"
+    ).status_code
+
+    if STATUS_BIOPORTAL != 200:
+        info_bioportal = "BioPortal might not be reachable. Status code: " + str(
+            STATUS_BIOPORTAL
+        )
+        DICT_BANNER_INFO["banner_message_info"]["status_bioportal"] = info_bioportal
+    else:
+        DICT_BANNER_INFO["banner_message_info"].pop("status_bioportal", None)
+
+    if STATUS_OLS != 200:
+        info_ols = "OLS might not be reachable. Status code: " + str(STATUS_OLS)
+        DICT_BANNER_INFO["banner_message_info"]["status_ols"] = info_ols
+    else:
+        DICT_BANNER_INFO["banner_message_info"].pop("status_ols", None)
+
+    if STATUS_LOV != 200:
+        info_lov = "LOV might not be reachable. Status code: " + str(STATUS_LOV)
+        DICT_BANNER_INFO["banner_message_info"]["status_lov"] = info_lov
+    else:
+        DICT_BANNER_INFO["banner_message_info"].pop("status_lov", None)
+
+    return DICT_BANNER_INFO
+
+
+scheduler = BackgroundScheduler()
+scheduler.add_job(func=display_vocab_status, trigger="interval", seconds=600)
+# scheduler.add_job(func=display_info, trigger="interval", seconds=600)
+scheduler.start()
+
+# Shut down the scheduler when exiting the app
+atexit.register(lambda: scheduler.shutdown())
 
 
 @app.context_processor
@@ -208,18 +273,9 @@ def favicon():
     )
 
 
-# @app.route("/")
-# def home():
-#     return render_template(
-#         "index.html",
-#         title="FAIR-Checker",
-#         subtitle="Improve the FAIRness of your web resources",
-#     )
-
-# @api.route('/')
-# class FairChecker(Resource):
-#     def get():
-#         return redirect(url_for('home'), code=302)
+@app.route("/docs/<path:filename>")
+def documentation(filename):
+    return send_from_directory("docs/_build/html", filename)
 
 
 @app.route("/")
@@ -1218,60 +1274,102 @@ def check_kg(data):
         SELECT DISTINCT ?prop { ?s ?prop ?o } ORDER BY ?prop
     """
 
-    table_content = {"classes": [], "properties": []}
+    table_content = {
+        "classes": [],
+        "classes_false": [],
+        "properties": [],
+        "properties_false": [],
+        "done": False,
+    }
     qres = kg.query(query_classes)
     for row in qres:
-        table_content["classes"].append(
-            {"name": row["class"], "tag": {"OLS": None, "LOV": None, "BioPortal": None}}
-        )
-        print(f'{row["class"]}')
+        namespace = urlparse(row["class"]).netloc
+        class_entry = {}
+
+        if namespace == "bioschemas.org":
+            class_entry = {
+                "name": row["class"],
+                "tag": {
+                    "OLS": None,
+                    "LOV": None,
+                    "BioPortal": None,
+                    "Bioschemas": True,
+                },
+            }
+        else:
+            class_entry = {
+                "name": row["class"],
+                "tag": {"OLS": None, "LOV": None, "BioPortal": None},
+            }
+
+        table_content["classes"].append(class_entry)
 
     qres = kg.query(query_properties)
     for row in qres:
-        table_content["properties"].append(
-            {"name": row["prop"], "tag": {"OLS": None, "LOV": None, "BioPortal": None}}
-        )
-        print(f'{row["prop"]}')
+        namespace = urlparse(row["prop"]).netloc
+        property_entry = {}
+
+        if namespace == "bioschemas.org":
+            property_entry = {
+                "name": row["prop"],
+                "tag": {
+                    "OLS": None,
+                    "LOV": None,
+                    "BioPortal": None,
+                    "Bioschemas": True,
+                },
+            }
+        else:
+            property_entry = {
+                "name": row["prop"],
+                "tag": {"OLS": None, "LOV": None, "BioPortal": None},
+            }
+
+        table_content["properties"].append(property_entry)
 
     emit("done_check", table_content)
 
     for c in table_content["classes"]:
-        if util.ask_OLS(c["name"]):
-            c["tag"]["OLS"] = True
-        else:
-            c["tag"]["OLS"] = False
+
+        c["tag"]["OLS"] = util.ask_OLS(c["name"])
         emit("done_check", table_content)
 
-        if util.ask_LOV(c["name"]):
-            c["tag"]["LOV"] = True
-        else:
-            c["tag"]["LOV"] = False
+        c["tag"]["LOV"] = util.ask_LOV(c["name"])
         emit("done_check", table_content)
 
-        if util.ask_BioPortal(c["name"], "class"):
-            c["tag"]["BioPortal"] = True
-        else:
-            c["tag"]["BioPortal"] = False
+        c["tag"]["BioPortal"] = util.ask_BioPortal(c["name"], "class")
         emit("done_check", table_content)
+
+        all_false_rule = [
+            c["tag"]["OLS"] == False,
+            c["tag"]["LOV"] == False,
+            c["tag"]["BioPortal"] == False,
+        ]
+
+        if all(all_false_rule) and not "Bioschemas" in c["tag"]:
+            table_content["classes_false"].append(c["name"])
 
     for p in table_content["properties"]:
-        if util.ask_OLS(p["name"]):
-            p["tag"]["OLS"] = True
-        else:
-            p["tag"]["OLS"] = False
+
+        p["tag"]["OLS"] = util.ask_OLS(p["name"])
         emit("done_check", table_content)
 
-        if util.ask_LOV(p["name"]):
-            p["tag"]["LOV"] = True
-        else:
-            p["tag"]["LOV"] = False
+        p["tag"]["LOV"] = util.ask_LOV(p["name"])
         emit("done_check", table_content)
 
-        if util.ask_BioPortal(p["name"], "property"):
-            p["tag"]["BioPortal"] = True
-        else:
-            p["tag"]["BioPortal"] = False
+        p["tag"]["BioPortal"] = util.ask_BioPortal(p["name"], "property")
         emit("done_check", table_content)
+
+        all_false_rule = [
+            p["tag"]["OLS"] == False,
+            p["tag"]["LOV"] == False,
+            p["tag"]["BioPortal"] == False,
+        ]
+        if all(all_false_rule) and not "Bioschemas" in p["tag"]:
+            table_content["properties_false"].append(p["name"])
+
+    table_content["done"] = True
+    emit("done_check", table_content)
 
 
 @DeprecationWarning

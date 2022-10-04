@@ -21,7 +21,7 @@ json_rec = {
             a PubMed publication <a href="https://identifiers.org/pubmed/23584831" target=”_blank”><u>https://identifiers.org/pubmed/23584831</u></a>
              with pubmed as namespace, or DOI. This 
             identifier can be either the URL itself or encoded in the metadata as a dct:identifier or schema:identifier 
-            property. Read more about persistent identifiers in the identifiers.org documentation or in the 
+            property. Learn more about persistent identifiers in the identifiers.org documentation or in the 
             <a href="https://faircookbook.elixir-europe.org/content/recipes/findability/identifiers.html" target=”_blank”><b><u>FAIR-CookBook section on identifiers</u></b></a>
              or in <a href="https://rdmkit.elixir-europe.org/identifiers#relevant-tools-and-resources" target=”_blank”><b><u>RDMkit</u></b></a>. 
         """
@@ -95,7 +95,7 @@ json_rec = {
         "reco1": """
             You should include information about licence in your metadata using one of the properties below: <br><br>
             
-            Read more about licenses in FAIR-Cookbook (
+            Learn more about licenses in FAIR-Cookbook (
             <a href="https://faircookbook.elixir-europe.org/content/recipes/reusability/ATI-licensing.html" target=”_blank”><u><b></u>licence</b></a>, 
             <a href="https://faircookbook.elixir-europe.org/content/recipes/reusability/ATI_licensing_software.html" target=”_blank”><u><b>software license</u></b></a>, 
             <a href="https://faircookbook.elixir-europe.org/content/recipes/reusability/ATI_licensing_data.html" target=”_blank”><u><b>data licence</u></b></a>)

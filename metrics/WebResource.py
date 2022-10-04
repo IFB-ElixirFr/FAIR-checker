@@ -17,9 +17,18 @@ from metrics.util import clean_kg_excluding_ns_prefix
 
 
 class WebResource:
+    prefs = {
+        "download_restrictions": 3,
+        "download.prompt_for_download": False,
+        "download.default_directory": "NUL",
+    }
+
     chrome_options = Options()
     chrome_options.add_argument("--headless")
     chrome_options.add_argument("--no-sandbox")
+    # chrome_options.add_experimental_option(
+    #     "prefs", prefs
+    # )
     proxy = os.getenv("HTTP_PROXY")
     if proxy:
         chrome_options.add_argument("--proxy-server=" + proxy)
@@ -30,6 +39,7 @@ class WebResource:
     WEB_BROWSER_HEADLESS.implicitly_wait(20)
 
     status_code = None
+    content_type = None
     browser_selenium = None
     html_selenium = None
     html_requests = None
@@ -39,11 +49,16 @@ class WebResource:
         self.url = url
 
         if rdf_graph is None:
-            # get dynamic RDF metadata (generated from JS)
-            kg_1 = WebResource.extract_rdf_selenium(self.url)
             # get static RDF metadata (already available in html sources)
-            kg_2 = self.extract_rdf_extruct(self.url)
-            self.rdf = kg_1 + kg_2
+            kg_1 = self.extract_rdf_extruct(self.url)
+
+            if "html" in self.content_type:
+                logging.info("Resource content_type is HTML")
+                # get dynamic RDF metadata (generated from JS)
+                kg_2 = WebResource.extract_rdf_selenium(self.url)
+                self.rdf = kg_1 + kg_2
+            else:
+                self.rdf = kg_1
         else:
             self.rdf = rdf_graph
 
@@ -153,6 +168,7 @@ class WebResource:
                 time.sleep(10)
 
         self.status_code = response.status_code
+        self.content_type = response.headers["Content-Type"]
         html_source = response.content
 
         data = extruct.extract(
