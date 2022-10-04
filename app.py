@@ -475,63 +475,8 @@ class InspectOntologies(Resource):
     def get(self, url):
         web_res = WebResource(url)
         kg = web_res.get_rdf()
-        query_classes = """
-            SELECT DISTINCT ?class { ?s rdf:type ?class } ORDER BY ?class
-        """
-        query_properties = """
-            SELECT DISTINCT ?prop { ?s ?prop ?o } ORDER BY ?prop
-        """
 
-        table_content = {"classes": [], "properties": []}
-        qres = kg.query(query_classes)
-        for row in qres:
-            table_content["classes"].append(
-                {
-                    "name": row["class"],
-                    "tag": {"OLS": None, "LOV": None, "BioPortal": None},
-                }
-            )
-
-        qres = kg.query(query_properties)
-        for row in qres:
-            table_content["properties"].append(
-                {
-                    "name": row["prop"],
-                    "tag": {"OLS": None, "LOV": None, "BioPortal": None},
-                }
-            )
-
-        for c in table_content["classes"]:
-            if util.ask_OLS(c["name"]):
-                c["tag"]["OLS"] = True
-            else:
-                c["tag"]["OLS"] = False
-
-            if util.ask_LOV(c["name"]):
-                c["tag"]["LOV"] = True
-            else:
-                c["tag"]["LOV"] = False
-            if util.ask_BioPortal(c["name"], "class"):
-                c["tag"]["BioPortal"] = True
-            else:
-                c["tag"]["BioPortal"] = False
-
-        for p in table_content["properties"]:
-            if util.ask_OLS(c["name"]):
-                p["tag"]["OLS"] = True
-            else:
-                p["tag"]["OLS"] = False
-
-            if util.ask_LOV(p["name"]):
-                p["tag"]["LOV"] = True
-            else:
-                p["tag"]["LOV"] = False
-            if util.ask_BioPortal(p["name"], "property"):
-                p["tag"]["BioPortal"] = True
-            else:
-                p["tag"]["BioPortal"] = False
-
-        return table_content
+        return check_kg(kg, True)
 
 
 @socketio.on("webresource")
@@ -1255,25 +1200,14 @@ def handle_complete_kg(json):
     print("completing KG for " + str(json["url"]))
 
 
-@socketio.on("check_kg")
-def check_kg(data):
-    step = 0
-    sid = request.sid
-    print(sid)
-    uri = str(data["url"])
-    if not sid in KGS.keys():
-        handle_embedded_annot(data)
-    elif not KGS[sid]:
-        handle_embedded_annot(data)
-    kg = KGS[sid]
-
+def check_kg(kg, is_api):
     query_classes = """
         SELECT DISTINCT ?class { ?s rdf:type ?class } ORDER BY ?class
     """
     query_properties = """
         SELECT DISTINCT ?prop { ?s ?prop ?o } ORDER BY ?prop
     """
-
+    
     table_content = {
         "classes": [],
         "classes_false": [],
@@ -1327,18 +1261,18 @@ def check_kg(data):
 
         table_content["properties"].append(property_entry)
 
-    emit("done_check", table_content)
+    if not is_api: emit("done_check", table_content)
 
     for c in table_content["classes"]:
 
         c["tag"]["OLS"] = util.ask_OLS(c["name"])
-        emit("done_check", table_content)
+        if not is_api: emit("done_check", table_content)
 
         c["tag"]["LOV"] = util.ask_LOV(c["name"])
-        emit("done_check", table_content)
+        if not is_api: emit("done_check", table_content)
 
         c["tag"]["BioPortal"] = util.ask_BioPortal(c["name"], "class")
-        emit("done_check", table_content)
+        if not is_api: emit("done_check", table_content)
 
         all_false_rule = [
             c["tag"]["OLS"] == False,
@@ -1352,13 +1286,13 @@ def check_kg(data):
     for p in table_content["properties"]:
 
         p["tag"]["OLS"] = util.ask_OLS(p["name"])
-        emit("done_check", table_content)
+        if not is_api: emit("done_check", table_content)
 
         p["tag"]["LOV"] = util.ask_LOV(p["name"])
-        emit("done_check", table_content)
+        if not is_api: emit("done_check", table_content)
 
         p["tag"]["BioPortal"] = util.ask_BioPortal(p["name"], "property")
-        emit("done_check", table_content)
+        if not is_api: emit("done_check", table_content)
 
         all_false_rule = [
             p["tag"]["OLS"] == False,
@@ -1369,7 +1303,22 @@ def check_kg(data):
             table_content["properties_false"].append(p["name"])
 
     table_content["done"] = True
-    emit("done_check", table_content)
+    if not is_api: emit("done_check", table_content)
+    return table_content
+
+@socketio.on("check_kg")
+def check_vocabularies(data):
+    step = 0
+    sid = request.sid
+    print(sid)
+    uri = str(data["url"])
+    if not sid in KGS.keys():
+        handle_embedded_annot(data)
+    elif not KGS[sid]:
+        handle_embedded_annot(data)
+    kg = KGS[sid]
+
+    check_kg(kg, False)
 
 
 @DeprecationWarning
