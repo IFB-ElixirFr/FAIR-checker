@@ -1207,7 +1207,7 @@ def check_kg(kg, is_api):
     query_properties = """
         SELECT DISTINCT ?prop { ?s ?prop ?o } ORDER BY ?prop
     """
-    
+
     table_content = {
         "classes": [],
         "classes_false": [],
@@ -1261,18 +1261,22 @@ def check_kg(kg, is_api):
 
         table_content["properties"].append(property_entry)
 
-    if not is_api: emit("done_check", table_content)
+    if not is_api:
+        emit("done_check", table_content)
 
     for c in table_content["classes"]:
 
         c["tag"]["OLS"] = util.ask_OLS(c["name"])
-        if not is_api: emit("done_check", table_content)
+        if not is_api:
+            emit("done_check", table_content)
 
         c["tag"]["LOV"] = util.ask_LOV(c["name"])
-        if not is_api: emit("done_check", table_content)
+        if not is_api:
+            emit("done_check", table_content)
 
         c["tag"]["BioPortal"] = util.ask_BioPortal(c["name"], "class")
-        if not is_api: emit("done_check", table_content)
+        if not is_api:
+            emit("done_check", table_content)
 
         all_false_rule = [
             c["tag"]["OLS"] == False,
@@ -1286,13 +1290,16 @@ def check_kg(kg, is_api):
     for p in table_content["properties"]:
 
         p["tag"]["OLS"] = util.ask_OLS(p["name"])
-        if not is_api: emit("done_check", table_content)
+        if not is_api:
+            emit("done_check", table_content)
 
         p["tag"]["LOV"] = util.ask_LOV(p["name"])
-        if not is_api: emit("done_check", table_content)
+        if not is_api:
+            emit("done_check", table_content)
 
         p["tag"]["BioPortal"] = util.ask_BioPortal(p["name"], "property")
-        if not is_api: emit("done_check", table_content)
+        if not is_api:
+            emit("done_check", table_content)
 
         all_false_rule = [
             p["tag"]["OLS"] == False,
@@ -1303,8 +1310,10 @@ def check_kg(kg, is_api):
             table_content["properties_false"].append(p["name"])
 
     table_content["done"] = True
-    if not is_api: emit("done_check", table_content)
+    if not is_api:
+        emit("done_check", table_content)
     return table_content
+
 
 @socketio.on("check_kg")
 def check_vocabularies(data):
