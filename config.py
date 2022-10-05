@@ -42,3 +42,4 @@ class DevelopmentConfig(Config):
 
 class TestingConfig(Config):
     TESTING = True
+    SERVER_IP = "http://0.0.0.0:5000"
