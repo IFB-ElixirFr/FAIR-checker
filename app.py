@@ -84,8 +84,6 @@ def index():
     )
 
 
-
-
 app.logger.setLevel(logging.DEBUG)
 CORS(app)
 app.config["CORS_HEADERS"] = "Content-Type"
@@ -106,8 +104,7 @@ if app.config["ENV"] == "production":
 
     ### Add a formatter
     prod_formatter = logging.Formatter(
-        '%(asctime)s - [%(levelname)s] %(message)s',
-        "%d/%m/%Y %H:%M:%S"
+        "%(asctime)s - [%(levelname)s] %(message)s", "%d/%m/%Y %H:%M:%S"
     )
 
     prod_log_handler.setFormatter(prod_formatter)
@@ -123,19 +120,19 @@ else:
     dev_log_handler = logging.StreamHandler(sys.stdout)
     ### Add a formatter
     dev_formatter = logging.Formatter(
-        '[%(name)s-%(levelname)s][%(filename)s-%(lineno)d] - %(message)s',
+        "[%(name)s-%(levelname)s][%(filename)s-%(lineno)d] - %(message)s",
     )
 
     dev_log_handler.setFormatter(dev_formatter)
     dev_logger.addHandler(dev_log_handler)
 
-dev_logger.warning('Watch out!')
-dev_logger.info('I told you so')
-dev_logger.debug('DEBUG haha')
+dev_logger.warning("Watch out!")
+dev_logger.info("I told you so")
+dev_logger.debug("DEBUG haha")
 
-prod_logger.warning('Watch out!')
-prod_logger.info('I told you so')
-prod_logger.debug('DEBUG haha')
+prod_logger.warning("Watch out!")
+prod_logger.info("I told you so")
+prod_logger.debug("DEBUG haha")
 
 
 print(f'ENV is set to: {app.config["ENV"]}')
@@ -1667,7 +1664,7 @@ def testUrl():
                 res_dict["descriptions"] = ""
             results_list.append(res_dict)
         # if i == 4:
-            # print(res_dict)
+        # print(res_dict)
 
     return render_template(
         "result.html",
