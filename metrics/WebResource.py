@@ -122,7 +122,6 @@ class WebResource:
 
         for md in data["json-ld"]:
             if "@context" in md.keys():
-                print(md["@context"])
                 if ("https://schema.org" in md["@context"]) or (
                     "http://schema.org" in md["@context"]
                 ):
@@ -242,8 +241,7 @@ class WebResource:
 
             for json_ld_annots in jsonld_string:
                 jsonld = json.loads(json_ld_annots)
-                print(type(jsonld))
-                print(jsonld)
+
                 if type(jsonld) == list:
                     jsonld = jsonld[0]
                 if "@context" in jsonld.keys():

@@ -57,7 +57,7 @@ class Evaluation:
         ### Add a formatter
         formatter = logging.Formatter(
             "%(levelname)s - %(message)s",
-            "%Y-%m-%d %H:%M:%S"
+            # "%Y-%m-%d %H:%M:%S"
             # "[%(asctime)s] - %(levelname)s - %(message)s", "%Y-%m-%d %H:%M:%S"
         )
         console_handler.setFormatter(formatter)

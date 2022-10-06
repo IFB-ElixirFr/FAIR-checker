@@ -84,14 +84,59 @@ def index():
     )
 
 
+
+
 app.logger.setLevel(logging.DEBUG)
 CORS(app)
 app.config["CORS_HEADERS"] = "Content-Type"
 
+prod_logger = logging.getLogger("PROD")
+dev_logger = logging.getLogger("DEV")
+
 if app.config["ENV"] == "production":
     app.config.from_object("config.ProductionConfig")
+
+    # Prevent DEV logger from output
+    dev_logger.propagate = False
+
+    prod_logger.setLevel(logging.INFO)
+
+    prod_log_handler = logging.FileHandler("prod.log")
+    # prod_log_handler = logging.StreamHandler(sys.stdout)
+
+    ### Add a formatter
+    prod_formatter = logging.Formatter(
+        '%(asctime)s - [%(levelname)s] %(message)s',
+        "%d/%m/%Y %H:%M:%S"
+    )
+
+    prod_log_handler.setFormatter(prod_formatter)
+    prod_logger.addHandler(prod_log_handler)
 else:
     app.config.from_object("config.DevelopmentConfig")
+
+    # Prevent PROD logger from output
+    prod_logger.propagate = False
+
+    dev_logger.setLevel(logging.DEBUG)
+
+    dev_log_handler = logging.StreamHandler(sys.stdout)
+    ### Add a formatter
+    dev_formatter = logging.Formatter(
+        '[%(name)s-%(levelname)s][%(filename)s-%(lineno)d] - %(message)s',
+    )
+
+    dev_log_handler.setFormatter(dev_formatter)
+    dev_logger.addHandler(dev_log_handler)
+
+dev_logger.warning('Watch out!')
+dev_logger.info('I told you so')
+dev_logger.debug('DEBUG haha')
+
+prod_logger.warning('Watch out!')
+prod_logger.info('I told you so')
+prod_logger.debug('DEBUG haha')
+
 
 print(f'ENV is set to: {app.config["ENV"]}')
 
@@ -434,7 +479,7 @@ def generate_ask_api(describe):
             if util.is_DOI(url):
                 url = util.get_DOI(url)
             new_kg = describe(url, old_kg)
-            print(len(new_kg))
+
             triples_before = len(kg)
             triples_after = len(new_kg)
             data = {
@@ -626,7 +671,7 @@ def evaluate_fc_metrics(metric_name, client_metric_id, url):
     comment = result.get_log_html()
 
     recommendation = result.get_recommendation()
-    print(recommendation)
+    # print(recommendation)
 
     # Persist Evaluation oject in MongoDB
     implem = METRICS_CUSTOM[metric_name].get_implem()
@@ -862,7 +907,7 @@ def csv_download(uuid):
     mem.write(content)
     mem.seek(0)
 
-    print(json.dumps(DICT_TEMP_RES, sort_keys=True, indent=4))
+    # print(json.dumps(DICT_TEMP_RES, sort_keys=True, indent=4))
 
     try:
         return send_file(
@@ -1014,9 +1059,6 @@ def handle_annotationn(data):
         # print(new_kg.serialize(format='turtle').decode())
         # print("**************************")
 
-        print("***** JSON-LD syntax *****")
-        print()
-        print("**************************")
         emit("send_bs_annot", str(new_kg.serialize(format="json-ld")))
 
 
@@ -1456,7 +1498,7 @@ def base_metrics():
     content_uuid = str(uuid.uuid1())
     DICT_TEMP_RES[content_uuid] = ""
 
-    print(str(session.items()))
+    # print(str(session.items()))
     # sid = request.sid
     # return render_template('test_asynch.html')
     # metrics = []
@@ -1624,8 +1666,8 @@ def testUrl():
                 res_dict["comments"] = ""
                 res_dict["descriptions"] = ""
             results_list.append(res_dict)
-        if i == 4:
-            print(res_dict)
+        # if i == 4:
+            # print(res_dict)
 
     return render_template(
         "result.html",
