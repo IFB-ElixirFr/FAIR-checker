@@ -64,6 +64,7 @@ class Evaluation:
 
         ### Add the console handler to the logger
         self.eval_logger.addHandler(console_handler)
+        self.eval_logger.propagate = False
 
     def log_debug(self, message):
         self.eval_logger.debug(message)

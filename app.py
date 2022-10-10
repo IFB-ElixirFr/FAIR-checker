@@ -5,7 +5,8 @@ import eventlet
 from numpy import broadcast
 
 # from https://github.com/eventlet/eventlet/issues/670
-eventlet.monkey_patch(select=False)
+# eventlet.monkey_patch(select=False)
+eventlet.monkey_patch()
 
 import sys
 from flask import (
@@ -84,20 +85,19 @@ def index():
     )
 
 
-app.logger.setLevel(logging.DEBUG)
+# app.logger.setLevel(logging.DEBUG)
+app.logger.propagate = False
+
 CORS(app)
 app.config["CORS_HEADERS"] = "Content-Type"
 
 prod_logger = logging.getLogger("PROD")
 dev_logger = logging.getLogger("DEV")
 
+print(f'ENV is set to: {app.config["ENV"]}')
+
 if app.config["ENV"] == "production":
     app.config.from_object("config.ProductionConfig")
-
-    # Prevent DEV logger from output
-    dev_logger.propagate = False
-
-    prod_logger.setLevel(logging.INFO)
 
     prod_log_handler = logging.FileHandler("prod.log")
     # prod_log_handler = logging.StreamHandler(sys.stdout)
@@ -109,15 +109,15 @@ if app.config["ENV"] == "production":
 
     prod_log_handler.setFormatter(prod_formatter)
     prod_logger.addHandler(prod_log_handler)
+
+    prod_logger.setLevel(logging.INFO)
+
+    # Prevent DEV logger from output
+    dev_logger.propagate = False
 else:
     app.config.from_object("config.DevelopmentConfig")
 
-    # Prevent PROD logger from output
-    prod_logger.propagate = False
-
-    dev_logger.setLevel(logging.DEBUG)
-
-    dev_log_handler = logging.StreamHandler(sys.stdout)
+    dev_log_handler = logging.StreamHandler()
     ### Add a formatter
     dev_formatter = logging.Formatter(
         "[%(name)s-%(levelname)s][%(filename)s-%(lineno)d] - %(message)s",
@@ -126,16 +126,20 @@ else:
     dev_log_handler.setFormatter(dev_formatter)
     dev_logger.addHandler(dev_log_handler)
 
-dev_logger.warning("Watch out!")
-dev_logger.info("I told you so")
-dev_logger.debug("DEBUG haha")
+    dev_logger.setLevel(logging.DEBUG)
 
-prod_logger.warning("Watch out!")
-prod_logger.info("I told you so")
-prod_logger.debug("DEBUG haha")
+    # Prevent PROD logger from output
+    prod_logger.propagate = False
+
+dev_logger.warning("Watch out dev!")
+dev_logger.info("I told you so dev")
+dev_logger.debug("DEBUG haha dev")
+
+prod_logger.warning("Watch out prod!")
+prod_logger.info("I told you so prod")
+prod_logger.debug("DEBUG haha prod")
 
 
-print(f'ENV is set to: {app.config["ENV"]}')
 
 
 # blueprint = Blueprint('api', __name__, url_prefix='/api')
@@ -540,7 +544,7 @@ def handle_metric(json):
     metric_name = json["metric_name"]
     client_metric_id = json["id"]
     url = json["url"]
-    print("Testing: " + url)
+    dev_logger.info("Testing: " + url)
 
     # if implem == "FAIRMetrics":
     # evaluate_fairmetrics(json, metric_name, client_metric_id, url)
@@ -635,10 +639,14 @@ def evaluate_fc_metrics(metric_name, client_metric_id, url):
     # print("OK FC Metrics")
     # print(cache.get("TOTO"))
     # print(METRICS_CUSTOM)
-    logging.warning("Evaluating FAIR-Checker metric")
+    loggers = [logging.getLogger(name) for name in logging.root.manager.loggerDict]
+    for logger in loggers:
+        print(logger)
+    dev_logger.info("Evaluating FAIR-Checker metric")
+    # prod_logger.info("Evaluating FAIR-Checker metric")
     id = METRICS_CUSTOM[metric_name].get_id()
-    print("ID: " + id)
-    print("Client ID: " + client_metric_id)
+    dev_logger.info("ID: " + id)
+    dev_logger.info("Client ID: " + client_metric_id)
     # Faire une fonction recursive ?
     if cache.get(url) == "pulling":
         while True:
@@ -656,7 +664,8 @@ def evaluate_fc_metrics(metric_name, client_metric_id, url):
 
     METRICS_CUSTOM[metric_name].set_web_resource(webresource)
     name = METRICS_CUSTOM[metric_name].get_principle_tag()
-    print("Evaluating: " + metric_name)
+    dev_logger.warning("Evaluation: " + metric_name)
+    # dev_logger.info("Evaluating: " + metric_name)
     result = METRICS_CUSTOM[metric_name].evaluate()
 
     score = result.get_score()
@@ -694,7 +703,7 @@ def evaluate_fc_metrics(metric_name, client_metric_id, url):
         # "name": name,
     }
     emit("done_" + client_metric_id, emit_json)
-    print("DONE our own metric !")
+    dev_logger.info("DONE our own metric !")
 
 
 @socketio.on("quick_structured_data_search")
@@ -1755,6 +1764,7 @@ if __name__ == "__main__":
     LOGGER = logging.getLogger()
     if not LOGGER.handlers:
         LOGGER.addHandler(logging.StreamHandler(sys.stdout))
+    LOGGER.propagate = False
 
     if args.urls:
         start_time = time.time()
