@@ -10,6 +10,10 @@ import extruct
 from pathlib import Path
 from rdflib import ConjunctiveGraph, URIRef
 import requests
+
+requests.packages.urllib3.disable_warnings(
+    requests.packages.urllib3.exceptions.InsecureRequestWarning
+)
 import json
 import os
 

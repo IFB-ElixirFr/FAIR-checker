@@ -18,6 +18,7 @@ from flask import (
     send_from_directory,
     make_response,
     Blueprint,
+    url_for,
 )
 from flask_restx import Resource, Api, fields
 from flask_swagger_ui import get_swaggerui_blueprint
@@ -64,6 +65,10 @@ from urllib.parse import urlparse
 import time
 import atexit
 import requests
+
+requests.packages.urllib3.disable_warnings(
+    requests.packages.urllib3.exceptions.InsecureRequestWarning
+)
 from apscheduler.schedulers.background import BackgroundScheduler
 
 import git
@@ -93,6 +98,14 @@ app.config["CORS_HEADERS"] = "Content-Type"
 
 prod_logger = logging.getLogger("PROD")
 dev_logger = logging.getLogger("DEV")
+app_logger = logging.getLogger("app")
+root_logger = logging.getLogger("root")
+app_logger.propagate = False
+root_logger.propagate = False
+
+# loggers = [logging.getLogger(name) for name in logging.root.manager.loggerDict]
+# for logger in loggers:
+#     print(logger)
 
 print(f'ENV is set to: {app.config["ENV"]}')
 
@@ -138,8 +151,6 @@ dev_logger.debug("DEBUG haha dev")
 prod_logger.warning("Watch out prod!")
 prod_logger.info("I told you so prod")
 prod_logger.debug("DEBUG haha prod")
-
-
 
 
 # blueprint = Blueprint('api', __name__, url_prefix='/api')
@@ -233,7 +244,7 @@ def display_info():
     try:
         env_banner_info = dotenv_values(".env")["BANNER_INFO"]
     except KeyError:
-        logger.warning(
+        dev_logger.warning(
             "BANNER_INFO is not set in .env (e.g. BANNER_INFO='Write your message here')"
         )
         DICT_BANNER_INFO["banner_message_info"].pop("env_info", None)
@@ -525,9 +536,32 @@ class InspectOntologies(Resource):
         return check_kg(kg, True)
 
 
+def list_routes():
+    return ["%s" % rule for rule in app.url_map.iter_rules()]
+
+
+# def has_no_empty_params(rule):
+#     defaults = rule.defaults if rule.defaults is not None else ()
+#     arguments = rule.arguments if rule.arguments is not None else ()
+#     return len(defaults) >= len(arguments)
+
+
+# @app.route("/site-map")
+# def site_map():
+#     links = []
+#     for rule in app.url_map.iter_rules():
+#         # Filter out rules we can't navigate to in a browser
+#         # and rules that require parameters
+#         if "GET" in rule.methods and has_no_empty_params(rule):
+#             url = url_for(rule.endpoint, **(rule.defaults or {}))
+#             links.append((url, rule.endpoint))
+#     # links is now a list of url, endpoint tuples
+#     return render_template("site_map.html", links=links)
+
+
 @socketio.on("webresource")
 def handle_webresource(url):
-    print("A new url to retrieve metadata from !")
+    dev_logger.info("A new url to retrieve metadata from !")
 
 
 @socketio.on("evaluate_metric")
@@ -639,9 +673,7 @@ def evaluate_fc_metrics(metric_name, client_metric_id, url):
     # print("OK FC Metrics")
     # print(cache.get("TOTO"))
     # print(METRICS_CUSTOM)
-    loggers = [logging.getLogger(name) for name in logging.root.manager.loggerDict]
-    for logger in loggers:
-        print(logger)
+
     dev_logger.info("Evaluating FAIR-Checker metric")
     # prod_logger.info("Evaluating FAIR-Checker metric")
     id = METRICS_CUSTOM[metric_name].get_id()
@@ -665,6 +697,7 @@ def evaluate_fc_metrics(metric_name, client_metric_id, url):
     METRICS_CUSTOM[metric_name].set_web_resource(webresource)
     name = METRICS_CUSTOM[metric_name].get_principle_tag()
     dev_logger.warning("Evaluation: " + metric_name)
+
     # dev_logger.info("Evaluating: " + metric_name)
     result = METRICS_CUSTOM[metric_name].evaluate()
 
@@ -951,7 +984,7 @@ def handle_connect():
 
     sid = request.sid
 
-    print("Connected with SID " + sid)
+    dev_logger.info("Connected with SID " + sid)
 
     # Creates a new temp file
     # with open("./temp/" + sid, 'w') as fp:
@@ -1527,7 +1560,6 @@ def base_metrics():
     #     })
 
     raw_jld = buildJSONLD()
-    print(app.config)
 
     metrics = []
 

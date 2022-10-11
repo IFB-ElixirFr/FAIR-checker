@@ -1,0 +1,14 @@
+{% extends "layout.html" %}
+
+{% block nav %}
+{% include 'nav.html' %}
+{% endblock %}
+
+{% block body %}
+<ul>
+    {% for url, endpoint in links %}
+    <li><a href="{{ url }}">{{ url }}</a></li>
+    {% endfor %}
+</ul>
+
+{% endblock %}
