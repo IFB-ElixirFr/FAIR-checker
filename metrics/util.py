@@ -3,6 +3,11 @@ from SPARQLWrapper import SPARQLWrapper, N3, JSON, RDF, TURTLE, JSONLD
 from rdflib import Graph, ConjunctiveGraph, Namespace
 from rdflib.namespace import RDF
 import requests
+
+requests.packages.urllib3.disable_warnings(
+    requests.packages.urllib3.exceptions.InsecureRequestWarning
+)
+
 from jinja2 import Template
 from pyshacl import validate
 import extruct
