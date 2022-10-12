@@ -39,10 +39,9 @@ class APITestCase(unittest.TestCase):
     def test_check_individual(self):
         for url in list_api_check():
             with self.subTest():
-                print("Testing: " + url)
+                # print("Testing: " + url)
                 response = self.app.get(
                     url + self.url_biotools,
-                    # headers={"Content-Type": "application/json"}
                 )
                 self.assertEqual(200, response.status_code)
 
@@ -66,13 +65,28 @@ class APITestCase(unittest.TestCase):
         self.assertEqual(81, response.get_json()["triples_before"])
         self.assertEqual(109, response.get_json()["triples_after"])
 
-    def test_inspect_describe_opencitation(self):
+    def test_inspect_get_describe_opencitation(self):
         response = self.app.get(
             "/api/inspect/describe_opencitation/" + self.url_datacite,
         )
         self.assertEqual(200, response.status_code)
         self.assertEqual(81, response.get_json()["triples_before"])
         self.assertEqual(81, response.get_json()["triples_after"])
+
+    def test_inspect_post_describe_opencitation(self):
+
+        response = self.app.get(
+            "/api/inspect/get_rdf_metadata/" + self.url_datacite,
+        )
+
+        graph = json.dumps(response.get_json(), ensure_ascii=False)
+
+        response = self.app.post(
+            "/api/inspect/describe_openaire/" + self.url_datacite, json={"graph": graph}
+        )
+        self.assertEqual(200, response.status_code)
+        self.assertEqual(81, response.get_json()["triples_before"])
+        self.assertEqual(109, response.get_json()["triples_after"])
 
     def test_inspect_describe_wikidata(self):
         response = self.app.get(

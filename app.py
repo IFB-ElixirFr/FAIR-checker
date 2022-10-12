@@ -488,10 +488,31 @@ def generate_ask_api(describe):
             web_res = WebResource(url)
             kg = web_res.get_rdf()
             old_kg = copy.deepcopy(kg)
+
             if util.is_DOI(url):
                 url = util.get_DOI(url)
             new_kg = describe(url, old_kg)
 
+            triples_before = len(kg)
+            triples_after = len(new_kg)
+            data = {
+                "triples_before": triples_before,
+                "triples_after": triples_after,
+                "@graph": json.loads(new_kg.serialize(format="json-ld")),
+            }
+            return data
+
+        def post(self, url):
+            json_data = request.get_json(force=True)
+
+            kg = ConjunctiveGraph()
+            kg.parse(data=json_data["graph"], format="json-ld")
+            old_kg = copy.deepcopy(kg)
+
+            if util.is_DOI(url):
+                url = util.get_DOI(url)
+
+            new_kg = describe(url, old_kg)
             triples_before = len(kg)
             triples_after = len(new_kg)
             data = {
@@ -506,25 +527,6 @@ def generate_ask_api(describe):
 
 for describe in describe_list:
     generate_ask_api(describe)
-
-# @fc_inspect_namespace.route('/inspect_ask_openair/<path:url>')
-# class InspectOpenair(Resource):
-#     def get(self, url):
-#         web_res = WebResource(url)
-#         kg = web_res.get_rdf()
-#
-#         if util.is_DOI(url):
-#             url = util.get_DOI(url)
-#
-#         new_kg = util.describe_openaire(url, kg)
-#         triples_before = len(kg)
-#         triples_after = len (new_kg)
-#         data = {
-#             'triples_before': triples_before,
-#             'triples_after': triples_after,
-#             '@graph': json.loads(new_kg.serialize(format="json-ld")),
-#         }
-#         return data
 
 
 @fc_inspect_namespace.route("/inspect_ontologies/<path:url>")
