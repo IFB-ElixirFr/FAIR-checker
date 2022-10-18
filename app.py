@@ -2,7 +2,7 @@ import copy
 from asyncio.log import logger
 from unittest import result
 import eventlet
-# from numpy import broadcast
+from numpy import broadcast
 
 # from https://github.com/eventlet/eventlet/issues/670
 # eventlet.monkey_patch(select=False)
