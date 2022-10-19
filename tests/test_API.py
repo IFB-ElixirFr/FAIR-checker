@@ -33,9 +33,9 @@ class APITestCase(unittest.TestCase):
         # app.config['TESTING'] = True
         app.config.from_object("config.TestingConfig")
         self.app = app.test_client()
-        PyMongo(app)
-        # db = mongo.fair_checker
-        # db_eval = db.evaluations
+        mongo = PyMongo(app)
+        db = mongo.fair_checker
+        db_eval = db.evaluations
 
     # def tearDown(self):
     #     print("TODO")

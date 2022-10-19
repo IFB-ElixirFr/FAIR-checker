@@ -45,6 +45,6 @@ class TestingConfig(Config):
     SERVER_IP = "http://0.0.0.0:5000"
     MONGO_HOST = "0.0.0.0"
     MONGO_PORT = 27017
-    MONGO_DBNAME = "fair_checker_test"
+    MONGO_DBNAME = "fair_checker"
     MONGO_URI = f"mongodb://{MONGO_HOST}:{MONGO_PORT}/{MONGO_DBNAME}"
     # TESTING = True
