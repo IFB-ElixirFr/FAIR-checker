@@ -43,8 +43,8 @@ class DevelopmentConfig(Config):
 class TestingConfig(Config):
     TESTING = True
     SERVER_IP = "http://0.0.0.0:5000"
-    MONGO_HOST = "0.0.0.0"
-    MONGO_PORT = 27017
-    MONGO_DBNAME = "fair_checker"
-    MONGO_URI = f"mongodb://{MONGO_HOST}:{MONGO_PORT}/{MONGO_DBNAME}"
+    # MONGO_HOST = "0.0.0.0"
+    # MONGO_PORT = 27017
+    # MONGO_DBNAME = "fair_checker"
+    # MONGO_URI = f"mongodb://{MONGO_HOST}:{MONGO_PORT}/{MONGO_DBNAME}"
     # TESTING = True

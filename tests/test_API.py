@@ -7,7 +7,8 @@ import logging
 from rdflib import ConjunctiveGraph
 import json
 import urllib3
-from flask_pymongo import PyMongo
+
+# from flask_pymongo import PyMongo
 
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
@@ -33,9 +34,6 @@ class APITestCase(unittest.TestCase):
         # app.config['TESTING'] = True
         app.config.from_object("config.TestingConfig")
         self.app = app.test_client()
-        mongo = PyMongo(app)
-        db = mongo.fair_checker
-        db_eval = db.evaluations
 
     # def tearDown(self):
     #     print("TODO")
