@@ -40,7 +40,7 @@ jobs:
 
       - shell: bash -l {0}
         run: |
-          mamba install --file requirements.txt
+          #mamba install --file requirements.txt
           #pip install extruct
           mamba env update -n test --file environment.yml
           
