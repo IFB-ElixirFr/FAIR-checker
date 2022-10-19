@@ -41,7 +41,8 @@ jobs:
       - shell: bash -l {0}
         run: |
           mamba env update -n test --file environment.yml
-          
+      - name: Create mongoDB Docker container
+        run: sudo docker run -d -p 27017:27017 mongo:latest
 
       #----------------------------------------------
       # Code quality check
