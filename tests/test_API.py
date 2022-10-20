@@ -112,7 +112,6 @@ class APITestCase(unittest.TestCase):
                 else:
                     self.assertEqual(81, post_response.get_json()["triples_after"])
 
-
     def test_inspect_ontologies(self):
         response = self.app.get(
             "/api/inspect/inspect_ontologies/" + self.url_datacite,
