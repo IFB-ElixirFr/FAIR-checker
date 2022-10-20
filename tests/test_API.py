@@ -82,7 +82,7 @@ class APITestCase(unittest.TestCase):
         )
 
         graph = json.dumps(response.get_json(), ensure_ascii=False)
-        url= self.url_datacite
+        url = self.url_datacite
 
         response = self.app.post(
             "/api/inspect/describe_openaire/", json={"graph": graph, "url": url}
