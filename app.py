@@ -480,9 +480,20 @@ describe_list = [
     util.describe_openaire,
 ]
 
+""" Model for documenting the API"""
+
+graph_payload = fc_inspect_namespace.model(
+    "graph_payload",
+    {
+        "url": fields.String(description="URL of the resource to be enriched", required=True),
+        "graph": fields.String(description="RDF graph in JSON-LD", required=True),
+    },
+)
 
 def generate_ask_api(describe):
-    @fc_inspect_namespace.route("/" + describe.__name__ + "/<path:url>")
+    @fc_inspect_namespace.route("/" + describe.__name__ + "/<path:url>", methods = ['GET'])
+    @fc_inspect_namespace.route("/" + describe.__name__ + "/", methods = ['POST'])
+    # @api.doc(params={"url": "An URL"})
     class Ask(Resource):
         def get(self, url):
             web_res = WebResource(url)
@@ -502,8 +513,10 @@ def generate_ask_api(describe):
             }
             return data
 
-        def post(self, url):
+        @fc_inspect_namespace.expect(graph_payload)
+        def post(self):
             json_data = request.get_json(force=True)
+            url=json_data["url"]
 
             kg = ConjunctiveGraph()
             kg.parse(data=json_data["graph"], format="json-ld")
