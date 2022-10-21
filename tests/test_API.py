@@ -103,7 +103,7 @@ class APITestCase(unittest.TestCase):
                 url = self.url_datacite
 
                 post_response = self.app.post(
-                    api_url, json={"graph": graph, "url": url}
+                    api_url, json={"json-ld": graph, "url": url}
                 )
                 self.assertEqual(200, post_response.status_code)
                 self.assertEqual(81, post_response.get_json()["triples_before"])
