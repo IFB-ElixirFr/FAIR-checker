@@ -405,6 +405,7 @@ def generate_check_api(metric):
     @fc_check_namespace.route("/metric_" + metric.get_principle_tag() + "/<path:url>")
     class MetricEval(Resource):
         def get(self, url):
+
             web_res = WebResource(url)
             metric.set_web_resource(web_res)
             result = metric.evaluate()
@@ -419,6 +420,8 @@ def generate_check_api(metric):
             result.persist(str(SOURCE.API))
             return data
 
+        get.__doc__ = metric.get_name()
+
     MetricEval.__name__ = MetricEval.__name__ + metric.get_principle_tag()
 
 
@@ -429,6 +432,7 @@ for key in METRICS_CUSTOM.keys():
 @fc_check_namespace.route("/metrics_all/<path:url>")
 class MetricEvalAll(Resource):
     def get(self, url):
+        """All FAIR metrics"""
         web_res = WebResource(url)
 
         metrics_collection = []
@@ -468,6 +472,7 @@ class MetricEvalAll(Resource):
 class RetrieveMetadata(Resource):
     @fc_inspect_namespace.produces(["application/ld+json"])
     def get(self, url):
+        """Get RDF metadata in JSON-LD from a web resource"""
         web_res = WebResource(url)
         data_str = web_res.get_rdf().serialize(format="json-ld")
         data_json = json.loads(data_str)
@@ -480,9 +485,25 @@ describe_list = [
     util.describe_openaire,
 ]
 
+""" Model for documenting the API"""
+
+graph_payload = fc_inspect_namespace.model(
+    "graph_payload",
+    {
+        "url": fields.String(
+            description="URL of the resource to be enriched", required=True
+        ),
+        "json-ld": fields.String(description="RDF graph in JSON-LD", required=True),
+    },
+)
+
 
 def generate_ask_api(describe):
-    @fc_inspect_namespace.route("/" + describe.__name__ + "/<path:url>")
+    @fc_inspect_namespace.route(
+        "/" + describe.__name__ + "/<path:url>", methods=["GET"]
+    )
+    @fc_inspect_namespace.route("/" + describe.__name__ + "/", methods=["POST"])
+    # @api.doc(params={"url": "An URL"})
     class Ask(Resource):
         def get(self, url):
             web_res = WebResource(url)
@@ -502,11 +523,17 @@ def generate_ask_api(describe):
             }
             return data
 
-        def post(self, url):
+        get.__doc__ = (
+            "Retrieve RDF metadata from URL and try to enrich it with SPARQL request"
+        )
+
+        @fc_inspect_namespace.expect(graph_payload)
+        def post(self):
             json_data = request.get_json(force=True)
+            url = json_data["url"]
 
             kg = ConjunctiveGraph()
-            kg.parse(data=json_data["graph"], format="json-ld")
+            kg.parse(data=json_data["json-ld"], format="json-ld")
             old_kg = copy.deepcopy(kg)
 
             if util.is_DOI(url):
@@ -522,6 +549,8 @@ def generate_ask_api(describe):
             }
             return data
 
+        post.__doc__ = "Try to enrich RDF metadata with SPARQL request"
+
     Ask.__name__ = Ask.__name__ + describe.__name__.capitalize()
 
 
@@ -532,6 +561,7 @@ for describe in describe_list:
 @fc_inspect_namespace.route("/inspect_ontologies/<path:url>")
 class InspectOntologies(Resource):
     def get(self, url):
+        """Inspect if RDF properties and classes are found in ontology registries (OLS, LOV, BioPortal)"""
         web_res = WebResource(url)
         kg = web_res.get_rdf()
 
