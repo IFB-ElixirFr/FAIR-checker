@@ -8,6 +8,7 @@ from selenium.webdriver.chrome.options import Options
 from selenium.common.exceptions import NoSuchElementException
 import extruct
 from pathlib import Path
+import rdflib
 from rdflib import ConjunctiveGraph, URIRef
 import requests
 import json
@@ -48,17 +49,84 @@ class WebResource:
         self.id = "WebResource Unique ID for cache"
         self.url = url
 
-        self.get_http_header(url)
-
         if rdf_graph is None:
-            # get static RDF metadata (already available in html sources)
-            kg_1 = self.extract_rdf_extruct(self.url)
 
-            if "html" in self.content_type:
-                logging.info("Resource content_type is HTML")
+            headers = self.get_http_header(url)
+            mimetype = headers["Content-Type"].split(";")[0]
+            rdf_formats = self.get_rdf_format_from_contenttype(mimetype)
+
+            kg_auto = ConjunctiveGraph()
+            for rdf_format in rdf_formats:
+                response = requests.get(url)
+                if response.status_code == 200:
+                    try:
+                        rdf_str = response.text
+                        kg_auto.parse(data=rdf_str, format=rdf_format)
+                    except rdflib.exceptions.ParserError:
+                        pass
+            print("AUTO: " + str(len(kg_auto)))
+
+            logging.info("Resource content_type is: " + headers["Content-Type"])
+            # get static RDF metadata (already available in html sources)
+            # kg_1 = self.extract_rdf_extruct(self.url)
+
+            if "text/html" in headers["Content-Type"]:
+                kg_1 = self.extract_rdf_extruct(self.url)
                 # get dynamic RDF metadata (generated from JS)
                 kg_2 = WebResource.extract_rdf_selenium(self.url)
                 self.rdf = kg_1 + kg_2
+            elif "application/json" in headers["Content-Type"]:
+
+                base_path = Path(__file__).parent.parent  # current directory
+                static_file_path = str(
+                    (base_path / "static/data/jsonldcontext.json").resolve()
+                )
+
+                response = requests.get(url)
+                if response.status_code == 200:
+                    json_response = response.json()
+
+                    if "@context" in json_response.keys():
+                        if ("https://schema.org" in json_response["@context"]) or (
+                            "http://schema.org" in json_response["@context"]
+                        ):
+                            json_response["@context"] = static_file_path
+
+                    json_str = json.dumps(json_response, ensure_ascii=False)
+
+                    kg = ConjunctiveGraph()
+                    kg.parse(data=json_str, format="json-ld")
+                    print(len(kg))
+                    self.rdf = kg
+
+            elif "text/turtle" in headers["Content-Type"]:
+
+                response = requests.get(url)
+                turtle_str = response.text
+                if response.status_code == 200:
+                    kg = ConjunctiveGraph()
+                    kg.parse(data=turtle_str, format="turtle")
+                    print(len(kg))
+                    self.rdf = kg
+
+            elif "text/n3" in headers["Content-Type"]:
+                response = requests.get(url)
+                n3_str = response.text
+                if response.status_code == 200:
+                    kg = ConjunctiveGraph()
+                    kg.parse(data=n3_str, format="n3")
+                    print(len(kg))
+                    self.rdf = kg
+
+            elif "application/xml" in headers["Content-Type"]:
+                response = requests.get(url)
+                xml_str = response.text
+                if response.status_code == 200:
+                    kg = ConjunctiveGraph()
+                    kg.parse(data=xml_str, format="xml")
+                    print(len(kg))
+                    self.rdf = kg
+
             else:
                 self.rdf = kg_1
         else:
@@ -88,11 +156,42 @@ class WebResource:
 
     def get_http_header(self, url):
         response = requests.head(url)
-        print("#########################\n#########################\n#########################\n")
+        print(
+            "#########################\n#########################\n#########################\n"
+        )
         print(response.headers)
         content_type = response.headers["Content-Type"]
         print(content_type)
-        # return None
+        return response.headers
+
+    def get_rdf_format_from_contenttype(self, mimetype):
+        # source: https://docs.aws.amazon.com/neptune/latest/userguide/sparql-media-type-support.html
+        rdf_media_types_mapping = {
+            "turtle": ["text/turtle"],
+            "xml": ["application/rdf+xml"],
+            "json-ld": ["application/ld+json"],
+            "ntriples": [
+                "application/n-triples",
+                "text/turtle",
+                "text/plain",
+            ],
+            "n3": ["text/n3"],
+            "trig": [
+                "application/trig",
+            ],
+            "trix": [
+                "application/trix",
+            ],
+            "nquads": ["application/n-quads", "text/x-nquads"],
+        }
+        all_mediatypes = [
+            item for sublist in rdf_media_types_mapping.values() for item in sublist
+        ]
+        rdf_formats = [
+            i for i in rdf_media_types_mapping if mimetype in rdf_media_types_mapping[i]
+        ]
+
+        return rdf_formats
 
     # TODO Extruct can work with Selenium
 

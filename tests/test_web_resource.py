@@ -82,10 +82,38 @@ class WebResourceTestCase(unittest.TestCase):
 
         print(row)
 
-    @unittest.skip("The test wont work without a fix")
+    # @unittest.skip("The test wont work without a fix")
     def test_fairchecker(self):
-        bwa = WebResource("https://fair-checker.france-bioinformatique.fr/")
-        logging.info(f"{len(bwa.get_rdf())} loaded RDF triples")
+        fc = WebResource("https://fair-checker.france-bioinformatique.fr/")
+        logging.info(f"{len(fc.get_rdf())} loaded RDF triples")
+
+    def test_dataverse_jsonld(self):
+        # inrae_dataverse_jsonld = WebResource("https://entrepot.recherche.data.gouv.fr/api/datasets/export?exporter=schema.org&persistentId=doi%3A10.57745/EFVOW5")
+        # logging.info(f"{len(inrae_dataverse_jsonld.get_rdf())} loaded RDF triples")
+
+        harvard_dataverse_jsonld = WebResource(
+            "https://dataverse.harvard.edu/api/datasets/export?exporter=schema.org&persistentId=doi%3A10.7910/DVN/ISBMO4"
+        )
+        logging.info(f"{len(harvard_dataverse_jsonld.get_rdf())} loaded RDF triples")
+
+    def test_dataverse_html(self):
+
+        harvard_dataverse_html = WebResource(
+            "https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/ISBMO4"
+        )
+        logging.info(f"{len(harvard_dataverse_html.get_rdf())} loaded RDF triples")
+
+    def test_turtle(self):
+        turtle_WR = WebResource("https://www.w3.org/TR/turtle/examples/example1.ttl")
+        logging.info(f"{len(turtle_WR.get_rdf())} loaded RDF triples")
+
+    def test_n3(self):
+        n3_WR = WebResource("https://www.w3.org/2002/11/rddl/ex1.n3")
+        logging.info(f"{len(n3_WR.get_rdf())} loaded RDF triples")
+
+    def test_rdfxml(self):
+        rdfxml_WR = WebResource("https://www.w3.org/2002/11/rddl/ex1.xml")
+        logging.info(f"{len(rdfxml_WR.get_rdf())} loaded RDF triples")
 
 
 if __name__ == "__main__":
