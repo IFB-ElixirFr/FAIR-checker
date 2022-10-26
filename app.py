@@ -146,11 +146,11 @@ else:
 
 dev_logger.warning("Watch out dev!")
 dev_logger.info("I told you so dev")
-dev_logger.debug("DEBUG haha dev")
+dev_logger.debug("DEBUG dev")
 
 prod_logger.warning("Watch out prod!")
 prod_logger.info("I told you so prod")
-prod_logger.debug("DEBUG haha prod")
+prod_logger.debug("DEBUG prod")
 
 
 # blueprint = Blueprint('api', __name__, url_prefix='/api')
