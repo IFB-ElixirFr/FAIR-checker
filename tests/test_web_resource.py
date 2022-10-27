@@ -115,6 +115,9 @@ class WebResourceTestCase(unittest.TestCase):
         rdfxml_WR = WebResource("https://www.w3.org/2002/11/rddl/ex1.xml")
         logging.info(f"{len(rdfxml_WR.get_rdf())} loaded RDF triples")
 
+    def test_pangaea(self):
+        pangaea_WR = WebResource("https://doi.pangaea.de/10.1594/PANGAEA.932827")
+        logging.info(f"{len(pangaea_WR.get_rdf())} loaded RDF triples")
 
 if __name__ == "__main__":
     unittest.main()

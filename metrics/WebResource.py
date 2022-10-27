@@ -13,6 +13,11 @@ from rdflib import ConjunctiveGraph, URIRef
 import requests
 import json
 import os
+import re
+
+from pyparsing import Word, alphas, alphanums, Group, Combine, Forward, ZeroOrMore, Optional, oneOf, QuotedString, Suppress
+import pyparsing as pp
+from pyparsing import pyparsing_common as ppc
 
 from metrics.util import clean_kg_excluding_ns_prefix
 
@@ -44,6 +49,27 @@ class WebResource:
     browser_selenium = None
     html_selenium = None
     html_requests = None
+    headers = None
+
+    # source: https://docs.aws.amazon.com/neptune/latest/userguide/sparql-media-type-support.html
+    RDF_MEDIA_TYPES_MAPPING = {
+        "turtle": ["text/turtle"],
+        "xml": ["application/rdf+xml"],
+        "json-ld": ["application/ld+json"],
+        "ntriples": [
+            "application/n-triples",
+            "text/turtle",
+            "text/plain",
+        ],
+        "n3": ["text/n3"],
+        "trig": [
+            "application/trig",
+        ],
+        "trix": [
+            "application/trix",
+        ],
+        "nquads": ["application/n-quads", "text/x-nquads"],
+    }
 
     def __init__(self, url, rdf_graph=None) -> None:
         self.id = "WebResource Unique ID for cache"
@@ -51,83 +77,93 @@ class WebResource:
 
         if rdf_graph is None:
 
-            headers = self.get_http_header(url)
-            mimetype = headers["Content-Type"].split(";")[0]
-            rdf_formats = self.get_rdf_format_from_contenttype(mimetype)
 
-            kg_auto = ConjunctiveGraph()
-            for rdf_format in rdf_formats:
-                response = requests.get(url)
-                if response.status_code == 200:
-                    try:
+            response = requests.head(url)
+            self.headers = response.headers
+            mimetype = self.headers["Content-Type"].split(";")[0]
+
+            cite_as, described_by, items = self.retrieve_links_from_headers()
+            
+            # get RDF from HTTP headers
+
+            kg_header = ConjunctiveGraph()
+            for link in described_by:
+  
+                reg_string = '<(.*?)>*;*rel="(.*?)"*;*type="(.*?)"'
+                p = re.compile(reg_string)
+                match = re.search(reg_string, link)
+                url = match.group(1)
+                desc = match.group(2)
+                link_mimetype = match.group(3)
+                
+                rdf_formats = self.get_rdf_format_from_contenttype(link_mimetype)
+
+                for rdf_format in rdf_formats:
+                    self.get_rdf_from_mimetype_match(url, rdf_format, kg_header)
+            print("HEADERS: " + str(len(kg_header)))
+                    
+            
+            
+            response = requests.get(self.url)
+            if mimetype != "text/html":
+
+                # get rdf formats from mimetypes
+                rdf_formats = self.get_rdf_format_from_contenttype(mimetype)
+
+                # generate rdf graph from mapped mimetypes
+                kg_auto = ConjunctiveGraph()
+                for rdf_format in rdf_formats:
+
+                    if response.status_code == 200:
                         rdf_str = response.text
-                        kg_auto.parse(data=rdf_str, format=rdf_format)
-                    except rdflib.exceptions.ParserError:
-                        pass
-            print("AUTO: " + str(len(kg_auto)))
+                        try:
+                            kg_auto.parse(data=rdf_str, format=rdf_format)
+                        except rdflib.exceptions.ParserError:
+                            pass
+                print("AUTO: " + str(len(kg_auto)))
 
-            logging.info("Resource content_type is: " + headers["Content-Type"])
-            # get static RDF metadata (already available in html sources)
-            # kg_1 = self.extract_rdf_extruct(self.url)
+                # if no rdf found: brutforce testing each RDF formats regardless of mimetypes
+                if len(kg_auto) == 0:
+                    rdf_str = response.text
+                    for rdf_format in self.RDF_MEDIA_TYPES_MAPPING.keys():
+                        try:
+                            print("Trying: " + rdf_format)
+                            kg_auto.parse(data=rdf_str, format=rdf_format)
+                            print("Worked !")
+                        except Exception as err:
+                            # if error UnicodeDecodeError execute following code, otherwise continue to next format
+                            if type(err).__name__ != "UnicodeDecodeError": continue
 
-            if "text/html" in headers["Content-Type"]:
+                            kg_auto = self.handle_unicodedecodeerror(kg_auto, response)
+
+                            
+
+
+                    print("BRUTFORCE: " + str(len(kg_auto)))
+                self.rdf = kg_auto
+                logging.info("Resource content_type is: " + self.headers["Content-Type"])
+
+
+
+            elif mimetype == "text/html":
+
+
+                # TODO get RDF from HTTP html
+
+
                 kg_1 = self.extract_rdf_extruct(self.url)
+                print("EXTRUCT: " + str(len(kg_1)))
+
                 # get dynamic RDF metadata (generated from JS)
                 kg_2 = WebResource.extract_rdf_selenium(self.url)
+                print("SELENIUM: " + str(len(kg_2)))
+
                 self.rdf = kg_1 + kg_2
-            elif "application/json" in headers["Content-Type"]:
-
-                base_path = Path(__file__).parent.parent  # current directory
-                static_file_path = str(
-                    (base_path / "static/data/jsonldcontext.json").resolve()
-                )
-
-                response = requests.get(url)
-                if response.status_code == 200:
-                    json_response = response.json()
-
-                    if "@context" in json_response.keys():
-                        if ("https://schema.org" in json_response["@context"]) or (
-                            "http://schema.org" in json_response["@context"]
-                        ):
-                            json_response["@context"] = static_file_path
-
-                    json_str = json.dumps(json_response, ensure_ascii=False)
-
-                    kg = ConjunctiveGraph()
-                    kg.parse(data=json_str, format="json-ld")
-                    print(len(kg))
-                    self.rdf = kg
-
-            elif "text/turtle" in headers["Content-Type"]:
-
-                response = requests.get(url)
-                turtle_str = response.text
-                if response.status_code == 200:
-                    kg = ConjunctiveGraph()
-                    kg.parse(data=turtle_str, format="turtle")
-                    print(len(kg))
-                    self.rdf = kg
-
-            elif "text/n3" in headers["Content-Type"]:
-                response = requests.get(url)
-                n3_str = response.text
-                if response.status_code == 200:
-                    kg = ConjunctiveGraph()
-                    kg.parse(data=n3_str, format="n3")
-                    print(len(kg))
-                    self.rdf = kg
-
-            elif "application/xml" in headers["Content-Type"]:
-                response = requests.get(url)
-                xml_str = response.text
-                if response.status_code == 200:
-                    kg = ConjunctiveGraph()
-                    kg.parse(data=xml_str, format="xml")
-                    print(len(kg))
-                    self.rdf = kg
+                print("HTML: " + str(len(self.rdf)))
 
             else:
+                # get static RDF metadata (already available in html sources)
+                kg_1 = self.extract_rdf_extruct(self.url)
                 self.rdf = kg_1
         else:
             self.rdf = rdf_graph
@@ -154,44 +190,78 @@ class WebResource:
     def get_html_requests(self):
         return self.html_requests
 
-    def get_http_header(self, url):
-        response = requests.head(url)
-        print(
-            "#########################\n#########################\n#########################\n"
-        )
-        print(response.headers)
-        content_type = response.headers["Content-Type"]
-        print(content_type)
-        return response.headers
+    def get_http_header(self):
+        return self.headers
+
+    def get_rdf_from_mimetype_match(self, url, rdf_format, kg):
+        logging.debug("Getting RDF from: " + rdf_format)
+        
+        response = requests.get(url)
+
+        if response.status_code == 200:
+            rdf_str = response.text
+            try:
+                kg.parse(data=rdf_str, format=rdf_format)
+            except Exception as err:
+                # if error UnicodeDecodeError execute following code, otherwise continue to next format
+                if type(err).__name__ == "UnicodeDecodeError":
+                    kg = self.handle_unicodedecodeerror(kg, response)
+        return kg
 
     def get_rdf_format_from_contenttype(self, mimetype):
-        # source: https://docs.aws.amazon.com/neptune/latest/userguide/sparql-media-type-support.html
-        rdf_media_types_mapping = {
-            "turtle": ["text/turtle"],
-            "xml": ["application/rdf+xml"],
-            "json-ld": ["application/ld+json"],
-            "ntriples": [
-                "application/n-triples",
-                "text/turtle",
-                "text/plain",
-            ],
-            "n3": ["text/n3"],
-            "trig": [
-                "application/trig",
-            ],
-            "trix": [
-                "application/trix",
-            ],
-            "nquads": ["application/n-quads", "text/x-nquads"],
-        }
+        
         all_mediatypes = [
-            item for sublist in rdf_media_types_mapping.values() for item in sublist
+            item for sublist in self.RDF_MEDIA_TYPES_MAPPING.values() for item in sublist
         ]
         rdf_formats = [
-            i for i in rdf_media_types_mapping if mimetype in rdf_media_types_mapping[i]
+            i for i in self.RDF_MEDIA_TYPES_MAPPING if mimetype in self.RDF_MEDIA_TYPES_MAPPING[i]
         ]
 
         return rdf_formats
+
+    def handle_unicodedecodeerror(self, kg, response):
+        print("Handle JSON-LD parsing error")
+        base_path = Path(__file__).parent.parent  # current directory
+        static_file_path = str(
+            (base_path / "static/data/jsonldcontext.json").resolve()
+        )
+        json_response = response.json()
+
+        if "@context" in json_response.keys():
+            if ("https://schema.org" in json_response["@context"]) or (
+                "http://schema.org" in json_response["@context"]
+            ):
+                json_response["@context"] = static_file_path
+
+        json_str = json.dumps(json_response, ensure_ascii=False)
+
+        kg.parse(data=json_str, format="json-ld")
+        return kg
+
+    def retrieve_links_from_headers(self):
+        links_col = []
+        decsribed_by_col = []
+        cite_as_col = []
+        item_col = []
+        headers = self.headers
+        for k in headers.keys():
+            if 'link' in k.lower() : 
+                l_header = headers[k]
+                links = l_header.split(',')
+                for link in links : 
+                    #print("----")
+                    links_col.append(link)
+                    tokens = link.split(';')
+                    #print(tokens)
+                    for t in tokens :
+                        if 'rel="describedby"' in t:
+                            decsribed_by_col.append(link)
+                        elif 'rel="item"' in t:
+                            item_col.append(link)
+                        elif 'rel="cite-as"' in t:
+                            cite_as_col.append(link)
+                
+        return cite_as_col, decsribed_by_col, item_col
 
     # TODO Extruct can work with Selenium
 
@@ -315,7 +385,7 @@ class WebResource:
                         md["@context"] = static_file_path
                 kg.parse(data=json.dumps(md, ensure_ascii=False), format="json-ld")
 
-        logging.debug(kg.serialize(format="turtle"))
+        # logging.debug(kg.serialize(format="turtle"))
 
         kg.namespace_manager.bind("sc", URIRef("http://schema.org/"))
         kg.namespace_manager.bind("bsc", URIRef("https://bioschemas.org/"))
@@ -352,7 +422,7 @@ class WebResource:
             for json_ld_annots in jsonld_string:
                 jsonld = json.loads(json_ld_annots)
                 print(type(jsonld))
-                print(jsonld)
+                # print(jsonld)
                 if type(jsonld) == list:
                     jsonld = jsonld[0]
                 if "@context" in jsonld.keys():
@@ -360,7 +430,7 @@ class WebResource:
                         jsonld["@context"] = static_file_path
                 kg.parse(data=json.dumps(jsonld, ensure_ascii=False), format="json-ld")
                 logging.debug(f"{len(kg)} retrieved triples in KG")
-                logging.debug(kg.serialize(format="turtle"))
+                # logging.debug(kg.serialize(format="turtle"))
 
         except NoSuchElementException:
             logging.warning('Can\'t find "application/ld+json" content')
