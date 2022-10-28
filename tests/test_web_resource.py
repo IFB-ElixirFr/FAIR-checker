@@ -119,5 +119,6 @@ class WebResourceTestCase(unittest.TestCase):
         pangaea_WR = WebResource("https://doi.pangaea.de/10.1594/PANGAEA.932827")
         logging.info(f"{len(pangaea_WR.get_rdf())} loaded RDF triples")
 
+
 if __name__ == "__main__":
     unittest.main()

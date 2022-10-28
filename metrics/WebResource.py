@@ -15,7 +15,19 @@ import json
 import os
 import re
 
-from pyparsing import Word, alphas, alphanums, Group, Combine, Forward, ZeroOrMore, Optional, oneOf, QuotedString, Suppress
+from pyparsing import (
+    Word,
+    alphas,
+    alphanums,
+    Group,
+    Combine,
+    Forward,
+    ZeroOrMore,
+    Optional,
+    oneOf,
+    QuotedString,
+    Suppress,
+)
 import pyparsing as pp
 from pyparsing import pyparsing_common as ppc
 
@@ -50,6 +62,7 @@ class WebResource:
     html_selenium = None
     html_requests = None
     headers = None
+    links_headers = None
 
     # source: https://docs.aws.amazon.com/neptune/latest/userguide/sparql-media-type-support.html
     RDF_MEDIA_TYPES_MAPPING = {
@@ -77,41 +90,42 @@ class WebResource:
 
         if rdf_graph is None:
 
-
             response = requests.head(url)
             self.headers = response.headers
             mimetype = self.headers["Content-Type"].split(";")[0]
+            print(self.headers)
 
             cite_as, described_by, items = self.retrieve_links_from_headers()
-            
-            # get RDF from HTTP headers
 
+            # get RDF from HTTP headers
             kg_header = ConjunctiveGraph()
             for link in described_by:
-  
+
                 reg_string = '<(.*?)>*;*rel="(.*?)"*;*type="(.*?)"'
                 p = re.compile(reg_string)
                 match = re.search(reg_string, link)
                 url = match.group(1)
                 desc = match.group(2)
                 link_mimetype = match.group(3)
-                
+
                 rdf_formats = self.get_rdf_format_from_contenttype(link_mimetype)
 
                 for rdf_format in rdf_formats:
                     self.get_rdf_from_mimetype_match(url, rdf_format, kg_header)
-            print("HEADERS: " + str(len(kg_header)))
-                    
-            
-            
-            response = requests.get(self.url)
+            self.kg_header = kg_header
+
+            kg_auto = ConjunctiveGraph()
+            kg_brut = ConjunctiveGraph()
+
             if mimetype != "text/html":
+
+                response = self.request_from_url(self.url)
 
                 # get rdf formats from mimetypes
                 rdf_formats = self.get_rdf_format_from_contenttype(mimetype)
 
                 # generate rdf graph from mapped mimetypes
-                kg_auto = ConjunctiveGraph()
+
                 for rdf_format in rdf_formats:
 
                     if response.status_code == 200:
@@ -120,51 +134,50 @@ class WebResource:
                             kg_auto.parse(data=rdf_str, format=rdf_format)
                         except rdflib.exceptions.ParserError:
                             pass
-                print("AUTO: " + str(len(kg_auto)))
+                self.kg_auto = kg_auto
 
                 # if no rdf found: brutforce testing each RDF formats regardless of mimetypes
+
                 if len(kg_auto) == 0:
                     rdf_str = response.text
                     for rdf_format in self.RDF_MEDIA_TYPES_MAPPING.keys():
-                        try:
-                            print("Trying: " + rdf_format)
-                            kg_auto.parse(data=rdf_str, format=rdf_format)
-                            print("Worked !")
-                        except Exception as err:
-                            # if error UnicodeDecodeError execute following code, otherwise continue to next format
-                            if type(err).__name__ != "UnicodeDecodeError": continue
+                        self.get_rdf_from_mimetype_match(url, rdf_format, kg_brut)
 
-                            kg_auto = self.handle_unicodedecodeerror(kg_auto, response)
-
-                            
-
-
-                    print("BRUTFORCE: " + str(len(kg_auto)))
-                self.rdf = kg_auto
-                logging.info("Resource content_type is: " + self.headers["Content-Type"])
-
-
+                self.kg_brut = kg_brut
+                logging.info(
+                    "Resource content_type is: " + self.headers["Content-Type"]
+                )
 
             elif mimetype == "text/html":
 
-
                 # TODO get RDF from HTTP html
+                response = self.request_from_url(self.url)
+                self.status_code = response.status_code
+                self.html_requests = response.content
 
+                kg = self.html_to_rdf_extruct(response.content)
+                print(len(kg))
 
                 kg_1 = self.extract_rdf_extruct(self.url)
-                print("EXTRUCT: " + str(len(kg_1)))
+                print(len(kg_1))
 
                 # get dynamic RDF metadata (generated from JS)
                 kg_2 = WebResource.extract_rdf_selenium(self.url)
-                print("SELENIUM: " + str(len(kg_2)))
 
                 self.rdf = kg_1 + kg_2
-                print("HTML: " + str(len(self.rdf)))
 
             else:
                 # get static RDF metadata (already available in html sources)
                 kg_1 = self.extract_rdf_extruct(self.url)
                 self.rdf = kg_1
+
+            print("HEADERS: " + str(len(self.kg_header)))
+            print("AUTO: " + str(len(kg_auto)))
+            print("BRUTFORCE: " + str(len(kg_brut)))
+            print("EXTRUCT: " + str(len(kg_1)))
+            print("SELENIUM: " + str(len(kg_2)))
+            print("HTML: " + str(len(self.rdf)))
+
         else:
             self.rdf = rdf_graph
 
@@ -195,7 +208,7 @@ class WebResource:
 
     def get_rdf_from_mimetype_match(self, url, rdf_format, kg):
         logging.debug("Getting RDF from: " + rdf_format)
-        
+
         response = requests.get(url)
 
         if response.status_code == 200:
@@ -209,12 +222,16 @@ class WebResource:
         return kg
 
     def get_rdf_format_from_contenttype(self, mimetype):
-        
+
         all_mediatypes = [
-            item for sublist in self.RDF_MEDIA_TYPES_MAPPING.values() for item in sublist
+            item
+            for sublist in self.RDF_MEDIA_TYPES_MAPPING.values()
+            for item in sublist
         ]
         rdf_formats = [
-            i for i in self.RDF_MEDIA_TYPES_MAPPING if mimetype in self.RDF_MEDIA_TYPES_MAPPING[i]
+            i
+            for i in self.RDF_MEDIA_TYPES_MAPPING
+            if mimetype in self.RDF_MEDIA_TYPES_MAPPING[i]
         ]
 
         return rdf_formats
@@ -222,9 +239,7 @@ class WebResource:
     def handle_unicodedecodeerror(self, kg, response):
         print("Handle JSON-LD parsing error")
         base_path = Path(__file__).parent.parent  # current directory
-        static_file_path = str(
-            (base_path / "static/data/jsonldcontext.json").resolve()
-        )
+        static_file_path = str((base_path / "static/data/jsonldcontext.json").resolve())
         json_response = response.json()
 
         if "@context" in json_response.keys():
@@ -245,36 +260,36 @@ class WebResource:
         item_col = []
         headers = self.headers
         for k in headers.keys():
-            if 'link' in k.lower() : 
+            if "link" in k.lower():
                 l_header = headers[k]
-                links = l_header.split(',')
-                for link in links : 
-                    #print("----")
+                links = l_header.split(",")
+                for link in links:
+                    # print("----")
                     links_col.append(link)
-                    tokens = link.split(';')
-                    #print(tokens)
-                    for t in tokens :
+                    tokens = link.split(";")
+                    # print(tokens)
+                    for t in tokens:
                         if 'rel="describedby"' in t:
                             decsribed_by_col.append(link)
                         elif 'rel="item"' in t:
                             item_col.append(link)
                         elif 'rel="cite-as"' in t:
                             cite_as_col.append(link)
-                
+        self.links_headers = (cite_as_col, decsribed_by_col, item_col)
         return cite_as_col, decsribed_by_col, item_col
 
     # TODO Extruct can work with Selenium
 
-    def retrieve_html_selenium(self):
+    def selenium_from_url(self):
         browser = WebResource.WEB_BROWSER_HEADLESS
         browser.get(self.url)
         self.html_selenium = browser.page_source
         self.browser_selenium = browser
 
-    def retrieve_html_request(self):
+    def request_from_url(self, url):
         while True:
             try:
-                response = requests.get(url=self.url, timeout=10, verify=False)
+                response = requests.get(url=url, timeout=10, verify=False)
                 break
             except SSLError:
                 time.sleep(5)
@@ -286,11 +301,10 @@ class WebResource:
                 print("ConnectionError, retrying...")
                 time.sleep(10)
 
-        self.status_code = response.status_code
-        self.html_requests = response.content
+        return response
 
-    @staticmethod
-    def html_to_rdf_extruct(html_source) -> ConjunctiveGraph:
+    # @staticmethod
+    def html_to_rdf_extruct(self, html_source) -> ConjunctiveGraph:
         data = extruct.extract(
             html_source, syntaxes=["microdata", "rdfa", "json-ld"], errors="ignore"
         )
