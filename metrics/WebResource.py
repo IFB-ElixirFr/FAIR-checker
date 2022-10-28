@@ -98,25 +98,28 @@ class WebResource:
             cite_as, described_by, items = self.retrieve_links_from_headers()
 
             # get RDF from HTTP headers
-            kg_header = ConjunctiveGraph()
+            kg_links_header = ConjunctiveGraph()
             for link in described_by:
 
                 reg_string = '<(.*?)>*;*rel="(.*?)"*;*type="(.*?)"'
                 p = re.compile(reg_string)
                 match = re.search(reg_string, link)
                 url = match.group(1)
-                desc = match.group(2)
+                rel = match.group(2)
                 link_mimetype = match.group(3)
 
                 rdf_formats = self.get_rdf_format_from_contenttype(link_mimetype)
 
                 for rdf_format in rdf_formats:
-                    self.get_rdf_from_mimetype_match(url, rdf_format, kg_header)
-            self.kg_header = kg_header
+                    self.get_rdf_from_mimetype_match(url, rdf_format, kg_links_header)
+            self.kg_links_header = kg_links_header
 
-            kg_auto = ConjunctiveGraph()
-            kg_brut = ConjunctiveGraph()
-
+            self.kg_auto = ConjunctiveGraph()
+            self.kg_brut = ConjunctiveGraph()
+            self.kg_links_html = ConjunctiveGraph()
+            self.kg_1 = ConjunctiveGraph()
+            self.kg_2 = ConjunctiveGraph()
+            self.kg_html_rdf = ConjunctiveGraph()
             if mimetype != "text/html":
 
                 response = self.request_from_url(self.url)
@@ -131,19 +134,19 @@ class WebResource:
                     if response.status_code == 200:
                         rdf_str = response.text
                         try:
-                            kg_auto.parse(data=rdf_str, format=rdf_format)
+                            self.kg_auto.parse(data=rdf_str, format=rdf_format)
                         except rdflib.exceptions.ParserError:
                             pass
-                self.kg_auto = kg_auto
+                self.kg_auto = self.kg_auto
 
                 # if no rdf found: brutforce testing each RDF formats regardless of mimetypes
 
-                if len(kg_auto) == 0:
+                if len(self.kg_auto) == 0:
                     rdf_str = response.text
                     for rdf_format in self.RDF_MEDIA_TYPES_MAPPING.keys():
-                        self.get_rdf_from_mimetype_match(url, rdf_format, kg_brut)
+                        self.get_rdf_from_mimetype_match(url, rdf_format, self.kg_brut)
 
-                self.kg_brut = kg_brut
+                self.kg_brut = self.kg_brut
                 logging.info(
                     "Resource content_type is: " + self.headers["Content-Type"]
                 )
@@ -151,32 +154,66 @@ class WebResource:
             elif mimetype == "text/html":
 
                 # TODO get RDF from HTTP html
-                response = self.request_from_url(self.url)
-                self.status_code = response.status_code
-                self.html_requests = response.content
+                response_request = self.request_from_url(self.url)
+                self.status_code = response_request.status_code
+                self.html_requests = response_request.content
 
-                kg = self.html_to_rdf_extruct(response.content)
+                # if KG from HTTP link header == 0 look for link header in html
+                if self.kg_links_header == 0:
+                    links = self.retrieve_links_from_html(response_request.text)
+
+                    for link in links:
+                        rel = link[0]
+                        if rel == "describedby":
+                            url = link[1]
+                            link_mimetype = link[2]
+                            rdf_formats = self.get_rdf_format_from_contenttype(
+                                link_mimetype
+                            )
+
+                            for rdf_format in rdf_formats:
+                                kg_links_html = self.get_rdf_from_mimetype_match(
+                                    url, rdf_format, kg_links_html
+                                )
+
+                kg = self.html_to_rdf_extruct(response_request.content)
                 print(len(kg))
 
                 kg_1 = self.extract_rdf_extruct(self.url)
-                print(len(kg_1))
+                self.kg_1 = kg_1
 
                 # get dynamic RDF metadata (generated from JS)
                 kg_2 = WebResource.extract_rdf_selenium(self.url)
 
+                self.kg_2 = kg_2
+
                 self.rdf = kg_1 + kg_2
+                self.html_rdf = kg_1 + kg_2
+
+                print("EXTRUCT: " + str(len(kg_1)))
+                print("SELENIUM: " + str(len(kg_2)))
+                print("HTML: " + str(len(self.kg_html_rdf)))
 
             else:
                 # get static RDF metadata (already available in html sources)
                 kg_1 = self.extract_rdf_extruct(self.url)
-                self.rdf = kg_1
+                self.html_rdf = kg_1
+                print("HTML: " + str(len(self.kg_html_rdf)))
 
-            print("HEADERS: " + str(len(self.kg_header)))
-            print("AUTO: " + str(len(kg_auto)))
-            print("BRUTFORCE: " + str(len(kg_brut)))
-            print("EXTRUCT: " + str(len(kg_1)))
-            print("SELENIUM: " + str(len(kg_2)))
-            print("HTML: " + str(len(self.rdf)))
+            print("LINKS HEADERS: " + str(len(self.kg_links_header)))
+            print("AUTO: " + str(len(self.kg_auto)))
+            print("BRUTFORCE: " + str(len(self.kg_brut)))
+            print("LINKS HTML: " + str(len(self.kg_links_html)))
+
+            self.rdf = (
+                self.kg_1
+                + self.kg_2
+                + self.kg_auto
+                + self.kg_brut
+                + self.kg_links_header
+                + self.kg_links_html
+                + self.kg_html_rdf
+            )
 
         else:
             self.rdf = rdf_graph
@@ -219,6 +256,7 @@ class WebResource:
                 # if error UnicodeDecodeError execute following code, otherwise continue to next format
                 if type(err).__name__ == "UnicodeDecodeError":
                     kg = self.handle_unicodedecodeerror(kg, response)
+        print(len(kg))
         return kg
 
     def get_rdf_format_from_contenttype(self, mimetype):
@@ -278,6 +316,23 @@ class WebResource:
         self.links_headers = (cite_as_col, decsribed_by_col, item_col)
         return cite_as_col, decsribed_by_col, item_col
 
+    def retrieve_links_from_html(self, source_html):
+        tree = html.fromstring(source_html)
+        links = []
+
+        txt = tree.xpath('//link[contains(@rel, "describedby")]')
+        for t in txt:
+            links.append(t.values())
+
+        txt = tree.xpath('//link[contains(@rel, "cite-as")]')
+        for t in txt:
+            links.append(t.values())
+
+        txt = tree.xpath('//link[contains(@rel, "item")]')
+        for t in txt:
+            links.append(t.values())
+        return links
+
     # TODO Extruct can work with Selenium
 
     def selenium_from_url(self):
@@ -285,6 +340,7 @@ class WebResource:
         browser.get(self.url)
         self.html_selenium = browser.page_source
         self.browser_selenium = browser
+        return browser
 
     def request_from_url(self, url):
         while True:
@@ -300,6 +356,8 @@ class WebResource:
                 print(e)
                 print("ConnectionError, retrying...")
                 time.sleep(10)
+
+        # self.html_requests = response.content
 
         return response
 
