@@ -494,7 +494,7 @@ graph_payload = fc_inspect_namespace.model(
         "url": fields.Url(
             description="URL of the resource to be enriched", required=True
         ),
-        "json-ld": fields.String(description="RDF graph in JSON-LD", required=True),
+        "json-ld": fields.String(description="RDF graph in JSON-LD", required=True, exemple="JSON-LD string"),
     },
 )
 
