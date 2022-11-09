@@ -3,27 +3,39 @@ from SPARQLWrapper import SPARQLWrapper, N3, JSON, RDF, TURTLE, JSONLD
 from rdflib import Graph, ConjunctiveGraph, Namespace
 from rdflib.namespace import RDF
 import requests
+
+requests.packages.urllib3.disable_warnings(
+    requests.packages.urllib3.exceptions.InsecureRequestWarning
+)
+
 from jinja2 import Template
 from pyshacl import validate
 import extruct
 import json
 from pathlib import Path
 from datetime import datetime, timedelta
-
+from enum import Enum
 from lxml import html
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from cachetools import cached, TTLCache
 from flask import Flask
-
+from flask import current_app
 import logging
-
 import copy
 import re
 import validators
 from requests.auth import HTTPBasicAuth
 
-from flask import current_app
+
+class SOURCE(Enum):
+    UI = 1
+    API = 2
+
+    def __str__(self):
+        # return str(self.value)
+        return str(self.name)
+
 
 app = Flask(__name__)
 

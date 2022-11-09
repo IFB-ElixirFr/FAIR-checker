@@ -10,6 +10,10 @@ import extruct
 from pathlib import Path
 from rdflib import ConjunctiveGraph, URIRef
 import requests
+
+requests.packages.urllib3.disable_warnings(
+    requests.packages.urllib3.exceptions.InsecureRequestWarning
+)
 import json
 import os
 
@@ -122,7 +126,6 @@ class WebResource:
 
         for md in data["json-ld"]:
             if "@context" in md.keys():
-                print(md["@context"])
                 if ("https://schema.org" in md["@context"]) or (
                     "http://schema.org" in md["@context"]
                 ):
@@ -242,8 +245,7 @@ class WebResource:
 
             for json_ld_annots in jsonld_string:
                 jsonld = json.loads(json_ld_annots)
-                print(type(jsonld))
-                print(jsonld)
+
                 if type(jsonld) == list:
                     jsonld = jsonld[0]
                 if "@context" in jsonld.keys():
@@ -266,5 +268,5 @@ class WebResource:
     def __str__(self) -> str:
         out = """Web resource under FAIR assesment:\n\t"""
         out += self.url + "\n\t"
-        out += len(self.rdf) + " embedded RDF triples"
+        out += str(len(self.rdf)) + " embedded RDF triples"
         return out

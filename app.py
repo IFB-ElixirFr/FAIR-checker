@@ -1,10 +1,12 @@
+import copy
 from asyncio.log import logger
 from unittest import result
 import eventlet
 from numpy import broadcast
 
 # from https://github.com/eventlet/eventlet/issues/670
-eventlet.monkey_patch(select=False)
+# eventlet.monkey_patch(select=False)
+eventlet.monkey_patch()
 
 import sys
 from flask import (
@@ -15,7 +17,11 @@ from flask import (
     send_file,
     send_from_directory,
     make_response,
+    Blueprint,
+    url_for,
 )
+from flask_restx import Resource, Api, fields
+from flask_swagger_ui import get_swaggerui_blueprint
 from flask_cors import CORS
 from flask_socketio import SocketIO
 from flask_socketio import emit
@@ -52,12 +58,17 @@ from metrics.WebResource import WebResource
 from metrics.Evaluation import Result
 from profiles.bioschemas_shape_gen import validate_any_from_KG
 from profiles.bioschemas_shape_gen import validate_any_from_microdata
+from metrics.util import SOURCE
 from urllib.parse import urlparse
 
 
 import time
 import atexit
 import requests
+
+requests.packages.urllib3.disable_warnings(
+    requests.packages.urllib3.exceptions.InsecureRequestWarning
+)
 from apscheduler.schedulers.background import BackgroundScheduler
 
 import git
@@ -66,16 +77,102 @@ basedir = path.abspath(path.dirname(__file__))
 
 app = Flask(__name__)
 
-app.logger.setLevel(logging.DEBUG)
+app.config.SWAGGER_UI_OPERATION_ID = True
+app.config.SWAGGER_UI_REQUEST_DURATION = True
+
+
+@app.route("/")
+def index():
+    return render_template(
+        "index.html",
+        title="FAIR-Checker",
+        subtitle="Improve the FAIRness of your web resources",
+    )
+
+
+# app.logger.setLevel(logging.DEBUG)
+app.logger.propagate = False
+
 CORS(app)
 app.config["CORS_HEADERS"] = "Content-Type"
 
+prod_logger = logging.getLogger("PROD")
+dev_logger = logging.getLogger("DEV")
+app_logger = logging.getLogger("app")
+root_logger = logging.getLogger("root")
+app_logger.propagate = False
+root_logger.propagate = False
+
+# loggers = [logging.getLogger(name) for name in logging.root.manager.loggerDict]
+# for logger in loggers:
+#     print(logger)
+
+print(f'ENV is set to: {app.config["ENV"]}')
+
 if app.config["ENV"] == "production":
     app.config.from_object("config.ProductionConfig")
+
+    prod_log_handler = logging.FileHandler("prod.log")
+    # prod_log_handler = logging.StreamHandler(sys.stdout)
+
+    ### Add a formatter
+    prod_formatter = logging.Formatter(
+        "%(asctime)s - [%(levelname)s] %(message)s", "%d/%m/%Y %H:%M:%S"
+    )
+
+    prod_log_handler.setFormatter(prod_formatter)
+    prod_logger.addHandler(prod_log_handler)
+
+    prod_logger.setLevel(logging.INFO)
+
+    # Prevent DEV logger from output
+    dev_logger.propagate = False
 else:
     app.config.from_object("config.DevelopmentConfig")
 
-print(f'ENV is set to: {app.config["ENV"]}')
+    dev_log_handler = logging.StreamHandler()
+    ### Add a formatter
+    dev_formatter = logging.Formatter(
+        "[%(name)s-%(levelname)s][%(filename)s-%(lineno)d] - %(message)s",
+    )
+
+    dev_log_handler.setFormatter(dev_formatter)
+    dev_logger.addHandler(dev_log_handler)
+
+    dev_logger.setLevel(logging.DEBUG)
+
+    # Prevent PROD logger from output
+    prod_logger.propagate = False
+
+dev_logger.warning("Watch out dev!")
+dev_logger.info("I told you so dev")
+dev_logger.debug("DEBUG dev")
+
+prod_logger.warning("Watch out prod!")
+prod_logger.info("I told you so prod")
+prod_logger.debug("DEBUG prod")
+
+
+# blueprint = Blueprint('api', __name__, url_prefix='/api')
+
+api = Api(
+    app,
+    title="FAIR-Checker API",
+    doc="/swagger",
+    base_path="/api",
+    # base_url='/'
+    description=app.config["SERVER_IP"],
+)
+
+# app.register_blueprint(blueprint)
+
+metrics_namespace = api.namespace("metrics", description="Metrics assessment")
+fc_check_namespace = api.namespace(
+    "api/check", description="FAIR Metrics assessment from Check"
+)
+fc_inspect_namespace = api.namespace(
+    "api/inspect", description="FAIR improvement from Inspect"
+)
 
 cache = Cache(app)
 socketio = SocketIO(app)
@@ -120,31 +217,7 @@ metrics = [
 METRICS = {}
 # json_metrics = test_metric.getMetrics()
 factory = FAIRMetricsFactory()
-#
-# # for i in range(1,3):
-# try:
-#     # metrics.append(factory.get_metric("test_f1"))
-#     # metrics.append(factory.get_metric("test_r2"))
-#     for metric in json_metrics:
-#         # remove "FAIR Metrics Gen2" from metric name
-#         name = metric["name"].replace("FAIR Metrics Gen2- ", "")
-#         # same but other syntax because of typo
-#         name = name.replace("FAIR Metrics Gen2 - ", "")
-#         principle = metric["principle"]
-#         METRICS[name] = factory.get_metric(
-#             name,
-#             metric["@id"],
-#             metric["description"],
-#             metric["smarturl"],
-#             principle,
-#             metric["creator"],
-#             metric["created_at"],
-#             metric["updated_at"],
-#         )
 
-# except ValueError as e:
-#     print(f"no metrics implemention for {e}")
-#
 # # A DEPLACER AU LANCEMENT DU SERVEUR ######
 # METRICS_RES = test_metric.getMetrics()
 
@@ -171,7 +244,7 @@ def display_info():
     try:
         env_banner_info = dotenv_values(".env")["BANNER_INFO"]
     except KeyError:
-        logger.warning(
+        dev_logger.warning(
             "BANNER_INFO is not set in .env (e.g. BANNER_INFO='Write your message here')"
         )
         DICT_BANNER_INFO["banner_message_info"].pop("env_info", None)
@@ -265,16 +338,9 @@ def documentation(filename):
 @app.route("/")
 def home():
     return render_template(
-        "index.html",
-        title="FAIR-Checker",
-        subtitle="Improve the FAIRness of your web resources",
-    )
-
-
-@app.route("/")
-def index():
-    return render_template(
-        "index.html",
+        # "index.html",
+        # title="FAIR-Checker",
+        # subtitle="Improve the FAIRness of your web resources",
     )
 
 
@@ -317,9 +383,220 @@ def statistics():
     )
 
 
+# my_fields = api.model(
+#     "MyModel",
+#     {
+#         "name": fields.String(description="The name"),
+#         "type": fields.String(description="The object type", enum=["A", "B"]),
+#         "age": fields.Integer(min=0),
+#         "num": fields.Integer(description="The num to get the square of", min=0),
+#         # 'url': fields.String(Description='The URL of the resource to be tested', required=True)
+#     },
+# )
+
+# @api.route("/square/<int:num>")
+# class TestSquare(Resource):
+#     @api.marshal_with(my_fields)
+#     def get(self, num):
+#         return {"data": num ** 2}
+
+
+def generate_check_api(metric):
+    @fc_check_namespace.route("/metric_" + metric.get_principle_tag() + "/<path:url>")
+    class MetricEval(Resource):
+        def get(self, url):
+
+            web_res = WebResource(url)
+            metric.set_web_resource(web_res)
+            result = metric.evaluate()
+            data = {
+                "metric": result.get_metrics(),
+                "score": result.get_score(),
+                "target_uri": result.get_target_uri(),
+                "eval_time": str(result.get_test_time()),
+                "recommendation": result.get_recommendation(),
+                "comment": result.get_log(),
+            }
+            result.persist(str(SOURCE.API))
+            return data
+
+        get.__doc__ = metric.get_name()
+
+    MetricEval.__name__ = MetricEval.__name__ + metric.get_principle_tag()
+
+
+for key in METRICS_CUSTOM.keys():
+    generate_check_api(METRICS_CUSTOM[key])
+
+
+@fc_check_namespace.route("/metrics_all/<path:url>")
+class MetricEvalAll(Resource):
+    def get(self, url):
+        """All FAIR metrics"""
+        web_res = WebResource(url)
+
+        metrics_collection = []
+        metrics_collection.append(FAIRMetricsFactory.get_F1A(web_res))
+        metrics_collection.append(FAIRMetricsFactory.get_F1B(web_res))
+        metrics_collection.append(FAIRMetricsFactory.get_F2A(web_res))
+        metrics_collection.append(FAIRMetricsFactory.get_F2B(web_res))
+        metrics_collection.append(FAIRMetricsFactory.get_I1(web_res))
+        metrics_collection.append(FAIRMetricsFactory.get_I1A(web_res))
+        metrics_collection.append(FAIRMetricsFactory.get_I1B(web_res))
+        metrics_collection.append(FAIRMetricsFactory.get_I2(web_res))
+        metrics_collection.append(FAIRMetricsFactory.get_I2A(web_res))
+        metrics_collection.append(FAIRMetricsFactory.get_I2B(web_res))
+        metrics_collection.append(FAIRMetricsFactory.get_I3(web_res))
+        metrics_collection.append(FAIRMetricsFactory.get_R11(web_res))
+        metrics_collection.append(FAIRMetricsFactory.get_R12(web_res))
+        metrics_collection.append(FAIRMetricsFactory.get_R13(web_res))
+
+        results = []
+        for metric in metrics_collection:
+            result = metric.evaluate()
+            data = {
+                "metric": result.get_metrics(),
+                "score": result.get_score(),
+                "target_uri": result.get_target_uri(),
+                "eval_time": str(result.get_test_time()),
+                "recommendation": result.get_recommendation(),
+                "comment": result.get_log(),
+            }
+            result.persist(str(SOURCE.API))
+            results.append(data)
+
+        return results
+
+
+@fc_inspect_namespace.route("/get_rdf_metadata/<path:url>")
+class RetrieveMetadata(Resource):
+    @fc_inspect_namespace.produces(["application/ld+json"])
+    def get(self, url):
+        """Get RDF metadata in JSON-LD from a web resource"""
+        web_res = WebResource(url)
+        data_str = web_res.get_rdf().serialize(format="json-ld")
+        data_json = json.loads(data_str)
+        return data_json
+
+
+describe_list = [
+    util.describe_opencitation,
+    util.describe_wikidata,
+    util.describe_openaire,
+]
+
+jsonld_example = '{"@context":"http://schema.org","@type":"ScholarlyArticle","@id":"https://doi.org/10.7892/boris.108387","url":"https://boris.unibe.ch/108387/","name":"Diagnostic value of contrast-enhanced magnetic resonance angiography in large-vessel vasculitis.","author":[{"name":"Sabine Adler","givenName":"Sabine","familyName":"Adler","@type":"Person"},{"name":"Marco Sprecher","givenName":"Marco","familyName":"Sprecher","@type":"Person"},{"name":"Felix Wermelinger","givenName":"Felix","familyName":"Wermelinger","@type":"Person"},{"name":"Thorsten Klink","givenName":"Thorsten","familyName":"Klink","@type":"Person"},{"name":"Harald Marcel Bonel","givenName":"Harald Marcel","familyName":"Bonel","@type":"Person"},{"name":"Peter M Villiger","givenName":"Peter M","familyName":"Villiger","@type":"Person"}],"description":"OBJECTIVE To evaluate contrast-enhanced magnetic resonance angiography (MRA) in diagnosis of inflammatory aortic involvement in patients with clinical suspicion of large-vessel vasculitis. PATIENTS AND METHODS Seventy-five patients, mean age 62 years (range 16-82 years), 44 female and 31 male, underwent gadolinium-enhanced MRA and were evaluated retrospectively. Thoracic MRA was performed in 32 patients, abdominal MRA in 7 patients and both thoracic and abdominal MRA in 36 patients. Temporal arterial biopsies were obtained from 22/75 patients. MRA positivity was defined as increased aortic wall signal in late gadolinium-enhanced axial turbo inversion recovery magnitude (TIRM) series. The influence of prior glucocorticoid intake on MRA outcome was evaluated. RESULTS MRA was positive in 24/75 patients, with lesions located in the thorax in 7 patients, the abdomen in 5 and in both thorax and abdomen in 12. Probability for positive MRA after glucocorticoid intake for more than 5 days before MRA was reduced by 89.3%. Histology was negative in 3/10 MRA-positive patients and positive in 5/12 MRA-negative patients. All 5/12 histology positive / MRA-negative patients had glucocorticoids for &gt;5 days prior to MRA and were diagnosed as having vasculitis. Positive predictive value for MRA was 92%, negative predictive value was 88%. CONCLUSIONS Contrast-enhanced MRA reliably identifies large vessel vasculitis. Vasculitic signals in MRA are very sensitive to glucocorticoids, suggesting that MRA should be done before glucocorticoid treatment.","keywords":"610 Medicine &amp; health","inLanguage":"en","encodingFormat":"application/pdf","datePublished":"2017","schemaVersion":"http://datacite.org/schema/kernel-4","publisher":{"@type":"Organization","name":"EMH Schweizerischer Ärzteverlag"},"provider":{"@type":"Organization","name":"datacite"}}'
+
+""" Model for documenting the API"""
+graph_payload = fc_inspect_namespace.model(
+    "graph_payload",
+    {
+        "url": fields.Url(
+            description="URL of the resource to be enriched", required=True
+        ),
+        "json-ld": fields.String(
+            description="RDF graph in JSON-LD", required=True, exemple="JSON-LD string"
+        ),
+    },
+)
+
+
+def generate_ask_api(describe):
+    @fc_inspect_namespace.route(
+        "/" + describe.__name__ + "/<path:url>", methods=["GET"]
+    )
+    @fc_inspect_namespace.route("/" + describe.__name__ + "/", methods=["POST"])
+    # @api.doc(params={"url": "An URL"})
+    class Ask(Resource):
+        def get(self, url):
+            web_res = WebResource(url)
+            kg = web_res.get_rdf()
+            old_kg = copy.deepcopy(kg)
+
+            if util.is_DOI(url):
+                url = util.get_DOI(url)
+            new_kg = describe(url, old_kg)
+
+            triples_before = len(kg)
+            triples_after = len(new_kg)
+            data = {
+                "triples_before": triples_before,
+                "triples_after": triples_after,
+                "@graph": json.loads(new_kg.serialize(format="json-ld")),
+            }
+            return data
+
+        get.__doc__ = (
+            "Retrieve RDF metadata from URL and try to enrich it with SPARQL request"
+        )
+
+        @fc_inspect_namespace.expect(graph_payload)
+        def post(self):
+            json_data = request.get_json(force=True)
+            url = json_data["url"]
+
+            kg = ConjunctiveGraph()
+            kg.parse(data=json_data["json-ld"], format="json-ld")
+            old_kg = copy.deepcopy(kg)
+
+            if util.is_DOI(url):
+                url = util.get_DOI(url)
+
+            new_kg = describe(url, old_kg)
+            triples_before = len(kg)
+            triples_after = len(new_kg)
+            data = {
+                "triples_before": triples_before,
+                "triples_after": triples_after,
+                "@graph": json.loads(new_kg.serialize(format="json-ld")),
+            }
+            return data
+
+        post.__doc__ = "Try to enrich RDF metadata with SPARQL request"
+
+    Ask.__name__ = Ask.__name__ + describe.__name__.capitalize()
+
+
+for describe in describe_list:
+    generate_ask_api(describe)
+
+
+@fc_inspect_namespace.route("/inspect_ontologies/<path:url>")
+class InspectOntologies(Resource):
+    def get(self, url):
+        """Inspect if RDF properties and classes are found in ontology registries (OLS, LOV, BioPortal)"""
+        web_res = WebResource(url)
+        kg = web_res.get_rdf()
+
+        return check_kg(kg, True)
+
+
+def list_routes():
+    return ["%s" % rule for rule in app.url_map.iter_rules()]
+
+
+# def has_no_empty_params(rule):
+#     defaults = rule.defaults if rule.defaults is not None else ()
+#     arguments = rule.arguments if rule.arguments is not None else ()
+#     return len(defaults) >= len(arguments)
+
+
+# @app.route("/site-map")
+# def site_map():
+#     links = []
+#     for rule in app.url_map.iter_rules():
+#         # Filter out rules we can't navigate to in a browser
+#         # and rules that require parameters
+#         if "GET" in rule.methods and has_no_empty_params(rule):
+#             url = url_for(rule.endpoint, **(rule.defaults or {}))
+#             links.append((url, rule.endpoint))
+#     # links is now a list of url, endpoint tuples
+#     return render_template("site_map.html", links=links)
+
+
 @socketio.on("webresource")
 def handle_webresource(url):
-    print("A new url to retrieve metadata from !")
+    dev_logger.info("A new url to retrieve metadata from !")
 
 
 @socketio.on("evaluate_metric")
@@ -336,7 +613,7 @@ def handle_metric(json):
     metric_name = json["metric_name"]
     client_metric_id = json["id"]
     url = json["url"]
-    print("Testing: " + url)
+    dev_logger.info("Testing: " + url)
 
     # if implem == "FAIRMetrics":
     # evaluate_fairmetrics(json, metric_name, client_metric_id, url)
@@ -431,10 +708,12 @@ def evaluate_fc_metrics(metric_name, client_metric_id, url):
     # print("OK FC Metrics")
     # print(cache.get("TOTO"))
     # print(METRICS_CUSTOM)
-    logging.warning("Evaluating FAIR-Checker metric")
+
+    dev_logger.info("Evaluating FAIR-Checker metric")
+    # prod_logger.info("Evaluating FAIR-Checker metric")
     id = METRICS_CUSTOM[metric_name].get_id()
-    print("ID: " + id)
-    print("Client ID: " + client_metric_id)
+    dev_logger.info("ID: " + id)
+    dev_logger.info("Client ID: " + client_metric_id)
     # Faire une fonction recursive ?
     if cache.get(url) == "pulling":
         while True:
@@ -452,7 +731,9 @@ def evaluate_fc_metrics(metric_name, client_metric_id, url):
 
     METRICS_CUSTOM[metric_name].set_web_resource(webresource)
     name = METRICS_CUSTOM[metric_name].get_principle_tag()
-    print("Evaluating: " + metric_name)
+    dev_logger.warning("Evaluation: " + metric_name)
+
+    # dev_logger.info("Evaluating: " + metric_name)
     result = METRICS_CUSTOM[metric_name].evaluate()
 
     score = result.get_score()
@@ -464,17 +745,13 @@ def evaluate_fc_metrics(metric_name, client_metric_id, url):
     comment = result.get_log_html()
 
     recommendation = result.get_recommendation()
-    print(recommendation)
+    # print(recommendation)
 
     # Persist Evaluation oject in MongoDB
-
     implem = METRICS_CUSTOM[metric_name].get_implem()
-    id = METRICS_CUSTOM[metric_name].get_id()
+    result.persist(str(SOURCE.UI))
 
-    # result.set_metrics(name)
-    # result.set_implem(implem)
-    result.persist()
-    # result.close_log_stream()
+    id = METRICS_CUSTOM[metric_name].get_id()
     csv_line = '"{}"\t"{}"\t"{}"\t"{}"\t"{}"'.format(
         id, name, score, str(evaluation_time), comment
     )
@@ -494,7 +771,7 @@ def evaluate_fc_metrics(metric_name, client_metric_id, url):
         # "name": name,
     }
     emit("done_" + client_metric_id, emit_json)
-    print("DONE our own metric !")
+    dev_logger.info("DONE our own metric !")
 
 
 @socketio.on("quick_structured_data_search")
@@ -704,7 +981,7 @@ def csv_download(uuid):
     mem.write(content)
     mem.seek(0)
 
-    print(json.dumps(DICT_TEMP_RES, sort_keys=True, indent=4))
+    # print(json.dumps(DICT_TEMP_RES, sort_keys=True, indent=4))
 
     try:
         return send_file(
@@ -742,7 +1019,7 @@ def handle_connect():
 
     sid = request.sid
 
-    print("Connected with SID " + sid)
+    dev_logger.info("Connected with SID " + sid)
 
     # Creates a new temp file
     # with open("./temp/" + sid, 'w') as fp:
@@ -856,9 +1133,6 @@ def handle_annotationn(data):
         # print(new_kg.serialize(format='turtle').decode())
         # print("**************************")
 
-        print("***** JSON-LD syntax *****")
-        print()
-        print("**************************")
         emit("send_bs_annot", str(new_kg.serialize(format="json-ld")))
 
 
@@ -1042,18 +1316,7 @@ def handle_complete_kg(json):
     print("completing KG for " + str(json["url"]))
 
 
-@socketio.on("check_kg")
-def check_kg(data):
-    step = 0
-    sid = request.sid
-    print(sid)
-    uri = str(data["url"])
-    if not sid in KGS.keys():
-        handle_embedded_annot(data)
-    elif not KGS[sid]:
-        handle_embedded_annot(data)
-    kg = KGS[sid]
-
+def check_kg(kg, is_api):
     query_classes = """
         SELECT DISTINCT ?class { ?s rdf:type ?class } ORDER BY ?class
     """
@@ -1114,18 +1377,22 @@ def check_kg(data):
 
         table_content["properties"].append(property_entry)
 
-    emit("done_check", table_content)
+    if not is_api:
+        emit("done_check", table_content)
 
     for c in table_content["classes"]:
 
         c["tag"]["OLS"] = util.ask_OLS(c["name"])
-        emit("done_check", table_content)
+        if not is_api:
+            emit("done_check", table_content)
 
         c["tag"]["LOV"] = util.ask_LOV(c["name"])
-        emit("done_check", table_content)
+        if not is_api:
+            emit("done_check", table_content)
 
         c["tag"]["BioPortal"] = util.ask_BioPortal(c["name"], "class")
-        emit("done_check", table_content)
+        if not is_api:
+            emit("done_check", table_content)
 
         all_false_rule = [
             c["tag"]["OLS"] == False,
@@ -1139,13 +1406,16 @@ def check_kg(data):
     for p in table_content["properties"]:
 
         p["tag"]["OLS"] = util.ask_OLS(p["name"])
-        emit("done_check", table_content)
+        if not is_api:
+            emit("done_check", table_content)
 
         p["tag"]["LOV"] = util.ask_LOV(p["name"])
-        emit("done_check", table_content)
+        if not is_api:
+            emit("done_check", table_content)
 
         p["tag"]["BioPortal"] = util.ask_BioPortal(p["name"], "property")
-        emit("done_check", table_content)
+        if not is_api:
+            emit("done_check", table_content)
 
         all_false_rule = [
             p["tag"]["OLS"] == False,
@@ -1156,7 +1426,24 @@ def check_kg(data):
             table_content["properties_false"].append(p["name"])
 
     table_content["done"] = True
-    emit("done_check", table_content)
+    if not is_api:
+        emit("done_check", table_content)
+    return table_content
+
+
+@socketio.on("check_kg")
+def check_vocabularies(data):
+    step = 0
+    sid = request.sid
+    print(sid)
+    uri = str(data["url"])
+    if not sid in KGS.keys():
+        handle_embedded_annot(data)
+    elif not KGS[sid]:
+        handle_embedded_annot(data)
+    kg = KGS[sid]
+
+    check_kg(kg, False)
 
 
 @DeprecationWarning
@@ -1285,7 +1572,7 @@ def base_metrics():
     content_uuid = str(uuid.uuid1())
     DICT_TEMP_RES[content_uuid] = ""
 
-    print(str(session.items()))
+    # print(str(session.items()))
     # sid = request.sid
     # return render_template('test_asynch.html')
     # metrics = []
@@ -1308,7 +1595,6 @@ def base_metrics():
     #     })
 
     raw_jld = buildJSONLD()
-    print(app.config)
 
     metrics = []
 
@@ -1453,8 +1739,8 @@ def testUrl():
                 res_dict["comments"] = ""
                 res_dict["descriptions"] = ""
             results_list.append(res_dict)
-        if i == 4:
-            print(res_dict)
+        # if i == 4:
+        # print(res_dict)
 
     return render_template(
         "result.html",
@@ -1545,6 +1831,7 @@ if __name__ == "__main__":
     LOGGER = logging.getLogger()
     if not LOGGER.handlers:
         LOGGER.addHandler(logging.StreamHandler(sys.stdout))
+    LOGGER.propagate = False
 
     if args.urls:
         start_time = time.time()
