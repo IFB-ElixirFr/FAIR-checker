@@ -1,9 +1,13 @@
 import unittest
 
 from rdflib import ConjunctiveGraph, URIRef
+from jinja2 import Template
+from pyshacl import validate
+import json
 
 from profiles.bioschemas_shape_gen import gen_SHACL_from_profile
 from profiles.bioschemas_shape_gen import gen_SHACL_from_target_class
+from profiles.bioschemas_shape_gen import validate_shape
 from profiles.bioschemas_shape_gen import validate_shape_from_RDF
 from profiles.bioschemas_shape_gen import validate_any_from_RDF
 from profiles.bioschemas_shape_gen import validate_any_from_KG
@@ -19,6 +23,183 @@ class GenSHACLTestCase(unittest.TestCase):
         super().tearDownModule()
         browser = WebResource.WEB_BROWSER_HEADLESS
         browser.quit()
+
+    def test_validate_rocrate(self):
+
+        test_graph = { "@context": "https://w3id.org/ro/crate/1.1/context", 
+            "@graph": [
+                {
+                "@type": "CreativeWork",
+                "@id": "ro-crate-metadata.json",
+                "conformsTo": {"@id": "https://w3id.org/ro/crate/1.1"},
+                "about": {"@id": "./"}
+                },
+                {
+                "@id": "./",
+                "@type": "Dataset",
+                "hasPart": [
+                    { "@id": "workflow/alignment.knime" }
+                ]
+                },
+                {
+                "@id": "workflow/alignment.knime",  
+                "@type": ["File", "SoftwareSourceCode", "ComputationalWorkflow"],
+                "conformsTo": 
+                    {"@id": "https://bioschemas.org/profiles/ComputationalWorkflow/0.5-DRAFT-2020_07_21/"},
+                "name": "Sequence alignment workflow",
+                "programmingLanguage": {"@id": "#knime"},
+                "creator": {"@id": "#alice"},
+                "dateCreated": "2020-05-23",
+                "license": { "@id": "https://spdx.org/licenses/CC-BY-NC-SA-4.0"},
+                "input": [
+                    { "@id": "#36aadbd4-4a2d-4e33-83b4-0cbf6a6a8c5b"}
+                ],
+                "output": [
+                    { "@id": "#6c703fee-6af7-4fdb-a57d-9e8bc4486044"},
+                    { "@id": "#2f32b861-e43c-401f-8c42-04fd84273bdf"}
+                ],
+                "sdPublisher": {"@id": "#workflow-hub"},
+                "url": "http://example.com/workflows/alignment",
+                "version": "0.5.0"
+                },
+                {
+                "@id": "#36aadbd4-4a2d-4e33-83b4-0cbf6a6a8c5b",
+                "@type": "FormalParameter",
+                "conformsTo": {"@id": "https://bioschemas.org/profiles/FormalParameter/0.1-DRAFT-2020_07_21/"},
+                "name": "genome_sequence",
+                "valueRequired": "true",
+                "additionalType": {"@id": "http://edamontology.org/data_2977"},
+                "format": {"@id": "http://edamontology.org/format_1929"}
+                },
+                {
+                "@id": "#6c703fee-6af7-4fdb-a57d-9e8bc4486044",
+                "@type": "FormalParameter",
+                "conformsTo": {"@id": "https://bioschemas.org/profiles/FormalParameter/0.1-DRAFT-2020_07_21/"},
+                "name": "cleaned_sequence",
+                "additionalType": {"@id": "http://edamontology.org/data_2977"},
+                "encodingFormat": {"@id": "http://edamontology.org/format_2572"}
+                },
+                {
+                "@id": "#2f32b861-e43c-401f-8c42-04fd84273bdf",
+                "@type": "FormalParameter",
+                "conformsTo": {"@id": "https://bioschemas.org/profiles/FormalParameter/0.1-DRAFT-2020_07_21/"},
+                "name": "sequence_alignment",
+                "additionalType": {"@id": "http://edamontology.org/data_1383"},
+                "encodingFormat": {"@id": "http://edamontology.org/format_1982"}
+                },
+                {
+                "@id": "https://spdx.org/licenses/CC-BY-NC-SA-4.0",
+                "@type": "CreativeWork",
+                "name": "Creative Commons Attribution Non Commercial Share Alike 4.0 International",
+                "alternateName": "CC-BY-NC-SA-4.0"
+                },
+                {
+                "@id": "#knime",
+                "@type": "ProgrammingLanguage",
+                "name": "KNIME Analytics Platform",
+                "alternateName": "KNIME",
+                "url": "https://www.knime.com/whats-new-in-knime-41",
+                "version": "4.1.3"
+                },
+                {
+                "@id": "#alice",
+                "@type": "Person",
+                "name": "Alice Brown"
+                },
+                {
+                "@id": "#workflow-hub",
+                "@type": "Organization",
+                "name": "Example Workflow Hub",
+                "url":"http://example.com/workflows/"
+                },
+                {
+                "@id": "http://edamontology.org/format_1929",
+                "@type": "Thing",
+                "name": "FASTA sequence format"
+                },
+                {
+                "@id": "http://edamontology.org/format_1982",
+                "@type": "Thing",
+                "name": "ClustalW alignment format"
+                },
+                {
+                "@id": "http://edamontology.org/format_2572",
+                "@type": "Thing",
+                "name": "BAM format"
+                },
+                {
+                "@id": "http://edamontology.org/data_2977",
+                "@type": "Thing",
+                "name": "Nucleic acid sequence"
+                },
+                {
+                "@id": "http://edamontology.org/data_1383",
+                "@type": "Thing",
+                "name": "Nucleic acid sequence alignment"
+                }
+            ]
+            }
+
+
+        g_test = ConjunctiveGraph()
+        g_test.parse(data=json.dumps(test_graph), format="json-ld")
+
+        shape_name = "ROCDatasetShape"
+        target_classes = []
+
+        # hasPart should be: File,SoftwareSourceCode,ComputationalWorkflow
+        # mainEntity should be: File,SoftwareSourceCode,ComputationalWorkflow
+        min_props = ["hasPart", "mainEntity"]
+        rec_props = []
+
+
+        # need to use sh:datatype in shape for hasPart and mainEntity
+        shape_template = """
+            @prefix ns: <https://fair-checker.france-bioinformatique.fr#> .
+            @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+            @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+            @prefix sc: <http://schema.org/> .
+            @prefix bsc: <https://bioschemas.org/> .
+            @prefix dct: <http://purl.org/dc/terms/> .
+            @prefix sh: <http://www.w3.org/ns/shacl#> .
+            @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+            @prefix edam: <http://edamontology.org/> .
+            @prefix biotools: <https://bio.tools/ontology/> .
+
+            ns:{{shape_name}}
+                a sh:NodeShape ;
+                #sh:targetSubjectsOf schema:name ;
+                {% for c in target_classes %}
+                sh:targetClass  {{c}} ;
+                {% endfor %}
+
+                {% for min_prop in min_props %}
+                sh:property [
+                    sh:path {{min_prop}} ;
+                    sh:minCount 1 ;
+                    sh:severity sh:Violation
+                ] ;
+                {% endfor %}
+                
+                {% for rec_prop in rec_props %}
+                sh:property [
+                    sh:path {{rec_prop}} ;
+                    sh:minCount 1 ;
+                    sh:severity sh:Warning
+                ] ;
+                {% endfor %}
+            .
+        """
+
+        template = Template(shape_template)
+        shape = template.render(
+            shape_name=shape_name,
+            target_classes=target_classes,
+            min_props=min_props,
+            rec_props=rec_props,
+        )
+
+        validate_shape(g_test, shape)
 
     def test_validate_shape_tool(self):
         classes = ["sc:SoftwareApplication"]
