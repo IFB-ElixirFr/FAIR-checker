@@ -125,4 +125,4 @@ class APITestCase(unittest.TestCase):
             "/api/inspect/validate_bioschemas/" + self.url_biotools,
         )
         self.assertEqual(200, response.status_code)
-        self.assertGreater(0, len(response.get_json()))
+        self.assertLess(0, len(response.get_json()))
