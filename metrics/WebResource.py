@@ -114,45 +114,58 @@ class WebResource:
         self.status_code = response.status_code
         self.html_requests = response.content
 
-    @staticmethod
-    def html_to_rdf_extruct(html_source) -> ConjunctiveGraph:
-        data = extruct.extract(
-            html_source, syntaxes=["microdata", "rdfa", "json-ld"], errors="ignore"
-        )
-        kg = ConjunctiveGraph()
+    # @staticmethod
+    # def html_to_rdf_extruct(html_source) -> ConjunctiveGraph:
+    #     data = extruct.extract(
+    #         html_source, syntaxes=["microdata", "rdfa", "json-ld"], errors="ignore"
+    #     )
+    #     kg = ConjunctiveGraph()
 
-        base_path = Path(__file__).parent.parent  # current directory
-        static_file_path = str((base_path / "static/data/jsonldcontext.json").resolve())
+    #     base_path = Path(__file__).parent.parent  # current directory
+    #     static_file_path = str((base_path / "static/data/jsonldcontext.json").resolve())
 
-        for md in data["json-ld"]:
-            if "@context" in md.keys():
-                if ("https://schema.org" in md["@context"]) or (
-                    "http://schema.org" in md["@context"]
-                ):
-                    md["@context"] = static_file_path
-            kg.parse(data=json.dumps(md, ensure_ascii=False), format="json-ld")
-        for md in data["rdfa"]:
-            if "@context" in md.keys():
-                if ("https://schema.org" in md["@context"]) or (
-                    "http://schema.org" in md["@context"]
-                ):
-                    md["@context"] = static_file_path
-            kg.parse(data=json.dumps(md, ensure_ascii=False), format="json-ld")
-        for md in data["microdata"]:
-            if "@context" in md.keys():
-                if ("https://schema.org" in md["@context"]) or (
-                    "http://schema.org" in md["@context"]
-                ):
-                    md["@context"] = static_file_path
-            kg.parse(data=json.dumps(md, ensure_ascii=False), format="json-ld")
+    #     for md in data["json-ld"]:
+    #         if "@context" in md.keys():
+    #             print(md["@context"])
+    #             if ("https://schema.org" in md["@context"]) or (
+    #                 "http://schema.org" in md["@context"]
+    #             ):
+    #                 md["@context"] = static_file_path
+    #         kg.parse(
+    #             data=json.dumps(md, ensure_ascii=False),
+    #             format="json-ld",
+    #             publicID="http://fair-checker/",
+    #         )
+    #     for md in data["rdfa"]:
+    #         if "@context" in md.keys():
+    #             if ("https://schema.org" in md["@context"]) or (
+    #                 "http://schema.org" in md["@context"]
+    #             ):
+    #                 md["@context"] = static_file_path
+    #         kg.parse(
+    #             data=json.dumps(md, ensure_ascii=False),
+    #             format="json-ld",
+    #             publicID="http://fair-checker/",
+    #         )
+    #     for md in data["microdata"]:
+    #         if "@context" in md.keys():
+    #             if ("https://schema.org" in md["@context"]) or (
+    #                 "http://schema.org" in md["@context"]
+    #             ):
+    #                 md["@context"] = static_file_path
+    #         kg.parse(
+    #             data=json.dumps(md, ensure_ascii=False),
+    #             format="json-ld",
+    #             publicID="http://fair-checker/",
+    #         )
 
-        logging.debug(kg.serialize(format="turtle"))
+    #     logging.debug(kg.serialize(format="turtle"))
 
-        kg.namespace_manager.bind("sc", URIRef("http://schema.org/"))
-        kg.namespace_manager.bind("bsc", URIRef("https://bioschemas.org/"))
-        kg.namespace_manager.bind("dct", URIRef("http://purl.org/dc/terms/"))
+    #     kg.namespace_manager.bind("sc", URIRef("http://schema.org/"))
+    #     kg.namespace_manager.bind("bsc", URIRef("https://bioschemas.org/"))
+    #     kg.namespace_manager.bind("dct", URIRef("http://purl.org/dc/terms/"))
 
-        return kg
+    #     return kg
 
     # @staticmethod
     def extract_rdf_extruct(self, url) -> ConjunctiveGraph:
@@ -181,7 +194,9 @@ class WebResource:
         kg = ConjunctiveGraph()
 
         base_path = Path(__file__).parent.parent  # current directory
-        static_file_path = str((base_path / "static/data/jsonldcontext.json").resolve())
+        static_file_path = "file://" + str(
+            (base_path / "static/data/jsonldcontext.json").resolve()
+        )
 
         if "json-ld" in data.keys():
             for md in data["json-ld"]:
@@ -190,7 +205,14 @@ class WebResource:
                         "http://schema.org" in md["@context"]
                     ):
                         md["@context"] = static_file_path
-                kg.parse(data=json.dumps(md, ensure_ascii=False), format="json-ld")
+
+                print(json.dumps(md, ensure_ascii=False))
+
+                kg.parse(
+                    data=json.dumps(md, ensure_ascii=False),
+                    format="json-ld",
+                    publicID=url,
+                )
         if "rdfa" in data.keys():
             for md in data["rdfa"]:
                 if "@context" in md.keys():
@@ -198,7 +220,11 @@ class WebResource:
                         "http://schema.org" in md["@context"]
                     ):
                         md["@context"] = static_file_path
-                kg.parse(data=json.dumps(md, ensure_ascii=False), format="json-ld")
+                kg.parse(
+                    data=json.dumps(md, ensure_ascii=False),
+                    format="json-ld",
+                    publicID=url,
+                )
 
         if "microdata" in data.keys():
             for md in data["microdata"]:
@@ -207,7 +233,11 @@ class WebResource:
                         "http://schema.org" in md["@context"]
                     ):
                         md["@context"] = static_file_path
-                kg.parse(data=json.dumps(md, ensure_ascii=False), format="json-ld")
+                kg.parse(
+                    data=json.dumps(md, ensure_ascii=False),
+                    format="json-ld",
+                    publicID=url,
+                )
 
         logging.debug(kg.serialize(format="turtle"))
 
@@ -239,7 +269,7 @@ class WebResource:
             jsonld_string = tree.xpath('//script[@type="application/ld+json"]//text()')
 
             base_path = Path(__file__).parent.parent  # current directory
-            static_file_path = str(
+            static_file_path = "file://" + str(
                 (base_path / "static/data/jsonldcontext.json").resolve()
             )
 
@@ -251,7 +281,11 @@ class WebResource:
                 if "@context" in jsonld.keys():
                     if "//schema.org" in jsonld["@context"]:
                         jsonld["@context"] = static_file_path
-                kg.parse(data=json.dumps(jsonld, ensure_ascii=False), format="json-ld")
+                kg.parse(
+                    data=json.dumps(jsonld, ensure_ascii=False),
+                    format="json-ld",
+                    publicID=url,
+                )
                 logging.debug(f"{len(kg)} retrieved triples in KG")
                 logging.debug(kg.serialize(format="turtle"))
 
