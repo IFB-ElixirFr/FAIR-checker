@@ -40,6 +40,13 @@ class WebResourceTestCase(unittest.TestCase):
         turtle = bwa.get_rdf().serialize(format="turtle")
         self.assertTrue("sc:ComputationalWorkflow" in turtle)
 
+    def test_workflowhub_relative_URIs(self):
+        bwa = WebResource("https://workflowhub.eu/workflows/118")
+        logging.info(f"{len(bwa.get_rdf())} loaded RDF triples")
+        turtle = bwa.get_rdf().serialize(format="turtle")
+        print(turtle)
+        self.assertTrue("file://" not in turtle)
+
     @unittest.skip("Using local hard path, should not be used in CI")
     def test_EDAM(self):
         EDAM_KG = ConjunctiveGraph()
