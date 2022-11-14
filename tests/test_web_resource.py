@@ -29,15 +29,15 @@ class WebResourceTestCase(unittest.TestCase):
         logging.info(f"{len(datacite.get_rdf())} loaded RDF triples")
         self.assertGreaterEqual(len(datacite.get_rdf()), 45)
 
-    @unittest.skip(
-        "This dataverse seems to not expose any schema.org annotations (checked with the schema.org validator)"
-    )
+    # @unittest.skip(
+    #     "This dataverse seems to not expose any schema.org annotations (checked with the schema.org validator)"
+    # )
     def test_dataverse(self):
         dataverse = WebResource(
             "https://data.inrae.fr/dataset.xhtml?persistentId=doi:10.15454/P27LDX"
         )
         logging.info(f"{len(dataverse.get_rdf())} loaded RDF triples")
-        self.assertGreaterEqual(len(dataverse.get_rdf()), 9)
+        self.assertEqual(len(dataverse.get_rdf()), 0)
         print()
 
     def test_workflowhub(self):
