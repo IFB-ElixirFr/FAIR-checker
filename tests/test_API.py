@@ -1,14 +1,8 @@
 import unittest
-from flask import current_app
 from app import app
-import requests
-from os import environ
-import logging
 from rdflib import ConjunctiveGraph
 import json
 import urllib3
-
-# from flask_pymongo import PyMongo
 
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 

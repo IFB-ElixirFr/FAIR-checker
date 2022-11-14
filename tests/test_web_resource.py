@@ -29,7 +29,9 @@ class WebResourceTestCase(unittest.TestCase):
         logging.info(f"{len(datacite.get_rdf())} loaded RDF triples")
         self.assertGreaterEqual(len(datacite.get_rdf()), 45)
 
-    @unittest.skip("This dataverse seems to not expose any schema.org annotations")
+    @unittest.skip(
+        "This dataverse seems to not expose any schema.org annotations (checked with the schema.org validator)"
+    )
     def test_dataverse(self):
         dataverse = WebResource(
             "https://data.inrae.fr/dataset.xhtml?persistentId=doi:10.15454/P27LDX"
