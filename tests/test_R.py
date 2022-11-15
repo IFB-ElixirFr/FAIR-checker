@@ -67,6 +67,8 @@ class ReuseTestCase(unittest.TestCase):
             web_resource=wf, impl=Implem.FAIR_CHECKER
         ).evaluate()
         logging.info(res)
+        len(wf.get_rdf())
+        self.assertEqual(len(wf.get_rdf()), 82)
         self.assertEqual(res.get_score(), str(Result.STRONG.value))
 
     def test_R12_workflowhub(self):
@@ -83,6 +85,7 @@ class ReuseTestCase(unittest.TestCase):
             web_resource=wf, impl=Implem.FAIR_CHECKER
         ).evaluate()
         logging.info(res)
+        self.assertEqual(len(wf.get_rdf()), 82)
         self.assertEqual(res.get_score(), str(Result.WEAK.value))
 
 

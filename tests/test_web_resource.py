@@ -1,8 +1,6 @@
 import unittest
-
 from rdflib import ConjunctiveGraph
-from metrics.Evaluation import Result
-from metrics.FAIRMetricsFactory import FAIRMetricsFactory, Implem
+from metrics.FAIRMetricsFactory import FAIRMetricsFactory
 from metrics.WebResource import WebResource
 import logging
 import time
@@ -26,19 +24,37 @@ class WebResourceTestCase(unittest.TestCase):
         logging.info(f"{len(bwa.get_rdf())} loaded RDF triples")
         self.assertGreaterEqual(len(bwa.get_rdf()), 124)
 
+    def test_datacite(self):
+        datacite = WebResource("https://search.datacite.org/works/10.7892/boris.108387")
+        logging.info(f"{len(datacite.get_rdf())} loaded RDF triples")
+        self.assertGreaterEqual(len(datacite.get_rdf()), 45)
+
+    # @unittest.skip(
+    #     "This dataverse seems to not expose any schema.org annotations (checked with the schema.org validator)"
+    # )
     def test_dataverse(self):
         dataverse = WebResource(
             "https://data.inrae.fr/dataset.xhtml?persistentId=doi:10.15454/P27LDX"
         )
         logging.info(f"{len(dataverse.get_rdf())} loaded RDF triples")
-        self.assertGreaterEqual(len(dataverse.get_rdf()), 9)
+        self.assertEqual(len(dataverse.get_rdf()), 0)
+        print()
 
     def test_workflowhub(self):
-        bwa = WebResource("https://workflowhub.eu/workflows/263")
-        logging.info(f"{len(bwa.get_rdf())} loaded RDF triples")
-        self.assertGreaterEqual(len(bwa.get_rdf()), 28)
-        turtle = bwa.get_rdf().serialize(format="turtle")
+        wf = WebResource("https://workflowhub.eu/workflows/263")
+        logging.info(f"{len(wf.get_rdf())} loaded RDF triples")
+        print(wf.get_url)
+        print(f"{len(wf.get_rdf())} loaded RDF triples")
+        print(wf.get_html_selenium())
+        print(wf.get_html_requests())
+        self.assertGreaterEqual(len(wf.get_rdf()), 28)
+        turtle = wf.get_rdf().serialize(format="turtle")
         self.assertTrue("sc:ComputationalWorkflow" in turtle)
+
+    def test_workflowhub_relative_URIs(self):
+        wf = WebResource("https://workflowhub.eu/workflows/118")
+        turtle = wf.get_rdf().serialize(format="nt")
+        self.assertTrue("file://" not in turtle)
 
     @unittest.skip("Using local hard path, should not be used in CI")
     def test_EDAM(self):
@@ -82,10 +98,10 @@ class WebResourceTestCase(unittest.TestCase):
 
         print(row)
 
-    @unittest.skip("The test wont work without a fix")
     def test_fairchecker(self):
-        bwa = WebResource("https://fair-checker.france-bioinformatique.fr/")
-        logging.info(f"{len(bwa.get_rdf())} loaded RDF triples")
+        fc = WebResource("https://fair-checker.france-bioinformatique.fr/")
+        logging.info(f"{len(fc.get_rdf())} loaded RDF triples")
+        self.assertGreaterEqual(len(fc.get_rdf()), 35)
 
 
 if __name__ == "__main__":
