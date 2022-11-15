@@ -236,9 +236,7 @@ DICT_TEMP_RES = {}
 
 STATUS_BIOPORTAL = requests.head("https://bioportal.bioontology.org/").status_code
 STATUS_OLS = requests.head("https://www.ebi.ac.uk/ols/index").status_code
-STATUS_LOV = requests.head(
-    "https://lov.linkeddata.es/dataset/lov/sparql"
-).status_code
+STATUS_LOV = requests.head("https://lov.linkeddata.es/dataset/lov/sparql").status_code
 
 DICT_BANNER_INFO = {"banner_message_info": {}}
 
