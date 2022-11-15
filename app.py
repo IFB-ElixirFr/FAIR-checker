@@ -234,6 +234,12 @@ FILE_UUID = ""
 
 DICT_TEMP_RES = {}
 
+STATUS_BIOPORTAL = requests.head("https://bioportal.bioontology.org/").status_code
+STATUS_OLS = requests.head("https://www.ebi.ac.uk/ols/index").status_code
+STATUS_LOV = requests.head(
+    "https://lov.linkeddata.es/dataset/lov/sparql"
+).status_code
+
 DICT_BANNER_INFO = {"banner_message_info": {}}
 
 # Update banner info with the message in .env
@@ -258,17 +264,8 @@ def display_info():
     return DICT_BANNER_INFO
 
 
-def validate_status(url):
-    return requests.head(url).status_code == 200
-
-
-@app.context_processor
-def display_vocab_status():
-    global DICT_BANNER_INFO
-
-    # status_bioportal = validate_status("https://bioportal.bioontology.org/")
-    # status_ols = validate_status("https://www.ebi.ac.uk/ols/index")
-    # status_lov = validate_status("https://lov.linkeddata.es/dataset/lov/sparql")
+def update_vocab_status():
+    global DICT_BANNER_INFO, STATUS_BIOPORTAL, STATUS_OLS, STATUS_LOV
 
     STATUS_BIOPORTAL = requests.head("https://bioportal.bioontology.org/").status_code
     STATUS_OLS = requests.head("https://www.ebi.ac.uk/ols/index").status_code
@@ -296,11 +293,16 @@ def display_vocab_status():
     else:
         DICT_BANNER_INFO["banner_message_info"].pop("status_lov", None)
 
+
+@app.context_processor
+def display_vocab_status():
+    global DICT_BANNER_INFO
+
     return DICT_BANNER_INFO
 
 
 scheduler = BackgroundScheduler()
-scheduler.add_job(func=display_vocab_status, trigger="interval", seconds=600)
+scheduler.add_job(func=update_vocab_status, trigger="interval", seconds=600)
 # scheduler.add_job(func=display_info, trigger="interval", seconds=600)
 scheduler.start()
 
