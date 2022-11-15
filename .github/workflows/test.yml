@@ -47,4 +47,4 @@ jobs:
         run: |
           conda info
           conda activate test
-          pytest --capture=no tests/test_R.py -k "workflow"
+          pytest --capture=no tests/test_R.py
