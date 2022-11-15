@@ -291,6 +291,8 @@ def update_vocab_status():
     else:
         DICT_BANNER_INFO["banner_message_info"].pop("status_lov", None)
 
+    prod_logger.info("Updating banner status")
+
 
 @app.context_processor
 def display_vocab_status():
