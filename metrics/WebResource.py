@@ -10,6 +10,10 @@ import extruct
 from pathlib import Path
 from rdflib import ConjunctiveGraph, URIRef
 import requests
+
+requests.packages.urllib3.disable_warnings(
+    requests.packages.urllib3.exceptions.InsecureRequestWarning
+)
 import json
 import os
 
@@ -17,9 +21,23 @@ from metrics.util import clean_kg_excluding_ns_prefix
 
 
 class WebResource:
+    prefs = {
+        "download_restrictions": 3,
+        "download.prompt_for_download": False,
+        "download.default_directory": "NUL",
+    }
+
+    base_path = Path(__file__).parent.parent  # current directory
+    static_file_path = "file://" + str(
+        (base_path / "static/data/jsonldcontext.json").resolve()
+    )
+
     chrome_options = Options()
     chrome_options.add_argument("--headless")
     chrome_options.add_argument("--no-sandbox")
+    # chrome_options.add_experimental_option(
+    #     "prefs", prefs
+    # )
     proxy = os.getenv("HTTP_PROXY")
     if proxy:
         chrome_options.add_argument("--proxy-server=" + proxy)
@@ -30,6 +48,7 @@ class WebResource:
     WEB_BROWSER_HEADLESS.implicitly_wait(20)
 
     status_code = None
+    content_type = None
     browser_selenium = None
     html_selenium = None
     html_requests = None
@@ -39,11 +58,16 @@ class WebResource:
         self.url = url
 
         if rdf_graph is None:
-            # get dynamic RDF metadata (generated from JS)
-            kg_1 = WebResource.extract_rdf_selenium(self.url)
             # get static RDF metadata (already available in html sources)
-            kg_2 = self.extract_rdf_extruct(self.url)
-            self.rdf = kg_1 + kg_2
+            kg_1 = self.extract_rdf_extruct(self.url)
+
+            if "html" in self.content_type:
+                logging.info("Resource content_type is HTML")
+                # get dynamic RDF metadata (generated from JS)
+                kg_2 = WebResource.extract_rdf_selenium(self.url)
+                self.rdf = kg_1 + kg_2
+            else:
+                self.rdf = kg_1
         else:
             self.rdf = rdf_graph
 
@@ -95,47 +119,6 @@ class WebResource:
         self.status_code = response.status_code
         self.html_requests = response.content
 
-    @staticmethod
-    def html_to_rdf_extruct(html_source) -> ConjunctiveGraph:
-        data = extruct.extract(
-            html_source, syntaxes=["microdata", "rdfa", "json-ld"], errors="ignore"
-        )
-        kg = ConjunctiveGraph()
-
-        base_path = Path(__file__).parent.parent  # current directory
-        static_file_path = str((base_path / "static/data/jsonldcontext.json").resolve())
-
-        for md in data["json-ld"]:
-            if "@context" in md.keys():
-                print(md["@context"])
-                if ("https://schema.org" in md["@context"]) or (
-                    "http://schema.org" in md["@context"]
-                ):
-                    md["@context"] = static_file_path
-            kg.parse(data=json.dumps(md, ensure_ascii=False), format="json-ld")
-        for md in data["rdfa"]:
-            if "@context" in md.keys():
-                if ("https://schema.org" in md["@context"]) or (
-                    "http://schema.org" in md["@context"]
-                ):
-                    md["@context"] = static_file_path
-            kg.parse(data=json.dumps(md, ensure_ascii=False), format="json-ld")
-        for md in data["microdata"]:
-            if "@context" in md.keys():
-                if ("https://schema.org" in md["@context"]) or (
-                    "http://schema.org" in md["@context"]
-                ):
-                    md["@context"] = static_file_path
-            kg.parse(data=json.dumps(md, ensure_ascii=False), format="json-ld")
-
-        logging.debug(kg.serialize(format="turtle"))
-
-        kg.namespace_manager.bind("sc", URIRef("http://schema.org/"))
-        kg.namespace_manager.bind("bsc", URIRef("https://bioschemas.org/"))
-        kg.namespace_manager.bind("dct", URIRef("http://purl.org/dc/terms/"))
-
-        return kg
-
     # @staticmethod
     def extract_rdf_extruct(self, url) -> ConjunctiveGraph:
         while True:
@@ -153,6 +136,7 @@ class WebResource:
                 time.sleep(10)
 
         self.status_code = response.status_code
+        self.content_type = response.headers["Content-Type"]
         html_source = response.content
 
         data = extruct.extract(
@@ -161,25 +145,30 @@ class WebResource:
 
         kg = ConjunctiveGraph()
 
-        base_path = Path(__file__).parent.parent  # current directory
-        static_file_path = str((base_path / "static/data/jsonldcontext.json").resolve())
-
         if "json-ld" in data.keys():
             for md in data["json-ld"]:
                 if "@context" in md.keys():
                     if ("https://schema.org" in md["@context"]) or (
                         "http://schema.org" in md["@context"]
                     ):
-                        md["@context"] = static_file_path
-                kg.parse(data=json.dumps(md, ensure_ascii=False), format="json-ld")
+                        md["@context"] = self.static_file_path
+                kg.parse(
+                    data=json.dumps(md, ensure_ascii=False),
+                    format="json-ld",
+                    publicID=url,
+                )
         if "rdfa" in data.keys():
             for md in data["rdfa"]:
                 if "@context" in md.keys():
                     if ("https://schema.org" in md["@context"]) or (
                         "http://schema.org" in md["@context"]
                     ):
-                        md["@context"] = static_file_path
-                kg.parse(data=json.dumps(md, ensure_ascii=False), format="json-ld")
+                        md["@context"] = self.static_file_path
+                kg.parse(
+                    data=json.dumps(md, ensure_ascii=False),
+                    format="json-ld",
+                    publicID=url,
+                )
 
         if "microdata" in data.keys():
             for md in data["microdata"]:
@@ -187,8 +176,12 @@ class WebResource:
                     if ("https://schema.org" in md["@context"]) or (
                         "http://schema.org" in md["@context"]
                     ):
-                        md["@context"] = static_file_path
-                kg.parse(data=json.dumps(md, ensure_ascii=False), format="json-ld")
+                        md["@context"] = self.static_file_path
+                kg.parse(
+                    data=json.dumps(md, ensure_ascii=False),
+                    format="json-ld",
+                    publicID=url,
+                )
 
         logging.debug(kg.serialize(format="turtle"))
 
@@ -219,21 +212,19 @@ class WebResource:
             tree = html.fromstring(element)
             jsonld_string = tree.xpath('//script[@type="application/ld+json"]//text()')
 
-            base_path = Path(__file__).parent.parent  # current directory
-            static_file_path = str(
-                (base_path / "static/data/jsonldcontext.json").resolve()
-            )
-
             for json_ld_annots in jsonld_string:
                 jsonld = json.loads(json_ld_annots)
-                print(type(jsonld))
-                print(jsonld)
+
                 if type(jsonld) == list:
                     jsonld = jsonld[0]
                 if "@context" in jsonld.keys():
                     if "//schema.org" in jsonld["@context"]:
-                        jsonld["@context"] = static_file_path
-                kg.parse(data=json.dumps(jsonld, ensure_ascii=False), format="json-ld")
+                        jsonld["@context"] = WebResource.static_file_path
+                kg.parse(
+                    data=json.dumps(jsonld, ensure_ascii=False),
+                    format="json-ld",
+                    publicID=url,
+                )
                 logging.debug(f"{len(kg)} retrieved triples in KG")
                 logging.debug(kg.serialize(format="turtle"))
 
@@ -250,5 +241,5 @@ class WebResource:
     def __str__(self) -> str:
         out = """Web resource under FAIR assesment:\n\t"""
         out += self.url + "\n\t"
-        out += len(self.rdf) + " embedded RDF triples"
+        out += str(len(self.rdf)) + " embedded RDF triples"
         return out

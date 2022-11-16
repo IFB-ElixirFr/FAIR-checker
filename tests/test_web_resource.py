@@ -1,9 +1,6 @@
 import unittest
-from webbrowser import get
-import requests
 from rdflib import ConjunctiveGraph
-from metrics.Evaluation import Result
-from metrics.FAIRMetricsFactory import FAIRMetricsFactory, Implem
+from metrics.FAIRMetricsFactory import FAIRMetricsFactory
 from metrics.WebResource import WebResource
 import logging
 import time
@@ -27,21 +24,39 @@ class WebResourceTestCase(unittest.TestCase):
         logging.info(f"{len(bwa.get_rdf())} loaded RDF triples")
         self.assertGreaterEqual(len(bwa.get_rdf()), 124)
 
+    def test_datacite(self):
+        datacite = WebResource("https://search.datacite.org/works/10.7892/boris.108387")
+        logging.info(f"{len(datacite.get_rdf())} loaded RDF triples")
+        self.assertGreaterEqual(len(datacite.get_rdf()), 45)
+
+    # @unittest.skip(
+    #     "This dataverse seems to not expose any schema.org annotations (checked with the schema.org validator)"
+    # )
     def test_dataverse(self):
         dataverse = WebResource(
             "https://data.inrae.fr/dataset.xhtml?persistentId=doi:10.15454/P27LDX"
         )
         logging.info(f"{len(dataverse.get_rdf())} loaded RDF triples")
-        self.assertGreaterEqual(len(dataverse.get_rdf()), 9)
+        self.assertEqual(len(dataverse.get_rdf()), 0)
+        print()
 
     def test_workflowhub(self):
-        bwa = WebResource("https://workflowhub.eu/workflows/263")
-        logging.info(f"{len(bwa.get_rdf())} loaded RDF triples")
-        self.assertGreaterEqual(len(bwa.get_rdf()), 28)
-        turtle = bwa.get_rdf().serialize(format="turtle")
+        wf = WebResource("https://workflowhub.eu/workflows/263")
+        logging.info(f"{len(wf.get_rdf())} loaded RDF triples")
+        print(wf.get_url)
+        print(f"{len(wf.get_rdf())} loaded RDF triples")
+        print(wf.get_html_selenium())
+        print(wf.get_html_requests())
+        self.assertGreaterEqual(len(wf.get_rdf()), 28)
+        turtle = wf.get_rdf().serialize(format="turtle")
         self.assertTrue("sc:ComputationalWorkflow" in turtle)
 
-    # @unittest.skip("Using local hard path, should not be used in CI")
+    def test_workflowhub_relative_URIs(self):
+        wf = WebResource("https://workflowhub.eu/workflows/118")
+        turtle = wf.get_rdf().serialize(format="nt")
+        self.assertTrue("file://" not in turtle)
+
+    @unittest.skip("Using local hard path, should not be used in CI")
     def test_EDAM(self):
         EDAM_KG = ConjunctiveGraph()
         # EDAM_KG.parse("https://edamontology.org/EDAM.owl")
@@ -83,76 +98,10 @@ class WebResourceTestCase(unittest.TestCase):
 
         print(row)
 
-    @unittest.skip("The test wont work without a fix")
     def test_fairchecker(self):
         fc = WebResource("https://fair-checker.france-bioinformatique.fr/")
         logging.info(f"{len(fc.get_rdf())} loaded RDF triples")
-
-    def get_available_content(self, url):
-        head = requests.head(url, allow_redirects=True)
-        print(head.status_code)
-        if "Content-Type" in head.headers.keys():
-            print("Content-Type: " + head.headers["Content-Type"])
-        if "Accept" in head.headers.keys():
-            print("Accept: " + head.headers["Content-Type"])
-        if "alternates" in head.headers.keys():
-            print("alternates: " + head.headers["alternates"])
-        if "location" in head.headers.keys():
-            print("location: " + head.headers["location"])
-
-    def test_content_neg(self):
-        # https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Location
-        # https://www.dbpedia.org/resources/linked-data/
-
-        u1 = "http://ontology.inrae.fr/ppdo/page/ontology"
-        head = requests.head(u1)
-        print(head.status_code)
-        self.assertEquals(head.status_code, 200)
-        print(head.headers["Content-Type"])
-        self.assertIn("text/html", head.headers["Content-Type"])
-
-        u2 = "http://ontology.inrae.fr/ppdo/data/ontology?output=ttl"
-        head = requests.head(u2)
-        print(head.status_code)
-        self.assertEquals(head.status_code, 200)
-        print(head.headers["Content-Type"])
-        self.assertIn("text/rdf+n3", head.headers["Content-Type"])
-
-        u3 = "https://www.data.gouv.fr/fr/datasets/r/620f7c74-a7f2-4358-895f-7651d4a0cad5"
-        head = requests.head(u3)
-        print(head.status_code)
-        self.assertEquals(head.status_code, 302)
-        print(head.headers["Content-Type"])
-        print(head.headers)
-        if head.headers["location"]:
-            u4 = head.headers["location"]
-            head = requests.head(u4)
-            print(head.status_code)
-            self.assertEquals(head.status_code, 200)
-            print(head.headers["Content-Type"])
-            self.assertIn("application/zip", head.headers["Content-Type"])
-
-        u5 = "http://ontology.inrae.fr/ppdo/data/ontology?output=ttl"
-        head = requests.head(u5)
-        print(head.status_code)
-        self.assertEquals(head.status_code, 200)
-        print(head.headers["Content-Type"])
-        self.assertIn("text/rdf+n3", head.headers["Content-Type"])
-
-        u6 = "https://www.wikidata.org/wiki/Q71533"
-        u7 = "https://www.wikidata.org/entity/Q71533"
-        u8 = "https://dbpedia.org/resource/Leipzig"
-        u9 = "http://dbpedia.org/resource/Leipzig"
-
-        self.get_available_content(u1)
-        self.get_available_content(u2)
-        self.get_available_content(u3)
-        # self.get_available_content(u4)
-        self.get_available_content(u5)
-        self.get_available_content(u6)
-        self.get_available_content(u7)
-        self.get_available_content(u8)
-        self.get_available_content(u9)
+        self.assertGreaterEqual(len(fc.get_rdf()), 35)
 
 
 if __name__ == "__main__":

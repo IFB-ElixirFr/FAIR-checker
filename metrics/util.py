@@ -3,27 +3,39 @@ from SPARQLWrapper import SPARQLWrapper, N3, JSON, RDF, TURTLE, JSONLD
 from rdflib import Graph, ConjunctiveGraph, Namespace
 from rdflib.namespace import RDF
 import requests
+
+requests.packages.urllib3.disable_warnings(
+    requests.packages.urllib3.exceptions.InsecureRequestWarning
+)
+
 from jinja2 import Template
 from pyshacl import validate
 import extruct
 import json
 from pathlib import Path
 from datetime import datetime, timedelta
-
+from enum import Enum
 from lxml import html
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from cachetools import cached, TTLCache
 from flask import Flask
-
+from flask import current_app
 import logging
-
 import copy
 import re
 import validators
 from requests.auth import HTTPBasicAuth
 
-from flask import current_app
+
+class SOURCE(Enum):
+    UI = 1
+    API = 2
+
+    def __str__(self):
+        # return str(self.value)
+        return str(self.name)
+
 
 app = Flask(__name__)
 
@@ -34,15 +46,16 @@ app.config.from_object("config.Config")
 
 # caching results (timer in config.py)
 with app.app_context():
-    ttl_cache_timer = current_app.config["CACHE_CONTROLLED_VOCAB"]
+    ttl_cache_timer = current_app.config["CACHE_CONTROLLED_VOCAB_TIMER"]
+    ttl_cache_maxsize = current_app.config["CACHE_CONTROLLED_VOCAB_MAXSIZE"]
 cache_OLS = TTLCache(
-    maxsize=5000, ttl=timedelta(hours=ttl_cache_timer), timer=datetime.now
+    maxsize=ttl_cache_maxsize, ttl=timedelta(hours=ttl_cache_timer), timer=datetime.now
 )
 cache_LOV = TTLCache(
-    maxsize=5000, ttl=timedelta(hours=ttl_cache_timer), timer=datetime.now
+    maxsize=ttl_cache_maxsize, ttl=timedelta(hours=ttl_cache_timer), timer=datetime.now
 )
 cache_BP = TTLCache(
-    maxsize=5000, ttl=timedelta(hours=ttl_cache_timer), timer=datetime.now
+    maxsize=ttl_cache_maxsize, ttl=timedelta(hours=ttl_cache_timer), timer=datetime.now
 )
 
 # DOI regex
@@ -215,14 +228,11 @@ def ask_BioPortal(uri, type):
         )
     # print(res)
     if res.status_code == 200:
-        if res.json()["totalCount"] > 0:
-            return True
-        else:
-            return False
+        return res.json()["totalCount"] > 0
     else:
-        app.logger.error("Cound not contact BioPortal")
+        app.logger.error("Cound not connect to BioPortal")
         app.logger.error(res.text)
-        return False
+        return None
 
 
 @cached(cache_OLS)
@@ -240,10 +250,13 @@ def ask_OLS(uri):
     res = requests.get(
         "https://www.ebi.ac.uk/ols/api/properties", headers=h, params=p, verify=True
     )
-    if res.json()["page"]["totalElements"] > 0:
-        return True
+
+    if res.status_code == 200:
+        return res.json()["page"]["totalElements"] > 0
     else:
-        return False
+        app.logger.error("Cound not connect to OLS")
+        app.logger.error(res.text)
+        return None
 
 
 @cached(cache_LOV)
@@ -263,10 +276,12 @@ def ask_LOV(uri):
         "https://lov.linkeddata.es/dataset/lov/sparql", headers=h, params=p, verify=True
     )
 
-    # print(res.text)
-    # if res.text.startswith("Error 400: Parse error:"):
-    #     return False
-    return res.json()["boolean"]
+    if res.status_code == 200:
+        return res.json()["boolean"]
+    else:
+        app.logger.error("Cound not connect to LOV")
+        app.logger.error(res.text)
+        return None
 
 
 # @Deprecated

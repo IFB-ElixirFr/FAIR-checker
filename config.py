@@ -15,8 +15,13 @@ class Config(object):
     SERVER_NAME = "0.0.0.0:5000"
     # Flask-Caching related configs
     CACHE_TYPE = "SimpleCache"
-    CACHE_DEFAULT_TIMEOUT = 60  # timer in seconds
-    CACHE_CONTROLLED_VOCAB = 168  # timer in hours
+    CACHE_DEFAULT_TIMEOUT = 60  # timer in seconds for metrics
+    CACHE_CONTROLLED_VOCAB_TIMER = (
+        168  # timer in hours for Vocabularies (OLS, LOV, BioPortal)
+    )
+    CACHE_CONTROLLED_VOCAB_MAXSIZE = (
+        20000  # Number of element stored for Vocabularies (OLS, LOV, BioPortal)
+    )
 
 
 class ProductionConfig(Config):
@@ -27,8 +32,19 @@ class DevelopmentConfig(Config):
     DEBUG = True
     SERVER_IP = "http://0.0.0.0:5000"
     CACHE_DEFAULT_TIMEOUT = 30  # timer in seconds
-    CACHE_CONTROLLED_VOCAB = 24  # timer in hours
+    CACHE_CONTROLLED_VOCAB_TIMER = (
+        24  # timer in hours for Vocabularies (OLS, LOV, BioPortal)
+    )
+    CACHE_CONTROLLED_VOCAB_MAXSIZE = (
+        500  # Number of element stored for Vocabularies (OLS, LOV, BioPortal)
+    )
 
 
 class TestingConfig(Config):
     TESTING = True
+    SERVER_IP = "http://0.0.0.0:5000"
+    # MONGO_HOST = "0.0.0.0"
+    # MONGO_PORT = 27017
+    # MONGO_DBNAME = "fair_checker"
+    # MONGO_URI = f"mongodb://{MONGO_HOST}:{MONGO_PORT}/{MONGO_DBNAME}"
+    # TESTING = True
