@@ -59,7 +59,7 @@ class APITestCase(unittest.TestCase):
         )
 
         self.assertEqual(200, response.status_code)
-        self.assertEqual(14, len(response.get_json()))
+        self.assertEqual(11, len(response.get_json()))
 
     def test_inspect_get_rdf_metadata(self):
         kg = ConjunctiveGraph()

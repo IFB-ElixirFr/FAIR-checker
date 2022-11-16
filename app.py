@@ -156,11 +156,11 @@ prod_logger.debug("DEBUG prod")
 # blueprint = Blueprint('api', __name__, url_prefix='/api')
 
 api = Api(
-    app,
+    app=app,
     title="FAIR-Checker API",
     doc="/swagger",
     base_path="/api",
-    # base_url='/'
+    # base_url=app.config["SERVER_IP"],
     description=app.config["SERVER_IP"],
 )
 
@@ -442,6 +442,7 @@ class MetricEvalAll(Resource):
         metrics_collection.append(FAIRMetricsFactory.get_F1B(web_res))
         metrics_collection.append(FAIRMetricsFactory.get_F2A(web_res))
         metrics_collection.append(FAIRMetricsFactory.get_F2B(web_res))
+        metrics_collection.append(FAIRMetricsFactory.get_A11(web_res))
         metrics_collection.append(FAIRMetricsFactory.get_I1(web_res))
         metrics_collection.append(FAIRMetricsFactory.get_I1A(web_res))
         metrics_collection.append(FAIRMetricsFactory.get_I1B(web_res))
@@ -453,8 +454,14 @@ class MetricEvalAll(Resource):
         metrics_collection.append(FAIRMetricsFactory.get_R12(web_res))
         metrics_collection.append(FAIRMetricsFactory.get_R13(web_res))
 
+        metrics_collection = []
+        for key in METRICS_CUSTOM.keys():
+            metrics_collection.append(METRICS_CUSTOM[key])
+
         results = []
         for metric in metrics_collection:
+            print(metric.get_name())
+            metric.set_web_resource(web_res)
             result = metric.evaluate()
             data = {
                 "metric": result.get_metrics(),
