@@ -61,6 +61,29 @@ cache_BP = TTLCache(
 # DOI regex
 regex = r"10.\d{4,9}\/[-._;()\/:A-Z0-9]+"
 
+# Dynamicaly generates a table with FAIR metrics implementations
+def gen_metrics():
+    metrics = []
+    METRICS_CUSTOM = app.METRICS_CUSTOM
+    for key in app.METRICS_CUSTOM.keys():
+        metrics.append(
+            {
+                "metric": METRICS_CUSTOM[key].get_.metric(),
+                "name": METRICS_CUSTOM[key].get_name(),
+                "implem": METRICS_CUSTOM[key].get_implem(),
+                "description": METRICS_CUSTOM[key].get_desc(),
+                "api_url": "API to define",
+                "id": METRICS_CUSTOM[key].get_id(),
+                "principle": METRICS_CUSTOM[key].get_principle(),
+                "principle_tag": METRICS_CUSTOM[key].get_principle_tag(),
+                "principle_category": METRICS_CUSTOM[key]
+                .get_principle()
+                .rsplit("/", 1)[-1][0],
+            }
+        )
+    return metrics
+
+
 # Describe datacite
 def describe_opencitation(uri, g):
     graph_pre_size = len(g)

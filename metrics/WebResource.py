@@ -62,7 +62,7 @@ class WebResource:
             kg_1 = self.extract_rdf_extruct(self.url)
 
             if "html" in self.content_type:
-                logging.info("Resource content_type is HTML")
+                logging.debug("Resource content_type is HTML")
                 # get dynamic RDF metadata (generated from JS)
                 kg_2 = WebResource.extract_rdf_selenium(self.url)
                 self.rdf = kg_1 + kg_2
@@ -200,7 +200,7 @@ class WebResource:
         # self.html_source = browser.page_source
         # browser.quit()
         logging.debug(type(browser.page_source))
-        logging.info(f"size of the parsed web page: {len(browser.page_source)}")
+        logging.debug(f"size of the parsed web page: {len(browser.page_source)}")
 
         try:
             element = browser.find_element_by_xpath(
