@@ -437,22 +437,22 @@ class MetricEvalAll(Resource):
         """All FAIR metrics"""
         web_res = WebResource(url)
 
-        metrics_collection = []
-        metrics_collection.append(FAIRMetricsFactory.get_F1A(web_res))
-        metrics_collection.append(FAIRMetricsFactory.get_F1B(web_res))
-        metrics_collection.append(FAIRMetricsFactory.get_F2A(web_res))
-        metrics_collection.append(FAIRMetricsFactory.get_F2B(web_res))
-        metrics_collection.append(FAIRMetricsFactory.get_A11(web_res))
-        metrics_collection.append(FAIRMetricsFactory.get_I1(web_res))
-        metrics_collection.append(FAIRMetricsFactory.get_I1A(web_res))
-        metrics_collection.append(FAIRMetricsFactory.get_I1B(web_res))
-        metrics_collection.append(FAIRMetricsFactory.get_I2(web_res))
-        metrics_collection.append(FAIRMetricsFactory.get_I2A(web_res))
-        metrics_collection.append(FAIRMetricsFactory.get_I2B(web_res))
-        metrics_collection.append(FAIRMetricsFactory.get_I3(web_res))
-        metrics_collection.append(FAIRMetricsFactory.get_R11(web_res))
-        metrics_collection.append(FAIRMetricsFactory.get_R12(web_res))
-        metrics_collection.append(FAIRMetricsFactory.get_R13(web_res))
+        # metrics_collection = []
+        # metrics_collection.append(FAIRMetricsFactory.get_F1A(web_res))
+        # metrics_collection.append(FAIRMetricsFactory.get_F1B(web_res))
+        # metrics_collection.append(FAIRMetricsFactory.get_F2A(web_res))
+        # metrics_collection.append(FAIRMetricsFactory.get_F2B(web_res))
+        # metrics_collection.append(FAIRMetricsFactory.get_A11(web_res))
+        # metrics_collection.append(FAIRMetricsFactory.get_I1(web_res))
+        # metrics_collection.append(FAIRMetricsFactory.get_I1A(web_res))
+        # metrics_collection.append(FAIRMetricsFactory.get_I1B(web_res))
+        # metrics_collection.append(FAIRMetricsFactory.get_I2(web_res))
+        # metrics_collection.append(FAIRMetricsFactory.get_I2A(web_res))
+        # metrics_collection.append(FAIRMetricsFactory.get_I2B(web_res))
+        # metrics_collection.append(FAIRMetricsFactory.get_I3(web_res))
+        # metrics_collection.append(FAIRMetricsFactory.get_R11(web_res))
+        # metrics_collection.append(FAIRMetricsFactory.get_R12(web_res))
+        # metrics_collection.append(FAIRMetricsFactory.get_R13(web_res))
 
         metrics_collection = []
         for key in METRICS_CUSTOM.keys():
