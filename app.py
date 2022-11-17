@@ -439,7 +439,7 @@ class MetricEvalAll(Resource):
         web_res = WebResource(url)
 
         results = []
-        for key in METRICS_CUSTOM.keys():       
+        for key in METRICS_CUSTOM.keys():
             metric = METRICS_CUSTOM[key]
             metric.set_web_resource(web_res)
             result = metric.evaluate()
