@@ -32,6 +32,7 @@ def long_ask(prop):
     return {"property": prop, "exists": res}
 
 
+
 class CacheTestCase(unittest.TestCase):
     def test_time_to_live_cachel(self):
         list_of_props = []
@@ -65,9 +66,4 @@ class CacheTestCase(unittest.TestCase):
 
         self.assertEqual(10, len(cache))
         cache.pop(("prop_8",))
-        # print(cache.keys())
-        for key in cache.keys():
-            print(key)
-        for item in cache.items():
-            print(item)
         self.assertEqual(9, len(cache))
