@@ -55,9 +55,10 @@ parser.add_argument(
 parser.add_argument(
     "-uc",
     "--url-collection",
-    action="store_true",
+    nargs="+",
     required=False,
-    help="A file listing the URLs to be analysed, one line per URL"
+    help="A file listing the URLs to be analysed, one line per URL",
+    dest="url_collection",
 )
 parser.add_argument(
     "-o",
@@ -2043,6 +2044,8 @@ if __name__ == "__main__":
                         f"Loaded {len(KG)} triples from {url}, and saved in {out_dir}/{'_'.join(url.split('/'))}_{uuid.uuid4()}.ttl"
                     )
                 else:
+                    if not path.exists("dumps"):
+                        Path("dumps").mkdir(parents=True, exist_ok=True)
                     KG.serialize(
                         f"dumps/{'_'.join(url.split('/'))}_{uuid.uuid4()}.ttl",
                         format="turtle",
