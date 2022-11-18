@@ -32,7 +32,6 @@ def long_ask(prop):
     return {"property": prop, "exists": res}
 
 
-
 class CacheTestCase(unittest.TestCase):
     def test_time_to_live_cachel(self):
         list_of_props = []
