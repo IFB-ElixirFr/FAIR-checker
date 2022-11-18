@@ -234,6 +234,8 @@ def ask_BioPortal(uri, type):
         app.logger.error(res.text)
         return None
 
+def get_keys_from_value(d, val):
+    return [k for k, v in d.items() if v == val]
 
 @cached(cache_OLS)
 def ask_OLS(uri):
@@ -250,7 +252,9 @@ def ask_OLS(uri):
     res = requests.get(
         "https://www.ebi.ac.uk/ols/api/properties", headers=h, params=p, verify=True
     )
-
+    print(cache_OLS.items)
+    # for item in cache_OLS.items():
+    #     if 
     if res.status_code == 200:
         return res.json()["page"]["totalElements"] > 0
     else:
