@@ -53,6 +53,13 @@ parser.add_argument(
     dest="rdf_file",
 )
 parser.add_argument(
+    "-uc",
+    "--url-collection",
+    action="store_true",
+    required=False,
+    help="A file listing the URLs to be analysed, one line per URL"
+)
+parser.add_argument(
     "-o",
     "--output-dir",
     nargs="+",
@@ -79,15 +86,6 @@ parser.add_argument(
     action="store_true",
     required=False,
     help="to extract RDF metadata from lists of URLs, to be used in \nconjunction with --urls or --url-collection arguments",
-)
-
-parser.add_argument(
-    "-uc",
-    "--url-collection",
-    action="store_true",
-    required=False,
-    help="A file listing the URLs to be analysed, one line per URL",
-    dest="URLs_FILE",
 )
 
 if len(sys.argv) == 1:
@@ -1919,11 +1917,15 @@ if __name__ == "__main__":
 
         if args.urls:
             urls = args.urls
-        if args.url_collection:
-            # TODO only one file to be processed per execution
-            for file in args.url_collection:
-                mydoc = open(file, "r")
-                urls = mydoc.readlines()
+        elif args.url_collection:
+            file = args.url_collection[0]
+            mydoc = open(file, "r")
+            urls = mydoc.readlines()
+        else:
+            logging.warning(
+                "There is no valid argument after --extract-metadata. Please add --urls or --url-collection."
+            )
+            sys.exit(1)
         if len(urls) > 0:
             for url in urls:
                 console = Console()
@@ -2026,21 +2028,27 @@ if __name__ == "__main__":
 
                 console.rule(f"[bold red]Properties evaluation for URL {url}")
                 console.print(table_props)
-                logging.info(
-                    f"Loaded {len(KG)} triples from {url}, and saved in dumps/{'_'.join(url.split('/'))}_{uuid.uuid4()}.ttl"
-                )
 
-                if args.o:
-                    out_dir = args.o
-                    # todo check if o is a directory, if not try to create it
+                if args.output_dir:
+                    out_dir = args.output_dir[0]
+                    if not path.exists(out_dir):
+                        Path(out_dir).mkdir(parents=True, exist_ok=True)
+
                     KG.serialize(
-                        destination=f"{out_dir}/{'$'.join(url.split('/'))}${uuid.uuid4()}.ttl",
+                        destination=f"{out_dir}/{'_'.join(url.split('/'))}_{uuid.uuid4()}.ttl",
                         format="turtle",
+                    )
+                    print(f"{out_dir}/{'_'.join(url.split('/'))}_{uuid.uuid4()}.ttl")
+                    logging.info(
+                        f"Loaded {len(KG)} triples from {url}, and saved in {out_dir}/{'_'.join(url.split('/'))}_{uuid.uuid4()}.ttl"
                     )
                 else:
                     KG.serialize(
-                        f"dumps/{'$'.join(url.split('/'))}${uuid.uuid4()}.ttl",
+                        f"dumps/{'_'.join(url.split('/'))}_{uuid.uuid4()}.ttl",
                         format="turtle",
+                    )
+                    logging.info(
+                        f"Loaded {len(KG)} triples from {url}, and saved in dumps/{'_'.join(url.split('/'))}_{uuid.uuid4()}.ttl"
                     )
 
         elapsed_time = round((time.time() - start_time), 2)
