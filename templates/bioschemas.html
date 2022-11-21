@@ -22,142 +22,6 @@
     // click handlers
     //////////////////
 
-    {% for f in f_metrics %}
-    $("#test_{{f.id}}").click(function () {
-        console.log("Testing metric {{f.name}}");
-        console.log("ID: " + "{{f.id}}");
-        console.log("Value: " + "{{f.api_url}}");
-        $(this).addClass("is-loading");
-
-        socket.emit('retrieve_embedded_annot', {
-            url: $("#url").val()
-        });
-    });
-    {% endfor %}
-
-    // Exemple selector List
-    {% for k in sample_data.keys() %}
-    $("#sample_{{k}}").on("change", function () {
-        console.log(this.value);
-        $("#url").val(this.value);
-        $('#sample_{{k}} option[value="{{ k }}"]').attr("selected", "selected");
-    });
-    {% endfor %}
-
-    // Exemple selector Button
-    $('[id^="resource_"]').on("click", function () {
-        console.log($(this).children("a").text());
-        $("#url").val($(this).children("a").data("url"));
-    });
-
-
-    $("#btn_kg").click(function () {
-        $(this).addClass("is-loading");
-        $("#microdata").val("");
-        $("#nb_triples").text("0" + " triples");
-        $('#block_valid').html("");
-        $('#t_classes').html("");
-        $('#t_properties').html("");
-        socket.emit('retrieve_embedded_annot_2', { url: $("#url").val() });
-    });
-
-    $("#btn_describe_biotools").click(function () {
-        $(this).addClass("is-loading");
-        graph = $("#microdata").val();
-        url = $("#url").val();
-        socket.emit('describe_biotools', { url: url, graph: graph });
-    });
-
-    $("#btn_describe_loa").click(function () {
-        $(this).addClass("is-loading");
-        graph = $("#microdata").val();
-        url = $("#url").val();
-        socket.emit('describe_loa', { url: url, graph: graph });
-    });
-
-    $("#btn_describe_wikidata").click(function () {
-        $(this).addClass("is-loading");
-        graph = $("#microdata").val();
-        url = $("#url").val();
-        socket.emit('describe_wikidata', { url: url, graph: graph });
-    });
-
-    $("#btn_describe_opencitation").click(function () {
-        $(this).addClass("is-loading");
-        graph = $("#microdata").val();
-        url = $("#url").val();
-        socket.emit('describe_opencitation', { url: url, graph: graph });
-    });
-
-    $("#btn_annot_bioschemas").click(function () {
-        $("#article-BioSchemas-annot").removeClass("is-hidden");
-    });
-
-    $("#btn_fairness").click(function () {
-        $(this).addClass("is-loading");
-        $("#section-KG").removeClass("is-hidden");
-        $("#section-LinkedData").removeClass("is-hidden");
-        $("#section-BioSchemas").addClass("is-hidden");
-        socket.emit('check_kg', { url: $("#url").val() });
-    });
-
-    $("#btn_bioschemas").click(function () {
-        $(this).addClass("is-loading");
-        $("#section-KG").removeClass("is-hidden");
-        // $("#section-LinkedData").addClass("is-hidden");
-        // $("#section-BioSchemas").removeClass("is-hidden");
-        socket.emit('check_kg_shape_2', { url: $("#url").val(), kg: $("#microdata").val() });
-    });
-
-    // Change RDF type button
-
-    $('[id^="btn_rdf_"]').click(function () {
-        var rdf_type = $(this).data("rdf");
-        console.log("change RDF syntax to " + rdf_type);
-        socket.emit('change_rdf_type', { rdf_type: rdf_type });
-    });
-
-    // TABS for Step 3
-
-    $("#bioschemas_tab").click(function () {
-        $(this).addClass("is-active");
-        $("#linkeddata_tab").removeClass("is-active");
-
-        $("#section-LinkedData").addClass("is-hidden");
-        $("#section-BioSchemas").removeClass("is-hidden");
-    });
-
-    $("#linkeddata_tab").click(function () {
-        $(this).addClass("is-active");
-        $("#bioschemas_tab").removeClass("is-active");
-
-        $("#section-LinkedData").removeClass("is-hidden");
-        $("#section-BioSchemas").addClass("is-hidden");
-    });
-
-
-    $("#btn_submit_annot_bioschemas").click(function () {
-
-        var err_selector = $('[id^="bs_err_annot_"]');
-        var warn_selector = $('[id^="bs_warn_annot_"]');
-        var url = $('#url').val();
-
-        var err = {};
-        err_selector.each(function () {
-            val = $(this).val();
-            property = $(this).parent("div").parent().children("label").children("a").text();
-            err[property] = val;
-        });
-
-        var warn = {};
-        warn_selector.each(function () {
-            val = $(this).val();
-            property = $(this).parent("div").parent().children("label").children("a").text();
-            warn[property] = val;
-        });
-        console.log(warn);
-        socket.emit('update_annot_bioschemas', { err: err, warn: warn, url: url });
-    });
 
     //////////////////
     // event handlers
@@ -168,36 +32,6 @@
         console.log('hello message sent');
     });
 
-    socket.on('update_annot_2', function (value) {
-        console.log("UPDATE ANNOT 2")
-        if ("done".includes(value)) {
-            $("#p1").attr("value", 4);
-        } else {
-            console.log('received ' + value + ' for p1');
-            $("#p1").attr("value", value);
-        }
-    });
-    socket.on('send_annot_2', function (value) {
-        console.log(value);
-        $("#section-describe").find(".block").removeClass("is-hidden");
-        $("#article-bioschemas-check").find(".block").removeClass("is-hidden");
-        $("#microdata").val(value["kg"]);
-        $("#nb_triples").text(value["nb_triples"] + " triples");
-        $("#btn_describe_opencitation").removeClass("is-loading");
-        $("#btn_describe_wikidata").removeClass("is-loading");
-        $("#btn_describe_biotools").removeClass("is-loading");
-        $("#btn_describe_loa").removeClass("is-loading");
-        $("#btn_kg").removeClass("is-loading");
-    });
-
-    socket.on('send_bs_annot', function (value) {
-        $("#annotated_bioschemas").val(value);
-    });
-
-
-    socket.on('test', function (value) {
-        console.log(value)
-    });
 
     socket.on('done_check_shape', function (data) {
         console.log("Validated SHACL shape");
@@ -247,30 +81,6 @@
         // $("#article-bioschemas-check").find(".block").removeClass("is-hidden");
     });
 
-
-
-    {% for f in f_metrics %}
-    socket.on('done_{{f.id}}', function (value) {
-        console.log('DONE {{f.name}}');
-        $("#test_{{f.id}}").removeClass("is-loading");
-
-        console.log(value['score']);
-        if (value['score'] == 1) {
-            $("#status_{{f.id}}").addClass("is-success");
-        } else {
-            $("#status_{{f.id}}").addClass("is-danger");
-        }
-        console.log(value['comment']);
-
-    });
-    {% endfor %}
-
-
-    socket.on('long', function (value) {
-        console.log('END LONG');
-        $("#notif").text(value);
-        $("#notif").removeClass("is-hidden");
-    });
 
 
     data = {{ results | tojson | safe }};
@@ -377,9 +187,9 @@
                     <br>
                     <div class="field is-grouped is-grouped-centered">
                         <!-- <p class="control"><a id="btn_fairness" class="button is-primary">Vocab. checks</a></p> -->
-                        <p class="control"><a id="btn_bioschemas" class="button is-warning is-large">Check BioSchemas
+                        <!-- <p class="control"><a id="btn_bioschemas" class="button is-warning is-large">Check BioSchemas
                             </a>
-                        </p>
+                        </p> -->
                     </div>
 
                     <div id="block_valid" class="block">
