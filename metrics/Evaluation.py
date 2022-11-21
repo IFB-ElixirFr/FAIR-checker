@@ -27,7 +27,7 @@ class Evaluation:
     start_time = None
     end_time = None
     score = None
-    recommendation = "No recommendation yet"
+    recommendation = "No recommendation, metric validated"
 
     # Result_tet and reason are used by FAIRMetrics only (result_text: whole nanopub content, reason: comment/log)
     result_text = None
@@ -47,7 +47,7 @@ class Evaluation:
         # self.eval_logger = logging.getLogger("eval_logger")
         logger_id = str(uuid.uuid4())
         self.eval_logger = logging.getLogger(logger_id)
-        self.eval_logger.setLevel(logging.DEBUG)
+        self.eval_logger.setLevel(logging.INFO)
         # self.eval_logger.propagate = False
 
         ### Setup the console handler with a StringIO object
@@ -57,13 +57,14 @@ class Evaluation:
         ### Add a formatter
         formatter = logging.Formatter(
             "%(levelname)s - %(message)s",
-            "%Y-%m-%d %H:%M:%S"
+            # "%Y-%m-%d %H:%M:%S"
             # "[%(asctime)s] - %(levelname)s - %(message)s", "%Y-%m-%d %H:%M:%S"
         )
         console_handler.setFormatter(formatter)
 
         ### Add the console handler to the logger
         self.eval_logger.addHandler(console_handler)
+        self.eval_logger.propagate = False
 
     def log_debug(self, message):
         self.eval_logger.debug(message)
@@ -149,7 +150,7 @@ class Evaluation:
     def get_implem(self):
         return self.implem
 
-    def persist(self):
+    def persist(self, source="UI"):
         client = MongoClient()
         db = client.fair_checker
         db_eval = db.evaluations
@@ -163,6 +164,7 @@ class Evaluation:
             "success": self.score,
             "reason": self.reason,
             "log": self.log_capture_string.getvalue(),
+            "source": source,
         }
 
         r = db_eval.insert_one(eval)

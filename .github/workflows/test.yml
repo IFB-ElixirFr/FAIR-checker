@@ -1,0 +1,50 @@
+# This workflow will install Python dependencies, run tests and lint with a single version of Python
+# For more information see: https://help.github.com/actions/language-and-framework-guides/using-python-with-github-actions
+
+name: Debug some tests
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up Python 3.8
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.8
+      #----------------------------------------------
+      #  -----  install & configure conda
+      #----------------------------------------------
+      - uses: conda-incubator/setup-miniconda@v2
+        with:
+          python-version: 3.8
+          mamba-version: "*"
+          channels: conda-forge,defaults
+          channel-priority: true
+
+      - shell: bash -l {0}
+        run: |
+          conda info
+          conda list
+          conda config --show-sources
+          conda config --show
+          printenv | sort
+      - shell: bash -l {0}
+        run: |
+          mamba env update -n test --file environment.yml
+      - name: Create mongoDB Docker container
+        run: sudo docker run -d -p 27017:27017 mongo:latest
+
+      #----------------------------------------------
+      #              run tests
+      #----------------------------------------------
+      - name: Run tests
+        shell: bash -l {0}
+        run: |
+          conda info
+          conda activate test
+          pytest --capture=no tests/test_R.py

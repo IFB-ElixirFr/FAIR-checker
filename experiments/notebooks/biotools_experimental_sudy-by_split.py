@@ -124,5 +124,6 @@ evals, exec_time = mass_eval(index)
 df = pd.concat([df, pd.DataFrame.from_records(evals)])
 df_time = pd.concat([df_time, pd.DataFrame.from_records(exec_time)])
 
-df.to_csv("../results/biotools/FC_results_" + filename + ".csv")
-df_time.to_csv("../results/biotools/exec_time_" + filename + ".csv")
+head, tail = path.split(filename)
+df.to_csv("../results/biotools/FC_results_" + tail + ".csv")
+df_time.to_csv("../results/biotools/exec_time_" + tail + ".csv")
