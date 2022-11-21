@@ -1912,7 +1912,6 @@ if __name__ == "__main__":
     elif args.extract_metadata:
         # FAIR-Checker as a metadata crawler
         start_time = time.time()
-        KG_Total = ConjunctiveGraph()
 
         urls = []
 
@@ -1944,7 +1943,6 @@ if __name__ == "__main__":
 
                 logging.debug(f"Testing URL {url}")
                 web_res = WebResource(url)
-                KG_Total += web_res.get_rdf()
                 KG = ConjunctiveGraph()
                 KG = web_res.get_rdf()
 
@@ -2055,8 +2053,6 @@ if __name__ == "__main__":
                     )
 
         elapsed_time = round((time.time() - start_time), 2)
-        logging.info(f"Metrics evaluated in {elapsed_time} s")
-        logging.info(f"Loaded {len(KG_Total)} triples in total.")
 
     elif args.evaluate:
         if args.rdf_files:
