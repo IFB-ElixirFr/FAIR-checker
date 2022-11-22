@@ -1,14 +1,8 @@
 import unittest
-from flask import current_app
 from app import app
-import requests
-from os import environ
-import logging
 from rdflib import ConjunctiveGraph
 import json
 import urllib3
-
-# from flask_pymongo import PyMongo
 
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
@@ -65,7 +59,7 @@ class APITestCase(unittest.TestCase):
         )
 
         self.assertEqual(200, response.status_code)
-        self.assertEqual(14, len(response.get_json()))
+        self.assertEqual(11, len(response.get_json()))
 
     def test_inspect_get_rdf_metadata(self):
         kg = ConjunctiveGraph()
@@ -88,11 +82,11 @@ class APITestCase(unittest.TestCase):
                     api_url + self.url_datacite,
                 )
                 self.assertEqual(200, get_response.status_code)
-                self.assertEqual(81, get_response.get_json()["triples_before"])
+                self.assertEqual(45, get_response.get_json()["triples_before"])
                 if "/api/inspect/describe_openaire/" in api_url:
-                    self.assertEqual(109, get_response.get_json()["triples_after"])
+                    self.assertEqual(73, get_response.get_json()["triples_after"])
                 else:
-                    self.assertEqual(81, get_response.get_json()["triples_after"])
+                    self.assertEqual(45, get_response.get_json()["triples_after"])
 
                 # POST
                 response = self.app.get(
@@ -106,11 +100,11 @@ class APITestCase(unittest.TestCase):
                     api_url, json={"json-ld": graph, "url": url}
                 )
                 self.assertEqual(200, post_response.status_code)
-                self.assertEqual(81, post_response.get_json()["triples_before"])
+                self.assertEqual(45, post_response.get_json()["triples_before"])
                 if "/api/inspect/describe_openaire/" in api_url:
-                    self.assertEqual(109, post_response.get_json()["triples_after"])
+                    self.assertEqual(73, post_response.get_json()["triples_after"])
                 else:
-                    self.assertEqual(81, post_response.get_json()["triples_after"])
+                    self.assertEqual(45, post_response.get_json()["triples_after"])
 
     def test_inspect_ontologies(self):
         response = self.app.get(

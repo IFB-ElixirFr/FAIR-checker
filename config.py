@@ -13,7 +13,7 @@ class Config(object):
     GITHUB_TOKEN = environ.get("GITHUB_TOKEN")
     DEBUG = False
     TESTING = False
-    SERVER_NAME = "localhost:5000"
+    # SERVER_NAME = "0.0.0.0:5000"
     # Flask-Caching related configs
     CACHE_TYPE = "SimpleCache"
     CACHE_DEFAULT_TIMEOUT = 60  # timer in seconds for metrics
