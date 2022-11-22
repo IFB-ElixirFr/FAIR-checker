@@ -59,6 +59,7 @@ from metrics.Evaluation import Result
 from profiles.bioschemas_shape_gen import validate_any_from_KG
 from profiles.bioschemas_shape_gen import validate_any_from_microdata
 from metrics.util import SOURCE
+from metrics.F1B_Impl import F1B_Impl
 from urllib.parse import urlparse
 
 
@@ -305,6 +306,9 @@ def display_vocab_status():
 scheduler = BackgroundScheduler()
 scheduler.add_job(func=update_vocab_status, trigger="interval", seconds=600)
 # scheduler.add_job(func=display_info, trigger="interval", seconds=600)
+scheduler.add_job(
+    func=F1B_Impl.update_identifiers_org_dump, trigger="interval", seconds=604800
+)
 scheduler.start()
 
 # Shut down the scheduler when exiting the app

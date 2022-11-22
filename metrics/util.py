@@ -203,8 +203,21 @@ def get_DOI(uri):
     return match.group(0)
 
 
+def remove_key_from_value(d, val):
+    keys = [k for k, v in d.items() if v == val]
+    if keys:
+        for key in keys:
+            d.pop(key)
+
+
 @cached(cache_BP)
 def ask_BioPortal(uri, type):
+    """
+    Checks that the URI is registered in one of the ontologies indexed in BioPortal.
+    :param uri:
+    :return: True if the URI is registered in one of the ontologies indexed in BioPortal, False otherwise, and None if registry is unreachable.
+    """
+    remove_key_from_value(cache_BP, None)
 
     app.logger.debug(f"Call to the BioPortal REST API for [ {uri} ]")
     # print(app.config)
@@ -240,8 +253,10 @@ def ask_OLS(uri):
     """
     Checks that the URI is registered in one of the ontologies indexed in OLS.
     :param uri:
-    :return: True if the URI is registered in one of the ontologies indexed in OLS, False otherwise.
+    :return: True if the URI is registered in one of the ontologies indexed in OLS, False otherwise, and None if registry is unreachable.
     """
+    remove_key_from_value(cache_OLS, None)
+
     app.logger.debug(f"Call to the OLS REST API for [ {uri} ]")
     # uri = requests.compat.quote_plus(uri)
     h = {"Accept": "application/json"}
@@ -264,8 +279,10 @@ def ask_LOV(uri):
     """
     Checks that the URI is registered in one of the ontologies indexed in LOV (Linked Open Vocabularies).
     :param uri:
-    :return: True if the URI is registered in one of the ontologies indexed in LOV, False otherwise.
+    :return: True if the URI is registered in one of the ontologies indexed in LOV, False otherwise, and None if registry is unreachable.
     """
+    remove_key_from_value(cache_LOV, None)
+
     app.logger.debug(
         f"SPARQL for [ {uri} ] with enpoint [ https://lov.linkeddata.es/dataset/lov/sparql ]"
     )
