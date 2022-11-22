@@ -119,7 +119,6 @@ class WebResource:
         self.status_code = response.status_code
         self.html_requests = response.content
 
-
     # @staticmethod
     def extract_rdf_extruct(self, url) -> ConjunctiveGraph:
         while True:
