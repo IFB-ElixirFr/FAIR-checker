@@ -31,7 +31,7 @@ class ProductionConfig(Config):
 
 class DevelopmentConfig(Config):
     DEBUG = True
-    SERVER_IP = "http://localhost:5000"
+    SERVER_IP = "http://0.0.0.0:5000"
     CACHE_DEFAULT_TIMEOUT = 30  # timer in seconds
     CACHE_CONTROLLED_VOCAB_TIMER = (
         24  # timer in hours for Vocabularies (OLS, LOV, BioPortal)

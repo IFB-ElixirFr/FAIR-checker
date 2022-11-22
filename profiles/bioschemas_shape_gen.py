@@ -383,6 +383,11 @@ def gen_SHACL_from_profile(shape_name, target_classes, min_props, rec_props):
 
     # [sh: alternativePath(ex:father ex: mother  )]
 
+    print(shape_name)
+    print(target_classes)
+    print(min_props)
+    print(rec_props)
+
     template = Template(shape_template)
     shape = template.render(
         shape_name=shape_name,
@@ -393,6 +398,52 @@ def gen_SHACL_from_profile(shape_name, target_classes, min_props, rec_props):
     # print(shape)
 
     return shape
+
+def get_profiles_specs_from_github():
+    github_token = environ.get("GITHUB_TOKEN")
+    headers = {
+        "Authorization": "token {}".format(github_token),
+        "User-Agent": "FAIR-checker",
+        "Accept": "application/vnd.github.v3+json",
+    }    
+
+def gen_SHACL_from_specifications():
+    shape_template = """
+        @prefix ns: <https://fair-checker.france-bioinformatique.fr#> .
+        @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+        @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+        @prefix sc: <http://schema.org/> .
+        @prefix bsc: <https://bioschemas.org/> .
+        @prefix dct: <http://purl.org/dc/terms/> .
+        @prefix sh: <http://www.w3.org/ns/shacl#> .
+        @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+        @prefix edam: <http://edamontology.org/> .
+        @prefix biotools: <https://bio.tools/ontology/> .
+
+        ns:{{shape_name}}
+            a sh:NodeShape ;
+            #sh:targetSubjectsOf schema:name ;
+            {% for c in target_classes %}
+            sh:targetClass  {{c}} ;
+            {% endfor %}
+
+            {% for min_prop in min_props %}
+            sh:property [
+                sh:path {{min_prop}} ;
+                sh:minCount 1 ;
+                sh:severity sh:Violation
+            ] ;
+            {% endfor %}
+
+            {% for rec_prop in rec_props %}
+            sh:property [
+                sh:path {{rec_prop}} ;
+                sh:minCount 1 ;
+                sh:severity sh:Warning
+            ] ;
+            {% endfor %}
+        .
+    """
 
 
 def validate_any_from_KG(kg):

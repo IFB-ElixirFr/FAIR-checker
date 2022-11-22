@@ -18,10 +18,17 @@ from profiles.bioschemas_shape_gen import validate_shape_from_microdata
 from profiles.Profile import Profile
 from profiles.ProfileFactory import ProfileFactory
 
-from metrics.WebResource import WebResource
-
 import requests
 import re
+
+from rdflib import ConjunctiveGraph
+
+from os import environ, path
+from dotenv import load_dotenv
+
+
+basedir = path.abspath(path.dirname(__file__))
+load_dotenv(path.join(basedir, ".env"))
 
 # from app import app
 # from flask import current_app
@@ -34,7 +41,7 @@ class ImportBSProfileTestCase(unittest.TestCase):
 
     def setUp(self):
         """Set up application for testing."""
-        github_token = ""
+        github_token = environ.get("GITHUB_TOKEN")
 
         self.headers = {
             "Authorization": "token {}".format(github_token),
@@ -42,15 +49,24 @@ class ImportBSProfileTestCase(unittest.TestCase):
             "Accept": "application/vnd.github.v3+json",
         }
 
-    @unittest.skip("Need github TOKEN key to work")
+    # @unittest.skip("Need github TOKEN key to work")
     def test_github_rate_limite(self):
         url = "https://api.github.com/rate_limit"
         response = requests.get(url, headers=self.headers)
         print("Remaining: " + str(response.json()["resources"]["core"]["remaining"]))
 
 
+    
+    def test_namespace_SequenceAnnotation(self):
+        gh_profile_url = "https://raw.githubusercontent.com/BioSchemas/specifications/master/SequenceAnnotation/jsonld/SequenceAnnotation_v0.7-DRAFT.json"
+        response = requests.get(gh_profile_url, headers=self.headers)
+        jsonld = response.json()
+        kg = ConjunctiveGraph()
+        kg.parse(data=jsonld, format="json-ld")
+        print(len(kg))
 
-    @unittest.skip("Need github TOKEN key to work")
+
+    # @unittest.skip("Need github TOKEN key to work")
     def test_import_bs_specs(self):
         self.test_github_rate_limite()
         url = "https://api.github.com/repos/BioSchemas/specifications/contents"
