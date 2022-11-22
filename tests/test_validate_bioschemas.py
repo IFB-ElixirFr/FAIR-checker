@@ -24,10 +24,10 @@ class ValidateBioschemasTestCase(unittest.TestCase):
 
         response = self.app.get("/validate_bioschemas?uri=" + self.uri_tool)
         self.assertEqual(200, response.status_code)
-        self.assertEqual(23794, len(response.get_data()))
+        self.assertEqual(24095, len(response.get_data()))
 
     def test_validate_wfh(self):
 
         response = self.app.get("/validate_bioschemas?uri=" + self.uri_wf)
         self.assertEqual(200, response.status_code)
-        self.assertEqual(21807, len(response.get_data()))
+        self.assertEqual(22111, len(response.get_data()))
