@@ -61,7 +61,7 @@ class ReuseTestCase(unittest.TestCase):
         logging.info(res)
         self.assertEqual(res.get_score(), str(Result.WEAK.value))
 
-    # @unittest.skip("Temporary disabled because doesn't work in GH actions")
+    @unittest.skip("Temporary disabled because doesn't work in GH actions")
     def test_R11_workflowhub(self):
         wf = ReuseTestCase.wf
         res = FAIRMetricsFactory.get_R11(
@@ -80,7 +80,7 @@ class ReuseTestCase(unittest.TestCase):
         logging.info(res)
         self.assertEqual(res.get_score(), str(Result.NO.value))
 
-    # @unittest.skip("Temporary disabled because doesn't work in GH actions")
+    @unittest.skip("Temporary disabled because doesn't work in GH actions")
     def test_R13_workflowhub(self):
         wf = ReuseTestCase.wf
         res = FAIRMetricsFactory.get_R13(
