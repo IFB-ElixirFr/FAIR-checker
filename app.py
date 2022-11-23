@@ -146,22 +146,23 @@ else:
 
 dev_logger.warning("Watch out dev!")
 dev_logger.info("I told you so dev")
-dev_logger.debug("DEBUG haha dev")
+dev_logger.debug("DEBUG dev")
 
 prod_logger.warning("Watch out prod!")
 prod_logger.info("I told you so prod")
-prod_logger.debug("DEBUG haha prod")
+prod_logger.debug("DEBUG prod")
 
 
 # blueprint = Blueprint('api', __name__, url_prefix='/api')
 
 api = Api(
-    app,
+    app=app,
     title="FAIR-Checker API",
     doc="/swagger",
-    base_path="/api",
-    # base_url='/'
+    base_path="https://fair-checker.france-bioinformatique.fr",
+    # base_url=app.config["SERVER_IP"],
     description=app.config["SERVER_IP"],
+    # url_scheme="https://fair-checker.france-bioinformatique.fr/",
 )
 
 # app.register_blueprint(blueprint)
@@ -234,6 +235,10 @@ FILE_UUID = ""
 
 DICT_TEMP_RES = {}
 
+STATUS_BIOPORTAL = requests.head("https://bioportal.bioontology.org/").status_code
+STATUS_OLS = requests.head("https://www.ebi.ac.uk/ols/index").status_code
+STATUS_LOV = requests.head("https://lov.linkeddata.es/dataset/lov/sparql").status_code
+
 DICT_BANNER_INFO = {"banner_message_info": {}}
 
 # Update banner info with the message in .env
@@ -258,17 +263,8 @@ def display_info():
     return DICT_BANNER_INFO
 
 
-def validate_status(url):
-    return requests.head(url).status_code == 200
-
-
-@app.context_processor
-def display_vocab_status():
-    global DICT_BANNER_INFO
-
-    # status_bioportal = validate_status("https://bioportal.bioontology.org/")
-    # status_ols = validate_status("https://www.ebi.ac.uk/ols/index")
-    # status_lov = validate_status("https://lov.linkeddata.es/dataset/lov/sparql")
+def update_vocab_status():
+    global DICT_BANNER_INFO, STATUS_BIOPORTAL, STATUS_OLS, STATUS_LOV
 
     STATUS_BIOPORTAL = requests.head("https://bioportal.bioontology.org/").status_code
     STATUS_OLS = requests.head("https://www.ebi.ac.uk/ols/index").status_code
@@ -296,11 +292,18 @@ def display_vocab_status():
     else:
         DICT_BANNER_INFO["banner_message_info"].pop("status_lov", None)
 
+    prod_logger.info("Updating banner status")
+
+
+@app.context_processor
+def display_vocab_status():
+    global DICT_BANNER_INFO
+
     return DICT_BANNER_INFO
 
 
 scheduler = BackgroundScheduler()
-scheduler.add_job(func=display_vocab_status, trigger="interval", seconds=600)
+scheduler.add_job(func=update_vocab_status, trigger="interval", seconds=600)
 # scheduler.add_job(func=display_info, trigger="interval", seconds=600)
 scheduler.start()
 
@@ -435,24 +438,10 @@ class MetricEvalAll(Resource):
         """All FAIR metrics"""
         web_res = WebResource(url)
 
-        metrics_collection = []
-        metrics_collection.append(FAIRMetricsFactory.get_F1A(web_res))
-        metrics_collection.append(FAIRMetricsFactory.get_F1B(web_res))
-        metrics_collection.append(FAIRMetricsFactory.get_F2A(web_res))
-        metrics_collection.append(FAIRMetricsFactory.get_F2B(web_res))
-        metrics_collection.append(FAIRMetricsFactory.get_I1(web_res))
-        metrics_collection.append(FAIRMetricsFactory.get_I1A(web_res))
-        metrics_collection.append(FAIRMetricsFactory.get_I1B(web_res))
-        metrics_collection.append(FAIRMetricsFactory.get_I2(web_res))
-        metrics_collection.append(FAIRMetricsFactory.get_I2A(web_res))
-        metrics_collection.append(FAIRMetricsFactory.get_I2B(web_res))
-        metrics_collection.append(FAIRMetricsFactory.get_I3(web_res))
-        metrics_collection.append(FAIRMetricsFactory.get_R11(web_res))
-        metrics_collection.append(FAIRMetricsFactory.get_R12(web_res))
-        metrics_collection.append(FAIRMetricsFactory.get_R13(web_res))
-
         results = []
-        for metric in metrics_collection:
+        for key in METRICS_CUSTOM.keys():
+            metric = METRICS_CUSTOM[key]
+            metric.set_web_resource(web_res)
             result = metric.evaluate()
             data = {
                 "metric": result.get_metrics(),
@@ -485,15 +474,18 @@ describe_list = [
     util.describe_openaire,
 ]
 
-""" Model for documenting the API"""
+jsonld_example = '{"@context":"http://schema.org","@type":"ScholarlyArticle","@id":"https://doi.org/10.7892/boris.108387","url":"https://boris.unibe.ch/108387/","name":"Diagnostic value of contrast-enhanced magnetic resonance angiography in large-vessel vasculitis.","author":[{"name":"Sabine Adler","givenName":"Sabine","familyName":"Adler","@type":"Person"},{"name":"Marco Sprecher","givenName":"Marco","familyName":"Sprecher","@type":"Person"},{"name":"Felix Wermelinger","givenName":"Felix","familyName":"Wermelinger","@type":"Person"},{"name":"Thorsten Klink","givenName":"Thorsten","familyName":"Klink","@type":"Person"},{"name":"Harald Marcel Bonel","givenName":"Harald Marcel","familyName":"Bonel","@type":"Person"},{"name":"Peter M Villiger","givenName":"Peter M","familyName":"Villiger","@type":"Person"}],"description":"OBJECTIVE To evaluate contrast-enhanced magnetic resonance angiography (MRA) in diagnosis of inflammatory aortic involvement in patients with clinical suspicion of large-vessel vasculitis. PATIENTS AND METHODS Seventy-five patients, mean age 62 years (range 16-82 years), 44 female and 31 male, underwent gadolinium-enhanced MRA and were evaluated retrospectively. Thoracic MRA was performed in 32 patients, abdominal MRA in 7 patients and both thoracic and abdominal MRA in 36 patients. Temporal arterial biopsies were obtained from 22/75 patients. MRA positivity was defined as increased aortic wall signal in late gadolinium-enhanced axial turbo inversion recovery magnitude (TIRM) series. The influence of prior glucocorticoid intake on MRA outcome was evaluated. RESULTS MRA was positive in 24/75 patients, with lesions located in the thorax in 7 patients, the abdomen in 5 and in both thorax and abdomen in 12. Probability for positive MRA after glucocorticoid intake for more than 5 days before MRA was reduced by 89.3%. Histology was negative in 3/10 MRA-positive patients and positive in 5/12 MRA-negative patients. All 5/12 histology positive / MRA-negative patients had glucocorticoids for &gt;5 days prior to MRA and were diagnosed as having vasculitis. Positive predictive value for MRA was 92%, negative predictive value was 88%. CONCLUSIONS Contrast-enhanced MRA reliably identifies large vessel vasculitis. Vasculitic signals in MRA are very sensitive to glucocorticoids, suggesting that MRA should be done before glucocorticoid treatment.","keywords":"610 Medicine &amp; health","inLanguage":"en","encodingFormat":"application/pdf","datePublished":"2017","schemaVersion":"http://datacite.org/schema/kernel-4","publisher":{"@type":"Organization","name":"EMH Schweizerischer Ärzteverlag"},"provider":{"@type":"Organization","name":"datacite"}}'
 
+""" Model for documenting the API"""
 graph_payload = fc_inspect_namespace.model(
     "graph_payload",
     {
-        "url": fields.String(
+        "url": fields.Url(
             description="URL of the resource to be enriched", required=True
         ),
-        "json-ld": fields.String(description="RDF graph in JSON-LD", required=True),
+        "json-ld": fields.String(
+            description="RDF graph in JSON-LD", required=True, exemple="JSON-LD string"
+        ),
     },
 )
 
