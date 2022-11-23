@@ -397,7 +397,7 @@
             var banner_message = '';
 
             if (!(value['classes_false'].length === 0)) {
-                banner_message += 'The following classes are not found in regestries: <br><ul>';
+                banner_message += 'The following classes are not found in registries: <br><ul>';
                 for (c in value['classes_false']){
                     banner_message += '<li>' + value['classes_false'][c] + '</li>'
                 }
@@ -407,7 +407,7 @@
                 $banner_vocab.parent('article').addClass('is-warning');
             }
             if (!(value['properties_false'].length === 0)) {
-                banner_message += 'The following properties are not found in regestries: <br><ul>';
+                banner_message += 'The following properties are not found in registries: <br><ul>';
                 for (p in value['properties_false']){
                     banner_message += '<li>' + value['properties_false'][p] +  '</li>'
                 }
@@ -425,7 +425,7 @@
                 $banner_vocab.html(banner_message);
             }
             if ((value['properties_false'].length === 0) && (value['classes_false'].length === 0)) {
-                banner_message += 'Congratulations ! All Classes and Properties are referenced in one or more of the regestries checked !'
+                banner_message += 'Congratulations ! All Classes and Properties are referenced in one or more of the registries checked !'
                 $banner_vocab.html(banner_message)
                 $banner_vocab.parent('article').removeClass('is-warning');
                 $banner_vocab.parent('article').addClass('is-success');
