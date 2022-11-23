@@ -1,11 +1,5 @@
-
 import unittest
-
-
 from app import app
-
-import urllib3
-
 
 
 class ValidateBioschemasTestCase(unittest.TestCase):
