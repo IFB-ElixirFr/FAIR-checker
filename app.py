@@ -407,12 +407,21 @@ def statistics():
 
 
 reqparse = reqparse.RequestParser()
-reqparse.add_argument('url', type = str, required = True, location='args', help="The URL/DOI of the resource to be evaluated")
+reqparse.add_argument(
+    "url",
+    type=str,
+    required=True,
+    location="args",
+    help="The URL/DOI of the resource to be evaluated",
+)
+
 
 def generate_check_api(metric):
     @fc_check_namespace.route("/metric_" + metric.get_principle_tag())
     class MetricEval(Resource):
-        @fc_check_namespace.doc('Evaluate ' + metric.get_principle_tag() + ' FAIR metric')
+        @fc_check_namespace.doc(
+            "Evaluate " + metric.get_principle_tag() + " FAIR metric"
+        )
         @fc_check_namespace.expect(reqparse)
         def get(self):
 
@@ -442,7 +451,6 @@ for key in METRICS_CUSTOM.keys():
     generate_check_api(METRICS_CUSTOM[key])
 
 
-
 @fc_check_namespace.route("/metrics_all")
 # @fc_check_namespace.doc(url_fields)
 class MetricEvalAll(Resource):
@@ -453,14 +461,14 @@ class MetricEvalAll(Resource):
     #     # self.reqparse.add_argument('test', type = str, required = True, location='args')
     #     # super(MetricEvalAll, self).__init__()
 
-    @fc_check_namespace.doc('Evaluates all FAIR metrics at once')
+    @fc_check_namespace.doc("Evaluates all FAIR metrics at once")
     @fc_check_namespace.expect(reqparse)
     def get(self):
         """All FAIR metrics"""
 
         args = reqparse.parse_args()
         url = args["url"]
-        
+
         web_res = WebResource(url)
 
         results = []
@@ -481,7 +489,9 @@ class MetricEvalAll(Resource):
 
         return results
 
+
 # fc_check_namespace.add_resource(MetricEvalAll, "/metrics_all")
+
 
 @fc_inspect_namespace.route("/get_rdf_metadata")
 class RetrieveMetadata(Resource):
@@ -522,9 +532,7 @@ graph_payload = fc_inspect_namespace.model(
 
 
 def generate_ask_api(describe):
-    @fc_inspect_namespace.route(
-        "/" + describe.__name__, methods=["GET"]
-    )
+    @fc_inspect_namespace.route("/" + describe.__name__, methods=["GET"])
     @fc_inspect_namespace.route("/" + describe.__name__ + "/", methods=["POST"])
     # @api.doc(params={"url": "An URL"})
     class Ask(Resource):
