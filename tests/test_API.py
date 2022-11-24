@@ -15,15 +15,15 @@ def list_api_check():
     routes = []
     for rule in app.url_map.iter_rules():
         if str(rule).startswith("/api/check/metric_"):
-            routes.append(str(rule).strip("<path:url>"))
+            routes.append(str(rule) + "?url=")
     return routes
 
 
 def list_api_inspect():
     routes = []
     for rule in app.url_map.iter_rules():
-        if str(rule).startswith("/api/inspect/describe_"):
-            routes.append(str(rule).strip("<path:url>"))
+        if str(rule).startswith("/api/inspect/describe_") and str(rule).endswith("/"):
+            routes.append(str(rule))
     return routes
 
 
@@ -54,7 +54,7 @@ class APITestCase(unittest.TestCase):
         # app = create_app('app.settings.TestConfig')
         # logging.info(app.config["SERVER_IP"])
         response = self.app.get(
-            "/api/check/metrics_all/" + self.url_biotools,
+            "/api/check/metrics_all?url=" + self.url_biotools,
             # headers={"Content-Type": "application/json"}
         )
 
@@ -64,7 +64,7 @@ class APITestCase(unittest.TestCase):
     def test_inspect_get_rdf_metadata(self):
         kg = ConjunctiveGraph()
         response = self.app.get(
-            "/api/inspect/get_rdf_metadata/" + self.url_biotools,
+            "/api/inspect/get_rdf_metadata?url=" + self.url_biotools,
         )
         self.assertEqual(200, response.status_code)
         kg.parse(
@@ -78,19 +78,20 @@ class APITestCase(unittest.TestCase):
                 # print("Testing: " + url)
 
                 # GET
+                get_api_url = api_url.rstrip("/") + "?url="
                 get_response = self.app.get(
-                    api_url + self.url_datacite,
+                    get_api_url + self.url_datacite,
                 )
                 self.assertEqual(200, get_response.status_code)
                 self.assertEqual(45, get_response.get_json()["triples_before"])
-                if "/api/inspect/describe_openaire/" in api_url:
+                if "/api/inspect/describe_openaire" in get_api_url:
                     self.assertEqual(73, get_response.get_json()["triples_after"])
                 else:
                     self.assertEqual(45, get_response.get_json()["triples_after"])
 
                 # POST
                 response = self.app.get(
-                    "/api/inspect/get_rdf_metadata/" + self.url_datacite,
+                    "/api/inspect/get_rdf_metadata?url=" + self.url_datacite,
                 )
 
                 graph = json.dumps(response.get_json(), ensure_ascii=False)
@@ -101,14 +102,14 @@ class APITestCase(unittest.TestCase):
                 )
                 self.assertEqual(200, post_response.status_code)
                 self.assertEqual(45, post_response.get_json()["triples_before"])
-                if "/api/inspect/describe_openaire/" in api_url:
+                if "/api/inspect/describe_openaire" in api_url:
                     self.assertEqual(73, post_response.get_json()["triples_after"])
                 else:
                     self.assertEqual(45, post_response.get_json()["triples_after"])
 
     def test_inspect_ontologies(self):
         response = self.app.get(
-            "/api/inspect/inspect_ontologies/" + self.url_datacite,
+            "/api/inspect/inspect_ontologies?url=" + self.url_datacite,
         )
         self.assertEqual(200, response.status_code)
         self.assertEqual(3, len(response.get_json()["classes"]))
