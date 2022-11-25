@@ -1,27 +1,9 @@
-from contextlib import AbstractAsyncContextManager
 import unittest
-
-from rich.console import Console
-from rich.table import Table
-from rich.text import Text
-
-from rdflib import ConjunctiveGraph, URIRef
-
-from profiles.bioschemas_shape_gen import gen_SHACL_from_profile
-from profiles.bioschemas_shape_gen import gen_SHACL_from_target_class
-from profiles.bioschemas_shape_gen import validate_shape_from_RDF
-from profiles.bioschemas_shape_gen import validate_any_from_RDF
-from profiles.bioschemas_shape_gen import validate_any_from_KG
-from profiles.bioschemas_shape_gen import validate_any_from_microdata
-from profiles.bioschemas_shape_gen import validate_shape_from_microdata
-
-from profiles.Profile import Profile
-from profiles.ProfileFactory import ProfileFactory
-
 import requests
 import re
-
 from rdflib import ConjunctiveGraph
+
+from profiles.bioschemas_shape_gen import get_profiles_specs_from_github
 
 from os import environ, path
 from dotenv import load_dotenv
@@ -65,6 +47,11 @@ class ImportBSProfileTestCase(unittest.TestCase):
         kg.parse(data=jsonld, format="json-ld")
         print(len(kg))
 
+    def test_import_bs_specifications(self):
+        self.test_github_rate_limite()
+        profiles = get_profiles_specs_from_github()
+        self.test_github_rate_limite()
+        self.assertEqual(31, len(profiles))
 
     # @unittest.skip("Need github TOKEN key to work")
     def test_import_bs_specs(self):
@@ -127,7 +114,7 @@ class ImportBSProfileTestCase(unittest.TestCase):
 
 
                             
-                            url_profile = ""
+                            latest_url_dl = ""
                             if releases:
                                 # print(releases.keys())
                                 print("Releases: ")
@@ -137,7 +124,7 @@ class ImportBSProfileTestCase(unittest.TestCase):
                                     print(latest_rel)
                                     print("Release Key value: ", list(releases.keys())[list(releases.values()).index(latest_rel)])
                                     print("Release Key value: ", [k for k, v in releases.items() if v == latest_rel])
-                                url_profile = list(releases.keys())[list(releases.values()).index(latest_rel)]
+                                latest_url_dl = list(releases.keys())[list(releases.values()).index(latest_rel)]
                                 # sort_orders = sorted(releases.items(), key=lambda x: x[1], reverse=True)
                                 # sort_orders.values()
                             else:
@@ -149,16 +136,16 @@ class ImportBSProfileTestCase(unittest.TestCase):
                                     print(latest_rel)
                                     print("Draft Key value: ", list(drafts.keys())[list(drafts.values()).index(latest_rel)])
                                     print("Draft Key value: ", [k for k, v in drafts.items() if v == latest_rel])
-                                    url_profile = list(drafts.keys())[list(drafts.values()).index(latest_rel)]
+                                    latest_url_dl = list(drafts.keys())[list(drafts.values()).index(latest_rel)]
                                 # sort_orders = sorted(drafts.items(), key=lambda x: x[1], reverse=True)
                                 # sort_orders.values()
 
-                            if url_profile:
-                                response = requests.get(url_profile, headers=self.headers)
+                            if latest_url_dl:
+                                response = requests.get(latest_url_dl, headers=self.headers)
                                 jsonld = response.json()
                                 profile_dict = {
                                     "name": profile_name,
-                                    "file": url_profile,
+                                    "file": latest_url_dl,
                                     "required": [],
                                     "recommended": [],
                                     "optional": [],

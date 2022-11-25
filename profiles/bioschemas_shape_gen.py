@@ -2,13 +2,19 @@ from rdflib import ConjunctiveGraph, URIRef
 from rdflib.namespace import RDF
 from jinja2 import Template
 from pyshacl import validate
+import requests
 
 import os
 from os import walk
+from os import environ, path
+from dotenv import load_dotenv
 import json
+import re
 
 from metrics.WebResource import WebResource
 
+basedir = path.abspath(path.dirname(__file__))
+load_dotenv(path.join(basedir, ".env"))
 
 class BioschemasProfileError(Exception):
     def __init__(self, class_name, message="The profile is yet defined"):
@@ -405,7 +411,89 @@ def get_profiles_specs_from_github():
         "Authorization": "token {}".format(github_token),
         "User-Agent": "FAIR-checker",
         "Accept": "application/vnd.github.v3+json",
-    }    
+    }
+    url = "https://api.github.com/repos/BioSchemas/specifications/contents"
+
+    # Request specifications github
+    response = requests.get(url, headers=headers)
+
+    if response.status_code == requests.codes.ok:
+        profiles_list = []
+        profile_folders_json = response.json()
+
+        # Loop over each folder (one folder == one profile and/or one type)
+        for profile_folder in profile_folders_json:
+            if profile_folder["type"] == "dir":
+                profile_name = profile_folder["name"]
+                response = requests.get(profile_folder["url"], headers=headers)
+                items = response.json()
+
+                # For each profile and/or type, look for jsonld folder
+                for item in items:
+                    if item["name"] == "jsonld":
+                        response = requests.get(item["url"], headers=headers)
+                        results_files = response.json()
+                        releases = {}
+                        drafts = {}
+                        # Look for each profile file in json folder and store version and download link for each
+                        for file in results_files:
+                            if file["type"] == "file" and not "DEPRECATED" in file["download_url"]:
+
+                                regex_version = "_v([0-9]*.[0-9]*)-"
+                                m = re.search(regex_version, file["download_url"])
+                            
+                                if "RELEASE" in file["download_url"]:
+                                    releases[file["download_url"]] = float(m.group(1))
+                                    # releases[m.group(1)] = res["download_url"]
+                                elif "DRAFT" in file["download_url"]:
+                                    drafts[file["download_url"]] = float(m.group(1))
+                        
+                        latest_url_dl = ""
+                        if releases:
+                            latest_url_dl = get_latest_profile(releases)
+
+                        elif drafts:
+                            latest_url_dl = get_latest_profile(drafts)
+                        
+                        if latest_url_dl:
+                            response = requests.get(latest_url_dl, headers=headers)
+                            jsonld = response.json()
+                            profile_dict = parse_profile(jsonld, profile_name, latest_url_dl)
+                        
+                            profiles_list.append(profile_dict)
+        return profiles_list
+    else:
+        return False
+
+
+def get_latest_profile(profiles_dict):
+
+    latest_rel = max(profiles_dict.values())
+
+    # latest_url_dl = list(profiles_dict.keys())[list(profiles_dict.values()).index(latest_rel)]
+    latest_url_dl = [k for k, v in profiles_dict.items() if v == latest_rel]
+    return latest_url_dl[0]
+
+def parse_profile(jsonld, profile_name, url_dl):
+    profile_dict = {
+        "name": profile_name,
+        "file": url_dl,
+        "required": [],
+        "recommended": [],
+        "optional": [],
+    }
+
+    if "required" in jsonld["@graph"][0]["$validation"]:
+        profile_dict["required"] = jsonld["@graph"][0]["$validation"]["required"]
+    if "recommended" in jsonld["@graph"][0]["$validation"]:
+        profile_dict["recommended"] = jsonld["@graph"][0]["$validation"]["recommended"]
+    if "optional" in jsonld["@graph"][0]["$validation"]:
+        profile_dict["optional"] = jsonld["@graph"][0]["$validation"]["optional"]
+
+    return profile_dict
+
+ 
+
 
 def gen_SHACL_from_specifications():
     shape_template = """
