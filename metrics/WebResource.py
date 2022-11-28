@@ -367,53 +367,8 @@ class WebResource:
                 time.sleep(10)
 
         # self.html_requests = response.content
-
-<<<<<<< HEAD
         return response
 
-    # @staticmethod
-    def html_to_rdf_extruct(self, html_source) -> ConjunctiveGraph:
-        data = extruct.extract(
-            html_source, syntaxes=["microdata", "rdfa", "json-ld"], errors="ignore"
-        )
-        kg = ConjunctiveGraph()
-
-        base_path = Path(__file__).parent.parent  # current directory
-        static_file_path = str((base_path / "static/data/jsonldcontext.json").resolve())
-
-        for md in data["json-ld"]:
-            if "@context" in md.keys():
-                print(md["@context"])
-                if ("https://schema.org" in md["@context"]) or (
-                    "http://schema.org" in md["@context"]
-                ):
-                    md["@context"] = static_file_path
-            kg.parse(data=json.dumps(md, ensure_ascii=False), format="json-ld")
-        for md in data["rdfa"]:
-            if "@context" in md.keys():
-                if ("https://schema.org" in md["@context"]) or (
-                    "http://schema.org" in md["@context"]
-                ):
-                    md["@context"] = static_file_path
-            kg.parse(data=json.dumps(md, ensure_ascii=False), format="json-ld")
-        for md in data["microdata"]:
-            if "@context" in md.keys():
-                if ("https://schema.org" in md["@context"]) or (
-                    "http://schema.org" in md["@context"]
-                ):
-                    md["@context"] = static_file_path
-            kg.parse(data=json.dumps(md, ensure_ascii=False), format="json-ld")
-
-        logging.debug(kg.serialize(format="turtle"))
-
-        kg.namespace_manager.bind("sc", URIRef("http://schema.org/"))
-        kg.namespace_manager.bind("bsc", URIRef("https://bioschemas.org/"))
-        kg.namespace_manager.bind("dct", URIRef("http://purl.org/dc/terms/"))
-
-        return kg
-
-=======
->>>>>>> master
     # @staticmethod
     def extract_rdf_extruct(self, url) -> ConjunctiveGraph:
         while True:
@@ -509,12 +464,6 @@ class WebResource:
 
             for json_ld_annots in jsonld_string:
                 jsonld = json.loads(json_ld_annots)
-<<<<<<< HEAD
-                print(type(jsonld))
-                # print(jsonld)
-=======
-
->>>>>>> master
                 if type(jsonld) == list:
                     jsonld = jsonld[0]
                 if "@context" in jsonld.keys():
