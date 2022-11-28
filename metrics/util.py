@@ -3,27 +3,39 @@ from SPARQLWrapper import SPARQLWrapper, N3, JSON, RDF, TURTLE, JSONLD
 from rdflib import Graph, ConjunctiveGraph, Namespace
 from rdflib.namespace import RDF
 import requests
+
+requests.packages.urllib3.disable_warnings(
+    requests.packages.urllib3.exceptions.InsecureRequestWarning
+)
+
 from jinja2 import Template
 from pyshacl import validate
 import extruct
 import json
 from pathlib import Path
 from datetime import datetime, timedelta
-
+from enum import Enum
 from lxml import html
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from cachetools import cached, TTLCache
 from flask import Flask
-
+from flask import current_app
 import logging
-
 import copy
 import re
 import validators
 from requests.auth import HTTPBasicAuth
 
-from flask import current_app
+
+class SOURCE(Enum):
+    UI = 1
+    API = 2
+
+    def __str__(self):
+        # return str(self.value)
+        return str(self.name)
+
 
 app = Flask(__name__)
 
@@ -191,8 +203,21 @@ def get_DOI(uri):
     return match.group(0)
 
 
+def remove_key_from_value(d, val):
+    keys = [k for k, v in d.items() if v == val]
+    if keys:
+        for key in keys:
+            d.pop(key)
+
+
 @cached(cache_BP)
 def ask_BioPortal(uri, type):
+    """
+    Checks that the URI is registered in one of the ontologies indexed in BioPortal.
+    :param uri:
+    :return: True if the URI is registered in one of the ontologies indexed in BioPortal, False otherwise, and None if registry is unreachable.
+    """
+    remove_key_from_value(cache_BP, None)
 
     app.logger.debug(f"Call to the BioPortal REST API for [ {uri} ]")
     # print(app.config)
@@ -228,8 +253,10 @@ def ask_OLS(uri):
     """
     Checks that the URI is registered in one of the ontologies indexed in OLS.
     :param uri:
-    :return: True if the URI is registered in one of the ontologies indexed in OLS, False otherwise.
+    :return: True if the URI is registered in one of the ontologies indexed in OLS, False otherwise, and None if registry is unreachable.
     """
+    remove_key_from_value(cache_OLS, None)
+
     app.logger.debug(f"Call to the OLS REST API for [ {uri} ]")
     # uri = requests.compat.quote_plus(uri)
     h = {"Accept": "application/json"}
@@ -252,8 +279,10 @@ def ask_LOV(uri):
     """
     Checks that the URI is registered in one of the ontologies indexed in LOV (Linked Open Vocabularies).
     :param uri:
-    :return: True if the URI is registered in one of the ontologies indexed in LOV, False otherwise.
+    :return: True if the URI is registered in one of the ontologies indexed in LOV, False otherwise, and None if registry is unreachable.
     """
+    remove_key_from_value(cache_LOV, None)
+
     app.logger.debug(
         f"SPARQL for [ {uri} ] with enpoint [ https://lov.linkeddata.es/dataset/lov/sparql ]"
     )

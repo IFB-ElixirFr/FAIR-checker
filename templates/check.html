@@ -50,11 +50,16 @@
     $(this).addClass("is-loading");
 
     $("#row_score_{{f.id}}").text("");
+    $("#modal_score_{{f.id}}").text("");
     $("#row_time_{{f.id}}").text("");
+    $("#modal_time_{{f.id}}").text("");
     $("#row_comment_{{f.id}}").parent("div").find('button').hide();
+    $("#modal_comment_{{f.id}}").text("");
     $("#row_status_{{f.id}}").removeClass("is-danger is-success");
     $("#row_status_{{f.id}}").text("Status");
-    $("#row_guideline_{{f.id}}").parent("div").find('button').hide()
+    $("#test_row_guideline_{{f.id}}").text("");
+    $("#modal_guideline_{{f.id}}").text("");
+    $("#show_more_reco_{{f.id}}").hide();
     $("#metrics_row_{{ f.id }}").css('background-color', '');
     $("#metrics_row_{{ f.id }}").hover(function(){
       $(this).css("background-color", "");
@@ -228,13 +233,42 @@
     $("#p1").parent().closest('div').data("label", "toto");
 
     // add recommandation if score == 0
-    if (value['recommendation'] != "No recommendation yet") {
-      $("#row_guideline_{{f.id}}").parent("div").find('button').show()
+    if (value['recommendation'] != "No recommendation, metric validated") {
+      {#$("#row_guideline_{{f.id}}").parent("div").find('button').show()#}
+      $("#show_more_reco_{{f.id}}").show();
       $("#row_guideline_{{f.id}}").children("article").children("div").html(value['recommendation']);
       $("#modal_guideline_{{f.id}}").html(value['recommendation']);
+      $("#test_row_guideline_{{f.id}}").html(value['recommendation']);
     } else {
-      $("#row_guideline_{{f.id}}").parent("div").find('button').hide()
+      $("#row_guideline_{{f.id}}").parent("div").find('button').hide();
+      $("#show_more_reco_{{f.id}}").hide();
     }
+
+    $("#show_more_reco_{{f.id}} a").off();
+    $("#show_more_reco_{{f.id}} a").on("click", function() {
+        var $this = $(this);
+        var $content = $this.parent().prev("div.content");
+        var linkText = $this.children('span');
+        var $img = $this.children('i');
+        var showing = $this.data("show");
+        if(showing === "no"){
+            $content.addClass("show-content", 500);
+            $content.removeClass("hide-content", 500);
+            $img.addClass("fa-caret-up");
+            $img.removeClass("fa-caret-down");
+            $this.children('span').html('Read less');
+            $this.data("show", "yes");
+        } else {
+            $content.addClass("hide-content", 500);
+            $content.removeClass("show-content", 500);
+            $img.addClass("fa-caret-down");
+            $img.removeClass("fa-caret-up");
+            $this.children('span').html('Read more');
+            $this.data("show", "no");
+        };
+
+        // $this.text(linkText);
+    });
 
     // // show table
     $("#result_table_{{f.id}}").show();
@@ -503,10 +537,10 @@
 
   });
 
-  socket.emit('fast');
-        //socket.emit('slow');
-        //socket.emit('long');
-    });
+  // socket.emit('fast');
+  //   socket.emit('slow');
+  //   socket.emit('long');
+  });
 
   function test_DOI(str_url) {
     doi_regex = /10.\d{4,9}\/[-._;()\/:A-Z0-9]+/gmi;

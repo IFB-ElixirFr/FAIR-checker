@@ -12,7 +12,7 @@ class Config(object):
     BIOPORTAL_APIKEY = environ.get("BIOPORTAL_APIKEY")
     DEBUG = False
     TESTING = False
-    SERVER_NAME = "0.0.0.0:5000"
+    # SERVER_NAME = "0.0.0.0:5000"
     # Flask-Caching related configs
     CACHE_TYPE = "SimpleCache"
     CACHE_DEFAULT_TIMEOUT = 60  # timer in seconds for metrics
@@ -42,3 +42,9 @@ class DevelopmentConfig(Config):
 
 class TestingConfig(Config):
     TESTING = True
+    SERVER_IP = "http://0.0.0.0:5000"
+    # MONGO_HOST = "0.0.0.0"
+    # MONGO_PORT = 27017
+    # MONGO_DBNAME = "fair_checker"
+    # MONGO_URI = f"mongodb://{MONGO_HOST}:{MONGO_PORT}/{MONGO_DBNAME}"
+    # TESTING = True

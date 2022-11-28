@@ -11,6 +11,10 @@ from pathlib import Path
 import rdflib
 from rdflib import ConjunctiveGraph, URIRef
 import requests
+
+requests.packages.urllib3.disable_warnings(
+    requests.packages.urllib3.exceptions.InsecureRequestWarning
+)
 import json
 import os
 import re
@@ -40,6 +44,11 @@ class WebResource:
         "download.prompt_for_download": False,
         "download.default_directory": "NUL",
     }
+
+    base_path = Path(__file__).parent.parent  # current directory
+    static_file_path = "file://" + str(
+        (base_path / "static/data/jsonldcontext.json").resolve()
+    )
 
     chrome_options = Options()
     chrome_options.add_argument("--headless")
@@ -359,6 +368,7 @@ class WebResource:
 
         # self.html_requests = response.content
 
+<<<<<<< HEAD
         return response
 
     # @staticmethod
@@ -402,6 +412,8 @@ class WebResource:
 
         return kg
 
+=======
+>>>>>>> master
     # @staticmethod
     def extract_rdf_extruct(self, url) -> ConjunctiveGraph:
         while True:
@@ -428,25 +440,30 @@ class WebResource:
 
         kg = ConjunctiveGraph()
 
-        base_path = Path(__file__).parent.parent  # current directory
-        static_file_path = str((base_path / "static/data/jsonldcontext.json").resolve())
-
         if "json-ld" in data.keys():
             for md in data["json-ld"]:
                 if "@context" in md.keys():
                     if ("https://schema.org" in md["@context"]) or (
                         "http://schema.org" in md["@context"]
                     ):
-                        md["@context"] = static_file_path
-                kg.parse(data=json.dumps(md, ensure_ascii=False), format="json-ld")
+                        md["@context"] = self.static_file_path
+                kg.parse(
+                    data=json.dumps(md, ensure_ascii=False),
+                    format="json-ld",
+                    publicID=url,
+                )
         if "rdfa" in data.keys():
             for md in data["rdfa"]:
                 if "@context" in md.keys():
                     if ("https://schema.org" in md["@context"]) or (
                         "http://schema.org" in md["@context"]
                     ):
-                        md["@context"] = static_file_path
-                kg.parse(data=json.dumps(md, ensure_ascii=False), format="json-ld")
+                        md["@context"] = self.static_file_path
+                kg.parse(
+                    data=json.dumps(md, ensure_ascii=False),
+                    format="json-ld",
+                    publicID=url,
+                )
 
         if "microdata" in data.keys():
             for md in data["microdata"]:
@@ -454,8 +471,12 @@ class WebResource:
                     if ("https://schema.org" in md["@context"]) or (
                         "http://schema.org" in md["@context"]
                     ):
-                        md["@context"] = static_file_path
-                kg.parse(data=json.dumps(md, ensure_ascii=False), format="json-ld")
+                        md["@context"] = self.static_file_path
+                kg.parse(
+                    data=json.dumps(md, ensure_ascii=False),
+                    format="json-ld",
+                    publicID=url,
+                )
 
         # logging.debug(kg.serialize(format="turtle"))
 
@@ -486,21 +507,24 @@ class WebResource:
             tree = html.fromstring(element)
             jsonld_string = tree.xpath('//script[@type="application/ld+json"]//text()')
 
-            base_path = Path(__file__).parent.parent  # current directory
-            static_file_path = str(
-                (base_path / "static/data/jsonldcontext.json").resolve()
-            )
-
             for json_ld_annots in jsonld_string:
                 jsonld = json.loads(json_ld_annots)
+<<<<<<< HEAD
                 print(type(jsonld))
                 # print(jsonld)
+=======
+
+>>>>>>> master
                 if type(jsonld) == list:
                     jsonld = jsonld[0]
                 if "@context" in jsonld.keys():
                     if "//schema.org" in jsonld["@context"]:
-                        jsonld["@context"] = static_file_path
-                kg.parse(data=json.dumps(jsonld, ensure_ascii=False), format="json-ld")
+                        jsonld["@context"] = WebResource.static_file_path
+                kg.parse(
+                    data=json.dumps(jsonld, ensure_ascii=False),
+                    format="json-ld",
+                    publicID=url,
+                )
                 logging.debug(f"{len(kg)} retrieved triples in KG")
                 # logging.debug(kg.serialize(format="turtle"))
 
@@ -517,5 +541,5 @@ class WebResource:
     def __str__(self) -> str:
         out = """Web resource under FAIR assesment:\n\t"""
         out += self.url + "\n\t"
-        out += len(self.rdf) + " embedded RDF triples"
+        out += str(len(self.rdf)) + " embedded RDF triples"
         return out
