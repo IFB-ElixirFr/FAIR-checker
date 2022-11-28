@@ -16,6 +16,7 @@ from metrics.WebResource import WebResource
 basedir = path.abspath(path.dirname(__file__))
 load_dotenv(path.join(basedir, ".env"))
 
+
 class BioschemasProfileError(Exception):
     def __init__(self, class_name, message="The profile is yet defined"):
         self.class_name = class_name
@@ -405,6 +406,7 @@ def gen_SHACL_from_profile(shape_name, target_classes, min_props, rec_props):
 
     return shape
 
+
 def get_profiles_specs_from_github():
     github_token = environ.get("GITHUB_TOKEN")
     headers = {
@@ -437,29 +439,34 @@ def get_profiles_specs_from_github():
                         drafts = {}
                         # Look for each profile file in json folder and store version and download link for each
                         for file in results_files:
-                            if file["type"] == "file" and not "DEPRECATED" in file["download_url"]:
+                            if (
+                                file["type"] == "file"
+                                and not "DEPRECATED" in file["download_url"]
+                            ):
 
                                 regex_version = "_v([0-9]*.[0-9]*)-"
                                 m = re.search(regex_version, file["download_url"])
-                            
+
                                 if "RELEASE" in file["download_url"]:
                                     releases[file["download_url"]] = float(m.group(1))
                                     # releases[m.group(1)] = res["download_url"]
                                 elif "DRAFT" in file["download_url"]:
                                     drafts[file["download_url"]] = float(m.group(1))
-                        
+
                         latest_url_dl = ""
                         if releases:
                             latest_url_dl = get_latest_profile(releases)
 
                         elif drafts:
                             latest_url_dl = get_latest_profile(drafts)
-                        
+
                         if latest_url_dl:
                             response = requests.get(latest_url_dl, headers=headers)
                             jsonld = response.json()
-                            profile_dict = parse_profile(jsonld, profile_name, latest_url_dl)
-                        
+                            profile_dict = parse_profile(
+                                jsonld, profile_name, latest_url_dl
+                            )
+
                             profiles_list.append(profile_dict)
         return profiles_list
     else:
@@ -473,6 +480,7 @@ def get_latest_profile(profiles_dict):
     # latest_url_dl = list(profiles_dict.keys())[list(profiles_dict.values()).index(latest_rel)]
     latest_url_dl = [k for k, v in profiles_dict.items() if v == latest_rel]
     return latest_url_dl[0]
+
 
 def parse_profile(jsonld, profile_name, url_dl):
     profile_dict = {
@@ -491,8 +499,6 @@ def parse_profile(jsonld, profile_name, url_dl):
         profile_dict["optional"] = jsonld["@graph"][0]["$validation"]["optional"]
 
     return profile_dict
-
- 
 
 
 def gen_SHACL_from_specifications():
