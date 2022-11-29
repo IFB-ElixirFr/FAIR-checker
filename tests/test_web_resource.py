@@ -112,7 +112,6 @@ class WebResourceTestCase(unittest.TestCase):
         )
         logging.info(f"{len(harvard_dataverse_jsonld.get_rdf())} loaded RDF triples")
 
-
     def test_dataverse_html(self):
 
         harvard_dataverse_html = WebResource(
@@ -135,6 +134,10 @@ class WebResourceTestCase(unittest.TestCase):
     def test_pangaea(self):
         pangaea_WR = WebResource("https://doi.pangaea.de/10.1594/PANGAEA.932827")
         logging.info(f"{len(pangaea_WR.get_rdf())} loaded RDF triples")
+
+    def test_uniprot(self):
+        uniprot_WR = WebResource("https://www.uniprot.org/uniprotkb/P05067/entry")
+        logging.info(f"{len(uniprot_WR.get_rdf())} loaded RDF triples")
 
 
 if __name__ == "__main__":
