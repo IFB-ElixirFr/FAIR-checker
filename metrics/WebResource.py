@@ -9,7 +9,7 @@ from selenium.common.exceptions import NoSuchElementException
 import extruct
 from pathlib import Path
 import rdflib
-from rdflib import ConjunctiveGraph, URIRef
+from rdflib import ConjunctiveGraph, URIRef, Graph
 import requests
 
 requests.packages.urllib3.disable_warnings(
@@ -99,9 +99,15 @@ class WebResource:
 
         if rdf_graph is None:
 
+            # get headers of the resource
             response = requests.head(url)
             self.headers = response.headers
+
+            # mimetypes from headers
             mimetype = self.headers["Content-Type"].split(";")[0]
+
+            # list of possibles rdf formats from mimetypes
+            rdf_formats = self.get_rdf_format_from_contenttype(mimetype)
             print(self.headers)
 
             cite_as, described_by, items = self.retrieve_links_from_headers()
@@ -117,55 +123,54 @@ class WebResource:
                 rel = match.group(2)
                 link_mimetype = match.group(3)
 
-                rdf_formats = self.get_rdf_format_from_contenttype(link_mimetype)
+                # list of possible rdf formats
+                link_rdf_formats = self.get_rdf_format_from_contenttype(link_mimetype)
 
-                for rdf_format in rdf_formats:
+                # for each format try getting rdf
+                for rdf_format in link_rdf_formats:
                     self.get_rdf_from_mimetype_match(url, rdf_format, kg_links_header)
             self.kg_links_header = kg_links_header
 
             self.kg_auto = ConjunctiveGraph()
             self.kg_brut = ConjunctiveGraph()
             self.kg_links_html = ConjunctiveGraph()
-            self.kg_1 = ConjunctiveGraph()
-            self.kg_2 = ConjunctiveGraph()
+            self.kg_requests = ConjunctiveGraph()
+            self.kg_selenium = ConjunctiveGraph()
             self.kg_html_rdf = ConjunctiveGraph()
+
+            # if not html, try to retrieve rdf from possible rdf format
             if mimetype != "text/html":
 
                 response = self.request_from_url(self.url)
 
-                # get rdf formats from mimetypes
-                rdf_formats = self.get_rdf_format_from_contenttype(mimetype)
-
                 # generate rdf graph from mapped mimetypes
-
                 for rdf_format in rdf_formats:
-
-                    if response.status_code == 200:
-                        rdf_str = response.text
-                        try:
-                            self.kg_auto.parse(data=rdf_str, format=rdf_format)
-                        except rdflib.exceptions.ParserError:
-                            pass
-                self.kg_auto = self.kg_auto
+                    self.get_rdf_from_mimetype_match(self.url, rdf_format, self.kg_auto)
 
                 # if no rdf found: brutforce testing each RDF formats regardless of mimetypes
-
                 if len(self.kg_auto) == 0:
                     rdf_str = response.text
                     for rdf_format in self.RDF_MEDIA_TYPES_MAPPING.keys():
                         self.get_rdf_from_mimetype_match(url, rdf_format, self.kg_brut)
 
-                self.kg_brut = self.kg_brut
                 logging.info(
                     "Resource content_type is: " + self.headers["Content-Type"]
                 )
 
             elif mimetype == "text/html":
 
+                html_content = self.get_html_selenium(url)
+
+                rdf_graph_selenium = self.html_to_rdf_extruct(html_content)
+
+                
+
+                # should only use selenium here I think
                 # TODO get RDF from HTTP html
                 response_request = self.request_from_url(self.url)
                 self.status_code = response_request.status_code
                 self.html_requests = response_request.content
+
 
                 # if KG from HTTP link header == 0 look for link header in html
                 if self.kg_links_header == 0:
@@ -188,25 +193,25 @@ class WebResource:
                 kg = self.html_to_rdf_extruct(response_request.content)
                 print(len(kg))
 
-                kg_1 = self.extract_rdf_extruct(self.url)
-                self.kg_1 = kg_1
+                kg_requests = self.extract_rdf_extruct(self.url)
+                self.kg_requests = kg_requests
 
                 # get dynamic RDF metadata (generated from JS)
-                kg_2 = WebResource.extract_rdf_selenium(self.url)
+                kg_selenium = WebResource.extract_rdf_selenium(self.url)
 
-                self.kg_2 = kg_2
+                self.kg_selenium = kg_selenium
 
-                self.rdf = kg_1 + kg_2
-                self.html_rdf = kg_1 + kg_2
+                self.rdf = kg_requests + kg_selenium
+                self.html_rdf = kg_requests + kg_selenium
 
-                print("EXTRUCT: " + str(len(kg_1)))
-                print("SELENIUM: " + str(len(kg_2)))
+                print("EXTRUCT: " + str(len(kg_requests)))
+                print("SELENIUM: " + str(len(kg_selenium)))
                 print("HTML: " + str(len(self.kg_html_rdf)))
 
             else:
                 # get static RDF metadata (already available in html sources)
-                kg_1 = self.extract_rdf_extruct(self.url)
-                self.html_rdf = kg_1
+                kg_requests = self.extract_rdf_extruct(self.url)
+                self.html_rdf = kg_requests
                 print("HTML: " + str(len(self.kg_html_rdf)))
 
             print("LINKS HEADERS: " + str(len(self.kg_links_header)))
@@ -215,8 +220,8 @@ class WebResource:
             print("LINKS HTML: " + str(len(self.kg_links_html)))
 
             self.rdf = (
-                self.kg_1
-                + self.kg_2
+                self.kg_requests
+                + self.kg_selenium
                 + self.kg_auto
                 + self.kg_brut
                 + self.kg_links_header
@@ -233,6 +238,28 @@ class WebResource:
         self.rdf = clean_kg_excluding_ns_prefix(
             self.rdf, "http://www.w3.org/1999/xhtml/vocab#"
         )
+
+    def get_kg_from_header(self, described_by):
+        # get RDF from HTTP headers
+        kg_links_header = ConjunctiveGraph()
+        for link in described_by:
+
+            reg_string = '<(.*?)>*;*rel="(.*?)"*;*type="(.*?)"'
+            p = re.compile(reg_string)
+            match = re.search(reg_string, link)
+            url = match.group(1)
+            rel = match.group(2)
+            link_mimetype = match.group(3)
+
+            rdf_formats = self.get_rdf_format_from_contenttype(link_mimetype)
+
+            for rdf_format in rdf_formats:
+                self.get_rdf_from_mimetype_match(url, rdf_format, kg_links_header)
+                
+        return kg_links_header
+
+    def get_kg_from_rdf_formats(self, format):
+        print("toto")
 
     def get_url(self):
         return self.url
@@ -260,10 +287,16 @@ class WebResource:
         if response.status_code == 200:
             rdf_str = response.text
             try:
-                kg.parse(data=rdf_str, format=rdf_format)
+                kg.parse(
+                    data=rdf_str,
+                    format=rdf_format,
+                    publicID=url,
+                )
             except Exception as err:
                 # if error UnicodeDecodeError execute following code, otherwise continue to next format
                 if type(err).__name__ == "UnicodeDecodeError":
+                    print(err)
+                    print("ERROR UNICODE")
                     kg = self.handle_unicodedecodeerror(kg, response)
         print(len(kg))
         return kg
@@ -293,7 +326,23 @@ class WebResource:
             if ("https://schema.org" in json_response["@context"]) or (
                 "http://schema.org" in json_response["@context"]
             ):
-                json_response["@context"] = static_file_path
+                json_response["@context"] = self.static_file_path
+
+
+
+
+            if ("https://schema.org" in json_response["@context"]) or (
+                "http://schema.org" in json_response["@context"]
+            ):
+                json_response["@context"] = self.static_file_path
+
+        # kg.parse(
+        #     data=json.dumps(json_response, ensure_ascii=False),
+        #     format="json-ld",
+        #     publicID=self.url,
+        # )
+
+
 
         json_str = json.dumps(json_response, ensure_ascii=False)
 
@@ -368,6 +417,81 @@ class WebResource:
 
         # self.html_requests = response.content
         return response
+
+    def get_html_selenium(self, url):
+
+        browser = WebResource.WEB_BROWSER_HEADLESS
+        browser.get(url)
+        # self.html_source = browser.page_source
+        # browser.quit()
+        html_content = browser.page_source
+        logging.debug(type(browser.page_source))
+        logging.info(f"size of the parsed web page: {len(browser.page_source)}")
+        return browser.page_source
+
+    # @staticmethod
+    def html_to_rdf_extruct(self, html_source) -> ConjunctiveGraph:
+        data = extruct.extract(
+            html_source, syntaxes=["microdata", "rdfa", "json-ld"], errors="ignore"
+        )
+
+        kg_jsonld = ConjunctiveGraph()
+
+        if "json-ld" in data.keys():
+            for md in data["json-ld"]:
+                if "@context" in md.keys():
+                    if ("https://schema.org" in md["@context"]) or (
+                        "http://schema.org" in md["@context"]
+                    ):
+                        md["@context"] = self.static_file_path
+                kg_jsonld.parse(
+                    data=json.dumps(md, ensure_ascii=False),
+                    format="json-ld",
+                    publicID=self.url,
+                )
+
+        kg_rdfa = ConjunctiveGraph()
+
+        if "rdfa" in data.keys():
+            for md in data["rdfa"]:
+                if "@context" in md.keys():
+                    if ("https://schema.org" in md["@context"]) or (
+                        "http://schema.org" in md["@context"]
+                    ):
+                        md["@context"] = self.static_file_path
+                kg_rdfa.parse(
+                    data=json.dumps(md, ensure_ascii=False),
+                    format="json-ld",
+                    publicID=self.url,
+                )
+
+        kg_microdata = ConjunctiveGraph()
+
+        if "microdata" in data.keys():
+            for md in data["microdata"]:
+                if "@context" in md.keys():
+                    if ("https://schema.org" in md["@context"]) or (
+                        "http://schema.org" in md["@context"]
+                    ):
+                        md["@context"] = self.static_file_path
+                kg_microdata.parse(
+                    data=json.dumps(md, ensure_ascii=False),
+                    format="json-ld",
+                    publicID=self.url,
+                )
+
+        kg_extruct = kg_jsonld + kg_rdfa + kg_microdata
+
+        logging.debug(kg_extruct.serialize(format="turtle"))
+
+        kg_extruct.namespace_manager.bind("sc", URIRef("http://schema.org/"))
+        kg_extruct.namespace_manager.bind("bsc", URIRef("https://bioschemas.org/"))
+        kg_extruct.namespace_manager.bind("dct", URIRef("http://purl.org/dc/terms/"))
+
+        return kg_extruct
+
+
+
 
     # @staticmethod
     def extract_rdf_extruct(self, url) -> ConjunctiveGraph:

@@ -112,6 +112,7 @@ class WebResourceTestCase(unittest.TestCase):
         )
         logging.info(f"{len(harvard_dataverse_jsonld.get_rdf())} loaded RDF triples")
 
+
     def test_dataverse_html(self):
 
         harvard_dataverse_html = WebResource(
