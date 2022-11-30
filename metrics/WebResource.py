@@ -120,6 +120,7 @@ class WebResource:
             self.kg_links_header = kg_links_header
 
             self.kg_auto = ConjunctiveGraph()
+            # self.kg_brut = Graph()
             self.kg_brut = ConjunctiveGraph()
             self.kg_links_html = ConjunctiveGraph()
             self.html_kg = ConjunctiveGraph()
@@ -131,13 +132,14 @@ class WebResource:
 
                 # generate rdf graph from mapped mimetypes
                 for rdf_format in rdf_formats:
-                    self.get_rdf_from_mimetype_match(self.url, rdf_format, self.kg_auto)
+                    print(rdf_format)
+                    self.kg_auto = self.get_rdf_from_mimetype_match(self.url, rdf_format, self.kg_auto)
 
                 # if no rdf found: brutforce testing each RDF formats regardless of mimetypes
                 if len(self.kg_auto) == 0:
                     rdf_str = response.text
                     for rdf_format in self.RDF_MEDIA_TYPES_MAPPING.keys():
-                        self.get_rdf_from_mimetype_match(url, rdf_format, self.kg_brut)
+                        self.kg_brut = self.get_rdf_from_mimetype_match(url, rdf_format, self.kg_brut)
 
                 logging.info(
                     "Resource content_type is: " + self.headers["Content-Type"]
@@ -182,15 +184,15 @@ class WebResource:
 
                 # print("EXTRUCT: " + str(len(kg_requests)))
                 # print("SELENIUM: " + str(len(kg_selenium)))
-                print("HTML: " + str(len(self.html_kg)))
+                # print("HTML: " + str(len(self.html_kg)))
 
             else:
                 # get static RDF metadata (already available in html sources)
                 self.html_content = self.request_from_url(self.url)
                 self.html_kg = self.html_to_rdf_extruct(self.html_content)
 
-                print("HTML: " + str(len(self.html_kg)))
-
+                
+            print("HTML: " + str(len(self.html_kg)))
             print("LINKS HEADERS: " + str(len(self.kg_links_header)))
             print("AUTO: " + str(len(self.kg_auto)))
             print("BRUTFORCE: " + str(len(self.kg_brut)))
@@ -215,6 +217,8 @@ class WebResource:
         self.rdf = clean_kg_excluding_ns_prefix(
             self.rdf, "http://www.w3.org/1999/xhtml/vocab#"
         )
+        print("Full graph size: " + str(len(self.rdf)))
+        print(self.rdf.serialize(format="json-ld"))
 
     def get_kg_from_header(self, described_by):
         # get RDF from HTTP headers

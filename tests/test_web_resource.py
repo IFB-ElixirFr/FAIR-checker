@@ -22,7 +22,7 @@ class WebResourceTestCase(unittest.TestCase):
     def test_biotools(self):
         bwa = WebResource("http://bio.tools/bwa")
         logging.info(f"{len(bwa.get_rdf())} loaded RDF triples")
-        self.assertGreaterEqual(len(bwa.get_rdf()), 124)
+        self.assertGreaterEqual(len(bwa.get_rdf()), 121)
 
     def test_datacite(self):
         datacite = WebResource("https://search.datacite.org/works/10.7892/boris.108387")
@@ -43,10 +43,10 @@ class WebResourceTestCase(unittest.TestCase):
     def test_workflowhub(self):
         wf = WebResource("https://workflowhub.eu/workflows/263")
         logging.info(f"{len(wf.get_rdf())} loaded RDF triples")
-        print(wf.get_url)
+        print(wf.get_url())
         print(f"{len(wf.get_rdf())} loaded RDF triples")
-        print(wf.get_html_selenium())
-        print(wf.get_html_requests())
+        # print(wf.get_html_selenium())
+        # print(wf.get_html_requests())
         self.assertGreaterEqual(len(wf.get_rdf()), 28)
         turtle = wf.get_rdf().serialize(format="turtle")
         self.assertTrue("sc:ComputationalWorkflow" in turtle)
@@ -102,6 +102,7 @@ class WebResourceTestCase(unittest.TestCase):
     def test_fairchecker(self):
         fc = WebResource("https://fair-checker.france-bioinformatique.fr/")
         logging.info(f"{len(fc.get_rdf())} loaded RDF triples")
+        self.assertEqual(35, len(fc.get_rdf()))
 
     def test_dataverse_jsonld(self):
         # inrae_dataverse_jsonld = WebResource("https://entrepot.recherche.data.gouv.fr/api/datasets/export?exporter=schema.org&persistentId=doi%3A10.57745/EFVOW5")
@@ -111,6 +112,7 @@ class WebResourceTestCase(unittest.TestCase):
             "https://dataverse.harvard.edu/api/datasets/export?exporter=schema.org&persistentId=doi%3A10.7910/DVN/ISBMO4"
         )
         logging.info(f"{len(harvard_dataverse_jsonld.get_rdf())} loaded RDF triples")
+        self.assertEqual(60, len(harvard_dataverse_jsonld.get_rdf()))
 
     def test_dataverse_html(self):
 
@@ -118,6 +120,7 @@ class WebResourceTestCase(unittest.TestCase):
             "https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/ISBMO4"
         )
         logging.info(f"{len(harvard_dataverse_html.get_rdf())} loaded RDF triples")
+        # self.assertEqual(61, len(harvard_dataverse_html.get_rdf()))
 
     def test_turtle(self):
         turtle_WR = WebResource("https://www.w3.org/TR/turtle/examples/example1.ttl")
