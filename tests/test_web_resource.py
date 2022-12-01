@@ -38,7 +38,6 @@ class WebResourceTestCase(unittest.TestCase):
         )
         logging.info(f"{len(dataverse.get_rdf())} loaded RDF triples")
         self.assertEqual(len(dataverse.get_rdf()), 0)
-        print()
 
     def test_workflowhub(self):
         wf = WebResource("https://workflowhub.eu/workflows/263")
@@ -120,27 +119,45 @@ class WebResourceTestCase(unittest.TestCase):
             "https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/ISBMO4"
         )
         logging.info(f"{len(harvard_dataverse_html.get_rdf())} loaded RDF triples")
-        # self.assertEqual(61, len(harvard_dataverse_html.get_rdf()))
+        self.assertEqual(60, len(harvard_dataverse_html.get_rdf()))
+
+    def test_dataverse_inrae_html(self):
+        inrae_dataverse_html = WebResource(
+            "https://data.inrae.fr/dataset.xhtml?persistentId=doi:10.15454/P27LDX"
+        )
+        logging.info(f"{len(inrae_dataverse_html.get_rdf())} loaded RDF triples")
+        self.assertEqual(0, len(inrae_dataverse_html.get_rdf()))
+        
 
     def test_turtle(self):
         turtle_WR = WebResource("https://www.w3.org/TR/turtle/examples/example1.ttl")
         logging.info(f"{len(turtle_WR.get_rdf())} loaded RDF triples")
+        # self.assertEqual(60, len(turtle_WR.get_rdf()))
 
     def test_n3(self):
         n3_WR = WebResource("https://www.w3.org/2002/11/rddl/ex1.n3")
         logging.info(f"{len(n3_WR.get_rdf())} loaded RDF triples")
+        # self.assertEqual(60, len(n3_WR.get_rdf()))
 
     def test_rdfxml(self):
         rdfxml_WR = WebResource("https://www.w3.org/2002/11/rddl/ex1.xml")
         logging.info(f"{len(rdfxml_WR.get_rdf())} loaded RDF triples")
+        # self.assertEqual(60, len(rdfxml_WR.get_rdf()))
 
     def test_pangaea(self):
         pangaea_WR = WebResource("https://doi.pangaea.de/10.1594/PANGAEA.932827")
         logging.info(f"{len(pangaea_WR.get_rdf())} loaded RDF triples")
+        self.assertEqual(251, len(pangaea_WR.get_rdf()))
 
     def test_uniprot(self):
         uniprot_WR = WebResource("https://www.uniprot.org/uniprotkb/P05067/entry")
         logging.info(f"{len(uniprot_WR.get_rdf())} loaded RDF triples")
+        self.assertEqual(9, len(uniprot_WR.get_rdf()))
+
+    def test_uniprot_rest(self):
+        uniprot_rest_WR = WebResource("https://rest.uniprot.org/uniprotkb/P05067.rdf")
+        logging.info(f"{len(uniprot_rest_WR.get_rdf())} loaded RDF triples")
+        self.assertEqual(9, len(uniprot_rest_WR.get_rdf()))
 
 
 if __name__ == "__main__":

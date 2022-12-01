@@ -3,6 +3,7 @@ from ssl import SSLError
 from lxml import html
 import logging
 from selenium import webdriver
+from selenium.webdriver.support.wait import WebDriverWait
 from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.chrome.options import Options
 from selenium.common.exceptions import NoSuchElementException
@@ -63,7 +64,8 @@ class WebResource:
     WEB_BROWSER_HEADLESS = webdriver.Chrome(
         ChromeDriverManager().install(), options=chrome_options
     )
-    WEB_BROWSER_HEADLESS.implicitly_wait(20)
+    # WEB_BROWSER_HEADLESS.implicitly_wait(20)
+    SERVER_TIMEOUT = 30
 
     status_code = None
     content_type = None
@@ -103,6 +105,7 @@ class WebResource:
             # get headers of the resource
             response = requests.head(url)
             self.headers = response.headers
+            self.status_code = response.status_code
 
             # mimetypes from headers
             mimetype = self.headers["Content-Type"].split(";")[0]
@@ -148,12 +151,13 @@ class WebResource:
             elif mimetype == "text/html":
 
                 self.html_content = self.get_html_selenium(url)
+                # print(len(self.extract_rdf_selenium(url)))
 
                 # should only use selenium here I think
                 # TODO get RDF from HTTP html
-                response_request = self.request_from_url(self.url)
+                # response_request = self.request_from_url(self.url)
                 # but need request for status_code
-                self.status_code = response_request.status_code
+                # self.status_code = response_request.status_code
                 # self.html_requests = response_request.content
 
                 # if KG from HTTP link header == 0 look for link header in html
@@ -251,8 +255,8 @@ class WebResource:
     def get_status_code(self):
         return self.status_code
 
-    def get_html_selenium(self):
-        return self.html_selenium
+    # def get_html_selenium(self):
+    #     return self.html_selenium
 
     def get_html_requests(self):
         return self.html_requests
@@ -370,12 +374,6 @@ class WebResource:
 
     # TODO Extruct can work with Selenium
 
-    def selenium_from_url(self):
-        browser = WebResource.WEB_BROWSER_HEADLESS
-        browser.get(self.url)
-        self.html_selenium = browser.page_source
-        self.browser_selenium = browser
-        return browser
 
     def request_from_url(self, url):
         while True:
@@ -399,11 +397,15 @@ class WebResource:
 
         browser = WebResource.WEB_BROWSER_HEADLESS
         browser.get(url)
-        # self.html_source = browser.page_source
-        # browser.quit()
+
+        WebDriverWait(self.WEB_BROWSER_HEADLESS, self.SERVER_TIMEOUT).until(
+            lambda wd: self.WEB_BROWSER_HEADLESS.execute_script("return document.readyState") == 'complete',
+            "Page taking too long to load"
+        )
         html_content = browser.page_source
         logging.debug(type(browser.page_source))
         logging.info(f"size of the parsed web page: {len(browser.page_source)}")
+        # print(browser.page_source)
         return browser.page_source
 
     # @staticmethod
@@ -539,51 +541,58 @@ class WebResource:
 
         return kg
 
-    @staticmethod
-    def extract_rdf_selenium(url) -> ConjunctiveGraph:
-        kg = ConjunctiveGraph()
+    # @staticmethod
+    # def extract_rdf_selenium(url) -> ConjunctiveGraph:
+    #     kg = ConjunctiveGraph()
 
-        browser = WebResource.WEB_BROWSER_HEADLESS
-        browser.get(url)
-        # self.html_source = browser.page_source
-        # browser.quit()
-        logging.debug(type(browser.page_source))
-        logging.info(f"size of the parsed web page: {len(browser.page_source)}")
+    #     browser = WebResource.WEB_BROWSER_HEADLESS
+    #     browser.get(url)
+    #     # self.html_source = browser.page_source
+    #     # browser.quit()
+    #     logging.debug(type(browser.page_source))
+    #     print(browser.page_source)
+    #     logging.info(f"Size of the parsed web page: {len(browser.page_source)}")
 
-        try:
-            element = browser.find_element_by_xpath(
-                "//script[@type='application/ld+json']"
-            )
-            element = element.get_attribute("outerHTML")
-            # browser.quit()
 
-            tree = html.fromstring(element)
-            jsonld_string = tree.xpath('//script[@type="application/ld+json"]//text()')
 
-            for json_ld_annots in jsonld_string:
-                jsonld = json.loads(json_ld_annots)
-                if type(jsonld) == list:
-                    jsonld = jsonld[0]
-                if "@context" in jsonld.keys():
-                    if "//schema.org" in jsonld["@context"]:
-                        jsonld["@context"] = WebResource.static_file_path
-                kg.parse(
-                    data=json.dumps(jsonld, ensure_ascii=False),
-                    format="json-ld",
-                    publicID=url,
-                )
-                logging.debug(f"{len(kg)} retrieved triples in KG")
-                # logging.debug(kg.serialize(format="turtle"))
+    #     try:
+    #         element = browser.find_element_by_xpath(
+    #             "//script[@type='application/ld+json']"
+    #         )
+    #         element = element.get_attribute("outerHTML")
+    #         # browser.quit()
 
-        except NoSuchElementException:
-            logging.warning('Can\'t find "application/ld+json" content')
-            pass
+    #         tree = html.fromstring(element)
+    #         jsonld_string = tree.xpath('//script[@type="application/ld+json"]//text()')
+    #         print(jsonld_string)
+    #         data = extruct.extract(
+    #             browser.page_source, syntaxes=["microdata", "rdfa", "json-ld"], errors="ignore"
+    #         )
+    #         print(data)
+    #         for json_ld_annots in jsonld_string:
+    #             jsonld = json.loads(json_ld_annots)
+    #             if type(jsonld) == list:
+    #                 jsonld = jsonld[0]
+    #             if "@context" in jsonld.keys():
+    #                 if "//schema.org" in jsonld["@context"]:
+    #                     jsonld["@context"] = WebResource.static_file_path
+    #             kg.parse(
+    #                 data=json.dumps(jsonld, ensure_ascii=False),
+    #                 format="json-ld",
+    #                 publicID=url,
+    #             )
+    #             logging.debug(f"{len(kg)} retrieved triples in KG")
+    #             # logging.debug(kg.serialize(format="turtle"))
 
-        kg.namespace_manager.bind("sc", URIRef("http://schema.org/"))
-        kg.namespace_manager.bind("bsc", URIRef("https://bioschemas.org/"))
-        kg.namespace_manager.bind("dct", URIRef("http://purl.org/dc/terms/"))
+    #     except NoSuchElementException:
+    #         logging.warning('Can\'t find "application/ld+json" content')
+    #         pass
 
-        return kg
+    #     kg.namespace_manager.bind("sc", URIRef("http://schema.org/"))
+    #     kg.namespace_manager.bind("bsc", URIRef("https://bioschemas.org/"))
+    #     kg.namespace_manager.bind("dct", URIRef("http://purl.org/dc/terms/"))
+
+    #     return kg
 
     def __str__(self) -> str:
         out = """Web resource under FAIR assesment:\n\t"""
