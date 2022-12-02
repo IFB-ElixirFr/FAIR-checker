@@ -126,7 +126,11 @@ class WebResource:
             # self.kg_brut = Graph()
             self.kg_brut = ConjunctiveGraph()
             self.kg_links_html = ConjunctiveGraph()
-            self.html_kg = ConjunctiveGraph()
+            self.html_kg = Graph(identifier="HTML")
+
+            # self.named_kg_links_header = Graph(identifier="Links_header")
+            # self.named_html_kg = Graph(identifier="HTML")
+
 
             # if not html, try to retrieve rdf from possible rdf format
             if mimetype != "text/html":
@@ -222,11 +226,11 @@ class WebResource:
             self.rdf, "http://www.w3.org/1999/xhtml/vocab#"
         )
         print("Full graph size: " + str(len(self.rdf)))
-        print(self.rdf.serialize(format="json-ld"))
+        # print(self.rdf.serialize(format="json-ld"))
 
     def get_kg_from_header(self, described_by):
         # get RDF from HTTP headers
-        kg_links_header = ConjunctiveGraph()
+        kg_links_header = Graph(identifier="Links_header")
         for link in described_by:
 
             reg_string = '<(.*?)>*;*rel="(.*?)"*;*type="(.*?)"'
@@ -236,6 +240,7 @@ class WebResource:
             rel = match.group(2)
             link_mimetype = match.group(3)
 
+
             rdf_formats = self.get_rdf_format_from_contenttype(link_mimetype)
 
             for rdf_format in rdf_formats:
@@ -243,7 +248,7 @@ class WebResource:
 
         return kg_links_header
 
-    def get_kg_from_rdf_formats(self, format):
+    def create_named_graph(self):
         print("toto")
 
     def get_url(self):

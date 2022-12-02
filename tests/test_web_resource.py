@@ -4,6 +4,9 @@ from metrics.FAIRMetricsFactory import FAIRMetricsFactory
 from metrics.WebResource import WebResource
 import logging
 import time
+from rdflib import Graph
+import requests
+import extruct
 
 logging.basicConfig(
     level=logging.DEBUG,
@@ -146,7 +149,7 @@ class WebResourceTestCase(unittest.TestCase):
 
     def test_pangaea(self):
         pangaea_WR = WebResource("https://doi.pangaea.de/10.1594/PANGAEA.932827")
-        logging.info(f"{len(pangaea_WR.get_rdf())} loaded RDF triples")
+        # logging.info(f"{len(pangaea_WR.get_rdf())} loaded RDF triples")
         self.assertEqual(251, len(pangaea_WR.get_rdf()))
 
     def test_uniprot(self):
@@ -159,6 +162,58 @@ class WebResourceTestCase(unittest.TestCase):
         logging.info(f"{len(uniprot_rest_WR.get_rdf())} loaded RDF triples")
         self.assertEqual(9, len(uniprot_rest_WR.get_rdf()))
 
+    def test_named_graph(self):
+
+        # turtle
+        url_turtle = "https://www.w3.org/TR/turtle/examples/example1.ttl"
+        response = requests.get(url_turtle)
+        content_turtle = response.text
+        g_turtle = Graph(identifier="turtle")
+        g_turtle.parse(data=content_turtle, format="turtle", publicID=url_turtle)
+
+        # n3
+        url_n3 = "https://www.w3.org/2002/11/rddl/ex1.n3"
+        response = requests.get(url_n3)
+        content_n3 = response.text
+
+        g_n3 = Graph(identifier="links")
+        g_n3.parse(data=content_n3, format="n3", publicID=url_n3)
+
+        g_all = g_turtle + g_n3
+
+        print(g_all.serialize(format="json-ld"))
+
+        print(len(g_turtle))
+        print(len(g_n3))
+        print(len(g_all))
+
+    def test_named_graph_pangaea(self):
+
+        # jsonld
+        url_jsonld = "https://doi.pangaea.de/10.1594/PANGAEA.932827?format=metadata_jsonld"
+        response = requests.get(url_jsonld)
+        content_jsonld = response.text
+        print(content_jsonld)
+        g_jsonld = Graph(identifier="jsonld")
+        g_jsonld.parse(data=content_jsonld, format="json-ld", publicID=url_jsonld)
+
+        # html
+        url_html = "https://doi.pangaea.de/10.1594/PANGAEA.932827"
+        response = requests.get(url_html)
+        content_html = response.text
+        data_html = extruct.extract(
+            content_html, syntaxes=["json-ld"], errors="ignore"
+        )
+        g_html = Graph(identifier="html")
+        g_html.parse(data=data_html, format="json-ld", publicID=url_html)
+
+        g_all = g_jsonld + g_html
+
+        print(g_all.serialize(format="json-ld"))
+
+        print(len(g_jsonld))
+        print(len(g_html))
+        print(len(g_all))
 
 if __name__ == "__main__":
     unittest.main()
