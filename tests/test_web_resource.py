@@ -1,5 +1,5 @@
 import unittest
-from rdflib import ConjunctiveGraph
+from rdflib import ConjunctiveGraph, Namespace
 from metrics.FAIRMetricsFactory import FAIRMetricsFactory
 from metrics.WebResource import WebResource
 import logging
@@ -7,6 +7,7 @@ import time
 from rdflib import Graph
 import requests
 import extruct
+import json
 
 logging.basicConfig(
     level=logging.DEBUG,
@@ -168,20 +169,26 @@ class WebResourceTestCase(unittest.TestCase):
         url_turtle = "https://www.w3.org/TR/turtle/examples/example1.ttl"
         response = requests.get(url_turtle)
         content_turtle = response.text
-        g_turtle = Graph(identifier="turtle")
+        g_turtle = ConjunctiveGraph(identifier="turtle")
+        EX_TTL = Namespace("http://example.org/turtle")
+
         g_turtle.parse(data=content_turtle, format="turtle", publicID=url_turtle)
+        g_turtle.bind("ttl_graph", EX_TTL)
 
         # n3
         url_n3 = "https://www.w3.org/2002/11/rddl/ex1.n3"
         response = requests.get(url_n3)
         content_n3 = response.text
+        g_n3 = ConjunctiveGraph(identifier="links")
+        EX_N3 = Namespace("http://example.org/n3")
 
-        g_n3 = Graph(identifier="links")
         g_n3.parse(data=content_n3, format="n3", publicID=url_n3)
+        g_n3.bind("n3_graph", EX_N3)
 
         g_all = g_turtle + g_n3
 
-        print(g_all.serialize(format="json-ld"))
+        print(g_all.serialize(format="trig"))
+        # print(g_all.serialize(format="trig"))
 
         print(len(g_turtle))
         print(len(g_n3))
@@ -191,29 +198,27 @@ class WebResourceTestCase(unittest.TestCase):
 
         # jsonld
         url_jsonld = "https://doi.pangaea.de/10.1594/PANGAEA.932827?format=metadata_jsonld"
-        response = requests.get(url_jsonld)
-        content_jsonld = response.text
-        print(content_jsonld)
-        g_jsonld = Graph(identifier="jsonld")
+        wr_pangaea = WebResource(url_jsonld)
+        content_jsonld = wr_pangaea.get_kg_auto().serialize(format="json-ld")
+        g_jsonld = ConjunctiveGraph(identifier="jsonld")
         g_jsonld.parse(data=content_jsonld, format="json-ld", publicID=url_jsonld)
 
         # html
         url_html = "https://doi.pangaea.de/10.1594/PANGAEA.932827"
-        response = requests.get(url_html)
-        content_html = response.text
-        data_html = extruct.extract(
-            content_html, syntaxes=["json-ld"], errors="ignore"
-        )
-        g_html = Graph(identifier="html")
-        g_html.parse(data=data_html, format="json-ld", publicID=url_html)
+        wr_pangaea_html = WebResource(url_html)
+        content_html = wr_pangaea_html.get_kg_html().serialize(format="json-ld")
+
+        g_html = ConjunctiveGraph(identifier="html")
+        g_html.parse(data=content_html, format="json-ld", publicID=url_html)
 
         g_all = g_jsonld + g_html
 
-        print(g_all.serialize(format="json-ld"))
+
 
         print(len(g_jsonld))
         print(len(g_html))
         print(len(g_all))
+        print(g_all.serialize(format="trig"))
 
 if __name__ == "__main__":
     unittest.main()

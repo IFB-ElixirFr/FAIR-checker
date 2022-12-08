@@ -254,6 +254,12 @@ class WebResource:
     def get_url(self):
         return self.url
 
+    def get_kg_auto(self):
+        return self.kg_auto
+
+    def get_kg_html(self):
+        return self.html_kg
+
     def get_rdf(self):
         return self.rdf
 
