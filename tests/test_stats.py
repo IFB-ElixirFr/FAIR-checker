@@ -1,4 +1,5 @@
 import sys
+from metrics import Evaluation
 
 sys.path.insert(1, "..")
 
@@ -14,7 +15,7 @@ import metrics.statistics as stats
 import unittest
 
 
-@unittest.skip("to be run through a cron and with a specific test DB")
+# @unittest.skip("to be run through a cron and with a specific test DB")
 class StatisticsTestCase(unittest.TestCase):
     metrics = []
     factory = None
@@ -120,6 +121,11 @@ class StatisticsTestCase(unittest.TestCase):
     def test_per_principle(self):
         print(stats.this_week_for_named_metrics(prefix="F", success=1))
         print(stats.this_week_for_named_metrics(prefix="F", success=0))
+
+    def test_record_eval(self):
+        e = Evaluation()
+        print(e)
+        e.persist(source="http://test")
 
 
 if __name__ == "__main__":

@@ -16,6 +16,18 @@ def evaluations_this_week():
     return nb_eval
 
 
+def evaluations_this_month():
+    client = MongoClient()
+    db = client.fair_checker
+    evaluations = db.evaluations
+
+    a_month_ago = datetime.now() - timedelta(30)
+
+    # nb_eval = evaluations.find({"started_at": {"$gt": a_day_ago}}).count_documents()
+    nb_eval = evaluations.count_documents({"started_at": {"$gt": a_week_ago}})
+    return nb_eval
+
+
 def success_this_week():
     client = MongoClient()
     db = client.fair_checker
