@@ -1,5 +1,5 @@
 import unittest
-from rdflib import ConjunctiveGraph, Namespace
+from rdflib import ConjunctiveGraph, Namespace, Dataset
 from metrics.FAIRMetricsFactory import FAIRMetricsFactory
 from metrics.WebResource import WebResource
 import logging
@@ -165,34 +165,45 @@ class WebResourceTestCase(unittest.TestCase):
 
     def test_named_graph(self):
 
+
+        RDFLib = Namespace("https://rdflib.github.io/")
+
         # turtle
         url_turtle = "https://www.w3.org/TR/turtle/examples/example1.ttl"
         response = requests.get(url_turtle)
         content_turtle = response.text
-        g_turtle = ConjunctiveGraph(identifier="turtle")
-        EX_TTL = Namespace("http://example.org/turtle")
+        g_turtle = ConjunctiveGraph(identifier="http://webresource/turtle")
 
-        g_turtle.parse(data=content_turtle, format="turtle", publicID=url_turtle)
-        g_turtle.bind("ttl_graph", EX_TTL)
+
+        g_turtle.parse(data=content_turtle, format="turtle")
+        g_turtle.bind("wr", Namespace("http://webresource/"))
+
 
         # n3
         url_n3 = "https://www.w3.org/2002/11/rddl/ex1.n3"
         response = requests.get(url_n3)
         content_n3 = response.text
-        g_n3 = ConjunctiveGraph(identifier="links")
-        EX_N3 = Namespace("http://example.org/n3")
+        g_n3 = ConjunctiveGraph(identifier="http://webresource/links")
 
-        g_n3.parse(data=content_n3, format="n3", publicID=url_n3)
-        g_n3.bind("n3_graph", EX_N3)
 
-        g_all = g_turtle + g_n3
+        g_n3.parse(data=content_n3, format="n3")
+        g_n3.bind("wr", Namespace("http://webresource/"))
 
-        print(g_all.serialize(format="trig"))
+
+        ds = Dataset()
+        ds.add_graph(g_turtle)
+        ds.add_graph(g_n3)
+
+        # g_all = g_turtle + g_n3
+
+        print(ds.serialize(format="trig"))
         # print(g_all.serialize(format="trig"))
-
+        print(len(ds))
+        for c in ds.graphs():  
+            print(len(c))  
         print(len(g_turtle))
         print(len(g_n3))
-        print(len(g_all))
+        # print(len(g_all))
 
     def test_named_graph_pangaea(self):
 
@@ -200,25 +211,44 @@ class WebResourceTestCase(unittest.TestCase):
         url_jsonld = "https://doi.pangaea.de/10.1594/PANGAEA.932827?format=metadata_jsonld"
         wr_pangaea = WebResource(url_jsonld)
         content_jsonld = wr_pangaea.get_kg_auto().serialize(format="json-ld")
-        g_jsonld = ConjunctiveGraph(identifier="jsonld")
+        g_jsonld = ConjunctiveGraph(identifier="http://webresource/jsonld")
         g_jsonld.parse(data=content_jsonld, format="json-ld", publicID=url_jsonld)
+        g_jsonld.bind("wr", Namespace("http://webresource/"))
 
         # html
         url_html = "https://doi.pangaea.de/10.1594/PANGAEA.932827"
         wr_pangaea_html = WebResource(url_html)
         content_html = wr_pangaea_html.get_kg_html().serialize(format="json-ld")
 
-        g_html = ConjunctiveGraph(identifier="html")
+        g_html = ConjunctiveGraph(identifier="http://webresource/html")
         g_html.parse(data=content_html, format="json-ld", publicID=url_html)
+        g_html.bind("wr", Namespace("http://webresource/"))
+        
 
-        g_all = g_jsonld + g_html
+        ds = Dataset()
+        ds.add_graph(g_jsonld)
+        ds.add_graph(g_html)
 
+        # g_all = g_turtle + g_n3
 
+        # print(ds.serialize(format="trig"))
+        # print(g_all.serialize(format="trig"))
+
+        for c in ds.graphs():  
+            print(len(c))  
+            print(c)  
 
         print(len(g_jsonld))
         print(len(g_html))
-        print(len(g_all))
-        print(g_all.serialize(format="trig"))
+
+    def test_wr_named_graph(self):
+        url_html = "https://doi.pangaea.de/10.1594/PANGAEA.932827"
+        wr_pangaea = WebResource(url_html)
+        for c in wr_pangaea.get_wr_dataset().graphs():
+            print(c.identifier)
+            print(len(c))
+
+        print(wr_pangaea.get_wr_dataset().serialize(format="trig"))
 
 if __name__ == "__main__":
     unittest.main()
