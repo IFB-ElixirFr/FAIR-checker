@@ -50,7 +50,7 @@ parser.add_argument(
     nargs="+",
     required=False,
     help="list of local RDF files",
-    dest="rdf_file",
+    dest="rdf_files",
 )
 parser.add_argument(
     "-uc",
@@ -1912,7 +1912,6 @@ if __name__ == "__main__":
     elif args.extract_metadata:
         # FAIR-Checker as a metadata crawler
         start_time = time.time()
-        KG_Total = ConjunctiveGraph()
 
         urls = []
 
@@ -1933,18 +1932,13 @@ if __name__ == "__main__":
                 table_classes = Table(show_header=True, header_style="bold magenta")
                 table_classes.add_column("Class", justify="right")
                 table_classes.add_column("Count", justify="right")
-                table_classes.add_column("%", justify="right")
-                table_classes.add_column("Prefix", justify="right")
 
                 table_props = Table(show_header=True, header_style="bold magenta")
                 table_props.add_column("Property Class", justify="right")
                 table_props.add_column("Count", justify="right")
-                table_props.add_column("%", justify="right")
-                table_props.add_column("Prefix", justify="right")
 
                 logging.debug(f"Testing URL {url}")
                 web_res = WebResource(url)
-                KG_Total += web_res.get_rdf()
                 KG = ConjunctiveGraph()
                 KG = web_res.get_rdf()
 
@@ -2009,20 +2003,10 @@ if __name__ == "__main__":
 
                 ## Classes Table
                 for index, row in classes.iterrows():
-                    table_classes.add_row(
-                        Text(row[3]),
-                        Text(str(row[1])),
-                        Text(str("%.2f" % row[2])),
-                        Text(row[4]),
-                    )
+                    table_classes.add_row(Text(row[3]), Text(str(row[1])))
                 ## Props Table
                 for index, row in props.iterrows():
-                    table_props.add_row(
-                        Text(row[3]),
-                        Text(str(row[1])),
-                        Text(str("%.2f" % row[2])),
-                        Text(row[4]),
-                    )
+                    table_props.add_row(Text(row[3]), Text(str(row[1])))
 
                 console.rule(f"[bold red]Classes evaluation for URL {url}")
                 console.print(table_classes)
@@ -2039,7 +2023,6 @@ if __name__ == "__main__":
                         destination=f"{out_dir}/{'_'.join(url.split('/'))}_{uuid.uuid4()}.ttl",
                         format="turtle",
                     )
-                    print(f"{out_dir}/{'_'.join(url.split('/'))}_{uuid.uuid4()}.ttl")
                     logging.info(
                         f"Loaded {len(KG)} triples from {url}, and saved in {out_dir}/{'_'.join(url.split('/'))}_{uuid.uuid4()}.ttl"
                     )
@@ -2055,8 +2038,6 @@ if __name__ == "__main__":
                     )
 
         elapsed_time = round((time.time() - start_time), 2)
-        logging.info(f"Metrics evaluated in {elapsed_time} s")
-        logging.info(f"Loaded {len(KG_Total)} triples in total.")
 
     elif args.evaluate:
         if args.rdf_files:
@@ -2263,3 +2244,9 @@ if __name__ == "__main__":
                 console.print(table)
                 elapsed_time = round((time.time() - start_time), 2)
                 logging.info(f"FAIR metrics evaluated in {elapsed_time} s")
+
+        else:
+            logging.warning(
+                "There is no valid argument after --evaluate. Please add --urls or --rdf-files."
+            )
+            sys.exit(1)
