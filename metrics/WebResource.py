@@ -76,7 +76,13 @@ class WebResource:
     headers = None
     links_headers = None
 
-
+    kg_var_strings = [
+        "kg_links_header",
+        "kg_auto",
+        "kg_brut",
+        "kg_links_html",
+        "kg_html"
+    ]
 
     # source: https://docs.aws.amazon.com/neptune/latest/userguide/sparql-media-type-support.html
     RDF_MEDIA_TYPES_MAPPING = {
@@ -104,21 +110,16 @@ class WebResource:
 
         self.wr_dataset = Dataset()
         
-        self.kg_links_header = ConjunctiveGraph(identifier="http://webresource/links_headers")
-        self.kg_auto = ConjunctiveGraph(identifier="http://webresource/auto")
-        self.kg_brut = ConjunctiveGraph(identifier="http://webresource/brut")
-        self.kg_links_html = ConjunctiveGraph(identifier="http://webresource/links_html")
-        self.kg_html = ConjunctiveGraph(identifier="http://webresource/html")
+        # self.kg_links_header = ConjunctiveGraph(identifier="http://webresource/links_headers")
+        # self.kg_auto = ConjunctiveGraph(identifier="http://webresource/auto")
+        # self.kg_brut = ConjunctiveGraph(identifier="http://webresource/brut")
+        # self.kg_links_html = ConjunctiveGraph(identifier="http://webresource/links_html")
+        # self.kg_html = ConjunctiveGraph(identifier="http://webresource/html")
+
+        self.init_kgs()
         
-        kg_list = [
-            self.kg_links_header,
-            self.kg_auto,
-            self.kg_brut,
-            self.kg_links_html,
-            self.kg_html,
-        ]
-        b = [self.get_var_name(el) for el in kg_list]
-        print(b)
+        # b = [self.get_var_name(el) for el in kg_list]
+        # print(b)
 
 
 
@@ -140,10 +141,7 @@ class WebResource:
             cite_as, described_by, items = self.retrieve_links_from_headers()
 
             # get RDF from HTTP headers
-            kg_links_header = self.get_kg_from_header(described_by)
-
-            self.kg_links_header = kg_links_header
-
+            self.get_kg_from_header(described_by)
 
 
             # if not html, try to retrieve rdf from possible rdf format
@@ -214,11 +212,7 @@ class WebResource:
                 self.html_to_rdf_extruct(self.html_content)
 
                 
-            print("HTML: " + str(len(self.kg_html)))
-            print("LINKS HEADERS: " + str(len(self.kg_links_header)))
-            print("AUTO: " + str(len(self.kg_auto)))
-            print("BRUTFORCE: " + str(len(self.kg_brut)))
-            print("LINKS HTML: " + str(len(self.kg_links_html)))
+
 
             self.rdf = (
                 # self.kg_requests
@@ -253,29 +247,65 @@ class WebResource:
                 self.wr_dataset, "http://www.w3.org/1999/xhtml/vocab#"
             )
             # self.wr_dataset.add_graph(self.kg_auto)
+            # print("######################")
+            # for namespace in self.kg_links_header.namespaces():
+            #     print(namespace)
+            # print(self.rdf.serialize(format="trig"))
+            print("HTML: " + str(len(self.kg_html)))
+            print("LINKS HEADERS: " + str(len(self.kg_links_header)))
+            print("AUTO: " + str(len(self.kg_auto)))
+            print("BRUTFORCE: " + str(len(self.kg_brut)))
+            print("LINKS HTML: " + str(len(self.kg_links_html)))
 
         else:
             self.rdf = rdf_graph
 
         self.rdf.namespace_manager.bind("sc", URIRef("http://schema.org/"))
-        self.rdf.namespace_manager.bind("bsc", URIRef("https://bioschemas.org/"))
+        self.rdf.namespace_manager.bind("namespacebsc", URIRef("https://bioschemas.org/"))
         self.rdf.namespace_manager.bind("dct", URIRef("http://purl.org/dc/terms/"))
         self.rdf = clean_kg_excluding_ns_prefix(
             self.rdf, "http://www.w3.org/1999/xhtml/vocab#"
         )
-        print("Full graph size: " + str(len(self.rdf)))
+        # print("Full graph size: " + str(len(self.rdf)))
         # print(self.rdf.serialize(format="json-ld"))
 
+    def init_kgs(self):
+        for var_str in self.kg_var_strings:
+            print(var_str)
 
-    def get_var_name(variable):
-        for name, value in globals().items():
-            if value is variable:
-                return name
+            setattr(WebResource, var_str, ConjunctiveGraph(identifier="http://webresource/" + var_str))
+
+
+            clean_kg_excluding_ns_prefix(
+                getattr(WebResource, var_str), "http://schema.org/"
+            )
+            getattr(WebResource, var_str).namespace_manager.bind("sc", URIRef("http://schema.org/"))
+            getattr(WebResource, var_str).namespace_manager.bind("bsc", URIRef("https://bioschemas.org/"))
+            getattr(WebResource, var_str).namespace_manager.bind("dct", URIRef("http://purl.org/dc/terms/"))
+            # getattr(WebResource, var_str).bind("sc", Namespace("http://schema.org/"))
+            clean_kg_excluding_ns_prefix(
+                getattr(WebResource, var_str), "http://www.w3.org/1999/xhtml/vocab#"
+            )
+
+        # print(self.kg_links_header.namespaces())
+        for namespace in self.kg_links_header.namespaces():
+            print(namespace)
+
+
+        # self.kg_links_header.namespace_manager.bind("sc", URIRef("http://schema.org/"))
+        # self.kg_links_header.namespace_manager.bind("bsc", URIRef("https://bioschemas.org/"))
+        # self.kg_links_header.namespace_manager.bind("dct", URIRef("http://purl.org/dc/terms/"))
+
+
+    # def get_var_name(variable):
+    #     for name, value in globals().items():
+    #         if value is variable:
+    #             return name
 
 
     def get_kg_from_header(self, described_by):
         # get RDF from HTTP headers
-        kg_links_header = ConjunctiveGraph(identifier="http://webresource/links_headers")
+        # kg_links_header = self.kg_links_header
         for link in described_by:
 
             reg_string = '<(.*?)>*;*rel="(.*?)"*;*type="(.*?)"'
@@ -288,9 +318,8 @@ class WebResource:
             rdf_formats = self.get_rdf_format_from_contenttype(link_mimetype)
 
             for rdf_format in rdf_formats:
-                self.get_rdf_from_mimetype_match(url, rdf_format, kg_links_header)
+                self.get_rdf_from_mimetype_match(url, rdf_format, self.kg_links_header)
 
-        return kg_links_header
 
     # def get_kg_from_rdf_formats(self, format):
     #     print("toto")
@@ -325,24 +354,32 @@ class WebResource:
     def get_rdf_from_mimetype_match(self, url, rdf_format, kg):
         logging.debug("Getting RDF from: " + rdf_format)
 
+        kg_temp = ConjunctiveGraph()
+
         response = requests.get(url)
 
         if response.status_code == 200:
             rdf_str = response.text
             try:
                 # TODO check if merging works with ConjunctiveGraph using publicID (seems to keep only latest)
-                kg.parse(
+                kg_temp.parse(
                     data=rdf_str,
                     format=rdf_format,
                     publicID=url,
                 )
+                for s, p, o in kg_temp:
+                    kg.add((s, p, o))
+                print("######################")
+                for namespace in kg.namespaces():
+                    print(namespace)   
             except Exception as err:
                 # if error UnicodeDecodeError execute following code, otherwise continue to next format
                 if type(err).__name__ == "UnicodeDecodeError":
                     print(err)
                     print("ERROR UNICODE")
-                    kg = self.handle_unicodedecodeerror(kg, response)
+                    kg = self.handle_unicodedecodeerror(url, kg, response)
         print(len(kg))
+
         return kg
 
     def get_rdf_format_from_contenttype(self, mimetype):
@@ -360,7 +397,7 @@ class WebResource:
 
         return rdf_formats
 
-    def handle_unicodedecodeerror(self, kg, response):
+    def handle_unicodedecodeerror(self, url, kg, response):
         print("Handle JSON-LD parsing error")
         base_path = Path(__file__).parent.parent  # current directory
         static_file_path = str((base_path / "static/data/jsonldcontext.json").resolve())
@@ -372,10 +409,10 @@ class WebResource:
             ):
                 json_response["@context"] = self.static_file_path
 
-            if ("https://schema.org" in json_response["@context"]) or (
-                "http://schema.org" in json_response["@context"]
-            ):
-                json_response["@context"] = self.static_file_path
+            # if ("https://schema.org" in json_response["@context"]) or (
+            #     "http://schema.org" in json_response["@context"]
+            # ):
+            #     json_response["@context"] = self.static_file_path
 
         # kg.parse(
         #     data=json.dumps(json_response, ensure_ascii=False),
@@ -385,7 +422,12 @@ class WebResource:
 
         json_str = json.dumps(json_response, ensure_ascii=False)
 
-        kg.parse(data=json_str, format="json-ld")
+        kg_temp = ConjunctiveGraph()
+
+        kg_temp.parse(data=json_str, format="json-ld", publicID=url)
+        for s, p, o in kg_temp:
+            kg.add((s, p, o))
+     
         return kg
 
     def retrieve_links_from_headers(self):
@@ -525,13 +567,13 @@ class WebResource:
         for s, p, o in kg_extruct:
             self.kg_html.add((s, p, o))
 
-        self.kg_html.namespace_manager.bind("sc", URIRef("http://schema.org/"))
-        self.kg_html.namespace_manager.bind("bsc", URIRef("https://bioschemas.org/"))
-        self.kg_html.namespace_manager.bind("dct", URIRef("http://purl.org/dc/terms/"))
+        # self.kg_html.namespace_manager.bind("sc", URIRef("http://schema.org/"))
+        # self.kg_html.namespace_manager.bind("bsc", URIRef("https://bioschemas.org/"))
+        # self.kg_html.namespace_manager.bind("dct", URIRef("http://purl.org/dc/terms/"))
 
-        self.kg_links_header.namespace_manager.bind("sc", URIRef("http://schema.org/"))
-        self.kg_links_header.namespace_manager.bind("bsc", URIRef("https://bioschemas.org/"))
-        self.kg_links_header.namespace_manager.bind("dct", URIRef("http://purl.org/dc/terms/"))
+        # self.kg_links_header.namespace_manager.bind("sc", URIRef("http://schema.org/"))
+        # self.kg_links_header.namespace_manager.bind("bsc", URIRef("https://bioschemas.org/"))
+        # self.kg_links_header.namespace_manager.bind("dct", URIRef("http://purl.org/dc/terms/"))
 
         # self.kg_html = kg_extruct
 

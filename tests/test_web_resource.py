@@ -151,7 +151,7 @@ class WebResourceTestCase(unittest.TestCase):
     def test_pangaea(self):
         pangaea_WR = WebResource("https://doi.pangaea.de/10.1594/PANGAEA.932827")
         # logging.info(f"{len(pangaea_WR.get_rdf())} loaded RDF triples")
-        self.assertEqual(251, len(pangaea_WR.get_rdf()))
+        self.assertEqual(246, len(pangaea_WR.get_rdf()))
 
     def test_uniprot(self):
         uniprot_WR = WebResource("https://www.uniprot.org/uniprotkb/P05067/entry")
@@ -161,7 +161,7 @@ class WebResourceTestCase(unittest.TestCase):
     def test_uniprot_rest(self):
         uniprot_rest_WR = WebResource("https://rest.uniprot.org/uniprotkb/P05067.rdf")
         logging.info(f"{len(uniprot_rest_WR.get_rdf())} loaded RDF triples")
-        self.assertEqual(9, len(uniprot_rest_WR.get_rdf()))
+        self.assertEqual(19791, len(uniprot_rest_WR.get_rdf()))
 
     def test_named_graph(self):
 
@@ -196,7 +196,7 @@ class WebResourceTestCase(unittest.TestCase):
 
         # g_all = g_turtle + g_n3
 
-        print(ds.serialize(format="trig"))
+        # print(ds.serialize(format="trig"))
         # print(g_all.serialize(format="trig"))
         print(len(ds))
         for c in ds.graphs():  
@@ -234,7 +234,7 @@ class WebResourceTestCase(unittest.TestCase):
         # print(ds.serialize(format="trig"))
         # print(g_all.serialize(format="trig"))
 
-        for c in ds.graphs():  
+        for c in ds.graphs():
             print(len(c))  
             print(c)  
 
@@ -244,11 +244,19 @@ class WebResourceTestCase(unittest.TestCase):
     def test_wr_named_graph(self):
         url_html = "https://doi.pangaea.de/10.1594/PANGAEA.932827"
         wr_pangaea = WebResource(url_html)
-        for c in wr_pangaea.get_wr_dataset().graphs():
+        for c in wr_pangaea.get_wr_kg_dataset().graphs():
             print(c.identifier)
             print(len(c))
 
-        print(wr_pangaea.get_wr_dataset().serialize(format="trig"))
+        print(wr_pangaea.get_wr_kg_dataset().serialize(format="trig"))
+
+    # def test_define_var(self):
+    #     url_html = "https://doi.pangaea.de/10.1594/PANGAEA.932827"
+    #     wr_pangaea = WebResource(url_html)
+    #     # wr_pangaea.init_kgs()
+
+    #     # print(wr_pangaea.get_wr_dataset().serialize(format="trig"))
+
 
 if __name__ == "__main__":
     unittest.main()
