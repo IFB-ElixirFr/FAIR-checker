@@ -250,6 +250,13 @@ class WebResourceTestCase(unittest.TestCase):
 
         print(wr_pangaea.get_wr_kg_dataset().serialize(format="trig"))
 
+
+    def test_biotools_named_kg(self):
+        bwa = WebResource("http://bio.tools/bwa")
+        for kg in bwa.get_wr_kg_dataset().graphs():
+            print(len(kg))
+        # logging.info(f"{len(bwa.get_wr_kg_dataset())} loaded RDF triples")
+        # self.assertGreaterEqual(len(bwa.get_rdf()), 121)
     # def test_define_var(self):
     #     url_html = "https://doi.pangaea.de/10.1594/PANGAEA.932827"
     #     wr_pangaea = WebResource(url_html)

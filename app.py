@@ -56,7 +56,7 @@ from metrics.WebResource import WebResource
 from metrics.Evaluation import Result
 from profiles.bioschemas_shape_gen import validate_any_from_KG
 from profiles.bioschemas_shape_gen import validate_any_from_microdata
-from metrics.util import SOURCE
+from metrics.util import SOURCE, inspect_onto_reg
 from metrics.F1B_Impl import F1B_Impl
 from urllib.parse import urlparse
 
@@ -607,7 +607,7 @@ class InspectOntologies(Resource):
         web_res = WebResource(url)
         kg = web_res.get_rdf()
 
-        return check_kg(kg, True)
+        return inspect_onto_reg(kg, False)
 
 
 def list_routes():
@@ -1120,13 +1120,15 @@ def handle_embedded_annot_2(data):
     print("handle annot_2")
     sid = request.sid
     print(sid)
-    RDF_TYPE[sid] = "turtle"
+    RDF_TYPE[sid] = "trig"
     uri = str(data["url"])
     print("retrieving embedded annotations for " + uri)
     print("Retrieve KG for uri: " + uri)
 
     web_resource = WebResource(uri)
     kg = web_resource.get_rdf()
+    # kg = web_resource.get_wr_kg_dataset()
+    print(kg.serialize(format="trig"))
     nb_triples = len(kg)
     print(nb_triples)
 
@@ -1355,119 +1357,120 @@ def handle_complete_kg(json):
     print("completing KG for " + str(json["url"]))
 
 
-def check_kg(kg, is_api):
-    query_classes = """
-        SELECT DISTINCT ?class { ?s rdf:type ?class } ORDER BY ?class
-    """
-    query_properties = """
-        SELECT DISTINCT ?prop { ?s ?prop ?o } ORDER BY ?prop
-    """
 
-    table_content = {
-        "classes": [],
-        "classes_false": [],
-        "properties": [],
-        "properties_false": [],
-        "done": False,
-    }
-    qres = kg.query(query_classes)
-    for row in qres:
-        namespace = urlparse(row["class"]).netloc
-        class_entry = {}
+# def inspect_onto_reg(kg, is_inspect_ui):
+#     query_classes = """
+#         SELECT DISTINCT ?class { ?s rdf:type ?class } ORDER BY ?class
+#     """
+#     query_properties = """
+#         SELECT DISTINCT ?prop { ?s ?prop ?o } ORDER BY ?prop
+#     """
 
-        if namespace == "bioschemas.org":
-            class_entry = {
-                "name": row["class"],
-                "tag": {
-                    "OLS": None,
-                    "LOV": None,
-                    "BioPortal": None,
-                    "Bioschemas": True,
-                },
-            }
-        else:
-            class_entry = {
-                "name": row["class"],
-                "tag": {"OLS": None, "LOV": None, "BioPortal": None},
-            }
+#     table_content = {
+#         "classes": [],
+#         "classes_false": [],
+#         "properties": [],
+#         "properties_false": [],
+#         "done": False,
+#     }
+#     qres = kg.query(query_classes)
+#     for row in qres:
+#         namespace = urlparse(row["class"]).netloc
+#         class_entry = {}
 
-        table_content["classes"].append(class_entry)
+#         if namespace == "bioschemas.org":
+#             class_entry = {
+#                 "name": row["class"],
+#                 "tag": {
+#                     "OLS": None,
+#                     "LOV": None,
+#                     "BioPortal": None,
+#                     "Bioschemas": True,
+#                 },
+#             }
+#         else:
+#             class_entry = {
+#                 "name": row["class"],
+#                 "tag": {"OLS": None, "LOV": None, "BioPortal": None},
+#             }
 
-    qres = kg.query(query_properties)
-    for row in qres:
-        namespace = urlparse(row["prop"]).netloc
-        property_entry = {}
+#         table_content["classes"].append(class_entry)
 
-        if namespace == "bioschemas.org":
-            property_entry = {
-                "name": row["prop"],
-                "tag": {
-                    "OLS": None,
-                    "LOV": None,
-                    "BioPortal": None,
-                    "Bioschemas": True,
-                },
-            }
-        else:
-            property_entry = {
-                "name": row["prop"],
-                "tag": {"OLS": None, "LOV": None, "BioPortal": None},
-            }
+#     qres = kg.query(query_properties)
+#     for row in qres:
+#         namespace = urlparse(row["prop"]).netloc
+#         property_entry = {}
 
-        table_content["properties"].append(property_entry)
+#         if namespace == "bioschemas.org":
+#             property_entry = {
+#                 "name": row["prop"],
+#                 "tag": {
+#                     "OLS": None,
+#                     "LOV": None,
+#                     "BioPortal": None,
+#                     "Bioschemas": True,
+#                 },
+#             }
+#         else:
+#             property_entry = {
+#                 "name": row["prop"],
+#                 "tag": {"OLS": None, "LOV": None, "BioPortal": None},
+#             }
 
-    if not is_api:
-        emit("done_check", table_content)
+#         table_content["properties"].append(property_entry)
 
-    for c in table_content["classes"]:
+#     if is_inspect_ui:
+#         emit("done_check", table_content)
 
-        c["tag"]["OLS"] = util.ask_OLS(c["name"])
-        if not is_api:
-            emit("done_check", table_content)
+#     for c in table_content["classes"]:
 
-        c["tag"]["LOV"] = util.ask_LOV(c["name"])
-        if not is_api:
-            emit("done_check", table_content)
+#         c["tag"]["OLS"] = util.ask_OLS(c["name"])
+#         if is_inspect_ui:
+#             emit("done_check", table_content)
 
-        c["tag"]["BioPortal"] = util.ask_BioPortal(c["name"], "class")
-        if not is_api:
-            emit("done_check", table_content)
+#         c["tag"]["LOV"] = util.ask_LOV(c["name"])
+#         if is_inspect_ui:
+#             emit("done_check", table_content)
 
-        all_false_rule = [
-            c["tag"]["OLS"] == False,
-            c["tag"]["LOV"] == False,
-            c["tag"]["BioPortal"] == False,
-        ]
+#         c["tag"]["BioPortal"] = util.ask_BioPortal(c["name"], "class")
+#         if is_inspect_ui:
+#             emit("done_check", table_content)
 
-        if all(all_false_rule) and not "Bioschemas" in c["tag"]:
-            table_content["classes_false"].append(c["name"])
+#         all_false_rule = [
+#             c["tag"]["OLS"] == False,
+#             c["tag"]["LOV"] == False,
+#             c["tag"]["BioPortal"] == False,
+#         ]
 
-    for p in table_content["properties"]:
+#         if all(all_false_rule) and not "Bioschemas" in c["tag"]:
+#             table_content["classes_false"].append(c["name"])
 
-        p["tag"]["OLS"] = util.ask_OLS(p["name"])
-        if not is_api:
-            emit("done_check", table_content)
+#     for p in table_content["properties"]:
 
-        p["tag"]["LOV"] = util.ask_LOV(p["name"])
-        if not is_api:
-            emit("done_check", table_content)
+#         p["tag"]["OLS"] = util.ask_OLS(p["name"])
+#         if is_inspect_ui:
+#             emit("done_check", table_content)
 
-        p["tag"]["BioPortal"] = util.ask_BioPortal(p["name"], "property")
-        if not is_api:
-            emit("done_check", table_content)
+#         p["tag"]["LOV"] = util.ask_LOV(p["name"])
+#         if is_inspect_ui:
+#             emit("done_check", table_content)
 
-        all_false_rule = [
-            p["tag"]["OLS"] == False,
-            p["tag"]["LOV"] == False,
-            p["tag"]["BioPortal"] == False,
-        ]
-        if all(all_false_rule) and not "Bioschemas" in p["tag"]:
-            table_content["properties_false"].append(p["name"])
+#         p["tag"]["BioPortal"] = util.ask_BioPortal(p["name"], "property")
+#         if is_inspect_ui:
+#             emit("done_check", table_content)
 
-    table_content["done"] = True
-    if not is_api:
-        emit("done_check", table_content)
-    return table_content
+#         all_false_rule = [
+#             p["tag"]["OLS"] == False,
+#             p["tag"]["LOV"] == False,
+#             p["tag"]["BioPortal"] == False,
+#         ]
+#         if all(all_false_rule) and not "Bioschemas" in p["tag"]:
+#             table_content["properties_false"].append(p["name"])
+
+#     table_content["done"] = True
+#     if is_inspect_ui:
+#         emit("done_check", table_content)
+#     return table_content
 
 
 @socketio.on("check_kg")
@@ -1482,7 +1485,7 @@ def check_vocabularies(data):
         handle_embedded_annot(data)
     kg = KGS[sid]
 
-    check_kg(kg, False)
+    inspect_onto_reg(kg, True)
 
 
 @DeprecationWarning

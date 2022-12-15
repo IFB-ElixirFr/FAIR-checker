@@ -257,6 +257,9 @@ class WebResource:
             print("BRUTFORCE: " + str(len(self.kg_brut)))
             print("LINKS HTML: " + str(len(self.kg_links_html)))
 
+            for kg in self.get_wr_kg_dataset().graphs():
+                print(len(kg))
+
         else:
             self.rdf = rdf_graph
 
@@ -271,7 +274,7 @@ class WebResource:
 
     def init_kgs(self):
         for var_str in self.kg_var_strings:
-            print(var_str)
+            # print(var_str)
 
             setattr(WebResource, var_str, ConjunctiveGraph(identifier="http://webresource/" + var_str))
 
@@ -288,8 +291,8 @@ class WebResource:
             )
 
         # print(self.kg_links_header.namespaces())
-        for namespace in self.kg_links_header.namespaces():
-            print(namespace)
+        # for namespace in self.kg_links_header.namespaces():
+        #     print(namespace)
 
 
         # self.kg_links_header.namespace_manager.bind("sc", URIRef("http://schema.org/"))
@@ -330,7 +333,7 @@ class WebResource:
     def get_rdf(self):
         return self.rdf
 
-    def get_wr_dataset(self):
+    def get_wr_kg_dataset(self):
         return self.wr_dataset
 
     def get_kg_auto(self):
@@ -369,9 +372,9 @@ class WebResource:
                 )
                 for s, p, o in kg_temp:
                     kg.add((s, p, o))
-                print("######################")
-                for namespace in kg.namespaces():
-                    print(namespace)   
+                # print("######################")
+                # for namespace in kg.namespaces():
+                #     print(namespace)   
             except Exception as err:
                 # if error UnicodeDecodeError execute following code, otherwise continue to next format
                 if type(err).__name__ == "UnicodeDecodeError":
@@ -561,7 +564,7 @@ class WebResource:
 
         kg_extruct = kg_jsonld + kg_rdfa + kg_microdata
 
-        logging.debug(kg_extruct.serialize(format="turtle"))
+        # logging.debug(kg_extruct.serialize(format="turtle"))
 
 
         for s, p, o in kg_extruct:

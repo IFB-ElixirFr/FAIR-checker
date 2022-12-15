@@ -21,11 +21,13 @@ from selenium.webdriver.chrome.options import Options
 from cachetools import cached, TTLCache
 from flask import Flask
 from flask import current_app
+from flask_socketio import emit
 import logging
 import copy
 import re
 import validators
 from requests.auth import HTTPBasicAuth
+from urllib.parse import urlparse
 
 
 class SOURCE(Enum):
@@ -300,6 +302,119 @@ def ask_LOV(uri):
         app.logger.error(res.text)
         return None
 
+def inspect_onto_reg(kg, is_inspect_ui):
+    query_classes = """
+        SELECT DISTINCT ?class { ?s rdf:type ?class } ORDER BY ?class
+    """
+    query_properties = """
+        SELECT DISTINCT ?prop { ?s ?prop ?o } ORDER BY ?prop
+    """
+
+    table_content = {
+        "classes": [],
+        "classes_false": [],
+        "properties": [],
+        "properties_false": [],
+        "done": False,
+    }
+    qres = kg.query(query_classes)
+    for row in qres:
+        namespace = urlparse(row["class"]).netloc
+        class_entry = {}
+
+        if namespace == "bioschemas.org":
+            class_entry = {
+                "name": row["class"],
+                "tag": {
+                    "OLS": None,
+                    "LOV": None,
+                    "BioPortal": None,
+                    "Bioschemas": True,
+                },
+            }
+        else:
+            class_entry = {
+                "name": row["class"],
+                "tag": {"OLS": None, "LOV": None, "BioPortal": None},
+            }
+
+        table_content["classes"].append(class_entry)
+
+    qres = kg.query(query_properties)
+    for row in qres:
+        namespace = urlparse(row["prop"]).netloc
+        property_entry = {}
+
+        if namespace == "bioschemas.org":
+            property_entry = {
+                "name": row["prop"],
+                "tag": {
+                    "OLS": None,
+                    "LOV": None,
+                    "BioPortal": None,
+                    "Bioschemas": True,
+                },
+            }
+        else:
+            property_entry = {
+                "name": row["prop"],
+                "tag": {"OLS": None, "LOV": None, "BioPortal": None},
+            }
+
+        table_content["properties"].append(property_entry)
+
+    if is_inspect_ui:
+        emit("done_check", table_content)
+
+    for c in table_content["classes"]:
+
+        c["tag"]["OLS"] = ask_OLS(c["name"])
+        if is_inspect_ui:
+            emit("done_check", table_content)
+
+        c["tag"]["LOV"] = ask_LOV(c["name"])
+        if is_inspect_ui:
+            emit("done_check", table_content)
+
+        c["tag"]["BioPortal"] = ask_BioPortal(c["name"], "class")
+        if is_inspect_ui:
+            emit("done_check", table_content)
+
+        all_false_rule = [
+            c["tag"]["OLS"] == False,
+            c["tag"]["LOV"] == False,
+            c["tag"]["BioPortal"] == False,
+        ]
+
+        if all(all_false_rule) and not "Bioschemas" in c["tag"]:
+            table_content["classes_false"].append(c["name"])
+
+    for p in table_content["properties"]:
+
+        p["tag"]["OLS"] = ask_OLS(p["name"])
+        if is_inspect_ui:
+            emit("done_check", table_content)
+
+        p["tag"]["LOV"] = ask_LOV(p["name"])
+        if is_inspect_ui:
+            emit("done_check", table_content)
+
+        p["tag"]["BioPortal"] = ask_BioPortal(p["name"], "property")
+        if is_inspect_ui:
+            emit("done_check", table_content)
+
+        all_false_rule = [
+            p["tag"]["OLS"] == False,
+            p["tag"]["LOV"] == False,
+            p["tag"]["BioPortal"] == False,
+        ]
+        if all(all_false_rule) and not "Bioschemas" in p["tag"]:
+            table_content["properties_false"].append(p["name"])
+
+    table_content["done"] = True
+    if is_inspect_ui:
+        emit("done_check", table_content)
+    return table_content
 
 # @Deprecated
 def gen_shape(property_list=None, class_list=None, recommendation=None):
