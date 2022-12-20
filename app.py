@@ -1793,10 +1793,12 @@ parser = argparse.ArgumentParser(
 FAIR-Checker, a web and command line tool to assess FAIRness of web accessible resources.
 Usage examples :
     python app.py --web
-    python app.py --url http://bio.tools/bwa
-    python app.py --bioschemas --url http://bio.tools/bwa
+    python cli.py --evaluate --urls http://bio.tools/bwa
+    python cli.py --validate-bioschemas --url http://bio.tools/bwa
+    python cli.py --extract-metadata --urls http://bio.tools/bwa -o metadata_dump
+    python cli.py --extract-metadata --url-collection input_urls.txt
 
-Please report any issue to thomas.rosnet@france-bioinforatique.fr,
+Please report any issue to alban.gaignard@univ-nantes.fr, thomas.rosnet@france-bioinforatique.fr, sahar.frikha@france-bioinformatique.fr,
 or submit an issue to https://github.com/IFB-ElixirFr/fair-checker/issues.
 """,
     formatter_class=RawTextHelpFormatter,

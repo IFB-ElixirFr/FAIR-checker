@@ -10,10 +10,10 @@ parser = argparse.ArgumentParser(
 FAIR-Checker, a web and command line tool to assess FAIRness of web accessible resources.
 Usage examples :
     python app.py --web
-    python app.py --evaluate --urls http://bio.tools/bwa
-    python app.py --validate-bioschemas --url http://bio.tools/bwa
-    python app.py --extract-metadata --urls http://bio.tools/bwa -o metadata_dump
-    python app.py --extract-metadata --url-collection input_urls.txt
+    python cli.py --evaluate --urls http://bio.tools/bwa
+    python cli.py --validate-bioschemas --url http://bio.tools/bwa
+    python cli.py --extract-metadata --urls http://bio.tools/bwa -o metadata_dump
+    python cli.py --extract-metadata --url-collection input_urls.txt
 
 Please report any issue to alban.gaignard@univ-nantes.fr, thomas.rosnet@france-bioinforatique.fr, sahar.frikha@france-bioinformatique.fr,
 or submit an issue to https://github.com/IFB-ElixirFr/fair-checker/issues.
@@ -2116,63 +2116,59 @@ if __name__ == "__main__":
 
                 # metrics_collection.append(FAIRMetricsFactory.get_A11(web_res))
 
-                if args.bioschemas:
-                    logging.info("Bioschemas eval")
+                F_norm = 0
+                A_norm = 0
+                I_norm = 0
+                R_norm = 0
 
-                else:
-                    F_norm = 0
-                    A_norm = 0
-                    I_norm = 0
-                    R_norm = 0
-
-                    for m in track(metrics_collection, "Processing FAIR metrics ..."):
-                        logging.info(m.get_principle_tag())
-                        logging.info(m.get_name())
-                        res = m.evaluate()
-                        if m.get_principle_tag().startswith("F"):
-                            F_norm += int(res.get_score())
-                            table.add_row(
-                                Text(
-                                    m.get_name() + " " + str(res.get_score()),
-                                    style=get_result_style(res),
-                                ),
-                                "",
-                                "",
-                                "",
-                            )
-                        # elif m.get_principle_tag().startswith("A"):
-                        #     A_norm += int(res.get_score())
-                        #     table.add_row(
-                        #         "",
-                        #         Text(
-                        #             m.get_name() + " " + str(res.get_score()),
-                        #             style=get_result_style(res),
-                        #         ),
-                        #         "",
-                        #         "",
-                        #     )
-                        elif m.get_principle_tag().startswith("I"):
-                            I_norm += int(res.get_score())
-                            table.add_row(
-                                "",
-                                "",
-                                Text(
-                                    m.get_name() + " " + str(res.get_score()),
-                                    style=get_result_style(res),
-                                ),
-                                "",
-                            )
-                        elif m.get_principle_tag().startswith("R"):
-                            R_norm += int(res.get_score())
-                            table.add_row(
-                                "",
-                                "",
-                                "",
-                                Text(
-                                    f"{m.get_name()} {str(res.get_score())}",
-                                    style=get_result_style(res),
-                                ),
-                            )
+                for m in track(metrics_collection, "Processing FAIR metrics ..."):
+                    logging.info(m.get_principle_tag())
+                    logging.info(m.get_name())
+                    res = m.evaluate()
+                    if m.get_principle_tag().startswith("F"):
+                        F_norm += int(res.get_score())
+                        table.add_row(
+                            Text(
+                                m.get_name() + " " + str(res.get_score()),
+                                style=get_result_style(res),
+                            ),
+                            "",
+                            "",
+                            "",
+                        )
+                    # elif m.get_principle_tag().startswith("A"):
+                    #     A_norm += int(res.get_score())
+                    #     table.add_row(
+                    #         "",
+                    #         Text(
+                    #             m.get_name() + " " + str(res.get_score()),
+                    #             style=get_result_style(res),
+                    #         ),
+                    #         "",
+                    #         "",
+                    #     )
+                    elif m.get_principle_tag().startswith("I"):
+                        I_norm += int(res.get_score())
+                        table.add_row(
+                            "",
+                            "",
+                            Text(
+                                m.get_name() + " " + str(res.get_score()),
+                                style=get_result_style(res),
+                            ),
+                            "",
+                        )
+                    elif m.get_principle_tag().startswith("R"):
+                        R_norm += int(res.get_score())
+                        table.add_row(
+                            "",
+                            "",
+                            "",
+                            Text(
+                                f"{m.get_name()} {str(res.get_score())}",
+                                style=get_result_style(res),
+                            ),
+                        )
 
                 console.rule(f"[bold red]FAIRness evaluation for file {file}")
                 console.print(table)
@@ -2230,57 +2226,54 @@ if __name__ == "__main__":
                 metrics_collection.append(FAIRMetricsFactory.get_R12(web_res))
                 metrics_collection.append(FAIRMetricsFactory.get_R13(web_res))
 
-                if args.bioschemas:
-                    logging.debug("Bioschemas eval")
-                else:
-                    for m in track(metrics_collection, "Processing FAIR metrics ..."):
-                        logging.debug(m.get_name())
-                        res = m.evaluate()
-                        if m.get_principle_tag().startswith("F"):
-                            table.add_row(
-                                Text(
-                                    m.get_name() + " " + str(res.get_score()),
-                                    style=get_result_style(res),
-                                ),
-                                "",
-                                "",
-                                "",
-                            )
-                        elif m.get_principle_tag().startswith("A"):
-                            table.add_row(
-                                "",
-                                Text(
-                                    m.get_name() + " " + str(res.get_score()),
-                                    style=get_result_style(res),
-                                ),
-                                "",
-                                "",
-                            )
-                        elif m.get_principle_tag().startswith("I"):
-                            table.add_row(
-                                "",
-                                "",
-                                Text(
-                                    m.get_name() + " " + str(res.get_score()),
-                                    style=get_result_style(res),
-                                ),
-                                "",
-                            )
-                        elif m.get_principle_tag().startswith("R"):
-                            table.add_row(
-                                "",
-                                "",
-                                "",
-                                Text(
-                                    f"{m.get_name()} {str(res.get_score())}",
-                                    style=get_result_style(res),
-                                ),
-                            )
+                for m in track(metrics_collection, "Processing FAIR metrics ..."):
+                    logging.debug(m.get_name())
+                    res = m.evaluate()
+                    if m.get_principle_tag().startswith("F"):
+                        table.add_row(
+                            Text(
+                                m.get_name() + " " + str(res.get_score()),
+                                style=get_result_style(res),
+                            ),
+                            "",
+                            "",
+                            "",
+                        )
+                    elif m.get_principle_tag().startswith("A"):
+                        table.add_row(
+                            "",
+                            Text(
+                                m.get_name() + " " + str(res.get_score()),
+                                style=get_result_style(res),
+                            ),
+                            "",
+                            "",
+                        )
+                    elif m.get_principle_tag().startswith("I"):
+                        table.add_row(
+                            "",
+                            "",
+                            Text(
+                                m.get_name() + " " + str(res.get_score()),
+                                style=get_result_style(res),
+                            ),
+                            "",
+                        )
+                    elif m.get_principle_tag().startswith("R"):
+                        table.add_row(
+                            "",
+                            "",
+                            "",
+                            Text(
+                                f"{m.get_name()} {str(res.get_score())}",
+                                style=get_result_style(res),
+                            ),
+                        )
 
-                console.rule(f"[bold red]FAIRness evaluation for URL {url}")
-                console.print(table)
-                elapsed_time = round((time.time() - start_time), 2)
-                logging.info(f"FAIR metrics evaluated in {elapsed_time} s")
+            console.rule(f"[bold red]FAIRness evaluation for URL {url}")
+            console.print(table)
+            elapsed_time = round((time.time() - start_time), 2)
+            logging.info(f"FAIR metrics evaluated in {elapsed_time} s")
 
         else:
             logging.warning(
