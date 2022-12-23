@@ -1,0 +1,29 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=464343> a ns1:MedicalCondition ;
+        ns1:alternateName "CAPS",
+            "Catastrophic APS" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "D68.6" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:464343" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D68.6" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:464343" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare systemic autoimmune disease characterized by acute onset of life-threatening thromboses in three or more organs either simultaneously or within less than a week, in the presence of serum antiphospholipid antibodies (such as lupus anticoagulant, anticardiolipin antibodies, and anti-beta2-glycoprotein 1 antibodies), and with histopathological confirmation of small-vessel occlusion in at least one affected organ. The condition occurs in a small subset of patients with antiphospholipid syndrome, often precipitated by infection, trauma, or surgery." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "464343" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Catastrophic antiphospholipid syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Catastrophic antiphospholipid syndrome" ] .
+}
+

@@ -1,0 +1,35 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=100071> a ns1:MedicalCondition ;
+        ns1:alternateName "Mosaic trisomy chromosome 3",
+            "Trisomy 3 mosaicism" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "Q92.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "5342" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:100071" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:100071" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "5342" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q92.1" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "Mosaic trisomy 3 is a rare chromosomal anomaly syndrome with high phenotypic variability ranging from a mild phenotype presenting joint pain and laxity, mild facial dysmorphism (e.g. long facies, prominent eyes, dysplastic ears, downturned corners of the mouth, micrognathia) and no developmental delays to more severe phenotypes including short stature, intellectual disability, severe developmental delays, additional craniofacial dysmorphic features (e.g. brachycephaly, high forehead, flat midface, short neck) and hearing impairment, as well as skeletal (e.g. pectus excavatum, scoliosis), ocular (e.g. coloboma) and cardiac abnormalities." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "100071" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Mosaic trisomy 3" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Mosaic trisomy 3" ] .
+}
+

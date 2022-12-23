@@ -1,0 +1,20 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=457485> a ns1:MedicalCondition ;
+        ns1:alternateName "MINDS syndrome",
+            "Smith-Kingsmore syndrome" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "616638" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:457485" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare multiple congenital anomalies/dysmorphic syndrome with intellectual disability, characterized by macrocephaly, intellectual disability, seizures, dysmorphic facial features (including tall forehead, downslanting palpebral fissures, hypertelorism, depressed nasal bridge, and macrostomia), megalencephaly, and small thorax. Other reported features are umbilical hernia, muscular hypotonia, global developmental delay, autistic behavior, and café-au-lait spots, among others." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "457485" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Macrocephaly-intellectual disability-neurodevelopmental disorder-small thorax syndrome" ] .
+}
+

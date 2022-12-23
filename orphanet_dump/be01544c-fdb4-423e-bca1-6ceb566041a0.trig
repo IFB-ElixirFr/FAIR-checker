@@ -1,0 +1,21 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=529977> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:529977" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:529977" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare genetic immune disease characterized by early onset of recurrent bacterial, viral, and fungal infections, chronic inflammatory bowel disease, gastritis, and inflammatory polyarthritis. Patients present with diarrhea, vomiting, hepatosplenomegaly, mouth ulcers, perianal abscesses, chronic lung disease with bronchiectasis, and failure to thrive. Occurrence of a skin rash associated with lymphocytic vasculitis has also been reported. Immunologic abnormalities include variable T-cell lymphopenia, decreased natural killer cells, and decreased B-cells with variable hypogammaglobulinemia." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "529977" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Immune dysregulation-inflammatory bowel disease-arthritis-recurrent infections-lymphopenia syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Immune dysregulation-inflammatory bowel disease-arthritis-recurrent infections-lymphopenia syndrome" ] .
+}
+

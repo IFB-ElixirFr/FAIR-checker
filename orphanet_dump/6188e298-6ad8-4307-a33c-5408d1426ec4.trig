@@ -1,0 +1,32 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=247245> a ns1:MedicalCondition ;
+        ns1:alternateName "Hemosiderosis of the central nervous system",
+            "Superficial hemosiderosis of the CNS",
+            "Superficial hemosiderosis of the central nervous system",
+            "Superficial siderosis of the CNS",
+            "Superficial siderosis of the central nervous system" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "I69.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:247245" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:247245" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "I69.0" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "Superficial siderosis is a rare neurologic disease characterized by progressive sensorineural hearing loss, cerebellar ataxia, pyramidal signs, and neuroimaging findings revealing hemosiderin deposits in the spinal and cranial leptomeninges and subpial layer. The disease progresses slowly and patients may present with mild cognitive impairment, nystagmus, dysmetria, spasticity, dysdiadochokinesia, dysarthria, hyperreflexia, and Babinski signs. Additional features reported include dementia, urinary incontinence, anosmia, ageusia, and anisocoria." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "247245" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Superficial siderosis" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Superficial siderosis" ] .
+}
+

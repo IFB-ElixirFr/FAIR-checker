@@ -1,0 +1,43 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=306530> a ns1:MedicalCondition ;
+        ns1:alternateName "Congenital hereditary facial palsy with variable deafness",
+            "Congenital hereditary facial palsy with variable hearing loss",
+            "Congenital hereditary facial paralysis with variable deafness",
+            "Congenital hereditary facial paralysis-variable deafness syndrome" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:306530" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "604185" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q87.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "614744" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q87.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "614744" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "604185" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:306530" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "Congenital hereditary facial paralysis-variable hearing loss syndrome is an extremely rare autosomal recessive disorder characterized by bilateral facial palsy with masked facies, sensorineural hearing loss, dysmorphic features (midfacial retrusion, low-set ears), and strabismus." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "306530" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Congenital hereditary facial paralysis-variable hearing loss syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Congenital hereditary facial paralysis-variable hearing loss syndrome" ] .
+}
+

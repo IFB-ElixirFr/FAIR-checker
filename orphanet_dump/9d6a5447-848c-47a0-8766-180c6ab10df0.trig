@@ -1,0 +1,40 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=35878> a ns1:MedicalCondition ;
+        ns1:alternateName "HI/HA syndrome" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "606762" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:35878" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "606762" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E72.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E72.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "9931" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "9931" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:35878" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare diffuse form of congenital hyperinsulinism characterized by an excessive/ uncontrolled insulin secretion (inappropriate for the level of glycemia), chronic hyperammonemia and recurrent episodes of hypoglycemia induced by fasting and protein rich meals. Epilepsy and cognitive deficit, which are unrelated to hypoglycemia but possibly related to the chronic hyperammonemia, may also occur. This disorder is usually responsive to diazoxide treatment." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "35878" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Hyperinsulinism-hyperammonemia syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Hyperinsulinism-hyperammonemia syndrome" ] .
+}
+

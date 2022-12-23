@@ -1,0 +1,36 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=86908> a ns1:MedicalCondition ;
+        ns1:alternateName "HHE syndrome",
+            "Hemiconvulsion-hemiplegia-epilepsy syndrome",
+            "IHHS" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:86908" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:86908" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0549118" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0549118" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G40.4" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G40.4" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "A rare acute encephalopathy with inflammation-mediated status epilepticus characterized by infancy-onset of refractory unilateral, mainly clonic status epilepticus during or shortly after a febrile episode without evidence of central nervous system infection, followed by permanent or transient hemiplegia with a minimum duration of one week. The majority of children develop pharmaco-resistant epilepsy a few months later. Brain imaging shows edematous swelling of the affected hemisphere at the time of the initial status, followed by hemiatrophy that does not correlate with any vascular territory." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "86908" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Idiopathic hemiconvulsion-hemiplegia syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Idiopathic hemiconvulsion-hemiplegia syndrome" ] .
+}
+

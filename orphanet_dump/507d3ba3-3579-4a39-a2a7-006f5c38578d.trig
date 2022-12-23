@@ -1,0 +1,30 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=1642> a ns1:MedicalCondition ;
+        ns1:alternateName "Distal deletion 9p",
+            "Monosomy 9pter",
+            "Telomeric deletion 9p" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:1642" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q93.5" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:1642" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q93.5" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "Distal monosomy 9p is a rare chromosomal anomaly syndrome, resulting from a partial deletion of the short arm of chromosome 9, with a highly variable phenotype typically characterized by intellectual disability, craniofacial dysmorphism (trigonocephaly, upslanting palpebral fissures, hypoplastic supraorbital ridges), abnormal digits (long middle phalanges with short distal phalanges), as well as frequent association with genitourinary abnormalities (cryptorchidism, hypospadias, ambiguous genitalia, 46,XY testicular dysgenesis). Congenital hypothyroidism and cardiovascular defects have been reported in some cases. Patients present an increased risk for gonadoblastoma." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "1642" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Distal monosomy 9p" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Distal monosomy 9p" ] .
+}
+

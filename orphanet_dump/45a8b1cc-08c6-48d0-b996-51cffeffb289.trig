@@ -1,0 +1,22 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=281103> a ns1:MedicalCondition ;
+        ns1:alternateName "KPI" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:281103" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:281103" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A group of rare inherited non-syndromic ichthyoses characterized by mutations in keratin genes. Mutations in <i>KRT1</i> and <i>KRT10</i> cause most cases of epidermolytic ichthyosis (EI), as well as congenital reticular ichthyosiform erythroderma (CRIE). EI manifests at birth with generalized blistering, which later transforms into hyperkeratosis. Severe palmoplantar involvement is suggestive of the presence of a <i>KRT1</i> mutation. CRIE patients present at birth with erythroderma and scaling, often with a collodion membrane, and gradually develop confetti-like clear areas of normal skin. <i>KRT2</i> mutations are associated with superficial epidermolytic ichthyosis (SEI), which is clinically similar to EI, but generally milder and more localized." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "281103" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Keratinopathic ichthyosis" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Keratinopathic ichthyosis" ] .
+}
+

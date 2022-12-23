@@ -1,0 +1,41 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=90023> a ns1:MedicalCondition ;
+        ns1:alternateName "Primary immunodeficiency syndrome due to p14 deficiency",
+            "Primary immunodeficiency syndrome with short stature" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "610798" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:90023" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:90023" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C1835829" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D82.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "610798" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D82.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C1835829" ;
+                ns1:codingSystem "UMLS" ] ;
+        ns1:description "Primary immunodeficiency syndrome due to p14 deficiency is characterised by short stature, hypopigmentation, coarse facies and frequent bronchopulmonary <i>Streptococcus pneumoniae</i> infections." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "90023" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Primary immunodeficiency syndrome due to LAMTOR2 deficiency" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Primary immunodeficiency syndrome due to LAMTOR2 deficiency" ] .
+}
+

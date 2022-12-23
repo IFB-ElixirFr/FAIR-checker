@@ -1,0 +1,51 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=83311> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:83311" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "A77.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:83311" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0035793" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10039207" ;
+                ns1:codingSystem "MedDRA" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "7585" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D012373" ;
+                ns1:codingSystem "MeSH" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0035793" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "A77.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "7585" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10039207" ;
+                ns1:codingSystem "MedDRA" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D012373" ;
+                ns1:codingSystem "MeSH" ] ;
+        ns1:description "A rare, acquired, life-threatening, infectious disease due to the tick-borne bacteria <i>Rickettsia rickettsii</i> characterized by an acute onset of fever, malaise, and severe headache, variably accompanied by myalgia, anorexia, nausea, vomiting, abdominal pain, and photophobia, associating (2-5 days after fever onset) a typically erythematous, blanching or non-blanching, maculopapluar rash with petechiae, starting on the wrists and ankles and progressing centrifugally to the palms and soles and centripetally to the arms, legs and trunk. Additonal variable features may include conjunctivitis, mucosal ulcers, post-inflammatory hyperpigmentation, jaundice, pneumonia, hepatomegaly, renal failure, meningismus, amnesia, optic disc edema, and ocular arterial occlusion." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "83311" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Rocky Mountain spotted fever" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Rocky Mountain spotted fever" ] .
+}
+

@@ -1,0 +1,28 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=230800> a ns1:MedicalCondition ;
+        ns1:alternateName "Toxin-mediated infective botulism" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "A05.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "A05.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:230800" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:230800" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "Infectious botulism is a form of botulism (see this term), a rare acquired neuromuscular junction disease, characterized by descending flaccid paralysis caused by botulinum neurotoxins (BoNTs), produced <i>in vivo</i> leading to toxin-mediated infection. Infectious botulism includes wound botulism and intestinal toxemia botulism (infant botulism and adult intestinal botulism; see these terms)." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "230800" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Toxin-mediated infectious botulism" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Toxin-mediated infectious botulism" ] .
+}
+

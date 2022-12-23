@@ -1,0 +1,18 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=2722> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:2722" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "4051" ;
+                ns1:codingSystem "GARD" ] ;
+        ns1:description "Odonto-onycho dysplasia-alopecia syndrome is a rare, genetic ectodermal dysplasia syndrome characterized by almost total alopecia with only sparse, thin, brittle, slow-growing scalp hair, fair and sparse eyebrows and eyelashes, absent axillary and pubic hair, fragile and brittle fingernails, thick and brittle toenails (both with a subungual corneal layer), hypodontia, microdontia, widely spaced teeth with hypoplastic enamel, mild palmoplantar keratosis, café-au-lait spots and areolae anomalies. There have been no further descriptions in the literature since 1985." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "2722" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Odonto-onycho dysplasia-alopecia syndrome" ] .
+}
+

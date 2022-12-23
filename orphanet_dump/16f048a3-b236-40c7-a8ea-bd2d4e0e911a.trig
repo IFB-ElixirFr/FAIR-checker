@@ -1,0 +1,22 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=275803> a ns1:MedicalCondition ;
+        ns1:alternateName "PAH associated with congenital heart disease" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:275803" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:275803" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "Pulmonary arterial hypertension associated with congenital heart disease (PAH-CHD) is a form of pulmonary arterial hypertension (PAH, see this term), characterized by elevated pulmonary arterial resistance leading to right heart failure occurring as a common complication of congenital heart malformations (see this term) with left to right cardiac shunts. Eisenmenger syndrome (see this term) is the most advanced form of PAH-CHD and is defined as the complete or partial reversal of an initial left-to-right shunt to a right-to-left shunt, causing cyanosis and limited exercise capacity. PAH-CHD also includes mild to moderate systemic-to-pulmonary shunts with no cyanosis at rest, patients with small defects, and those with residual PAH following corrective cardiac surgery." ;
+        ns1:epidemiology "Prevalence : 1-9 / 1 000 000" ;
+        ns1:identifier "275803" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Pulmonary arterial hypertension associated with congenital heart disease" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Pulmonary arterial hypertension associated with congenital heart disease" ] .
+}
+

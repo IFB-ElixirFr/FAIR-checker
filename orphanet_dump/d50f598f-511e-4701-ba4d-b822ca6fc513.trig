@@ -1,0 +1,38 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=300373> a ns1:MedicalCondition ;
+        ns1:alternateName "Familial infantile gigantism",
+            "Hereditary infantile gigantism",
+            "Hereditary pituitary hyperplasia",
+            "Infantile gigantism due to pituitary hyperplasia",
+            "X-LAG" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "300942" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E22.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:300373" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "300942" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E22.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:300373" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare, genetic pituitary disease characterized by infantile-onset, rapid and excessive acceleration of linear growth and body size due to mixed growth hormone (GH)- and prolactin-secreting adenomas and/or pituitary hyperplasia. Patients present with gigantism and may have associated acromegalic features (e.g. coarse facial features, frontal bossing, prognathism, increased interdental space) as well as marked enlargement of hands and feet, soft tissue swelling, increased appetite and acanthosis nigricans." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "300373" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "X-linked acrogigantism" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "X-linked acrogigantism" ] .
+}
+

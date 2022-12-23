@@ -1,0 +1,34 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=482077> a ns1:MedicalCondition ;
+        ns1:alternateName "HTRA1-related autosomal dominant cerebral angiopathy" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:482077" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "I67.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "616779" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "616779" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:482077" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "I67.8" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "A rare genetic cerebral small vessel disease characterized by subcortical ischemic events associated with cognitive decline and gait disturbance with an age of onset typically in the sixth or seventh decade of life. Imaging reveals white matter hyperintensities, status cribrosus, lacunar infarcts, and sometimes microbleeds. Extra-neurological manifestations are absent." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "482077" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "HTRA1-related autosomal dominant cerebral small vessel disease" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "HTRA1-related autosomal dominant cerebral small vessel disease" ] .
+}
+

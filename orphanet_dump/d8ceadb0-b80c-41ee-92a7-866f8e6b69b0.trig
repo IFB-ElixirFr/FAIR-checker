@@ -1,0 +1,35 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=363981> a ns1:MedicalCondition ;
+        ns1:alternateName "CMT4B3",
+            "Charcot-Marie-Tooth disease with focally folded myelin" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:363981" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:363981" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G60.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "615284" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G60.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "615284" ;
+                ns1:codingSystem "OMIM" ] ;
+        ns1:description "Charcot-Marie-Tooth disease type 4B3 (CMT4B3) is a subtype of Charcot-Marie-Tooth type 4 characterized by a childhood onset of slowly progressing, demyelinating sensorimotor neuropathy, focally folded myelin sheaths in nerve biopsy, reduced nerve conduction velocities (less than 38 m/s), and the typical CMT phenotype (i.e. distal muscle weakness and atrophy, and sensory loss)." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "363981" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Charcot-Marie-Tooth disease type 4B3" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Charcot-Marie-Tooth disease type 4B3" ] .
+}
+

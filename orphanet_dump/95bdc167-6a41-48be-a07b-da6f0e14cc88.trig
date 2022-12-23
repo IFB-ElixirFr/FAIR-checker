@@ -1,0 +1,22 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=231230> a ns1:MedicalCondition ;
+        ns1:alternateName "Beta-thalassemia associated with another Hb anomaly" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:231230" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:231230" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "Beta-thalassemias associated with hemoglobin (Hb) anomalies result in a variable clinical spectrum, ranging from asymptomatic to severe, depending on the severity of the thalassemia mutation and on the type of the Hb anomaly [hereditary persistence of fetal Hb, delta-beta-thalassemia, Hb C - beta-thalassemia, Hb E - beta-thalassemia and Hb S - beta-thalassemia (see these terms)]." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "231230" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Beta-thalassemia associated with another hemoglobin anomaly" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Beta-thalassemia associated with another hemoglobin anomaly" ] .
+}
+

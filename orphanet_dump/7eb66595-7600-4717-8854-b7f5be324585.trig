@@ -1,0 +1,35 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=306431> a ns1:MedicalCondition ;
+        ns1:alternateName "Acquired adult-onset immunodeficiency",
+            "Adult-onset immunodeficiency with acquired anti-interferon-gamma autoantibodies" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "11992" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "11992" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:306431" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D84.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:306431" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D84.8" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "A rare acquired immunodeficiency disorder characterized by the appearance of susceptibility to disseminated opportunistic infections (in particular, disseminated nontuberculous mycobacterial infection, salmonellosis, penicillosis, and varicella zoster virus infection) in previously healthy (HIV-negative) adults, associated with the presence of acquired autoantibodies to interferon gamma. Typical clinical manifestation includes lymphadenopathy (cervical or generalized), fever, weight loss and/or reactive skin lesions." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "306431" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Adult-onset immunodeficiency with anti-interferon-gamma autoantibodies" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Adult-onset immunodeficiency with anti-interferon-gamma autoantibodies" ] .
+}
+

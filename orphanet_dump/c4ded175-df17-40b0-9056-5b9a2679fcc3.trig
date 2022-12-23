@@ -1,0 +1,29 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=556030> a ns1:MedicalCondition ;
+        ns1:alternateName "Early-onset familial hyperreninemic hypoaldosteronism",
+            "Severe aldosterone synthase deficiency" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:556030" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:556030" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E27.4" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E27.4" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "A rare type of familial hypoaldosteronism characterized by early infantile onset of vomiting, diarrhea, severe dehydration, and failure to thrive. Analysis of plasma electrolytes shows hyponatremia, hyperkalemia, and acidosis. Plasma renin activity is elevated, and aldosterone levels are low." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "556030" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Early-onset familial hypoaldosteronism" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Early-onset familial hypoaldosteronism" ] .
+}
+

@@ -1,0 +1,27 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=447774> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:447774" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:447774" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "K83.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "K83.0" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "A rare, biliary tract disease characterized by development of sclerosing cholangitis due to a known primary insult to the biliary tree, including infections, autoimmune disease, exposure to toxic agents, obstructive and ischemic injuries. Patients may be initially asymptomatic with only elevated alkaline phosphatase and gamma glutamyltransferase levels. Later presentation includes abdominal pain, jaundice, pruritus, fever and bacterial cholangitis from ascending infection." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "447774" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Secondary sclerosing cholangitis" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Secondary sclerosing cholangitis" ] .
+}
+

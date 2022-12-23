@@ -1,0 +1,40 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=126> a ns1:MedicalCondition ;
+        ns1:alternateName "BPES" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "110100" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0220663" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:126" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0220663" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q10.3" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:126" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "110100" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q10.3" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "A rare ophthalmic disorder characterized by blepharophimosis, ptosis, epicanthus inversus, and telecanthus, that can appear associated with (type 1) or without primary ovarian insufficiency (POI; type 2)." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "126" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Blepharophimosis-ptosis-epicanthus inversus syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Blepharophimosis-ptosis-epicanthus inversus syndrome" ] .
+}
+

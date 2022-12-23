@@ -1,0 +1,29 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=1724> a ns1:MedicalCondition ;
+        ns1:alternateName "Mosaic trisomy chromosome 20",
+            "Trisomy 20 mosaicism" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:1724" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q92.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:1724" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q92.1" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "Mosaic trisomy 20 is a rare chromosomal anomaly syndrome with a highly variable phenotype ranging from normal (in the majority of cases) to a mild, subtle phenotype principally characterized by spinal abnormalities (i.e. stenosis, vertebral fusion, and kyphosis), hypotonia, lifelong constipation, sloped shoulders, skin pigmentation abnormalities (i.e. linear and whorled nevoid hypermelanosis) and significant learning disabilities despite normal intelligence. More severe phenotypes, with patients presenting psychomotor and speech delay, mild facial dysmorphism, cardiac (i.e. ventricular septal defect, dysplastic tricuspid mitral valve) and renal anomalies (e.g. horseshoe kidneys), have also been reported." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "1724" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Mosaic trisomy 20" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Mosaic trisomy 20" ] .
+}
+

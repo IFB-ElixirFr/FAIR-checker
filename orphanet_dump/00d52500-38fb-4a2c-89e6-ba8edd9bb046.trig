@@ -1,0 +1,33 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=397692> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:397692" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:397692" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "616553" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "616553" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D61.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D61.0" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "Hereditary isolated aplastic anemia is a rare, genetic, constitutional aplastic anemia disorder characterized by severe peripheral blood pancytopenia and bone marrow hypoplasia in multiple individuals of a family, in the absence of any somatic symptoms. Abnormal bleeding, as well as erythrocyte macrocytosis, is reported and patients usually become transfusion-dependent." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "397692" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Hereditary isolated aplastic anemia" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Hereditary isolated aplastic anemia" ] .
+}
+

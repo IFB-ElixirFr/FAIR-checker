@@ -1,0 +1,40 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=2459> a ns1:MedicalCondition ;
+        ns1:alternateName "Mansonellosis" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "8216" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0024759" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "8216" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:2459" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0024759" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "B74.4" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "B74.4" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:2459" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A form of filariasis, distributed throughout sub-Saharan Africa as well as in some locations of Central and South America and the Caribbean, caused by the parasitic worms <i>Mansonella perstans</i> and <i>Mansonella ozzardi</i>. The disease is often asymptomatic but may also cause fever, vertigo, myalgias, arthralgias and a sensation of coldness in the legs. Additional features include neuropsychiatric symptoms, skin rash, pruritus, nodules containing adult worms (in the conjunctiva or eyelids), lymphadenopathy, recurrent lymphedema in the limbs and face (resembling the Calabar swellings of loasis), severe abdominal pain and endocrine disturbances." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "2459" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Mansonelliasis" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Mansonelliasis" ] .
+}
+

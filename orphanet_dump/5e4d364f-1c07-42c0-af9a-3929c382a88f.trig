@@ -1,0 +1,27 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=570470> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:570470" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "T62.2" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:570470" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "T62.2" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "A rare disorder due to poisoning characterized by acute onset of potentially life-threatening illness following ingestion, inhalation, or injection of ricin, a lectin present in the seeds of <i>Ricinus communis</i>, the castor oil plant. Clinical presentation depends on the route of administration, inhalation being the most toxic route, followed by oral ingestion. Presenting signs and symptoms include nausea, vomiting, diarrhea, hematemesis, and melena (upon ingestion), cough, wheezing, dyspnea, sore throat, and congestion (upon inhalation), and erythema, induration, blisters, capillary leak syndrome, and localized necrosis (upon injection). The condition can progress to seizures, shock, organ failure, pulmonary edema, and respiratory failure." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "570470" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Ricin poisoning" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Ricin poisoning" ] .
+}
+

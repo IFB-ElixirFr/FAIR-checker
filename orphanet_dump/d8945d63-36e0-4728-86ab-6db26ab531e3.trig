@@ -1,0 +1,52 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=79330> a ns1:MedicalCondition ;
+        ns1:alternateName "CDG syndrome type IIb",
+            "CDG-IIb",
+            "CDG2B",
+            "Carbohydrate deficient glycoprotein syndrome type IIb",
+            "Congenital disorder of glycosylation type 2b",
+            "Congenital disorder of glycosylation type IIb",
+            "Glucosidase 1 deficiency" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "10767" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "606056" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:79330" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E77.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C1853736" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "606056" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C1853736" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E77.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10767" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:79330" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "MOGS-CDG is a form of congenital disorders of N-linked glycosylation characterized by generalized hypotonia, craniofacial dysmorphism (prominent occiput, short palpebral fissures, long eyelashes, broad nose, high arched palate , retrognathia), hypoplastic genitalia, seizures, feeding difficulties, hypoventilation, severe hypogammaglobulinemia with generalized edema, and increased resistance to particular viral infections (particularly to enveloped viruses). The disease is caused by loss-of-function mutations in the gene <i> MOGS </i> (2p13.1)." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "79330" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "MOGS-CDG" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "MOGS-CDG" ] .
+}
+

@@ -1,0 +1,34 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=397959> a ns1:MedicalCondition ;
+        ns1:alternateName "TCR-alpha-beta+ T-cell deficiency" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "D81.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:397959" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D81.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "615387" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "615387" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:397959" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "TCR-alpha-beta-positive T-cell deficiency is a rare, hereditary primary immunodeficiency characterized by recurrent respiratory tract infection, otitis media, candidiasis, diarrhea, as well as various signs and symptoms of immune dysregulation (hypereosinophilia, eczema, vitiligo, alopecia areata, autoimmune hemolytic anemia, pityriasis rubra pilaris). Failure to thrive, moderate lymphadenopathy and hepatomegaly have also been reported." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "397959" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "TCR-alpha-beta-positive T-cell deficiency" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "TCR-alpha-beta-positive T-cell deficiency" ] .
+}
+

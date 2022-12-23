@@ -1,0 +1,27 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=158778> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:158778" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:158778" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C96.2" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C96.2" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "A rare subtype of indolent systemic mastocytosis characterized by isolated bone marrow involvement without skin lesions, low burden of neoplastic mast cells, and often normal or near normal serum tryptase levels. The <i>KIT</i> D816V mutation is present in the majority of cases." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "158778" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Isolated bone marrow mastocytosis" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Isolated bone marrow mastocytosis" ] .
+}
+

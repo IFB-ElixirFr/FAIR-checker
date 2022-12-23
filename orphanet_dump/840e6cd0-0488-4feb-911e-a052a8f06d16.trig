@@ -1,0 +1,43 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=324636> a ns1:MedicalCondition ;
+        ns1:alternateName "GDS",
+            "Gardner-Diamond syndrome",
+            "Painful bruising syndrome",
+            "Psychogenic purpura" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "C0301928" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D69.2" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0301928" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "6481" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:324636" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D69.2" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "6481" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:324636" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare autoimmune disease with skin involvement characterized by recurrent episodes with isolated or multiple painful edematous inflammatory skin lesions progressing to ecchymoses within 24 hours, due to autosensitization to a stromal component of the patient's own erythrocytes. The development of the lesions is usually preceded by emotional or physical stress, followed by a prodromal stage with fatigue or malaise. Lower limbs and trunk are the most frequently involved sites. Accompanying features may include fever, arthralgia, myalgia, headache, gastrointestinal problems, or hematuria and epistaxis, among others. The disease occurs predominantly in women." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "324636" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Autoerythrocyte sensitization syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Autoerythrocyte sensitization syndrome" ] .
+}
+

@@ -1,0 +1,27 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=166427> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "G40.5" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:166427" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:166427" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G40.5" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "Startle epilepsy is a rare neurologic disease characterized by frequent and spontaneous epileptic seizures (frequently with symmetrical or asymmetrical tonic features) triggered by a normal startle in response to a sudden and unexpected somatosensory (most frequently auditory) stimulus. Falls are common and can be traumatic. In most cases, the disease is associated with spastic hemi-, di-, or tetraplegia and intellectual disability." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "166427" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Startle epilepsy" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Startle epilepsy" ] .
+}
+

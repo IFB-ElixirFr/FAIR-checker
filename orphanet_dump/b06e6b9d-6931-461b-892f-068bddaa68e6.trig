@@ -1,0 +1,30 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=247378> a ns1:MedicalCondition ;
+        ns1:alternateName "Autosomal recessive secondary erythrocytosis not associated with VHL gene",
+            "Autosomal recessive secondary erythrocytosis, non-Chuvash type",
+            "Autosomal recessive secondary polycythemia, non-Chuvash type" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "D75.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D75.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:247378" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:247378" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare, hereditary, hematologic disease characterized by an increase in hemoglobin, hematocrit and erythrocyte mass resulting in plethora or ruddy complexion, headache, dizziness, tinnitus and exertional dyspnea. In some cases, thrombophlebitis and arthralgia have also been reported." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "247378" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Autosomal recessive secondary polycythemia not associated with VHL gene" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Autosomal recessive secondary polycythemia not associated with VHL gene" ] .
+}
+

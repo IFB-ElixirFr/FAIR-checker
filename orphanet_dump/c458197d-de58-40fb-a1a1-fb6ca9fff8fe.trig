@@ -1,0 +1,33 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=101351> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "271400" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:101351" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q89.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q89.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "271400" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:101351" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "Familial isolated congenital asplenia is a rare, non-syndromic, potentially life-threatening visceral malformation characterized by the absence of normal spleen function, resulting in a primary immunodeficiency. Typically, the condition manifests with severe, recurrent, overwhelming infections (especially pneumococcal sepsis) in otherwise apparently healthy infants. In adults with no history of severe sepsis in infancy, thrombocytosis may be the presenting sign. Howell-Jolly bodies on blood smears and an absent spleen on abdominal ultrasound examination are highly suggestive associated findings." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "101351" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Familial isolated congenital asplenia" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Familial isolated congenital asplenia" ] .
+}
+

@@ -1,0 +1,28 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=494454> a ns1:MedicalCondition ;
+        ns1:alternateName "Adenocarcinoma of the vulva" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "C51.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C51.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:494454" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:494454" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare vulvar carcinoma characterized by a malignant epithelial neoplasm of glandular origin and/or with glandular characteristics arising in the vulva, including adenocarcinoma of mammary gland type, sweat gland type, and intestinal type, as well as adenocarcinomas of the Bartholin glands and Paget disease of the vulva. Depending on the type of tumor and disease stage, patients may present with a solitary vulvar mass, bleeding, or (in the case of Paget disease) a pruritic, erythematous, eczematous lesion." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "494454" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Vulvar adenocarcinoma" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Vulvar adenocarcinoma" ] .
+}
+

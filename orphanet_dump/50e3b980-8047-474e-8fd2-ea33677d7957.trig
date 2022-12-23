@@ -1,0 +1,33 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=402035> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:402035" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0267448" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "K52.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:402035" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "K52.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0267448" ;
+                ns1:codingSystem "UMLS" ] ;
+        ns1:description "A rare gastroenterologic disease characterized by extensive eosinophilic infiltration of the colon in the absence of any known cause of secondary intestinal eosinophilia. Patients present with abdominal pain, nausea, vomiting, diarrhea, gastrointestinal bleeding, malabsorption, and/or weight loss. Symptoms do not correlate with the extent of the disease, which can be segmental or pancolonic. Blood testing may show peripheral eosinophilia. The condition has a bimodal age distribution, with a first peak in neonates and a second peak in young adulthood." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "402035" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Eosinophilic colitis" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Eosinophilic colitis" ] .
+}
+

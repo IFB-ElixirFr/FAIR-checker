@@ -1,0 +1,46 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=251370> a ns1:MedicalCondition ;
+        ns1:alternateName "HbSD disease" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "10056724" ;
+                ns1:codingSystem "MedDRA" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D57.2" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:251370" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D57.2" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "12458" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:251370" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "12458" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0272084" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0272084" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10056724" ;
+                ns1:codingSystem "MedDRA" ] ;
+        ns1:description "A rare, genetic hemoglobinopathy characterized by all the characteristics of sickle cell anemia (SCA). Clinical course is similar to SCA, including acute episodes of pain, splenic infarction and splenic sequestration crisis, vaso-occlusive crisis, acute chest syndrome, ischemic brain injury, osteomyelitis and avascular bone necrosis. The genotype is characterized by an HbS allele in combination with the HbD variant, beta121Glu>Gln." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "251370" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Sickle cell-hemoglobin D disease syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Sickle cell-hemoglobin D disease syndrome" ] .
+}
+

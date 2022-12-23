@@ -1,0 +1,28 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=99100> a ns1:MedicalCondition ;
+        ns1:alternateName "Juxtaposition of the atrial auricles" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:99100" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q20.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:99100" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q20.8" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "Juxtaposition of the atrial appendages is a rare atrial appendage anomaly when both appendages are located on the left or the right side of the great arteries. It is asymptomatic and is usually diagnosed incidentally, but is frequently associated with other congenital heart diseases." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "99100" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Juxtaposition of the atrial appendages" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Juxtaposition of the atrial appendages" ] .
+}
+

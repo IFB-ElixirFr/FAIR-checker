@@ -1,0 +1,28 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=566841> a ns1:MedicalCondition ;
+        ns1:alternateName "Hepatic adenomatosis" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "D13.4" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:566841" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:566841" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D13.4" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "A rare neoplastic disease characterized by the presence of ten or more hepatocellular adenomas in a background of normal appearing hepatic parenchyma. The majority of reported cases are female. There is no association with steroid use. The condition is considered benign, although the risk of complications (such as malignant transformation or spontaneous rupture with intraperitoneal hemorrhage) is much higher than in isolated hepatic adenoma. Hepatocellular carcinoma develops in less than 10% of cases." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "566841" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Liver adenomatosis" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Liver adenomatosis" ] .
+}
+

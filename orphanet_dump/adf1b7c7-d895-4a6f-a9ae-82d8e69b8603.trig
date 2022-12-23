@@ -1,0 +1,29 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=86913> a ns1:MedicalCondition ;
+        ns1:alternateName "Myoclonic status in non-progressive encephalopathies",
+            "Myoclonus epilepsy in non-progressive encephalopathies" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "G40.4" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:86913" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G40.4" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:86913" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "Myoclonic epilepsy in non-progressive encephalopathies is a rare epilepsy syndrome characterized by recurrent, long-lasting myoclonic status in infants and young children with a non-progressive encephalopathy, associated with transient and recurring motor, cognitive and/or behavioral disturbances." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "86913" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Myoclonic epilepsy in non-progressive encephalopathies" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Myoclonic epilepsy in non-progressive encephalopathies" ] .
+}
+

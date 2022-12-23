@@ -1,0 +1,28 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=141099> a ns1:MedicalCondition ;
+        ns1:alternateName "Congenital tubular nose" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:141099" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q30.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:141099" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q30.8" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "Proboscis lateralis (PL) is a rare congenital facial abnormality characterized by failed development of the external nose on one side that is replaced by a tubular structure composed of skin and soft tissue usually attached at the inner canthus of the eye and therefore often associated with maldevelopment of the nasal cavity or paranasal sinuses of the affected side. PL is also associated with other craniofacial abnormalities such as orbital anomalies, cleft lip/palate, frontal encephalocele and holoprosencephaly (see these terms)." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "141099" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Proboscis lateralis" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Proboscis lateralis" ] .
+}
+

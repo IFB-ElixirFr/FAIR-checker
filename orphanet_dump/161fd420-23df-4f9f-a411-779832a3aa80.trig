@@ -1,0 +1,40 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=64722> a ns1:MedicalCondition ;
+        ns1:alternateName "Idiopathic granulomatous mastitis" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "C0405469" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:64722" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "N61" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "N61" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0405469" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:64722" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D058890" ;
+                ns1:codingSystem "MeSH" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D058890" ;
+                ns1:codingSystem "MeSH" ] ;
+        ns1:description "A rare gynecologic or obstetric disease characterized by a painful, palpable breast mass with relative sparing of the subareolar regions, often associated with inflammation of the overlying skin and accompanied by axillary lymphadenopathy. It usually occurs in young parous women with a history of breast-feeding. The diagnosis of idiopathic granulomatous mastitis requires that other granulomatous lesions in the breast be excluded." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "64722" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Granulomatous mastitis" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Granulomatous mastitis" ] .
+}
+

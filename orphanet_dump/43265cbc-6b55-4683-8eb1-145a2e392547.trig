@@ -1,0 +1,35 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=94087> a ns1:MedicalCondition ;
+        ns1:alternateName "CHP",
+            "Winkelmann cytophagic panniculitis" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "C0406594" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "M35.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "M35.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:94087" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0406594" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:94087" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "Cytophagic histiocytic panniculitis (CHP) is a very rare form of panniculitis manifesting as recurrent multiple subcutaneous nodules (which may progressively become ecchymotic and ulcerated), and histologically characterized by lobular panniculitis with lymphocytic and histiocytic infiltration in the subcutaneous adipose tissue." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "94087" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Cytophagic histiocytic panniculitis" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Cytophagic histiocytic panniculitis" ] .
+}
+

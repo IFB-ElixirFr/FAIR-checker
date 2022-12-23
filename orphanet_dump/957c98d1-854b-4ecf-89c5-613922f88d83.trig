@@ -1,0 +1,34 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=397587> a ns1:MedicalCondition ;
+        ns1:alternateName "Disseminated granulomatous dermatophytosis" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "C1395264" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:397587" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "B35.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "B35.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:397587" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C1395264" ;
+                ns1:codingSystem "UMLS" ] ;
+        ns1:description "A rare mycosis characterized by severe, potentially life-threatening dermal and subcutaneous tissue invasion by dermatophytes. Dissemination to lymph nodes is frequent, but the infection may also occasionally spread to the central nervous system. Cutaneous signs and symptoms include erythema, desquamation, itching, nodules, plaques, or ulceration. The majority of deep dermatophytoses develop in immunocompromised patients." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "397587" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Deep dermatophytosis" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Deep dermatophytosis" ] .
+}
+

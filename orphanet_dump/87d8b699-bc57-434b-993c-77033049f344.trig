@@ -1,0 +1,56 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=754> a ns1:MedicalCondition ;
+        ns1:alternateName "AIS",
+            "Androgen resistance syndrome",
+            "Goldberg-Maxwell syndrome",
+            "Morris syndrome",
+            "Testicular feminization syndrome" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "E34.5" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10056292" ;
+                ns1:codingSystem "MedDRA" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:754" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0039585" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "5803" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10056292" ;
+                ns1:codingSystem "MedDRA" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0039585" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "5803" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:754" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D013734" ;
+                ns1:codingSystem "MeSH" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E34.5" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D013734" ;
+                ns1:codingSystem "MeSH" ] ;
+        ns1:description "A disorder of sex development (DSD) characterized by the presence of female external genitalia, ambiguous genitalia or variable defects in virilization in a 46,XY individual with absent or partial responsiveness to age-appropriate levels of androgens. It comprises two clinical subgroups: complete AIS (CAIS) and partial AIS (PAIS)." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "754" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Androgen insensitivity syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Androgen insensitivity syndrome" ] .
+}
+

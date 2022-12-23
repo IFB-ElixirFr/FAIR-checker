@@ -1,0 +1,22 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=359> a ns1:MedicalCondition ;
+        ns1:alternateName "Hereditary glaucoma" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:359" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:359" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A clinically diverse group of rare eye disorders with genetic predisposition characterized by elevated intraocular pressure (IOP) and glaucomatous changes of the optic nerve head, leading to field defects, visual loss and blindness. It can be sub-classified as primary (congenital glaucoma, juvenile glaucoma) or secondary according to the presence or absence of systemic or other ocular anomalies (iridogoniodysgenesis, Stickler syndrome, Coats syndrome). The clinical presentation is variable and is based on age, severity of glaucoma, presence of ocular abnormalities and development of secondary IOP related abnormalities." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "359" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Pediatric-onset glaucoma of genetic origin" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Pediatric-onset glaucoma of genetic origin" ] .
+}
+

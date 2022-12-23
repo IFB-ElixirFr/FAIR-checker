@@ -1,0 +1,58 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=1915> a ns1:MedicalCondition ;
+        ns1:alternateName "ARBD",
+            "ARND",
+            "Alcohol-related birth defects",
+            "Alcohol-related neurodevelopmental disorder",
+            "FAS",
+            "FASD",
+            "Fetal alcohol spectrum disorders" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "Q86.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:1915" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10016845" ;
+                ns1:codingSystem "MedDRA" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "599" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:1915" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "599" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0015923" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D005310" ;
+                ns1:codingSystem "MeSH" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q86.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10016845" ;
+                ns1:codingSystem "MedDRA" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D005310" ;
+                ns1:codingSystem "MeSH" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0015923" ;
+                ns1:codingSystem "UMLS" ] ;
+        ns1:description "Fetal alcohol syndrome (FAS) is a rare malformation syndrome caused by excessive maternal consumption of alcohol during pregnancy. It is characterized by prenatal and/or postnatal growth deficiency (weight and/or height <10th percentile), a unique cluster of minor facial anomalies (short palpebral fissures, flat and smooth philtrum, and thin upper lip) and severe central nervous system (CNS) abnormalities including microcephaly, and cognitive and behavioral impairment (intellectual disability, deficit in general cognition, learning and language, executive function, visual-spatial processing, memory, and attention)." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "1915" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Fetal alcohol syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Fetal alcohol syndrome" ] .
+}
+

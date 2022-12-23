@@ -1,0 +1,34 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=99903> a ns1:MedicalCondition ;
+        ns1:alternateName "Sodoku" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "A25.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:99903" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "A25.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:99903" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0152062" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0152062" ;
+                ns1:codingSystem "UMLS" ] ;
+        ns1:description "Spirillary rat-bite fever (RBF), also known as Sodoku (Japanese for so: rat and doku: poison), is caused by the Gram-negative bacillus <i>Spirillum minus</i> and is transmitted to humans through the bites and scratches of rats. The disease is mostly present in Asia." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "99903" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Spirillary rat-bite fever" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Spirillary rat-bite fever" ] .
+}
+

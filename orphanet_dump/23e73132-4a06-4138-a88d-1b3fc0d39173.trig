@@ -1,0 +1,39 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=3347> a ns1:MedicalCondition ;
+        ns1:alternateName "Congenital tracheobronchomegaly",
+            "Idiopathic tracheobronchomegaly",
+            "Tracheobronchomegaly" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "5234" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D014137" ;
+                ns1:codingSystem "MeSH" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0040587" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "275300" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10044316" ;
+                ns1:codingSystem "MedDRA" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:3347" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "3793" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "J98.0" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "A rare congenital respiratory disorder characterized by marked dilatation of the trachea and proximal bronchi that leads to impaired airway secretion clearance and recurrent lower respiratory tract infections." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "3347" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Mounier-Kühn syndrome" ] .
+}
+

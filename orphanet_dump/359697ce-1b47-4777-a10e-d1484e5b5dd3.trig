@@ -1,0 +1,33 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=477673> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "616281" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "616281" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G11.4" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:477673" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G11.4" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:477673" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare genetic neurological disorder characterized by postnatal microcephaly, hypotonia during infancy followed in most cases by progressive spasticity mainly affecting the lower limbs, and spastic diplegia or paraplegia, intellectual disability, delayed or absent speech, and dysarthria. Seizures and mildly dysmorphic features have been described in some patients." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "477673" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Postnatal microcephaly-infantile hypotonia-spastic diplegia-dysarthria-intellectual disability syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Postnatal microcephaly-infantile hypotonia-spastic diplegia-dysarthria-intellectual disability syndrome" ] .
+}
+

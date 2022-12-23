@@ -1,0 +1,28 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=213512> a ns1:MedicalCondition ;
+        ns1:alternateName "MMMT of the ovary",
+            "Ovarian carcinosarcoma",
+            "Ovarian malignant mixed Müllerian tumor",
+            "Ovarian malignant mixed epithelial mesenchymal tumor" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "C56" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:213512" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "7296" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0392998" ;
+                ns1:codingSystem "UMLS" ] ;
+        ns1:description "Malignant mixed Müllerian tumor of the ovary is a rare and very aggressive neoplasm presenting most commonly in postmenopausal women and is composed of adenocarcinomatous and sarcomatous elements and, depending on the types of these elements, can be classified as homologous or heterologous. It often has a poor prognosis." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "213512" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Malignant mixed Müllerian tumor of the ovary" ] .
+}
+

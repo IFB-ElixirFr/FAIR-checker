@@ -1,0 +1,27 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=465824> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "613630" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "613630" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:465824" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:465824" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "Fetal encasement syndrome is a rare, lethal developmental defect during embryogenesis characterized by severe fetal malformations, including craniofacial dysmorphism (abnormal cyst in the cranial region, hypoplastic eyeballs, two orifices in the nasal region separated by a nasal septum, abnormal orifice replacing the mouth), omphalocele and immotile, hypoplastic limbs encased under an abnormal, transparent, membrane-like skin. Additional features include absence of adnexal structures of the skin on the outer aspect of the limbs, as well as underdeveloped skeletal muscles and bones. Association with tetralogy of Fallot, horse-shoe kidneys and diaphragm and lung lobulation defects is reported." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "465824" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Fetal encasement syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Fetal encasement syndrome" ] .
+}
+

@@ -1,0 +1,52 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=289157> a ns1:MedicalCondition ;
+        ns1:alternateName "1-alpha-hydroxylase deficiency",
+            "PDDRI",
+            "Pseudovitamin D-deficient rickets",
+            "VDDI",
+            "VDDR-I",
+            "Vitamin D dependent rickets type I",
+            "Vitamin D-dependency type I" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:289157" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "264700" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E55.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "600081" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "600081" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0268689" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:289157" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "264700" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E55.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0268689" ;
+                ns1:codingSystem "UMLS" ] ;
+        ns1:description "A rare, genetic disorder of vitamin D metabolism characterized by severe hypocalcemia leading to osteomalacia and rachitic bone deformations, and moderate hypophosphatemia." ;
+        ns1:epidemiology "Prevalence : 1-5 / 10 000" ;
+        ns1:identifier "289157" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Hypocalcemic vitamin D-dependent rickets" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Hypocalcemic vitamin D-dependent rickets" ] .
+}
+

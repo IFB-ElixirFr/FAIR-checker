@@ -1,0 +1,39 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=435438> a ns1:MedicalCondition ;
+        ns1:alternateName "EPM7",
+            "MEAK",
+            "Myoclonus epilepsy and ataxia due to potassium channel mutation",
+            "PME type 7",
+            "Progressive myoclonic epilepsy due to KV3.1 deficiency",
+            "Progressive myoclonus epilepsy type 7" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "616187" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G40.3" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G40.3" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "616187" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:435438" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:435438" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare, genetic, neurological disorder characterized by childhood to adolescent onset of progressive myoclonus (which becomes very severe and results in major motor impediment) associated with infrequent tonic-clonic seizures, and, occasionally, ataxia. Learning disability prior to seizure onset and mild cognitive decline may be associated." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "435438" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Progressive myoclonic epilepsy type 7" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Progressive myoclonic epilepsy type 7" ] .
+}
+

@@ -1,0 +1,40 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=165> a ns1:MedicalCondition ;
+        ns1:alternateName "Lipidosis with triglyceride storage disease" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "C0268238" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C536560" ;
+                ns1:codingSystem "MeSH" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:165" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "3262" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0268238" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C536560" ;
+                ns1:codingSystem "MeSH" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "3262" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:165" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "Neutral lipid storage disease (NLSD) refers to a group of diseases characterized by a deficit in the degradation of cytoplasmic triglycerides and their accumulation in cytoplasmic lipid vacuoles in most tissues of the body. The group is heterogeneous: currently cases of NLSD with icthyosis (NLSDI/Dorfman-Chanarin disease; see this term) and NLSD with myopathy (NLSDM/neutral lipid storage myopathy; see this term) can be distinguished." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "165" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Neutral lipid storage disease" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Neutral lipid storage disease" ] .
+}
+

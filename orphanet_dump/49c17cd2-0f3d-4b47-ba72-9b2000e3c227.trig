@@ -1,0 +1,30 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=306504> a ns1:MedicalCondition ;
+        ns1:alternateName "ILNEB syndrome",
+            "JEB with interstitial lung disease and nephrotic syndrome",
+            "Junctional epidermolysis bullosa with interstitial lung disease and nephrotic syndrome" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "614748" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "614748" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:306504" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:306504" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A life-threatening multiorgan disorder which develops in the first months of life, presenting with respiratory distress and proteinuria in the nephrotic range, and leading to severe interstitial lung disease and renal failure. Some patients additionally display cutaneous alterations, ranging from blistering and skin erosions to an epidermolysis bullosa-like phenotype, with toe nail dystrophy and sparse hair." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "306504" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Interstitial lung disease-nephrotic syndrome-epidermolysis bullosa syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Interstitial lung disease-nephrotic syndrome-epidermolysis bullosa syndrome" ] .
+}
+

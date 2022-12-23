@@ -1,0 +1,40 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=90285> a ns1:MedicalCondition ;
+        ns1:alternateName "Lupus erythematosus profundus" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "D015435" ;
+                ns1:codingSystem "MeSH" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0030327" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:90285" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D015435" ;
+                ns1:codingSystem "MeSH" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0030327" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:90285" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "L93.2" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "L93.2" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "A rare form of chronic cutaneous lupus erythematosus characterized by recurrent, indurated, erythematous plaques and subcutaneous nodules with normal overlying epidermis, occurring predominantly on the face, upper arms, trunk, buttocks, and thighs. The lesions can ulcerate and lead to scarring. Histological findings include lobular lymphocytic panniculitis, hyaline fat necrosis, mucin deposition, and calcification. The condition may be associated with discoid or systemic lupus erythematosus." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "90285" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Lupus erythematosus panniculitis" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Lupus erythematosus panniculitis" ] .
+}
+

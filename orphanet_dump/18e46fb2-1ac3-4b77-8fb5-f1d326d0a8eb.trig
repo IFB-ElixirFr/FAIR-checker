@@ -1,0 +1,27 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=90003> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:90003" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:90003" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "K75.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "K75.8" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "A rare benign liver tumor characterized by a prominent inflammatory infiltrate and often mimicking a malignant liver neoplasm. The tumor is frequently solitary with a predilection for the right lobe; however, multiple lesions are possible. There are two clinicopathological subtypes: fibrohistiocytic inflammatory pseudotumor of the liver and lymphoplasmacytic inflammatory pseudotumor of the liver. Patients present with non-specific clinical symptoms such as abdominal pain or discomfort, fever, and weight loss. The condition may be associated with other chronic inflammatory or autoimmune diseases." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "90003" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Inflammatory pseudotumor of the liver" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Inflammatory pseudotumor of the liver" ] .
+}
+

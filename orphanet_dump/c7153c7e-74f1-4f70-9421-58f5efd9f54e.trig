@@ -1,0 +1,29 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=499085> a ns1:MedicalCondition ;
+        ns1:alternateName "CRION",
+            "Chronic recurrent isolated optic neuritis" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "H46" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:499085" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:499085" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "H46" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "A rare inflammatory optic neuropathy characterized by severe and persistent pain followed by subacute visual loss, a relapsing-remitting course, and steroid-dependence. Involvement of both optic nerves is common and is usually sequential. Serum antibodies against aquaporin 4 are absent in most cases. Magnetic resonance imaging shows contrast enhancement of the acutely inflamed optic nerves." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "499085" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Chronic relapsing inflammatory optic neuropathy" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Chronic relapsing inflammatory optic neuropathy" ] .
+}
+

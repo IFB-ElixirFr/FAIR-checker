@@ -1,0 +1,41 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=94065> a ns1:MedicalCondition ;
+        ns1:alternateName "Del(15)(q24)",
+            "Monosomy 15q24" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "C3697269" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q93.5" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C3697269" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:94065" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "613406" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "613406" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q93.5" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:94065" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "15q24 microdeletion syndrome is a rare chromosomal anomaly characterized cytogenetically by a 1.7-6.1 Mb deletion in chromosome 15q24 and clinically by pre- and post-natal growth retardation, intellectual disability, distinct facial features, and genital, skeletal, and digital anomalies." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "94065" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "15q24 microdeletion syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "15q24 microdeletion syndrome" ] .
+}
+

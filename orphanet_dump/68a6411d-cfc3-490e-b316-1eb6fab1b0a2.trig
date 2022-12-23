@@ -1,0 +1,27 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=166421> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "G40.5" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:166421" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:166421" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G40.5" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "Orgasm-induced seizures is a rare neurologic disease characterized by complex partial seizures with or without secondary generalization, or idiopathic primarily generalized epilepsy, triggered by sexual orgasm. Seizures usually start immediately, shortly after or a few hours after the achievement of orgasm, last a few seconds or minutes, and are followed, in very rare cases, by intense migraine." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "166421" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Orgasm-induced seizures" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Orgasm-induced seizures" ] .
+}
+

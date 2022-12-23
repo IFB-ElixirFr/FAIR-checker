@@ -1,0 +1,27 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=319552> a ns1:MedicalCondition ;
+        ns1:alternateName "MSMD due to complete IL12RB1 deficiency",
+            "MSMD due to complete interleukin 12 receptor beta 1 deficiency",
+            "Mendelian susceptibility to interleukin 12 receptor beta 1 deficiency" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:319552" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D84.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10984" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "614891" ;
+                ns1:codingSystem "OMIM" ] ;
+        ns1:description "Mendelian susceptibility to mycobacterial diseases (MSMD) due to complete interleukin-12 receptor subunit beta-1 (IL12RB1) deficiency is a genetic variant of MSMD (see this term) characterized by mild bacillus Calmette-Guérin (BCG) infections and recurrent <i>Salmonella</i> infections." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "319552" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Mendelian susceptibility to mycobacterial diseases due to complete IL12RB1 deficiency" ] .
+}
+

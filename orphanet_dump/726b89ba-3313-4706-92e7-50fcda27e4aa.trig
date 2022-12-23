@@ -1,0 +1,43 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=79282> a ns1:MedicalCondition ;
+        ns1:alternateName "CblC defect",
+            "Cobalamin C defect",
+            "Combined defect in adenosylcobalamin and methylcobalamin synthesis, type cblC",
+            "Methylmalonic aciduria with homocystinuria, type cblC" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "12128" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "277400" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D58.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "12128" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D58.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:79282" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:79282" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "277400" ;
+                ns1:codingSystem "OMIM" ] ;
+        ns1:description "<i>cblC</i> type methylmalonic acidemia with homocystinuria is a form of methylmalonic acidemia with homocystinuria (see this term), an inborn error of vitamin B12 (cobalamin) metabolism characterized by megaloblastic anemia, lethargy, failure to thrive, developmental delay, intellectual deficit and seizures." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "79282" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Methylmalonic acidemia with homocystinuria, type cblC" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Methylmalonic acidemia with homocystinuria, type cblC" ] .
+}
+

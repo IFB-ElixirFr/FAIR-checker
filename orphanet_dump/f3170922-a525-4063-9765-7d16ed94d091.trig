@@ -1,0 +1,35 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=505> a ns1:MedicalCondition ;
+        ns1:alternateName "Graham Little syndrome",
+            "Piccardi-Lassueur-Little syndrome" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:505" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "L66.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "L66.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "3195" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "3195" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:505" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A variant of lichen planopilaris characterized by the clinical triad of progressive cicatricial (scarring) alopecia of the scalp, follicular keratotic papules on glabrous skin, and variable alopecia of the axillae and groin." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "505" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Graham Little-Piccardi-Lassueur syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Graham Little-Piccardi-Lassueur syndrome" ] .
+}
+

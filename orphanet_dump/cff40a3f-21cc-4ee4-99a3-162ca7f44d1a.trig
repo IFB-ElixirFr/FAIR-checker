@@ -1,0 +1,28 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=79492> a ns1:MedicalCondition ;
+        ns1:alternateName "Pili multigemini" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:79492" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "L67.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:79492" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "L67.8" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "Pili gemini defines a situation where the papilla's tip of a hair follicle splits during the anagen phase and consequently grows two hair shafts emerging through a single pilary canal. A papilla tip that divides in several tips will produce several hair shafts, a situation named pili multigemini. Pili gemini or multigemini can occur in each type of hair." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "79492" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Pili gemini" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Pili gemini" ] .
+}
+

@@ -1,0 +1,34 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=530995> a ns1:MedicalCondition ;
+        ns1:alternateName "MPAL" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "C95.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "601626" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:530995" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "601626" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:530995" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C95.0" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "A group of rare acute leukemias of ambiguous lineage characterized by the presence of separate populations of blasts of more than one lineage (bilineal), a single population of blasts coexpressing antigens of more than one lineage (biphenotypic), or a combination thereof. The diagnosis relies on immunophenotyping, the T-cell component being characterized by strong expression of cytoplasmic CD3, usually in the absence of surface CD3, the B-cell component expressing CD19, almost always together with CD10, cCD79a, CD22, or PAX5, while the most specific hallmark of the myeloid component is the presence of myeloperoxidase in the blast cytoplasm." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "530995" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Mixed phenotype acute leukemia" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Mixed phenotype acute leukemia" ] .
+}
+

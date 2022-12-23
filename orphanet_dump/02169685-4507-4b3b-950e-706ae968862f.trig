@@ -1,0 +1,30 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=568065> a ns1:MedicalCondition ;
+        ns1:alternateName "EPHB4-related LRHF/GLD",
+            "EPHB4-related generalized lymphatic dysplasia with atrial septal defect",
+            "EPHB4-related generalized lymphatic dysplasia with non-immune hydrops fetalis" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:568065" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "617300" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "617300" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:568065" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare primary lymphedema characterized by a highly variable lymphatic phenotype ranging from severe lymphatic-related hydrops fetalis, which may cause perinatal demise or fully resolve to become completely asymptomatic, to a mild presentation in older patients with persistent varicose veins, peripheral edema, and impaired lymph drainage in the lower limbs. Atrial septal defect has been described in association and may be the only anomaly in some patients." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "568065" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "EPHB4-related lymphatic-related hydrops fetalis" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "EPHB4-related lymphatic-related hydrops fetalis" ] .
+}
+

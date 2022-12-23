@@ -1,0 +1,27 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=370076> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:370076" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q86.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q86.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:370076" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "Fetal carbamazepine syndrome is a drug-related embryofetopathy that can occur when an embryo/fetus is exposed to carbamazepine and that is characterized by facial dysmorphism, with some similarities to that seen in fetal valproate syndrome (see this term), such as epicanthal folds, upward slanting palpebral fissures, short nose, micrognathia and malar hypoplasia, as well as nail dysplasia and major anomalies including cleft lip/palate, neural tube defects and cardiac anomalies. <i>In utero</i> exposure to carbamazepine, in combination with valproate, has been associated with significant developmental delay (particularly affecting verbal intelligence) and a high rate of congenital anomalies." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "370076" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Fetal carbamazepine syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Fetal carbamazepine syndrome" ] .
+}
+

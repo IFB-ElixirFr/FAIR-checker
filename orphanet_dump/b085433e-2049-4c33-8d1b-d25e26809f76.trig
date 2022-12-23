@@ -1,0 +1,30 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=295012> a ns1:MedicalCondition ;
+        ns1:alternateName "Mitten hand",
+            "Syndactyly, mitten type",
+            "Unilateral syndactyly of digits 2-5" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:295012" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q70.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q70.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:295012" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare non-syndromic syndactyly characterized by unilateral fusion of 2nd to 5th fingers, amalgamation of distal phalanges in a knot-like structure, and fusion of the 2nd and 3rd toe. Some individuals present only with webbing between the 2nd and 3rd toes, without involvement of fingers." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "295012" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Syndactyly type 6" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Syndactyly type 6" ] .
+}
+

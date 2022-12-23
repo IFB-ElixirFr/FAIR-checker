@@ -1,0 +1,35 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=281090> a ns1:MedicalCondition ;
+        ns1:alternateName "Recessive X-linked ichthyosis with extracutaneous manifestations",
+            "Syndromic RXLI" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:281090" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "308100" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q80.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q80.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:281090" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "308100" ;
+                ns1:codingSystem "OMIM" ] ;
+        ns1:description "A rare genetic skin disease belonging to the Mendelian Disorders of Cornification (MeDOC) characterized by a generally mild cutaneous desquamation in association with extracutaneous manifestations as part of a syndrome." ;
+        ns1:epidemiology "Prevalence : 1-9 / 100 000" ;
+        ns1:identifier "281090" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Syndromic recessive X-linked ichthyosis" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Syndromic recessive X-linked ichthyosis" ] .
+}
+

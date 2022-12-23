@@ -1,0 +1,29 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=206489> a ns1:MedicalCondition ;
+        ns1:alternateName "Vaginal germ cell cancer",
+            "Vaginal germ cell malignant tumor" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "C52" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:206489" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C52" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:206489" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "Malignant germ cell tumor of the vagina is an extremely rare, malignant, vulvovaginal neoplasm, deriving from primordial germ cells in the vagina, typically characterized by painless bloody vaginal discharge and a polypoid mass which protrudes from the vagina. Serum alpha-fetoprotein is usually elevated and rapid progression, local agression and early metastasis to liver and lungs is reported." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "206489" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Malignant germ cell tumor of the vagina" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Malignant germ cell tumor of the vagina" ] .
+}
+

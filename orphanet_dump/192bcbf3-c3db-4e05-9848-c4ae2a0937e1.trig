@@ -1,0 +1,29 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=300869> a ns1:MedicalCondition ;
+        ns1:alternateName "SDRPL",
+            "Splenic diffuse red pulp lymphoma" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:300869" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:300869" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C83.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C83.0" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "Splenic diffuse red pulp small B-cell lymphoma is a rare, indolent B-cell non-Hodgkin lymphoma characterized by abnormal proliferation of small, monomorphous, basophilic B-lymphocytes, with villous cytoplasm, in the splenic red pulp, bone marrow and peripheral blood. It typically presents in the late clinical stages with splenomegaly and moderate lymphocytosis. Cytopenias are rare and likely associated with hypersplenism." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "300869" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Splenic diffuse red pulp small B-cell lymphoma" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Splenic diffuse red pulp small B-cell lymphoma" ] .
+}
+

@@ -1,0 +1,33 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=541423> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:541423" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "617093" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "F78.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:541423" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "617093" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "F78.8" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "A rare, genetic, syndromic intellectual disability disease characterized by severe intrauterine and post-natal growth delay, moderate to severe intellectual disability, and neonatal-onset hepatopathy with fibrosis, steatosis, and/or cholestasis, occasionally leading to liver failure. Additional variable manifestations include muscular hypotonia, zinc deficiency, recurrent infections, diabetes mellitus, joint contractures, skin and joint laxity, hypervitaminosis D, and sensorineural hearing loss." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "541423" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Growth delay-intellectual disability-hepatopathy syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Growth delay-intellectual disability-hepatopathy syndrome" ] .
+}
+

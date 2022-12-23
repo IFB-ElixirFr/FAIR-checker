@@ -1,0 +1,35 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=424058> a ns1:MedicalCondition ;
+        ns1:alternateName "IPMN",
+            "Pancreatic intraductal papillary mucinous carcinoma" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "C25.3" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C1335304" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C25.3" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C1335304" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:424058" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:424058" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "Intraductal papillary mucinous carcinoma of pancreas is a rare epithelial tumor of pancreas characterized by malignant, mucin-producing cystic mass, originating from the pancreatic ductal system, associated with local invasion and metastatic spread, composed of mucin-producing, columnar epithelial cells covering the dilated pancreatic ducts with a papillary structure. The presenting symptoms are non-specific and include abdominal pain, pancreatitis, steatorrhea, jaundice and diabetes. Many patients are asymptomatic at the time of diagnosis." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "424058" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Intraductal papillary mucinous carcinoma of pancreas" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Intraductal papillary mucinous carcinoma of pancreas" ] .
+}
+

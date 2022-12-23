@@ -1,0 +1,35 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=314637> a ns1:MedicalCondition ;
+        ns1:alternateName "COXPD10",
+            "Combined oxidative phosphorylation defect type 10" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "614702" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:314637" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:314637" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E88.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E88.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "614702" ;
+                ns1:codingSystem "OMIM" ] ;
+        ns1:description "A rare mitochondrial oxidative phosphorylation disorder with complex I and IV deficiency characterized by lactic acidosis, hypotonia, hypertrophic cardiomyopathy and global developmental delay. Other clinical features include feeding difficulties, failure to thrive, seizures, optic atrophy and ataxia." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "314637" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Mitochondrial hypertrophic cardiomyopathy with lactic acidosis due to MTO1 deficiency" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Mitochondrial hypertrophic cardiomyopathy with lactic acidosis due to MTO1 deficiency" ] .
+}
+

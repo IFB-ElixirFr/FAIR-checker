@@ -1,0 +1,42 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=254857> a ns1:MedicalCondition ;
+        ns1:alternateName "LIMD",
+            "LIMM",
+            "Lethal infantile mitochondrial disease" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "C1838876" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:254857" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G71.3" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C1838876" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "551000" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G71.3" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "551000" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:254857" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "Lethal infantile mitochondrial myopathy is a rare mitochondrial oxidative phosphorylation disorder characterized by progressive generalized hypotonia, progressive external ophthalmoplegia and severe lactic acidosis, which results in early fatality (days to months after birth). Patients may present with lethargy and areflexia and may associate additional features, such as cardiomyopathy, renal dysfunction, liver involvement and seizures." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "254857" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Lethal infantile mitochondrial myopathy" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Lethal infantile mitochondrial myopathy" ] .
+}
+

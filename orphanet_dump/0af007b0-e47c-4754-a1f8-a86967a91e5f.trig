@@ -1,0 +1,45 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=209908> a ns1:MedicalCondition ;
+        ns1:alternateName "Isolated CAS",
+            "Isolated developmental verbal dyspraxia",
+            "Pure CAS",
+            "Pure childhood apraxia of speech",
+            "Speech and language disorder with orofacial dyspraxia",
+            "Speech-language disorder type 1" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "12889" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "602081" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "F82.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:209908" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "F82.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "602081" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "12889" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:209908" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare neurologic disease characterized by impaired ability to execute complex coordinated movements underlying the production of speech, leading to highly unintelligible speech in the absence of muscular or sensory deficits." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "209908" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Isolated childhood apraxia of speech" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Isolated childhood apraxia of speech" ] .
+}
+

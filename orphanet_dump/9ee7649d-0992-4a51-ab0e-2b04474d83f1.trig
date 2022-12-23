@@ -1,0 +1,48 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=268882> a ns1:MedicalCondition ;
+        ns1:alternateName "Arnold-Chiari malformation type 1",
+            "Chiari malformation type 1",
+            "Chiari malformation type I" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:268882" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q07.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0750929" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:268882" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "118420" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0750929" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10056944" ;
+                ns1:codingSystem "MedDRA" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "118420" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10056944" ;
+                ns1:codingSystem "MedDRA" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q07.0" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "A central nervous system malformation characterized by caudal displacement of the cerebellar tonsils exceeding 5mm below the foramen magnum with or without syringomyelia. Symptoms vary in onset and severity and include suboccipital headache, neck pain, vertigo, tinnitus, ocular symptoms (diplopia, blurred vision, photofobia, nystagmus), lower cranial nerve signs, cerebellar ataxia, and spasticity. Some affected individuals can be asymptomatic." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "268882" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Arnold-Chiari malformation type I" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Arnold-Chiari malformation type I" ] .
+}
+

@@ -1,0 +1,36 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=443811> a ns1:MedicalCondition ;
+        ns1:alternateName "CID due to PGM3 deficiency",
+            "Combined immunodeficiency due to PGM3 deficiency",
+            "PGM3-related congenital disorder of glycosylation" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:443811" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:443811" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E77.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "615816" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "615816" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E77.8" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "PGM3-CDG is a rare congenital disorder of glycosylation caused by mutations in the <i>PGM3</i> gene and characterized by neonatal to childhood onset of recurrent bacterial and viral infections, inflammatory skin diseases, atopic dermatitis and atopic diatheses, and marked serum IgE elevation. Early neurologic impairment is evident including developmental delay, intellectual disability, ataxia, dysarthria, sensorineural hearing loss, myoclonus and seizures." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "443811" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "PGM3-CDG" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "PGM3-CDG" ] .
+}
+

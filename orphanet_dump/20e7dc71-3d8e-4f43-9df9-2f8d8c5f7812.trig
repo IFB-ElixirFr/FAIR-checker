@@ -1,0 +1,34 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=71528> a ns1:MedicalCondition ;
+        ns1:alternateName "PCI deficiency" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:71528" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E66.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "600955" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:71528" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E66.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "600955" ;
+                ns1:codingSystem "OMIM" ] ;
+        ns1:description "A rare genetic endocrine disease characterized by early onset of severe intractable diarrhea and intestinal malabsorption, followed by obesity and hormonal deficiencies due to insufficient activation of several prohormones, resulting in hypocortisolism, hypothyroidism, diabetes insipidus, hypogonadism, growth deficiency, and diabetes mellitus. Extent and age of onset of hormone deficiencies are variable between patients." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "71528" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Obesity due to prohormone convertase I deficiency" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Obesity due to prohormone convertase I deficiency" ] .
+}
+

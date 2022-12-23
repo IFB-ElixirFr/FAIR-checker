@@ -1,0 +1,30 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=96074> a ns1:MedicalCondition ;
+        ns1:alternateName "Distal duplication 7p",
+            "Telomeric duplication 7p",
+            "Trisomy 7pter" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "Q92.3" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:96074" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q92.3" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:96074" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "Distal trisomy 7p is a rare chromosomal anomaly syndrome, resulting from the partial duplication of the short arm of chromosome 7, with highly variable phenotype typically characterized by severe to profound psychomotor delay, intellectual disability, dysmorphic features (incl. dolichocephaly, microbrachycephaly, high and/or broad forehead, large anterior fontanel, hypertelorism, downslanting palpebral fissures, low-set, dysplastic ears, low, broad and prominent nasal bridge, abnormal palate, micro-/retrognathia), and hypotonia. Cardiovascular, gastrointestinal, skeletal and urogenital anomalies have commonly been reported." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "96074" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Distal trisomy 7p" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Distal trisomy 7p" ] .
+}
+

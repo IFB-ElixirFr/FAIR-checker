@@ -1,0 +1,28 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=97287> a ns1:MedicalCondition ;
+        ns1:alternateName "Bronchial NET" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "D38.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:97287" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:97287" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D38.1" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "A rare neuroendocrine neoplasm characterized by origin from pulmonary neuroendocrine cells and ranging from low-grade typical carcinoid and intermediate-grade atypical carcinoid to high-grade large-cell neuroendocrine carcinoma and small-cell carcinoma. Two thirds of the tumors are located in the major bronchi, with a predilection for the right lung, in particular the middle lobe. Most patients with central bronchial tumors present with hemoptysis, cough, recurrent pulmonary infections, fever, chest discomfort, and unilateral wheezing, while peripheral carcinoids are usually discovered only incidentally. Carcinoid syndrome or Cushing syndrome are very rare. The tumors may be part of multiple endocrine neoplasia type 1." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "97287" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Bronchial neuroendocrine tumor" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Bronchial neuroendocrine tumor" ] .
+}
+

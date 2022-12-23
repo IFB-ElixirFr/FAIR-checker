@@ -1,0 +1,29 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=570371> a ns1:MedicalCondition ;
+        ns1:alternateName "Bartter syndrome type V",
+            "Transient antenatal Bartter syndrome" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "E26.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E26.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:570371" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:570371" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A form of antenatal Bartter syndrome characterized by early maternal polyhydramnios, excessive renal salt loss with secondary metabolic alkalosis in the neonatal period that completely disappears within the first months of life." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "570371" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Bartter syndrome type 5" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Bartter syndrome type 5" ] .
+}
+

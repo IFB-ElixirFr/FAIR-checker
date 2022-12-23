@@ -1,0 +1,39 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=83312> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "10039137" ;
+                ns1:codingSystem "MedDRA" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "A79.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:83312" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10039137" ;
+                ns1:codingSystem "MedDRA" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "A79.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0035597" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:83312" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0035597" ;
+                ns1:codingSystem "UMLS" ] ;
+        ns1:description "A rare, acquired, self-limiting, infectious disease due to the mite-borne bacteria <i>Rickettsia akari</i> characterized by an asymptomatic, 0.5 to 2 cm in diameter papulovesicle that typically ulcerates and forms an eschar, followed by a generalized papulovesicular rash associating variable constitutional symptoms, such as localized lymphadenopathy, fever, malaise, and headaches. Additonal symptoms may include diaphoresis, myalgia and, less frequently, rhinorrhea, pharyngitis, nausea, vomiting, splenomegaly, conjunctival hyperemia, and abdominal pain. Systemic symptoms resolve within 6-10 days." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "83312" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Rickettsialpox" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Rickettsialpox" ] .
+}
+

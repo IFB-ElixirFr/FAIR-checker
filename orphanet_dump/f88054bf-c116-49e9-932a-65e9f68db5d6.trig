@@ -1,0 +1,37 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=398189> a ns1:MedicalCondition ;
+        ns1:alternateName "FFDD type IV",
+            "FFDD4",
+            "Focal facial dermal dysplasia 4",
+            "Focal facial preauricular dysplasia" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "614974" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q82.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:398189" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "614974" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:398189" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q82.8" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "Focal facial dermal dysplasia type IV (FFDD4) is a rare focal facial dysplasia (FFDD; see this term), characterized by congenital isolated preauricular and/or cheek blister scar-like lesions." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "398189" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Focal facial dermal dysplasia type IV" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Focal facial dermal dysplasia type IV" ] .
+}
+

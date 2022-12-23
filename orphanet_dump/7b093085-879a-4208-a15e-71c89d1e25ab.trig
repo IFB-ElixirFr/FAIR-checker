@@ -1,0 +1,34 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=325124> a ns1:MedicalCondition ;
+        ns1:alternateName "Bilateral anorchia" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "5819" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:325124" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q55.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:325124" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q55.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "5819" ;
+                ns1:codingSystem "GARD" ] ;
+        ns1:description "A rare 46,XY disorder of gonadal development characterized by congenital complete absence of testicular tissue in an individual with an otherwise normal male phenotype and normal karyotype. In addition, a small penis is a frequent finding in anorchid patients. Typical hormonal characteristics are elevated basal levels of gonadotropins (especially FSH), low concentration of testosterone, and lack of increase of plasma testosterone in response to hCG administration. The GnRH stimulation test induces a prolonged increase in FSH and LH levels." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "325124" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Testicular agenesis" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Testicular agenesis" ] .
+}
+

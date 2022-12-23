@@ -1,0 +1,28 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=402017> a ns1:MedicalCondition ;
+        ns1:alternateName "AML with t(9;11)(p22;q23)" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:402017" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C92.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C92.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:402017" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A tumor of hematopoietic and lymphoid tissues characterized by the most common AML-causing MLL translocation, resulting in the MLL-MLLT3-fusion protein. It can occur either as a primary neoplasm or secondary to previous chemo-/radiation therapy. Clinical manifestations result from accumulation of malignant myeloid cells within the bone marrow, peripheral blood and other organs and include leukocytosis, anemia, thrombocytopenia, fever, bone pain, fatigue, pallor, easy bruising and frequent bleeding." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "402017" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Acute myeloid leukemia with t(9;11)(p22;q23)" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Acute myeloid leukemia with t(9;11)(p22;q23)" ] .
+}
+

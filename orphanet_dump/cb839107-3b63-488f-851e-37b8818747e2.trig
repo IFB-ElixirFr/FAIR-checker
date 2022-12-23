@@ -1,0 +1,36 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=300345> a ns1:MedicalCondition ;
+        ns1:alternateName "Autosomal SLE",
+            "Familial SLE",
+            "Familial systemic lupus erythematosus" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "614420" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "614420" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "M32.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:300345" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:300345" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "M32.8" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "Autosomal systemic lupus erythematosus is a rare, genetic, multisystemic, chronic autoimmune disease characterized by the presence of systemic lupus erythematosus symptoms in two or more members of a single family. Patients present a wide spectrum of clinical manifestations, including cutaneous (malar rash, photosensitivity), ocular (keratoconjunctivitis sicca, retinopathy), gastrointestinal (oral ulceration, abdominal pain), cardiac (atherosclerosis, chest pain), pulmonary (serositis, pleurisy), musculoskeletal (arthralgia, myalgia), renal (nephritis, hematuria), obstetrical (increased spontaneous abortions, neonatal lupus), constitutional (fatigue, loss of appetite) and neuropsychiatric (mood and cognitive disorders) involvement, among others." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "300345" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Autosomal systemic lupus erythematosus" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Autosomal systemic lupus erythematosus" ] .
+}
+

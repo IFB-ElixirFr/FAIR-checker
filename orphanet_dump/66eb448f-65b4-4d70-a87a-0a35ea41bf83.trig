@@ -1,0 +1,27 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=73223> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "Q87.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q87.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:73223" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:73223" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare genetic disease characterized by global developmental delay with language and cognition deficiencies, behavioral problems, osteopenia, joint laxity, skin defects consisting of hyperkeratosis and sweat gland and melanocyte abnormalities with hypopigmented areas, and abnormal hair structure. Mild facial dysmorphism (prominent forehead, thick eyebrows, epicanthal folds, broad nasal bridge, long philtrum, and micrognathia), abnormalities of the teeth, and skeletal and cardiac anomalies have also been described." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "73223" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Global developmental delay-osteopenia-ectodermal defect syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Global developmental delay-osteopenia-ectodermal defect syndrome" ] .
+}
+

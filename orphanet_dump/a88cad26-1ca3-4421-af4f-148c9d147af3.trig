@@ -1,0 +1,47 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=2037> a ns1:MedicalCondition ;
+        ns1:alternateName "Congenital aortopulmonary artery fistula",
+            "Congenital aortopulmonary septal defect" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "738" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C2931610" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:2037" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C537782" ;
+                ns1:codingSystem "MeSH" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C2931610" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "738" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q21.4" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C537782" ;
+                ns1:codingSystem "MeSH" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:2037" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q21.4" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "A rare congenital non-syndromic heart malformation characterized by a communication between the ascending aorta and the pulmonary trunk in the presence of two normally formed semilunar valves. It may be an isolated finding or occur in association with other anomalies. Severe clinical manifestations, such as congestive heart failure or pulmonary hypertension, typically develop in early life." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "2037" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Congenital aortopulmonary window" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Congenital aortopulmonary window" ] .
+}
+

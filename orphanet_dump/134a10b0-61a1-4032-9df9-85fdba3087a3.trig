@@ -1,0 +1,27 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=98981> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "H21.2" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:98981" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "H21.2" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:98981" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A clinical variant of iridocorneal endothelial (ICE) syndrome, characterized by progressive iris atrophy and holes present on the surface of the iris, corneal edema, corectopia, uveal ectropion and anterior synechiae. Secondary glaucoma is also a common complication of the disease." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "98981" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Essential iris atrophy" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Essential iris atrophy" ] .
+}
+

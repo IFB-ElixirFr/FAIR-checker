@@ -1,0 +1,37 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=99860> a ns1:MedicalCondition ;
+        ns1:alternateName "B-ALL",
+            "Precursor B-cell acute lymphoblastic leukemia/lymphoma",
+            "Precursor B-cell acute lymphocytic leukemia",
+            "Precursor B-cell acute lymphocytic leukemia/lymphoma" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "615545" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:99860" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C91.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C91.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:99860" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "615545" ;
+                ns1:codingSystem "OMIM" ] ;
+        ns1:description "A rare acute lymphoblastic leukemia characterized by infiltration of bone marrow and peripheral blood by small to medium-sized blast cells typically positive for the B-cell markers CD19, cCD79a, and cCD22. Predilection sites for extramedullary involvement are the central nervous system, lymph nodes, spleen, liver, and testes. Patients present with evidence of bone marrow failure (i. e. thrombocytopenia, anemia, and/or neutropenia) and variable leukocyte count, as well as lymphadenopathy, hepatomegaly, splenomegaly, bone pain, and arthralgias." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "99860" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Precursor B-cell acute lymphoblastic leukemia" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Precursor B-cell acute lymphoblastic leukemia" ] .
+}
+

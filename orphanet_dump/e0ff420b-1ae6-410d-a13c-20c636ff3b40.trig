@@ -1,0 +1,48 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=3235> a ns1:MedicalCondition ;
+        ns1:alternateName "Progressive hearing loss with stapes fixation",
+            "Stapedo-vestibular ankylosis",
+            "Thies-Reis syndrome" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "5170" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "H74.3" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "601449" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "5170" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C1832354" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "601449" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:3235" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:3235" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C1832354" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "H74.3" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "Stapes fixation (stapedovestibular ankylosis) is a hearing loss condition that appears as a consequence of annular ligament destruction followed by excessive connective tissue production during the healing process. This condition is mainly observed in otosclerosis, but is also found in chronic otitis media with tympanosclerosis, and other rare bone diseases such as Paget's disease and osteogenesis imperfecta (Lobstein disease)." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "3235" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Progressive deafness with stapes fixation" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Progressive deafness with stapes fixation" ] .
+}
+

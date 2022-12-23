@@ -1,0 +1,41 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=306682> a ns1:MedicalCondition ;
+        ns1:alternateName "Manganese intoxication",
+            "Manganism" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:306682" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0677050" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10058951" ;
+                ns1:codingSystem "MedDRA" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:306682" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10058951" ;
+                ns1:codingSystem "MedDRA" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "T57.2" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "T57.2" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0677050" ;
+                ns1:codingSystem "UMLS" ] ;
+        ns1:description "A rare disorder due to toxic effects characterized by a progressive, permanent affliction of the extrapyramidal system with the globus pallidus and striatum as primary targets of neurotoxic effects. Symptoms include headache, insomnia, memory loss, emotional instability, hyperreflexia, dystonia, tremor, speech disturbances, and gait abnormalities. Individual factors like age, gender, genetics, and pre-existing medical conditions appear to have a profound impact on manganese toxicity." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "306682" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Manganese poisoning" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Manganese poisoning" ] .
+}
+

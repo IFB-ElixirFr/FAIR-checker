@@ -1,0 +1,34 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=420733> a ns1:MedicalCondition ;
+        ns1:alternateName "COXPD21" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:420733" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "615918" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E88.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "615918" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:420733" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E88.8" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "Combined oxidative phosphorylation defect type 21 is a rare mitochondrial disease characterized by axial hypotonia with limb hypertonia, developmental delay, hyperlactatemia, central nervous system anomalies visible on magnetic resonance imaging (e.g. corpus callosum hypoplasia, lesions of the globus pallidus) and multiple deficiency of the mitochondrial respiratory chain complexes in muscle tissue, but not in fibroblasts or liver." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "420733" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Combined oxidative phosphorylation defect type 21" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Combined oxidative phosphorylation defect type 21" ] .
+}
+

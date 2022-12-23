@@ -1,0 +1,35 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=401869> a ns1:MedicalCondition ;
+        ns1:alternateName "MMDS1",
+            "NFU1 deficiency" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "E88.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "605711" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "605711" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:401869" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E88.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:401869" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare mitochondrial disease characterized by failure to thrive, infantile encephalopathy, muscular hypotonia, global developmental delay and regression, pulmonary arterial hypertension, episodes of apnea and bradycardia, respiratory failure, hyperglycinemia, and lactic acidosis. Hypertrophic or dilated cardiomyopathy have also been reported. Brain imaging may show leukoencephalopathy involving variable regions. The disease is typically fatal in early infancy." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "401869" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Multiple mitochondrial dysfunctions syndrome type 1" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Multiple mitochondrial dysfunctions syndrome type 1" ] .
+}
+

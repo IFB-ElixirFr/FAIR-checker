@@ -1,0 +1,42 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=95699> a ns1:MedicalCondition ;
+        ns1:alternateName "Congenital adrenal hyperplasia due to cytochrome POR deficiency",
+            "POR deficiency",
+            "PORD" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "E25.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:95699" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E25.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:95699" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "12664" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "613571" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "613571" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "12664" ;
+                ns1:codingSystem "GARD" ] ;
+        ns1:description "A rare form of congenital adrenal hyperplasia due to P450 oxidoreductase deficiency and characterized by glucocorticoid deficiency, virilization of external genitalia in females, and undervirilization in males. Findings range from severely affected infants with 46,XX and 46,XY disorders/differences of sex development (DSD) and cortisol deficiency to mildly affected women who appear to have polycystic ovary syndrome, or mildly affected men with gonadal insufficiency." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "95699" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Congenital adrenal hyperplasia due to cytochrome P450 oxidoreductase deficiency" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Congenital adrenal hyperplasia due to cytochrome P450 oxidoreductase deficiency" ] .
+}
+

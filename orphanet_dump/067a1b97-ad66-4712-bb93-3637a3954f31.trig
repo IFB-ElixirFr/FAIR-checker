@@ -1,0 +1,32 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=314950> a ns1:MedicalCondition ;
+        ns1:alternateName "Clonal hypereosinophilic syndrome",
+            "HES-M",
+            "HES-N",
+            "Neoplastic hypereosinophilic syndrome",
+            "Primary HES" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:314950" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D47.5" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D47.5" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:314950" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare hypereosinophilic syndrome characterized by hypereosinophilia produced by clonal eosinophils derived from neoplastic stem cells in the absence of any secondary cause of eosinophilia and persisting for at least six months. The condition is associated with signs of organ infiltration, dysfunction, and damage. Clinical manifestations are highly variable, depending on the organ systems involved, and include dermatologic, pulmonary, cardiac, gastrointestinal, and cerebral manifestations, among others." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "314950" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Primary hypereosinophilic syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Primary hypereosinophilic syndrome" ] .
+}
+

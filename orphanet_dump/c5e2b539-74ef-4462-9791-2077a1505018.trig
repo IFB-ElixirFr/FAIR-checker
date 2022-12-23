@@ -1,0 +1,40 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=79127> a ns1:MedicalCondition ;
+        ns1:alternateName "RB-ILD" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "J68.4" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C1735355" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10066393" ;
+                ns1:codingSystem "MedDRA" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:79127" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:79127" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10066393" ;
+                ns1:codingSystem "MedDRA" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C1735355" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "J68.4" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "Respiratory bronchiolitis - interstitial lung disease is a mild inflammatory pulmonary disorder developed by cigarette smokers and characterized by shortness of breath and cough, pulmonary function abnormalities of mixed restrictive and obstructive lung disease and high resolution CT scanning showing centrilobular micronodules, ground glass opacities and peribronchiolar thickening." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "79127" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Respiratory bronchiolitis-interstitial lung disease syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Respiratory bronchiolitis-interstitial lung disease syndrome" ] .
+}
+

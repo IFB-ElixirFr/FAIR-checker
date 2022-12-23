@@ -1,0 +1,33 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=593> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:593" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10529" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10529" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C2678065" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:593" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C2678065" ;
+                ns1:codingSystem "UMLS" ] ;
+        ns1:description "Myofibrillar myopathy (MFM) describes a group of skeletal and cardiac muscle disorders, defined by the disintegration of myofibrils and aggregation of degradation products into intracellular inclusions, and is typically clinically characterized by slowly-progressive muscle weakness, which initially involves the distal muscles, but is highly variable and that can affect the proximal muscles as well as the cardiac and respiratory muscles in some patients." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "593" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Myofibrillar myopathy" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Myofibrillar myopathy" ] .
+}
+

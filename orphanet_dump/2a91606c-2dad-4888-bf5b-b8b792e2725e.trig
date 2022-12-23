@@ -1,0 +1,49 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=52417> a ns1:MedicalCondition ;
+        ns1:alternateName "Extranodal marginal zone B-cell lymphoma",
+            "MALToma",
+            "Mucosa-associated lymphatic tissue lymphoma",
+            "Mucosa-associated lymphoid tissue lymphoma" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "C88.4" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0242647" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0242647" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:52417" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:52417" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "137245" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C88.4" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10060707" ;
+                ns1:codingSystem "MedDRA" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10060707" ;
+                ns1:codingSystem "MedDRA" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "137245" ;
+                ns1:codingSystem "OMIM" ] ;
+        ns1:description "MALT (mucosa-associated lymphoid tissue) lymphoma is a rare form of malignant non-Hodgkin lymphoma (see this term) that affects B cells and grows at the expense of lymphoid tissue associated with mucous membranes, but also occurs, more rarely, in lymph nodes." ;
+        ns1:epidemiology "Prevalence : 1-9 / 100 000" ;
+        ns1:identifier "52417" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "MALT lymphoma" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "MALT lymphoma" ] .
+}
+

@@ -1,0 +1,18 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=180157> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "Q52.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:180157" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare vaginal malformation characterized by the presence of a complete or incomplete septum dividing the vagina into two parallel cavities, resulting from failure of reabsorption of the midline uterine septum between the two fused Müllerian ducts during embryogenesis. Patients are often asymptomatic, but may present with menorrhagia, dysmenorrhea, dyspareunia, infertility, or spontaneous abortion. The condition may occur as an isolated malformation or in association with other Müllerian duct anomalies (such as septate uterus or uterus didelphys) or renal abnormalities." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "180157" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Longitudinal vaginal septum" ] .
+}
+

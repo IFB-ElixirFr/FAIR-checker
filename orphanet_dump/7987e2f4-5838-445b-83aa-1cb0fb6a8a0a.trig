@@ -1,0 +1,33 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=99642> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "613343" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q77.7" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q77.7" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:99642" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "613343" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:99642" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "Spondyloepimetaphyseal dysplasia, Handigodu type is a rare, genetic, primary bone dysplasia disorder characterized by three distinct phenotypes, namely: 1) patients of average height with painful, osteoarthritic changes of the hip joints and no spinal abnormalities, 2) short-statured patients with predominantly truncal shortening, arm span exceeding height, dysplastic changes of hips and varying degrees of platyspondyly, and 3) patients with dwarfism, various associated skeletal abnormalities (particularly of the knees and hands) and severe epiphyseal dysplasia (of hips, knees, hands, wrists) associated with significant platyspondyly. Most patients cannot walk long distances, and many have decreased joint spaces, as well as sclerotic and cystic changes on imaging." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "99642" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Spondyloepimetaphyseal dysplasia, Handigodu type" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Spondyloepimetaphyseal dysplasia, Handigodu type" ] .
+}
+

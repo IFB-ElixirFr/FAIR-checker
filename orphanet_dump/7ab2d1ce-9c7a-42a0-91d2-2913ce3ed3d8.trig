@@ -1,0 +1,27 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=90282> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:90282" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "L93.2" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:90282" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "L93.2" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "Hypertrophic or verrucous lupus erythematosus is a rare type of chronic cutaneous lupus erythematosus characterized by the appearance of lesions on sun-exposed areas (frequently the extensor surfaces of forearms, face, upper trunk) which vary from squamous violet, painful papules and blackish hyperkeratotic ulcers to depigmented atrophic plaques on the back, hyperkeratotic papules on upper extremities, and disseminated keratoacanthoma-like papulonodular verrucous lesions. Classic discoid lesions and squamous cell carcinoma may be associated. Histopathology reveals follicular plugging, liquefactive basal layer degeneration and a perivascular lymphocytic infiltrate." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "90282" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Hypertrophic or verrucous lupus erythematosus" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Hypertrophic or verrucous lupus erythematosus" ] .
+}
+

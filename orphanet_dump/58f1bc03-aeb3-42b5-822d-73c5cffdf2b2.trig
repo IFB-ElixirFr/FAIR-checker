@@ -1,0 +1,52 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=403> a ns1:MedicalCondition ;
+        ns1:alternateName "Dexamethasone-sensitive hypertension",
+            "FH-I",
+            "FH1",
+            "Familial hyperaldosteronism type 1",
+            "GRA",
+            "Glucocorticoid-remediable aldosteronism",
+            "Glucocorticoid-sensitive hypertension" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "E26.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C1260386" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:403" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C1260386" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "103900" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:403" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "103900" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "2790" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "2790" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E26.0" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "A rare heritable, glucocorticoid remediable form of primary aldosteronism (PA) characterized by early-onset hypertension, hyperaldosteronism, variable hypokalemia, low plasma renin activity (PRA), and abnormal production of 18-oxocortisol and 18-hydroxycortisol." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "403" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Familial hyperaldosteronism type I" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Familial hyperaldosteronism type I" ] .
+}
+

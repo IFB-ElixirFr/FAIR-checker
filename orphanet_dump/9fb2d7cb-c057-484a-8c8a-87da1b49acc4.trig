@@ -1,0 +1,40 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=352670> a ns1:MedicalCondition ;
+        ns1:alternateName "CMTDIF" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "9206" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G60.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:352670" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:352670" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G60.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "9206" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "615185" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "615185" ;
+                ns1:codingSystem "OMIM" ] ;
+        ns1:description "A rare hereditary motor and sensory neuropathy disorder characterized by the typical CMT phenotype (slowly progressive distal muscle atrophy and weakness in upper and lower limbs, distal sensory loss in extremities, reduced or absent deep tendon reflexes and foot deformities) with nerve biopsy demonstrating demyelinating and axonal changes and nerve conduction velocities varying from the demyelinating to axonal range." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "352670" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Autosomal dominant intermediate Charcot-Marie-Tooth disease type F" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Autosomal dominant intermediate Charcot-Marie-Tooth disease type F" ] .
+}
+

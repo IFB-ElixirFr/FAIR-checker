@@ -1,0 +1,36 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=2305> a ns1:MedicalCondition ;
+        ns1:alternateName "Isotretinoin embryopathy",
+            "Retinoic acid embryopathy",
+            "Retinoids embryopathy" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "C2930972" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C2930972" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:2305" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q86.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:2305" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q86.8" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "A rare tetrogenic embryofetopathy due to exposure to isotretinoin, an oral synthetic vitamin A derivative, which is used to treat severe recalcitrant cystic acne. Exposure to isotretinoin during the first trimester of pregnancy has been associated with an increased risk of spontaneous abortions and severe birth defects including serious craniofacial (microcephaly, asymmetric crying facies, microphthalmia, developmental abnormalities of the external ear, ocular hypertelorism), cardio vascular (conotruncal heart defects, aortic arch abnormalities), and central nervous system (hydrocephalus, microcephaly, lissencephaly, Dandy-Walker malformation, cognitive deficit) anomalies and thymic aplasia." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "2305" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Isotretinoin syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Isotretinoin syndrome" ] .
+}
+

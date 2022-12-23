@@ -1,0 +1,28 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=512103> a ns1:MedicalCondition ;
+        ns1:alternateName "AREI" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:512103" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:512103" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q80.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q80.8" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "A rare, inherited, non-syndromic ichthyosis characterized by congenital, generalized erythroderma with cutaneous blistering and erosions, resembling collodion presentation at birth, replaced by progressive hyperkeratosis later in life without palmoplantar involvement. The ultrastructural pathology consists of sparse keratin filaments and keratin clumps that show a nearly homogeneous, amorphous structure." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "512103" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Autosomal recessive epidermolytic ichthyosis" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Autosomal recessive epidermolytic ichthyosis" ] .
+}
+

@@ -1,0 +1,29 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=500150> a ns1:MedicalCondition ;
+        ns1:alternateName "ZTTK syndrome",
+            "Zhu-Tokita-Takenouchi-Kim syndrome" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:500150" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "617140" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "617140" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:500150" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare, genetic, multiple congenital anomalies/dysmorphic syndrome characterized by developmental delay, intellectual disability and mild to moderate facial dysmorphism in association with variable brain malformations (including abnormal gyration patterns, ventriculomegaly, white matter abnormalities, hypoplasia of the corpus callosum and cerebellar hemispheres), musculoskeletal abnormalities (including hemivertebrae, scoliosis or kyphosis, contractures, and joint laxity), ocular involvement (strabismus, hypermetropia and cortical visual impairment) and hypotonia. Additional clinical manifestations may include seizures, short stature urogenital malformations, heart defects and gastrointestinal malformations." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "500150" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Brain malformations-musculoskeletal abnormalities-facial dysmorphism-intellectual disability syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Brain malformations-musculoskeletal abnormalities-facial dysmorphism-intellectual disability syndrome" ] .
+}
+

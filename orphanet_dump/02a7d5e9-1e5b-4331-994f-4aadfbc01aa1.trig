@@ -1,0 +1,21 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=498481> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:498481" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:498481" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare primary bone dysplasia characterized by reduced bone mineral density (defined as a Z score below -2.0), vertebral compression fractures, and recurrent peripheral fractures caused by low-impact trauma, leading to bone pain and impaired mobility. Patients typically become symptomatic in childhood or adolescence." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "498481" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "LRP5-related primary osteoporosis" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "LRP5-related primary osteoporosis" ] .
+}
+

@@ -1,0 +1,36 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=435387> a ns1:MedicalCondition ;
+        ns1:alternateName "Autosomal dominant Charcot-Marie-Tooth disease type 2 due to VCP mutation",
+            "CMT2 due to VCP mutation",
+            "CMT2Y" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "616687" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:435387" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G60.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "616687" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G60.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:435387" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare, axonal hereditary motor and sensory neuropathy characterized by progressive distal muscle weakness and atrophy of variable onset and severity. Patients present with postural instability, gait and running difficulties, decreased deep tendon reflexes, foot deformities, fine motor impairment, and distal sensory impairment. Dysarthria, dysphagia, and mild cognitive and behavioral abnormalities have also been reported." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "435387" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Autosomal dominant Charcot-Marie-Tooth disease type 2Y" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Autosomal dominant Charcot-Marie-Tooth disease type 2Y" ] .
+}
+

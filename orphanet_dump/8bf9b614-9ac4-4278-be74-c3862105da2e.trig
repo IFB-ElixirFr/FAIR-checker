@@ -1,0 +1,29 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=330032> a ns1:MedicalCondition ;
+        ns1:alternateName "HbLepore-beta-thalassemia syndrome",
+            "Lepore-beta-thalassemia syndrome" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "D56.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:330032" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:330032" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D56.8" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "A rare beta-thalassemia associated with another hemoglobin anomaly characterized by the presence of the hemoglobin Lepore variant in association with beta-thalassemia. Clinical presentation is highly variable, depending on the type of beta-thalassemia, and ranges from severe hypochromic microcytic anemia and complete transfusion dependency to moderate, compensated anemia without a need for regular blood transfusions." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "330032" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Hemoglobin Lepore-beta-thalassemia syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Hemoglobin Lepore-beta-thalassemia syndrome" ] .
+}
+

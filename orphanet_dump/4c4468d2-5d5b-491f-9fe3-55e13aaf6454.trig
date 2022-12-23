@@ -1,0 +1,31 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=99908> a ns1:MedicalCondition ;
+        ns1:alternateName "Bird fancier lung" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "C0031903" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D001716" ;
+                ns1:codingSystem "MeSH" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "J67.2" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:99908" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "145300" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10004941" ;
+                ns1:codingSystem "MedDRA" ] ;
+        ns1:description "Pigeon-breeder's lung disease, also called bird fancier’s lung, is a hypersensitivity pneumonitis (see this term) induced by inhalation of bird derived-proteins. Presentation can be acute with chills, cough, fever, shortness of breath, chest tightness usually resolving within 24 h after cessation of antigen exposure, sub-acute with cough and dyspnea over several days to weeks, whereas chronic form results in breathlessness, coughing, lack of appetite and weight loss." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "99908" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Pigeon-breeder lung disease" ] .
+}
+

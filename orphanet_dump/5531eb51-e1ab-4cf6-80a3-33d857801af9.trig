@@ -1,0 +1,53 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=57> a ns1:MedicalCondition ;
+        ns1:alternateName "GSD due to aldolase A deficiency",
+            "GSD type 12",
+            "GSD type XII",
+            "Glycogen storage disease type 12",
+            "Glycogen storage disease type XII",
+            "Glycogenosis due to aldolase A deficiency",
+            "Glycogenosis type 12",
+            "Glycogenosis type XII" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "E74.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0272066" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:57" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:57" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "611881" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0272066" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "600" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E74.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "600" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "611881" ;
+                ns1:codingSystem "OMIM" ] ;
+        ns1:description "Glycogen storage disease due to aldolase A deficiency is an extremely rare glycogen storage disease (see this term) characterized by hemolytic anemia with or without myopathy or intellectual deficit. Myopathy can be severe enough to result in fatal rhabdomyolysis in some patients. A family with episodic rhabdomyolysis (triggered by fever) without hemolytic anemia has recently been reported." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "57" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Glycogen storage disease due to aldolase A deficiency" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Glycogen storage disease due to aldolase A deficiency" ] .
+}
+

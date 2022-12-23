@@ -1,0 +1,33 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=180234> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:180234" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0334524" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C80.9" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C80.9" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:180234" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0334524" ;
+                ns1:codingSystem "UMLS" ] ;
+        ns1:description "A rare germ cell tumor characterized by composition of two or more malignant germ cell components, the most common combination being dysgerminoma and yolk sac tumor. The tumors typically occur between childhood and young adulthood. They are usually located in the gonads, occasionally also in other regions. Clinical presentation corresponds to the individual germ cell components and the tumor location; manifestations may include abdominal pain, abdominal mass, and menstrual disorder in females, and a testicular mass in males. The most important prognostic factor is tumor stage." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "180234" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Mixed germ cell tumor" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Mixed germ cell tumor" ] .
+}
+

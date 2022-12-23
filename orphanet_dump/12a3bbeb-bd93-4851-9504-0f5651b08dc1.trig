@@ -1,0 +1,34 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=370109> a ns1:MedicalCondition ;
+        ns1:alternateName "v-AT" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:370109" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G11.3" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:370109" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C1876175" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G11.3" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C1876175" ;
+                ns1:codingSystem "UMLS" ] ;
+        ns1:description "A rare, genetic, persistent combined dystonia characterized by clinical signs similar to ataxia-telangiectasia but with a later (usually adulthood) onset and slower progression. Patients typically present extrapyramidal signs, such as resting tremor, choreathetosis, and dystonia, as the initial symptoms and later often develop mild cerebellar ataxia (with gait usually preserved). Telangiectasia and immunodeficiency may be absent but secondary features of ataxia-telangiectasia, such as risk of malignancy, dysarthria and peripheral neuropathy, are frequently present." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "370109" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Ataxia-telangiectasia variant" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Ataxia-telangiectasia variant" ] .
+}
+

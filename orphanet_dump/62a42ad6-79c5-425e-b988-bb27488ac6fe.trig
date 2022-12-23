@@ -1,0 +1,28 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=254519> a ns1:MedicalCondition ;
+        ns1:alternateName "KOS" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "608149" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "608149" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:254519" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:254519" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "Kagami-Ogata syndrome is a rare genetic disease characterized by polyhydramnios (mostly due to placentomegaly), fetal macrosomia, abdominal wall defects, skeletal abnormalities (including bell-shaped thorax, coat-hanger appearance of the ribs and decreased mid to wide thorax diameter ratio in infancy), feeding difficulties and impaired swallowing, dysmorphic features (hairy forehead, full cheeks, protruding philtrum, micrognathia), developmental delay and intellectual disability. Additional features may include kyphoskoliosis, joint contractures, diastasis recti, muscular hypotonia. There is increased risk of hepatoblastoma." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "254519" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Kagami-Ogata syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Kagami-Ogata syndrome" ] .
+}
+

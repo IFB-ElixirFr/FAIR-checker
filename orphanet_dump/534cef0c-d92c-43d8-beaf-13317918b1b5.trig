@@ -1,0 +1,30 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=268261> a ns1:MedicalCondition ;
+        ns1:alternateName "21q22.13q22.2 microdeletion syndrome",
+            "Del(21)(q22.13q22.2)",
+            "Monosomy 21q22.13q22.2" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:268261" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q93.5" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q93.5" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:268261" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare, syndromic intellectual disability characterized by global developmental delay including severely delayed or absent speech, moderate to severe intellectual disability, behavioral issues, stereotypic behavior, febrile seizures and epilepsy, abnormal gait, vision defects, and characteristic facial features. Intrauterine growth restriction and feeding difficulties are frequently present." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "268261" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "DYRK1A-related intellectual disability syndrome due to 21q22.13q22.2 microdeletion" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "DYRK1A-related intellectual disability syndrome due to 21q22.13q22.2 microdeletion" ] .
+}
+

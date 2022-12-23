@@ -1,0 +1,40 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=3269> a ns1:MedicalCondition ;
+        ns1:alternateName "Radioulnar fusion" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "Q74.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "179300" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:3269" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q74.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10876" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "179300" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:3269" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10876" ;
+                ns1:codingSystem "GARD" ] ;
+        ns1:description "Congenital radioulnar synostosis is a rare bone disorder that may be isolated or associated with other disorders and that is characterized by failure of segmentation of the radius and ulna during embryological development, causing limited rotational movements of the forearm, which may lead to difficulties with some activities of daily living." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "3269" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Congenital radioulnar synostosis" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Congenital radioulnar synostosis" ] .
+}
+

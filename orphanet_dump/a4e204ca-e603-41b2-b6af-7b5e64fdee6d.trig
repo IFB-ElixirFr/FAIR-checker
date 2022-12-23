@@ -1,0 +1,22 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=100049> a ns1:MedicalCondition ;
+        ns1:alternateName "Primary ILD specific to childhood due to pulmonary surfactant protein anomalies" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:100049" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:100049" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A group of interstitial lung diseases (ILD) induced by genetic mutations disrupting surfactant function and gas exchange in the lung. The disorders caused by these mutations affect full-term infants and older children and exhibit considerable overlap in their clinical and histologic presentation." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "100049" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Primary interstitial lung disease specific to childhood due to pulmonary surfactant protein anomalies" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Primary interstitial lung disease specific to childhood due to pulmonary surfactant protein anomalies" ] .
+}
+

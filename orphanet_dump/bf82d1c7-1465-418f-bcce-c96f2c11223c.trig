@@ -1,0 +1,28 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=235936> a ns1:MedicalCondition ;
+        ns1:alternateName "FH" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "C3713420" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:235936" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C3713420" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:235936" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "Familial hyperaldosteronism (FH) is the heritable form of primary aldosteronism (PA) which comprises three identified subtypes to date: FH type I (FH-I; see this term) characterized by early-onset hypertension, glucocorticoid remediable adrenocorticotropic hormone (ACTH)-dependent hyperaldosteronism, variable hypokalemia, and overproduction of 18-oxocortisol and 18-hydroxycortisol; FH type II (FH-II; see this term) characterized by hypertension of varying severity and hyperaldosteronism not suppressible by dexamethasone; and FH type III (FH-III; see this term) characterized by profound hypokalemia, early-onset severe hypertension, non glucocorticoid-remediable hyperaldosteronism, and overproduction of 18-oxocortisol and 18-hydroxycortisol." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "235936" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Familial hyperaldosteronism" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Familial hyperaldosteronism" ] .
+}
+

@@ -1,0 +1,41 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=93607> a ns1:MedicalCondition ;
+        ns1:alternateName "AR pRTA",
+            "Proximal renal tubular acidosis with ocular abnormalities and intellectual disability" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:93607" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C1970309" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "N25.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "N25.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "604278" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C1970309" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:93607" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "604278" ;
+                ns1:codingSystem "OMIM" ] ;
+        ns1:description "A rare autosomal recessive form of proximal renal tubular acidosis characterized by an isolated defect in the proximal tubule leading to the decreased reabsorption of bicarbonate and consequentially to urinary bicarbonate wastage. Presentation is typically with hyperchloremic acidosis, usually occurring in childhood. Extrarenal manifestations include ocular abnormalities (band keratopathy, glaucoma, and cataracts), intellectual disability and severe growth retardation. Other features like dental enamel defects, basal ganglia calcification and pancreatitis are sometimes present." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "93607" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Autosomal recessive proximal renal tubular acidosis" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Autosomal recessive proximal renal tubular acidosis" ] .
+}
+

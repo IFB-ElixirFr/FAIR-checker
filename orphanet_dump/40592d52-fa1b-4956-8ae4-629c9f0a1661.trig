@@ -1,0 +1,34 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=3225> a ns1:MedicalCondition ;
+        ns1:alternateName "Tungland-Bellman syndrome" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "E34.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E34.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C2931369" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:3225" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C2931369" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:3225" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "Hearing loss-familial salivary gland insensitivity to aldosterone syndrome is characterised by bilateral moderate-to-severe sensorineural hearing loss and salivary gland insensitivity to aldosterone resulting in hyponatremia. It has been described in two brothers. Transmission appeared to be autosomal recessive." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "3225" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Hearing loss-familial salivary gland insensitivity to aldosterone syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Hearing loss-familial salivary gland insensitivity to aldosterone syndrome" ] .
+}
+

@@ -1,0 +1,35 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=137583> a ns1:MedicalCondition ;
+        ns1:alternateName "VIN",
+            "Vulvar intraepithelial tumor" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "D07.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:137583" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0346210" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0346210" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D07.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:137583" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare vulvovaginal tumor characterized by intraepithelial neoplastic proliferation of the vulvar epithelium, histologically presenting proliferation of atypical basal cells with basal layer involvement, enlarged nuclei, hyperchromasia, pleomorphic cells and increased numbers of mitotic figures. Patients are frequently asymptomatic, although vulvar pruritus/pain/burning, dysuria and/or dyspareunia may be associated. Concurrent anogenital involvement is frequent. Two subtypes, usual type VIN (uVIN) and differentiated type VIN (dVIN) exist, with uVIN typically being associated with HPV infection and presenting multifocal, elevated lesions around the introitus and/or labia majora, and dVIN being related to chronic inflammation and lesions consisting of poorly demarcated pink or white plaques that are often associated with lichen sclerosus or lichen planus. Diffusely positive p16 immunohistochemistry and high Ki-67 proliferation index in uVIN futher differentiates this subtype from dVIN, this latter being consistently negative for p16 while presenting p53 positivity." ;
+        ns1:epidemiology "Prevalence : 1-5 / 10 000" ;
+        ns1:identifier "137583" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Vulvar intraepithelial neoplasia" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Vulvar intraepithelial neoplasia" ] .
+}
+

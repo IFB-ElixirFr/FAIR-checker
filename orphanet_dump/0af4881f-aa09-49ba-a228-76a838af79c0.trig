@@ -1,0 +1,42 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=67044> a ns1:MedicalCondition ;
+        ns1:alternateName "Congenital dyserythropoietic anemia with thombocytopenia",
+            "X-linked congenital dyserythropoietic anemia with thrombocytopenia",
+            "XDAT" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "C1845837" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D69.4" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "300367" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D69.4" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C1845837" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:67044" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:67044" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "300367" ;
+                ns1:codingSystem "OMIM" ] ;
+        ns1:description "Thrombocytopenia with congenital dyserythropoietic anemia (CDA; see this term) is a rare hematological disorder, seen almost exclusively in males, characterized by moderate to severe thrombocytopenia with hemorrhages with or without the presence of mild to severe anemia." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "67044" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Thrombocytopenia with congenital dyserythropoietic anemia" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Thrombocytopenia with congenital dyserythropoietic anemia" ] .
+}
+

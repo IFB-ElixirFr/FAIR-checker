@@ -1,0 +1,33 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=453533> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "E34.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:453533" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "616113" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:453533" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E34.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "616113" ;
+                ns1:codingSystem "OMIM" ] ;
+        ns1:description "A rare genetic disease characterized by childhood onset of multiple endocrine manifestations in combination with central and peripheral nervous system abnormalities. Reported signs and symptoms include postnatal growth retardation, moderate intellectual disability, hypogonadotropic hypogonadism, insulin-dependent diabetes mellitus, central hypothyroidism, demyelinating sensorimotor polyneuropathy, and cerebellar and pyramidal signs. Progressive hearing loss and a hypoplastic pituitary gland have also been described. Brain imaging shows moderate white matter abnormalities." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "453533" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Polyendocrine-polyneuropathy syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Polyendocrine-polyneuropathy syndrome" ] .
+}
+

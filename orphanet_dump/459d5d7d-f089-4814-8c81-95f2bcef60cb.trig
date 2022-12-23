@@ -1,0 +1,33 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=2953> a ns1:MedicalCondition ;
+        ns1:alternateName "Adducted thumb-clubfoot syndrome",
+            "Distal arthrogryposis with peculiar facies and hydronephrosis",
+            "Dündar syndrome",
+            "Ehlers-Danlos syndrome, Kosho type",
+            "Musculocontractural EDS",
+            "mcEDS" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "Q79.6" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "615539" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:2953" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "601776" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "8486" ;
+                ns1:codingSystem "GARD" ] ;
+        ns1:description "A rare systemic disease characterized by congenital multiple contractures, characteristic craniofacial features (like large fontanel, hypertelorism, downslanting palpebral fissures, blue sclerae, ear deformities, high palate) evident at birth or in early infancy, and characteristic cutaneous features like skin hyperextensibility, skin fragility with atrophic scars, easy bruising, and increased palmar wrinkling. Additional features include recurrent/chronic dislocations, chest and spinal deformities, peculiarly shaped fingers, colonic diverticula, pneumothorax, and urogenital and ophthalmological abnormalities, among others. Molecular testing is obligatory to confirm the diagnosis." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "2953" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Musculocontractural Ehlers-Danlos syndrome" ] .
+}
+

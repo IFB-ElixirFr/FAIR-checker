@@ -1,0 +1,45 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=90281> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "C0024138" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10013072" ;
+                ns1:codingSystem "MedDRA" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0024138" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D008179" ;
+                ns1:codingSystem "MeSH" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D008179" ;
+                ns1:codingSystem "MeSH" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "L93.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:90281" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "L93.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10013072" ;
+                ns1:codingSystem "MedDRA" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:90281" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare form of chronic cutaneous lupus erythematosus characterized by erythematous, scaly papules and plaques preferentially occurring on sun-exposed skin areas (scalp, face, and ears) and exhibiting follicular plugging, pigmentary changes, and central atrophy, scarring, and telangiectasia. Skin biopsy shows a perivascular and periadnexal lymphocytic infiltrate and involvement of the dermoepidermal junction with thickening of the basement membrane and vacuolar degeneration of the basal cells. A small percentage of patients may develop systemic lupus erythematosus." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "90281" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Discoid lupus erythematosus" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Discoid lupus erythematosus" ] .
+}
+

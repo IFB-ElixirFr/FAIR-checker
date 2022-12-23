@@ -1,0 +1,34 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=324535> a ns1:MedicalCondition ;
+        ns1:alternateName "COXPD11" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:324535" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "614922" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:324535" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E88.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E88.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "614922" ;
+                ns1:codingSystem "OMIM" ] ;
+        ns1:description "A rare, genetic, mitochondrial oxidative phosphorylation disorder characterized by a highly variable phenotype which ranges from a fatal neonatal/infantile encephalomyopathy with lactic acidosis, hyporeflexia/areflexia, severe hypotonia and respiratory failure to less severe cases presenting with central hypotonia, global developmental delay, congenital sensorineural hearing loss, and renal disease. Additional, variably observed, clinical features include intellectual disability, seizures, and cardiomyopathy." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "324535" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Combined oxidative phosphorylation defect type 11" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Combined oxidative phosphorylation defect type 11" ] .
+}
+

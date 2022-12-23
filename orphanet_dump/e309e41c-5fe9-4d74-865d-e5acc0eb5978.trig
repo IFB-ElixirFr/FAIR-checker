@@ -1,0 +1,40 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=90283> a ns1:MedicalCondition ;
+        ns1:alternateName "Intermittent cutaneous lupus" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "L93.2" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "13003" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0406636" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0406636" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "L93.2" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:90283" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "13003" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:90283" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare form of chronic cutaneous lupus erythematosus characterized by extreme photosensitivity with intermittent formation of erythematous, edematous, urticarial-like, smooth plaques on sun-exposed skin areas. The lesions heal without scarring. The course of the disease is benign, and development of systemic lupus erythematosus is infrequent. Most patients do not have lupus-related autoantibodies. Skin biopsy shows a perivascular and periadnexal lymphocytic infiltrate and increased dermal mucin deposition without involvement of the dermoepidermal junction." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "90283" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Lupus erythematosus tumidus" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Lupus erythematosus tumidus" ] .
+}
+

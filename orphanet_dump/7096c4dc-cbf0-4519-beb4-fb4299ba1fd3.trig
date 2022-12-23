@@ -1,0 +1,33 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=436242> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "I45.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "616117" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "616117" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "I45.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:436242" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:436242" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare genetic cardiac disease characterized by variably expressed atrial tachyarrhythmia (such as atrial flutter, paroxysmal or chronic atrial fibrillation, ectopic atrial tachycardia, or multifocal atrial tachycardia), infra-Hisian conduction system disease, and vulnerability to dilated cardiomyopathy. Age of onset ranges between childhood and adulthood." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "436242" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Familial atrial tachyarrhythmia-infra-Hisian cardiac conduction disease" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Familial atrial tachyarrhythmia-infra-Hisian cardiac conduction disease" ] .
+}
+

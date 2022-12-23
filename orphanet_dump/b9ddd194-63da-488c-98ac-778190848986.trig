@@ -1,0 +1,56 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=25> a ns1:MedicalCondition ;
+        ns1:alternateName "GA1",
+            "GCDHD",
+            "Glutaric acidemia type 1",
+            "Glutaric aciduria type 1",
+            "Glutaryl-coenzyme A dehydrogenase deficiency" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "231670" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E72.3" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:25" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "6522" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:25" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "231670" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0268595" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E72.3" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C536833" ;
+                ns1:codingSystem "MeSH" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C536833" ;
+                ns1:codingSystem "MeSH" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "6522" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0268595" ;
+                ns1:codingSystem "UMLS" ] ;
+        ns1:description "Glutaryl-CoA dehydrogenase (GCDH) deficiency (GDD) is an autosomal recessive neurometabolic disorder clinically characterized by encephalopathic crises resulting in striatal injury and a severe dystonic dyskinetic movement disorder." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "25" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Glutaryl-CoA dehydrogenase deficiency" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Glutaryl-CoA dehydrogenase deficiency" ] .
+}
+

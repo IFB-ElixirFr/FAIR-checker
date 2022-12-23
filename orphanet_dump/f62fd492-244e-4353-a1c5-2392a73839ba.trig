@@ -1,0 +1,31 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=508488> a ns1:MedicalCondition ;
+        ns1:alternateName "Del(8)(q24.3)",
+            "Deletion 8q24.3",
+            "Monosomy 8q24.3",
+            "Verheij syndrome" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:508488" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "615583" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "615583" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:508488" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A multiple congenital anomalies/dysmorphic - intellectual disability syndrome characterized by feeding problems, growth retardation, microcephaly, developmental delay, digital and vertebral anomalies, joint laxity/dislocation, cardiac and renal defects, and dysmorphic facial features (including plagiocephaly, prominent forehead, bitemporal narrowing, bilateral coloboma, epicanthal folds, malformations of the outer and middle ear, wide nasal bridge, anteverted nares, prominent and bulbous nose tip, long philtrum, thin lips, high and narrow palate, micrognathia with prognathism/retrognathism, full cheeks, and short, broad neck). Additional variable manifestations include obstructive apneas, recurrent pneumonia, and seizures." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "508488" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "8q24.3 microdeletion syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "8q24.3 microdeletion syndrome" ] .
+}
+

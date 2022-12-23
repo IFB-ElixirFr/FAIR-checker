@@ -1,0 +1,28 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=371007> a ns1:MedicalCondition ;
+        ns1:alternateName "CMDH" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "G71.2" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:371007" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:371007" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G71.2" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "Congenital muscular dystrophy with hyperlaxity is a rare, genetic neuromuscular disease characterized by congenital hypotonia, generalized, slowly progressive muscular weakness, and proximal joint contractures with distal joint hypermobility and hyperlaxity. Scoliosis or rigidity of the spine and delayed motor milestones are also frequently reported. Other manifestations include a long myopathic face and, in rare cases, respiratory failure, mild to moderate intellectual deficiency and short stature. Ambulation may be impaired with time." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "371007" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Congenital muscular dystrophy with hyperlaxity" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Congenital muscular dystrophy with hyperlaxity" ] .
+}
+

@@ -1,0 +1,40 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=155> a ns1:MedicalCondition ;
+        ns1:alternateName "Familial isolated hypertrophic obstructive cardiomyopathy",
+            "Familial isolated hypertrophic subaortic stenosis",
+            "Familial or idiopathic hypertrophic subaortic stenosis",
+            "Familila or idiopathic hypertrophic obstructive cardiomyopathy",
+            "Hypertrophic obstructive cardiomyopathy",
+            "Primitive hypertrophic obstructive cardiomyopathy",
+            "Primitive hypertrophic subaortic stenosis" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "I42.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:155" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:155" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "I42.2" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "I42.2" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "I42.1" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "" ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "155" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "NON RARE IN EUROPE: Familial isolated hypertrophic cardiomyopathy" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "NON RARE IN EUROPE: Familial isolated hypertrophic cardiomyopathy" ] .
+}
+

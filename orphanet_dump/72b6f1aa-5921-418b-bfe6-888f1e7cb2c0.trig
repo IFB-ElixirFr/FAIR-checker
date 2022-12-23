@@ -1,0 +1,48 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=178345> a ns1:MedicalCondition ;
+        ns1:alternateName "AEXS",
+            "Familial hyperestrogenism",
+            "Hereditary prepubertal gynecomastia" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "139300" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C1970109" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:178345" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E30.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "139300" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C1970109" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "12494" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E30.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:178345" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "12494" ;
+                ns1:codingSystem "GARD" ] ;
+        ns1:description "A rare, genetic endocrine disease characterized by increased levels of estrogen due to elevated extraglandular aromatase activity. Males present with heterosexual precocious puberty which manifests with pre- or peripubertal onset of gynecomastia, premature growth spurt, accelerated bone maturation resulting in decreased adult stature, and may present mild hypogonadotropic hypogonadism. Female patients may have isosexual precocious puberty or not have any manifestations at all." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "178345" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Aromatase excess syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Aromatase excess syndrome" ] .
+}
+

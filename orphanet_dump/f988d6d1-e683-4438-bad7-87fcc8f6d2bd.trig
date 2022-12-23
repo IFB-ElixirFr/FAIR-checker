@@ -1,0 +1,27 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=95462> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:95462" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q22.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q22.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:95462" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare, congenital, atrioventricular valve malformation characterized by fixed or mobile accessory tissue on the tricuspid valve, usually associated with other complex congenital heart anomalies (atrial septal defect, ventricular septal defect, transposition of great arteries, tetralogy Fallot). It may present clinically with systolic murmur, dyspnea, cyanosis, depending also on accompanying congenital heart anomaly." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "95462" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Accessory tricuspid valve tissue" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Accessory tricuspid valve tissue" ] .
+}
+

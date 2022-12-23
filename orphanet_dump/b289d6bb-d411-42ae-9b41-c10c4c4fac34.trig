@@ -1,0 +1,30 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=498228> a ns1:MedicalCondition ;
+        ns1:alternateName "Cystic epithelial-stromal tumors of the prostate",
+            "Cystosarcoma phyllodes of the prostate",
+            "Phyllodes type of atypical prostatic hyperplasia" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:498228" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:498228" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C61" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C61" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "A rare urogenital tumor characterized by stromal and epithelial components forming cysts lined by hyperplastic epithelium in a cellular or sarcomatoid stroma. The tumors may be clinically benign or malignant and tend to recur after transurethral resection. Metastatic spread is to lungs, bone, and liver. Patients may present with obstructive voiding symptoms, dysuria, hematuria, urinary retention, or a palpable abdominal mass. The prostate is palpably enlarged but feels soft and spongy." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "498228" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Phyllodes tumor of the prostate" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Phyllodes tumor of the prostate" ] .
+}
+

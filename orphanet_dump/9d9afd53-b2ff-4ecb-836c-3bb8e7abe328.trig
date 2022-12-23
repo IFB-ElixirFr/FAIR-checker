@@ -1,0 +1,33 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=227> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:227" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q55.6" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:227" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q55.6" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "1872" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "1872" ;
+                ns1:codingSystem "GARD" ] ;
+        ns1:description "A rare, non-syndromic, urogenital tract malformation characterized by complete or partial penile duplication, ranging from only glans duplication to the presence of two penis shafts with either one (i.e. bifid phallus) or two (i.e. true diphallia) corpora cavernosum in each. Additional anomalies, such as urethra duplication, an abnormal voiding pattern, hypo- or epispadias, bifid/ectopic scrotum, bladder exstrophy or duplication, are frequently associated, but it may also present as an isolated anomaly. In severe cases, pubic symphysis diastasis, imperforate or duplicated anus, colon/ rectosigmoidal duplication, inguinal hernia and vertebral anomalies may be observed." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "227" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Diphallia" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Diphallia" ] .
+}
+

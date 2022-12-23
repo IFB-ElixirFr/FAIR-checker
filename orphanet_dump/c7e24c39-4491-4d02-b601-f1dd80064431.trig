@@ -1,0 +1,28 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=1757> a ns1:MedicalCondition ;
+        ns1:alternateName "Leg duplication-mirror foot syndrome" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "Q74.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:1757" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q74.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:1757" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A very rare, genetic, congenital limb malformation syndrome characterized by duplication of the fibula associated with pre-axial mirror polydactyly of the foot, that may occur as an isolated malformation or be assoicated with other anomalies, including ulnar dimelia, facial abnormalities and sacrococcygeal teratoma." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "1757" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Fibular dimelia-diplopodia syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Fibular dimelia-diplopodia syndrome" ] .
+}
+

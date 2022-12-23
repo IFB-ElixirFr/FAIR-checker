@@ -1,0 +1,30 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=404580> a ns1:MedicalCondition ;
+        ns1:alternateName "Juvenile polyarthritis",
+            "Juvenile polyarticular arthritis",
+            "Polyarticular JIA" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "C0409667" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:404580" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0409667" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:404580" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare type of juvenile idiopathic arthritis characterized by arthritis with an onset prior to the age of 16 years persisting for longer than six weeks and affecting at least five joints during the first six months of the disease. Other possible causes of joint inflammation must be excluded. Two subgroups of the disease can be distinguished, based on the presence of absence of rheumatoid factor. Both subgroups are more common in girls and may be associated with mild fever, weight loss, anemia, moderate hepatosplenomegaly, and mild growth retardation." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "404580" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Polyarticular juvenile idiopathic arthritis" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Polyarticular juvenile idiopathic arthritis" ] .
+}
+

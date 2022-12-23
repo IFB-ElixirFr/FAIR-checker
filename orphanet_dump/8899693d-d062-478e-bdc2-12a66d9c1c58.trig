@@ -1,0 +1,27 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=213615> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "C54.2" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:213615" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C54.2" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:213615" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "Rhabdomyosarcoma of the corpus uteri is an extremely rare, highly malignant soft tissue sarcoma located in the uterine body and arising from primitive mesenchymal cells displaying variable degrees of skeletal muscle differentiation. It most often presents with abnormal vaginal discharge or dysfunctional uterine bleeding, abdominal pain and lower abdominal mass. Association with DICER1 syndrome has been reported." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "213615" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Rhabdomyosarcoma of the corpus uteri" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Rhabdomyosarcoma of the corpus uteri" ] .
+}
+

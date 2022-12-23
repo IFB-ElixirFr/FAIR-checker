@@ -1,0 +1,27 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=178566> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "C84.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:178566" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C84.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:178566" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A group of disorders including the most common forms of cutaneous T-cell lymphomas. The term Mycosis fungoides (MF) is restricted to the classical form characterized by the slow progression of patches, plaques and tumors, and to variants with a similar indolent course." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "178566" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Mycosis fungoides and variants" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Mycosis fungoides and variants" ] .
+}
+

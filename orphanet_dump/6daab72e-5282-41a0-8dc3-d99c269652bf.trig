@@ -1,0 +1,34 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=466718> a ns1:MedicalCondition ;
+        ns1:alternateName "MCRPE" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:466718" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "H35.5" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:466718" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "617111" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "617111" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "H35.5" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "A rare, genetic retinal disease characterized by characteristic 'dried-out soil' fundus pattern due to diffuse deep white lines in the macula, to the level of the retinal pigment epithelium, which is slightly elevated and rippled. Macular exudation may be associated, and Bruch's membrane may be affected too. Occasionally, peripheral nummular pigmentary changes may be observed, associated with blindness. The lesions enlarge with time, with a preferential macular extension and confluence. Complications may include polypoidal choroidal vasculopathy, choroidal neovascularization or atrophic fibrous macular scarring that can lead to reduced visual acuity over time." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "466718" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Martinique crinkled retinal pigment epitheliopathy" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Martinique crinkled retinal pigment epitheliopathy" ] .
+}
+

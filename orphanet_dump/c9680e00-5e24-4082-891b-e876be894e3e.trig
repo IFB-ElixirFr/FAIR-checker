@@ -1,0 +1,43 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=370334> a ns1:MedicalCondition ;
+        ns1:alternateName "EOE",
+            "Extraosseous Ewing sarcoma",
+            "Extraosseous Ewing tumor",
+            "Extraskeletal Ewing tumor" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "C49.9" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0279980" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:370334" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C49.9" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "612219" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:370334" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0279980" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "612219" ;
+                ns1:codingSystem "OMIM" ] ;
+        ns1:description "Extraskeletal Ewing sarcoma is a rare, poorly differentiated, highly malignant, soft tissue tumor, derived from neuroectoderm, that is morphologically indistinguishable from skeletal Ewing sarcoma but is located in extraosseous locations, with the most common being: chest wall, paravertebral region, abdominopelvic area (with predilection for the retroperitoneal space), gluteal region and lower extremities. Clinical presentation is highly variable and depends on tumor localization. Local recurrence is common and metastatic disease most frequently involves the bones and lungs." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "370334" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Extraskeletal Ewing sarcoma" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Extraskeletal Ewing sarcoma" ] .
+}
+

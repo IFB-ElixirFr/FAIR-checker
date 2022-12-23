@@ -1,0 +1,30 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=99121> a ns1:MedicalCondition ;
+        ns1:alternateName "Azygos continuation of the IVC",
+            "Azygos continuation of the inferior caval vein",
+            "Inferior vena cava interruption with azygos continuation" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:99121" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q26.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:99121" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q26.8" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "A rare vascular anomaly characterized by absence of the hepatic segment of the inferior vena cava and presence of an enlarged azygos vein (or in rare cases hemiazygos vein, if there is a left-sided inferior vena cava) draining the venous blood from the caudal segments. The post-hepatic segment of the inferior vena cava is present, draining only the hepatic veins into the right atrium. Most patients remain asymptomatic, if the anomaly is isolated. Association with congenital heart disease and asplenia or polysplenia syndromes has been reported." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "99121" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Azygos continuation of the inferior vena cava" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Azygos continuation of the inferior vena cava" ] .
+}
+

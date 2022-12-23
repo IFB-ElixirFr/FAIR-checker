@@ -1,0 +1,34 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=180247> a ns1:MedicalCondition ;
+        ns1:alternateName "Vaginal malignant epithelial tumor" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:180247" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0262659" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C52" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C52" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0262659" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:180247" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A group of rare vaginal tumors comprising HPV-associated and HPV-independent squamous cell carcinoma, glandular tumors (including HPV-associated adenocarcinoma, endometrioid carcinoma, clear cell carcinoma, gastric type and intestinal type mucinous carcinoma, and mesonephric adenocarcinoma), adenocarcinoma of Skene gland origin, adenosquamous carcinoma, and adenoid basal carcinoma. Depending on the type of tumor and disease stage, patients may present with symptoms related to a vaginal mass, vaginal bleeding and/or discharge, postcoital bleeding, urinary symptoms, pelvic pain, and a foreign body sensation within the vagina." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "180247" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Vaginal carcinoma" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Vaginal carcinoma" ] .
+}
+

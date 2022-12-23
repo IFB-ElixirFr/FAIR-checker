@@ -1,0 +1,33 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=252046> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "D32.9" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C1266113" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:252046" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C1266113" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D32.9" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:252046" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare nervous system tumor characterized by a benign pigmented space-occupying lesion derived from leptomeningeal melanocytes. Symptoms typically show insidious onset and are related to the mass effect on adjacent tissues. Depending on the location of the tumor, they include focal neurological deficits, increased intracranial pressure, seizures, and spinal cord compression, among others. Although the tumor may behave aggressively, prognosis is good after complete surgical resection." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "252046" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Meningeal melanocytoma" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Meningeal melanocytoma" ] .
+}
+

@@ -1,0 +1,29 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=96060> a ns1:MedicalCondition ;
+        ns1:alternateName "Mosaic trisomy chromosome 5",
+            "Trisomy 5 mosaicism" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "Q92.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:96060" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:96060" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q92.1" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "Mosaic trisomy 5 is a rare chromosomal anomaly syndrome with a variable phenotype ranging from clinically normal to patients presenting intrauterine growth retardation, congenital heart anomalies (mainly ventricular septal defect), multiple dysmorphic features (e.g. hypertelorism, prominent nasal bridge) and other congenital anomalies (incl. eventration of diaphragm, agenesis of corpus callosum, cloverleaf skull, clinodactyly, anteriorly placed anus). Psychomotor development may be normal in spite of low growth parameters being associated." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "96060" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Mosaic trisomy 5" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Mosaic trisomy 5" ] .
+}
+

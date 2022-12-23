@@ -1,0 +1,28 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=3115> a ns1:MedicalCondition ;
+        ns1:alternateName "Hereditary areflexic dystasia, Roussy-Lévy type" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:3115" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "4741" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "180800" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G60.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0205713" ;
+                ns1:codingSystem "UMLS" ] ;
+        ns1:description "A rare demyelinating hereditary motor and sensory neuropathy characterized by prominent gait ataxia, pes cavus, tendon areflexia, distal limb weakness, tremor in the upper limbs, distal sensory loss, kyphoscoliosis, and progressive muscle atrophy. The disease becomes symptomatic in infancy or childhood, mode of inheritance is autosomal dominant." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "3115" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Roussy-Lévy syndrome" ] .
+}
+

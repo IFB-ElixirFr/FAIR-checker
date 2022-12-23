@@ -1,0 +1,30 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=96070> a ns1:MedicalCondition ;
+        ns1:alternateName "Distal duplication 2p",
+            "Telomeric duplication 2p",
+            "Trisomy 2pter" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:96070" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q92.3" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q92.3" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:96070" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "Distal trisomy 2p is a rare chromosomal anomaly syndrome, resulting from the partial duplication of the short arm of chromosome 2, with a highly variable phenotype principally characterized by pre- and post-natal growth failure, global developmental delay, facial dysmorphism (incl. high forehead/frontal bossing, abnormal ear shape and/or position, hypertelorism/telecanthus, broad/depressed nasal bridge) and ocular anomalies (e.g. exophthalmos, retinal hypopigmentation, optic nerve and foveal hypoplasia). Other reported anomalies include generalized hypotonia, pectus excavatum, long fingers and toes, syndactyly, congenital heart (e.g. ventricular and atrial septal defects) and neural tube defects, seizures, pulmonary hypoplasia, diaphragmatic hernia and urogenital anomalies." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "96070" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Distal trisomy 2p" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Distal trisomy 2p" ] .
+}
+

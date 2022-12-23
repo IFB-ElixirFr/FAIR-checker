@@ -1,0 +1,28 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=93557> a ns1:MedicalCondition ;
+        ns1:alternateName "LHCDD" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "D89.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D89.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:93557" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:93557" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare non-amyloid monoclonal immunoglobulin deposition disease characterized by secretion of abnormal light and heavy chains, which are deposited in tissues and cause organ dysfunction, but do not form amyloid beta-pleated sheets or contain an amyloid P component. The condition most frequently occurs in association with multiple myeloma. The kidneys are most commonly affected (clinically manifesting as nephrotic syndrome and renal failure), but liver, heart, peripheral nerves, blood vessels, and joints may also be involved." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "93557" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Light and heavy chain deposition disease" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Light and heavy chain deposition disease" ] .
+}
+

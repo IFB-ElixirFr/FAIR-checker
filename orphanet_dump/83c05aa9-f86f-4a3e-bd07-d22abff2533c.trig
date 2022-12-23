@@ -1,0 +1,39 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=251992> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "C0017075" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10017709" ;
+                ns1:codingSystem "MedDRA" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:251992" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D36.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:251992" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10017709" ;
+                ns1:codingSystem "MedDRA" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0017075" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D36.1" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "Ganglioneuroma is a rare tumor of neuroepithelial tissue, a benign and well-differentiated tumor of neural crest origin, arising from the sympathetic nervous system and composed of ganglion cells and stromal Schwann cells. It can arise anywhere from the base of the skull to the pelvis, with the most frequent locations being the adrenal glands, retroperitoneum, posterior mediastinum and the pelvis, or, in rare cases, the central nervous system, heart, bones, intestine or other sites. It may be asymptomatic or present with various symptoms due to mass effect. Association with neurofibromatosis type I, multiple endocrine neoplasia type 2B and Turner syndrome was reported." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "251992" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Ganglioneuroma" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Ganglioneuroma" ] .
+}
+

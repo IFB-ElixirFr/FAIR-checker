@@ -1,0 +1,27 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=141261> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "Q18.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q18.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:141261" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:141261" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare oblique facial cleft characterized by a congenital unilateral or bilateral defect beginning in the upper lip medial to the oral commissure and extending across the cheek as a groove ending between the middle and lateral third of the lower eyelid (resulting in coloboma). Bone involvement includes an alveolar cleft in the premolar region, extending across the maxilla lateral to the infraorbital nerve and up to the infraorbital rim and orbital floor. The malformation may be associated with Tessier number 3 and number 4 clefts, macrostomia, or anophthalmos." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "141261" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Tessier number 5 facial cleft" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Tessier number 5 facial cleft" ] .
+}
+

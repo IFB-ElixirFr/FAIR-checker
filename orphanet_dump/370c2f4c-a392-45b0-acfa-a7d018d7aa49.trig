@@ -1,0 +1,40 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=2688> a ns1:MedicalCondition ;
+        ns1:alternateName "Adult chronic idiopathic neutropenia" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "607847" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:2688" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D70" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:2688" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "607847" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C1842930" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D70" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C1842930" ;
+                ns1:codingSystem "UMLS" ] ;
+        ns1:description "A rare acquired immunodeficiency disease characterized by adult-onset absolute neutrophil counts less than 1.5 x 10^9/L on at least 3 occasions in a 3 month period that cannot be attributable to drugs or a specific genetic, infectious, inflammatory, autoimmune or malignant cause. Recurrent aphtous stomatitis and a history of mild bacterial infections are typically associated. A benign outcome with a low rate of severe infections and no secondary malignancies is observed." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "2688" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Adult idiopathic neutropenia" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Adult idiopathic neutropenia" ] .
+}
+

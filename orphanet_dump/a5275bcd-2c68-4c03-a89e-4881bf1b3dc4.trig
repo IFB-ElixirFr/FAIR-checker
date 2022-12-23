@@ -1,0 +1,59 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=715> a ns1:MedicalCondition ;
+        ns1:alternateName "GSD due to muscle phosphorylase kinase deficiency",
+            "GSD type 9D",
+            "GSD type 9E",
+            "GSD type IXd",
+            "GSD type IXe",
+            "Glycogen storage disease type 9D",
+            "Glycogen storage disease type 9E",
+            "Glycogen storage disease type IXd",
+            "Glycogen storage disease type IXe",
+            "Glycogenosis due to muscle phosphorylase kinase deficiency",
+            "Glycogenosis type 9D",
+            "Glycogenosis type 9E",
+            "Glycogenosis type IXd",
+            "Glycogenosis type IXe" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "300559" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C1845151" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "3858" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:715" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E74.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:715" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "300559" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E74.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C1845151" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "3858" ;
+                ns1:codingSystem "GARD" ] ;
+        ns1:description "Glycogen storage disease due to muscle phosphorylase kinase (PhK) deficiency is a benign inborn error of glycogen metabolism characterized by exercise intolerance." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "715" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Glycogen storage disease due to muscle phosphorylase kinase deficiency" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Glycogen storage disease due to muscle phosphorylase kinase deficiency" ] .
+}
+

@@ -1,0 +1,51 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=90120> a ns1:MedicalCondition ;
+        ns1:alternateName "CMT6",
+            "Charcot-Marie-Tooth disease type 6",
+            "HMSN 6",
+            "HMSN VI",
+            "Hereditary motor and sensory neuropathy type VI",
+            "Peripheral neuropathy and optic atrophy" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:90120" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0393807" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0393807" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "616505" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:90120" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G60.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "601152" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "601152" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G60.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "616505" ;
+                ns1:codingSystem "OMIM" ] ;
+        ns1:description "A rare axonal hereditary motor and sensory neuropathy disease characterized by progressive, peripheral, axonal sensorimotor neuropathy (of variable severity), affecting predominantly the distal lower limbs, associated with progressive, variably severe, optic atrophy, which frequently leads to visual loss. Patients typically present distal limb muscle weakness and atrophy, hypo/areflexia, foot deformities, poor visual acuity (often with a central scotoma), nystagmus, and reduced peripheral and nocturnal vision. Additional reported manifestations include sensorineural hearing loss, major joint contractures, anosmia, scoliosis/lumbar hyperlordosis, cognitive impairment and vocal cord paresis." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "90120" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Hereditary motor and sensory neuropathy type 6" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Hereditary motor and sensory neuropathy type 6" ] .
+}
+

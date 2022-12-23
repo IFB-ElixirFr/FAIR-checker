@@ -1,0 +1,22 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=391677> a ns1:MedicalCondition ;
+        ns1:alternateName "SOPH syndrome" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "614800" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q87.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:391677" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare, genetic, developmental defect during embryogenesis malformation syndrome characterized by severe postnatal growth retardation, craniofacial dysmorphism, which includes a progeroid facial appearance, brachycephaly with hypoplasia of the frontal and parietal tubers and a flat occipital area, narrow forehead, prominent glabella, small orbit, slight bilateral exophthalmos, straight nose, hypoplastic cheekbones, long philtrum and thin lips, skeletal abnormalities (i.e. micromelia, brachydactyly, and severe short stature with short limbs), normal intelligence, Pelger-Huët anomaly of leukocytes, loose skin with decreased tissue turgor, and bilateral optic atrophy with loss of color vision and visual acuity. Recurrent liver failure triggered by fever has been occasionally reported. Radiographs may evidence delayed bone age, late ossification and/or osteoporosis." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "391677" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Short stature-optic atrophy-Pelger-Huët anomaly syndrome" ] .
+}
+

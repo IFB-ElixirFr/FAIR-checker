@@ -1,0 +1,18 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=180160> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "Q52.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:180160" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare vaginal malformation characterized by the presence of a complete or incomplete transverse septum at any level of the vagina (most frequently the upper or middle third), resulting from incomplete fusion between the Müllerian duct component and the urogenital sinus component of the vagina during embryogenesis. The condition is only rarely diagnosed in neonates or infants, unless it causes significant hydromucocolpos. Complete septa present with primary amenorrhea, cyclic pelvic pain, dyspareunia, or a pelvic mass consisting of accumulated menstrual blood, while incomplete septa may lead to dyspareunia and dysmenorrhea." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "180160" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Transverse vaginal septum" ] .
+}
+

@@ -1,0 +1,36 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=448251> a ns1:MedicalCondition ;
+        ns1:alternateName "Lichtenstein-Knorr syndrome",
+            "Progressive autosomal recessive ataxia-sensorineural hearing loss syndrome",
+            "SCAR19" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "G11.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "616291" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:448251" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G11.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "616291" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:448251" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare genetic disease characterized by severe progressive sensorineural hearing loss and progressive cerebellar signs including gait ataxia, action tremor, dysmetria, dysdiadochokinesis, dysarthria, and nystagmus. Absence of deep tendon reflexes has also been reported. Age of onset is between infancy and adolescence. Brain imaging may show variable cerebellar atrophy in some patients." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "448251" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Progressive autosomal recessive ataxia-deafness syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Progressive autosomal recessive ataxia-deafness syndrome" ] .
+}
+

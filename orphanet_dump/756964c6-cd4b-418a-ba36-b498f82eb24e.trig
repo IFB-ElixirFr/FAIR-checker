@@ -1,0 +1,40 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=3386> a ns1:MedicalCondition ;
+        ns1:alternateName "Chagas disease" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "B57.3" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "B57.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "B57.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "B57.5" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "B57.4" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10001935" ;
+                ns1:codingSystem "MedDRA" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "B57.2" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:3386" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0041234" ;
+                ns1:codingSystem "UMLS" ] ;
+        ns1:description "A tropical disease mainly found in latin America and transmitted by triatomine insects (mostly <i>Triatoma infestans</i> and <i>Rhodnius prolixus</i> and <i>Panstrongylus megistus</i>) harboring the hemoflagellate protozoan parasite <i>Trypanosoma cruzi</i>. The disease is characterized by an acute phase which is either asymptomatic or manifest with fever, inflammation at the inoculation site (inoculation chancre or chagoma), unilateral palpebral edema called the Romaña sign (when the triatomine bite occurs near the eye), enlarged lymph nodes, and splenomegaly. The chronic phase is lifelong and development of chagasic cardiomyopathy (30%; complex arrhythmias, heart failure, and thromboembolic events), digestive (10%; megaoesophagus and megacolon), neurological (10%; stroke, peripheral neuropathy and autonomic dysfunction), or mixed alterations (10%) may be observed. These can all lead to high morbidity and mortality rates." ;
+        ns1:epidemiology "Prevalence : 1-9 / 1 000 000" ;
+        ns1:identifier "3386" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "American trypanosomiasis" ] .
+}
+

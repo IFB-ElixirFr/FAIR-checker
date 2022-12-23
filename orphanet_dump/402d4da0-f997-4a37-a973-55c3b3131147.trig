@@ -1,0 +1,30 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=982> a ns1:MedicalCondition ;
+        ns1:alternateName "Absent pulmonary valve syndrome",
+            "Congenital absence of the pulmonary valve",
+            "PVA" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "4597" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:982" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:982" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "4597" ;
+                ns1:codingSystem "GARD" ] ;
+        ns1:description "Pulmonary valve agenesis is a rare congenital heart malformation characterized by a total or partial absence of the pulmonary valve leaflets associated with stenosis of the pulmonary artery orifice and aneurysmal dilatation of the pulmonary arteries. It usually occurs in association with additional cardiovascular malformations such as teralogy of fallot or ventricular septal defect, or can occur as part of a syndrome (e.g. 22q11.2 deletion syndrome). Clinical features depend on the presence of associated cardiac malformations and include pulmonary insufficiency, bronchial obstruction (secondary to compression by aneurysmally dilated pulmonary arteries), pulmonary stenosis, cyanosis, and cardiac failure." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "982" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Pulmonary valve agenesis" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Pulmonary valve agenesis" ] .
+}
+

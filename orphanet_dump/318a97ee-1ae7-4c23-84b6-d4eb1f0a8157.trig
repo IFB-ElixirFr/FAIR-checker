@@ -1,0 +1,35 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=94075> a ns1:MedicalCondition ;
+        ns1:alternateName "Autoimmune enteropathy",
+            "Immune-mediated protracted diarrhea of infancy" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "8689" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0341305" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "8689" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:94075" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0341305" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:94075" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "Severe-immune mediated enteropathy describes a variety of intestinal disorders that can range from a serious, early-onset systemic disease (IPEX; see this term) to a mild isolated gastrointestinal disease. In children it manifests with severe diarrhea and dehydration in the presence of characteristic antibodies (anti-enterocyte and anti-goblet cell) and in adults with chronic diarrhea, malabsorption and weight loss." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "94075" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Severe immune-mediated enteropathy" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Severe immune-mediated enteropathy" ] .
+}
+

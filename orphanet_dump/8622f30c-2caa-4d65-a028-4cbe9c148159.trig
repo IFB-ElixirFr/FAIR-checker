@@ -1,0 +1,27 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=137628> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:137628" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:137628" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q28.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q28.8" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "Cardiac anomalies-heterotaxy syndrome is characterised by non-compaction of the ventricular myocardium, bradycardia, pulmonary valve stenosis, and secundum atrial septal defect. Laterality sequence anomalies are also present. So far, the syndrome has been described in nine members from three generations of the same family. Transmission is autosomal dominant and linkage to chromosome 6p24.3-21.2 was reported." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "137628" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Cardiac anomalies-heterotaxy syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Cardiac anomalies-heterotaxy syndrome" ] .
+}
+

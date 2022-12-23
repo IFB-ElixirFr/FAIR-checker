@@ -1,0 +1,19 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=231445> a ns1:MedicalCondition ;
+        ns1:alternateName "Paraparetic variant of GBS" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:231445" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G61.0" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "Paraparetic variant of Guillain-Barré syndrome is a rare variant of Guillain-Barré syndrome characterized by isolated leg weakness, areflexia and radicular leg pain that may simulate a cauda equina or spinal cord syndrome. The arms, ocular, facial, and oropharyngeal muscles are spared, and sphincteric function is normal." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "231445" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Paraparetic variant of Guillain-Barré syndrome" ] .
+}
+

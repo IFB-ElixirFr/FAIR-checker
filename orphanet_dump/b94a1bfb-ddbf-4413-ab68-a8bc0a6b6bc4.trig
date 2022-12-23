@@ -1,0 +1,28 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=164726> a ns1:MedicalCondition ;
+        ns1:alternateName "AML and myelodysplastic syndromes related to radiation" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:164726" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D46" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:164726" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D46" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "A subgroup of therapy-related myeloid neoplasms (t-MN), associated with treatment of an unrelated neoplastic disease with radiation. The neoplastic cells typically harbor unbalanced aberrations of chromosomes 5 and 7 (monosomy 5/del(5q) and monosomy 7/del(7q)) or a complex karyotype. Patients frequently present with multilineage dysplasia and cytopenias 5-10 years after exposure." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "164726" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Acute myeloid leukemia and myelodysplastic syndromes related to radiation" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Acute myeloid leukemia and myelodysplastic syndromes related to radiation" ] .
+}
+

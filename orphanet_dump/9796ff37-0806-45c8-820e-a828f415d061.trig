@@ -1,0 +1,34 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=99970> a ns1:MedicalCondition ;
+        ns1:alternateName "DDLS" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "C49.9" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0205824" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0205824" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C49.9" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:99970" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:99970" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "Dedifferentiated liposarcoma (DDLS) is a high-grade subtype of liposarcoma (LS; see this term) that progresses from well-differentiated liposarcoma (WDLS; see this term), and most often occurs in the retroperitoneum. It is defined as a region of nonlipogenic sarcoma associated with WDLS. ." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "99970" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Dedifferentiated liposarcoma" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Dedifferentiated liposarcoma" ] .
+}
+

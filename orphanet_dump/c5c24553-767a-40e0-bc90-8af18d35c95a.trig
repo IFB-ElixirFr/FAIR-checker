@@ -1,0 +1,42 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=397725> a ns1:MedicalCondition ;
+        ns1:alternateName "CoPAN",
+            "NBIA6",
+            "Neurodegeneration with brain iron accumulation due to COASY mutation" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "12571" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "615643" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "12571" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:397725" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:397725" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G23.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G23.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "615643" ;
+                ns1:codingSystem "OMIM" ] ;
+        ns1:description "COASY protein-associated neurodegeneration (CoPAN) is a very rare, slowly progressive form of neurodegeneration with brain iron accumulation (NBIA) characterized by classic NBIA features. The clinical manifestations include early-onset spastic-dystonic paraparesis, oromandibular dystonia, dysarthria, parkinsonism, axonal neuropathy, progressive cognitive impairment, complex motor tics, and obsessive-compulsive disorder." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "397725" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "COASY protein-associated neurodegeneration" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "COASY protein-associated neurodegeneration" ] .
+}
+

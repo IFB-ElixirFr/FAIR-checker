@@ -1,0 +1,28 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=102379> a ns1:MedicalCondition ;
+        ns1:alternateName "AML and myelodysplastic syndromes related to alkylating agent" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "C92.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C92.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:102379" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:102379" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A subgroup of therapy-related myeloid neoplasms (t-MN), associated with a treatment of an unrelated neoplastic or autoimmune disease with cytotoxic agents, like cyclophosphamid, platins, melphalan and others. The neoplastic cells typically harbor unbalanced aberrations of chromosomes 5 and 7 (monosomy 5/del(5q) and monosomy 7/del(7q)) or a complex karyotype. It usually presents with multilineage dysplasia and cytopenias 5-10 years after exposure, with symptoms related to the degree of bone marrow failure and the corresponding cytopenia (fatigue, bleeding and bruising, recurrent infections, bone pain)." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "102379" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Acute myeloid leukemia and myelodysplastic syndromes related to alkylating agent" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Acute myeloid leukemia and myelodysplastic syndromes related to alkylating agent" ] .
+}
+

@@ -1,0 +1,46 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=3312> a ns1:MedicalCondition ;
+        ns1:alternateName "Fetal thalidomide syndrome" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "10071249" ;
+                ns1:codingSystem "MedDRA" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "2313" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:3312" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0432365" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:3312" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "2313" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10071249" ;
+                ns1:codingSystem "MedDRA" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q86.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0432365" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q86.8" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "Thalidomide embryopathy is a group of anomalies presented in infants as a result of <i>in utero</i> exposure (between 20-36 days after fertilization) to thalidomide, a sedative used in treatment of a range of conditions, including morning sickness, leprosy and multiple myeloma (see these terms). Thalidomine embryopathy is characterized by phocomelia, amelia, forelimb and hand plate anomalies (absence of humerus and/or forearm, femur and/or lower leg, thumb anomalies). Other anomalies include facial hemangiomas, and damages to ears (anotia, microtia), eyes (microphthalmia, anophthalmos, coloboma, strabismus), internal organs (kidney, heart, and gastrointestinal tract), genitalia, and heart. Infant mortality associated with thalidomide embryopathy is estimated to be as high as 40%. Thalidomide is contraindicated in pregnancy and pregnancy prevention is recommended in women under treatment." ;
+        ns1:epidemiology "Prevalence : 1-9 / 1 000 000" ;
+        ns1:identifier "3312" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Thalidomide embryopathy" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Thalidomide embryopathy" ] .
+}
+

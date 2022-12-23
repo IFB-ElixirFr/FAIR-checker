@@ -1,0 +1,28 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=505248> a ns1:MedicalCondition ;
+        ns1:alternateName "Mucopolysaccharidosis-like plus disease" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:505248" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "617303" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "617303" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:505248" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare genetic disease characterized by early-onset respiratory difficulties and frequent respiratory infections, congenital heart defects, dysostosis multiplex, hepatosplenomegaly, renal involvement, hematopoietic abnormalities, facial dysmorphism (coarse facial features, large forehead, synophrys, long eyelashes, broad nasal bridge, macroglossia, short neck, and low hairline), and global developmental delay. Laboratory examination shows increased urinary excretion of glycosaminoglycans and increased plasma heparan sulfate, but no lysosomal enzyme deficiency. The disease is usually fatal in the first years of life." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "505248" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Mucopolysaccharidosis-like syndrome with congenital heart defects and hematopoietic disorders" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Mucopolysaccharidosis-like syndrome with congenital heart defects and hematopoietic disorders" ] .
+}
+

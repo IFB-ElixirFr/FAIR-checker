@@ -1,0 +1,33 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=981> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "Q28.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:981" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "3012" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:981" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q28.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "3012" ;
+                ns1:codingSystem "GARD" ] ;
+        ns1:description "Internal carotid artery (ICA) agenesis (uni or bilateral) is a developmental defect that may be asymptomatic or lead to cerebrovascular lesions. It is a rare malformation, with only around hundred cases reported in the literature. When symptoms are present, they are caused by cerebrovascular insufficiency, compression of the brain by vessels that dilate to compensate for the absence of the ICA, or the presence of an aneurysm. Associated intracranial aneurysms occur in 25 to 35% of patients and are often responsible for intracranial hemorrhage, which may present as the initial symptom. The absence of the ICA is the result of either agenesis or aplasia. The term agenesis is used when both the ICA and its bony canal are absent, whereas there is some evidence of carotid canals in cases of aplasia. The absence of the ICA can be detected by angiography or by computerised tomography." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "981" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Internal carotid absence" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Internal carotid absence" ] .
+}
+

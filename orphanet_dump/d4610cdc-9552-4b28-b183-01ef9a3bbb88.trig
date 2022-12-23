@@ -1,0 +1,27 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=424107> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:424107" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:424107" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G71.2" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G71.2" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "Congenital myopathy with myasthenic-like onset is a rare, genetic, non-dystrophic myopathy characterized by fatigable muscle weakness associated with congenital myopathy. Patients present with axial hypotonia, myopathic facies with fatigable ptosis, feeding difficulties, delayed gross motor development and proximal limb weakness with a RYR1-related typical pattern of muscle involvement (i.e. severe involvement of the soleus muscle and sparring of the rectus femoris, sartorius, gracilis and semitendinous muscles). Scoliosis and frequent respiratory tract infections are additional observed features." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "424107" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Congenital myopathy with myasthenic-like onset" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Congenital myopathy with myasthenic-like onset" ] .
+}
+

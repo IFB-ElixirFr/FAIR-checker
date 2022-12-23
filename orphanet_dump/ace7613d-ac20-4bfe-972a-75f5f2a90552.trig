@@ -1,0 +1,27 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=404511> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:404511" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C64" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C64" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:404511" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "Clear cell papillary renal cell carcinoma is a rare, indolent subtype of clear cell renal carcinoma, arising from epithelial cells in the renal cortex. It most frequently manifests with a well-circumscribed, well-encapsulated, unicentric, unilateral, small tumor that typically does not metastasize. Clinically it can present with flank or abdominal pain or hematuria, although most patients are usually asymptomatic at the time of diagnosis. Bilateral and/or multifocal presentation should raise the suspicion of von Hippel-Lindau syndrome." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "404511" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Clear cell papillary renal cell carcinoma" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Clear cell papillary renal cell carcinoma" ] .
+}
+

@@ -1,0 +1,27 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=213524> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:213524" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C56" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C56" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:213524" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "Hereditary site-specific ovarian cancer syndrome refers to ovarian cancer caused by germline mutations in various genes, usually associated with additional cancer risks. The most common are breast and ovarian cancer syndrome (HBOC) due to mutations in <i>BRCA1</i> and <i>BRCA2</i> genes and hereditary nonpolyposis colorectal cancer (HNPCC) due to mutations in DNA mismatch-repair genes. Mutations in <i>STK11</i> gene, causing Peutz-Jeghers syndrome, are also associated with a risk of ovarian cancer (typically sex cord stromal tumors). Mutations in other genes, including <i>RAD51C</i>, <i>RAD51D</i>, <i>PALB2</i>, confer an elevated ovarian cancer risk in a minority of patients." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "213524" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Hereditary site-specific ovarian cancer syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Hereditary site-specific ovarian cancer syndrome" ] .
+}
+

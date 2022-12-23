@@ -1,0 +1,27 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=221142> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "L90.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:221142" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:221142" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "L90.8" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "A rare, acquired, dermis elastic tissue disorder with decreased elastic tissue characterized by multiple, asymptomatic, well demarcated, flat, hypopigmented atrophic macular skin lesions distributed over upper trunk and proximal upper limbs. Histopathological examination reveals atrophic epidermis with decreased basal pigmentation, perivascular mononuclear infiltration in the upper dermis, and disorganized, hyalinized, coarse collagen bundles, and variable loss of elastic fibers in the dermis." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "221142" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Confetti-like macular atrophy" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Confetti-like macular atrophy" ] .
+}
+

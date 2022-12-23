@@ -1,0 +1,27 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=141168> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:141168" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q27.3" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q27.3" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:141168" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "Frontonasal arteriovenous malformation is a rare vascular anomaly characterized by abnormal communication between arteries and veins, bypassing the capillary bed, located in the frontonasal area. It may present with intermittent nasal bleeding, blurred vision, pustule formation and/or disfigurement. Overlying skin may be of normal appearance or may manifest a red, pulsatile mass with local rise of temperature. Other features may include pain, ulceration, excessive growth and/or congestive heart failure." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "141168" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Frontonasal arteriovenous malformation" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Frontonasal arteriovenous malformation" ] .
+}
+

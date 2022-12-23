@@ -1,0 +1,21 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=324933> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:324933" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:324933" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "Mixed autoinflammatory and autoimmune syndrome is a group of systemic diseases characterized by mixed patterns of dysregulated innate and/or adaptive immune responses, leading to chronic activation of the immune system and tissue inflammation, which presents clincally with a wide range of variable, concomitant, autoimmune and autoinflammatory manifestations in various organ systems." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "324933" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Mixed autoinflammatory and autoimmune syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Mixed autoinflammatory and autoimmune syndrome" ] .
+}
+

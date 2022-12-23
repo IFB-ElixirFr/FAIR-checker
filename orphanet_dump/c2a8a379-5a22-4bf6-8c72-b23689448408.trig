@@ -1,0 +1,36 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=220393> a ns1:MedicalCondition ;
+        ns1:alternateName "Diffuse cutaneous systemic scleroderma",
+            "Progressive cutaneous systemic scleroderma",
+            "Progressive cutaneous systemic sclerosis" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:220393" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "9751" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "9751" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "M34.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:220393" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "M34.0" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "Diffuse cutaneous systemic sclerosis (dcSSc) is a subtype of Systemic Sclerosis (SSc; see this term) characterized by truncal and acral skin fibrosis with an early and significant incidence of diffuse involvement (interstitial lung disease, oliguric renal failure, diffuse gastrointestinal disease, and myocardial involvement)." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "220393" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Diffuse cutaneous systemic sclerosis" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Diffuse cutaneous systemic sclerosis" ] .
+}
+

@@ -1,0 +1,27 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=163931> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:163931" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:163931" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "L40.2" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "L40.2" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "A rare, genetic, chronic, recurrent, slowly progressive, epidermal disease characterized by small, sterile, pustular eruptions, involving the nails and surrounding skin of the fingers and/or toes, which coalesce and burst, leaving erythematous, atrophic skin where new pustules develop. Onychodystrophy is frequently associated and anonychia and osteolysis are reported in severe cases. Local expansion (to involve the hands, forearms and/or feet) and involvement of mucosal surfaces (e.g. conjunctiva, tongue, urethra) may be observed." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "163931" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Acrodermatitis continua of Hallopeau" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Acrodermatitis continua of Hallopeau" ] .
+}
+

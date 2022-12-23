@@ -1,0 +1,28 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=370026> a ns1:MedicalCondition ;
+        ns1:alternateName "AML with t(8;16)(p11;p13) translocation" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "C92.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C92.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:370026" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:370026" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A distinct form of Acute myeloid leukemia (AML) in which this chromosomal anomaly is found <i>de novo</i> or in therapy-related AML cases, and is characterized by frequent extramedullary involvement (mainly hepatomegaly, splenomegaly, lymphadenopathies, cutaneous infiltration, but also gum, bone, central nervous system, testicles involvement), severe coagulation disorder (disseminated intravascular coagulopathy or primary fibrinolysis) and poor prognosis. Morphologically, a blast population with a myelomonocytic stage of differentiation is observed." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "370026" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Acute myeloid leukemia with t(8;16)(p11;p13) translocation" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Acute myeloid leukemia with t(8;16)(p11;p13) translocation" ] .
+}
+

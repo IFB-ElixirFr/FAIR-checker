@@ -1,0 +1,23 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=96171> a ns1:MedicalCondition ;
+        ns1:alternateName "Ring 2",
+            "Ring chromosome 2" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "Q93.2" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:96171" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10837" ;
+                ns1:codingSystem "GARD" ] ;
+        ns1:description "Ring chromosome 2 syndrome is a rare chromosomal anomaly syndrome with highly variable phenotype principally characterized by intrauterine growth retardation, failure to thrive, developmental delay, hypotonia, mild dysmorphic features (incl. microcephaly, short forehead, upslanting palpebral fissures, hypertelorism, epicanthal folds, wide nasal bridge, broad nasal tip, long philtrum, thin upper lip, micrognathia, short neck), skeletal anomalies (e.g. kyphosis, brachydactyly, clinodactyly, talipes equinovarus) and dermatological features (i.e. café-au-lait spots). Patients may also present ventriculoseptal defects and genital abnormalities (e.g. genital hypoplasia, phimosis, cryptorchidism)." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "96171" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Ring chromosome 2 syndrome" ] .
+}
+

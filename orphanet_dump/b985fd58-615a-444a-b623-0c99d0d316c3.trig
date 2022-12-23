@@ -1,0 +1,30 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=411696> a ns1:MedicalCondition ;
+        ns1:alternateName "PPI-REE",
+            "PPI-responsive esophageal eosinophilia",
+            "PPIRee" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:411696" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "K20" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "K20" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:411696" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "Proton-pump inhibitor-responsive esophageal eosinophilia (PPI-REE) is a rare, gastroenterologic disease characterized by typical clinical, endoscopic and histological features of eosinophilic oesophagitis (i.e. symptomatic oesophageal dysfunction associated with eosinophil-predominant mucose infiltrate) which completely remits upon proton pump inhibitor therapy." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "411696" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Proton-pump inhibitor-responsive esophageal eosinophilia" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Proton-pump inhibitor-responsive esophageal eosinophilia" ] .
+}
+

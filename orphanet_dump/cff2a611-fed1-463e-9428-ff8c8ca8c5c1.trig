@@ -1,0 +1,34 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=319480> a ns1:MedicalCondition ;
+        ns1:alternateName "AML with CEBPA somatic mutations" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "C92.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:319480" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "601626" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C92.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:319480" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "601626" ;
+                ns1:codingSystem "OMIM" ] ;
+        ns1:description "A subtype of acute myeloid leukemia with recurrent genetic abnormalities, characterized by clonal proliferation of myeloid blasts harboring somatic mutations of the <i>CEBPA</i> gene in the bone marrow, blood and, rarely, other tissues. It can present with anemia, thrombocytopenia, and other nonspecific symptoms related to ineffective hematopoesis (fatigue, bleeding and bruising, recurrent infections, bone pain) and/or extramedullary site involvement (gingivitis, splenomegaly)." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "319480" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Acute myeloid leukemia with CEBPA somatic mutations" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Acute myeloid leukemia with CEBPA somatic mutations" ] .
+}
+

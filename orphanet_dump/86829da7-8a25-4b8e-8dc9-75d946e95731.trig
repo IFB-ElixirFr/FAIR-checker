@@ -1,0 +1,37 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=538931> a ns1:MedicalCondition ;
+        ns1:alternateName "SAP deficiency",
+            "SH2D1A/SLAM-associated protein deficiency",
+            "X-linked lymphoproliferative syndrome type 1",
+            "XLP1" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "D82.3" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:538931" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "308240" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D82.3" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "308240" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:538931" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare, genetic, primary immunodeficiency disorder characterized by an abnormal immune response to Epstein-Barr virus (EBV) infection, caused by hemizygous mutations in the X-linked <i>SH2D1A</i> gene, resulting in B cell lymphoproliferation and manifesting with various phenotypes which include EBV-driven severe or fulminant mononucleosis, hemophagocytic lymphohistiocytosis (presenting with fulminant hepatitis, hepatic necrosis, bone marrow hypoplasia, and neurological involvement), hypogammaglobulinemia, and B-cell lymphoma. Additional variable manifestations include vasculitis, lymphomatoid granulomatosis, aplastic anemia, and chronic gastritis. Occasionally, T-cell lymphoma may be observed. Laboratory findings include normal or increased activated T cells and reduced memory B cells." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "538931" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "X-linked lymphoproliferative disease due to SH2D1A deficiency" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "X-linked lymphoproliferative disease due to SH2D1A deficiency" ] .
+}
+

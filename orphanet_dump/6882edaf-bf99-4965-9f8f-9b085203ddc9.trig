@@ -1,0 +1,29 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=221083> a ns1:MedicalCondition ;
+        ns1:alternateName "Facial hemispasm",
+            "Focal myoclonus of face" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:221083" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G51.3" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:221083" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G51.3" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "A rare acquired peripheral neuropathy characterized by progressive, involuntary, irregular, clonic or tonic contractions of the muscles innervated by the facial nerve (cranial nerve VII). The symptoms are typically strictly unilateral, mostly persist during sleep, and often occur in the region of the orbicularis oculi muscle first and gradually spread to other parts of the affected half of the face as the disease progresses." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "221083" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Hemifacial spasm" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Hemifacial spasm" ] .
+}
+

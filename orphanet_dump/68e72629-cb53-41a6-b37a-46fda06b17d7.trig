@@ -1,0 +1,28 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=70578> a ns1:MedicalCondition ;
+        ns1:alternateName "Adult ARDS" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:70578" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:70578" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "J80" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "J80" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "A very severe form of acute pulmonary failure secondary to capillary permeability impairment. The symptoms include dyspnea, hypotension and multivisceral failure. The disease is characterized by bilateral pulmonary infiltrates and severe hypoxemia due to increased alveolar-capillary permeability. The severity depends on the degree of alveolar epithelial injury, with a mortality rate of 30-50%." ;
+        ns1:epidemiology "Prevalence : 1-5 / 10 000" ;
+        ns1:identifier "70578" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Adult acute respiratory distress syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Adult acute respiratory distress syndrome" ] .
+}
+

@@ -1,0 +1,28 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=477781> a ns1:MedicalCondition ;
+        ns1:alternateName "Type 1 condylar hyperplasia" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:477781" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:477781" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "K07.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "K07.0" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "A rare temporomandibular joint anomaly characterized by progressive, asymmetrical, non-neoplastic overgrowth of a mandibular condyle. It is unilateral in most cases and leads to progressive facial asymmetry, mandibular deviation, articular dysfunction, and dental malocclusion." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "477781" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Primary condylar hyperplasia" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Primary condylar hyperplasia" ] .
+}
+

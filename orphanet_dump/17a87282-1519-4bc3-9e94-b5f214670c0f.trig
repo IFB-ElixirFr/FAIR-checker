@@ -1,0 +1,18 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=90363> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:90363" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "I89.0" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "Secondary intestinal lymphangiectasia is an acquired from of intestinal lymphangiectasia (see this term) manifesting as a protein-losing enteropathy due to another disorder such as Crohn’s disease, congestive heart failure, sarcoidosis, Turner syndrome (see these terms) and often in patients who have undergone a Fontan operation. It is characterized by malabsorption, diarrhea, edema due hypoproteinemia, steatorrhea and serosal effusions." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "90363" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Secondary intestinal lymphangiectasia" ] .
+}
+

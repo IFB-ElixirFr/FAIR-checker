@@ -1,0 +1,29 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=464282> a ns1:MedicalCondition ;
+        ns1:alternateName "SPPRS syndrome",
+            "Spastic paraplegia-psychomotor retardation-seizures syndrome" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:464282" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "616756" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:464282" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "616756" ;
+                ns1:codingSystem "OMIM" ] ;
+        ns1:description "Spastic paraplegia-severe developmental delay-epilepsy syndrome is a rare, genetic, complex spastic paraplegia disorder characterized by an infantile-onset of psychomotor developmental delay with severe intellectual disability and poor speech acquisition, associated with seizures (mostly myoclonic), muscular hypotonia which may be noted at birth, and slowly progressive spasticity in the lower limbs leading to severe gait disturbances. Ocular abnormalities and incontinence are commonly associated. Other symptoms may include verbal dyspraxia, hypogenitalism, macrocephaly and sensorineural hearing loss, as well as dystonic movements and ataxia with upper limb involvement." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "464282" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Spastic paraplegia-severe developmental delay-epilepsy syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Spastic paraplegia-severe developmental delay-epilepsy syndrome" ] .
+}
+

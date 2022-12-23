@@ -1,0 +1,40 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=55> a ns1:MedicalCondition ;
+        ns1:alternateName "OCA" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "C0078918" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0078918" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:55" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10958" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10958" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D016115" ;
+                ns1:codingSystem "MeSH" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D016115" ;
+                ns1:codingSystem "MeSH" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:55" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A group of rare genetic hypopigmentation disorders characterized by a generalized reduction in pigmentation of hair, skin and eyes and variable ocular findings including nystagmus, reduced visual acuity and photophobia. Variants include OCA1A (the most severe form), OCA1B, OCA1-minimal pigment (OCA1-MP), OCA1-temperature sensitive (OCA1-TS), OCA2, OCA3, OCA4, OCA5, OCA6, OCA7 and OCA8." ;
+        ns1:epidemiology "Prevalence : 1-9 / 100 000" ;
+        ns1:identifier "55" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Oculocutaneous albinism" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Oculocutaneous albinism" ] .
+}
+

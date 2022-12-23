@@ -1,0 +1,42 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=324708> a ns1:MedicalCondition ;
+        ns1:alternateName "ABetaD23N amyloidosis",
+            "HCHWA, Iowa type",
+            "Hereditary cerebral hemorrhage with amyloidosis, Iowa type" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "605714" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:324708" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "I68.0*" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "I68.0*" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "605714" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:324708" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E85.4+" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E85.4+" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "A form of hereditary cerebral hemorrhage with amyloidosis characterized by age of onset between 50-66 years of age, memory impairment, myoclonic jerks, expressive dysphagia, short-stepped gait, personality changes, and lobar intracerebral hemorrhages. This subtype is due to a mutation in the <i>APP</i> gene (21q21.2), encoding the beta-amyloid precursor protein. This mutation causes an increased accumulation of amyloid-beta protein in the walls of the arteries and capillaries of the meninges, cerebellar cortex and cerebral cortex, leading to the weakening and eventual rupture of these vessels." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "324708" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "ABeta amyloidosis, Iowa type" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "ABeta amyloidosis, Iowa type" ] .
+}
+

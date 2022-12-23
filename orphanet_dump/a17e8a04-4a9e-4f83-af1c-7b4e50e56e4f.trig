@@ -1,0 +1,54 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=226> a ns1:MedicalCondition ;
+        ns1:alternateName "Hyperphenylalaninemia due to dihydropteridine reductase deficiency",
+            "PKU type 2",
+            "Phenylketonuria type 2" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:226" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E70.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E70.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0268465" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "4319" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C537896" ;
+                ns1:codingSystem "MeSH" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "261630" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "261630" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:226" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C537896" ;
+                ns1:codingSystem "MeSH" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0268465" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "4319" ;
+                ns1:codingSystem "GARD" ] ;
+        ns1:description "Dihydropteridine reductase (DHPR) deficiency is a severe form of hyperphenylalaninemia (HPA) due to impaired regeneration of tetrahydrobiopterin (BH4) (see this term), leading to decreased levels of neurotransmitters (dopamine, serotonin) and folate in cerebrospinal fluid, and causing neurological symptoms such as psychomotor delay, hypotonia, seizures, abnormal movements, hypersalivation, and swallowing difficulties." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "226" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Dihydropteridine reductase deficiency" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Dihydropteridine reductase deficiency" ] .
+}
+

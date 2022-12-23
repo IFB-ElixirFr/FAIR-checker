@@ -1,0 +1,34 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=95232> a ns1:MedicalCondition ;
+        ns1:alternateName "PAFAH1B1-related lissencephaly" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "Q04.3" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q04.3" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:95232" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "607432" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "607432" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:95232" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "Lissencephaly due to LIS1 mutation is a cerebral malformation with epilepsy characterized predominantly by posterior isolated lissencephaly with developmental delay, intellectual disability and epilepsy that usually evolves from West syndrome to Lennox-Gastaut syndrome. Additional features include muscular hypotonia, acquired microcephaly, failure to thrive and poor control of airways leading to aspiration pneumonia." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "95232" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Lissencephaly due to LIS1 mutation" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Lissencephaly due to LIS1 mutation" ] .
+}
+

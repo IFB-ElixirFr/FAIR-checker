@@ -1,0 +1,53 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=140896> a ns1:MedicalCondition ;
+        ns1:alternateName "SARS",
+            "SARS-1" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "U04.9" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D045169" ;
+                ns1:codingSystem "MeSH" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10061982" ;
+                ns1:codingSystem "MedDRA" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C1175175" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D045169" ;
+                ns1:codingSystem "MeSH" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:140896" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:140896" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "9237" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C1175175" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10061982" ;
+                ns1:codingSystem "MedDRA" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "U04.9" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "9237" ;
+                ns1:codingSystem "GARD" ] ;
+        ns1:description "A rare pulmonary disease induced by SARS-CoV coronavirus infection, with a reported incubation period varying from 2 to 7 days. Patients present flu-like symptoms, including fever, malaise, myalgia, headache, diarrhoea, and rigors. Dry, nonproductive, cough and dyspnea are frequently reported. Severe cases evolve rapidly, progressing to respiratory distress and failure, requiring intensive care. Mortality rate is 10%. The disease appeared in 2002 in southern China, subsequently spreading in 2003 to 26 countries. Reported human-to-human transmission occurred in Toronto (Canada), Hong Kong Special Administrative Region of China, Chinese Taipei, Singapore, and Hanoi (Viet Nam)." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "140896" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Severe acute respiratory syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Severe acute respiratory syndrome" ] .
+}
+

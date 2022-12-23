@@ -1,0 +1,37 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=90103> a ns1:MedicalCondition ;
+        ns1:alternateName "CMT-deafness-intellectual disability syndrome",
+            "Charcot-Marie-Tooth disease-hearing loss-intellectual disability syndrome",
+            "Hereditary motor and sensory neuropathy with deafness, intellectual disability and absent sensory large myelinated fibers",
+            "Hereditary motor and sensory neuropathy with hearing loss, intellectual disability and absent sensory large myelinated fibers" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "214370" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:90103" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G60.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G60.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "214370" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:90103" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "Charcot-Marie-Tooth disease-deafness-intellectual disability syndrome is a rare demyelinating hereditary motor and sensory neuropathy characterized by early-onset, slowly progressive, distal muscular weakness and atrophy with no sensory impairment, congenital sensorineural deafness and mild intellectual disability (with absence of normal speech development). The absence of large myelinated fibers on sural nerve biopsy is equally characteristic of the disease." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "90103" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Charcot-Marie-Tooth disease-deafness-intellectual disability syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Charcot-Marie-Tooth disease-deafness-intellectual disability syndrome" ] .
+}
+

@@ -1,0 +1,40 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=33208> a ns1:MedicalCondition ;
+        ns1:alternateName "Idiopathic excessive sleepiness" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "F51.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "8737" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0751757" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:33208" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:33208" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "F51.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0751757" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "8737" ;
+                ns1:codingSystem "GARD" ] ;
+        ns1:description "A rare neurologic disease characterized by an excessive daytime sleepiness with long and unrefreshing naps, and/or prolonged and undisturbed nocturnal sleep, impaired daytime alertness, and/or sleep inertia (ie, great difficulty in waking up after sleep) and where other causes have been excluded." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "33208" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Idiopathic hypersomnia" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Idiopathic hypersomnia" ] .
+}
+

@@ -1,0 +1,44 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=1672> a ns1:MedicalCondition ;
+        ns1:alternateName "Diencephalic cachexia",
+            "Diencephalic syndrome of childhood",
+            "Diencephalic syndrome of emaciation",
+            "Russell diencephalic cachexia",
+            "Russell syndrome" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "C0342436" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0342436" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C72.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C72.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:1672" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:1672" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "6276" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "6276" ;
+                ns1:codingSystem "GARD" ] ;
+        ns1:description "Diencephalic syndrome (DS) is a rare condition characterized by profound emaciation and failure to thrive (with normal caloric intake and normal linear growth), hyperalertness, hyperkinesia and euphoria, in the presence of hypothalamic tumors." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "1672" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Diencephalic syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Diencephalic syndrome" ] .
+}
+

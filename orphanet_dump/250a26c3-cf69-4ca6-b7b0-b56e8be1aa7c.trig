@@ -1,0 +1,27 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=369873> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:369873" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E66.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E66.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:369873" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare, genetic form of obesity characterized by severe early-onset obesity, hyperphagia, and variable presence of cognitive impairment and behavioral disorder, including autistic spectrum behavior, impaired concentration and memory deficit. Some patients present with Prader-Willi-like features such as hypotonia, developmental delay, intellectual disability, short stature, hypopituitarism and dysmorphic facial features." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "369873" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Obesity due to SIM1 deficiency" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Obesity due to SIM1 deficiency" ] .
+}
+

@@ -1,0 +1,49 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=1947> a ns1:MedicalCondition ;
+        ns1:alternateName "CLN8 disease, Northern epilepsy variant",
+            "NCL, Northern epilepsy variant",
+            "Neuronal ceroid lipofuscinosis, Northern epilepsy variant",
+            "Northern epilepsy" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "C1864923" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E75.4" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "4010" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "610003" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E75.4" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "4010" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:1947" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "610003" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C1864923" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:1947" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "Progressive epilepsy-intellectual deficit, Finnish type (also known as Northern epilepsy) is a subtype of neuronal ceroid lipofuscinosis (NCL; see this term) characterized by seizures, progressive decline of intellectual capacities and variable loss of vision." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "1947" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Progressive epilepsy-intellectual disability syndrome, Finnish type" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Progressive epilepsy-intellectual disability syndrome, Finnish type" ] .
+}
+

@@ -1,0 +1,29 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=86861> a ns1:MedicalCondition ;
+        ns1:alternateName "Non-amyloid MIDD",
+            "Randall disease" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:86861" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D89.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D89.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:86861" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare, secondary glomerular disease characterized by proteinuria, dysproteinemias, nephrotic syndrome, and nodular glomerulopathy leading to renal failure, with or without extra-renal manifestations. The renal biopsy shows typical deposits of monoclonal immunoglobulins that do not show a fibrillar organization and are negative for Congo red staining. Associated signs and symptoms depend on the involvement of other organs, liver, heart, nerve fibers, gastrointestinal tract, or skin." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "86861" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Non-amyloid monoclonal immunoglobulin deposition disease" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Non-amyloid monoclonal immunoglobulin deposition disease" ] .
+}
+

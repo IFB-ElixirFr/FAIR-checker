@@ -1,0 +1,34 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=251858> a ns1:MedicalCondition ;
+        ns1:alternateName "MBEN" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "C71.6" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C71.6" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "155255" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:251858" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "155255" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:251858" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "Medulloblastoma with extensive nodularity (MBEN) is a histological variant of medulloblastoma (see this term), an embryonic malignancy, most often located in the inferior medullary velum and then growing into the fourth ventricle, and presenting in infants and young children with symptoms of increased intracranial pressure such as headache, listlessness, vomiting, diplopia and papilledema. It is often associated with Gorlin syndrome (see this term) and has a relatively good prognosis." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "251858" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Medulloblastoma with extensive nodularity" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Medulloblastoma with extensive nodularity" ] .
+}
+

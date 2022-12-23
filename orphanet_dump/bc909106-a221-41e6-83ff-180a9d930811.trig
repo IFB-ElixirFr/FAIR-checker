@@ -1,0 +1,28 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=99109> a ns1:MedicalCondition ;
+        ns1:alternateName "Persistent left SVC connecting through coronary sinus to left-sided atrium" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:99109" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q26.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:99109" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q26.1" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "A rare, congenital vascular malformation of the major vessels characterized by a persitent left superior vena cava which drains through the left coronary sinus to the left atrium. Patients are usually asymptomatic and discovered incidentally, however hypoxia, cyanosis, murmurs, palpitations, cardiac structural anomalies (e.g. atrial septal defect, bicuspid aortic valve, cor triatrium) and risk of paradoxical embolization may be associated." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "99109" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Persistent left superior vena cava connecting through coronary sinus to left-sided atrium" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Persistent left superior vena cava connecting through coronary sinus to left-sided atrium" ] .
+}
+

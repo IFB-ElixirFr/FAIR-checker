@@ -1,0 +1,44 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=3411> a ns1:MedicalCondition ;
+        ns1:alternateName "Double uterus and obstructed hemivagina syndrome",
+            "Herlyn-Werner syndrome",
+            "OHVIRA syndrome",
+            "Obstructed hemivagina and ipsilateral renal anomaly",
+            "Wunderlich syndrome" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "C4302552" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:3411" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "1910" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C4302552" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "192050" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:3411" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "192050" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "1910" ;
+                ns1:codingSystem "GARD" ] ;
+        ns1:description "A rare congenital urogenital anomaly characterized by the presence of double uterus (didelphys, bicornuate or septum-complete or partial), unilateral cervico-vaginal obstruction (obstructed hemivagina-communicant, not communicant or septate and unilateral cervical atresia) and ipsilateral renal anomalies (renal agenesis and/or other urinary tract anomalies). Patients are usually diagnosed at puberty after menarche due to recurrent severe dysmenorrhea, chronic pelvic pain, excessive foul smelling mucopurulent discharge, spotting and intermenstrual bleeding (depending on the existence of uterine or vaginal communications). Fever, dyspareunia, and a palpable abdominal, pelvic or vaginal mass (mucocolpos or pyocolpos) may also be present." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "3411" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Double uterus-hemivagina-renal agenesis syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Double uterus-hemivagina-renal agenesis syndrome" ] .
+}
+

@@ -1,0 +1,21 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=480553> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:480553" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:480553" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare bone tumor characterized by a benign, cystic lesion consisting of blood-filled cavities divided by fibrous septa containing fibroblasts, multinucleated osteoclast-type giant cells, and reactive woven bone. The tumor may arise <i>de novo</i> or secondarily, complicating other benign or malignant bone tumors. It most commonly arises during the first two decades of life and often affects the epiphyses of long bones and posterior elements of vertebral bodies. Patients typically present with pain and swelling, or neurological symptoms due to compression of nerve roots or the spinal cord by vertebral tumors." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "480553" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Aneurysmal bone cyst" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Aneurysmal bone cyst" ] .
+}
+

@@ -1,0 +1,30 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=85408> a ns1:MedicalCondition ;
+        ns1:alternateName "Juvenile polyarthritis without rheumatoid factor",
+            "Juvenile rheumatoid factor-negative polyarthritis",
+            "Rheumatoid factor-negative polyarticular JIA" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "M08.3" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "M08.3" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:85408" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:85408" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare form of polyarticular juvenile idiopathic arthritis characterized by childhood-onset chronic arthritis of unknown cause involving five or more joints at disease onset and absence of rheumatoid factor IgM." ;
+        ns1:epidemiology "Prevalence : 1-9 / 100 000" ;
+        ns1:identifier "85408" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Rheumatoid factor-negative polyarticular juvenile idiopathic arthritis" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Rheumatoid factor-negative polyarticular juvenile idiopathic arthritis" ] .
+}
+

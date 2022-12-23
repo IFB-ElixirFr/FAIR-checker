@@ -1,0 +1,28 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=402014> a ns1:MedicalCondition ;
+        ns1:alternateName "AML with t(6;9)(p23;q34)" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:402014" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:402014" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C92.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C92.0" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "A rare subtype of acute myeloid leukemia with recurrent genetic abnormalities characterized by clonal proliferation of poorly differentiated myeloid blasts in the bone marrow, blood, or other tissues in patients who present the t(6;9)(p23;q34) translocation. Frequently associated with multilineage bone marrow dysplasia, it usually presents with anemia, thrombocytopenia (often pancytopenia), and other nonspecific symptoms related to ineffective hematopoesis (fatigue, bleeding and bruising, recurrent infections, bone pain) and/or extramedullary site involvement (gingivitis, splenomegaly). Basophilia, as well as poor response to chemotherapy, has been reported." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "402014" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Acute myeloid leukemia with t(6;9)(p23;q34)" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Acute myeloid leukemia with t(6;9)(p23;q34)" ] .
+}
+

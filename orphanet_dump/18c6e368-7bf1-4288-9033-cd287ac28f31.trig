@@ -1,0 +1,32 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=2103> a ns1:MedicalCondition ;
+        ns1:alternateName "GBS",
+            "Guillain-Barré-Strohl syndrome" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "D020275" ;
+                ns1:codingSystem "MeSH" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G61.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0018378" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "6554" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:2103" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10018767" ;
+                ns1:codingSystem "MedDRA" ] ;
+        ns1:description "A clinically heterogeneous spectrum of rare post-infectious neuropathies that usually occur in otherwise healthy patients and encompasses acute inflammatory demyelinating polyradiculoneuropathy (AIDP), acute motor axonal neuropathy (AMAN) and acute motor-sensory axonal neuropathy (AMSAN), Miller-Fisher syndrome (MFS) and some other regional variants." ;
+        ns1:epidemiology "Prevalence : 1-9 / 100 000" ;
+        ns1:identifier "2103" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Guillain-Barré syndrome" ] .
+}
+

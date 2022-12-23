@@ -1,0 +1,21 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=167759> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:167759" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:167759" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "The hereditary dentin disorders, dentinogenesis imperfecta (DGI) and dentin dysplasia (DD), comprise a group of conditions characterized by abnormal dentin structure affecting either the primary or both the primary and secondary dentitions." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "167759" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Hereditary dentin defect" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Hereditary dentin defect" ] .
+}
+

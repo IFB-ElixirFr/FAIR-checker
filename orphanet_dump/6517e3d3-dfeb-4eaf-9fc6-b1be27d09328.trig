@@ -1,0 +1,37 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=308013> a ns1:MedicalCondition ;
+        ns1:alternateName "PPKP3 without elastoidosis",
+            "PPPK3 without elastoidosis",
+            "Punctate palmoplantar hyperkeratosis type 3 without elastoidosis",
+            "Punctate palmoplantar keratoderma type 3 without elastoidosis" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "Q82.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C1302839" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:308013" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q82.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:308013" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C1302839" ;
+                ns1:codingSystem "UMLS" ] ;
+        ns1:description "A rare epidermal disease characterized by multiple, usually asymptomatic, yellowish to flesh colored hyperkeratotic papules and plaques on the palms and soles, with a preference for the palmar and plantar margins. Histological examination shows pronounced orthohyperkeratosis overlying a crateriform depression in the epidermis, with hypergranulosis and mild acanthosis, while elastorrhexis is absent. The lesions appear in the second or third decade of life and gradually increase in number over several years. The condition may be sporadic or familial." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "308013" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Focal acral hyperkeratosis" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Focal acral hyperkeratosis" ] .
+}
+

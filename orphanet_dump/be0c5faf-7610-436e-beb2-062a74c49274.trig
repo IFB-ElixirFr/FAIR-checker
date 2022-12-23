@@ -1,0 +1,53 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=91131> a ns1:MedicalCondition ;
+        ns1:alternateName "CDG syndrome type Im",
+            "CDG-Im",
+            "CDG1M",
+            "Carbohydrate deficient glycoprotein syndrome type Im",
+            "Congenital disorder of glycosylation type 1m",
+            "Congenital disorder of glycosylation type Im",
+            "Dolichol kinase deficiency",
+            "Hypotonia and ichthyosis due to dolichol phosphate deficiency" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "12393" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E77.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:91131" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:91131" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "12393" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C1835849" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "610768" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E77.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "610768" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C1835849" ;
+                ns1:codingSystem "UMLS" ] ;
+        ns1:description "DK1-CDG is characterised by muscular hypotonia and ichthyosis. It has been described in four children from two consanguineous families. All the affected children died during early infancy, two from dilated cardiomyopathy. The syndrome is caused by a deficiency in dolichol kinase 1 (DK1), an enzyme involved in the <i>de novo</i> biosynthesis of dolichol phosphate. The mutations identified in the <i>DK1</i> gene led to a 96 to 98% reduction in DK activity." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "91131" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "DK1-CDG" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "DK1-CDG" ] .
+}
+

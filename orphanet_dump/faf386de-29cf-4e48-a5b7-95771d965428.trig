@@ -1,0 +1,40 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=251618> a ns1:MedicalCondition ;
+        ns1:alternateName "SEGA" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:251618" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D43.2" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10632" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:251618" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0205768" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D43.2" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10632" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0205768" ;
+                ns1:codingSystem "UMLS" ] ;
+        ns1:description "A rare low-grade astrocytoma characterized by a benign, slowly growing lesion typically arising in the wall of the lateral ventricles, composed of large ganglioid astrocytes. The tumor corresponds to WHO grade I and typically occurs during the first two decades of life in patients with tuberous sclerosis complex. Most patients present with worsening of epilepsy or symptoms of increased intracranial pressure." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "251618" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Subependymal giant cell astrocytoma" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Subependymal giant cell astrocytoma" ] .
+}
+

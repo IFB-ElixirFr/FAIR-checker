@@ -1,0 +1,38 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=178475> a ns1:MedicalCondition ;
+        ns1:alternateName "Cutaneous infectious botulism",
+            "Cutaneous toxin-mediated botulism",
+            "Inoculation botulism",
+            "Skin infectious botulism",
+            "Skin toxin-mediated botulism" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:178475" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "A05.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "A05.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:178475" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C1306794" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C1306794" ;
+                ns1:codingSystem "UMLS" ] ;
+        ns1:description "Wound botulism is a rare infectious form of botulism (see this term), a rare acquired neuromuscular junction disease with descending flaccid paralysis due to botulinum neurotoxins (BoNTs), produced after infection of wounds by <i>Clostridium botulinum</i>." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "178475" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Wound botulism" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Wound botulism" ] .
+}
+

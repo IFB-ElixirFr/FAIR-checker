@@ -1,0 +1,29 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=1681> a ns1:MedicalCondition ;
+        ns1:alternateName "Craniofacial duplication",
+            "Diprosopia" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:1681" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "1876" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:1681" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "1876" ;
+                ns1:codingSystem "GARD" ] ;
+        ns1:description "Diprosopus is a rare, life-threatening developmental defect during embryogenesis, and a subtype of conjoined twins, characterized by partial or complete duplication of the facial structures on a single head, neck, trunk and body. It may be associated with congenital anomalies involving the cardiovascular, gastrointestinal, respiratory and central nervous systems. Cleft lip and palate have been reported in rare cases." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "1681" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Diprosopus" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Diprosopus" ] .
+}
+

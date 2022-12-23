@@ -1,0 +1,27 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=300512> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:300512" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D23.9" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:300512" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D23.9" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "Onychomatricoma is a rare, benign nail tumor originating in the nail matrix characterized by localized or diffuse thickening of the nail plate, increased transverse or longitudinal overcurvature, a yellow longitudinal band of variable width, swelling of the proximal nail fold, multiple splinter hemorrhages and the presence of honeycomb-like cavities in the distal margin of the nail plate. Nail dystrophy and dorsal pterygium may be associated. Occasionally, a pigmented lesion has been reported." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "300512" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Onychomatricoma" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Onychomatricoma" ] .
+}
+

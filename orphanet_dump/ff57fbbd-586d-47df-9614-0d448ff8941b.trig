@@ -1,0 +1,46 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=101011> a ns1:MedicalCondition ;
+        ns1:alternateName "SPG31" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "10817" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C1853247" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:101011" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:101011" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "610250" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G11.4" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "610250" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10817" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C1853247" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G11.4" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "A rare type of hereditary spastic paraplegia usually characterized by a pure phenotype of proximal weakness of the lower extremities with spastic gait and brisk reflexes, with a bimodal age of onset of either childhood or adulthood (>30 years). In some cases, it can present as a complex phenotype with additional associated manifestations including peripheral neuropathy, bulbar palsy (with dysarthria and dysphagia), distal amyotrophy, and impaired distal vibration sense." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "101011" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Autosomal dominant spastic paraplegia type 31" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Autosomal dominant spastic paraplegia type 31" ] .
+}
+

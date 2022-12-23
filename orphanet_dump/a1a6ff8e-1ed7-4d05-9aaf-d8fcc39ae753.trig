@@ -1,0 +1,35 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=538963> a ns1:MedicalCondition ;
+        ns1:alternateName "Autosomal recessive lymphoproliferative disease due to ITK deficiency",
+            "ITK deficiency" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:538963" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:538963" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "613011" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D82.3" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D82.3" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "613011" ;
+                ns1:codingSystem "OMIM" ] ;
+        ns1:description "A rare autosomal recessive primary immunodeficiency characterized by susceptibility to Epstein-Barr virus (EBV)-associated lymphoproliferative disorders such as malignant B-cell proliferation, Hodgkin lymphoma, B-cell lymphoma, lymphoid granulomatosis, hemophagocytic lymphohistiocytosis, and smooth muscle tumor. Patients present persistent symptoms of infectious mononucleosis including recurrent febrile episodes, lymphadenopathies, and hepatosplenomegaly, accompanied by high EBV viral load in the blood. Additional manifestations are autoimmune diseases like hemolytic anemia or renal disease." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "538963" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Combined immunodeficiency due to ITK deficiency" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Combined immunodeficiency due to ITK deficiency" ] .
+}
+

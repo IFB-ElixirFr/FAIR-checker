@@ -1,0 +1,35 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=86909> a ns1:MedicalCondition ;
+        ns1:alternateName "Benign myoclonic epilepsy of infancy",
+            "Benign myoclonus epilepsy of infancy" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "G40.3" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:86909" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G40.3" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0751120" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:86909" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0751120" ;
+                ns1:codingSystem "UMLS" ] ;
+        ns1:description "A rare infantile epilepsy syndrome characterized by infancy-onset of myoclonic seizures in otherwise neurologically and developmentally normal patients. Jerks may vary in severity, can be singular or occur in a series, and occur spontaneously or (less commonly) after sensory stimuli. Seizures are self-limiting and remit within several months to years from onset, although generalized tonic-clonic seizures or other forms of epilepsy may be seen later in life. Developmental delay and cognitive and behavioral difficulties have been reported in a considerable percentage of patients." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "86909" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Myoclonic epilepsy of infancy" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Myoclonic epilepsy of infancy" ] .
+}
+

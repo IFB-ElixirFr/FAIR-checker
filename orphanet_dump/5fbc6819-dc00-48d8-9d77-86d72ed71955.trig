@@ -1,0 +1,37 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=352470> a ns1:MedicalCondition ;
+        ns1:alternateName "Mitochondrial DNA deletion syndrome with limb-girdle weakness",
+            "Mitochondrial DNA deletion syndrome with progressive myopathy",
+            "mtDNA deletion syndrome with limb-girdle weakness",
+            "mtDNA deletion syndrome with progressive myopathy" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "615156" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "615156" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:352470" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G71.3" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G71.3" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:352470" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare, genetic, mitochondrial oxidative phosphorylation disorder characterized by either late-onset myopathy with progressive external ophthalmoplegia and muscular weakness (predominantly limb-girdle) or early-onset myopathy presenting with decreased fetal movements, congenital ptosis, progressive external ophthalmoplegia, hypotonia and, variably, joint contractures. Reduced content and multiple deletions of mitochondrial DNA is observed in muscle biopsy." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "352470" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "DNA2-related mitochondrial DNA deletion syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "DNA2-related mitochondrial DNA deletion syndrome" ] .
+}
+

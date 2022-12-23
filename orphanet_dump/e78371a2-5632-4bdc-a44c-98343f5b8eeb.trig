@@ -1,0 +1,35 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=306553> a ns1:MedicalCondition ;
+        ns1:alternateName "Spherulocytosis",
+            "Subcutaneous spherulocystic disease" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:306553" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:306553" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "M79.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0027123" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0027123" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "M79.8" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "A rare maxillo-facial surgical disease characterized by an inflammatory, granulomatous lesion, most commonly of iatrogenic origin due to interaction of extravasated erythrocytes with exogenous lipids, in particular petrolatum-based antibiotic ointment used after surgical procedures. Most frequent locations are the paranasal sinuses and jaws, although the lesion can occur in any part of the body. It is typically found incidentally as an asymptomatic soft tissue swelling." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "306553" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Myospherulosis" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Myospherulosis" ] .
+}
+

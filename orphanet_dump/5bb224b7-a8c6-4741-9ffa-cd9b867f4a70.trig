@@ -1,0 +1,34 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=443180> a ns1:MedicalCondition ;
+        ns1:alternateName "Spontaneous cerebrospinal fluid leak" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "C0751731" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G96.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:443180" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0751731" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G96.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:443180" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare headache resulting from a cerebrospinal fluid (CSF) leak with subsequent lowered CSF pressure, characterized clinically by severe headaches which typically worsen upon standing up and get better when lying down. Additional features may include neck stiffness, nausea, vomiting, vertigo, tinnitus, visual disturbances, and cognitive abnormalities, among others, as sagging and displacement of the brain can lead to a variety of lesions and symptoms." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "443180" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Spontaneous intracranial hypotension" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Spontaneous intracranial hypotension" ] .
+}
+

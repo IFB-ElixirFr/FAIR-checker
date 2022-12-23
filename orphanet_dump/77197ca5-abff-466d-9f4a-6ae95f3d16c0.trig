@@ -1,0 +1,43 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=2879> a ns1:MedicalCondition ;
+        ns1:alternateName "Al Awadi-Raas-Rothschild syndrome",
+            "Aplasia/hypoplasia of limbs and pelvis",
+            "Congenital absence of ulna and fibula",
+            "Severe limb deficit" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "276820" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "9212" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q87.2" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "276820" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "9212" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q87.2" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:2879" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:2879" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "Schinzel phocomelia syndrome, also called limb/pelvis hypoplasia/aplasia syndrome, is characterized by skeletal malformations affecting the ulnae, pelvic bones, fibulae and femora. As the phenotype is similar to that described in the malformation syndrome known as Al-Awadi/Raas-Rothschild syndrome, they are thought to be the same disorder." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "2879" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Phocomelia, Schinzel type" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Phocomelia, Schinzel type" ] .
+}
+

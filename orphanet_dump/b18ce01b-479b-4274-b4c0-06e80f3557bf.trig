@@ -1,0 +1,46 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=168966> a ns1:MedicalCondition ;
+        ns1:alternateName "Composite Hodgkin and non-Hodgkin lymphoma" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "C85.7" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C85.7" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:168966" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C81.7" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D058617" ;
+                ns1:codingSystem "MeSH" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D058617" ;
+                ns1:codingSystem "MeSH" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0545080" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0545080" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:168966" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C81.7" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "A rare lymphoma characterized by the concurrent occurrence of two or more histologic types of lymphoma involving the same anatomic site. Composite lymphomas can be combinations of two non-Hodgkin lymphomas or of a non-Hodgkin and a Hodgkin lymphoma. In many cases, the tumors are clonally related. Clinical presentation and treatment are determined by the more aggressive component." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "168966" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Composite lymphoma" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Composite lymphoma" ] .
+}
+

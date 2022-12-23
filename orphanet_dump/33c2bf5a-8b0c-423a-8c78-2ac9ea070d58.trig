@@ -1,0 +1,33 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=98919> a ns1:MedicalCondition ;
+        ns1:alternateName "Cranial variant of GBS",
+            "Cranial variant of Guillain-Barré syndrome",
+            "Fisher syndrome" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "C0393799" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G61.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D019846" ;
+                ns1:codingSystem "MeSH" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:98919" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10049567" ;
+                ns1:codingSystem "MedDRA" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "3668" ;
+                ns1:codingSystem "GARD" ] ;
+        ns1:description "Miller-Fisher syndrome (MFS) is a rare cranial nerve variant of Guillain-Barré syndrome (GBS; see this term)." ;
+        ns1:epidemiology "Prevalence : 1-9 / 1 000 000" ;
+        ns1:identifier "98919" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Miller Fisher syndrome" ] .
+}
+

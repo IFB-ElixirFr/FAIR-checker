@@ -1,0 +1,27 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=357502> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "C3496337" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:357502" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:357502" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C3496337" ;
+                ns1:codingSystem "UMLS" ] ;
+        ns1:description "A rare primary glomerular group of diseases characterized by the triad of edema, massive, or nephrotic-range, proteinuria and hypoalbuminemia, for which there is no known cause. Depending on response to treatment, disease is distinguished into steroid-sensitive nephrotic syndrome (SSNS) and steroid-resistant nephrotic syndrome (SRNS), with the latter being further divided, depending on occurrence, into familial or sporadic forms." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "357502" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Idiopathic nephrotic syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Idiopathic nephrotic syndrome" ] .
+}
+

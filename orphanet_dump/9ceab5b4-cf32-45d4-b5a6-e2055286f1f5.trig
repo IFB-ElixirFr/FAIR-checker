@@ -1,0 +1,22 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=352712> a ns1:MedicalCondition ;
+        ns1:alternateName "FILS syndrome" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "Q87.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "615139" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:352712" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "Facial dysmorphism-immunodeficiency-livedo-short stature syndrome is a rare genetic disease characterized by facial dysmorphism with malar hypoplasia and high forehead, immunodeficiency resulting in recurrent infections, impaired growth (with normal growth hormone production and response) resulting in short stature, and livedo affecting face and extremities. Immunological analyses show low memory B-cell and naïve T cell counts, decreased T cell proliferation, and reduced IgM, IgG2 and IgG4 titers. Patients do not exhibit increased susceptibility to cancer." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "352712" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Facial dysmorphism-immunodeficiency-livedo-short stature syndrome" ] .
+}
+

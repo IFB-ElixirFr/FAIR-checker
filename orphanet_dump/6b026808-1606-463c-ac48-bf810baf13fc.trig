@@ -1,0 +1,33 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=506098> a ns1:MedicalCondition ;
+        ns1:alternateName "Pancreatic NEC",
+            "Pancreatic neuroendocrine carcinoma",
+            "Poorly-differentiated NEN of pancreas",
+            "Poorly-differentiated neuroendocrine neoplasm of pancreas",
+            "Poorly-differentiated pancreatic NEN",
+            "Poorly-differentiated pancreatic neuroendocrine neoplasm" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:506098" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C25.9" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:506098" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C25.9" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "A rare neuroendocrine neoplasm of pancreas characterized by a high-grade malignant epithelial tumor with neuroendocrine differentiation. Based on histopathologic appearance, a small cell (composed of diffuse sheets of cells) and a large cell type (showing a nesting/trabecular pattern) are distinguished. Synaptophysin and chromogranin are positive on immunohistochemistry. The Ki-67 proliferation index is typically very high (>60 - 80%). Patients present with back pain, jaundice, and/or non-specific abdominal symptoms. Serum hormone activity is unusual. The tumor is highly aggressive with poor prognosis." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "506098" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Neuroendocrine carcinoma of pancreas" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Neuroendocrine carcinoma of pancreas" ] .
+}
+

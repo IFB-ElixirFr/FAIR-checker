@@ -1,0 +1,33 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=443084> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "G90.4" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10664" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:443084" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:443084" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10664" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G90.4" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "A rare autonomic nervous system disorder characterized by diminished or absent buffering capability to prevent blood pressure from rising or falling excessively, due to abnormalities in the vascular baroreceptors, the glossopharyngeal or vagal nerves, or the brain stem. Typical clinical presentations are acute severe sustained hypertension, tachycardia, and headache, or volatile hypertension and tachycardia with headache, diaphoresis, flushing, and emotional instability. Rare cases rather present with hypotension, bradycardia, and dizziness or syncope." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "443084" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Baroreflex failure" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Baroreflex failure" ] .
+}
+

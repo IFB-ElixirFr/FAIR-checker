@@ -1,0 +1,37 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=264200> a ns1:MedicalCondition ;
+        ns1:alternateName "14q22-q23 microdeletion syndrome",
+            "Del(14)(q22q23)",
+            "Monosomy 14q22-q23",
+            "Monosomy 14q22q23" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "609640" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q93.5" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q93.5" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "609640" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:264200" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:264200" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "14q22q23 microdeletion syndrome is a rare partial deletion of the long arm of chromosome 14 characterized by ocular anomalies (anopthalmia/microphthalmia, ptosis, hypertelorism, exophthalmos), pituitary anomalies (pituitary hypoplasia/aplasia with growth hormone deficiency and growth retardation) and hand/foot anomalies (polydactyly, short digits, pes cavus). Other clinical features may include muscular hypotonia, psychomotor development delay/intellectual disability, dysmorphic signs (facial asymmetry, microretrognathia, high-arched palate, ear anomalies), congenital genitourinary malformations, hearing impairment. Smaller 14q22 deletions may have variable expression." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "264200" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "14q22q23 microdeletion syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "14q22q23 microdeletion syndrome" ] .
+}
+

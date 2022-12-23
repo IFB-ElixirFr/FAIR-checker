@@ -1,0 +1,49 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=163927> a ns1:MedicalCondition ;
+        ns1:alternateName "LPP",
+            "Localized pustular psoriasis",
+            "PPP",
+            "Palmoplantar pustulosis" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "C0030246" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "L40.3" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10050185" ;
+                ns1:codingSystem "MedDRA" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:163927" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "L40.3" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10050185" ;
+                ns1:codingSystem "MedDRA" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "12820" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:163927" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0030246" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "12820" ;
+                ns1:codingSystem "GARD" ] ;
+        ns1:description "A rare skin disease characterized by chronic eruption of sterile pustules on an erythematous and desquamative background. The lesions are usually painful and affect the palms and soles, sometimes also the lateral aspects of hands and feet. Nail lesions (such as nail pitting, onycholysis, subungual pustules, and nail dystrophy) are also observed. The condition takes a chronic and relapsing course. Typical associations are psoriatic arthritis, thyroid gland dysfunction, and smoking." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "163927" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Pustulosis palmaris et plantaris" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Pustulosis palmaris et plantaris" ] .
+}
+

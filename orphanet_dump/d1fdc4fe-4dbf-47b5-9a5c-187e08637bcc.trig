@@ -1,0 +1,21 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=565782> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:565782" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:565782" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare intoxication characterized by acute renal tubular toxicity due to crystallization of methotrexate in the renal tubular lumen (which in turn leads to impaired methotrexate clearance and further deterioration of renal function and exacerbation of non-renal adverse events), myelosuppression with pancytopenia, gastrointestinal mucositis, maculopapular skin rash, chemical conjunctivitis, hepatotoxicity (reversible chemical hepatitis and hyperbilirubinemia), pulmonary toxicity, and, in severe cases, multiorgan failure. Central nervous system involvement, including headaches, seizures, and stroke-like symptoms, may also be observed." ;
+        ns1:epidemiology "Prevalence : 1-9 / 100 000" ;
+        ns1:identifier "565782" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Methotrexate toxicity" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Methotrexate toxicity" ] .
+}
+

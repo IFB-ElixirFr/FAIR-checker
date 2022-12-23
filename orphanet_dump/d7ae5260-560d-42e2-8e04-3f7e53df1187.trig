@@ -1,0 +1,27 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=464318> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "D18.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D18.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:464318" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:464318" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare vascular anomaly characterized by congenital, solitary or grouped, red-to-purple plaques which may bleed and enlarge over time. The lesions show a predilection for the lower extremities. Histological examination reveals numerous dilated, congested capillaries and venules in the papillary dermis, often with a deep dermal component, and with increased density of variably congested capillaries and venules also in the subcutaneous tissue. The overlying epidermis displays prominent acanthosis, papillomatosis, hyperkeratosis, parakeratosis, and crusting." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "464318" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Verrucous hemangioma" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Verrucous hemangioma" ] .
+}
+

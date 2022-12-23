@@ -1,0 +1,43 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=2942> a ns1:MedicalCondition ;
+        ns1:alternateName "Postpolio sequelae",
+            "Postpolio syndrome",
+            "Postpoliomyelitic syndrome",
+            "Postpoliomyelitis sequelae" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "4454" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G14" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0080040" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G14" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:2942" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:2942" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0080040" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "4454" ;
+                ns1:codingSystem "GARD" ] ;
+        ns1:description "Postpoliomyelitis syndrome (PPS) is a neurologic disorder characterized by the development of new neuromuscular symptoms such as progressive muscular weakness or abnormal muscle fatigability occurring in survivors of the acute paralytic form of poliomyelitis (see this term), 15-40 years after recovery from the disease, and that is unexplained by other medical causes. Other manifestations that can occur gradually include generalized fatigue, muscle atrophy, muscle and joint pain, intolerance to cold, and difficulties sleeping, swallowing or breathing." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "2942" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Postpoliomyelitis syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Postpoliomyelitis syndrome" ] .
+}
+

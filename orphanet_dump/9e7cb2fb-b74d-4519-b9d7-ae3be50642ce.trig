@@ -1,0 +1,27 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=493342> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:493342" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "125630" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "125630" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:493342" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "Vibratory urticaria is a rare, genetic urticaria characterized by the development of localized, short-lasting (resolving within 1 hour), pruritic, erythematous, edematous hives in response to repetitive frictional or vibratory stimulation of the skin, which in some cases is accompanied by facial flushing, headache or the sensation of a metallic taste. Concomitant local mast cell degranulation and increased histamine serum levels are additional typical findings." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "493342" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Vibratory urticaria" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Vibratory urticaria" ] .
+}
+

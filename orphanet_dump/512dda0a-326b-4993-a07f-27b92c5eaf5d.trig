@@ -1,0 +1,29 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=528663> a ns1:MedicalCondition ;
+        ns1:alternateName "Acquired angioneurotic edema with C1 inhibitor deficiency",
+            "Acquired angioneurotic edema with C1Inh deficiency" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "D84.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D84.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:528663" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:528663" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare non-histaminic angioedema characterized by potentially life-threatening episodes of edema of subcutaneous and/or mucosal tissues without urticaria, caused by excessive consumption of C1 esterase inhibitor (C1-INH) in the context of lymphoproliferative or autoimmune diseases. Patients typically present in the fourth decade of life or later and without a family history of angioedema. Clinical manifestation includes nonpitting edema of the skin predominantly involving the face, but also the limbs or genitals, as well as abdominal pain due to involvement of the gastrointestinal mucosa, and severe edema of the upper airway and oral mucosa. Laboratory examination shows low C1-INH activity and low C3, C4, and C1q levels. Autoantibodies to C1-INH are frequently detectable." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "528663" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Acquired angioedema with C1Inh deficiency" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Acquired angioedema with C1Inh deficiency" ] .
+}
+

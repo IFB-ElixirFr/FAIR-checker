@@ -1,0 +1,27 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=538101> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "G60.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:538101" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G60.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:538101" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare, congenital, autosomal recessive axonal hereditary motor and sensory neuropathy disease characterized by axonal neuropathy, manifesting at birth or shortly thereafter with generalized muscular hypotonia, prominently distal muscular weakness, respiratory/swallowing difficulties and diffuse areflexia, associated with central nervous system involvement, which includes progressive microcephaly, seizures, and global developmental delay. Additional variable manifestations include hearing impairment, ocular lesions, skeletal anomalies (e.g. talipes equinovarus, overriding toes, scoliosis, joint contractures), cryptorchidism, and dysmorphic features (such as coarse facies, hypertelorism, high-arched palate). Outcome is typically poor due to respiratory insufficiency and/or aspiration pneumonia." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "538101" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Congenital axonal neuropathy with encephalopathy" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Congenital axonal neuropathy with encephalopathy" ] .
+}
+

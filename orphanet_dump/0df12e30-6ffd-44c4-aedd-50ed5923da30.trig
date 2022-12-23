@@ -1,0 +1,27 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=99056> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "Q22.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:99056" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:99056" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q22.8" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "Parachute tricuspid valve is a rare congenital heart malformation defined as an insertion of the chordal apparatus into a single papillary muscle or a muscle group, making a pathognomonic 'pear' shape sign in the four-chamber echocardiographic view with the atrium forming the larger base of the pear and the leaflets the apex. Isolated parachute tricuspid valve may be asymptomatic or present with symptoms of tricuspid stenosis (diastolic inspiratory murmur, pulsation of jugular veins, hepatomegaly, edema, epigastric discomfort, right atrial enlargement, right ventricular hypertrophy, electrocardiography abnormalities). It may also be associated with other heart malformations and present with symptoms of the complex of malformations." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "99056" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Parachute tricuspid valve" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Parachute tricuspid valve" ] .
+}
+

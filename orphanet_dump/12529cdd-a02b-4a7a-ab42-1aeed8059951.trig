@@ -1,0 +1,29 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=240103> a ns1:MedicalCondition ;
+        ns1:alternateName "PSP-CBS",
+            "PSP-corticobasal syndrome" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:240103" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G23.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G23.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:240103" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "An atypical variant of progressive supranuclear palsy (PSP), a rare late-onset neurodegenerative disease, characterized by a variable mixture of progressive asymmetric limb rigidity, apraxia, cortical sensory loss, alien limb, dystonia and bradykinesia that is unresponsive to levodopa. Postural instability and axial rigidity develop as the disease progresses. Neuropathological characteristics includes tau pathology and neuronal loss in specific brain areas, especially in the midfrontal and inferior parietal cortices." ;
+        ns1:epidemiology "Prevalence : 1-9 / 1 000 000" ;
+        ns1:identifier "240103" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Progressive supranuclear palsy-corticobasal syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Progressive supranuclear palsy-corticobasal syndrome" ] .
+}
+

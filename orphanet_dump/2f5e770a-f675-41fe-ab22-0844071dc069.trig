@@ -1,0 +1,29 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=178528> a ns1:MedicalCondition ;
+        ns1:alternateName "Berti lymphoma",
+            "Primary cutaneous epidermotropic cytotoxic CD8+ T-cell lymphoma" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:178528" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:178528" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C84.5" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C84.5" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "Primary cutaneous aggressive epidermotropic CD8+ T-cell lymphoma is a rare form of primary cutaneous T-cell lymphoma characterized by rapidly progressing, localized or disseminated nodules, tumors or eczematous skin lesions. It has a particularly aggressive clinical course with a high tendency to spread, in advanced stages, to extracutaneous locations (the central nervous system, lung, testes). Lymph nodes are often spared." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "178528" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Primary cutaneous aggressive epidermotropic CD8+ T-cell lymphoma" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Primary cutaneous aggressive epidermotropic CD8+ T-cell lymphoma" ] .
+}
+

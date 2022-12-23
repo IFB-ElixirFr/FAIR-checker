@@ -1,0 +1,28 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=314566> a ns1:MedicalCondition ;
+        ns1:alternateName "PPAOS" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "G31.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:314566" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:314566" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G31.8" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "Primary progressive apraxia of speech is a rare neurodegenerative disease characterized by impaired planning or programming of the movements for speech, leading to phonetically and prosodically abnormal speech, in absence, at onset, of any other neurological features (such as aphasia, memory loss, pyramidal signs). Patients usually present articulatory distortions/groping, slow rate, distorted sound substitutions and/or trial and error articulatory movements which begin insiduously and worsen over time." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "314566" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Primary progressive apraxia of speech" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Primary progressive apraxia of speech" ] .
+}
+

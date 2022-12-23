@@ -1,0 +1,41 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=99749> a ns1:MedicalCondition ;
+        ns1:alternateName "Infantile agranulocytosis",
+            "Severe congenital neutropenia type 3" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "D70" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "610738" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "302" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D70" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:99749" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "610738" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:99749" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "302" ;
+                ns1:codingSystem "GARD" ] ;
+        ns1:description "Kostmann syndrome is a rare, severe, congenital neutropenia disorder characterized by a lack of mature neutrophils (absolute neutrophil counts less than 500 cells/mm3) associated with frequent, recurrent bacterial infections (e.g. otitis media, pneumonia, sinusitis, urinary tract infections, abscesses of skin and/or liver) and increased promyelocytes in the bone marrow. Periodontal disease, as well as neurological symptoms, such as cognitive impairment, severe neurodegeneration and epilepsy, have been reported in some patients." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "99749" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Kostmann syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Kostmann syndrome" ] .
+}
+

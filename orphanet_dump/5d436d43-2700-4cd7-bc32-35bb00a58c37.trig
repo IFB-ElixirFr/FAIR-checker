@@ -1,0 +1,24 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=213610> a ns1:MedicalCondition ;
+        ns1:alternateName "Malignant mixed Müllerian tumor of the corpus uteri",
+            "Mixed Müllerian cancer of corpus uteri",
+            "Uterine carcinosarcoma" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "C54.9" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:213610" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "12335" ;
+                ns1:codingSystem "GARD" ] ;
+        ns1:description "Carcinosarcoma of the corpus uteri is a rare, malignant, mixed epithelial and mesenchymal tumor of the uterine body composed of high-grade carcinomatous and sarcomatous elements. It may present with vaginal bleeding, abnormal vaginal discharge, abdominal pain and/or pelvic mass, with a polypoid tumor sometimes protruding through the cervical canal. Association with Tamoxifen therapy, long-term unopposed estrogen use and previous pelvic radiotherapy has been reported." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "213610" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Carcinosarcoma of the corpus uteri" ] .
+}
+

@@ -1,0 +1,32 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=228379> a ns1:MedicalCondition ;
+        ns1:alternateName "Cyclosporine-induced folliculodystrophy",
+            "Pilomatrix dysplasia",
+            "TS",
+            "Trichodysplasia spinulosa",
+            "VATS" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:228379" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C3267126" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C3267126" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:228379" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "Virus-associated trichodysplasia spinulosa is a rare infectious skin disease characterized by the development of follicular papules with keratin spicules in various parts of the body, predominantly in the face (e.g. nose, eyebrows, auricles), that is due to polyomavirus infection in immunocompromized patients." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "228379" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Virus-associated trichodysplasia spinulosa" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Virus-associated trichodysplasia spinulosa" ] .
+}
+

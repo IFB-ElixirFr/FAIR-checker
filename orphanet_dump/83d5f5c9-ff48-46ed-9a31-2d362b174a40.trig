@@ -1,0 +1,33 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=293925> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "Q87.5" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "614416" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "614416" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:293925" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q87.5" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:293925" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "Lethal occipital encephalocele-skeletal dysplasia syndrome is a rare, genetic, bone development disorder characterized by occipital and parietal bone hypoplasia leading to occipital encephalocele, calvarial mineralization defects, craniosynostosis, radiohumeral fusions, oligodactyly and other skeletal anomalies (arachnodactyly, terminal phalangeal aplasia of the thumbs, bilateral absence of the great toes, pronounced bilateral angulation of femora, shortened limbs, advanced osseous maturation). Fetal death in utero is associated." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "293925" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Lethal occipital encephalocele-skeletal dysplasia syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Lethal occipital encephalocele-skeletal dysplasia syndrome" ] .
+}
+

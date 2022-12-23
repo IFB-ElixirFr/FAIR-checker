@@ -1,0 +1,27 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=391343> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "G04.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:391343" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:391343" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G04.8" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "Fatal post-viral neurodegenerative disorder is a rare neuroinflammatory disease characterized by the onset of ataxia, dysarthia and cerebral white matter changes which are triggered by viral infection. Episodic progressive neurodegeneration (manifesting with loss of motor and verbal skills, muscle weakness, further cerebral white matter degeneration and, eventually, death) is observed in the absence of hematopathology, cytokine overproduction, fever, hypertrigliceridemia, hypofibrinogenemia and hyperferritinemia." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "391343" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Fatal post-viral neurodegenerative disorder" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Fatal post-viral neurodegenerative disorder" ] .
+}
+

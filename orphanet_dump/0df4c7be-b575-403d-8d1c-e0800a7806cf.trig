@@ -1,0 +1,42 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=5> a ns1:MedicalCondition ;
+        ns1:alternateName "LCHAD deficiency",
+            "LCHADD",
+            "Long-chain 3-hydroxyacyl-coenzyme A dehydrogenase deficiency" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:5" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E71.3" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E71.3" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "609016" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:5" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "6867" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "609016" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "6867" ;
+                ns1:codingSystem "GARD" ] ;
+        ns1:description "A mitochondrial disorder of long chain fatty acid oxidation characterized in most patients by onset in infancy/ early childhood of hypoketotic hypoglycemia, metabolic acidosis, liver disease, hypotonia and, frequently, cardiac involvement with arrhythmias and/or cardiomyopathy." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "5" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Long chain 3-hydroxyacyl-CoA dehydrogenase deficiency" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Long chain 3-hydroxyacyl-CoA dehydrogenase deficiency" ] .
+}
+

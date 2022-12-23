@@ -1,0 +1,27 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=31824> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:31824" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "T50.4" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "T50.4" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:31824" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "Colchicine poisoning is a potentially life-threatening poisoning, due to ingestion of the drug or consumption of the plant <i>Colchicum autumnale</i>, that usually begins with gastrointestinal symptoms (e.g. abdominal pain, nausea, vomiting, and diarrhea, that cause severe dehydration) and an initial leukocytosis leading to marrow failure (24 hours after ingestion), followed by potentially fatal multi-organ failure with mental status change, oliguric renal failure, disseminated intravascular coagulation, electrolyte imbalance, acid-base disturbance, cardiac failure/arrest and shock within 1-3 days." ;
+        ns1:epidemiology "Prevalence : 1-9 / 1 000 000" ;
+        ns1:identifier "31824" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Colchicine poisoning" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Colchicine poisoning" ] .
+}
+

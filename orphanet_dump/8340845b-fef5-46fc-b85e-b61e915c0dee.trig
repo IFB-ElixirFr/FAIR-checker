@@ -1,0 +1,53 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=1912> a ns1:MedicalCondition ;
+        ns1:alternateName "Fetal dihydantoin syndrome",
+            "Phenytoin embryofetopathy" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "6435" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C537922" ;
+                ns1:codingSystem "MeSH" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "6435" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0265372" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:1912" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10016508" ;
+                ns1:codingSystem "MedDRA" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0265372" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10016508" ;
+                ns1:codingSystem "MedDRA" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:1912" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q86.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C537922" ;
+                ns1:codingSystem "MeSH" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q86.1" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "A drug-related embryofetopathy that can occur when an embryo/fetus is exposed to the anticonvulsant drug phenytoin, characterized by distinct craniofacial anomalies (hypertelorism and epicanthal folds, short nose and deep nasal bridge, malformed and low set ears, short neck) as well as hypoplastic distal phalanges and underdevelopment of nails of fingers and toes, prenatal and postnatal growth retardation, and neurological impairment (at a 2-3 times higher risk than that of the general population) including cognitive deficits and motor developmental delay. Less commonly, microcephaly, ocular defects, oral clefts, umbilical and inguinal hernias, hypospadias and cardiac anomalies have also been reported." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "1912" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Fetal hydantoin syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Fetal hydantoin syndrome" ] .
+}
+

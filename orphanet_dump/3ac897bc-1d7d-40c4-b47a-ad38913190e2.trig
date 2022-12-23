@@ -1,0 +1,28 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=284979> a ns1:MedicalCondition ;
+        ns1:alternateName "Neonatal MFS" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "Q87.4" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:284979" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q87.4" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:284979" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "Neonatal Marfan syndrome is a rare, severe and life-threatening genetic disease, occuring during the neonatal period, characterized by classical Marfan syndrome manifestations in addition to facial dysmorphism (megalocornea, iridodonesis, ectopia lentis, crumpled ears, loose redundant skin giving a 'senile' facial appearance), flexion joint contractures, pulmonary emphysema, and a severe, rapidly progressive cardiovascular disease (including ascending aortic dilatation and severe mitral and/or tricuspid valve insufficiency). Additionally, skeletal manifestations (arachnodactyly, dolichostenomelia, pectus deformities) are also associated." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "284979" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Neonatal Marfan syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Neonatal Marfan syndrome" ] .
+}
+

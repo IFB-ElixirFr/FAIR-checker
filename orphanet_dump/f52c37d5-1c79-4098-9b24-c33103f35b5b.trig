@@ -1,0 +1,42 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=77299> a ns1:MedicalCondition ;
+        ns1:alternateName "MCOPS10",
+            "MOBA syndrome",
+            "Syndromic microphthalmia type 10" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "Q11.2" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q11.2" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:77299" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "611222" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "9292" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "9292" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:77299" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "611222" ;
+                ns1:codingSystem "OMIM" ] ;
+        ns1:description "A rare genetic neurodegenerative disorder characterized by congenital microphthalmia, sunken eyes, blindness, microcephaly, severe intellectual disability, progressive spasticity, and seizures. Psychomotor development is normal in the first 6-8 months of life and thereafter declines rapidly and continuously. Brain MRI reveals progressive and extensive degenerative changes, especially cortex, cerebellum, brainstem, and corpus callosum atrophy, with complete loss of cerebral white matter." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "77299" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Microphthalmia-brain atrophy syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Microphthalmia-brain atrophy syndrome" ] .
+}
+

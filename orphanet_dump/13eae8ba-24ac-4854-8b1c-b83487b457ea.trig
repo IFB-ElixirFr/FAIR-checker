@@ -1,0 +1,30 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=275813> a ns1:MedicalCondition ;
+        ns1:alternateName "PAH associated with portal hypertension",
+            "POPH",
+            "Portopulmonary hypertension" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "C1868851" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C1868851" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:275813" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:275813" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "Pulmonary arterial hypertension associated with portal hypertension (PAH-PH) is a form of pulmonary arterial hypertension (PAH), characterized by an elevated pulmonary arterial resistance leading to right heart failure observed as a complication of portal hypertension." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "275813" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Pulmonary arterial hypertension associated with portal hypertension" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Pulmonary arterial hypertension associated with portal hypertension" ] .
+}
+

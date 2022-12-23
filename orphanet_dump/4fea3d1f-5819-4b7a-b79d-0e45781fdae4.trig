@@ -1,0 +1,27 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=521450> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "M79.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:521450" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "M79.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:521450" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare genetic systemic or rheumatologic disease characterized by infantile onset of skin anomalies (such as delayed wound healing with atrophic scars and mild alopecia with dry and brittle hair), retinal rod degeneration with night blindness, degenerative myopathy with muscle weakness, myalgia, and cramps, osteoarthritis, joint laxity, prolapse of internal organs, floating kidney syndrome, malabsorption syndrome, and hypothyroidism. The phenotype has been reported to be more severe in women than in men." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "521450" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "LAMA5-related multisystemic syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "LAMA5-related multisystemic syndrome" ] .
+}
+

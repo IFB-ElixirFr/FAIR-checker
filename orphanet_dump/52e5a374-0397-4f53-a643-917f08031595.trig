@@ -1,0 +1,27 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=90158> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:90158" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E88.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E88.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:90158" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "Idiopathic localized lipodystrophy is a rare, acquired, localized lipodystrophy characterized by asymptomatic, well-demarcated, depressed, lipoatrophic lesions of variable size, with normal overlying skin without antecedent inflammation or a known identifiable cause (autoimmune disease, drug injection, injury, etc)." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "90158" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Idiopathic localized lipodystrophy" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Idiopathic localized lipodystrophy" ] .
+}
+

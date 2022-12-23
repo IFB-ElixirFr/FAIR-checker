@@ -1,0 +1,30 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=564003> a ns1:MedicalCondition ;
+        ns1:alternateName "Avascular necrosis of the metatarsal bone",
+            "Freiberg disease",
+            "Freiberg infraction" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "M92.7" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:564003" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "M92.7" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:564003" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare bone disease characterized by avascular necrosis of a metatarsal head, most commonly involving the second, but also the third or fourth, metatarsal. Patients may present with pain on weight-bearing, swelling, and tenderness. Radiological features include widening of the metatarsophalangeal joint space and flattening of the affected metatarsal head, at later stages metatarsal head sclerosis, cortical thickening, and intra-articular loose bodies. The condition can be bilateral in some cases and shows a significant predilection for females in the second or third decade of life." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "564003" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Osteochondrosis of the metatarsal bone" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Osteochondrosis of the metatarsal bone" ] .
+}
+

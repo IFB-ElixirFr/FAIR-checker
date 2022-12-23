@@ -1,0 +1,41 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=231031> a ns1:MedicalCondition ;
+        ns1:alternateName "Lane disease",
+            "Red palms disease" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "L59.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C1851502" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "133000" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:231031" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "L59.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:231031" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "133000" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C1851502" ;
+                ns1:codingSystem "UMLS" ] ;
+        ns1:description "Erythema palmare hereditarium is a rare, benign, congenital genetic skin disorder characterized by permanent and asymptomatic erythema of the palmar and, less frequently, the solar surfaces. In most cases, it presents with sharply demarcated redness of the thenar and hypothenar eminences, as well as the palmar aspect of the phalanges, with scattered telangiectasia spots that do not cause any discomfort (pain, itching or burning) to the patient." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "231031" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Erythema palmare hereditarium" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Erythema palmare hereditarium" ] .
+}
+

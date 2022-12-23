@@ -1,0 +1,27 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=480541> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "C85.7" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:480541" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C85.7" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:480541" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare aggressive B-cell non-Hodgkin lymphoma characterized by a rearrangement in MYC and BCL2 and/or BCL6 (so-called double-hit or triple-hit lymphoma). The category includes double-hit cases with features intermediate between diffuse large B-cell lymphoma (DLBCL) and Burkitt lymphoma, blastoid cases with a double-hit, and cases with a DLBCL, not otherwise specified, morphology with a double-hit. It refers only to <i>de novo</i> cases, not to lymphomas with a history of pre-existing or coexistent indolent lymphoma. Patients typically present with widespread disease, including involvement of lymph nodes, bone marrow, and central nervous system." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "480541" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "High grade B-cell lymphoma with MYC and/ or BCL2 and/or BCL6 rearrangement" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "High grade B-cell lymphoma with MYC and/ or BCL2 and/or BCL6 rearrangement" ] .
+}
+

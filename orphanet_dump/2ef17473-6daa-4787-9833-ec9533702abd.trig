@@ -1,0 +1,46 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=289666> a ns1:MedicalCondition ;
+        ns1:alternateName "PBL" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "C3472614" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C83.3" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "12125" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10065039" ;
+                ns1:codingSystem "MedDRA" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10065039" ;
+                ns1:codingSystem "MedDRA" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "12125" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:289666" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C83.3" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:289666" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C3472614" ;
+                ns1:codingSystem "UMLS" ] ;
+        ns1:description "A rare aggressive B-cell non-Hodgkin lymphoma characterized by neoplastic cells resembling B immunoblasts or plasmablasts with a CD20-negative plasmacytic phenotype. The tumor may occur in the oral cavity, the gastrointestinal tract, or other, predominantly extranodal, sites and is typically associated with immunodeficiency or -suppression. The tumor cells are EBV-positive in most cases. Patients often present with disseminated bone involvement. Paraproteinemia may also be detected. Prognosis is generally poor." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "289666" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Plasmablastic lymphoma" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Plasmablastic lymphoma" ] .
+}
+

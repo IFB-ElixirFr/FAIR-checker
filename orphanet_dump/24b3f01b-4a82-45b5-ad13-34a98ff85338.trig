@@ -1,0 +1,48 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=86845> a ns1:MedicalCondition ;
+        ns1:alternateName "AML with multilineage dysplasia",
+            "AML with myelodysplasia-related features",
+            "Acute myeloid leukemia with multilineage dysplasia" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:86845" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "601626" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C1292773" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C92.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "12761" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C1292773" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "12761" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C92.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:86845" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "601626" ;
+                ns1:codingSystem "OMIM" ] ;
+        ns1:description "A rare acute myeloid leukemia (AML) characterized by the presence of acute leukemia with at least 20% peripheral blood or bone marrow blasts with morphological features of myelodysplasia, or occurrence in patients with a prior history of a myelodysplastic syndrome (MDS) or myelodysplastic/myeloproliferative neoplasm, with MDS-related cytogenetic abnormalities, in the absence of specific genetic abnormalities characteristic of AML with recurrent genetic abnormalities. Prior cytotoxic or radiation therapy for an unrelated disease must be excluded. The condition occurs mainly in elderly patients and is rare in children. Patients often present with severe pancytopenia. Prognosis is generally poor." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "86845" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Acute myeloid leukaemia with myelodysplasia-related features" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Acute myeloid leukaemia with myelodysplasia-related features" ] .
+}
+

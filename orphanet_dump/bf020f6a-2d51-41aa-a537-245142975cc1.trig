@@ -1,0 +1,40 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=71519> a ns1:MedicalCondition ;
+        ns1:alternateName "Psychogenic dystonia" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "C3267131" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10072376" ;
+                ns1:codingSystem "MedDRA" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "F44.4" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10072376" ;
+                ns1:codingSystem "MedDRA" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C3267131" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:71519" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "F44.4" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:71519" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare neurologic disease characterized by the manifestation of an underlying psychiatric illness or malingering, and that cannot be attributed to any known structural or neurochemical diseases. Most cases fall in the psychiatric diagnostic category of conversion disorder, also referred to as functional neurological symptom disorder." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "71519" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Psychogenic movement disorders" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Psychogenic movement disorders" ] .
+}
+

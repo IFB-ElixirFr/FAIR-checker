@@ -1,0 +1,50 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=199343> a ns1:MedicalCondition ;
+        ns1:alternateName "Epilepsy-ataxia-sensorineural deafness-tubulopathy syndrome",
+            "Epilepsy-ataxia-sensorineural hearing loss-tubulopathy syndrome",
+            "SeSAME syndrome",
+            "Seizures-sensorineural deafness-ataxia-intellectual disability-electrolyte imbalance syndrome",
+            "Seizures-sensorineural hearing loss-ataxia-intellectual disability-electrolyte imbalance syndrome" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "C2748572" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10514" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G40.4" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10514" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G40.4" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:199343" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "612780" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "612780" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C2748572" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:199343" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare genetic disease characterized by the association of epilepsy, ataxia, sensorineural hearing impairment, and renal tubulopathy. Patients present in infancy with generalized seizures, cerebellar dysfunction (including gait ataxia, intention tremor, and dysdiadochokinesis), and variable developmental delay and sensorineural hearing loss. Laboratory studies show persistent hypokalemic metabolic acidosis with hypomagnesemia. Additional reported neurologic features include brisk deep tendon reflexes, ankle clonus, extensor plantar responses, or nystagmus." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "199343" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "EAST syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "EAST syndrome" ] .
+}
+

@@ -1,0 +1,32 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=1969> a ns1:MedicalCondition ;
+        ns1:alternateName "FACES syndrome",
+            "Friedman-Goodman syndrome" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "2387" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C2931183" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:1969" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q87.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "2221" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C536384" ;
+                ns1:codingSystem "MeSH" ] ;
+        ns1:description "Facial dysmorphism-anorexia-cachexia-eye and skin anomalies syndrome is a rare, genetic, multiple congenital anomalies/dysmorphic syndrome characterized by facial dysmorphism (mild eyelid ptosis, xanthelasma, anterverted nostrils, bifid nasal tip, short palate), severe muscle wasting and cachexia, retinitis pigmentosa, numerous lentigines and café-au-lait spots, as well as mild, soft tissue syndactyly. Additional features include nasal speech, chest asymmetry, pectus excavatum, genu varum, pes planus, and thyroid papillary carcinoma and diffuse enlargement. There have been no further description in the literature since 1984." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "1969" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Facial dysmorphism-anorexia-cachexia-eye and skin anomalies syndrome" ] .
+}
+

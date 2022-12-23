@@ -1,0 +1,27 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=589547> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "F84.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:589547" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "F84.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:589547" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare genetic syndromic intellectual disability characterized by infantile or childhood onset of mild to profound developmental delay and intellectual disability in all affected individuals, as well as variable occurrence of epilepsy, autism spectrum disorder / behavioral issues, microcephaly, muscle tone abnormalities such as hypotonia and spasticity, dystonic, dyskinetic, or choreiform movement disorder, and cortical visual impairment. Brain MRI may reveal abnormal cortical development, hypoplastic corpus callosum, enlarged/dysplastic basal ganglia, and hippocampal dysplasia." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "589547" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "GRIN2B-related developmental delay, intellectual disability and autism spectrum disorder" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "GRIN2B-related developmental delay, intellectual disability and autism spectrum disorder" ] .
+}
+

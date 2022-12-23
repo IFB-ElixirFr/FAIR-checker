@@ -1,0 +1,27 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=90068> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:90068" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "T40.5" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:90068" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "T40.5" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "A rare disorder due to poisoning characterized by variable combination and dose-dependent severity of clinical manifestations, affecting behavior, central nervous and cardiovascular system. Patients present with euphoria, irritability, agitation, psychosis, hallucinations, paranoia, seizures, decreased responsiveness, mydriasis, tachyarrhythmia, chest pain, and cardiovascular collapse. Sometimes also dyspnea, hypertension, hyperthermia, hypothermia, lack of sleep and serotonin syndrome are present. Severe intoxication may lead to coma and death." ;
+        ns1:epidemiology "Prevalence : 1-9 / 100 000" ;
+        ns1:identifier "90068" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Cocaine intoxication" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Cocaine intoxication" ] .
+}
+

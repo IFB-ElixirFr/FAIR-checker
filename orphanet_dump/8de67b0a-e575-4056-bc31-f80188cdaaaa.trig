@@ -1,0 +1,22 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=319539> a ns1:MedicalCondition ;
+        ns1:alternateName "Autosomal recessive MSMD due to a partial deficiency" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:319539" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:319539" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A group of genetic variants of mendelian susceptibility to mycobacterial diseases (MSMD) due to autosomal recessive mutations in the <i>IFNGR1</i> and <i>IFNGR2</i> genes which lead to a residual response of IFN-gamma." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "319539" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Autosomal recessive mendelian susceptibility to mycobacterial diseases due to a partial deficiency" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Autosomal recessive mendelian susceptibility to mycobacterial diseases due to a partial deficiency" ] .
+}
+

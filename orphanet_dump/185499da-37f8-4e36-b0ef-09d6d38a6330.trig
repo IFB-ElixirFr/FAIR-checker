@@ -1,0 +1,34 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=329195> a ns1:MedicalCondition ;
+        ns1:alternateName "Developmental delay with ASD and gait instability" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "F84.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "F84.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "615516" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "615516" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:329195" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:329195" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "Developmental delay with autism spectrum disorder and gait instability is a rare, genetic, neurological disorder characterized by infant hypotonia and feeding difficulties, global development delay, mild to moderated intellectual disability, delayed independent ambulation, broad-based gait with arms upheld and flexed at the elbow with brisk walking or running, and limited language skills. Behavior patterns are highly variable and range from sociable and affectionate to autistic behavior." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "329195" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Developmental delay with autism spectrum disorder and gait instability" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Developmental delay with autism spectrum disorder and gait instability" ] .
+}
+

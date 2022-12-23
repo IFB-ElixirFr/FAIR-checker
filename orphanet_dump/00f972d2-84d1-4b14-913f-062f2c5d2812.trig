@@ -1,0 +1,48 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=566243> a ns1:MedicalCondition ;
+        ns1:alternateName "RTHb",
+            "Resistance to thyroid hormone beta",
+            "Resistance to thyroid hormone due to a mutation in TRb" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "145650" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E07.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "188570" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "274300" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E07.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:566243" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "145650" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:566243" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "274300" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "188570" ;
+                ns1:codingSystem "OMIM" ] ;
+        ns1:description "A rare genetic hyperthyroidism characterized by elevated levels of circulating free thyroid hormones, normal or elevated thyroid-stimulating hormone, decreased peripheral tissue responses to iodothyronine action, and a highly variable clinical phenotype which most commonly includes goiter, resting tachycardia, osteoporosis, short stature, and attention deficit disorder. Some patients may be entirely asymptomatic." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "566243" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Resistance to thyroid hormone due to a mutation in thyroid hormone receptor beta" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Resistance to thyroid hormone due to a mutation in thyroid hormone receptor beta" ] .
+}
+

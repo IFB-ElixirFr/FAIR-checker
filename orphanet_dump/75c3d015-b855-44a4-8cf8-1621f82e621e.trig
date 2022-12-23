@@ -1,0 +1,28 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=599> a ns1:MedicalCondition ;
+        ns1:alternateName "Distal muscular dystrophy" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "C0751336" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:599" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:599" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0751336" ;
+                ns1:codingSystem "UMLS" ] ;
+        ns1:description "Distal myopathy refers to a group of muscle diseases which share the clinical pattern of predominant weakness and atrophy beginning in the feet and/or hands." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "599" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Distal myopathy" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Distal myopathy" ] .
+}
+

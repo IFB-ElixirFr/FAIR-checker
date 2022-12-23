@@ -1,0 +1,35 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=180176> a ns1:MedicalCondition ;
+        ns1:alternateName "Familial juvenile gigantomastia",
+            "Virginal breast hypertrophy" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "113670" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "113670" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "N62" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "N62" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:180176" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:180176" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare breast malformation disorder characterized by unilateral or bilateral, symmetrical or asymmetrical, uncontrolled, rapid and massive enlargement of the breast(s) in peripubertal females, occurring in various members of a family. Additional associated manifestations may include skin hyperemia, dilated subcutaneous veins, skin necrosis, kyphosis, lordosis and anonychia. Growth and development are otherwise normal." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "180176" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Familial juvenile hypertrophy of the breast" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Familial juvenile hypertrophy of the breast" ] .
+}
+

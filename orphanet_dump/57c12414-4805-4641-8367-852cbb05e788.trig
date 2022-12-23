@@ -1,0 +1,27 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=449563> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:449563" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "H05.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "H05.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:449563" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare, inflammatory eye disease characterized by IgG4-immunopositive lymphocyte and plasmacyte infiltration and collagenous fibrosis of affected tissue and elevated serum levels of IgG4. Clinical presentation includes mass lesion or swelling of the involved structures, commonly involving lacrimal gland and duct, infraorbital and supraorbital nerves, extraocular muscles and orbital soft tissues. A systemic involvement is common." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "449563" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "IgG4-related ophthalmic disease" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "IgG4-related ophthalmic disease" ] .
+}
+

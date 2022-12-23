@@ -1,0 +1,29 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=98916> a ns1:MedicalCondition ;
+        ns1:alternateName "AIDP",
+            "Acute idiopathic demyelinating polyneuropathy",
+            "Acute inflammatory polyneuropathy",
+            "GBS, acute inflammatory demyelinating polyradiculoneuropathic form",
+            "Guillain-Barré syndrome, acute inflammatory demyelinating polyradiculoneuropathic form" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:98916" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G61.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C1963929" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "139393" ;
+                ns1:codingSystem "OMIM" ] ;
+        ns1:description "A rare inflammatory neuropathy belonging to the clinical spectrum of Guillain-Barré syndrome (GBS)." ;
+        ns1:epidemiology "Prevalence : 1-9 / 100 000" ;
+        ns1:identifier "98916" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Acute inflammatory demyelinating polyradiculoneuropathy" ] .
+}
+

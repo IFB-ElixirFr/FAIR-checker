@@ -1,0 +1,33 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=2380> a ns1:MedicalCondition ;
+        ns1:alternateName "Aseptic necrosis of the capital femoral epiphysis",
+            "Osteochondrosis of the capital femoral epiphysis",
+            "Perthes disease" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "150600" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10034735" ;
+                ns1:codingSystem "MedDRA" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "6874" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:2380" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0023234" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "M91.1" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "A rare disorder characterized by uni- or bilateral avascular necrosis (AVN) of the femoral head in children." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "2380" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Legg-Calvé-Perthes disease" ] .
+}
+

@@ -1,0 +1,36 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=293173> a ns1:MedicalCondition ;
+        ns1:alternateName "AGEP",
+            "Pustular drug eruption",
+            "Toxic pustuloderma" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:293173" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:293173" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0877055" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10048799" ;
+                ns1:codingSystem "MedDRA" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0877055" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10048799" ;
+                ns1:codingSystem "MedDRA" ] ;
+        ns1:description "A rare hypersensitivity reaction characterized by the rapid development of numerous, nonfollicular, sterile, pinhead-sized pustules on an erythematous base, predominantly occurring on the trunk, intertriginous and flexural areas, with rare, mostly oral, mucosal involvement. Fever, peripheral blood leukocytosis, and mild eosinophilia are accompanying features. Systemic involvement, with hepatic, renal or pulmonary dysfunction, occasionally occurs. Onset usually occurs 1-12 days after administration of the causal medication and is most frequently associated with beta&#8208;lactam antibiotics, macrolides (including pristinamycin and clindamycin), diltiazem, terbinafine, (hydroxy&#8208;)chloroquine but many other medications have also been implicated. Histology reveals spongiform, subcorneal and/or intraepidermal, pustules but this pattern is not specific (same in pustular psoriasis)." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "293173" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Acute generalized exanthematous pustulosis" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Acute generalized exanthematous pustulosis" ] .
+}
+

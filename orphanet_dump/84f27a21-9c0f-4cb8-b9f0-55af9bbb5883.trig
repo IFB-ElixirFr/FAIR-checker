@@ -1,0 +1,39 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=168940> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:168940" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10065854" ;
+                ns1:codingSystem "MedDRA" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0346421" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10065854" ;
+                ns1:codingSystem "MedDRA" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D47.5" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0346421" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:168940" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D47.5" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "A rare myeloproliferative neoplasm characterized by a clonal proliferation of eosinophilic precursors with persistent increase of eosinophils in peripheral blood and bone marrow, accompanied by increased blasts (<20%) or clonal cytogenetic or molecular genetic abnormalities. Cases with BCR-ABL1, PCM1-JAK2, ETV6-JAK2, or BCR-JAK2 fusion, or rearrangement of PDGFRA, PDGFRB, or FGFR1, are not included in this entity. Infiltration of the liver and spleen, as well as a variety of other organs, is typical. Patients may present with constitutional symptoms and signs and symptoms of organ involvement, such as endomyocardial fibrosis, peripheral neuropathy, central nervous system manifestations, respiratory symptoms, or rheumatological findings. Acute transformation is common." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "168940" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Chronic eosinophilic leukemia" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Chronic eosinophilic leukemia" ] .
+}
+

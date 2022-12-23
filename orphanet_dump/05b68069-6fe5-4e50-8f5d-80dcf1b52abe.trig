@@ -1,0 +1,27 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=476119> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "Q87.2" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:476119" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q87.2" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:476119" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare genetic syndrome with limb malformations as a major feature characterized by preaxial polydactyly of the hands and feet with variable phenotypic expressivity in combination with hypertrichosis extending from the posterior hairline to the middle of the back. Reported limb malformations include triphalangeal thumbs, duplicated thumbs, preaxial extra ray, and syndactyly between digits I and II in the hands, and large or duplicated hallux and syndactyly between toes I and II in the feet." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "476119" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Autosomal dominant preaxial polydactyly-upperback hypertrichosis syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Autosomal dominant preaxial polydactyly-upperback hypertrichosis syndrome" ] .
+}
+

@@ -1,0 +1,27 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=137935> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:137935" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D18.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D18.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:137935" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare benign vascular tumor characterized by rapid growth after birth (followed by spontaneous partial regression over the course of years), potentially leading to life-threatening airway obstruction due to the subglottic location. Patients present with respiratory symptoms including biphasic stridor, recurrent croup, cyanosis, apnea, and sternal and intercostal retractions. The tumor may be accompanied by cutaneous hemangiomata, especially in the lower facial ('beard') distribution." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "137935" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Laryngotracheal angioma" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Laryngotracheal angioma" ] .
+}
+

@@ -1,0 +1,41 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=289377> a ns1:MedicalCondition ;
+        ns1:alternateName "EOMFC",
+            "Salih myopathy" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "G71.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C2673677" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "611705" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G71.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C2673677" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:289377" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "611705" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:289377" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare genetic neuromuscular disease characterized by neonatal or infancy onset of delayed motor development, generalized muscle weakness involving also the facial muscles, pseudohypertrophy of lower limb muscles, and joint contractures, associated with childhood onset of rapidly progressive dilated cardiomyopathy with arrhythmias leading to sudden cardiac death. Muscle biopsy in early childhood shows minicore-like lesions and centralized nuclei, with dystrophic features being more conspicuous in the second decade of life." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "289377" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Early-onset myopathy with fatal cardiomyopathy" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Early-onset myopathy with fatal cardiomyopathy" ] .
+}
+

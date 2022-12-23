@@ -1,0 +1,48 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=420611> a ns1:MedicalCondition ;
+        ns1:alternateName "TMD",
+            "Transient abnormal myelopoiesis",
+            "Transient myeloproliferative disease" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "159595" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:420611" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C1834582" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D47.7" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "12765" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "12765" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C1834582" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D47.7" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "159595" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:420611" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare hematologic disease characterized by clinical and morphological findings indistinguishable from those of acute myeloid leukemia, typically occurring in newborns with Down syndrome. Peripheral blood and bone marrow blasts display features suggestive of megakaryoblasts. In addition to trisomy 21, acquired GATA1 mutations are present in blast cells. Patients may be asymptomatic or present with thrombocytopenia, less commonly other cytopenias, leukocytosis, hepatosplenomegaly, jaundice, ascites, respiratory distress, bleeding, and pericardial or pleural effusions. Most patients undergo spontaneous remission within the first three months of life, although some may develop life-threatening hepatic, renal, or cardiac complications." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "420611" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Transient myeloproliferative syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Transient myeloproliferative syndrome" ] .
+}
+

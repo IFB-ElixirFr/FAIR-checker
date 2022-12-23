@@ -1,0 +1,28 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=217064> a ns1:MedicalCondition ;
+        ns1:alternateName "5-fluorouracil intoxication" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "T45.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:217064" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:217064" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "T45.1" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "A rare intoxication caused by the prolonged, low-dose administration of 5-fluorouracil, which is the mainstay of both adjuvant and advanced-disease chemotherapy regimens in colon cancer. 5-fluorouracil poisoning is characterized by gastrointestinal (nausea, emesis, diarrhea, anorexia, stomatitis) and hematologic (myelosuppression) toxicities as well as mucositis, alopecia and, occasionally, palmar-plantar dysesthesia (more commonly known as hand-foot syndrome). Women have been reported to experience more 5-fluorouracil-related toxicity than men." ;
+        ns1:epidemiology "Prevalence : 1-9 / 100 000" ;
+        ns1:identifier "217064" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "5-fluorouracil poisoning" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "5-fluorouracil poisoning" ] .
+}
+

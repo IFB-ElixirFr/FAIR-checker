@@ -1,0 +1,33 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=85184> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "Q78.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:85184" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q78.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "269300" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "269300" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:85184" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "Craniometadiaphyseal dysplasia, wormian bone type is an extremely rare craniotubular bone dysplasia syndrome described in fewer than 10 patients to date. Clinical manifestations include macrocephaly, frontal bossing, malar hypoplasia, prominent mandible and dental hypoplasia. Other skeletal anomalies include abnormal bone modeling in tubular bones, multiple wormian bones and deformities of chest, pelvis and elbows. An increased risk of fractures is noted." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "85184" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Craniometadiaphyseal dysplasia, wormian bone type" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Craniometadiaphyseal dysplasia, wormian bone type" ] .
+}
+

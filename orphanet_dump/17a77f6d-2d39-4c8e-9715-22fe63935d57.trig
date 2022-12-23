@@ -1,0 +1,28 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=454831> a ns1:MedicalCondition ;
+        ns1:alternateName "Acute radiation sickness" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:454831" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:454831" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "T66" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "T66" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "A rare radiation-induced disorder resulting from whole body exposure to large doses of penetrating radiation (>0.7 Gray) within a very short period of time (usually minutes) and characterized by bone marrow syndrome with pancytopenia (mild symptoms of which may occur already at 0.3 Gray), gastrointestinal syndrome resulting in mostly fatal infection, dehydration, and electrolyte imbalance (occurring at doses >10 Gray), and cardiovascular/central nervous system syndrome with watery diarrhea, convulsions, coma, and death within three days of exposure (occurring at doses >50 Gray). The syndrome develops in four clinical stages (prodromal/latent/manifest illness/recovery or death) of variable duration." ;
+        ns1:epidemiology "Prevalence : 1-9 / 1 000 000" ;
+        ns1:identifier "454831" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Acute radiation syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Acute radiation syndrome" ] .
+}
+

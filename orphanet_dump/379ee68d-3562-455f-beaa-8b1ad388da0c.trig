@@ -1,0 +1,46 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=169189> a ns1:MedicalCondition ;
+        ns1:alternateName "AD-CNM" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "160150" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G71.2" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "12719" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:169189" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C1834558" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:169189" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C1834558" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "12719" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G71.2" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "160150" ;
+                ns1:codingSystem "OMIM" ] ;
+        ns1:description "A rare, autosomal dominant congenital myopathy characterized by numerous centrally placed nuclei on muscle biopsy and clinical features of a congenital myopathy (hypotonia, distal/proximal muscle weakness, rib cage deformities (sometimes associated with respiratory insufficiency), ptosis, ophthalmoparesis and weakness of the muscles of facial expression with dysmorphic facial features." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "169189" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Autosomal dominant centronuclear myopathy" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Autosomal dominant centronuclear myopathy" ] .
+}
+

@@ -1,0 +1,40 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=199247> a ns1:MedicalCondition ;
+        ns1:alternateName "Transcortin deficiency" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "C1852529" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "611489" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E27.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:199247" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C1852529" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "611489" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E27.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:199247" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "Corticosteroid-binding globulin deficiency is a rare, genetic, adrenal disease characterized by diminished corticosteroid-binding capacity associated with normal or low plasma corticosteroid-binding globulin concentration and reduced total plasma cortisol levels. Patients typically present chronic pain, fatigue and hypo/hypertension." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "199247" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Corticosteroid-binding globulin deficiency" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Corticosteroid-binding globulin deficiency" ] .
+}
+

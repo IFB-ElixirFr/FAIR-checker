@@ -1,0 +1,31 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=94063> a ns1:MedicalCondition ;
+        ns1:alternateName "Del(12)(q14)",
+            "Deletion 12q14",
+            "Monosomy 12q14",
+            "Osteopoikilosis-short stature-intellectual disability syndrome" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:94063" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q93.5" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q93.5" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:94063" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "12q14 microdeletion syndrome is characterised by mild intellectual deficit, failure to thrive, short stature and osteopoikilosis. It has been described in four unrelated patients. The syndrome appears to be caused by a heterozygous deletion at chromosome region 12q14, which was detected in three of the four patients. The deleted region contains the <i>LEMD3</i> gene: mutations in this gene have already been implicated in osteopoikilosis." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "94063" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "12q14 microdeletion syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "12q14 microdeletion syndrome" ] .
+}
+

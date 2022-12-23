@@ -1,0 +1,28 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=580572> a ns1:MedicalCondition ;
+        ns1:alternateName "ITPN" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "C25.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:580572" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:580572" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C25.8" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "A rare epithelial tumor of pancreas characterized by a solid, nodular mass growing within dilated pancreatic ducts, histologically composed of nodules of back-to-back tubular glands forming large cribriform structures, with high-grade dysplasia and ductal differentiation. There is no overt production of mucin. About half of the tumors occur in the head of the pancreas, one third involve the gland diffusely. Patients present with nonspecific symptoms including abdominal pain, vomiting, weight loss, steatorrhea, and diabetes mellitus, while obstructive jaundice is uncommon. This tumor type accounts for less than 1% of exocrine neoplasms and 3% of intraductal neoplasms of the pancreas." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "580572" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Intraductal tubulopapillary neoplasm of pancreas" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Intraductal tubulopapillary neoplasm of pancreas" ] .
+}
+

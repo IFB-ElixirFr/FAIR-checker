@@ -1,0 +1,30 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=506090> a ns1:MedicalCondition ;
+        ns1:alternateName "Serotonin-producing PNET",
+            "Serotonin-producing pancreatic NET",
+            "Serotonin-producing pancreatic neuroendocrine tumor" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "C25.9" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:506090" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C25.9" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:506090" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare functioning neuroendocrine tumor of pancreas characterized by a typically well-differentiated neoplasm composed of cells expressing serotonin. Patients may present with atypical carcinoid syndrome with abdominal pain, diarrhea, weight loss, and/or flushing. Carcinoid syndrome is usually present only when there are liver metastases. The tumors tend to be larger than non-functioning tumors and are associated with a poorer prognosis because they are almost always metastatic." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "506090" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Serotonin-producing neuroendocrine tumor of pancreas" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Serotonin-producing neuroendocrine tumor of pancreas" ] .
+}
+

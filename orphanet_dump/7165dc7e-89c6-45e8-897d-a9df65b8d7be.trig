@@ -1,0 +1,29 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=295002> a ns1:MedicalCondition ;
+        ns1:alternateName "Supernumerary phalanges",
+            "Supernumerary phalanx" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:295002" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q74.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:295002" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q74.8" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "Hyperphalangy is a congenital, non-syndromic limb malformation characterized by the presence of an accessory phalanx between metacarpal/metatarsal and proximal phalanx, or between any two other phalanges of a digit, excluding the thumb. Hypherphalangy is almost always bilateral and patients present no more than five digits and no other skeletal anomalies." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "295002" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Hyperphalangy" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Hyperphalangy" ] .
+}
+

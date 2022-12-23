@@ -1,0 +1,34 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=96184> a ns1:MedicalCondition ;
+        ns1:alternateName "UPD(14)mat" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:96184" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q99.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q99.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "616222" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:96184" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "616222" ;
+                ns1:codingSystem "OMIM" ] ;
+        ns1:description "A rare chromosomal anomaly characterized by prenatal and postnatal growth retardation, hypotonia, motor delay, early puberty, obesity, short adult stature, small hands and feet, mild intellectual disability, and mild dysmorphic facial features (frontal bossing, short nose with wide nasal tip, micrognathia, high palate, short philtrum)." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "96184" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Temple syndrome due to maternal uniparental disomy of chromosome 14" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Temple syndrome due to maternal uniparental disomy of chromosome 14" ] .
+}
+

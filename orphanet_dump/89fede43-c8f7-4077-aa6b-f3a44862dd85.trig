@@ -1,0 +1,23 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=494428> a ns1:MedicalCondition ;
+        ns1:alternateName "IPPFE",
+            "Idiopathic pleuropulmonary fibroelastosis" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:494428" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:494428" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare idiopathic interstitial pneumonia characterized by prominent subpleural and parenchymal fibroelastosis and pleural fibrosis, predominantly involving the upper lobes. Signs and symptoms include non-productive cough, dyspnea, and recurrent respiratory infections. Pneumothorax is a frequently reported complication. Pulmonary function test reveals a restrictive pattern and reduced diffusing capacity. Computed tomography shows pleural thickening with signs of fibrosis (traction bronchiectasis, architectural distortion, and loss of volume), and reticulation." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "494428" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Idiopathic pleuroparenchymal fibroelastosis" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Idiopathic pleuroparenchymal fibroelastosis" ] .
+}
+

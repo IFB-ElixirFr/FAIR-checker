@@ -1,0 +1,40 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=178536> a ns1:MedicalCondition ;
+        ns1:alternateName "PCMZL" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "D018442" ;
+                ns1:codingSystem "MeSH" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D018442" ;
+                ns1:codingSystem "MeSH" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:178536" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:178536" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C83.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C1275321" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C1275321" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C83.0" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "A rare, indolent primary cutaneous B-cell lymphoma characterized by multifocal, red to violaceous papules, plaques or nodules localized predominantly on the trunk and extremities. Histologically, these are dermis infiltrates consisting of small, marginal zone B cells, lymphoplasmacytic cells, and plasma cells. Marginal zone B cells express CD20, CD79a and Bcl-2, and are negative for CD5, CD10 and Bcl-6. Plasma cells are typically located at the periphery, and express CD138, CD79a, and monotypic light chains." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "178536" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Primary cutaneous marginal zone B-cell lymphoma" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Primary cutaneous marginal zone B-cell lymphoma" ] .
+}
+

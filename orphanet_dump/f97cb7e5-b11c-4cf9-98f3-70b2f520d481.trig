@@ -1,0 +1,40 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=3191> a ns1:MedicalCondition ;
+        ns1:alternateName "Onat syndrome" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "271960" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:3191" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0795947" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:3191" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "271960" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0795947" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "405" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "405" ;
+                ns1:codingSystem "GARD" ] ;
+        ns1:description "A rare, genetic, multiple congenital anomalies/dysmorphic syndrome characterized by the association of short stature and progressive discrete subaortic stenosis. Additional variable manifestations include upturned nose, voice and vocal cord abnormalities, obstructive lung disease, inguinal hernia, kyphoscoliosis and, occasionally, epicanthus, strabismus, microphthalmos and widely spaced teeth. There have been no further descriptions in the literature since 1984." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "3191" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Subaortic stenosis-short stature syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Subaortic stenosis-short stature syndrome" ] .
+}
+

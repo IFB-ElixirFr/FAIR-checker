@@ -1,0 +1,33 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=86903> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "C96.4" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C1301364" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:86903" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C96.4" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C1301364" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:86903" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare dendritic cell tumor characterized by a neoplasm composed of spindled to ovoid cells with phenotypic features similar to those of normal indeterminate cells. The tumor cells consistently express S100 protein and CD1a, while langerin, specific B- and T-cell markers, CD30, the histiocytic marker CD163, and the follicular dendritic cell markers CD21, CD23, and CD35 are negative. Birbeck granules are absent on ultrastructural examination. Patients typically present with multiple papules, nodules, or plaques of the skin. Primary lymph node or splenic involvement is less common. Systemic symptoms are usually absent. The clinical course is highly variable." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "86903" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Dendritic cell sarcoma not otherwise specified" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Dendritic cell sarcoma not otherwise specified" ] .
+}
+

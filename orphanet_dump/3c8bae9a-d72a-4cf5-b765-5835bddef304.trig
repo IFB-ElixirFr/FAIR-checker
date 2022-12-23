@@ -1,0 +1,47 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=86871> a ns1:MedicalCondition ;
+        ns1:alternateName "T-PLL",
+            "T-cell chronic lymphocytic leukemia" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "10042985" ;
+                ns1:codingSystem "MedDRA" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:86871" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D015461" ;
+                ns1:codingSystem "MeSH" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10042985" ;
+                ns1:codingSystem "MedDRA" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C2363142" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C91.6" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D015461" ;
+                ns1:codingSystem "MeSH" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C91.6" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C2363142" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:86871" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare mature T-cell neoplasm characterized by proliferation of small to medium-sized prolymphocytes with a mature post-thymic T-cell phenotype, involving the peripheral blood, bone marrow, lymph nodes, liver, spleen, and sometimes the skin. T-cell receptor genes are clonally rearranged. Patients typically present with hepatosplenomegaly, generalized lymphadenopathy, high leukocyte count with normal serum immunoglobulins, anemia, and thrombocytopenia. HTLV-1 serology is negative. The disease course is aggressive with generally poor prognosis." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "86871" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "T-cell prolymphocytic leukemia" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "T-cell prolymphocytic leukemia" ] .
+}
+

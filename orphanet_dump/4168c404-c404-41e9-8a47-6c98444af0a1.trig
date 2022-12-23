@@ -1,0 +1,27 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=454742> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:454742" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "A81.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:454742" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "A81.8" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "A rare human prion disease characterized by accumulation of abnormal prion protein markedly less protease-resistant than in other prion diseases, depending on the genotype at codon 129 of the prion protein gene. No mutations are found in the coding sequence of the gene. Neuropathological analysis shows spongiform change and prion protein deposition with microplaques in the cerebellum. Patients present with slowly progressive cognitive and motor decline, psychiatric symptoms, ataxia, myoclonus, or tremor, among others. The disease is fatal and transmissible to other individuals." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "454742" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Variably protease-sensitive prionopathy" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Variably protease-sensitive prionopathy" ] .
+}
+

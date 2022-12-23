@@ -1,0 +1,40 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=329481> a ns1:MedicalCondition ;
+        ns1:alternateName "LPG" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "N07.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "611771" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "611771" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C2673196" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:329481" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:329481" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "N07.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C2673196" ;
+                ns1:codingSystem "UMLS" ] ;
+        ns1:description "A rare genetic renal disease characterized by the formation of intraglomerular lipoprotein thrombi due to lipid deposition in severely dilated glomerular capillaries. Laboratory examination reveals abnormal serum lipid profiles, in particular markedly elevated apolipoprotein E. Clinical manifestations include proteinuria or nephrotic syndrome with hypertension and potential progression to chronic renal failure. Systemic complications of dyslipidemia are not observed." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "329481" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Lipoprotein glomerulopathy" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Lipoprotein glomerulopathy" ] .
+}
+

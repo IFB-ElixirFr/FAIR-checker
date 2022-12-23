@@ -1,0 +1,35 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=488618> a ns1:MedicalCondition ;
+        ns1:alternateName "Short stature-developmental delay-congenital heart defect syndrome",
+            "TKT deficiency" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:488618" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "617044" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E88.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E88.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:488618" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "617044" ;
+                ns1:codingSystem "OMIM" ] ;
+        ns1:description "A rare disorder of pentose phosphate metabolism characterized by developmental delay and intellectual disability, delayed or absent speech, short stature, and congenital heart defects (such as ventricular septal defect, atrial septal defect, and patent foramen ovale). Additional reported features include hypotonia, hyperactivity, stereotypic behavior, ophthalmologic abnormalities (bilateral cataract, uveitis, strabismus), hearing impairment, and variable facial dysmorphism, among others. Laboratory analysis shows elevated plasma and urinary polyols (erythritol, arabitol, and ribitol) and urinary sugar-phosphates (ribose-5-phosphate and xylulose/ribulose-5-phosphate)." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "488618" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Transketolase deficiency" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Transketolase deficiency" ] .
+}
+

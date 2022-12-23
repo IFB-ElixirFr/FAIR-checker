@@ -1,0 +1,27 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=466677> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:466677" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "T63.2" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "T63.2" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:466677" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "Scorpion envenomation is a rare intoxication caused by a scorpion sting which typically manifests with localized pain, edema, erythema, and paresthesias at the site of the sting and, when severe, progresses to produce systemic symptoms of variable severity that include respiratory difficulties, abnormal systemic blood pressure, cardiac arrhythmia, and a combination of parasympathetic (i.e. excessive salivation and lacrimation, diaphoresis, miosis, frequent urination, diarrhea, vomiting, priapism) and sympathetic (e.g. hyperthermia, hyperglycemia, mydriasis) manifestations. Neurological manifestations may also be associated, such as abnormal eye movements, blurred vision, agitation and restlessness, as well as muscle fasciculations and spasms. Signs and symptoms are highly variable and in most severe cases may lead to cardiogenic shock and pulmonary edema." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "466677" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Scorpion envenomation" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Scorpion envenomation" ] .
+}
+

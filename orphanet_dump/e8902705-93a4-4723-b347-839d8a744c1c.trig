@@ -1,0 +1,40 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=314451> a ns1:MedicalCondition ;
+        ns1:alternateName "Demons-Meigs syndrome" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "D27" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10027139" ;
+                ns1:codingSystem "MedDRA" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10027139" ;
+                ns1:codingSystem "MedDRA" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0025184" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:314451" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0025184" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D27" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:314451" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "Meigs syndrome is a rare neoplastic disease characterized by the clinical triad of benign ovarian tumor (typically, ovarian fibroma or fibroma-like tumor), hydrothorax and ascites, which resolve after tumor resection. Patients usually present with dyspnea, pelvic mass with or without a tender, distended abdomen and/or weight loss." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "314451" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Meigs syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Meigs syndrome" ] .
+}
+

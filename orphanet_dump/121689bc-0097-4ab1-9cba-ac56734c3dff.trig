@@ -1,0 +1,25 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=422526> a ns1:MedicalCondition ;
+        ns1:alternateName "Hereditary clear cell renal cell adenocarcinoma" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "C64" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:422526" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "9571" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "144700" ;
+                ns1:codingSystem "OMIM" ] ;
+        ns1:description "Hereditary clear cell renal cell carcinoma (ccRCC) is a hereditary renal cancer syndrome defined as development of ccRCC in two or more family members without evidence of constitutional chromosome 3 translocation, von Hippel-Lindau disease or other tumor predisposing syndromes associated with ccRCC, such as tuberous sclerosis or Birt-Hogg-Dubbé syndrome." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "422526" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Hereditary clear cell renal cell carcinoma" ] .
+}
+

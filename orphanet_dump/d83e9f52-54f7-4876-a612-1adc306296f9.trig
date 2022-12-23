@@ -1,0 +1,42 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=436159> a ns1:MedicalCondition ;
+        ns1:alternateName "ALPS due to CTLA4 haploinsuffiency",
+            "CHAI",
+            "CTLA-4 haploinsufficiency with autoimmune infiltration disease" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:436159" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "616100" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:436159" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D84.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "616100" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "12316" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D84.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "12316" ;
+                ns1:codingSystem "GARD" ] ;
+        ns1:description "A rare, primary immunodeficiency characterized by variable combination of enteropathy, hypogammaglobulinemia, recurrent respiratory infections, granulomatous lymphocytic interstitial lung disease, lymphocytic infiltration of non-lymphoid organs (intestine, lung, brain, bone marrow, kidney), autoimmune thrombocytopenia or neutropenia, autoimmune hemolytic anemia and lymphadenopathy." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "436159" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Autoimmune lymphoproliferative syndrome due to CTLA4 haploinsuffiency" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Autoimmune lymphoproliferative syndrome due to CTLA4 haploinsuffiency" ] .
+}
+

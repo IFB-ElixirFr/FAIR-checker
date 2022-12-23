@@ -1,0 +1,29 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=141132> a ns1:MedicalCondition ;
+        ns1:alternateName "OAV spectrum",
+            "Oculoauriculovertebral spectrum" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:141132" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "12074" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:141132" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "12074" ;
+                ns1:codingSystem "GARD" ] ;
+        ns1:description "A rare congenital malformation syndrome, most commonly presenting with hemifacial microsomia associated with ear and/or eye malformations and vertebral anomalies of variable severity. Additional malformations involving the heart, kidneys, central nervous, digestive and skeletal systems may also be associated." ;
+        ns1:epidemiology "Prevalence : 1-9 / 100 000" ;
+        ns1:identifier "141132" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Oculo-auriculo-vertebral spectrum" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Oculo-auriculo-vertebral spectrum" ] .
+}
+

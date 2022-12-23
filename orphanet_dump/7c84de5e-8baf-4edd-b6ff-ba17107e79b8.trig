@@ -1,0 +1,24 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=295034> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "10010520" ;
+                ns1:codingSystem "MedDRA" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:295034" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q68.2" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0265669" ;
+                ns1:codingSystem "UMLS" ] ;
+        ns1:description "A rare congenital limb malformation characterized by either hyperextension of the knee greater than 0° associated with limited flexion (congenital genu recurvatum) or permanent knee flexion with limited extension (congenital genu flexum). It can be unilateral or bilateral and may occur as an isolated malformation, be associated with other orthopedic abnormalities (like developmental dysplasia of the hip or clubfoot), or be part of a syndrome (e. g. Larsen's syndrome, arthrogryposis multiplex congenita)." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "295034" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Congenital knee dislocation" ] .
+}
+

@@ -1,0 +1,52 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=79329> a ns1:MedicalCondition ;
+        ns1:alternateName "CDG syndrome type IIa",
+            "CDG-IIa",
+            "CDG2A",
+            "Carbohydrate deficient glycoprotein syndrome type IIa",
+            "Congenital disorder of glycosylation type 2a",
+            "Congenital disorder of glycosylation type IIa",
+            "N-acetylglucosaminyltransferase 2 deficiency" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "C2931008" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C2931008" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:79329" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:79329" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "9828" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "212066" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "9828" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E77.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E77.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "212066" ;
+                ns1:codingSystem "OMIM" ] ;
+        ns1:description "MGAT2-CDG is a form of congenital disorders of N-linked glycosylation characterized by facial dysmorphism (large, posteriorly rotated ears with prominent antihelices, convex nasal ridge, open mouth, large and crowded teeth), stereotypic hand movements, seizures, and varying degrees of developmental delay. A bleeding tendency is also observed and this results from diminished platelet aggregation. The disease is caused by loss-of-function mutations in the gene <i>MGAT2</i> (14q21)." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "79329" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "MGAT2-CDG" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "MGAT2-CDG" ] .
+}
+

@@ -1,0 +1,27 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=397755> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:397755" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:397755" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G72.3" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G72.3" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "Periodic paralysis with transient compartment-like syndrome is a rare, genetic, neuromuscular disease characterized by normokalemic episodes of painful muscle cramping followed by progressive, permanent, flaccid weakness, triggered by stress, cold and exercise, associated with myopathic myopathy and painful acute edema with neuronal compression, foot drop and muscle degeneration when located in the tibialis anterior muscle group." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "397755" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Periodic paralysis with transient compartment-like syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Periodic paralysis with transient compartment-like syndrome" ] .
+}
+

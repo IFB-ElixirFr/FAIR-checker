@@ -1,0 +1,29 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=99825> a ns1:MedicalCondition ;
+        ns1:alternateName "Nipah encephalitis",
+            "Nipah fever" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "A98.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "A98.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:99825" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:99825" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "Nipah virus disease, caused by the Nipah virus, is a recently discovered zoonotic disease characterized by fever, constitutional symptoms and encephalitis, sometimes accompanied by respiratory illness." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "99825" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Nipah virus disease" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Nipah virus disease" ] .
+}
+

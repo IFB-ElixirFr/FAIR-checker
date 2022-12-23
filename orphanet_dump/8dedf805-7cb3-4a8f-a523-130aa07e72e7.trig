@@ -1,0 +1,29 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=99912> a ns1:MedicalCondition ;
+        ns1:alternateName "Dysgerminomatous germ cell cancer of the ovary",
+            "Malignant ovarian dysgerminoma" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:99912" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C56" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C56" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:99912" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A form of malignant germ cell tumor of ovary, arising from germ cells in the ovary, usually presenting during adolescence with pelvic mass, fever, vaginal bleeding, and acute abdomen and is characterized by bilaterality (around 10% of cases), association with dysgenetic gonads (5 to 10% of cases), elevated serum lactate dehydrogenase (LDH) and human chorionic gonadotrophin (hCG) (in the presence of syncitiotrophoblasts)." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "99912" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Malignant dysgerminomatous germ cell tumor of the ovary" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Malignant dysgerminomatous germ cell tumor of the ovary" ] .
+}
+

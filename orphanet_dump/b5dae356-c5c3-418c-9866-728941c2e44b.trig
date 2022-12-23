@@ -1,0 +1,36 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=447753> a ns1:MedicalCondition ;
+        ns1:alternateName "AD-SPG9A",
+            "Cataracts-motor neuropathy-short stature-skeletal anomalies syndrome",
+            "Spastic paraparesis-amyopathy-cataracts-gastroesophageal reflux syndrome" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "601162" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:447753" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G11.4" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G11.4" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:447753" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "601162" ;
+                ns1:codingSystem "OMIM" ] ;
+        ns1:description "A rare complex hereditary spastic paraplegia characterized by juvenile to adult onset of slowly progressive spasticity mainly affecting the lower limbs, associated with spastic dysarthria and motor neuropathy. Additional manifestations include congenital bilateral cataract, gastroesophageal reflux, persistent vomiting, mild cerebellar signs, pes cavus, and occasionally short stature, among others." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "447753" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Autosomal dominant spastic paraplegia type 9A" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Autosomal dominant spastic paraplegia type 9A" ] .
+}
+

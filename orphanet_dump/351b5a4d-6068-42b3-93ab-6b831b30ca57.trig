@@ -1,0 +1,27 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=521127> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "K10.2" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:521127" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "K10.2" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:521127" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare radiation-induced disorder characterized by exposed irradiated bone that fails to heal over a period of three months without evidence of persisting or recurrent tumor. Patients present with pain, dysesthesia, dysgeusia, fetor oris, trismus, ulceration or necrosis of the mucosa with exposure of necrotic bone, and local suppuration. Complications include pathological fractures, formation of intra- or extra-oral fistulae, and infection. MRI shows cortical destruction, abnormal bone marrow signal, and irregular contrast enhancement." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "521127" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Osteoradionecrosis of the mandible" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Osteoradionecrosis of the mandible" ] .
+}
+

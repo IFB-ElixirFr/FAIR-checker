@@ -1,0 +1,28 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=324611> a ns1:MedicalCondition ;
+        ns1:alternateName "CMT2 due to KIF5A mutation" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "G60.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:324611" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G60.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:324611" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare form of axonal peripheral sensorimotor neuropathy characterized by classical CMT2 signs and symptoms (progressive weakness and atrophy of distal limb muscles, mild sensory deficits of position, vibration and pain/temperature, pes cavus, and symmetrically absent or reduced muscle and sensory action potentials with relatively preserved nerve conduction velocities in neurophysiological studies) as well as pyramidal tract involvement (spasticity, hyperreflexia). Spasticity and pain may be the presenting symptoms." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "324611" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Autosomal dominant Charcot-Marie-Tooth disease type 2 due to KIF5A mutation" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Autosomal dominant Charcot-Marie-Tooth disease type 2 due to KIF5A mutation" ] .
+}
+

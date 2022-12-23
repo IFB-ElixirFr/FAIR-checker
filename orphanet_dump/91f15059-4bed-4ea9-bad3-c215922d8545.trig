@@ -1,0 +1,30 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=293284> a ns1:MedicalCondition ;
+        ns1:alternateName "BH4-responsive HPA/PKU",
+            "BH4-responsive hyperphenylalaninemia/phenylketonuria",
+            "Tetrahydrobiopterin-responsive HPA/PKU" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:293284" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E70.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:293284" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E70.1" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "A form of phenylketonuria (PKU), an inborn error of amino acid metabolism, characterized by mild to moderate symptoms of PKU including impaired cognitive function, seizures, and behavioral and developmental disorders, and a marked reduction of elevated phenylalanine concentrations after oral loading with tetrahydrobiopterin (BH4), an essential cofactor of phenylalanine hydroxylase." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "293284" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Tetrahydrobiopterin-responsive hyperphenylalaninemia/phenylketonuria" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Tetrahydrobiopterin-responsive hyperphenylalaninemia/phenylketonuria" ] .
+}
+

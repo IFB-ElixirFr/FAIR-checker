@@ -1,0 +1,21 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=213787> a ns1:MedicalCondition ;
+        ns1:alternateName "Cervical carcinosarcoma",
+            "Cervical malignant Müllerian mixed tumor",
+            "Malignant Müllerian mixed tumor of the cervix uteri" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:213787" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C53" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "Carcinosarcoma of the cervix uteri is a rare, malignant, mixed epithelial and mesenchymal tumor, located in the cervix uteri, composed of an admixture of carcinomatous and sarcomatous elements. It usually presents with abnormal vaginal bleeding and a round, well-defined, grey to yellowish-white, pedunculated polypoid mass protruding through the cervical canal. Association with HPV infection (especially serotype 16) has been frequently reported." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "213787" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Carcinosarcoma of the cervix uteri" ] .
+}
+

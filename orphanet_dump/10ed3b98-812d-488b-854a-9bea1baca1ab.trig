@@ -1,0 +1,28 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=57782> a ns1:MedicalCondition ;
+        ns1:alternateName "Myxoma with fibrous dysplasia" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:57782" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "M85.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "M85.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:57782" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "Mazabraud syndrome is a rare primary bone dysplasia (see this term) characterized by the association of fibrous dysplasia with intramuscular myxomas. Fibrous dysplasia (usually polyostotic, sometimes monostotic) occurs during the growth period and can be asymptomatic or can present with pain, skeletal deformities or fractures while intramuscular myxoma, associated with polyostotic fibrous dysplasia (see this term) is usually multifocal, typically occuring in the vicinity of skeletal lesions, and presents in adulthood as a painless soft-tissue mass (most commonly in the thigh). Although it is a benign condition, local recurrences of myxomas after incomplete excision and malignant transformation of a fibrous dysplastic lesion into osteogenic sarcoma have been reported." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "57782" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Mazabraud syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Mazabraud syndrome" ] .
+}
+

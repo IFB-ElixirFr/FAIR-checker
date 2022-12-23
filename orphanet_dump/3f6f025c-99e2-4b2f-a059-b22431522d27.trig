@@ -1,0 +1,35 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=439746> a ns1:MedicalCondition ;
+        ns1:alternateName "Secondary PAN",
+            "Secondary periarteritis nodosa" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "M30.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:439746" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "M30.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "M30.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "M30.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:439746" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "Secondary polyarteritis nodosa (PAN) is a rare serious form of PAN (see this term) characterized by vasculitis in a background of viral infection, primarily with hepatitis B virus (HBV)." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "439746" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Secondary polyarteritis nodosa" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Secondary polyarteritis nodosa" ] .
+}
+

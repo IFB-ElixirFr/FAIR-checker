@@ -1,0 +1,29 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=320360> a ns1:MedicalCondition ;
+        ns1:alternateName "Maternally-inherited SPG",
+            "Maternally-inherited spastic paraplegia" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "G11.4" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:320360" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:320360" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G11.4" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "MT-ATP6-related mitochondrial spastic paraplegia is a rare, genetic, complex hereditary spastic paraplegia disorder characterized by adulthood-onset of slowly progressive, bilateral, mainly lower limb spasticity and distal weakness associated with lower limb pain, hyperreflexia, and reduced vibration sense. Axonal neuropathy is frequently observed on electromyography and nerve conduction examination." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "320360" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "MT-ATP6-related mitochondrial spastic paraplegia" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "MT-ATP6-related mitochondrial spastic paraplegia" ] .
+}
+

@@ -1,0 +1,31 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=160148> a ns1:MedicalCondition ;
+        ns1:alternateName "Cap inflammatory polyposis",
+            "Eroded polypoid hyperplasia",
+            "Inflammatory myoglandular polyps",
+            "Polypoid prolapsing folds" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:160148" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D12.6" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:160148" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D12.6" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "A rare colorectal disease characterized by multiple inflammatory polyps that predominantly affect the rectosigmoid area and that manifests primarily as rectal bleeding with abnormal transit, constipation and diarrhea." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "160148" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Cap polyposis" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Cap polyposis" ] .
+}
+

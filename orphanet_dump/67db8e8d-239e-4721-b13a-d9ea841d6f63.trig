@@ -1,0 +1,27 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=36238> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:36238" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "J15.2" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:36238" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "J15.2" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "Staphylococcal necrotizing pneumonia is a rare, bacterial, pulmonary infectious disease, caused by a Panton-Valentine leukocidin-producing Staphylococcus aureus strain, characterized by severe respiratory failure, extensive, rapidly progressing pneumonia and hemorrhagic lung necrosis. Patients typically present with influenza-like symptoms, such as fever, cough, and chest pain, as well as hemoptysis, hypotension, leukopenia, and severe respiratory symptoms that rapidly evolve to acute respiratory distress syndrome and septic shock. High mortality is associated." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "36238" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Staphylococcal necrotizing pneumonia" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Staphylococcal necrotizing pneumonia" ] .
+}
+

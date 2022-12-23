@@ -1,0 +1,33 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=99058> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "Q23.2" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:99058" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:99058" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C3165203" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q23.2" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C3165203" ;
+                ns1:codingSystem "UMLS" ] ;
+        ns1:description "A rare, congenital, mitral valve malformation characterized by hypoplastic annulus which usually appears within a complete mitral valve hypoplasia, causing mitral valve stenosis. Association with other cardiac malformation is common, including coarctation of the aorta, aortic valve stenosis, Shone complex and hypoplastic left heart syndrome." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "99058" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Hypoplasia of the mitral valve annulus" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Hypoplasia of the mitral valve annulus" ] .
+}
+

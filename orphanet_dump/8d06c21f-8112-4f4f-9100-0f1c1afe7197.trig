@@ -1,0 +1,39 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=468684> a ns1:MedicalCondition ;
+        ns1:alternateName "CDG syndrome type IIo",
+            "CDG-IIo",
+            "CDG2O",
+            "Carbohydrate deficient glycoprotein syndrome type IIo",
+            "Congenital disorder of glycosylation type 2o",
+            "Congenital disorder of glycosylation type IIo" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "E77.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:468684" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "616828" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E77.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:468684" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "616828" ;
+                ns1:codingSystem "OMIM" ] ;
+        ns1:description "A rare congenital disorder of glycosylation characterized by infantile onset of hepatosplenomegaly, progressive liver failure, hypotonia, and global developmental delay. Mild dysmorphic features and seizures have also been reported. Laboratory abnormalities include elevated liver enzymes, mild hypercholesterolemia, and low serum ceruloplasmin." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "468684" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "CCDC115-CDG" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "CCDC115-CDG" ] .
+}
+

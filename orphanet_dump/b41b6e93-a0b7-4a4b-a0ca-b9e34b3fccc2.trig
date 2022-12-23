@@ -1,0 +1,37 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=240760> a ns1:MedicalCondition ;
+        ns1:alternateName "Microcephaly and chromosomal instability without immunodeficiency",
+            "NBS-like disorder",
+            "NBSLD",
+            "RAD50 deficiency" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:240760" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:240760" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C2751318" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C2751318" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "613078" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "613078" ;
+                ns1:codingSystem "OMIM" ] ;
+        ns1:description "Nijmegen breakage syndrome-like disorder is a rare, genetic multiple congenital anomalies/dysmorphic syndrome characterized by growth retardation, short stature, developmental delay, intellectual disability, craniofacial dysmorphism (i.e. severe microcephaly, sloping forehead, prominent eyes, broad nasal ridge, hypoplastic nasal septum, epicanthal folds), spontaneous chromosomal instability, cellular hypersensitivity to ionizing radiation and radioresistant DNA synthesis, without severe infections, immunodeficiency or cancer predisposition. Additional reported features include mild spasticity, slight and nonprogressive ataxia, hyperopia, multiple pigmented nevi, widely spaced nipples, and clinodactyly." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "240760" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Nijmegen breakage syndrome-like disorder" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Nijmegen breakage syndrome-like disorder" ] .
+}
+

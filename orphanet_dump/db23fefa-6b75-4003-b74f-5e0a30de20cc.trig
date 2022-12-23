@@ -1,0 +1,40 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=289176> a ns1:MedicalCondition ;
+        ns1:alternateName "ARHR" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "E83.3" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "241520" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:289176" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "613312" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E83.3" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "613312" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "241520" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:289176" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare, autosomal recessive renal phosphate-wasting disorder characterized by childhood-onset hypophosphatemia that clinically manifests with rickets and/or osteomalacia, slow growth/short stature, bone pain and skeletal deformities. Additional findings may include fatigue, muscle weakness and repeated bone fractures." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "289176" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Autosomal recessive hypophosphatemic rickets" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Autosomal recessive hypophosphatemic rickets" ] .
+}
+

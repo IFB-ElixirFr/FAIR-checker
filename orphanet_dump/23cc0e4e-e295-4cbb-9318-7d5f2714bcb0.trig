@@ -1,0 +1,36 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=217390> a ns1:MedicalCondition ;
+        ns1:alternateName "CID due to DOCK8 deficiency",
+            "Combined immunodeficiency due to dedicator of cytokinesis 8 protein deficiency",
+            "DOCK8 immunodeficiency syndrome" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "243700" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D81.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:217390" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:217390" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "243700" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D81.1" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "Combined immunodeficiency due to dedicator of cytokinesis 8 protein (DOCK8) deficiency is a form of T and B cell immunodeficiency characterized by recurrent cutaneous viral infections, susceptibility to cancer and elevated serum levels of immunoglobulin E (IgE)." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "217390" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Combined immunodeficiency due to DOCK8 deficiency" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Combined immunodeficiency due to DOCK8 deficiency" ] .
+}
+

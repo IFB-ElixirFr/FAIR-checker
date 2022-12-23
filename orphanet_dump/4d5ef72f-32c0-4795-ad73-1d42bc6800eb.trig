@@ -1,0 +1,27 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=67039> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:67039" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "K00.4" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "K00.4" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:67039" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "Segmental odontomaxillary dysplasia (SOD) is a rare disorder characterized by unilateral enlargement of the right or left maxillary alveolar bone and gingiva in the region from the back of the canines to the maxillary tuberosity. In the enlarged region, dental abnormalities such as missing teeth, abnormal spacing and delayed eruption occur." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "67039" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Segmental odontomaxillary dysplasia" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Segmental odontomaxillary dysplasia" ] .
+}
+

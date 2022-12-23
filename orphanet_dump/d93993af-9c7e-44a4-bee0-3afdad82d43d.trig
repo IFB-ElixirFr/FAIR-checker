@@ -1,0 +1,34 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=401948> a ns1:MedicalCondition ;
+        ns1:alternateName "CA-VA deficiency" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "615751" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E74.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "615751" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:401948" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E74.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:401948" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare, hereditary inborn error of metabolism characterized by an acute onset of encephalopathy in infancy or early childhood. Apart from these episodic acute events, the disorder shows a relatively benign course. Multiple metabolic abnormalities are present, including metabolic acidosis, respiratory alkalosis, hypoglycemia, increased serum lactate and alanine." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "401948" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Hyperammonemic encephalopathy due to carbonic anhydrase VA deficiency" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Hyperammonemic encephalopathy due to carbonic anhydrase VA deficiency" ] .
+}
+

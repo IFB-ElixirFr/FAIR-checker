@@ -1,0 +1,42 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=319276> a ns1:MedicalCondition ;
+        ns1:alternateName "CCRCC",
+            "Clear cell renal cell adenocarcinoma",
+            "Clear cell renal cell carcinoma" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "9574" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0279702" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C64" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:319276" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C64" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "9574" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:319276" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0279702" ;
+                ns1:codingSystem "UMLS" ] ;
+        ns1:description "A rare renal tumor arising from proximal tubular epithelial cells of the renal cortex, characterized histologically by malignant epithelial cells with typical clear cytoplasm in conventional staining methods due to a high glycogen and lipid content, featuring a nested growth pattern. Clinically it may present with hematuria, flank pain, anemia or, less commonly, a palpable abdominal mass." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "319276" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Clear cell renal carcinoma" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Clear cell renal carcinoma" ] .
+}
+

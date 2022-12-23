@@ -1,0 +1,41 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=352675> a ns1:MedicalCondition ;
+        ns1:alternateName "CMT6X",
+            "CMTX6" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:352675" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "12445" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G60.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G60.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "300905" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:352675" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "300905" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "12445" ;
+                ns1:codingSystem "GARD" ] ;
+        ns1:description "X-linked Charcot-Marie-Tooth disease type 6 is a rare, genetic, principally axonal, peripheral sensorimotor neuropathy characterized by an X-linked dominant inheritance pattern and the childhood-onset of slowly progressive, moderate to severe, distal muscle weakness and atrophy of the lower extremities, as well as distal, panmodal sensory abnormalities, bilateral foot deformities (pes cavus, clawed toes), absent ankle reflexes and gait abnormalities (steppage gait). Females are usually asymptomatic or only present mild manifestations (mild postural hand tremor, mild wasting of hand intrinsic muscles)." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "352675" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "X-linked Charcot-Marie-Tooth disease type 6" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "X-linked Charcot-Marie-Tooth disease type 6" ] .
+}
+

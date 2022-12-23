@@ -1,0 +1,25 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=180086> a ns1:MedicalCondition ;
+        ns1:alternateName "Bicervical bicornuate uterus" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "Q51.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10012770" ;
+                ns1:codingSystem "MedDRA" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:180086" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0266393" ;
+                ns1:codingSystem "UMLS" ] ;
+        ns1:description "A rare non-syndromic uterovaginal malformation characterized by two separate uterine cavities and cervices, due to failure of the Müllerian ducts to fuse. A longitudinal vaginal septum of variable thickness and elasticity is also present. Patients may be asymptomatic or experience dyspareunia or dysmenorrhea. There is increased frequency of endometriosis, as well as fertility and gestational issues with significantly reduced chances of seeing a pregnancy to term. The condition may be associated with renal agenesis." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "180086" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Didelphys uterus" ] .
+}
+

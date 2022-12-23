@@ -1,0 +1,19 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=314652> a ns1:MedicalCondition ;
+        ns1:alternateName "Autosomal dominant beta2-microglobulinic amyloidosis" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "E85.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:314652" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare form of amyloidosis characterized by accumulation and extensive visceral deposition of anamyloidogenic variant of beta 2 microglobulin leading to progressive gastrointestinal dysfunction, Sjögren syndrome and autonomic neuropathy." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "314652" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Variant ABeta2M amyloidosis" ] .
+}
+

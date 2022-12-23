@@ -1,0 +1,33 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=141288> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:141288" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:141288" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q18.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C1274890" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C1274890" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q18.8" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "Midline cervical cleft (MCC) is a rare congenital anomaly characterized by the presence at birth of a vertical, atrophic and usually erythematous skin defect, lacking adnexal elements in the midline of the neck that may be attached to a subcutaneous fibrous cord of variable length; a superior skin tag; and an inferior, short (usually about 1 cm in length) sinus (possibly with presence of discharge). If untreated (by surgical removal) complications include restriction of neck extension due to contracture and scarring. It is sometimes associated with other developmental defects such as bifid mandible, thyroglossal duct and branchial cysts, and microgenia." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "141288" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Midline cervical cleft" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Midline cervical cleft" ] .
+}
+

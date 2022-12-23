@@ -1,0 +1,46 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=83593> a ns1:MedicalCondition ;
+        ns1:alternateName "Western equine encephalomyelitis" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "7888" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "7888" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0153064" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10014614" ;
+                ns1:codingSystem "MedDRA" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:83593" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "A83.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10014614" ;
+                ns1:codingSystem "MedDRA" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0153064" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:83593" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "A83.1" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "An acute arboviral infection caused by an <i>alphavirus</i> of the <i>Togaviridae</i> family transmitted by an infected mosquito, that more frequently affects children and that is characterized by the presence of mild flulike symptoms (fever, chills, headache, nausea, vomiting, and anorexia) but that can progress to weakness, altered mental status, photophobia, mental confusion, seizures, somnolence, coma and/or even death. The disease can leave neurological sequelae, mainly in infants and children, such as seizures, spasticity or behavioral disorders." ;
+        ns1:epidemiology "Prevalence : 1-9 / 1 000 000" ;
+        ns1:identifier "83593" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Western equine encephalitis" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Western equine encephalitis" ] .
+}
+

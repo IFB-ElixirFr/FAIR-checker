@@ -1,0 +1,49 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=182050> a ns1:MedicalCondition ;
+        ns1:alternateName "MYH9-RD",
+            "MYH9-related disorder",
+            "MYH9-related syndrome",
+            "MYH9-related syndromic thrombocytopenia" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:182050" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "155100" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "180" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "155100" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D69.4" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C1854520" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:182050" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D69.4" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C1854520" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "180" ;
+                ns1:codingSystem "GARD" ] ;
+        ns1:description "MYH9-related disease (MYH9-RD) is an inherited giant platelet disorder with a complex phenotype characterized by congenital thrombocytopenia and possible subsequent manifestations of sensorineural hearing loss, presenile cataracts, elevation of liver enzymes, and/or progressive nephropathy often leading to end-stage renal disease (ESRD). Epstein syndrome, Fechtner syndrome, May-Hegglin anomaly and Sebastian syndrome, previously described as distinct disorders, represent some of the different clinical presentations of MYH9-RD." ;
+        ns1:epidemiology "Prevalence : 1-9 / 1 000 000" ;
+        ns1:identifier "182050" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "MYH9-related disease" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "MYH9-related disease" ] .
+}
+

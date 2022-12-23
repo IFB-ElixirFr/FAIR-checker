@@ -1,0 +1,33 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=468631> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "Q02" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "614833" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "614833" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:468631" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:468631" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q02" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "A rare, genetic, neurodevelopmental disorder with primordial microcephaly characterized by primary microcephaly, moderate to severe intellectual disability, and global developmental delay. Variable brain malformations are common ranging from simplified gyration, to cortical malformations such as pachygyria, polymicrogyria, reduced sulcation and midline defects. Craniofacial dysmorphism (e.g. sloping forehead, high and broad nasal bridge) are related to the primary microcephaly. Short stature is frequently observed, and may be severe." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "468631" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Microcephalic cortical malformations-short stature due to RTTN deficiency" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Microcephalic cortical malformations-short stature due to RTTN deficiency" ] .
+}
+

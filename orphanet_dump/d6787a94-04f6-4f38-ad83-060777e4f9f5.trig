@@ -1,0 +1,50 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=2323> a ns1:MedicalCondition ;
+        ns1:alternateName "HRD syndrome",
+            "Hypoparathyroidism-intellectual disability-dysmorphism syndrome",
+            "Hypoparathyroidism-short stature-intellectual disability-seizures syndrome",
+            "Richardson-Kirk syndrome",
+            "SSS" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "Q87.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C1855840" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "411" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C1855840" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "241410" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:2323" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q87.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "411" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:2323" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "241410" ;
+                ns1:codingSystem "OMIM" ] ;
+        ns1:description "Sanjad-Sakati syndrome (SSS), also known as hypoparathyroidism - intellectual disability-dysmorphism, is a rare multiple congenital anomaly syndrome, mainly occurring in the Middle East and the Arabian Gulf countries, characterized by intrauterine growth restriction at birth, microcephaly, congenital hypoparathyroidism (that can cause hypocalcemic tetany or seizures in infancy), severe growth retardation, typical facial features (long narrow face, deep-set eyes, beaked nose, floppy and large ears, long philtrum, thin lips and micrognathia), and mild to moderate intellectual deficiency. Ocular findings (i.e. nanophthalmos, retinal vascular tortuosity and corneal opacification/clouding) and superior mesenteric artery syndrome have also been reported. Although SSS shares the same locus with the autosomal recessive form of Kenny-Caffey syndrome (see this term), the latter differs from SSS by its normal intelligence and skeletal features." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "2323" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Sanjad-Sakati syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Sanjad-Sakati syndrome" ] .
+}
+

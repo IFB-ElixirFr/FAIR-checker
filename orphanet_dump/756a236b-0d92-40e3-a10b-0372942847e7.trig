@@ -1,0 +1,27 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=99330> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "Q98.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:99330" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:99330" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q98.8" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "A rare Y chromosome number anomaly with a variable phenotype mainly characterized by moderate to severe intellectual disability, speech delay, hypotonia, and mild dysmorphic features, including facial asymmetry, hypertelorism, bilateral low set 'lop' ears, and micrognatia. Skeletal abnormalities (such as skull deformities, radioulnar synostosis, elbow flexion, clinodactyly, brachydactyly) and behavourial problems have also been associated with this condition. Genitalia are normal at birth, although hypogonadism and azoospermia has been reported in adults." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "99330" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "49,XYYYY syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "49,XYYYY syndrome" ] .
+}
+

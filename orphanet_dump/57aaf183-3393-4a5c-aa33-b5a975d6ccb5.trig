@@ -1,0 +1,39 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=99736> a ns1:MedicalCondition ;
+        ns1:alternateName "ACZ-responsive congenital myotonia",
+            "ACZ-responsive myotonia",
+            "Acetazolamide-responsive congenital myotonia",
+            "Myotonia-painful contractions syndrome",
+            "Painful congenital myotonia",
+            "Painful myotonia" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "608390" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G71.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "608390" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G71.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:99736" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:99736" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A form of potassium-aggravated myotonia (PAM) which shows dramatic improvement with the use of acetazolamide (ACZ)." ;
+        ns1:epidemiology "Prevalence : 1-9 / 1 000 000" ;
+        ns1:identifier "99736" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Acetazolamide-responsive myotonia" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Acetazolamide-responsive myotonia" ] .
+}
+

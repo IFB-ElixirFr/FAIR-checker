@@ -1,0 +1,22 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=1655> a ns1:MedicalCondition ;
+        ns1:alternateName "Urioste syndrome" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:1655" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "5430" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "235255" ;
+                ns1:codingSystem "OMIM" ] ;
+        ns1:description "A rare genetic disease characterized by the presence of Müllerian duct derivatives (rudimentary uterus, fallopian tubes, and atretic vagina) and other genital anomalies (cryptorchidism, micropenis) in male newborns, intestinal and pulmonary lymphangiectasia, protein-losing enteropathy, hepatomegaly, and renal anomalies. Postaxial polydactyly, facial dysmorphism (including broad nasal bridge, bulbous nasal tip, long and prominent upper lip with smooth philtrum, hypertrophic alveolar ridges, and mild retrognathia, among other features), and short limbs have also been described. The syndrome is fatal in infancy." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "1655" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Müllerian derivatives-lymphangiectasia-polydactyly syndrome" ] .
+}
+

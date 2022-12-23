@@ -1,0 +1,27 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=309294> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:309294" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10058800" ;
+                ns1:codingSystem "MedDRA" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:309294" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10058800" ;
+                ns1:codingSystem "MedDRA" ] ;
+        ns1:description "Sialidosis is a lysosomal storage disease, belonging to the group of oligosaccharidoses or glycoproteinoses, with a wide clinical spectrum that is divided into two main clinical subtypes: sialidosis type I (see this term), the milder, non dysmorphic form of the disease characterized by gait abnormalities, progressive visual loss, bilateral macular cherry red spots and myoclonus, that presents in adolescence or adulthood (second or third decade of life); and sialidosis type II (see this term) the more severe, early onset form, characterized by a progressive and severe mucopolysaccharidosis-like phenotype with coarse facies, visceromegaly, dysostosis multiplex, and developmental delay. Bilateral macular cherry red spots are also present. Sialidosis type II has been further divided into congenital (with hydrops fetalis), infantile and juvenile presentations." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "309294" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Sialidosis" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Sialidosis" ] .
+}
+

@@ -1,0 +1,35 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=240085> a ns1:MedicalCondition ;
+        ns1:alternateName "PSP-p",
+            "PSP-parkinsonism" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:240085" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "260540" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "260540" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G23.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G23.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:240085" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "An atypical variant of progressive supranuclear palsy (PSP), a rare late-onset neurodegenerative disease, characterized by prominent early parkinsonism (tremor, limb bradykinesia, axial and limb rigidity) rather than falls and cognitive change. Over the years, patients ultimately develop clinical features characteristic of classical PSP. Neuropathological characteristics includes tau pathology and neuronal loss in specific brain areas, especially in the subthalamic nucleus and substantia nigra. The tau pathology is less severe than in classical PSP." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "240085" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Progressive supranuclear palsy-parkinsonism syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Progressive supranuclear palsy-parkinsonism syndrome" ] .
+}
+

@@ -1,0 +1,28 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=280774> a ns1:MedicalCondition ;
+        ns1:alternateName "GET" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:280774" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0473555" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:280774" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0473555" ;
+                ns1:codingSystem "UMLS" ] ;
+        ns1:description "A rare skin disease characterized by widespread cutaneous telangiectases usually &#64257;rst appearing on the lower limbs and slowly progressing upwards to involve the trunk and arms. The lesions can be diffuse, localized, macular, plaque-like, discrete, or con&#64258;uent. Recurrent bleeding from the skin and mucous membranes is not a common feature. Likewise, co-existing epidermal or dermal abnormalities, like atrophy, depigmentation, or purpura, are absent. The condition is non-hereditary, and to establish the diagnosis, other primary and secondary telangiectases must be excluded." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "280774" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Generalized essential telangiectasia" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Generalized essential telangiectasia" ] .
+}
+

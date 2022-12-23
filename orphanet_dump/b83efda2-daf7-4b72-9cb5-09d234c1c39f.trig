@@ -1,0 +1,28 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=262> a ns1:MedicalCondition ;
+        ns1:alternateName "Severe dystrophinopathy, Duchenne and Becker type" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:262" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C3542021" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:262" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C3542021" ;
+                ns1:codingSystem "UMLS" ] ;
+        ns1:description "A group of rare, genetic, progressive muscular dystrophies, including Duchenne muscular dystrophy (DMD), Becker muscular dystrophy (BMD) and a symptomatic form in female carriers. The diseases represent a spectrum of severity ranging from progressive skeletal and cardiac muscle wasting and weakness (DMD, BMD) to less severe muscle weakness or isolated cardiomyopathy affecting carrier females." ;
+        ns1:epidemiology "Prevalence : 1-9 / 100 000" ;
+        ns1:identifier "262" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Duchenne and Becker muscular dystrophy" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Duchenne and Becker muscular dystrophy" ] .
+}
+

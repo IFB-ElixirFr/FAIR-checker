@@ -1,0 +1,27 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=90073> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "B18.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:90073" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:90073" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "B18.0" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "A rare hepatic disease characterized by graft infection with the hepatitis B virus (HBV) after liver transplantation, due to persistence and reactivation of HBV in extrahepatic sites (also despite previous clearance of the HBs antigen from serum, as shown by laboratory examination), followed by re-invasion of the graft. It may develop between two weeks and several years post transplantation. Clinico-pathological features are variable and range from mild self-limited hepatitis, chronic active hepatitis, and fulminant hepatitis, to fibrosing cholestatic hepatitis. The condition is associated with significantly reduced graft survival rates and overall patient survival." ;
+        ns1:epidemiology "Prevalence : 1-9 / 100 000" ;
+        ns1:identifier "90073" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Hepatitis B reinfection following liver transplantation" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Hepatitis B reinfection following liver transplantation" ] .
+}
+

@@ -1,0 +1,50 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=1214> a ns1:MedicalCondition ;
+        ns1:alternateName "Hemifacial atrophy",
+            "PHA",
+            "Parry-Romberg syndrome",
+            "Progressive facial hemiatrophy",
+            "Romberg syndrome" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "7338" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:1214" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "141300" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G51.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0015458" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "141300" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "7338" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G51.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0015458" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:1214" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "Progressive hemifacial atrophy (PHA) is a rare acquired disorder, characterized by unilateral slowly progressive atrophy of the skin and soft tissues of half of the face leading to a sunken appearance. Muscles, cartilage and the underlying bony structures may also be involved." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "1214" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Progressive hemifacial atrophy" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Progressive hemifacial atrophy" ] .
+}
+

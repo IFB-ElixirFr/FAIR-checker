@@ -1,0 +1,30 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=289513> a ns1:MedicalCondition ;
+        ns1:alternateName "Del(12)(q15)(q21.1)",
+            "Deletion 12q15q21.1",
+            "Monosomy 12q15q21.1" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:289513" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q93.5" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q93.5" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:289513" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "12q15q21.1 microdeletion syndrome is a rare chromosomal anomaly syndrome resulting from a partial deletion of the long arm of chromosome 12, with a highly variable phenotype, typically characterized by developmental delay, learning disability, intra-uterine and postnatal growth retardation, and mild facial dysmorphism that changes with age. Nasal speech and hypothyroidism are also associated." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "289513" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "12q15q21.1 microdeletion syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "12q15q21.1 microdeletion syndrome" ] .
+}
+

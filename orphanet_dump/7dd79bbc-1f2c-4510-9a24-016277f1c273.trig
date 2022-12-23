@@ -1,0 +1,27 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=251328> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:251328" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:251328" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "I77.6" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "I77.6" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "A rare vasculitis characterized by an inflammatory disease of blood vessels which cannot be assigned to any of the known categories of vasculitis. Clinical features are highly variable, depending on the nature and extent of the inflammatory process, as well as the type of vessels and organ systems involved." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "251328" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Unclassified vasculitis" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Unclassified vasculitis" ] .
+}
+

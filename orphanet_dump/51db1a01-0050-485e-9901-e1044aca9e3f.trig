@@ -1,0 +1,37 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=391457> a ns1:MedicalCondition ;
+        ns1:alternateName "2-methyl-3-hydroxybutyric aciduria, neonatal type",
+            "2-methyl-3-hydroxybutyryl-CoA dehydrogenase deficiency, neonatal type",
+            "HSD10 deficiency, neonatal type",
+            "MHBD deficiency, neonatal type" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:391457" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E72.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E72.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "300438" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "300438" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:391457" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "HSD10 disease, neonatal type is the most severe form of HSD10 disease, a rare neurometabolic disorder. It is characterized by severe metabolic/lactic acidosis in the neonatal period, little psychomotor development, seizures and severe progressive hypertrophic cardiomyopathy. Hepatic involvement and coagulopathy are rare. The disease is fatal within the first months of life." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "391457" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "HSD10 disease, neonatal type" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "HSD10 disease, neonatal type" ] .
+}
+

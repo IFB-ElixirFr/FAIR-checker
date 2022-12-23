@@ -1,0 +1,24 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=401979> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "613320" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q77.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:401979" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C2750075" ;
+                ns1:codingSystem "UMLS" ] ;
+        ns1:description "Autosomal recessive spondylometaphyseal dysplasia, Mégarbané type is a rare, primary bone dysplasia characterized by intrauterine growth retardation, pre- and postnatal disproportionate short stature with short, rhizomelic limbs, facial dysmorphism, a short neck and small thorax. Hypotonia, cardiomegaly and global developmental delay have also been associated. Several radiographic findings have been reported, including ribs with cupped ends, platyspondyly, square iliac bones, horizontal and trident acetabula, hypoplastic ischia, and delayed epiphyseal ossification." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "401979" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Autosomal recessive spondylometaphyseal dysplasia, Mégarbané type" ] .
+}
+

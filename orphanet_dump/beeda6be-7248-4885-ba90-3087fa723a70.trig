@@ -1,0 +1,35 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=284282> a ns1:MedicalCondition ;
+        ns1:alternateName "Autosomal recessive spinocerebellar ataxia type 12",
+            "SCAR12" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:284282" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G11.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "614322" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G11.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "614322" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:284282" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare autosomal recessive cerebellar ataxia-epilepsy-intellectual disability syndrome characterized by early-childhood onset of cerebellar ataxia associated with generalized tonic-clonic epilepsy and psychomotor development delay, dysarthria, gaze-evoked nystagmus and learning disability. Other features in some patients include upper motor neuron signs with leg spasticity and extensor plantar responses, and mild cerebellar atrophy on brain MRI." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "284282" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Autosomal recessive cerebellar ataxia-epilepsy-intellectual disability syndrome due to WWOX deficiency" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Autosomal recessive cerebellar ataxia-epilepsy-intellectual disability syndrome due to WWOX deficiency" ] .
+}
+

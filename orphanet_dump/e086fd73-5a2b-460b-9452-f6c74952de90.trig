@@ -1,0 +1,27 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=555905> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "L10.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:555905" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:555905" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "L10.8" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "A rare autoimmune bullous skin disease characterized by painful and pruritic vesiculopustular eruptions resulting from circulating IgA antibodies against keratinocyte cell surface components. The lesions are typically found at the periphery of erythematous annular plaques and favor intertriginous regions. Histologically and immunologically, IgA pemphigus can be subdivided into subcorneal pustular dermatosis and intraepidermal neutrophilic IgA dermatosis." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "555905" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "IgA pemphigus" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "IgA pemphigus" ] .
+}
+

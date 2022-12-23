@@ -1,0 +1,37 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=91347> a ns1:MedicalCondition ;
+        ns1:alternateName "Pituitary thyrotrophic adenoma",
+            "TSH-oma",
+            "Thyroid stimulating hormone-secreting pituitary adenoma",
+            "Thyrotroph adenoma" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "D35.2" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0346303" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:91347" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D35.2" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:91347" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0346303" ;
+                ns1:codingSystem "UMLS" ] ;
+        ns1:description "A rare, functioning, pituitary adenoma characterized by the presence of a pituitary mass associated with high levels of circulating, free, thyroid hormones in conjunction with normal to high levels of TSH and unresponsiveness of TSH levels to TRH stimulation and T3 suppression tests, typically manifesting with signs and symptoms of mild to moderate hyperthyroidism (e.g. goiter (most frequently observed), palpitation, excessive sweating, arrhythmia, weight loss, tremor) and/or tumor mass effect (such as headache, visual field defects, hypopituitarism). Occasionally, cosecretion of prolactin and/or growth hormone may cause galactorrhea and/or acromegaly." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "91347" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "TSH-secreting pituitary adenoma" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "TSH-secreting pituitary adenoma" ] .
+}
+

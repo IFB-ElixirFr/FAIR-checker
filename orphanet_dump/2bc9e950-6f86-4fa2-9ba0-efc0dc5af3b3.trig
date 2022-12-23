@@ -1,0 +1,38 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=36412> a ns1:MedicalCondition ;
+        ns1:alternateName "Anti-C1q vasculitis",
+            "Mac Duffie hypocomplementemic urticarial vasculitis",
+            "Mac Duffie syndrome",
+            "McDuffie hypocomplementemic urticarial vasculitis",
+            "McDuffie syndrome" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "6725" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "M31.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "6725" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "M31.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:36412" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:36412" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare immune complex-mediated small vessel vasculitis characterized by urticaria and hypocomplementemia (low C3, C4 and/or C1q), and usually associated with circulating anti-C1q autoantibodies. Arthritis, pulmonary disease, ocular inflammation are common systemic manifestations." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "36412" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Hypocomplementemic urticarial vasculitis" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Hypocomplementemic urticarial vasculitis" ] .
+}
+

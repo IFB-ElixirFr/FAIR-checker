@@ -1,0 +1,35 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=1398> a ns1:MedicalCondition ;
+        ns1:alternateName "Near total absence of cerebellum",
+            "Subtotal absence of cerebellum" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "10008033" ;
+                ns1:codingSystem "MedDRA" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10008033" ;
+                ns1:codingSystem "MedDRA" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q04.3" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q04.3" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:1398" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:1398" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare non-syndromic central nervous system malformation characterized by complete or near-complete absence of the cerebellum with a normal sized posterior fossa, possibly accompanied by hypoplasia of the brainstem. The clinical picture is highly variable, but typically includes ataxia, dysarthria, tremor, dysmetria, dysdiadochokinesia, and oculomotor abnormalities, in addition to impaired mental, motor, and language development and intellectual disability." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "1398" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Isolated cerebellar agenesis" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Isolated cerebellar agenesis" ] .
+}
+

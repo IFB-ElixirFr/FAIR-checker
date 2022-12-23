@@ -1,0 +1,28 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=508529> a ns1:MedicalCondition ;
+        ns1:alternateName "Intermediate EBS with cardiomyopathy" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:508529" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "617294" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "617294" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:508529" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare, inherited, epidermolysis bullosa characterized by aplasia cutis congenita on the extremities, leaving behind hypopigmentation and atrophy in a whirled pattern. Generalized blistering persists during childhood and heals with cutaneous and follicular atrophy, linear and stellate scars, and hypopigmentation. Skin fragility decreases with adulthood. Adult patients exhibit dyspigmentation and atrophy of the skin, scars, follicular atrophoderma, sparse body hair, progressive diffuse alopecia of the scalp, diffuse palmoplantar keratoderma, and nail changes. Dilative cardiomyopathy with heart failure complicates the disease course in young adulthood or later and may have lethal outcome. Ultra-structurally, intraepidermal splitting appears at the level of the basal keratinocytes, above the hemidesmosomes." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "508529" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Intermediate epidermolysis bullosa simplex with cardiomyopathy" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Intermediate epidermolysis bullosa simplex with cardiomyopathy" ] .
+}
+

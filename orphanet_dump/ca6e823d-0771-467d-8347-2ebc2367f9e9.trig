@@ -1,0 +1,33 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=227972> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "10051222" ;
+                ns1:codingSystem "MedDRA" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0409998" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10051222" ;
+                ns1:codingSystem "MedDRA" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:227972" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0409998" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:227972" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "Toxic oil syndrome is a rare intoxication, due to consumption of a rapeseed oil denatured with aniline 2%, characterized by generalized vascular lesions affecting all organs and vessels (including veins and arteries) and presenting with severe incapacitating myalgias, marked peripheral eosinophilia and pulmonary infiltrates." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "227972" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Toxic oil syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Toxic oil syndrome" ] .
+}
+

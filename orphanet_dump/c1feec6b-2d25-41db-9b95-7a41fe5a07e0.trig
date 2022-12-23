@@ -1,0 +1,40 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=209943> a ns1:MedicalCondition ;
+        ns1:alternateName "Idiopathic retinal vasculitis-aneurysms-neuroretinitis syndrome" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "C3665812" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "H35.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "12868" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "H35.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C3665812" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:209943" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "12868" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:209943" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare retinal vasculopathy disease characterized by idiopathic retinal vasculitis (IRV), aneurysmal dilations (A) at arteriolar bifurcations, and neuroretinitis (N), which if untreated progresses to peripheral capillary non-perfusion, retinal neovascularization, and macular exudation, leading to severe, bilateral vision loss." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "209943" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "IRVAN syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "IRVAN syndrome" ] .
+}
+

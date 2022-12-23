@@ -1,0 +1,35 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=2369> a ns1:MedicalCondition ;
+        ns1:alternateName "Body stalk anomaly",
+            "LBWC syndrome" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "3251" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "3251" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:2369" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:2369" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q87.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q87.8" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "Limb body wall complex (LBWC) is characterized by severe multiple congenital anomalies in the fetus with exencephaly/encephalocele, thoraco- and/or abdominoschisis (anterior body wall defects) and limb defects, with or without facial clefts." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "2369" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Limb body wall complex" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Limb body wall complex" ] .
+}
+

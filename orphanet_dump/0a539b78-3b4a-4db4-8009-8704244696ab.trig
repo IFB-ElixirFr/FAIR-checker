@@ -1,0 +1,35 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=1431> a ns1:MedicalCondition ;
+        ns1:alternateName "Paroxysmal choreoathetosis",
+            "Paroxysmal dystonic choreoathetosis" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "C0752210" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0752210" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:1431" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D002819" ;
+                ns1:codingSystem "MeSH" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:1431" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D002819" ;
+                ns1:codingSystem "MeSH" ] ;
+        ns1:description "Paroxysmal dyskinesia (PD) is a rare heterogenous group of movement disorders manifesting as abnormal involuntary movements that recur episodically and last only a brief time. PD includes paroxysmal kinesigenic dyskinesia (PKD), paroxysmal non-kinesigenic dyskinesia (PNKD), paroxysmal exertion-induced dyskinesia (PED) and a variant form of PKD, infantile convulsion and choreoathetosis (ICCA syndrome) (see these terms)." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "1431" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Paroxysmal dyskinesia" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Paroxysmal dyskinesia" ] .
+}
+

@@ -1,0 +1,30 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=166113> a ns1:MedicalCondition ;
+        ns1:alternateName "Acrokeratosis of Bazex",
+            "Acrokeratosis paraneoplastica",
+            "Acrokeratosis paraneoplastica of Bazex" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:166113" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:166113" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0406355" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0406355" ;
+                ns1:codingSystem "UMLS" ] ;
+        ns1:description "Bazex syndrome is a rare paraneoplastic syndrome characterized by acral psoriasiform lesions." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "166113" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Bazex syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Bazex syndrome" ] .
+}
+

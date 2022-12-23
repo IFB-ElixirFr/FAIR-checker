@@ -1,0 +1,23 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=99> a ns1:MedicalCondition ;
+        ns1:alternateName "ADCA",
+            "Autosomal dominant spinocerebellar ataxia" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:99" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:99" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A clinically and genetically heterogeneous group of neurodegenerative diseases characterized by a slowly progressive ataxia of gait, stance and limbs, dysarthria and/or oculomotor disorder, due to cerebellar degeneration in the absence of coexisting diseases. The degenerative process can be limited to the cerebellum (ADCA type 3) or may additionally involve the retina (ADCA type 2), optic nerve, ponto-medullary systems, basal ganglia, cerebral cortex, spinal tracts or peripheral nerves (ADCA type 1). In ACDA type 4, a cerebellar syndrome is associated with epilepsy." ;
+        ns1:epidemiology "Prevalence : 1-9 / 100 000" ;
+        ns1:identifier "99" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Autosomal dominant cerebellar ataxia" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Autosomal dominant cerebellar ataxia" ] .
+}
+

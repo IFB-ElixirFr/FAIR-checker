@@ -1,0 +1,27 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=96369> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "F20.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:96369" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:96369" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "F20.8" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "A rare, neurologic disease characterized by an early onset of positive and negative symptoms of psychosis that impact development and cognitive functioning. Clinical manifestation commonly include premorbid features of autism spectrum disorders, attention deficits, neurodevelopmental delays, and behavioral abnormalities. After the onset of psychotic symptoms, other comorbidities are also common, including obsessive-compulsive disorder, major depressive disorder, attention deficit hyperactivity disorder, expressive and receptive language disorders, auditory processing deficits, and executive functioning deficits." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "96369" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Early-onset schizophrenia" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Early-onset schizophrenia" ] .
+}
+

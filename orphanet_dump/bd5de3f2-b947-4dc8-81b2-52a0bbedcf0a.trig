@@ -1,0 +1,53 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=756> a ns1:MedicalCondition ;
+        ns1:alternateName "PHA type 1",
+            "PHA1" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "N25.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0268436" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "264350" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D011546" ;
+                ns1:codingSystem "MeSH" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0268436" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:756" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "177735" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:756" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D011546" ;
+                ns1:codingSystem "MeSH" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "264350" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "N25.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "177735" ;
+                ns1:codingSystem "OMIM" ] ;
+        ns1:description "A rare, primary form of mineralocorticoid resistance characterized by mild to profound salt wasting either restricted to the kidney (renal pseudohypoaldosteronism type 1), or generalized affecting many organs (generalized pseudohypoaldosteronism type 1). Clinical presentation is in the neonatal period with failure to thrive, vomiting and dehydration with biochemical findings of hyperkalaemia, metabolic acidosis and, elevated plasma aldosterone and renin concentration." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "756" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Pseudohypoaldosteronism type 1" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Pseudohypoaldosteronism type 1" ] .
+}
+

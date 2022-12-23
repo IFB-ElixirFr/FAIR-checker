@@ -1,0 +1,33 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=454821> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "D11.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:454821" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D11.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:454821" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "181030" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "181030" ;
+                ns1:codingSystem "OMIM" ] ;
+        ns1:description "A rare tumor of salivary glands characterized by a benign, well-circumscribed, slow-growing, painless mass most commonly occurring in the parotid gland (but also the palate, submandibular gland, or nasal septal mucosa), histopathologically composed of epithelial and myoepithelial / stromal components. Possible signs and symptoms depend on the location of the tumor and include facial nerve weakness, mild dysphagia, or unilateral nasal obstruction. Recurrence rates are low, although tumor rupture and spillage have been reported. Malignant transformation may occur in a small percentage of cases." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "454821" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Pleomorphic salivary gland adenoma" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Pleomorphic salivary gland adenoma" ] .
+}
+

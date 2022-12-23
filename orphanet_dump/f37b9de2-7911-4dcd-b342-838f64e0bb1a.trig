@@ -1,0 +1,55 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=147> a ns1:MedicalCondition ;
+        ns1:alternateName "CPS1 deficiency",
+            "CPS1D",
+            "Carbamoyl-phosphate synthetase I deficiency",
+            "Carbamoyl-phosphate synthetase deficiency" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "7269" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10058297" ;
+                ns1:codingSystem "MedDRA" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0751753" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E72.2" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:147" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "237300" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E72.2" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "7269" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0751753" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10058297" ;
+                ns1:codingSystem "MedDRA" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:147" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "237300" ;
+                ns1:codingSystem "OMIM" ] ;
+        ns1:description "A rare, severe disorder of urea cycle metabolism typically characterized by either a neonatal-onset of severe hyperammonemia that occurs few days after birth and manifests with lethargy, vomiting, hypothermia, seizures, coma and death or a presentation outside the newborn period at any age with (sometimes) milder symptoms of hyperammonemia." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "147" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Carbamoyl-phosphate synthetase 1 deficiency" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Carbamoyl-phosphate synthetase 1 deficiency" ] .
+}
+

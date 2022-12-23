@@ -1,0 +1,34 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=478042> a ns1:MedicalCondition ;
+        ns1:alternateName "COXPD30" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:478042" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "616974" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:478042" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E88.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "616974" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E88.8" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "A rare mitochondrial oxidative phosphorylation disorder characterized by neonatal onset of hypotonia, feeding difficulties, deafness, and early fatal respiratory failure. Cardiac and liver involvement has been reported. Serum lactate is increased, and metabolic studies show decreased activity of mitochondrial respiratory complexes I and IV in skeletal muscle." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "478042" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Combined oxidative phosphorylation defect type 30" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Combined oxidative phosphorylation defect type 30" ] .
+}
+

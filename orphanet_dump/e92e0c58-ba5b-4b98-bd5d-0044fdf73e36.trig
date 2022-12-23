@@ -1,0 +1,28 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=499096> a ns1:MedicalCondition ;
+        ns1:alternateName "ION" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:499096" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:499096" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "H46" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "H46" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "A rare inflammatory optic neuropathy characterized by isolated episodes (either single or recurrent) of optic neuritis not associated with other neurological or systemic disease. Patients typically present with subacute unilateral loss of vision progressing over several days to two weeks, periocular pain and pain on eye movement (which may precede the onset of visual symptoms), light flashes on eye movement, abnormal color vision, reduced contrast sensitivity, and relative afferent pupillary defect. The optic disc appears swollen in many patients, and uveitis may be associated and can be present for years before the onset of optic neuritis." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "499096" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Isolated optic neuritis" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Isolated optic neuritis" ] .
+}
+

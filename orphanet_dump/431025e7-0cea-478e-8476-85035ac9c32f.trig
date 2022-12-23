@@ -1,0 +1,35 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=319160> a ns1:MedicalCondition ;
+        ns1:alternateName "CNM4",
+            "Centronuclear myopathy type 4" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:319160" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "614807" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "614807" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:319160" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G71.2" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G71.2" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "Congenital myopathy with internal nuclei and atypical cores is a rare genetic skeletal muscle disease characterized by neonatal hypotonia, distal more than proximal muscle weakness, progressive exercise intolerance with prominent myalgias, and mild-to-moderate overall motor impairment with preserved ambulation. Face, extraocular, cardiac, and respiratory muscles are unaffected. Mild cognitive impairment is also noted in most patients." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "319160" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Congenital myopathy with internal nuclei and atypical cores" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Congenital myopathy with internal nuclei and atypical cores" ] .
+}
+

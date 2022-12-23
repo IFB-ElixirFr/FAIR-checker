@@ -1,0 +1,33 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=99925> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "C0008493" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:99925" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:99925" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D39.2" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D39.2" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0008493" ;
+                ns1:codingSystem "UMLS" ] ;
+        ns1:description "A form of gestational trophoblastic neoplasia similar to a hydatidiform mole but with deep invasion into the myometrium and histologically characterized by hyperplasia of trophoblasts, generalized cystic degeneration of chorionic villi and the presence of molar villi in the myometrium and/ or uterine blood vessels. Indicative signs include persistent unexplained metrorrhagia or secondary increase, stagnation, or non-normalization at 6 months of total serum chorionic gonadotropin (hCG) levels after evacuation of a hydatidiform mole. Metastases (in the lungs or vagina) may be observed." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "99925" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Invasive mole" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Invasive mole" ] .
+}
+

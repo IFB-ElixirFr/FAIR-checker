@@ -1,0 +1,27 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=209902> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:209902" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E78.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E78.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:209902" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "Hypercholesterolemia due to cholesterol 7alpha-hydroxylase deficiency is a rare, genetic, sterol metabolism disorder characterized by increased LDL cholesterol serum levels (which are resistant to treatment with 3-hydroxy-3-methylglutaryl-coenzyme A reductase inhibitors), hypertrigliceridemia, and decreased rate of bile acid excretion, resulting from cholesterol 7alpha-hydroxylase deficiency. Premature gallstone disease and/or premature coronary and peripheral vascular disease are frequently associated." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "209902" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Hypercholesterolemia due to cholesterol 7alpha-hydroxylase deficiency" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Hypercholesterolemia due to cholesterol 7alpha-hydroxylase deficiency" ] .
+}
+

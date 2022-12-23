@@ -1,0 +1,21 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=100974> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:100974" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:100974" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "FRAXF syndrome was originally identified in a family with developmental delay and an expanded CCG repeat at the folate-sensitive FRAXF fragile site. Since this initial description, FRAXF has been associated with a range of manifestations but no clear phenotype has been established." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "100974" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "FRAXF syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "FRAXF syndrome" ] .
+}
+

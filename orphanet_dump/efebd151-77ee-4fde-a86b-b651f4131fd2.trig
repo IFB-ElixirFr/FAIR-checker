@@ -1,0 +1,44 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=860> a ns1:MedicalCondition ;
+        ns1:alternateName "Congenitally uncorrected transposition of the great vessels",
+            "D-transposition of the great arteries",
+            "Dextro-transposition of the great arteries",
+            "Isolated ventriculoarterial discordance",
+            "Ventriculoarterial discordance with atrioventricular concordance" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "608808" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:860" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "613854" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q20.3" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q20.3" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:860" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "613854" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "608808" ;
+                ns1:codingSystem "OMIM" ] ;
+        ns1:description "Congenitally uncorrected transposition of the great arteries (congenitally uncorrected TGA), also referred to as complete transposition, is a congenital cardiac malformation characterized by atrioventricular concordance and ventriculoarterial (VA) discordance." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "860" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Congenitally uncorrected transposition of the great arteries" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Congenitally uncorrected transposition of the great arteries" ] .
+}
+

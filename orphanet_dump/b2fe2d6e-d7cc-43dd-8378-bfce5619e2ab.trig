@@ -1,0 +1,34 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=464336> a ns1:MedicalCondition ;
+        ns1:alternateName "B-cell expansion with NF-kB and T-cell anergy disease" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "616452" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D81.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D81.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:464336" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "616452" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:464336" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare primary immunodeficiency characterized by infantile onset of generalized lymphadenopathy, splenomegaly, and lymphocytosis, with excessive polyclonal expansion of B-cells. Patients present recurrent infections and impaired T-cell and antibody responses, while overt autoimmune manifestations are usually absent. Occurrence of B-cell malignancy later in life has been reported." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "464336" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "BENTA disease" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "BENTA disease" ] .
+}
+

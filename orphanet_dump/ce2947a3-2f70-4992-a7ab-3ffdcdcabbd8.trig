@@ -1,0 +1,28 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=569248> a ns1:MedicalCondition ;
+        ns1:alternateName "MCST" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "D27" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:569248" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D27" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:569248" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare benign ovarian stromal tumor characterized by a stromal neoplasm with variable microcystic morphology, low mitotic activity, and diffuse nuclear beta-catenin and cyclin D1 immunoreactivity, while inhibin and calretinin are not expressed. Patients most commonly present with symptoms of a unilateral pelvic mass. Hormonal manifestations are usually absent. The tumor may be associated with familial adenomatous polyposis." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "569248" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Microcystic stromal tumor" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Microcystic stromal tumor" ] .
+}
+

@@ -1,0 +1,28 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=398117> a ns1:MedicalCondition ;
+        ns1:alternateName "Neonatal DM" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:398117" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:398117" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "M33.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "M33.1" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "Neonatal dermatomyositis is a very rare, secondary, neonatal autoimmune disease characterized by generalized weakness, severe hypotonia, absent or reduced deep tendon reflexes, and highly elevated serum creatine kinase levels presenting in the neonatal period. Perifascicular atrophy in the presence of a diffuse perivascular inflammatory cell exudate is observed on muscle biopsy." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "398117" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Neonatal dermatomyositis" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Neonatal dermatomyositis" ] .
+}
+

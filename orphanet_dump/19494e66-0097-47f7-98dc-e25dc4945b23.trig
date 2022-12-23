@@ -1,0 +1,35 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=238329> a ns1:MedicalCondition ;
+        ns1:alternateName "Mitochondrial encephalomyopathy due to COXPD6",
+            "Mitochondrial encephalomyopathy due to combined oxidative phosphorylation defect 6" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "E88.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E88.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:238329" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "300816" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "300816" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:238329" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "Severe X-linked mitochondrial encephalomyopathy is an extremely rare mitochondrial respiratory chain disease resulting in a neurodegenerative disorder characterized by psychomotor delay, hypotonia, areflexia, muscle weakness and wasting in the two patients reported to date." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "238329" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Severe X-linked mitochondrial encephalomyopathy" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Severe X-linked mitochondrial encephalomyopathy" ] .
+}
+

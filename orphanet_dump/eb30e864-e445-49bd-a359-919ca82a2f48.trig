@@ -1,0 +1,40 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=220407> a ns1:MedicalCondition ;
+        ns1:alternateName "Systemic sclerosis sine scleroderma" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "C1290138" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C1290138" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "M34.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "M34.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "9749" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:220407" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "9749" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:220407" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "Limited systemic sclerosis (lSSc) (or SSc sine scleroderma) is a subset of systemic sclerosis (SSc; see this term) characterized by organ involvement in the absence of fibrosis of the skin." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "220407" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Limited systemic sclerosis" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Limited systemic sclerosis" ] .
+}
+

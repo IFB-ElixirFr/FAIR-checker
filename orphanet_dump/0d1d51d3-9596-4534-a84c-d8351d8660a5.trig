@@ -1,0 +1,48 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=79243> a ns1:MedicalCondition ;
+        ns1:alternateName "PDHAD",
+            "Pyruvate decarboxylase deficiency",
+            "Pyruvate dehydrogenase complex E1 component subunit alpha deficiency" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "E74.4" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:79243" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:79243" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "312170" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "312170" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "4620" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C1839413" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E74.4" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "4620" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C1839413" ;
+                ns1:codingSystem "UMLS" ] ;
+        ns1:description "A disorder that is the most frequent form of pyruvate dehydrogenase deficiency (PDHD) characterized by variable lactic acidosis, impaired psychomotor development, hypotonia and neurological dysfunction." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "79243" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Pyruvate dehydrogenase E1-alpha deficiency" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Pyruvate dehydrogenase E1-alpha deficiency" ] .
+}
+

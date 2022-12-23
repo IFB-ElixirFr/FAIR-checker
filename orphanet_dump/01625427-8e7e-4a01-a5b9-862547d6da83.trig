@@ -1,0 +1,35 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=431329> a ns1:MedicalCondition ;
+        ns1:alternateName "SPG57",
+            "Spastic paraplegia due to partial TFG deficiency" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:431329" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "615658" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G11.4" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G11.4" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:431329" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "615658" ;
+                ns1:codingSystem "OMIM" ] ;
+        ns1:description "Autosomal recessive spastic paraplegia type 57 (SPG57) is an extremely rare, complex type of hereditary spastic paraplegia, characterized by onset in infancy of pronounced leg spasticity (leading to the inability to walk independently), reduced visual acuity due to optic atrophy, and distal wasting of the hands and feet due to an axonal demyelinating sensorimotor neuropathy. SPG57 is caused by mutations in the <i>TFG </i> gene (3q12.2) encoding protein TFG, which is thought to play a role in ER microtubular architecture and function." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "431329" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Autosomal recessive spastic paraplegia type 57" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Autosomal recessive spastic paraplegia type 57" ] .
+}
+

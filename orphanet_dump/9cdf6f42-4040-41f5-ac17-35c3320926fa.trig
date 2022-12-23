@@ -1,0 +1,35 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=97242> a ns1:MedicalCondition ;
+        ns1:alternateName "CMD",
+            "MDC" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "9138" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0699743" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0699743" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "9138" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:97242" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:97242" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "Congenital muscular dystrophy (CMD) is a heterogeneous group of neuromuscular disorders with onset at birth or infancy characterized by hypotonia, muscle wasting, weakness or delayed motor milestones. The group includes myopathies with abnormalities at different cellular levels: the extracellular matrix (MDC1A, UCMD; see these terms), the dystrophin-associated glycoprotein complex (alphadystroglycanopathies, integrinopathies see these terms), the endoplasmic reticulum (rigid spine syndrome [RSMD1], and the nuclear envelope (LMNA-related CMD; [L-CMD] and Nesprin-1-related CMD; see these terms)." ;
+        ns1:epidemiology "Prevalence : 1-9 / 100 000" ;
+        ns1:identifier "97242" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Congenital muscular dystrophy" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Congenital muscular dystrophy" ] .
+}
+

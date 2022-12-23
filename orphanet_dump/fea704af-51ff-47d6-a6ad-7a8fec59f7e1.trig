@@ -1,0 +1,42 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=317476> a ns1:MedicalCondition ;
+        ns1:alternateName "CID due to MAGT1 deficiency",
+            "Combined immunodeficiency due to MAGT1 deficiency",
+            "XMEN" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "10907" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:317476" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "300853" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "300853" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D81.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D81.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:317476" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10907" ;
+                ns1:codingSystem "GARD" ] ;
+        ns1:description "X-linked immunodeficiency with magnesium defect, Epstein-Barr virus infection and neoplasia is a rare combined T and B cell immunodeficiency characterized by recurrent sinopulmonary and viral infections, persistent elevated Epstein-Barr virus (EBV) viremia and increased susceptibility to EBV-associated B-cell lymphoproliferative disorders. Immunological analyses show normal lymphocyte count or mild to moderate lymphopenia, inverted CD4:CD8 T-cell ratio and hypogammaglobulinemias." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "317476" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "X-linked immunodeficiency with magnesium defect, Epstein-Barr virus infection and neoplasia" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "X-linked immunodeficiency with magnesium defect, Epstein-Barr virus infection and neoplasia" ] .
+}
+

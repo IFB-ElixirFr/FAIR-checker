@@ -1,0 +1,30 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=98686> a ns1:MedicalCondition ;
+        ns1:alternateName "Congenital CNIV palsy",
+            "Congenital fourth cranial nerve palsy",
+            "Congenital superior oblique palsy" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "H49.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "H49.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:98686" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:98686" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare ophthalmic disorder with cranial nerve involvement characterized by dysfunction of the superior oblique muscle with typical eye motility patterns including elevation in adduction, V-pattern related to reduced abduction force in downgaze with unopposed adduction by the inferior rectus muscle, and excyclotorsion. Patients may present with contralateral head tilt to compensate for vertical binocular misalignment and diplopia." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "98686" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Congenital trochlear nerve palsy" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Congenital trochlear nerve palsy" ] .
+}
+

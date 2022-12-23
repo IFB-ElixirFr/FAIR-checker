@@ -1,0 +1,62 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=3453> a ns1:MedicalCondition ;
+        ns1:alternateName "APECED syndrome",
+            "APS type 1",
+            "APS1",
+            "Autoimmune hypoparathyroidism-chronic candidiasis-Addison disease syndrome",
+            "Autoimmune polyendocrine syndrome type 1",
+            "Autoimmune polyendocrinopathy-candidiasis-ectodermal dystrophy syndrome",
+            "Autoimmune polyglandular syndrome type 1",
+            "HAM syndrome",
+            "Hypoparathyroidism-Addison disease-mucocutaneous candidiasis syndrome",
+            "MEDAC syndrome",
+            "Multiple endocrine deficiency-Addison disease-candidiasis syndrome" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "8466" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "240300" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0085859" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:3453" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E31.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:3453" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C538275" ;
+                ns1:codingSystem "MeSH" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C538275" ;
+                ns1:codingSystem "MeSH" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0085859" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "8466" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E31.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "240300" ;
+                ns1:codingSystem "OMIM" ] ;
+        ns1:description "A rare, genetic, disease that manifests in childhood or early adolescence with a combination of chronic mucocutaneous candidiasis, hypoparathyroidism and autoimmune adrenal failure." ;
+        ns1:epidemiology "Prevalence : 1-9 / 1 000 000" ;
+        ns1:identifier "3453" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Autoimmune polyendocrinopathy type 1" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Autoimmune polyendocrinopathy type 1" ] .
+}
+

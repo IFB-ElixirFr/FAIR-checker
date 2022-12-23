@@ -1,0 +1,27 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=199326> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "E83.4" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:199326" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:199326" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E83.4" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "Isolated autosomal dominant hypomagnesemia, Glaudemans type (IADHG) is a form of familial primary hypomagnesemia (FPH, see this term), characterized by low serum magnesium (Mg) values but normal urinary Mg values. The typical clinical features are recurrent muscle cramps, episodes of tetany, tremor, and muscle weakness, especially in distal limbs. The disease is potentially fatal." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "199326" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Isolated autosomal dominant hypomagnesemia, Glaudemans type" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Isolated autosomal dominant hypomagnesemia, Glaudemans type" ] .
+}
+

@@ -1,0 +1,28 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=590539> a ns1:MedicalCondition ;
+        ns1:alternateName "Isolated melanocytic schwannoma" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:590539" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D36.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D36.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:590539" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare nervous system tumor characterized by cells phenotypically representing Schwann cells but containing melanosomes and expressing melanoma markers. The entity occurs as a non-psammomatous (typically affecting spinal nerves) or a psammomatous (also involving nerves of the intestinal tract and heart) variant. About 50% of psammomatous tumors are associated with Carney complex. Slightly over 10% of melanotic schwannomas follow a malignant course." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "590539" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Isolated melanotic schwannoma" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Isolated melanotic schwannoma" ] .
+}
+

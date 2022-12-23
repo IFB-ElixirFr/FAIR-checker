@@ -1,0 +1,41 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=79480> a ns1:MedicalCondition ;
+        ns1:alternateName "Seborrheic pemphigus",
+            "Senear-Usher syndrome" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "C0263312" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0263312" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10058917" ;
+                ns1:codingSystem "MedDRA" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10058917" ;
+                ns1:codingSystem "MedDRA" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:79480" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "L10.4" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:79480" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "L10.4" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "A rare superficial pemphigus disease characterized clinically by well-demarcated, localized, erythematous, scaly, hyperkeratotic, crusted plaques, with frequent butterfly distribution over the malar area of the face (but also commonly involving trunk and scalp, and less frequently the extremities, with a photoexposed distribution). Histologically, granular deposits along the dermal-epidermal junction, in addition to intercellular deposition in the upper epidermis, are observed." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "79480" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Pemphigus erythematosus" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Pemphigus erythematosus" ] .
+}
+

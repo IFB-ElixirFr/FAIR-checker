@@ -1,0 +1,28 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=228184> a ns1:MedicalCondition ;
+        ns1:alternateName "Atriodigital dysplasia" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:228184" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:228184" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0265264" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0265264" ;
+                ns1:codingSystem "UMLS" ] ;
+        ns1:description "Heart-hand syndrome refers to a group of congenital disorders characterized by malformations of the upper limbs and heart. To date, heart-hand syndrome comprises the following rare syndromes; Holt-Oram syndrome; heart-hand syndrome type 2; heart-hand syndrome type 3; heart hand syndrome, Slovenian type, brachydactyly-long thumb; and patent ductus arteriosus-bicuspid aortic valve - hand anomalies (see these terms)." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "228184" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Heart-hand syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Heart-hand syndrome" ] .
+}
+

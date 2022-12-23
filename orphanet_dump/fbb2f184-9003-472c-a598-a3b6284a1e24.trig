@@ -1,0 +1,34 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=169100> a ns1:MedicalCondition ;
+        ns1:alternateName "Interleukin-2 receptor alpha chain deficiency" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:169100" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D89.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D89.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "606367" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "606367" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:169100" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "Immunodeficiency due to CD25 deficiency is a rare, genetic, primary immunodeficiency due to a defect in adaptive immunity disorder characterized by severe immunodeficiency, presenting with profound susceptibility to viral, fungal and bacterial infections due to impaired CD25-mediated T-regulatory cell function, in association with severe autoimmune disease, such as alopecia universalis, erythrodermia, and autoimmune thyroiditis and enteropathy." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "169100" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Immunodeficiency due to CD25 deficiency" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Immunodeficiency due to CD25 deficiency" ] .
+}
+

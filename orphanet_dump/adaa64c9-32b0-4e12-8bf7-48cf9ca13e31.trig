@@ -1,0 +1,27 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=31828> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:31828" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "T46.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "T46.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:31828" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare, potentially life-threatening poisoning that provokes conduction disturbances, characterized by increased automaticity and decreased conduction. Acute poisoning presents with the common initial manifestations of nausea and vomiting, cardiovascular manifestations (bradycardia, heart block and a variety of dysrhythmias), central nervous system manifestations (lethargy, confusion and weakness) and hyperkalemia. Chronic poisoning is more insidious, manifesting with gastrointestinal symptoms, altered mental status, and visual disturbances." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "31828" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Digitalis poisoning" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Digitalis poisoning" ] .
+}
+

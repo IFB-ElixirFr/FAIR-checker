@@ -1,0 +1,27 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=443101> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:443101" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:443101" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E23.3" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E23.3" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "A rare endocrine disease characterized by severe chronic hypernatremic dehydration caused by decreased intake of water based on impaired thirst perception, due to a selective defect in hypothalamic osmoregulation of thirst. Structural hypothalamic lesions are absent and arginine vasopressin secretion is normal." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "443101" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Hypothalamic adipsic hypernatraemia syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Hypothalamic adipsic hypernatraemia syndrome" ] .
+}
+

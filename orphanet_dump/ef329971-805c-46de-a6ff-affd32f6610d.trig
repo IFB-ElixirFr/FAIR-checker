@@ -1,0 +1,48 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=842> a ns1:MedicalCondition ;
+        ns1:alternateName "Seminoma of testis",
+            "Seminomatous germ cell tumor of testis",
+            "Testicular seminoma" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "273300" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "273300" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0036631" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "4792" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C62.9" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0036631" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "4792" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:842" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C62.9" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:842" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "Testicular seminomatous germ cell tumor is a rare testicular germ cell tumor (see this term), most commonly presenting with a painless mass in the scrotum, with a very high cure rate if caught in the early stages." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "842" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Testicular seminomatous germ cell tumor" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Testicular seminomatous germ cell tumor" ] .
+}
+

@@ -1,0 +1,34 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=435934> a ns1:MedicalCondition ;
+        ns1:alternateName "COG2-related congenital disorder of glycosylation" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "617395" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:435934" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "617395" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E77.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:435934" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E77.8" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "A rare, congenital disorder of glycosylation caused by mutations in the <i>COG2</i> gene and characterized by normal presentation at birth, followed by progressive deterioration with postnatal microcephaly, developmental delay, intellectual disability, seizures, spastic quadriplegia, liver dysfunction, hypocupremia and hypoceruloplasminemia in the first year of life. Diffuse cerebral atrophy and thin corpus callosum may be observed on brain MRI." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "435934" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "COG2-CDG" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "COG2-CDG" ] .
+}
+

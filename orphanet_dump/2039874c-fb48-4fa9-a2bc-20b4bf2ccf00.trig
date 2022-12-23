@@ -1,0 +1,34 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=141209> a ns1:MedicalCondition ;
+        ns1:alternateName "Diffuse lymphangioma",
+            "Diffuse lymphangiomatosis",
+            "Disseminated lymphangioma",
+            "Disseminated lymphangiomatosis",
+            "Disseminated lymphatic malformation",
+            "GLA",
+            "Generalized lymphatic anomaly" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:141209" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "I89.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:141209" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "I89.8" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "A rare developmental defect during embryogenesis characterized by multifocal dilated lymphatic vessels involving multiple organs and tissues. Patients mostly present in infancy and childhood. Clinical course and prognosis depend on the affected sites and extent of the condition, deterioration of lung function being a major cause of morbidity and mortality." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "141209" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Diffuse lymphatic malformation" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Diffuse lymphatic malformation" ] .
+}
+

@@ -1,0 +1,34 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=537> a ns1:MedicalCondition ;
+        ns1:alternateName "Lyell syndrome" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "L51.2" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0014518" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0014518" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "L51.2" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:537" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:537" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "An extended form of Stevens-Johnson syndrome/toxic epidermal necrolysis spectrum characterized by destruction and detachment of the skin epithelium, involving 30% or more of the body surface area, and mucous membranes. Onset usually occurs 4-28 days after administration of the causal medication and is most frequently associated with anticonvulsants, antibacterial sulfonamides, allopurinol, nevirapine, and oxicams (non-steroidal anti-inflammatory drugs), but many other medications have also been implicated. The disease is not induced by medication in 15% of cases. Histology is characterized by an epidermal necrolysis. Multiple disabling long-term sequelae (especially cutaneous, ocular and psychological) are frequent." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "537" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Toxic epidermal necrolysis" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Toxic epidermal necrolysis" ] .
+}
+

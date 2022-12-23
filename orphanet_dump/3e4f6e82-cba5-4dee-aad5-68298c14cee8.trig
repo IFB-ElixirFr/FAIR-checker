@@ -1,0 +1,36 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=576349> a ns1:MedicalCondition ;
+        ns1:alternateName "FCAS4",
+            "Familial cold autoinflammatory syndrome 4",
+            "NLRC4-related familial cold urticaria" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:576349" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D89.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "616115" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:576349" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "616115" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D89.8" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "A rare hereditary periodic fever syndrome characterized by infantile or childhood onset of episodes of fever and cold-induced urticaria-like rash and arthralgias. Ocular features such as conjunctivitis and uveitis may also be present. Presentation is typically mild, and symptoms resolve without treatment in most cases." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "576349" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "NLRC4-related familial cold autoinflammatory syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "NLRC4-related familial cold autoinflammatory syndrome" ] .
+}
+

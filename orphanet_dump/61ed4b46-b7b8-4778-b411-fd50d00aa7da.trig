@@ -1,0 +1,28 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=295020> a ns1:MedicalCondition ;
+        ns1:alternateName "Congenital pseudarthrosis of the femur" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "Q74.2" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:295020" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q74.2" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:295020" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare bone development disorder characterized by abnormal bowing and subsequent non-healing fracture of the femur resulting in the formation of a false joint (pseudoarthrosis), which is already present at birth. The affected bone is shortened and angulated at the site of the pseudoarthrosis. Congenital hip dysplasia and absence of the patella have been reported in association." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "295020" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Congenital pseudoarthrosis of the femur" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Congenital pseudoarthrosis of the femur" ] .
+}
+

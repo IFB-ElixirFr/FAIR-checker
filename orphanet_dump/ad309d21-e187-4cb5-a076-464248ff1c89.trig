@@ -1,0 +1,29 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=90160> a ns1:MedicalCondition ;
+        ns1:alternateName "Lipoatrophia semicircularis",
+            "Semicircular lipoatrophy" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "E88.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:90160" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:90160" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E88.1" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "Pressure-induced localized lipoatrophy is a rare, acquired, localized lipodystrophy characterized by band-like, horizontal, asymptomatic, lipoatrophic depressions with clinically normal overlying skin usually involving the anterolateral aspect of the thighs. An identifiable history of the repeated mechanical microtrauma due to occupational or postural habits is present." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "90160" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Pressure-induced localized lipoatrophy" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Pressure-induced localized lipoatrophy" ] .
+}
+

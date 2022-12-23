@@ -1,0 +1,40 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=2111> a ns1:MedicalCondition ;
+        ns1:alternateName "Graham-Boyle-Troxell syndrome" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "C2931468" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "2557" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q85.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q85.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "2557" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:2111" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:2111" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C2931468" ;
+                ns1:codingSystem "UMLS" ] ;
+        ns1:description "Cystic hamartoma of lung and kidney is a rare developmental malformation reported in 3 patients characterized by the presence of benign hamartomatous cysts in kidney and lung, clinically presenting as abdominal mass. Others associated features include hyperplastic nephromegaly, medullary dysplasia and mesoblastic nephroma. There have been no further descriptions in the literature since 1987." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "2111" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Cystic hamartoma of lung and kidney" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Cystic hamartoma of lung and kidney" ] .
+}
+

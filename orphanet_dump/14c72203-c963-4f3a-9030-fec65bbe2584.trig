@@ -1,0 +1,34 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=51577> a ns1:MedicalCondition ;
+        ns1:alternateName "Lissencephaly type 2" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "C0431376" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0431376" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:51577" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "3277" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "3277" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:51577" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare central nervous system malformation which includes a group of diseases that are characterized by a bumpy (or pebbled) appearance of the cerebral cortex, associated with a thickened cortex, reduction in normal sulcation, ventriculomegaly and reduced, abnormal white matter, as well as brainstem and cerebellum hypoplasia and corpus callosum agenesis. Patients generally present variable degrees of developmental delay, hypotonia and ocular abnomalities, however muscular and ocular involvement may be absent." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "51577" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Cobblestone lissencephaly" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Cobblestone lissencephaly" ] .
+}
+

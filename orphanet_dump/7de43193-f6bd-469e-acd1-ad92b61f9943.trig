@@ -1,0 +1,32 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=93560> a ns1:MedicalCondition ;
+        ns1:alternateName "Apolipoprotein A-I amyloidosis",
+            "Familial amyloid nephropathy due to apolipoprotein A-I variant",
+            "Familial renal amyloidosis due to apolipoprotein A-I variant",
+            "Hereditary amyloid nephropathy due to apolipoprotein A-I variant",
+            "Hereditary renal amyloidosis due to apolipoprotein A-I variant" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "E85.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:93560" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:93560" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E85.0" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "A rare, hereditary amyloidosis with primary renal involvement characterized by renal interstitial and medullary deposition of amyloid, low plasma levels of ApoA-1 and slow disease progression. Main clinical signs and symptoms are hypertension, proteinuria, hematuria and edema due to chronic renal insufficiency leading to end stage renal disease. Hepatosplenomegaly, progressive cardiomyopathy and involvement of skin, testes and adrenals (hypergonadotropic hypogonadism) have also been reported." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "93560" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "AApoAI amyloidosis" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "AApoAI amyloidosis" ] .
+}
+

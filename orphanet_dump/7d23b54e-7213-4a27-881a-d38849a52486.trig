@@ -1,0 +1,27 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=90394> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:90394" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:90394" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "L98.5" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "L98.5" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "Discrete papular lichen myxedematosus is a rare chronic, slowly progressive form of localized lichen myxedematosus (see this term) characterized by the development of a few to multiple small symmetrical skin-coloured mucinous papules on the limbs and trunk." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "90394" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Discrete papular lichen myxedematosus" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Discrete papular lichen myxedematosus" ] .
+}
+

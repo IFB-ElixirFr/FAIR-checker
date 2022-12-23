@@ -1,0 +1,36 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=98523> a ns1:MedicalCondition ;
+        ns1:alternateName "PCH",
+            "Pontoneocerebellar atrophy",
+            "Pontoneocerebellar hypoplasia" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "10977" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "8168" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:98523" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10977" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:98523" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "8168" ;
+                ns1:codingSystem "GARD" ] ;
+        ns1:description "A rare group of neurodegenerative disorders with a prenatal onset characterized by hypoplasia and/or atrophy of the cerebellum and pons. Involvement of supratentorial structures is variable. Multiple forms have been described based on severity, age of onset and clinical presentation." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "98523" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Non-syndromic pontocerebellar hypoplasia" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Non-syndromic pontocerebellar hypoplasia" ] .
+}
+

@@ -1,0 +1,51 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=286> a ns1:MedicalCondition ;
+        ns1:alternateName "Arterial-ecchymotic EDS",
+            "EDS IV",
+            "Ehlers-Danlos syndrome type 4",
+            "Sack-Barabas syndrome",
+            "Vascular EDS",
+            "vEDS" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "2082" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "130050" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0268338" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:286" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:286" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "2082" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q79.6" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "130050" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0268338" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q79.6" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "A rare genetic connective tissue disorder typically characterized by the association of unexpected organ fragility (arterial/bowel/gravid uterine rupture) with inconstant physical features as thin, translucent skin, easy bruising and acrogeric traits." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "286" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Vascular Ehlers-Danlos syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Vascular Ehlers-Danlos syndrome" ] .
+}
+

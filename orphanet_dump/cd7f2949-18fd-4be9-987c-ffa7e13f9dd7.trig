@@ -1,0 +1,28 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=439232> a ns1:MedicalCondition ;
+        ns1:alternateName "Apolipoprotein A-IV amyloidosis" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:439232" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E85.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:439232" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E85.8" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "A rare, systemic amyloidosis characterized by slowly progressive renal dysfunction, increased serum creatinine, mostly normal urine analysis with no significant proteinuria and associated heart disease. Cardiac involvement presents as hypertrophic obstructive cardiomyopathy, left ventricular outflow tract obstruction, coronary artery disease and conduction system abnormalities. Histology reveals renal tubular atrophy, interstitial fibrosis, glomerular sclerosis, and medullar amyloid deposits." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "439232" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "AApoAIV amyloidosis" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "AApoAIV amyloidosis" ] .
+}
+

@@ -1,0 +1,27 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=83482> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:83482" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:83482" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "B96.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "B96.0" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "Mycoplasma encephalitis is a rare infectious encephalitis characterized by an acute onset of neurological signs and symptoms (e.g. altered consciousness, seizures, headaches, meningeal signs, behavioral changes) due to bacterial infection by <i>Mycoplasma pneumoniae</i>. Patients typically present unspecific signs and symptoms, such as fever, nausea, vomiting, fatigue, prior to onset of neurological manifestations and frequently have a history of a respiratory tract infection (e.g. pneumonia, bronchiolitis, pharyngitis)." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "83482" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Mycoplasma encephalitis" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Mycoplasma encephalitis" ] .
+}
+

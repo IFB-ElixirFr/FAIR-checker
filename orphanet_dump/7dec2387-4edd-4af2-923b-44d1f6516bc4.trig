@@ -1,0 +1,40 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=357154> a ns1:MedicalCondition ;
+        ns1:alternateName "OSMF" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "K13.5" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "7264" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0029172" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:357154" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:357154" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "K13.5" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0029172" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "7264" ;
+                ns1:codingSystem "GARD" ] ;
+        ns1:description "Oral submucous fibrosis (OSMF) is a chronic, progressive disease that alters the fibroelasticity of the oral submucosa, prevalent in India and Southeast Asia but rare elsewhere, and characterized by burning and pain in the oral cavity, loss of gustatory sensation, the presence of blanched fibrous bands and stiffening of the oral mucosa and oro-pharynx (leading to trismus and a progressive reduction in mouth opening) and an increased risk of developing oral squamous cell cancer (3-19%). It is usually associated with the chewing of the areca nut (an ingredient in betel quid) but the exact etiology is unknown and there is currently no effective treatment." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "357154" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Oral submucous fibrosis" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Oral submucous fibrosis" ] .
+}
+

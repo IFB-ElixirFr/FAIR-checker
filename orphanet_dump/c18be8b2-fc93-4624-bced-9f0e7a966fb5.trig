@@ -1,0 +1,30 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=90118> a ns1:MedicalCondition ;
+        ns1:alternateName "AR-CMT2, Ouvrier type",
+            "Autosomal recessive Charcot-Marie-Tooth disease, Ouvrier type",
+            "SEOAN due to MFN2 deficiency" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:90118" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G60.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G60.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:90118" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "Severe early-onset axonal neuropathy due to MFN2 deficiency is a rare axonal hereditary motor and sensory neuropathy characterized by early onset (<10 years) progressive distal muscle weakness and wasting of the lower limbs and later, to a lesser extent the upper limbs resulting in foot and wrist drop, areflexia, skeletal deformities (kyphoscoliosis, pes cavus with flattening, joint contractures), mild sensory impairment with vibration sense reduced to a greater extent than pain, optic atrophy and hearing loss. Wheelchair dependence by adolescence is usual and respiratory impairment with diaphragmatic paralysis may develop." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "90118" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Severe early-onset axonal neuropathy due to MFN2 deficiency" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Severe early-onset axonal neuropathy due to MFN2 deficiency" ] .
+}
+

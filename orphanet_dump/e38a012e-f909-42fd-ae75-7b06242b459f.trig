@@ -1,0 +1,42 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=163703> a ns1:MedicalCondition ;
+        ns1:alternateName "AERRPS",
+            "Acute encephalitis with refractory repetitive partial seizures",
+            "Acute non-herpetic encephalitis with severe refractory status epilepticus",
+            "DESC syndrome",
+            "Devastating epileptic encephalopathy in school-aged children",
+            "FIRES",
+            "Fever-induced refractory epileptic encephalopathy in school-aged children",
+            "Idiopathic catastrophic epileptic encephalopathy",
+            "Severe refractory status epilepticus owing to presumed encephalitis" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "G40.5" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G40.5" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "11005" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:163703" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:163703" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "11005" ;
+                ns1:codingSystem "GARD" ] ;
+        ns1:description "A rare, potentially fatal , epileptic encephalopathy characterized by explosive-onset of recurrent multifocal and bilateral tonic-clonic seizures following an unspecific febrile illness. The syndrome develops without a clear acute structural, toxic or metabolic cause, in a patient without previous epilepsy. FIRES is a subgroup of new-onset refractory status epilepticus (NORSE), and requires a preceding febrile infection as a mandatory feature." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "163703" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Febrile infection-related epilepsy syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Febrile infection-related epilepsy syndrome" ] .
+}
+

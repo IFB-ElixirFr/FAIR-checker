@@ -1,0 +1,42 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=456318> a ns1:MedicalCondition ;
+        ns1:alternateName "HSAN1E",
+            "HSN1E",
+            "Hereditary sensory neuropathy-sensorineural hearing loss-dementia syndrome" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "11927" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:456318" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:456318" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "614116" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G60.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "614116" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "11927" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G60.8" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "A rare genetic neurological disorder characterized by sensorineural hearing loss, sensory neuropathy, behavioral abnormalities, and dementia. Occurrence of seizures has also been reported. Age of onset is between adolescence and adulthood. The disease is progressive, with fatal outcome typically in the fifth to sixth decade." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "456318" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Hereditary sensory neuropathy-deafness-dementia syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Hereditary sensory neuropathy-deafness-dementia syndrome" ] .
+}
+

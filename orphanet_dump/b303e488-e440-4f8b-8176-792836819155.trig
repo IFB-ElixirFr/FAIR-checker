@@ -1,0 +1,41 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=100057> a ns1:MedicalCondition ;
+        ns1:alternateName "ACE inhibitor-related acquired angioedema",
+            "ACEI-related acquired angioedema",
+            "Acquired angioedema with normal C1 inhibitor",
+            "Acquired angioedema with normal C1INH",
+            "RAAS-blocker-induced angioedema",
+            "RAAS-blocker-induced angioneurotic edema",
+            "RAE",
+            "Renin-angiotensin-aldosterone system-blocker-induced angioneurotic edema" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:100057" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "300909" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "T78.3" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "T78.3" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "300909" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:100057" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "Renin-angiotensin-aldosterone system (RAAS)-blocker induced angioedema (RAE) is a type of acquired angioedema (AAE, see this term) characterized by acute edema in subcutaneous tissues, viscera and/or the upper airway." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "100057" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Renin-angiotensin-aldosterone system-blocker-induced angioedema" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Renin-angiotensin-aldosterone system-blocker-induced angioedema" ] .
+}
+

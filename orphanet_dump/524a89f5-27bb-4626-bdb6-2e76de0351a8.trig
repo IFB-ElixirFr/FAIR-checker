@@ -1,0 +1,33 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=391389> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "M79.6" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "615040" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "615040" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:391389" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "M79.6" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:391389" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "Familial episodic pain syndrome with predominantly upper body involvement is a subtype of familial episodic pain syndrome characterized by episodes of severe debilitating pain mainly affecting shoulders, thorax and arms (occasionally radiating to the abdomen and legs), triggered by fasting, fatigue, cold temperatures or physical exercise, which last for 60-90 min and respond poorly to conventional analgesia. Intense pain episodes are accompanied by dyspnea, tachycardia, sweating, generalized pallor, peribuccal cyanosis, and stiffness of the abdominal wall and are followed by a period of exhaustion and somnolence." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "391389" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Familial episodic pain syndrome with predominantly upper body involvement" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Familial episodic pain syndrome with predominantly upper body involvement" ] .
+}
+

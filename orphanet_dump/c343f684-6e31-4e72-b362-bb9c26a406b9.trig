@@ -1,0 +1,28 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=563581> a ns1:MedicalCondition ;
+        ns1:alternateName "AIH type 2" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:563581" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "K75.4" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:563581" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "K75.4" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "A form of autoimmune hepatitis characterized by clinical presentation as cryptogenic hepatitis, interface hepatitis on histological examination, elevated serum aminotransferase levels, hypergammaglobulinemia/elevated immunoglobulin G, and presence of circulating autoantibodies, specifically antibodies to liver kidney microsome type 1 (anti-LKM1) and anti-liver cytosol type 1 (anti-LC1) antibodies. The disease typically manifests in childhood or adolescence with an acute onset, often with acute liver failure. Long-term immunosuppression is usually required. Reported concurrent autoimmune diseases are autoimmune thyroiditis, diabetes mellitus, and vitiligo." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "563581" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Autoimmune hepatitis type 2" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Autoimmune hepatitis type 2" ] .
+}
+

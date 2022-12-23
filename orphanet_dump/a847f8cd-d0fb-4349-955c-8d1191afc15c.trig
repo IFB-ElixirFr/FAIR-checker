@@ -1,0 +1,41 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=97363> a ns1:MedicalCondition ;
+        ns1:alternateName "Unilateral MCDK",
+            "Unilateral multicystic renal dysplasia" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "D021782" ;
+                ns1:codingSystem "MeSH" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C1567426" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D021782" ;
+                ns1:codingSystem "MeSH" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q61.4" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:97363" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:97363" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q61.4" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C1567426" ;
+                ns1:codingSystem "UMLS" ] ;
+        ns1:description "A rare form of multicystic dysplastic kidney (MCDK), a congenital anomaly of the kidney and urinary tract (CAKUT), in which one kidney is large, distended by multiple cysts, and non-functional." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "97363" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Unilateral multicystic dysplastic kidney" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Unilateral multicystic dysplastic kidney" ] .
+}
+

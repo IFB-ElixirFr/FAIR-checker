@@ -1,0 +1,43 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=70587> a ns1:MedicalCondition ;
+        ns1:alternateName "Hyaline membrane disease",
+            "Infant ARDS",
+            "Infant respiratory distress syndrome",
+            "Neonatal respiratory distress syndrome" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "267450" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0035220" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "P22.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:70587" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "267450" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:70587" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "P22.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0035220" ;
+                ns1:codingSystem "UMLS" ] ;
+        ns1:description "Infant acute respiratory distress syndrome is a lung disorder that affects premature infants caused by developmental insufficiency of surfactant production and structural immaturity of the lungs. The symptoms usually appear shortly after birth and may include tachypnea, tachycardia, chest wall retractions (recession), expiratory grunting, nasal flaring and cyanosis during breathing efforts." ;
+        ns1:epidemiology "Prevalence : 1-5 / 10 000" ;
+        ns1:identifier "70587" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Infant acute respiratory distress syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Infant acute respiratory distress syndrome" ] .
+}
+

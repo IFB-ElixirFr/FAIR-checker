@@ -1,0 +1,29 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=141030> a ns1:MedicalCondition ;
+        ns1:alternateName "Third branchial cleft cyst",
+            "Third branchial cleft fistula" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:141030" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q18.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:141030" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q18.0" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "A rare otorhinolaryngeal malformation characterized by a soft, fluctuant mass, abscess or draining tract along the anterior border of the lower half of sternocleidomastoid muscle, occasionally leading to development of retropharyngeal absces, acute suppurative thyroiditis, stridor, respiratory distress, odynophagia,and dysphagia. Anomaly occurs as a tract from the piriform sinus to the thyroid gland. A third branchial cleft fistula passes superficial to both the superior and recurrent laryngeal nerves, which is the main difference in comparison to the fourth branchial cleft fistula." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "141030" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Third branchial cleft anomaly" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Third branchial cleft anomaly" ] .
+}
+

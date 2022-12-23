@@ -1,0 +1,41 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=657> a ns1:MedicalCondition ;
+        ns1:alternateName "PHHI",
+            "Persistent hyperinsulinemic hypoglycemia of infancy" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "D044903" ;
+                ns1:codingSystem "MeSH" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C3888018" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "3947" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:657" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:657" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D044903" ;
+                ns1:codingSystem "MeSH" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "3947" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C3888018" ;
+                ns1:codingSystem "UMLS" ] ;
+        ns1:description "A rare endocrine disease characterized by an excessive or uncontrolled insulin secretion and recurrent episodes of hypoglycemia that can result in neurological sequelae if left untreated. There are two forms according to the response to first line treatment: diazoxide-sensitive and diazoxide-resistant hyperinsulinism; and three histopathological forms: focal, diffuse and atypical forms. Focal forms are only observed in early-onset cases of diazoxide unresponsive patients." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "657" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Congenital isolated hyperinsulinism" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Congenital isolated hyperinsulinism" ] .
+}
+

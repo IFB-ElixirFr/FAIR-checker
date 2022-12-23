@@ -1,0 +1,28 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=329874> a ns1:MedicalCondition ;
+        ns1:alternateName "IGCM" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:329874" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "I40.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:329874" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "I40.1" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "A rare cardiomyopathy characterized by progressive myocarditis with diffuse infiltration of cardiac tissue by lymphocytes, macrophages, multinuclear giant cells, and myocardial necrosis. Clinical presentation includes rapidly progressive heart failure, ventricular arrhythmias, complete heart block, and sudden cardiac death. Some patients have associated autoimmune disorders." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "329874" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Idiopathic giant cell myocarditis" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Idiopathic giant cell myocarditis" ] .
+}
+

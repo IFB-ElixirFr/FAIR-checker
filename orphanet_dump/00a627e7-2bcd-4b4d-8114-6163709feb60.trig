@@ -1,0 +1,21 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=498494> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:498494" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:498494" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare non-syndromic limb malformation characterized by a hand or foot with more than five digits that has a recognizable anterior/posterior axis of symmetry, either with a hallux- or thumb-like structure or an interdigital space in the middle. The most lateral digits on each side typically resemble fifth fingers or toes. The malformation may be unilateral or bilateral and may occur in isolation or in association with other congenital anomalies." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "498494" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Mirror-image polydactyly" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Mirror-image polydactyly" ] .
+}
+

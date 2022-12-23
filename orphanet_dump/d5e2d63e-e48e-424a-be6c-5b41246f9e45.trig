@@ -1,0 +1,34 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=165955> a ns1:MedicalCondition ;
+        ns1:alternateName "Traumatic myiasis" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "B87.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:165955" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:165955" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0344061" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0344061" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "B87.1" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "A rare cutaneous myiasis characterized by infestation of open wounds by dipterous fly larvae. Mucous membranes and body cavity openings can also be affected. The condition may be accompanied by fever, pain, and secondary infections and can lead to massive tissue destruction and even death. Predisposing factors for larval infestation are poor hygiene, advanced or very young age, alcoholism, diabetes, and vascular occlusive disease, among others." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "165955" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Wound myiasis" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Wound myiasis" ] .
+}
+

@@ -1,0 +1,24 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=658> a ns1:MedicalCondition ;
+        ns1:alternateName "Angioneurotic edema",
+            "Bradykinine-induced angioedema",
+            "Non histamine-induced angioedema" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:658" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:658" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A disorder that is characterized by the occurrence of transitory and recurrent subcutaneous and/or submucosal edemas resulting in swelling and/or abdominal pain." ;
+        ns1:epidemiology "Prevalence : 1-9 / 100 000" ;
+        ns1:identifier "658" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Non-histaminic angioedema" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Non-histaminic angioedema" ] .
+}
+

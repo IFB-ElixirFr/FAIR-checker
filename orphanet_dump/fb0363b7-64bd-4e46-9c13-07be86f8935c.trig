@@ -1,0 +1,28 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=440368> a ns1:MedicalCondition ;
+        ns1:alternateName "NSTI" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:440368" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:440368" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "M72.6" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "M72.6" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "A rare infectious disease characterized by painful, rapidly progressive infection of deep soft tissue structures. Infections can be mono- or polymicrobial and involve gram-positive cocci, enteric gram-negative bacilli, anaerobes, among others. Fungal infections have also been described in rare cases. Physical examination findings are often subtle and may include erythema, bullae, induration of subcutaneous tissues, and tenderness to palpation." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "440368" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Necrotizing soft tissue infection" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Necrotizing soft tissue infection" ] .
+}
+

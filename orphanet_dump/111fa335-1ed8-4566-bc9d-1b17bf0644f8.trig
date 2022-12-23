@@ -1,0 +1,29 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=391490> a ns1:MedicalCondition ;
+        ns1:alternateName "Adult-onset acquired myasthenia",
+            "Adult-onset autoimmune myasthenia gravis" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "G70.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:391490" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G70.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:391490" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare autoimmune disorder of the neuromuscular junction characterized by fatigable muscle weakness with frequent ocular signs and/or generalized muscle weakness, and occasionally associated with thymoma." ;
+        ns1:epidemiology "Prevalence : 1-5 / 10 000" ;
+        ns1:identifier "391490" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Adult-onset myasthenia gravis" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Adult-onset myasthenia gravis" ] .
+}
+

@@ -1,0 +1,31 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=439202> a ns1:MedicalCondition ;
+        ns1:alternateName "Chronic obstetric brachial plexus injury",
+            "Chronic obstetric brachial plexus palsy",
+            "Non-recovering OBPI",
+            "Non-recovering OBPL" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:439202" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "P14.3" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "P14.3" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:439202" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare acquired peripheral neuropathy characterized by paresis of the supraspinatus, infraspinatus, deltoid, and biceps muscles (in C5-C6 injury), wrist and finger extensor muscles (C7 injury), or impaired hand function (C8-Th1 injury) on the affected side due to a traction lesion of the brachial plexus during delivery. The upper trunk of the brachial plexus is most commonly affected, while isolated injury to the lower trunk is very rare. Potential sequelae of brachial plexus injury are muscle atrophy, pain, sensory deficits, and secondary deformities." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "439202" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Non-recovering obstetric brachial plexus lesion" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Non-recovering obstetric brachial plexus lesion" ] .
+}
+

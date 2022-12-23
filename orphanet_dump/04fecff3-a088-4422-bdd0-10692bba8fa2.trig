@@ -1,0 +1,30 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=238666> a ns1:MedicalCondition ;
+        ns1:alternateName "Gonadotropic deficiency",
+            "Isolated congenital gonadotropin deficiency",
+            "Isolated gonadotropin-releasing hormone deficiency" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "E23.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E23.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:238666" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:238666" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare, genetic pituitary hormone deficiency characterized by gonadotropin (Gn) deficiency with low sex steroid levels associated with low levels of follicle stimulating hormone (FSH) and luteinizing hormone (LH). This disorder may be associated with a normal (normosmic) or impaired sense of smell (Kallmann syndrome)." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "238666" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Isolated congenital hypogonadotropic hypogonadism" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Isolated congenital hypogonadotropic hypogonadism" ] .
+}
+

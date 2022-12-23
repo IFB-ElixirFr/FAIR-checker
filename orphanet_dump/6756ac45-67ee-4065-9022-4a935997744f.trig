@@ -1,0 +1,28 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=158676> a ns1:MedicalCondition ;
+        ns1:alternateName "Localized DEB, nails only" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "Q81.2" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:158676" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q81.2" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:158676" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A form of localized dystrophic epidermolysis bullosa characterized by dystrophic nails in the absence of blistering. The nail deformity is often limited to toenails which can appear thickened and shortened, or may be absent. No other cutaneous or extracutaneous symptoms are observed." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "158676" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Localized dystrophic epidermolysis bullosa, nails only" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Localized dystrophic epidermolysis bullosa, nails only" ] .
+}
+

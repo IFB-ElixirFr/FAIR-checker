@@ -1,0 +1,35 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=99098> a ns1:MedicalCondition ;
+        ns1:alternateName "Cor triatriatum dextrum",
+            "Divided right atrium" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "12483" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:99098" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q24.2" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:99098" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "12483" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q24.2" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "A rare, congenital, non-syndromic, heart malformation characterized by the persistence of the embryonic right valve of the sinus venosus which results in a subdivision of right atrium into two chambers. Clinical manifestations depend on the degree of right atrial septation and the size of sinoatrial orifice and vary from asymptomatic to symptoms of tricuspid valve stenosis, atrial fibrillation, cyanosis, syncope, elevated central venous pressure and right heart failure. The anomaly may be isolated or associated with other congenital heart anomalies." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "99098" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Cor triatriatum dexter" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Cor triatriatum dexter" ] .
+}
+

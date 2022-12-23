@@ -1,0 +1,41 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=103918> a ns1:MedicalCondition ;
+        ns1:alternateName "TCP",
+            "Tropical calcific chronic pancreatitis" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "608189" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:103918" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "K86.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:103918" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "K86.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "608189" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C1842402" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C1842402" ;
+                ns1:codingSystem "UMLS" ] ;
+        ns1:description "A rare pancreatic disease of juvenile onset occurring mainly in tropical developing countries and characterized by chronic non-alcoholic pancreatitis manifesting with abdominal pain, steatorrhea and fibrocalculous pancreatopathy. It is also commonly associated with the development of pancreatic calculi and pancreatic cancer at a much higher frequency than seen in ordinary chronic pancreatitis." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "103918" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Tropical pancreatitis" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Tropical pancreatitis" ] .
+}
+

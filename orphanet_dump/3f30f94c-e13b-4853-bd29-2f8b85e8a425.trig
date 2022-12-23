@@ -1,0 +1,34 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=521390> a ns1:MedicalCondition ;
+        ns1:alternateName "SINO syndrome" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "617296" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G11.4" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:521390" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G11.4" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:521390" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "617296" ;
+                ns1:codingSystem "OMIM" ] ;
+        ns1:description "A rare genetic neurological disorder characterized by the association of congenital spastic paraplegia with global developmental delay and intellectual disability, ophthalmologic abnormalities (including nystagmus, reduced visual acuity, or hypermetropia), and obesity. Additional manifestations are brachyplagiocephaly and dysmorphic facial features. Brain imaging may show dilated ventricles, abnormal myelination, and mild generalized atrophy. Homozygous loss-of-function variants of <i>KIDINS220</i> associated with a fetal lethal phenotype with ventriculomegaly and limb contractures have been reported." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "521390" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Spastic paraplegia-intellectual disability-nystagmus-obesity syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Spastic paraplegia-intellectual disability-nystagmus-obesity syndrome" ] .
+}
+

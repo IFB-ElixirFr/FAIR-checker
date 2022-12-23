@@ -1,0 +1,28 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=251975> a ns1:MedicalCondition ;
+        ns1:alternateName "RGNT" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "D33.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:251975" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:251975" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D33.1" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "Rosette-forming glioneuronal tumor is a rare mixed neuronal-glial tumor characterized by the presence of uniform, rosette- (or pseudorosette-) forming neurocytes with an astrocytic component, together creating a biphasic pattern. It can present with signs of raised intracranial pressure (headache, vomiting, papilledema), hydrocephalus, seizures, ataxia and visual disturbances, or can be diagnosed incidentally in asymptomatic patients. The tumor usually arises in the midline, involving the fourth ventricle or the cerebellum." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "251975" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Rosette-forming glioneuronal tumor" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Rosette-forming glioneuronal tumor" ] .
+}
+

@@ -1,0 +1,38 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=261600> a ns1:MedicalCondition ;
+        ns1:alternateName "Alagille syndrome due to del(20)(p12)",
+            "Alagille syndrome due to monosomy 20p12",
+            "Alagille-Watson syndrome due to monosomy 20p12",
+            "Arteriohepatic dysplasia due to monosomy 20p12",
+            "Syndromic bile duct paucity due to monosomy 20p12" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:261600" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:261600" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "118450" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "118450" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q44.7" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q44.7" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "" ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "261600" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Alagille syndrome due to 20p12 microdeletion" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Alagille syndrome due to 20p12 microdeletion" ] .
+}
+

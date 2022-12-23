@@ -1,0 +1,34 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=331235> a ns1:MedicalCondition ;
+        ns1:alternateName "Selective immunoglobulin M deficiency" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "12547" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "12547" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D80.4" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D80.4" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:331235" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:331235" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare primary immunodeficiency characterized by recurrent and/or invasive bacterial, viral, and fungal infections, associated with low to absent blood IgM levels, while IgG, IgG subclasses, and IgA levels, as well as IgG antibody response to vaccinations, are normal. Patients may also present allergic diatheses, and the prevalence of autoimmune diseases is increased." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "331235" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Selective IgM deficiency" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Selective IgM deficiency" ] .
+}
+

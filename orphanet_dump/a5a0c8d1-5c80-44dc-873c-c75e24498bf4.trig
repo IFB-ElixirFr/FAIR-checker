@@ -1,0 +1,41 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=300324> a ns1:MedicalCondition ;
+        ns1:alternateName "PPBL",
+            "Persistent polyclonal B-cell lymphocytosis with binucleated lymphocytes" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "606445" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:300324" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D72.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D72.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:300324" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C1847973" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "606445" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C1847973" ;
+                ns1:codingSystem "UMLS" ] ;
+        ns1:description "Persistent polyclonal B-cell lymphocytosis (PPBL) is a rare, generally benign, lymphoproliferative hematological disease characterized by: chronic, stable, persistent, polyclonal lymphocytosis of memory B-cell origin, the presence of binucleated lymphocytes in the peripheral blood, and a polyclonal increase in serum immunoglobulin M (IgM). Patients are most frequently asymptomatic or may present with mild splenomegaly." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "300324" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Persistent polyclonal B-cell lymphocytosis" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Persistent polyclonal B-cell lymphocytosis" ] .
+}
+

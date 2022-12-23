@@ -1,0 +1,27 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=31825> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:31825" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "T51.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:31825" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "T51.1" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "Methanol poisoning is a rare poisoning resulting in elevated anion gap metabolic acidosis, due to the alcohol dehydrogenase (ADH)-mediated production of formic acid (which is poisonous to the central nervous system), and characterized by dizziness, nausea, vomiting, confusion, metabolic acidosis, visual disturbances (which if left untreated can lead to blindness), coma, and death (due to respiratory failure)." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "31825" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Methanol poisoning" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Methanol poisoning" ] .
+}
+

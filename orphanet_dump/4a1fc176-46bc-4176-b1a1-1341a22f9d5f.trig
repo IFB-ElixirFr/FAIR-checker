@@ -1,0 +1,35 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=734> a ns1:MedicalCondition ;
+        ns1:alternateName "Alpha dense granule deficiency",
+            "Combined alpha-delta platelet storage pool deficiency" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "D69.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:734" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "185050" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D69.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:734" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "185050" ;
+                ns1:codingSystem "OMIM" ] ;
+        ns1:description "A rare hemorrhagic disorder due to a constitutional platelet anomaly characterized by moderate to severe deficiency in both platelet alpha-granules and dense bodies, resulting in impaired platelet function and decreased aggregation responses. Patients present increased bleeding tendency with symptoms like easy bruising, or menorrhagia." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "734" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Alpha delta granule deficiency" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Alpha delta granule deficiency" ] .
+}
+

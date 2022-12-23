@@ -1,0 +1,41 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=158684> a ns1:MedicalCondition ;
+        ns1:alternateName "EBS with pyloric atresia",
+            "EBS-PA" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "Q81.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C2677349" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q81.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "612138" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:158684" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C2677349" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "612138" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:158684" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare, inherited, epidermolysis bullosa simplex characterized by generalized severe blistering with widespread congenital absence of skin and pyloric atresia that is usually fatal in infancy. Antenatally, pyloric atresia can manifest with polyhydramnios. If patients survive, they experience life-long skin fragility and nail dystrophy. Additional extracutaneous findings include failure to thrive, anemia, sepsis, intraoral blistering, enamel hypoplasia, urethral stenosis and urologic complications." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "158684" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Epidermolysis bullosa simplex with pyloric atresia" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Epidermolysis bullosa simplex with pyloric atresia" ] .
+}
+

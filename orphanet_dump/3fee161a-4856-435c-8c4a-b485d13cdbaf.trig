@@ -1,0 +1,41 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=137807> a ns1:MedicalCondition ;
+        ns1:alternateName "PLCA",
+            "Primary localized cutaneous amyloidosis" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "10011659" ;
+                ns1:codingSystem "MedDRA" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "132" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10011659" ;
+                ns1:codingSystem "MedDRA" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:137807" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0268397" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:137807" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0268397" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "132" ;
+                ns1:codingSystem "GARD" ] ;
+        ns1:description "A rare group of skin diseases characterized histologically by the extracellular accumulation of amyloid deposits in the dermis. Rare forms include lichen amyloidosus, X-linked reticulate pigmentary disorder, primary localized cutaneous nodular amyloidosis, and macular amyloidosis." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "137807" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Primary cutaneous amyloidosis" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Primary cutaneous amyloidosis" ] .
+}
+

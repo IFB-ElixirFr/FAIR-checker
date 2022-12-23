@@ -1,0 +1,34 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=98831> a ns1:MedicalCondition ;
+        ns1:alternateName "AML with 11q23 abnormalities" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "C92.6" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C92.6" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:98831" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:98831" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C1292775" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C1292775" ;
+                ns1:codingSystem "UMLS" ] ;
+        ns1:description "A rare tumor arising from hematopoietic and lymphoid tissues characterized by abnormal proliferation and differentiation of a clonal population of myeloid stem cells carrying unspecific 11q23 abnormalities. Clinical manifestations result from accumulation of malignant myeloid cells within the bone marrow, peripheral blood and other organs, and include leukocytosis, anemia, thrombocytopenia, fatigue, anorexia and weight loss." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "98831" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Acute myeloid leukemia with 11q23 abnormalities" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Acute myeloid leukemia with 11q23 abnormalities" ] .
+}
+

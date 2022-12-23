@@ -1,0 +1,28 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=141214> a ns1:MedicalCondition ;
+        ns1:alternateName "Isolated congenital maxillomandibular fusion" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "Q67.4" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q67.4" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:141214" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:141214" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "Isolated congenital syngnathia is a very rare developmental defect during embryogenesis disorder characterized by varying degrees of congenital fusion (ranging from simple mucosal adhesions to extensive bony fusion) of mandible to maxilla that is not associated with any other malformations. Patients present with mouth opening limitation (which could range from severe to minimal restriction) that typically results in feeding, swallowing and/or respiratory difficulties which may lead to failure to thrive, malnutrition and/or temporomandibular joint ankylosis." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "141214" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Isolated congenital syngnathia" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Isolated congenital syngnathia" ] .
+}
+

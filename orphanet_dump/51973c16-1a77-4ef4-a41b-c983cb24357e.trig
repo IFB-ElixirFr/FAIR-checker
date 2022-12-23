@@ -1,0 +1,33 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=399293> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:399293" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "K10.2" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "K10.2" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:399293" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C2711248" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C2711248" ;
+                ns1:codingSystem "UMLS" ] ;
+        ns1:description "A rare osteonecrosis characterized by an exposed necrotic lesion in the mandible or maxilla present for more than eight weeks, arising as a complication of antiresorptive medication, dental interventions, or trauma and infections. Patients may present with pain, altered neurosensory functions, secondary infections, and (in advanced stages) pathological fractures, or fistulae." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "399293" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Osteonecrosis of the jaw" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Osteonecrosis of the jaw" ] .
+}
+

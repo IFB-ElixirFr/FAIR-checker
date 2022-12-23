@@ -1,0 +1,29 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=536471> a ns1:MedicalCondition ;
+        ns1:alternateName "Spondylodysplastic EDS",
+            "spEDS" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:536471" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q79.6" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q79.6" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:536471" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare connective tissue disorder for which three subtypes exist, either related to the gene <i>B4GALT7</i>, <i>B3GALT6</i> or <i>SLC39A13</i>, and for which the clinically overlapping characteristics include short stature (progressive in childhood), small joint hypermobility, skin hyperextensibility with soft, doughy skin especially on the hands and feet muscular hypotonia (ranging from congenitally severe to mild with later_onset), skeletal anomalies and, more variably, osteopenia, delayed motor development and bowing of the limbs. Gene-specific features, with variable presentation, are additionally observed in each subtype." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "536471" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Spondylodysplastic Ehlers-Danlos syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Spondylodysplastic Ehlers-Danlos syndrome" ] .
+}
+

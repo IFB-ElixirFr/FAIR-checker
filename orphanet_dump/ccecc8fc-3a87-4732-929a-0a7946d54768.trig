@@ -1,0 +1,40 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=320401> a ns1:MedicalCondition ;
+        ns1:alternateName "SPG44" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "G11.4" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C2750784" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G11.4" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C2750784" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "613206" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "613206" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:320401" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:320401" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "Autosomal recessive spastic paraplegia type 44 (SPG44) is a very rare, complex form of hereditary spastic paraplegia characterized by a late-onset, slowly progressive spastic paraplegia associated with mild ataxia and dysarthria, upper extremity involvement (i.e. loss of finger dexterity, dysmetria), and mild cognitive impairment, without the presence of nystagmus. A hypomyelinating leukodystrophy and thin corpus callosum is observed in all cases and psychomotor development is normal or near normal. SPG44 is caused by mutations in the <i>GJC2</i> gene (1q41-q42) encoding the gap junction gamma-2 protein." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "320401" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Autosomal recessive spastic paraplegia type 44" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Autosomal recessive spastic paraplegia type 44" ] .
+}
+

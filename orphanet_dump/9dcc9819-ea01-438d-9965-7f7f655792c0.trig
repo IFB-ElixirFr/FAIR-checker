@@ -1,0 +1,51 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=494> a ns1:MedicalCondition ;
+        ns1:alternateName "Mutilating keratoderma of Vohwinkel",
+            "Mutilating keratoderma plus deafness",
+            "Mutilating keratoderma plus hearing loss",
+            "PPK mutilans and deafness",
+            "PPK mutilans and hearing loss",
+            "Vohwinkel syndrome" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:494" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0265964" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q82.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "3092" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0265964" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "124500" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "3092" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:494" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "124500" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q82.8" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "Keratoderma hereditarium mutilans is a rare, diffuse, mutilating, hereditary palmoplantar keratoderma disorder characterized by severe, honeycomb-pattern palmoplantar keratosis and pseudoainhum of the digits leading to autoamputation, associated with mild to moderate congenital sensorineural hearing loss. Additional features include stellate keratosis on the extensor surfaces of the fingers, feet, elbows and knees. Alopecia, onychogryphosis, nail dystrophy or clubbing, spastic paraplegia and myopathy may also be associated." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "494" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Keratoderma hereditarium mutilans" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Keratoderma hereditarium mutilans" ] .
+}
+

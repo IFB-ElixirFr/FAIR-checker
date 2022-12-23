@@ -1,0 +1,36 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=231625> a ns1:MedicalCondition ;
+        ns1:alternateName "Pure APAC",
+            "Pure aldosterone-producing adrenocortical carcinoma",
+            "Pure aldosterone-secreting adrenocortical carcinoma" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:231625" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C74.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E26.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E26.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:231625" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C74.0" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "A very rare surgically-correctable form of primary aldosteronism (PA) due to an aldosterone-secreting adrenal malignancy." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "231625" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Adrenocortical carcinoma with pure aldosterone hypersecretion" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Adrenocortical carcinoma with pure aldosterone hypersecretion" ] .
+}
+

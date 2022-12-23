@@ -1,0 +1,33 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=137672> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "H18.7" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "H18.7" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "11895" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:137672" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:137672" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "11895" ;
+                ns1:codingSystem "GARD" ] ;
+        ns1:description "A rare disorder of the anterior segment of the eye characterized by slowly progressive, bilateral, non-ulcerative, non-inflammatory, clear thinning of the inferior portion of the peripheral cornea (extending from the 4 o'clock to the 8 o'clock position), with an area of corneal protrusion above the point of maximal thinning, resulting in against-the-rule astigmatism with decreased visual acuity. The central cornea is of normal thickness." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "137672" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Pellucid marginal degeneration" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Pellucid marginal degeneration" ] .
+}
+

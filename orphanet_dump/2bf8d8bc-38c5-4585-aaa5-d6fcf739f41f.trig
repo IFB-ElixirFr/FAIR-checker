@@ -1,0 +1,29 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=261337> a ns1:MedicalCondition ;
+        ns1:alternateName "Distal dup(22)(q11.2)",
+            "Distal trisomy 22q11.2" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:261337" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q92.3" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:261337" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q92.3" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "A rare chromosomal anomaly syndrome, resulting from the partial duplication of the long arm of chromosome 22, with a highly variable phenotype principally characterized by developmental delay, intellectual disability, behavioral anomalies, and non-specific craniofacial dysmorphism. Congenital heart malformations, visual and hearing impairment, urogenital abnormalities, and seizures have also been reported. Penetrance is incomplete. In 70% of cases, the duplication is inherited from as asymptomatic parent." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "261337" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Distal 22q11.2 microduplication syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Distal 22q11.2 microduplication syndrome" ] .
+}
+

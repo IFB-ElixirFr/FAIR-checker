@@ -1,0 +1,37 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=500062> a ns1:MedicalCondition ;
+        ns1:alternateName "ORAS",
+            "OTULIN deficiency",
+            "OTULIN-related autoinflammatory syndrome",
+            "Otulipenia" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:500062" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D89.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "617099" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:500062" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D89.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "617099" ;
+                ns1:codingSystem "OMIM" ] ;
+        ns1:description "A rare genetic autoinflammatory syndrome characterized by early-onset of repeated episodes of fever, nodular neutrophil-rich panniculitis, arthralgia, and lipodystrophy. Additional reported features include diarrhea, failure to thrive, lymphadenopathy, and vasculitis. Laboratory examination may reveal elevated serum C-reactive protein and leukocytosis with neutrophilia in the absence of infection." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "500062" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Infantile-onset periodic fever-panniculitis-dermatosis syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Infantile-onset periodic fever-panniculitis-dermatosis syndrome" ] .
+}
+

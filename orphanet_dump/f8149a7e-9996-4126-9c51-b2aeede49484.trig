@@ -1,0 +1,34 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=324530> a ns1:MedicalCondition ;
+        ns1:alternateName "APLAID" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "D89.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:324530" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D89.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "614878" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "614878" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:324530" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare, mixed autoinflammatory and autoimmune syndrome disorder characterized by recurrent neutrophilic blistering skin lesions, arthralgia, ocular inflammation, inflammatory bowel disease, absence of autoantibodies, and mild immunodeficiency manifested by recurrent sinopulmonary infections and deficiency of circulating antibodies. Inflammatory phenotype is not provoked by cold temperatures." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "324530" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Autoinflammation-PLCG2-associated antibody deficiency-immune dysregulation" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Autoinflammation-PLCG2-associated antibody deficiency-immune dysregulation" ] .
+}
+

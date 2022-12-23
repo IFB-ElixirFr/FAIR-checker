@@ -1,0 +1,38 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=86870> a ns1:MedicalCondition ;
+        ns1:alternateName "BPDCN",
+            "Blastic NK-cell lymphoma",
+            "Blastic plasmacytoid dendritic cell neoplasm",
+            "Lymphoblastoid variant of NK-cell lymphoma",
+            "Monomorphic NK-cell lymphoma" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "C86.4" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C86.4" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:86870" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:86870" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10556" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10556" ;
+                ns1:codingSystem "GARD" ] ;
+        ns1:description "A rare hematologic neoplasm characterized by origin from precursors of plasmacytoid dendritic cells, with frequent cutaneous, bone marrow, and lymph node involvement, as well as leukemic dissemination. Most common clinical presentation is with asymptomatic solitary or multiple skin lesions (either isolated purplish nodules, isolated bruise-like papules, or disseminated purplish nodules/macules/papules), although some patients may present with leukemia. Skin biopsy shows a diffuse, monomorphous infiltrate of medium-sized blast cells resembling either lymphoblasts or myeloblasts, with massive involvement of the dermis. The clinical course is aggressive, and age has an adverse impact on prognosis." ;
+        ns1:epidemiology "Prevalence : 1-5 / 10 000" ;
+        ns1:identifier "86870" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "CD4+/CD56+ hematodermic neoplasm" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "CD4+/CD56+ hematodermic neoplasm" ] .
+}
+

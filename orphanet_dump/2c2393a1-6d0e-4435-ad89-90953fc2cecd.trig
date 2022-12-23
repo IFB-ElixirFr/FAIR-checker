@@ -1,0 +1,28 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=180126> a ns1:MedicalCondition ;
+        ns1:alternateName "Total septate uterus" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:180126" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q51.2" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q51.2" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:180126" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "Complete septate uterus is a rare, non-syndromic uterovaginal malformation characterized by a uterus that has a longitudinal septum which elongates from the uterine fundus to the internal or external cervical os. Most often women are asymptomatic, however dysmenorrhea, unilateral obstruction, and endometriosis could be observed. Unlike urinary tract abnormalities, which are very rarely associated, poor reproductive outcome is frequent." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "180126" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Complete septate uterus" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Complete septate uterus" ] .
+}
+

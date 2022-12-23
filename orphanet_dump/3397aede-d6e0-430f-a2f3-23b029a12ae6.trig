@@ -1,0 +1,49 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=247203> a ns1:MedicalCondition ;
+        ns1:alternateName "BDC",
+            "Bellini carcinoma",
+            "Bellini duct carcinoma",
+            "CDC" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "D002292" ;
+                ns1:codingSystem "MeSH" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "9573" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D002292" ;
+                ns1:codingSystem "MeSH" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C1266044" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C64" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C1266044" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:247203" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C64" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:247203" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "9573" ;
+                ns1:codingSystem "GARD" ] ;
+        ns1:description "Collecting duct carcinoma is a rare, aggressive subtype of renal cell carcinoma, which originates from the epithelium of the distal collecting ducts, and usually manifests with hematuria, flank pain, palpable abdominal mass or nonspecific symptoms, such as fatigue, weight loss or fever. Patients are often asymptomatic for long periods of time and therefore, disease is often locally advanced or metastatic at the time of diagnosis. In cases with metastatic spread, bone pain, cough, dyspnea, pneumonia or neurological compromise may be associated." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "247203" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Collecting duct carcinoma" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Collecting duct carcinoma" ] .
+}
+

@@ -1,0 +1,27 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=435743> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:435743" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C1739100" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:435743" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C1739100" ;
+                ns1:codingSystem "UMLS" ] ;
+        ns1:description "Congenital urachal anomaly (CUA) describes a group of urachal remnants, found more frequently in males than females, that result from incomplete closure of the urachus (an embryological remnant of the allantois) during prenatal development, and that are usually asymptomatic (and found as an incidental finding on a radiological study) but can also present with umbilical discharge (in patent urachus or urachal sinus), infraumblical mass and pain, or with complications such as obstruction and infection. CUAs include patent urachus, urachal sinus, urachal cyst and urachal diverticulum (see these terms)." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "435743" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Congenital urachal anomaly" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Congenital urachal anomaly" ] .
+}
+

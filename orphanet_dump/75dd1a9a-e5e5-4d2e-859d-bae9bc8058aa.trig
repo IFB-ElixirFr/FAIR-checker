@@ -1,0 +1,41 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=71278> a ns1:MedicalCondition ;
+        ns1:alternateName "Inherited GS deficiency",
+            "Inherited glutamine synthetase deficiency" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "610015" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "9848" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:71278" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "610015" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "9848" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E72.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:71278" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E72.8" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "A rare neurometabolic disease characterized by neonatal onset of severe epileptic encephalopathy with brain malformations (including cerebral and cerebellar atrophy, white matter abnormalities, delayed gyration or complete agyria, and thin corpus callosum), generalized hypotonia, and lack of normal development. Additional features include facial dysmorphism and necrolytic erythema of the skin. Biochemical hallmarks are decreased levels of glutamine in body fluids and chronic hyperammonemia. Death may occur in the early post-natal period due to multiple organ failure." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "71278" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Congenital brain dysgenesis due to glutamine synthetase deficiency" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Congenital brain dysgenesis due to glutamine synthetase deficiency" ] .
+}
+

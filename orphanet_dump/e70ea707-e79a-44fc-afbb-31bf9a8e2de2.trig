@@ -1,0 +1,41 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=95432> a ns1:MedicalCondition ;
+        ns1:alternateName "Mesulam syndrome",
+            "PPA" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "D018888" ;
+                ns1:codingSystem "MeSH" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0282513" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0282513" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:95432" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D018888" ;
+                ns1:codingSystem "MeSH" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "8541" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:95432" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "8541" ;
+                ns1:codingSystem "GARD" ] ;
+        ns1:description "Primary progressive aphasia (PPA) is a neurodegenerative disorder, characterized by a primary dissolution of language, with relative sparing of other mental faculties for at least the first 2 years of illness. PPA is recognized as the language variant in the frontotemporal dementia (FTD; see this term) spectrum of disorders. PPA can be classified into 3 subtypes based on specific speech and language features: semantic dementia (SD), progressive non-fluent aphasia (PNFA) and logopenic progressive aphasia (lv-PPA) (see these terms)." ;
+        ns1:epidemiology "Prevalence : 1-9 / 100 000" ;
+        ns1:identifier "95432" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Primary progressive aphasia" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Primary progressive aphasia" ] .
+}
+

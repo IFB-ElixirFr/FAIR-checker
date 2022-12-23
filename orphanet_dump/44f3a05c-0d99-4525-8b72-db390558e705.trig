@@ -1,0 +1,27 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=269203> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:269203" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q04.3" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:269203" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q04.3" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "A rare, congenital, cerebellar malformation disorder characterized by complete or partial cerebellar vermis agenesis, with no other associated malformations or anomalies. Patients may be asymptomatic, although psychomotor delay, hypotonia and incoordination are usually associated. Additional variable manifestations include intellectual disability, oculomotor abnormalities (such as nystagmus, impaired smooth pursuit, impaired saccades, strabismus, ptosis, and oculomotor apraxia), retinopathy, abnormal visual evoked potentials, ataxia, episodic hyperpnea, and delayed gait acquisition, as well as delayed speech and language development." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "269203" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Isolated cerebellar vermis agenesis" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Isolated cerebellar vermis agenesis" ] .
+}
+

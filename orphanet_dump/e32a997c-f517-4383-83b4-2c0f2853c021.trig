@@ -1,0 +1,28 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=163921> a ns1:MedicalCondition ;
+        ns1:alternateName "PALE" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "G04.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:163921" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G04.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:163921" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "Posttransplant acute limbic encephalitis is a rare, acquired, non-paraneoplastic limbic encephalitis disorder, that develops in the setting of treatment-related immunosuppression, typically after allogeneic hemapoietic stem cell transplantation, characterized by onset of confusion, headache, anterograde amnesia, seizures and/or loss of consciousness 2-6 weeks following transplantation. Bilateral, non-enhancing T2 hyperintensities in limbic structures are observed on magnetic resonance imaging. Mild cerebrospinal fluid pleocytosis and syndrome of inappropriate antidiuretic hormone secretion may also be associated." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "163921" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Posttransplant acute limbic encephalitis" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Posttransplant acute limbic encephalitis" ] .
+}
+

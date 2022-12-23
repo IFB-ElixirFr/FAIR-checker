@@ -1,0 +1,27 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=280921> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "H44.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "H44.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:280921" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:280921" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "Idiopathic panuveitis is a rare inflammatory eye disease, of unknown etiology, characterized by generalized inflammation of the uvea (iris, ciliary body, choroid), retina and vitreous with consequent ciliary spasm and posterior synechiae formation, leading to acute or chronic, unilateral or bilateral visual impairment and ocular discomfort or pain. Patients present an increased risk of development of cataracts, secondary glaucoma, cystoid macular edema and/or retinal detachment. It could potentially result in vision loss." ;
+        ns1:epidemiology "Prevalence : 1-9 / 100 000" ;
+        ns1:identifier "280921" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Idiopathic panuveitis" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Idiopathic panuveitis" ] .
+}
+

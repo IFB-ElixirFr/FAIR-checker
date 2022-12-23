@@ -1,0 +1,34 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=98872> a ns1:MedicalCondition ;
+        ns1:alternateName "Primary acquired PRCA" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:98872" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D60.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10898" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D60.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:98872" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10898" ;
+                ns1:codingSystem "GARD" ] ;
+        ns1:description "A rare acquired aplastic anemia characterized by a severe normocytic anemia with normal peripheral leukocyte and platelet counts, reticulocytopenia, high serum ferritin and transferrin saturation levels and isolated, almost complete absence of erythroblasts in the bone marrow with normal granulopoesis and megakaryopoesis. It presents with signs of severe anemia (fatigue, lethargy, pallor, intolerance of physical exercise and exertional dyspnea) in the absence of hemorrhagic symptoms." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "98872" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Primary acquired pure red cell aplasia" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Primary acquired pure red cell aplasia" ] .
+}
+

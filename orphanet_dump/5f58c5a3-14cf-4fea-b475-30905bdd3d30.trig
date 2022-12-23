@@ -1,0 +1,41 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=93114> a ns1:MedicalCondition ;
+        ns1:alternateName "CMTDIE",
+            "Charcot-Marie-Tooth disease-nephropathy syndrome" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "G60.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "12011" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "614455" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:93114" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "12011" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G60.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "614455" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:93114" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare hereditary motor and sensory neuropathy disorder characterized by the typical CMT phenotype (slowly progressive distal muscle weakness and atrophy in upper and lower limbs, distal sensory loss in extremities, reduced or absent deep tendon reflexes and foot deformities) associated with focal segmental glomerulosclerosis (manifesting with proteinuria and progression to end-stage renal disease). Mild or moderate sensorineural hearing loss may also be associated. Nerve biopsy reveals both axonal and demyelinating changes and nerve conduction velocities vary from the demyelinating to axonal range (typically between 25-50m/sec)." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "93114" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Autosomal dominant intermediate Charcot-Marie-Tooth disease type E" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Autosomal dominant intermediate Charcot-Marie-Tooth disease type E" ] .
+}
+

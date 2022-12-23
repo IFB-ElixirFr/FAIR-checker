@@ -1,0 +1,49 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=26791> a ns1:MedicalCondition ;
+        ns1:alternateName "Glutaric acidemia type 2",
+            "Glutaric aciduria type 2",
+            "MAD deficiency",
+            "MADD" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "6523" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0268596" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "231680" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "231680" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E71.3" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "6523" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:26791" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E71.3" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0268596" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:26791" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "Multiple acyl-CoA dehydrogenation deficiency (MADD) is a disorder of fatty acid and amino acid oxidation and is a clinically heterogeneous disorder ranging from a severe neonatal presentation with metabolic acidosis, cardiomyopathy and liver disease, to a mild childhood/adult disease with episodic metabolic decompensation, muscle weakness, and respiratory failure." ;
+        ns1:epidemiology "Prevalence : 1-9 / 1 000 000" ;
+        ns1:identifier "26791" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Multiple acyl-CoA dehydrogenase deficiency" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Multiple acyl-CoA dehydrogenase deficiency" ] .
+}
+

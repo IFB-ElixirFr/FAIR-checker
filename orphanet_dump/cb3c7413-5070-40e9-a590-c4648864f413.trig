@@ -1,0 +1,39 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=157791> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "C0206732" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D018323" ;
+                ns1:codingSystem "MeSH" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D48.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D48.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D018323" ;
+                ns1:codingSystem "MeSH" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0206732" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:157791" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:157791" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare vascular tumor characterized by a solitary lesion in the superficial or deep soft tissue of the extremities, most often originating from a small vein as a fusiform intravascular mass also infiltrating surrounding tissues. It is composed of epithelioid endothelial cells arranged in short cords and nests in a myxohyaline stroma. Patients present with an often painful nodule which may be associated with edema or thrombophlebitis. In classic epithelioid hemangioendothelioma lacking atypical histological features metastatic rate and mortality are low." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "157791" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Epithelioid hemangioendothelioma" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Epithelioid hemangioendothelioma" ] .
+}
+

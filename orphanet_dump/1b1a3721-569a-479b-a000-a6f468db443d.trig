@@ -1,0 +1,33 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=300501> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "11006" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:300501" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D36.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:300501" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "11006" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D36.1" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "Painful orbital and systemic neurofibromas-marfanoid habitus syndrome is a rare, benign, peripheral nerve sheath tumor disorder characterized by multiple, painful, mucin-rich plexiform neurofibromas located in the orbits, cranium, large spinal nerves and mucosa, associated with a marfanoid habitus, enlarged corneal nerves, congenital neuronal migration anomalies and facial dysmorphism which includes ptosis, proptosis, prominent nose, full lips, gingival hyperplasia, and multiple subcutaneous and submucosal nodules in the lips and sublingual zone." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "300501" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Painful orbital and systemic neurofibromas-marfanoid habitus syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Painful orbital and systemic neurofibromas-marfanoid habitus syndrome" ] .
+}
+

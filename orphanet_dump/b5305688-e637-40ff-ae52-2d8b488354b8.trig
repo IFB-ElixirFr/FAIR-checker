@@ -1,0 +1,40 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=71529> a ns1:MedicalCondition ;
+        ns1:alternateName "MC4R deficiency" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "601665" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "618406" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:71529" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E66.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "601665" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E66.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "618406" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:71529" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "Melanocortin 4 receptor (MC4R) deficiency is the commonest form of monogenic obesity identified so far. MC4R deficiency is characterised by severe obesity, an increase in lean body mass and bone mineral density, increased linear growth in early childhood, hyperphagia beginning in the first year of life and severe hyperinsulinaemia, in the presence of preserved reproductive function." ;
+        ns1:epidemiology "Prevalence : 1-5 / 10 000" ;
+        ns1:identifier "71529" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Obesity due to melanocortin 4 receptor deficiency" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Obesity due to melanocortin 4 receptor deficiency" ] .
+}
+

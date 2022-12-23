@@ -1,0 +1,43 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=254463> a ns1:MedicalCondition ;
+        ns1:alternateName "LP pigmentosa",
+            "LP pigmentosus",
+            "Lichen planus pigmentosa",
+            "Lichen planus pigmentosus inversus" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:254463" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10816" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0406366" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10816" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "L43.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:254463" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0406366" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "L43.8" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "Lichen planus (LP) pigmentosus is a rare variant of cutaneous lichen planus (see this term) characterized by the presence of hyperpigmented lichenoid lesions in sun-exposed or flexural areas of the body." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "254463" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Lichen planus pigmentosus" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Lichen planus pigmentosus" ] .
+}
+

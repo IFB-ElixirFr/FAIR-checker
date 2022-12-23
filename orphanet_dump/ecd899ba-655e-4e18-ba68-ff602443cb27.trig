@@ -1,0 +1,30 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=506112> a ns1:MedicalCondition ;
+        ns1:alternateName "MiNEN of pancreas",
+            "Pancreatic MiNEN",
+            "Pancreatic mixed neuroendocrine-nonneuroendocrine neoplasm" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:506112" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C25.9" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:506112" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C25.9" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "A rare neuroendocrine neoplasm of pancreas characterized by morphologically recognizable neuroendocrine and non-neuroendocrine components, each constituting at least 30% of the tumor volume. Based on histopathology, mixed ductal- and mixed acinar-neuroendocrine carcinomas are distinguished. Patients usually present with unspecific symptoms related to tumor growth and/or metastasis, although occurrence of Zollinger-Ellison syndrome has been reported. Resectability of the tumor is the most important prognostic factor." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "506112" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Mixed neuroendocrine and non-neuroendocrine neoplasm of pancreas" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Mixed neuroendocrine and non-neuroendocrine neoplasm of pancreas" ] .
+}
+

@@ -1,0 +1,35 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=1723> a ns1:MedicalCondition ;
+        ns1:alternateName "Mosaic trisomy chromosome 2",
+            "Trisomy 2 mosaicism" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "Q92.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "5331" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q92.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "5331" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:1723" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:1723" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "Mosaic trisomy 2 is a rare chromosomal anomaly syndrome, with a highly variable phenotype, principally characterized by intrauterine growth restriction, growth and motor delay, craniofacial dysmorphism (e.g. microcephaly, hypertelorism, micro/anophthalmia, midface hypoplasia, cleft lip/palate), congenital heart and neural tube defects, as well as various skeletal (e.g. scoliosis, radioulnar hypoplasia, preaxial polydactyly) and gastrointestinal (e.g. intestinal malrotation, Hirschsprung disease) anomalies. Central nervous system malformations (including ventriculomegaly, thin corpus callosum, spina bifida) have also been reported." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "1723" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Mosaic trisomy 2" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Mosaic trisomy 2" ] .
+}
+

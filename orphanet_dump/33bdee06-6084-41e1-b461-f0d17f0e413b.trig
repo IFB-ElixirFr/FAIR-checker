@@ -1,0 +1,40 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=3196> a ns1:MedicalCondition ;
+        ns1:alternateName "Lyngstadaas syndrome" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "C2931508" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "5015" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C2931508" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:3196" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "K76.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "K76.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "5015" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:3196" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare metabolic liver disease characterized by progressive liver disease and early cirrhosis due to accumulation of toxic cholesterol metabolites, which are detectable in bile, plasma, and urine, in association with dental abnormalities such as general hypomineralization and enamel hypoplasia, as well as occurrence of supernumerary teeth. There have been no further descriptions in the literature since 1996." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "3196" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Steroid dehydrogenase deficiency-dental anomalies syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Steroid dehydrogenase deficiency-dental anomalies syndrome" ] .
+}
+

@@ -1,0 +1,34 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=57196> a ns1:MedicalCondition ;
+        ns1:alternateName "Osteitis condensans of the clavicle" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "10910" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10910" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:57196" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "M85.3" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:57196" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "M85.3" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "A rare bone disease characterized by benign, usually unilateral, sclerosis of the inferomedial third of the clavicle. Patients present with localized swelling and persistent pain. Typical radiographic findings are expansion of the medial end of the clavicle with increased radio-density and signs of bone remodeling." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "57196" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Medial condensing osteitis of the clavicle" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Medial condensing osteitis of the clavicle" ] .
+}
+

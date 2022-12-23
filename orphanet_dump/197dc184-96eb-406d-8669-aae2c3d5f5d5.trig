@@ -1,0 +1,29 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=536516> a ns1:MedicalCondition ;
+        ns1:alternateName "EDS/myopathy overlap syndrome",
+            "Myopathic EDS" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:536516" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q79.6" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q79.6" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:536516" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare systemic disease characterized by congenital muscle hypotonia and/or muscle atrophy that improves with age, proximal joint contractures (knee, hip, elbow), and hypermobility of distal joints. Additional features include soft, doughy skin, atrophic scarring, delayed motor development, and myopathic findings in muscle biopsy. Abnormal craniofacial features have been reported in some patients. Molecular testing is obligatory to confirm the diagnosis." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "536516" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Myopathic Ehlers-Danlos syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Myopathic Ehlers-Danlos syndrome" ] .
+}
+

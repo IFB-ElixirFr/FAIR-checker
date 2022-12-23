@@ -1,0 +1,28 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=157991> a ns1:MedicalCondition ;
+        ns1:alternateName "Generalized eruptive histiocytoma" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "D76.3" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:157991" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D76.3" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:157991" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare non-Langerhans cell histiocytosis characterized by rapid onset of crops of asymptomatic small red to brown papules, typically distributed symmetrically over the face, trunk, and proximal extremities, occasionally with mucous membrane involvement. The lesions resolve spontaneously without scarring after a variable time span and do not recur in most cases. Histopathology reveals diffuse, uniform dermal infiltration with non-xanthomatous histiocytes staining positive for CD68 and Ki-M1p. Multinucleate giant cells may occasionally be found." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "157991" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Generalized eruptive histiocytosis" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Generalized eruptive histiocytosis" ] .
+}
+

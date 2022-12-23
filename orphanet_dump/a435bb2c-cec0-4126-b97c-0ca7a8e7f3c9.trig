@@ -1,0 +1,33 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=207000> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "M60.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:207000" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0410251" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "M60.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0410251" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:207000" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare acquired skeletal muscle disease characterized by inflammation of a muscle due to infection with a fungus, usually occurring in an immunocompromised host. General symptoms are pain, tenderness, swelling, and/or weakness in the affected muscle. Most common causative agent are <i>Candida</i> species, with myositis developing in the setting of systemic candidiasis, typically as diffuse, multiple microabscesses. Other fungal pathogens potentially causing myositis are <i>Cryptococcus neoformans</i>, <i>Histoplasma capsulatum</i>, <i>Coccidioides</i> species, or <i>Aspergillus</i> species, among others." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "207000" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Fungal myositis" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Fungal myositis" ] .
+}
+

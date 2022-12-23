@@ -1,0 +1,27 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=294060> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:294060" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:294060" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0265261" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0265261" ;
+                ns1:codingSystem "UMLS" ] ;
+        ns1:description "A group of rare genetic disorders characterized by the presence of joint contractures and multiple soft tissue webs (pterygia) across the neck and various joints, as well as typical facial appearance and a variety of other congenital anomalies. Both lethal (lethal and X-linked lethal multiple pterygium syndrome) and non-lethal (autosomal recessive and autosomal dominant multiple pterygium syndrome) forms occur." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "294060" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Multiple pterygium syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Multiple pterygium syndrome" ] .
+}
+

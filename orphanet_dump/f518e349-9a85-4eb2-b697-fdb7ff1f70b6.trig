@@ -1,0 +1,35 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=3226> a ns1:MedicalCondition ;
+        ns1:alternateName "Emberger syndrome",
+            "Hearing loss-lymphedema-leukemia syndrome" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "D46.7" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D46.7" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "614038" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:3226" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "614038" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:3226" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare genetic disease characterized by the association of primary lymphedema (typically presenting in one or both lower limbs and frequently affecting the genitalia) and acute myeloid leukemia (often preceded by pancytopenia or myelodysplasia), with or without congenital deafness. Additional reported features include bilateral syndactyly of the toes, hypotelorism and epicanthic folds, long tapering fingers, and neck webbing." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "3226" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Deafness-lymphedema-leukemia syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Deafness-lymphedema-leukemia syndrome" ] .
+}
+

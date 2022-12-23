@@ -1,0 +1,28 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=529965> a ns1:MedicalCondition ;
+        ns1:alternateName "Pilarowski-Bjornsson syndrome" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:529965" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "617682" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:529965" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "617682" ;
+                ns1:codingSystem "OMIM" ] ;
+        ns1:description "A rare, syndromic intellectual disability characterized by developmental delay, speech apraxia, autism with stereotypies, intellectual disability and unspecific dysmorphic facial features. Seizures or isolated EEG abnormalities may also be associated." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "529965" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Intellectual disability-autism-speech apraxia-craniofacial dysmorphism syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Intellectual disability-autism-speech apraxia-craniofacial dysmorphism syndrome" ] .
+}
+

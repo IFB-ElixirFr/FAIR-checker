@@ -1,0 +1,55 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=86880> a ns1:MedicalCondition ;
+        ns1:alternateName "EATL",
+            "ETTL",
+            "Enteropathy-type T-cell lymphoma",
+            "Intestinal T-cell lymphoma" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "10022703" ;
+                ns1:codingSystem "MedDRA" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10022703" ;
+                ns1:codingSystem "MedDRA" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0456889" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D058527" ;
+                ns1:codingSystem "MeSH" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:86880" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "9809" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "9809" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C86.2" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:86880" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0456889" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C86.2" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D058527" ;
+                ns1:codingSystem "MeSH" ] ;
+        ns1:description "A rare T-cell non-Hodgkin lymphoma characterized by a neoplasm of intraepithelial T-cells mostly occurring in the jejunum or ileum in patients with celiac disease. The lesion may be multifocal and form ulcerating nodules, plaques, strictures, or an exophytic mass. The mesentery and mesenteric lymph nodes are commonly involved. Patients typically present with abdominal pain, malabsorption or diarrhea, anorexia, weight loss, fatigue, nausea, vomiting, and sometimes intestinal perforation or hemorrhage. Prognosis is generally poor." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "86880" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Enteropathy-associated T-cell lymphoma" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Enteropathy-associated T-cell lymphoma" ] .
+}
+

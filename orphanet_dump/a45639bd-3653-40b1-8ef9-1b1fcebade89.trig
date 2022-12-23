@@ -1,0 +1,29 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=75565> a ns1:MedicalCondition ;
+        ns1:alternateName "Davies disease",
+            "TEMF" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:75565" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:75565" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "I42.3" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "I42.3" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "Tropical endomyocardial fibrosis is a restrictive cardiopathy, occuring almost exclusively in children and young adults in tropical and subtropical regions, characterized by endocardial fibrosis, affecting the apices and the inflow tract of the right or left ventricle (or both) and manifesting with a restrictive cardimyopathy and atrioventricular regurgitation leading to severe pulmonary hypertension, very high systemic venous pressure and congestive cardiac failure. Suspected etiologies include helminth and protozoal infestation and malnutrition." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "75565" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Tropical endomyocardial fibrosis" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Tropical endomyocardial fibrosis" ] .
+}
+

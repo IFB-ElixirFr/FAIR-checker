@@ -1,0 +1,33 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=314718> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:314718" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q28.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:314718" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "614437" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q28.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "614437" ;
+                ns1:codingSystem "OMIM" ] ;
+        ns1:description "Lethal arteriopathy syndrome due to fibulin-4 deficiency is a rare, genetic, vascular disorder characterized by severe aneurysmal dilatation, elongation, and tortuosity of the thoracic aorta, its branches and pulmonary arteries with stenosis at various typical locations, typically resulting in infantile demise. Variable associated features may include cutis laxa, long philtrum with thin vermillion border, hypertelorism, sagging cheeks, arachnodactyly, joint laxity and pectus deformities." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "314718" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Lethal arteriopathy syndrome due to fibulin-4 deficiency" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Lethal arteriopathy syndrome due to fibulin-4 deficiency" ] .
+}
+

@@ -1,0 +1,28 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=457351> a ns1:MedicalCondition ;
+        ns1:alternateName "Microcephaly-intellectual disability-sensorineural deafness-epilepsy-abnormal muscle tone syndrome" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:457351" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "616577" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:457351" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "616577" ;
+                ns1:codingSystem "OMIM" ] ;
+        ns1:description "A rare genetic disease characterized by microcephaly, global developmental delay, intellectual disability, abnormal muscle tone, and sensorineural hearing impairment. Additional variable manifestations include epilepsy, cortical visual impairment, gastrointestinal disturbances, growth restriction, scoliosis, as well as immunodeficiency and thrombocytopenia. Brain imaging may show cerebral atrophy, thin corpus callosum, and hypomyelination." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "457351" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Microcephaly-intellectual disability-sensorineural hearing loss-epilepsy-abnormal muscle tone syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Microcephaly-intellectual disability-sensorineural hearing loss-epilepsy-abnormal muscle tone syndrome" ] .
+}
+

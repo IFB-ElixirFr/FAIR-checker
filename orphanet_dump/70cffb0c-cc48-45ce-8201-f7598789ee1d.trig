@@ -1,0 +1,27 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=435372> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "Q64.7" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:435372" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q64.7" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:435372" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare, congenital, fetal lower urinary tract obstruction (LUTO) anomaly occurring in males and characterized by a posteriorly directed semilunar fold arising from the floor of the anterior urethra and causing urethral obstruction during micturition. The valves may be located anywhere distal to the membranous urethra. Clinical presentation is highly variable, depending on age and degree of urinary obstruction, and includes urinary incontinence, urinary retention, weak urinary stream, post-micturitional dribbling, bulging on the ventral penis, urinary tract infection, and urosepsis." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "435372" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Anterior urethral valve" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Anterior urethral valve" ] .
+}
+

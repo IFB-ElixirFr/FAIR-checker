@@ -1,0 +1,44 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=356961> a ns1:MedicalCondition ;
+        ns1:alternateName "CDG syndrome type IIm",
+            "CDG-IIm",
+            "CDG2M",
+            "Congenital disorder of glycosylation type 2m",
+            "Congenital disorder of glycosylation type IIm" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:356961" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:356961" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "300896" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E77.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "12403" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "300896" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E77.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "12403" ;
+                ns1:codingSystem "GARD" ] ;
+        ns1:description "A rare, congenital disorder of glycosylation characterized by severe or profound global developmental delay, early epileptic encephalopathy, muscular hypotonia, dysmorphic features (coarse facies, thick eyebrows, broad nasal bridge, thick lips, inverted nipples), variable ocular defects and brain morphological abnormalities on brain MRI (cerebral atrophy, thin corpus callosum)." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "356961" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "SLC35A2-CDG" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "SLC35A2-CDG" ] .
+}
+

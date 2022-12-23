@@ -1,0 +1,21 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=482606> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:482606" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:482606" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare genetic disease characterized by congenital contractures of the distal interphalangeal joints, progressive stiffness of the shoulders and neck, keloid scarring, increased optic cup-to-disc ratio, and renal stones. Additional reported features include arthritis, osteoporosis, hypoplastic flexion creases, clinodactyly, anxiety, and facial dysmorphism (such as sloping forehead, prominent supraorbital ridges, downslanting palpebral fissures, prominent ears, and high arched palate). Female carriers exhibit a variable, milder phenotype." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "482606" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "X-linked keloid scarring-reduced joint mobility-increased optic cup-to-disc ratio syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "X-linked keloid scarring-reduced joint mobility-increased optic cup-to-disc ratio syndrome" ] .
+}
+

@@ -1,0 +1,26 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=50815> a ns1:MedicalCondition ;
+        ns1:alternateName "Branchiogenic hearing loss syndrome",
+            "Mégarbané-Loiselet syndrome" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:50815" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q87.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C1836673" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "609166" ;
+                ns1:codingSystem "OMIM" ] ;
+        ns1:description "Branchiogenic deafness syndrome is a multiple congenital anomalies syndrome, described in one family to date, characterized by branchial cysts or fistulae; ear malformations; congenital hearing loss (conductive, sensorineural, and mixed); internal auditory canal hypoplasia; strabismus; trismus; abnormal fifth fingers; vitiliginous lesions, short stature; and mild learning disability. Renal and uretral abnormalities are absent." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "50815" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Branchiogenic deafness syndrome" ] .
+}
+

@@ -1,0 +1,30 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=247775> a ns1:MedicalCondition ;
+        ns1:alternateName "Congenital absence of uterus and vagina",
+            "MRKH syndrome type 1",
+            "Rokitansky sequence" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "4737" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "277000" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0431648" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:247775" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q51.8" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "Mayer-Rokitansky-Küster-Hauser (MRKH) syndrome type 1, a form of MRKH syndrome (see this term), is an isolated form of congenital aplasia of the uterus and 2/3 of the vagina occurring in otherwise phenotypically normal females." ;
+        ns1:epidemiology "Prevalence : 1-9 / 100 000" ;
+        ns1:identifier "247775" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Mayer-Rokitansky-Küster-Hauser syndrome type 1" ] .
+}
+

@@ -1,0 +1,28 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=617> a ns1:MedicalCondition ;
+        ns1:alternateName "Congenital primary megalo-ureter" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "Q62.2" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q62.2" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:617" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:617" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "Congenital primary megaureter (PM) is an idiopathic condition in which the bladder and bladder outlet are normal but the ureter is dilated to some extent. It may be obstructed, refluxing or unobstructed and not refluxing." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "617" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Congenital primary megaureter" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Congenital primary megaureter" ] .
+}
+

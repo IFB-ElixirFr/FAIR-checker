@@ -1,0 +1,28 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=50812> a ns1:MedicalCondition ;
+        ns1:alternateName "Ahn-Lerman-Sagie syndrome" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:50812" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q87.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q87.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:50812" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "Zellweger-like syndrome without peroxisomal anomalies is an extremely rare mitochondrial disorder characterized by facial dysmorphism similar to that seen in Zellweger syndrome (see this term), such as frontal bossing, high forehead, upslanting palpebral fissures, hypoplastic supraorbital ridges, and epicanthal folds, and in addition, pale skin, profound hypotonia, developmental delay, and minor metabolic anomalies. No peroxysomal defects, however, have been reported. Transmission is thought to be autosomal recessive." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "50812" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Zellweger-like syndrome without peroxisomal anomalies" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Zellweger-like syndrome without peroxisomal anomalies" ] .
+}
+

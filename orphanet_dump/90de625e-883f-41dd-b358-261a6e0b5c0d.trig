@@ -1,0 +1,42 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=352540> a ns1:MedicalCondition ;
+        ns1:alternateName "Oncogenic hypophosphatemic osteomalacia",
+            "TIO",
+            "Tumor-induced osteomalacia" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:352540" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "M83.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:352540" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "9652" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "M83.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "9652" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C1274103" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C1274103" ;
+                ns1:codingSystem "UMLS" ] ;
+        ns1:description "A rare paraneoplastic syndrome characterized by renal phosphate wasting and bone demineralization due to a phosphaturic mesenchymal tumor of the mixed connective tissue variant. It causes osteomalacia in adults with bone pain and pathological fractures, and rickets in children." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "352540" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Oncogenic osteomalacia" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Oncogenic osteomalacia" ] .
+}
+

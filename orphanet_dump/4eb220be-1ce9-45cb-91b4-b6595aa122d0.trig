@@ -1,0 +1,28 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=488265> a ns1:MedicalCondition ;
+        ns1:alternateName "OFD" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:488265" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "607278" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:488265" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "607278" ;
+                ns1:codingSystem "OMIM" ] ;
+        ns1:description "Osteofibrous dysplasia is a rare, genetic primary bone dysplasia characterized by the presence of a benign, fibro-osseous, osteolytic tumor typically located in the tibia (occasionally the fibula, or both) and usually involving the anterior diaphyseal cortex with adjacent cortical expansion. It may on occasion be asymptomatic or may present with a palpable mass, pain, tenderness and/or anterior bowing of the tibia." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "488265" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Osteofibrous dysplasia" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Osteofibrous dysplasia" ] .
+}
+

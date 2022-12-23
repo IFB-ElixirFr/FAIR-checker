@@ -1,0 +1,39 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=306577> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "615551" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G99.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:306577" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "133020" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:306577" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "615551" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "133020" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G99.1" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "Sodium channelopathy-related small fiber neuropathy is a rare, genetic, peripheral neuropathy disorder due to gain-of-function mutations in voltage-gated sodium channels present in the small peripheral nerve fibers characterized by neuropathic pain of varying intensity (often beginning in the distal extermities and with a burning quality) associated with autonomic dysfunction (e.g. orthostatic dizziness, palpitations, dry eyes and mouth), abnormal quantitative sensory testing, and reduction in intraepidermal nerve &#64257;ber density. Large fiber functions (i.e. normal strength, tendon reflexes, and vibration sense) and nerve conduction studies are typically normal." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "306577" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Sodium channelopathy-related small fiber neuropathy" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Sodium channelopathy-related small fiber neuropathy" ] .
+}
+

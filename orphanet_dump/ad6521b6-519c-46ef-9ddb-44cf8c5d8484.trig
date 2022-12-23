@@ -1,0 +1,27 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=565788> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:565788" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "618213" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:565788" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "618213" ;
+                ns1:codingSystem "OMIM" ] ;
+        ns1:description "A rare genetic disease characterized by infantile onset of severe inflammatory bowel disease manifesting with bloody diarrhea and failure to thrive, and central nervous system disease with global developmental delay and regression, impaired speech, hypotonia, hyperreflexia, and epilepsy. Brain imaging shows global cerebral atrophy, thin corpus callosum, delayed myelination, and posterior leukoencephalopathy. Cases with recurrent infections and impaired T-cell responses to stimulation, as well as decreased T-cell subsets, have been reported." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "565788" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Infantile inflammatory bowel disease with neurological involvement" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Infantile inflammatory bowel disease with neurological involvement" ] .
+}
+

@@ -1,0 +1,29 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=1449> a ns1:MedicalCondition ;
+        ns1:alternateName "Ring 7",
+            "Ring chromosome 7" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "C537813" ;
+                ns1:codingSystem "MeSH" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0795818" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "1345" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:1449" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q93.2" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "Ring chromosome 7 syndrome is a rare chromosomal anomaly syndrome, with highly variable phenotype, principally characterized by growth failure, short stature, intellectual disability, dermatological abnormalities (nevus flammeus, dark pigmented nevi, café-au-lait spots), microcephaly and facial dysmorphism (incl. facial asymmetry, small ears, abnormal palpebral fissures, ptosis, epicanthic folds, hyper/hypotelorism). Additional reported features include convulsions, cleft lip and palate, clinodactyly, kyphoscoliosis and genital anomalies (i.e. cryptorchidism, hypospadias, micropenis)." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "1449" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Ring chromosome 7 syndrome" ] .
+}
+

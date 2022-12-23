@@ -1,0 +1,35 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=2678> a ns1:MedicalCondition ;
+        ns1:alternateName "CALs syndrome isolated",
+            "Familial CALMs isolated",
+            "Familial isolated CALSs",
+            "Familial isolated café-au-lait spots",
+            "Multiple isolated café-au-lait spots",
+            "Multiple isolated café-au-lait syndrome",
+            "NF6",
+            "Neurofibromatosis type 6" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "C1861975" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "3967" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "L81.3" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "114030" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:2678" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "Neurofibromatosis type 6 (NF6), also referred as café-au-lait spots syndrome, is a cutaneous disorder characterized by the presence of several café-au-lait (CAL) macules without any other manifestations of neurofibromatosis or any other systemic disorder." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "2678" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Familial isolated café-au-lait macules" ] .
+}
+

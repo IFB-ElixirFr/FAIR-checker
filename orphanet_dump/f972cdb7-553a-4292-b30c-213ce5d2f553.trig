@@ -1,0 +1,34 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=412069> a ns1:MedicalCondition ;
+        ns1:alternateName "Xia-Gibbs syndrome" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "Q87.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "615829" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q87.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "615829" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:412069" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:412069" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare, syndromic intellectual disability characterized by hypotonia, developmetal delay, absent or severly delayed speech development, intellectual disability, obstructive sleep apnea, mild dysmorphic facial features and behavioral abnormalities. Epilepsy, ataxia and nystagmus have also been reported." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "412069" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "AHDC1-related intellectual disability-obstructive sleep apnea-mild dysmorphism syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "AHDC1-related intellectual disability-obstructive sleep apnea-mild dysmorphism syndrome" ] .
+}
+

@@ -1,0 +1,34 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=528105> a ns1:MedicalCondition ;
+        ns1:alternateName "HELIX syndrome" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "617671" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:528105" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "617671" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:528105" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "N25.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "N25.8" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "A rare genetic disease characterized by abnormalities in renal ion transport, ectodermal gland homeostasis, and epidermal integrity, resulting in generalized hypohidrosis, heat intolerance, salt-losing nephropathy, electrolyte imbalance, lacrimal gland dysfunction, ichthyosis, and xerostomia. Development of nephrolithiasis and severe enamel wear have also been described. Laboratory findings include hypermagnesemia, hypokalemia, hypercalcemia, and hypocalciuria." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "528105" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Hypohidrosis-electrolyte imbalance-lacrimal gland dysfunction-ichthyosis-xerostomia syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Hypohidrosis-electrolyte imbalance-lacrimal gland dysfunction-ichthyosis-xerostomia syndrome" ] .
+}
+

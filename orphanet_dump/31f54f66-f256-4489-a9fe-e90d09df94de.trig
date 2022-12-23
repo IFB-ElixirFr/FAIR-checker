@@ -1,0 +1,27 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=171673> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:171673" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:171673" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C1561989" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C1561989" ;
+                ns1:codingSystem "UMLS" ] ;
+        ns1:description "A rare corneal disorder characterized by dysfunction and/or insufficient quantity of corneal limbal stem cells, leading to impaired self-renewal of the corneal epithelium and resulting in epithelial breakdown, corneal conjunctivalization and neovascularization, chronic inflammation, persistent epithelial defects, and scarring. Patients usually present with ocular redness, decreased vision, photophobia, foreign body sensation, tearing, and pain. The condition may be genetic, idiopathic, or acquired (in the context of inflammation, infection, trauma, or ocular surface tumors)." ;
+        ns1:epidemiology "Prevalence : 1-5 / 10 000" ;
+        ns1:identifier "171673" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Limbal stem cell deficiency" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Limbal stem cell deficiency" ] .
+}
+

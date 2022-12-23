@@ -1,0 +1,29 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=228247> a ns1:MedicalCondition ;
+        ns1:alternateName "Acquired Gronblad-Strandberg-Touraine syndrome",
+            "Acquired PXE" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "C1274759" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:228247" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:228247" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C1274759" ;
+                ns1:codingSystem "UMLS" ] ;
+        ns1:description "A rare acquired dermis elastic tissue disorder characterized by clinical and histopathologic evidence of pseudoxanthoma elasticum in the absence of a family history or specific mutation. Patients present with predominantly cutaneous manifestations consisting of yellowish papules which coalesce into large plaques and are most commonly localized on the neck, axillae, groin, and flexural surfaces. Skin biopsy shows accumulation of clumped, calcified elastic fibers in the mid-dermis. Reported underlying factors include previous liver transplantation, exposure to penicillamine, or concomitant beta-thalassemia." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "228247" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Acquired pseudoxanthoma elasticum" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Acquired pseudoxanthoma elasticum" ] .
+}
+

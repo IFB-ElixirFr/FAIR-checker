@@ -1,0 +1,27 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=238688> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "P72.2" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "P72.2" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:238688" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:238688" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "Neonatal iodine exposure is a rare endocrine disease characterized by the appearance of transient hypothyroidism, usually in preterm newborns, following long or short-term topical iodine exposure. Parenteral exposure from iodinated contrast agents may similarly alter thyroid funtion in term neonates." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "238688" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Neonatal iodine exposure" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Neonatal iodine exposure" ] .
+}
+

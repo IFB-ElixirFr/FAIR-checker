@@ -1,0 +1,24 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=228000> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "615518" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "12375" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D72.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:228000" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "Idiopathic CD4 lymphocytopenia is a rare primary immunodeficiency disorder characterized by persistent CD4 T-cell lymphopenia (less than 300 cells/µL on multiple occasions) not associated with any other underlying primary or secondary immune deficiency. Patients typically present opportunistic infections (with cryptococcal, mycobacterial, candidal, varicella zoster virus infections and progressive multifocal leukoencephalopathy being the most prevalent), malignancies (mainly lymphoproliferative disorders), or autoimmune disorders. Some individuals are asymptomatic and incidentally diagnosed." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "228000" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Idiopathic CD4 lymphocytopenia" ] .
+}
+

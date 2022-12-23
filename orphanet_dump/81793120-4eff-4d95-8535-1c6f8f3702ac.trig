@@ -1,0 +1,37 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=300359> a ns1:MedicalCondition ;
+        ns1:alternateName "FACU",
+            "Familial atypical cold urticaria",
+            "Familial cold urticaria with common variable immunodeficiency",
+            "PLAID" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "L50.2" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "614468" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "L50.2" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:300359" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "614468" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:300359" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "PLCG2-associated antibody deficiency and immune dysregulation is a rare, hereditary, immune deficiency with skin involvement characterized by early-onset cold urticaria after generalized exposure to cold air or evaporative cooling and not after contact with cold objects. Additional immunologic abnormalities are often present - antibody deficiency, recurrent infections, autoimmune disease and symptomatic allergic disease." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "300359" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "PLCG2-associated antibody deficiency and immune dysregulation" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "PLCG2-associated antibody deficiency and immune dysregulation" ] .
+}
+

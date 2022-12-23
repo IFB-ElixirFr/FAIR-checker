@@ -1,0 +1,27 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=2039> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "Q27.3" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:2039" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q27.3" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:2039" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "Congenital systemic arteriovenous fistula is a rare, potentially life-threatening, vascular malformation characterized by a direct communication between an artery and a vein, without the interposition of the capillary bed, ocurring in the systemic circulation (mainly the cranium, liver, lungs, extremities, and vessels in or near the thoracic wall). Manifestations are variable depending on size and extent of the fistula, the involved blood vessels and the precise location of the collaterals and may include systolic or continuous murmur over the affected organ, tachycardia, increased stroke volume, cardiomegaly and increased pulmonary vascular markings." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "2039" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Congenital systemic arteriovenous fistula" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Congenital systemic arteriovenous fistula" ] .
+}
+

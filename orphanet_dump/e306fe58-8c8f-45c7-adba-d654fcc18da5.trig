@@ -1,0 +1,36 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=263524> a ns1:MedicalCondition ;
+        ns1:alternateName "ANEC",
+            "Isolated ANE",
+            "Isolated acute necrotizing encephalopathy" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "G31.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:263524" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "614212" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "614212" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:263524" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G31.8" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "A rare neurologic disease characterized by a rapid onset of seizures, an altered state of consciousness, neurologic decline, and variable degrees of hepatic dysfunction following a respiratory or gastrointesitnal infection (e.g. mycoplasma, influenza virus) in a previously healthy child. Brain MRI of patients reveals bilateral, multiple, symmetrical lesions predominantly observed in thalami and brainstem, but also in periventricular white matter and cerebellum in some cases." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "263524" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Acute necrotizing encephalopathy of childhood" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Acute necrotizing encephalopathy of childhood" ] .
+}
+

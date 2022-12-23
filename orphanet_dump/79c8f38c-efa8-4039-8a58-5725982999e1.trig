@@ -1,0 +1,28 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=276280> a ns1:MedicalCondition ;
+        ns1:alternateName "HHML" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:276280" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q87.3" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:276280" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q87.3" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "Hemihyperplasia-multiple lipomatosis syndrome is a rare, genetic overgrowth syndrome characterized by non- progressive, asymmetrical, moderate hemihyperplasia (frequently affecting the limbs) associated with slow growing, painless, multiple, recurrent, subcutaneous lipomatous masses distributed throughout entire body (in particular back, torso, extremities, fingers, axillae). Superficial vascular malformations may also be associated. Increased risk of intra-abdominal embryonal malignancies may be associated." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "276280" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Hemihyperplasia-multiple lipomatosis syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Hemihyperplasia-multiple lipomatosis syndrome" ] .
+}
+

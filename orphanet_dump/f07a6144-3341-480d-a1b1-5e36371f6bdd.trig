@@ -1,0 +1,21 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=280403> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:280403" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:280403" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "Familial omphalocele syndrome with facial dysmorphism is a rare genetic developmental defect during embryogenesis characterized by omphalocele associated with facial dysmorphism including flat face, short, upturned nose, long and wide philtrum and flattened maxillary arch and abnormalities of hands." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "280403" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Familial omphalocele syndrome with facial dysmorphism" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Familial omphalocele syndrome with facial dysmorphism" ] .
+}
+

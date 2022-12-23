@@ -1,0 +1,30 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=508501> a ns1:MedicalCondition ;
+        ns1:alternateName "OFD18",
+            "Oral-facial-digital syndrome type 18",
+            "Orofaciodigital syndrome type 18" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "617927" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "617927" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:508501" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:508501" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare ciliopathy characterized by oral anomalies (multiple oral frenula, missing incisors), facial dysmorphism (such as square face with small forehead, upslanting palpebral fissures, and cleft lip, among other features), digital anomalies (brachydactyly, brachymesophalangy, polydactyly), and short stature. Additional reported manifestations include short femoral neck, bilateral cervical ribs, abnormal vertebral bodies, and gracile long bones." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "508501" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Oral-facial-digital syndrome with short stature and brachymesophalangy" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Oral-facial-digital syndrome with short stature and brachymesophalangy" ] .
+}
+

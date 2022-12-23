@@ -1,0 +1,27 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=199299> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:199299" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:199299" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E23.6" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E23.6" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "Late-onset isolated ACTH deficiency is a rare, acquired, pituitary hormone deficiency characterized by secondary adrenal insufficiency, with normal secretion of anterior pituitary hormones, except for ACTH. Patients present with weakness, fatigue, weight loss, anorexia, vomiting/nausea, hypoglycemia, and abnormally low serum ACTH and cortisol levels. Association with autoimmune disease such as Hashimoto's thyroiditis has been described." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "199299" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Late-onset isolated ACTH deficiency" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Late-onset isolated ACTH deficiency" ] .
+}
+

@@ -1,0 +1,27 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=171684> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "H81.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "H81.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:171684" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:171684" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "Idiopathic bilateral vestibulopathy is a rare otorhinolaryngologic disease characterized by dysfunction of both peripheral labyrinths or of the eighth cranial nerves, which presents with persistent unsteadiness of gait (particularly in darkness, during eye closure or under impaired visual conditions, or when standing/walking on uneven, soft or wobbly ground) and oscillopsia associated with head movements. The disease may be progressive, presenting no episodes of vertigo, or sequential, presenting recurrent episodes of vertigo." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "171684" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Idiopathic bilateral vestibulopathy" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Idiopathic bilateral vestibulopathy" ] .
+}
+

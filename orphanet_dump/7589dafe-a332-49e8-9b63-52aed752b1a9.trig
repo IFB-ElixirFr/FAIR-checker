@@ -1,0 +1,19 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=251332> a ns1:MedicalCondition ;
+        ns1:alternateName "Persistent fever/inflammation of unknown origin" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:251332" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "R65.2" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "A rare systemic disease characterized by febrile illness (body temperature >38.3°C on several occasions) or inflammation (elevated serum C-reactive protein and erythrocyte sedimentation rate) lasting at least three weeks and for which no specific diagnosis is achieved despite extended diagnostics." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "251332" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Unexplained long-lasting fever/inflammatory syndrome" ] .
+}
+

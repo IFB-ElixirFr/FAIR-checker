@@ -1,0 +1,34 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=485350> a ns1:MedicalCondition ;
+        ns1:alternateName "Raynaud-Claes syndrome" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:485350" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "300114" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "F78.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "F78.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:485350" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "300114" ;
+                ns1:codingSystem "OMIM" ] ;
+        ns1:description "A rare X-linked syndromic intellectual disability characterized by intellectual disability of variable degree, behavioral anomalies (including autism, mood disorders, obsessive-compulsive behavior, and hetero- and auto-aggression), and epilepsy. Progressive neurological symptoms like movement disorders and spasticity, as well as subtle dysmorphic features have also been reported. Heterozygous females may be as severely affected as males." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "485350" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "CLCN4-related X-linked intellectual disability syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "CLCN4-related X-linked intellectual disability syndrome" ] .
+}
+

@@ -1,0 +1,33 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=363727> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "D64.4" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "300835" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D64.4" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "300835" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:363727" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:363727" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "X-linked dyserythropoietic anemia with abnormal platelets and neutropenia is a rare, genetic, constitutional dyserythropoietic anemia disorder characterized by moderate to severe anemia without thrombocytopenia, variable degrees of neutropenia, and bone marrow biopsy findings of trilineage dysplasia and hypocellularity of erythroid and granulocytic lineages. Peripheral blood findings include anisocytosis, macrocytosis, poikilocytosis, elliptocytes, and fragmented erythrocytes." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "363727" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "X-linked dyserythropoietic anemia with abnormal platelets and neutropenia" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "X-linked dyserythropoietic anemia with abnormal platelets and neutropenia" ] .
+}
+

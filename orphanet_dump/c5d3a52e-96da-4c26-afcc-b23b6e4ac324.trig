@@ -1,0 +1,29 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=412035> a ns1:MedicalCondition ;
+        ns1:alternateName "Del(13)(q12.3)",
+            "Monosomy 13q12.3" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:412035" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q93.5" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q93.5" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:412035" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "13q12.3 microdeletion syndrome is a rare chromosomal anomaly characterized by moderate intellectual disability, speech delay, postnatal microcephaly, eczema or atopic dermatitis, characteristic facial features (malar flattening, prominent nose, underdeveloped alae nasi, smooth philtrum, and thin vermillion of the upper lip), and reduced sensitivity to pain." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "412035" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "13q12.3 microdeletion syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "13q12.3 microdeletion syndrome" ] .
+}
+

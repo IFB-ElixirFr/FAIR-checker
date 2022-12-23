@@ -1,0 +1,34 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=137605> a ns1:MedicalCondition ;
+        ns1:alternateName "NF1-like syndrome",
+            "Neurofibromatosis 1-like syndrome",
+            "Nonmosaic LGSS",
+            "Nonmosaic Legius syndrome" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "611431" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C548032" ;
+                ns1:codingSystem "MeSH" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:137605" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q85.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10714" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C1969623" ;
+                ns1:codingSystem "UMLS" ] ;
+        ns1:description "Legius syndrome, also known as NF1-like syndrome, is a rare, genetic skin pigmentation disorder characterized by multiple café-au-lait macules with or without axillary or inguinal freckling." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "137605" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Legius syndrome" ] .
+}
+

@@ -1,0 +1,21 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=228299> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:228299" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:228299" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare, acquired, dermis elastic tissue disease characterized by asymptomatic, well-demarcated, symmetric patches and/or plaques of finely wrinkled skin arranged parallel to skin cleavage lines (type I), associated with perifollicular papular protrusions (type II) or with persistent reticular erythema (type III), occurring predominantly on the shoulders, trunk, back, and proximal extremities, associating, on histopathology, a selective loss of elastic tissue in the midreticular dermis. Erythema and/or urticaria may or may not precede wrinkly lesions." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "228299" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Mid-dermal elastolysis" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Mid-dermal elastolysis" ] .
+}
+

@@ -1,0 +1,28 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=94080> a ns1:MedicalCondition ;
+        ns1:alternateName "Non-secreting paraganglioma" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "D44.7" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:94080" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:94080" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D44.7" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "A rare neuroendocrine tumor arising from neural crest-derived paraganglion cells (most often in the para-aortic region at the level of renal hilia, organ of Zuckerkandl, thoracic paraspinal region, bladder, and carotid body) not associated with catecholamine secretion. These tumors are usually clinically silent and symptoms, if present, are nonspecific and depend on the location of the tumor. Association with certain hereditary cancer-predisposing syndromes, such as multiple endocrine neoplasia, neurofibromatosis type 1 or von Hippel lindau syndrome, may be observed." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "94080" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Non-functioning paraganglioma" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Non-functioning paraganglioma" ] .
+}
+

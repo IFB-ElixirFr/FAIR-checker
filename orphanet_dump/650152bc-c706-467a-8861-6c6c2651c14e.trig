@@ -1,0 +1,33 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=99688> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "C0795919" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:99688" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q82.4" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0795919" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:99688" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q82.4" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "Dermotrichic syndrome is a rare, genetic, ectodermal dysplasia syndrome characterized by skin, hair and nail anomalies (i.e. generalized ichthyosis, congenital alopecia universalis, dystrophic, convex nails), associated with hypohidrosis without hyperthermia, intellectual disability, seizures, and skeletal (e.g. proportionate short stature, platyspondyly) and intestinal (e.g. congenital aganglionic megacolon) anomalies. Facial dysmorphism includes frontal bossing, blepharophimosis, large ears, low nasal bridge and small nose. There have been no further descriptions in the literature since 1992." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "99688" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Dermotrichic syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Dermotrichic syndrome" ] .
+}
+

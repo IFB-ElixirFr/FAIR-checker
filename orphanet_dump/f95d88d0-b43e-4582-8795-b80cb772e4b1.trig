@@ -1,0 +1,26 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=576232> a ns1:MedicalCondition ;
+        ns1:alternateName "PAVC with ventricular hypoplasia",
+            "Partial AVSD with ventricular hypoplasia",
+            "Partial atrioventricular canal defect with ventricular hypoplasia",
+            "Partial atrioventricular septal defect with ventricular imbalance",
+            "Unbalanced partial atrioventricular canal" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:576232" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:576232" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "" ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "576232" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Partial atrioventricular septal defect with ventricular hypoplasia" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Partial atrioventricular septal defect with ventricular hypoplasia" ] .
+}
+

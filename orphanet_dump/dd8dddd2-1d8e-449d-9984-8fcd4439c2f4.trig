@@ -1,0 +1,35 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=638> a ns1:MedicalCondition ;
+        ns1:alternateName "NFNS",
+            "Neurofibromatosis type 1-Noonan syndrome" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:638" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D009456" ;
+                ns1:codingSystem "MeSH" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "372" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C2931482" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "601321" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q87.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C537393" ;
+                ns1:codingSystem "MeSH" ] ;
+        ns1:description "Neurofibromatosis-Noonan syndrome (NFNS) is a RASopathy and a variant of neurofibromatosis type 1 (NF1) characterized by the combination of features of NF1, such as café-au-lait spots, iris Lisch nodules, axillary and inguinal freckling, optic nerve glioma and multiple neurofibromas, and Noonan syndrome (NS), such as short stature, typical facial features (hypertelorism, ptosis, downslanting palpebral fissures, low-set posteriorly rotated ears with a thickened helix, and a broad forehead), congenital heart defects and unusual pectus deformity. As these three entities have significant phenotypic overlap, molecular genetic testing is often necessary for a correct diagnosis (such as when café-au-lait spots are present in patients diagnosed with NS)." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "638" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Neurofibromatosis-Noonan syndrome" ] .
+}
+

@@ -1,0 +1,42 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=79293> a ns1:MedicalCondition ;
+        ns1:alternateName "Complete LCAT deficiency",
+            "FLD",
+            "Norum disease" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "E78.6" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "4011" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "4011" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E78.6" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "245900" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:79293" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:79293" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "245900" ;
+                ns1:codingSystem "OMIM" ] ;
+        ns1:description "Familial LCAT (lecithin-cholesterol acyltransferase) deficiency (FLD) is a form of lecithin-cholesterol acyltransferase deficiency (LCAT; see this term) characterized clinically by corneal opacities, hemolytic anemia, and renal failure, and biochemically by severely decreased HDL cholesterol and complete deficiency of the LCAT enzyme." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "79293" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Familial LCAT deficiency" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Familial LCAT deficiency" ] .
+}
+

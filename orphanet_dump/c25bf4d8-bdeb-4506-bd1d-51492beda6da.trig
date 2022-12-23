@@ -1,0 +1,40 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=283> a ns1:MedicalCondition ;
+        ns1:alternateName "Demodicosis" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "B88.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "1802" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "1802" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C3854478" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C3854478" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:283" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:283" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "B88.0" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "Demodicidosis is a rare parasitic cutaneous disease due to <i>Demodex</i> mite infestation characterized by variable degrees of spinulosis, erythema, papules, and pustules, usually accompanied by a burning or pruritic sensation. Face (incl. eyelids) is most frequently affected, but ear canal, scalp, neck, back, chest, nipples, buttocks, penis, and extremity (legs and arms) involvement have also been observed. Dermoscopic examination reveals Demodex tails and follicular openings." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "283" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Demodicidosis" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Demodicidosis" ] .
+}
+

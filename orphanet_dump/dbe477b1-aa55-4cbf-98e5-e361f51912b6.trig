@@ -1,0 +1,27 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=103910> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:103910" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:103910" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "P78.3" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "P78.3" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "A rare, severe, genetic, intestinal disease characterized by congenital absence of heparan sulfate from small intestine epithelium manifesting with secretory diarrhea and massive enteric protein loss. Patients present intolerance to enteral feeds during the first few weeks to months of life. Apart from absence of heparan sulfate from the basolateral surface of small intestine enterocytes, small bowel biopsy is otherwise normal." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "103910" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Congenital enterocyte heparan sulfate deficiency" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Congenital enterocyte heparan sulfate deficiency" ] .
+}
+

@@ -1,0 +1,33 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=2216> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:2216" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:2216" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q86.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "2856" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q86.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "2856" ;
+                ns1:codingSystem "GARD" ] ;
+        ns1:description "A rare maternal disease-related embryofetopathy characterized by variable developmental anomalies of the fetus due to teratogenic effect of elevated maternal body temperature (resulting from febrile illness or hot environment exposure). Reported developmental anomalies include neural tube defects (spina bifida, ecephalocele, anencephaly), cardiac defects (transposition of great vessels), urogenital defects (hypospadias), abdominal wall defects, cleft lip/palate, eye defects (cataract, coloboma) or various minor anomalies (e.g., bifid uvula, preauricular pit or tag). Consensus regarding cause-effect relationship has not been reached." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "2216" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Maternal hyperthermia-induced birth defects" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Maternal hyperthermia-induced birth defects" ] .
+}
+

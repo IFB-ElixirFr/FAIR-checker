@@ -1,0 +1,43 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=308552> a ns1:MedicalCondition ;
+        ns1:alternateName "Alpha-1,4-glucosidase acid deficiency, infantile onset",
+            "GSD due to acid maltase deficiency, infantile onset",
+            "GSD type 2, infantile onset",
+            "GSD type II, infantile onset",
+            "Glycogen storage disease type 2, infantile onset",
+            "Glycogen storage disease type II, infantile onset",
+            "Glycogenosis due to acid maltase deficiency, infantile onset",
+            "Glycogenosis type 2, infantile onset",
+            "Glycogenosis type II, infantile onset",
+            "Pompe disease, infantile onset" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:308552" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E74.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E74.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:308552" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C3888924" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C3888924" ;
+                ns1:codingSystem "UMLS" ] ;
+        ns1:description "Glycogen storage disease due to acid maltase deficiency, infantile onset is the most severe form of glycogen storage disease due to acid maltase deficiency, characterized by cardiomegaly with respiratory distress, muscle weakness and feeding difficulties. It is often fatal." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "308552" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Glycogen storage disease due to acid maltase deficiency, infantile onset" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Glycogen storage disease due to acid maltase deficiency, infantile onset" ] .
+}
+

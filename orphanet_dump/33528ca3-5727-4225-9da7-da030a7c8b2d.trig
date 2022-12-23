@@ -1,0 +1,33 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=141152> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "612776" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:141152" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q38.3" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "612776" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:141152" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q38.3" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "A rare head and neck malformation characterized by congenital partial (hypoglossia) or total (aglossia) absence of the tongue. Patients present feeding and respiratory difficulties, as well as delayed speech development and slurred speech. Taste perception is not severely compromised. Associated features include a characteristic facies due to mandibular transverse arch deficiency, oligodontia, and malocclusion, among others." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "141152" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Isolated congenital hypoglossia/aglossia" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Isolated congenital hypoglossia/aglossia" ] .
+}
+

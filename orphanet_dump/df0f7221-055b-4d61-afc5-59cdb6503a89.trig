@@ -1,0 +1,28 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=420259> a ns1:MedicalCondition ;
+        ns1:alternateName "Secondary PAP" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:420259" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "J84.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "J84.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:420259" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare, acquired, interstitial lung disease, characterized by alveolar surfactant accumulation, cough, progressive dyspnea and respiratory insufficiency. The disease may be secondary to hematological disorder, toxic inhalation, and infection or may occur within the setting of immunosuppression after transplantation." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "420259" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Secondary pulmonary alveolar proteinosis" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Secondary pulmonary alveolar proteinosis" ] .
+}
+

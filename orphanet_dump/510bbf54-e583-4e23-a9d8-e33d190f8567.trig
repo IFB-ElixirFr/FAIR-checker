@@ -1,0 +1,32 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=168454> a ns1:MedicalCondition ;
+        ns1:alternateName "SEMD, Geneviève type",
+            "SEMDG" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "Q77.7" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "610442" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10057" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C1864872" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C535785" ;
+                ns1:codingSystem "MeSH" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:168454" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "Spondyloepimetaphyseal dysplasia, Geneviève type is a rare primary bone dysplasia characterized by severe developmental delay and skeletal dysplasia (including short stature, premature carpal ossification, platyspondyly, longitudinal metaphyseal striations, and small epiphyses), as well as moderate to severe intellectual disability and facial dysmorphism, including prominent forehead, mild synophrys, depressed nasal bridge, prominent bulbous nasal tip and full lips." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "168454" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Spondyloepimetaphyseal dysplasia, Geneviève type" ] .
+}
+

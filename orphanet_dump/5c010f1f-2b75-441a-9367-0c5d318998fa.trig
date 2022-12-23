@@ -1,0 +1,36 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=293939> a ns1:MedicalCondition ;
+        ns1:alternateName "Distal dup(X)q(28)",
+            "Distal trisomy Xq28",
+            "Int22h1/Int22h2 mediated-Xq28 microduplication syndrome" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "Q99.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "300815" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "300815" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q99.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:293939" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:293939" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare syndromic X-linked intellectual disability characterized by cognitive impairment, behavioral and psychiatric problems, obesity, recurrent infections, atopic diseases, and distinctive facial features in males. Females are clinically asymptomatic or mildly affected, presenting mild learning difficulties and facial dysmorphism." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "293939" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Distal Xq28 microduplication syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Distal Xq28 microduplication syndrome" ] .
+}
+

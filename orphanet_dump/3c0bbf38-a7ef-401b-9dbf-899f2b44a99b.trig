@@ -1,0 +1,28 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=90395> a ns1:MedicalCondition ;
+        ns1:alternateName "Cutaneous mucinosis of infancy" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "L98.5" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:90395" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:90395" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "L98.5" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "Papular mucinosis of infancy is a rare pediatric non progressive form of localized lichen myxedematosus (see this term) characterized by the development of firm opalescent mucinous papules on the upper arms and the trunk." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "90395" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Papular mucinosis of infancy" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Papular mucinosis of infancy" ] .
+}
+

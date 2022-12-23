@@ -1,0 +1,28 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=100002> a ns1:MedicalCondition ;
+        ns1:alternateName "Soft tissue perineurioma" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "D36.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:100002" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D36.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:100002" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "Extraneural perineurioma is a rare tumor of cranial and spinal nerves arising from peripheral nerve sheet and composed exclusively or predominantly of cells showing perineurial differentiation. It presents as a well-circumscribed, rarely encapsulated mass, not associated with a recognizable nerve, most commonly arising in the dermis and subcutis of the extremities or trunk, or, rarely, in deep soft tissue or skin (e.g., in the stomach, kidney, pancreas, maxillary sinus, mandible, bronchial tree and the face). The clinical presentation depends on the localization." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "100002" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Extraneural perineurioma" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Extraneural perineurioma" ] .
+}
+

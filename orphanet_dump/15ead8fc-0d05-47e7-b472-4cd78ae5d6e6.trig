@@ -1,0 +1,34 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=93173> a ns1:MedicalCondition ;
+        ns1:alternateName "Kidney dysplasia, bilateral" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "Q61.4" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:93173" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q61.4" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0431698" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:93173" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0431698" ;
+                ns1:codingSystem "UMLS" ] ;
+        ns1:description "A form of renal dysplasia (RD), a renal tract malformation, characterized by abnormal or incomplete development of both kidneys. Bilateral RD can be segmental, and of variable severity, with renal aplasia corresponding to extreme RD. Patients may be asymptomatic if the residual kidney function is sufficient. In cases of severe bilateral RD, the risk of renal failure in childhood is high." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "93173" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Renal dysplasia, bilateral" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Renal dysplasia, bilateral" ] .
+}
+

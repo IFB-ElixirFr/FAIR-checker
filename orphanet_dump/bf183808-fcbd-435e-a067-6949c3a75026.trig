@@ -1,0 +1,43 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=268145> a ns1:MedicalCondition ;
+        ns1:alternateName "Classic BCKD deficiency",
+            "Classic MSUD",
+            "Classic branched-chain alpha-ketoacid dehydrogenase deficiency",
+            "Classic branched-chain ketoaciduria" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "E71.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0268568" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:268145" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "248600" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E71.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0268568" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:268145" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "248600" ;
+                ns1:codingSystem "OMIM" ] ;
+        ns1:description "Classic maple syrup urine disease (classic MSUD) is the most severe and probably common form of MSUD (see this term) characterized by a maple syrup odor in the cerumen at birth, poor feeding, lethargy and focal dystonia, followed by progressive encephalopathy and central respiratory failure if untreated." ;
+        ns1:epidemiology "Prevalence : 1-9 / 1 000 000" ;
+        ns1:identifier "268145" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Classic maple syrup urine disease" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Classic maple syrup urine disease" ] .
+}
+

@@ -1,0 +1,39 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=200421> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "C0398777" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "609814" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0398777" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "609814" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:200421" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:200421" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D84.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D84.1" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "Immunodeficiency with factor H anomaly is a rare, genetic, primary immunodeficiency disease characterized by increased susceptibility to recurrent, usually severe, infections (particularly by <i> Neisseria meningitidis</i>, <i>Escherichia coli</i>, and <i>Haemophilus influenzae</i>), renal impairment and/or autoimmune diseases, typically manifesting with otitis media, bronchitis, meningitis, and/or septicemia, as well as hematuria/proteinuria, asthma, nephrotic syndrome, hemolytic uremic syndrome, glomerulonephritis, and/or systemic lupus erythematosus. Laboratory serum analysis reveals, in addition to factor H deficiency, decreased complement factor B, properdin, complement C3 and terminal complement components." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "200421" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Immunodeficiency with factor H anomaly" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Immunodeficiency with factor H anomaly" ] .
+}
+

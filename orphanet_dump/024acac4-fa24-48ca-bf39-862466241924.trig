@@ -1,0 +1,46 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=183660> a ns1:MedicalCondition ;
+        ns1:alternateName "SCID" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "D016511" ;
+                ns1:codingSystem "MeSH" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D016511" ;
+                ns1:codingSystem "MeSH" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0085110" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:183660" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "7628" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10069566" ;
+                ns1:codingSystem "MedDRA" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:183660" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "7628" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10069566" ;
+                ns1:codingSystem "MedDRA" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0085110" ;
+                ns1:codingSystem "UMLS" ] ;
+        ns1:description "Severe combined immunodeficiency (SCID) comprises a group of rare monogenic primary immunodeficiency disorders characterized by a lack of functional peripheral T lymphocytes resulting in early-onset severe respiratory infections and failure to thrive. They are classified according to immunological phenotype into SCID with absence of T cells but presence of B cells (T-B+ SCID) or SCID with absence of both (T-B- SCID) (see these terms). Both of these groups include several forms, with or without natural killer (NK) cells." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "183660" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Severe combined immunodeficiency" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Severe combined immunodeficiency" ] .
+}
+

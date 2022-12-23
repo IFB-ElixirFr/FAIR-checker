@@ -1,0 +1,22 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=480524> a ns1:MedicalCondition ;
+        ns1:alternateName "Idiopathic peliosis hepatitis" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:480524" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:480524" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare vascular liver disease characterized by widespread or focal cystic dilatation of sinusoidal blood-filled spaces of the liver without any known cause. Lesions can vary in diameter between few millimeters and several centimeters. The condition may remain asymptomatic or manifest with complications including rupture and intraperitoneal hemorrhage, hepatomegaly, portal hypertension, cholestasis, and liver failure." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "480524" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Idiopathic peliosis hepatis" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Idiopathic peliosis hepatis" ] .
+}
+

@@ -1,0 +1,33 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=391651> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "D18.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D18.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:391651" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:391651" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0017653" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0017653" ;
+                ns1:codingSystem "UMLS" ] ;
+        ns1:description "A rare soft tissue tumor characterized by a nodular lesion composed of cells closely resembling the modified smooth muscle cells of the normal glomus body. The tumors most often arise in the skin or soft tissues of the distal extremities, in particular the subungual region, but have been reported in almost any location. They occur as typical glomus tumors, glomangiomatosis (multiple nodules of solid glomus tumor investing the vascular walls), symplastic (showing striking nuclear atypia without mitotic activity or necrosis) or malignant glomus tumors, and glomus tumors of uncertain malignant potential." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "391651" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Glomus tumor" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Glomus tumor" ] .
+}
+

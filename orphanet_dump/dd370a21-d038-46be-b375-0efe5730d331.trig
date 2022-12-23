@@ -1,0 +1,28 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=468635> a ns1:MedicalCondition ;
+        ns1:alternateName "CMUSE" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "C4302263" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:468635" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C4302263" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:468635" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare intestinal disease characterized by chronic or relapsing subileus or ileus resulting from multiple unexplained fibrous structures and multiple shallow (i. e. limited to the mucosa or submucosa) ulcerations of the small intestine (mainly the ileum), in the absence of signs of a systemic inflammatory reaction. Patients may present with chronic iron-deficiency anemia due to chronic intestinal blood loss, chronic recurrent abdominal pain, fatigue, edema, or growth retardation. Extraintestinal manifestations such as Sicca syndrome, polyarthralgia, or Raynaud's phenomenon may also be observed." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "468635" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Cryptogenic multifocal ulcerous stenosing enteritis" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Cryptogenic multifocal ulcerous stenosing enteritis" ] .
+}
+

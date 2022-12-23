@@ -1,0 +1,40 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=357107> a ns1:MedicalCondition ;
+        ns1:alternateName "ATOS",
+            "Arterial TOS",
+            "Arterial cervical rib syndrome",
+            "Arterial costoclavicular syndrome",
+            "Arterial hyperabduction syndrome",
+            "Arterial scalenus anticus syndrome",
+            "Arterial thoracic outlet compression syndrome" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "G54.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:357107" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C1956395" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C1956395" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G54.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:357107" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A form of thoracic outlet syndrome that presents as unilateral upper extremity ischemia." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "357107" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Arterial thoracic outlet syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Arterial thoracic outlet syndrome" ] .
+}
+

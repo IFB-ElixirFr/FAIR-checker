@@ -1,0 +1,30 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=363549> a ns1:MedicalCondition ;
+        ns1:alternateName "AESD",
+            "AIEF",
+            "Acute infantile encephalopathy predominantly affecting the frontal lobes" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "G40.4" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:363549" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G40.4" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:363549" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare childhood-onset epilepsy syndrome associated with infection and characterized by a biphasic clinical course. The initial symptom is a prolonged febrile seizure on day 1 (the first phase). Afterwards, patients have variable levels of consciousness from normal to coma. Irrespective of the consciousness levels, magnetic resonance imaging (MRI) during the first 2 days shows no abnormality. During the second phase (usually days 4 - 6), patients show a cluster of seizures and deterioration of consciousness. Diffusion-weighted images (DWI) on MRI reveal the brain lesions with reduced diffusion predominantly in the subcortical white matter. After the second acute phase, consciousness levels improve with the emerging focal neurological signs. Neurological outcomes of AESD vary from normal to mild or severe sequelae including cerebral atrophy, mental retardation, paralysis and epilepsy." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "363549" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Acute encephalopathy with biphasic seizures and late reduced diffusion" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Acute encephalopathy with biphasic seizures and late reduced diffusion" ] .
+}
+

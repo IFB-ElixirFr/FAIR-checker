@@ -1,0 +1,42 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=3384> a ns1:MedicalCondition ;
+        ns1:alternateName "Common aorticopulmonary trunk",
+            "Common arterial trunk",
+            "TAC" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "Q20.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "217095" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:3384" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0041207" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:3384" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0041207" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "217095" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q20.0" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "Truncus arteriosus (TA) is a rare congenital cardiovascular anomaly characterized by a single arterial trunk arising from the heart by means of a single semilunar valve (<I>i.e.</I> truncal valve). Pulmonary arteries originate from the common arterial trunk distal to the coronary arteries and proximal to the first brachiocephalic branch of the aortic arch. TA typically overrides a large outlet ventricular septal defect (VSD). The intracardiac anatomy usually displays situs solitus and atrioventricular (AV) concordance." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "3384" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Truncus arteriosus" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Truncus arteriosus" ] .
+}
+

@@ -1,0 +1,42 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=247868> a ns1:MedicalCondition ;
+        ns1:alternateName "FCAS2",
+            "Familial cold autoinflammatory syndrome type 2",
+            "NAPS12" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "611762" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C2673198" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E85.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C2673198" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "611762" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:247868" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E85.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:247868" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "NLRP12-associated hereditary periodic fever syndrome is a rare autoinflammatory syndrome characterized by episodic and recurrent periods of fever combined with various systemic manifestations such as myalgia, arthralgia, joint swelling, urticaria, headache and skin rash. Common trigger of these episodes is cold." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "247868" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "NLRP12-associated hereditary periodic fever syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "NLRP12-associated hereditary periodic fever syndrome" ] .
+}
+

@@ -1,0 +1,34 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=320370> a ns1:MedicalCondition ;
+        ns1:alternateName "SPG43" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:320370" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "615043" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "615043" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G11.4" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:320370" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G11.4" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "Autosomal recessive spastic paraplegia type 43 is a rare, complex hereditary spastic paraplegia characterized by a childhood to adolescent onset of progressive lower limb spasticity, associated with mild to severe gait disturbances, extensor plantar responses, muscle weakness and severe distal atrophy, frequently with upper limb involvement. Additional features may include joint contractures, distal sensory loss and brisk or absent deep tendon reflexes. Other signs, such as depression, memory loss, optic atrophy (with vision loss) and brain iron deposition (revealed by brain imagery), have also been reported." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "320370" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Autosomal recessive spastic paraplegia type 43" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Autosomal recessive spastic paraplegia type 43" ] .
+}
+

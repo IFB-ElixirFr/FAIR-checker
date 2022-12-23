@@ -1,0 +1,19 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=449432> a ns1:MedicalCondition ;
+        ns1:alternateName "Küttner tumor" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:449432" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "K11.2" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "A rare IgG4-related disease characterized by a benign tumor-like chronic inflammatory lesion of the submandibular gland. Histologic features are periductal fibrosis, acinar atrophy, obliterative phlebitis, dense lymphoplasmacytic infiltrates rich in IgG4-positive plasma cells, and formation of lymphoid follicles. Lobular architecture is preserved. Patients most commonly present with unilateral, painless swelling of the submandibular gland. Serologic analysis reveals elevated IgG4 levels." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "449432" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "IgG4-related submandibular gland disease" ] .
+}
+

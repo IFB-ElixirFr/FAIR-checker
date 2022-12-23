@@ -1,0 +1,43 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=896> a ns1:MedicalCondition ;
+        ns1:alternateName "Klein-Waardenburg syndrome",
+            "WS3",
+            "Waardenburg syndrome type III",
+            "Waardenburg syndrome with limb anomalies" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:896" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E70.3" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E70.3" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "148820" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "148820" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "5523" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "5523" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:896" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A very rare subtype of Waardenburg syndrome (WS) that is characterized by limb anomalies in association with congenital hearing loss, minor defects in structures arising from neural crest, resulting in pigmentation anomalies of eyes, hair, and skin." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "896" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Waardenburg syndrome type 3" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Waardenburg syndrome type 3" ] .
+}
+

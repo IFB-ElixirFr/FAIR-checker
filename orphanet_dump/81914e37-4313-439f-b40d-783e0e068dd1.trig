@@ -1,0 +1,40 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=231111> a ns1:MedicalCondition ;
+        ns1:alternateName "DILE" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "10013706" ;
+                ns1:codingSystem "MedDRA" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "M32.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10013706" ;
+                ns1:codingSystem "MedDRA" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:231111" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0263591" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "M32.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:231111" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0263591" ;
+                ns1:codingSystem "UMLS" ] ;
+        ns1:description "A rare, systemic disease with skin involvement characterized by the onset of idiopathic lupus erythematosus-like signs and symptoms resulting from continuous drug intake (>1 month), which resolve when treatment is discontinued, in persons with no history of autoimmune disease. Manifestations are variable and may be systemic (e.g. arthralgia, myalgia, fever, fatigue, serositis, pleuritis, pericarditis), subacute cutaneous (incl. photosensitive, non-scarring, annular, polycyclic or papulosquamous lesions, malar erythema, vasculitis, bullous lesions, erythema multiforme-like changes), and/or chronic cutaneous (typically discoid lesions in sun-exposed areas). Procainamide and hydralazine are the drugs most frequently implicated." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "231111" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Drug-induced lupus erythematosus" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Drug-induced lupus erythematosus" ] .
+}
+

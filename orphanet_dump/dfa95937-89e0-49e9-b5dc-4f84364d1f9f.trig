@@ -1,0 +1,51 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=26106> a ns1:MedicalCondition ;
+        ns1:alternateName "FDGC",
+            "Familial diffuse cancer of stomach",
+            "Familial diffuse gastric cancer",
+            "HDGC",
+            "Hereditary diffuse cancer of stomach",
+            "Hereditary diffuse gastric adenocarcinoma" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "10900" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:26106" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C1708349" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:26106" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "137215" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C16.9" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C1708349" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10900" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "137215" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C16.9" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "Hereditary diffuse gastric cancer is a rare epithelial tumor of the stomach, characterized by the development of diffuse (signet ring cell) gastric cancer at a young age, associated with germline heterozygous mutations of <i>CDH1</i>, <i>MAP3K6</i> and <i>CTNNA1</i> genes. In early stages it presents with non-specific and vague symptoms, in advanced stages it may cause nausea and vomiting, dysphagia, loss of appetite, abdominal mass or weight loss. Women have an increased risk of lobular breast cancer as well." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "26106" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Hereditary diffuse gastric cancer" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Hereditary diffuse gastric cancer" ] .
+}
+

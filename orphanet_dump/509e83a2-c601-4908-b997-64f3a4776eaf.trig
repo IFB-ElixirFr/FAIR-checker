@@ -1,0 +1,29 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=480512> a ns1:MedicalCondition ;
+        ns1:alternateName "IAD",
+            "Idiopathic adult ductopenia" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "K83.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:480512" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "K83.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:480512" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare biliary tract disease characterized by loss of interlobular bile ducts resulting in chronic cholestasis, without any known cause. Loss of less than 50% of interlobular bile ducts is associated with a mild disease course, while loss of the majority of ducts results in a severe form, potentially leading to cirrhosis and liver failure. Patients typically present as young or middle-aged adults with episodic jaundice, pruritus, and elevated liver enzymes." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "480512" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Idiopathic ductopenia" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Idiopathic ductopenia" ] .
+}
+

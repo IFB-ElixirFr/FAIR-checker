@@ -1,0 +1,54 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=180275> a ns1:MedicalCondition ;
+        ns1:alternateName "Mammary Paget disease",
+            "Paget disease of the breast",
+            "Paget's disease of the nipple" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "7303" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:180275" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10033367" ;
+                ns1:codingSystem "MedDRA" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "7303" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D010144" ;
+                ns1:codingSystem "MeSH" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:180275" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D010144" ;
+                ns1:codingSystem "MeSH" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10033367" ;
+                ns1:codingSystem "MedDRA" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C1704323" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C1704323" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C50.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C50.0" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "Paget disease of the nipple describes a rare presentation of breast cancer, seen most frequently in women aged 50-60, manifesting with nipple drainage and itching, erythema, crusty and excoriated nipple, thickened plaques, and hyperpigmentation (less frequently). It is due to tumor cells invading the nipple-areola complex and represents 1-3% of all new breast cancer diagnoses." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "180275" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Paget disease of the nipple" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Paget disease of the nipple" ] .
+}
+

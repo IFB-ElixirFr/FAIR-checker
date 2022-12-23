@@ -1,0 +1,28 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=99647> a ns1:MedicalCondition ;
+        ns1:alternateName "Generalized enchondromatosis with platyspondyly" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "Q78.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:99647" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q78.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:99647" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "Cheirospondyloenchondromatosis is an extremely rare type of enchondromatosis of very early onset (from neonatal period to infancy) characterized by symmetrical multiple enchondromas with metacarpal and phalangeal involvement resulting in short hands and feet, platyspondyly, mild to moderate short stature and intellectual disability." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "99647" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Cheirospondyloenchondromatosis" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Cheirospondyloenchondromatosis" ] .
+}
+

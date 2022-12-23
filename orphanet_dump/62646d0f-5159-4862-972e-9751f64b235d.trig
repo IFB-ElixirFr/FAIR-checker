@@ -1,0 +1,34 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=231736> a ns1:MedicalCondition ;
+        ns1:alternateName "MPPC syndrome" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "10938" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:231736" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10938" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q15.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q15.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:231736" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "Microcornea-posterior megalolenticonus-persistent fetal vasculature-coloboma syndrome is a rare developmental defect of the eye characterized by bilateral microcornea, posterior megalolenticonus, persistent fetal vasculature (extending from the posterior pole of the lens to the optic disc) and posterior chorioretinal coloboma." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "231736" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Microcornea-posterior megalolenticonus-persistent fetal vasculature-coloboma syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Microcornea-posterior megalolenticonus-persistent fetal vasculature-coloboma syndrome" ] .
+}
+

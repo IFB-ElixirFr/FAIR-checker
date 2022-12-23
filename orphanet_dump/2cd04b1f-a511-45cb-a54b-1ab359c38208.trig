@@ -1,0 +1,28 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=424943> a ns1:MedicalCondition ;
+        ns1:alternateName "Adenocarcinoma of the liver and IBT" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "C22.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:424943" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C22.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:424943" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A very rare hepatic and biliary tract tumor characterized by a growth pattern ressembling that found in hepatocellular carcinomas and cholangiocarcinomas but presenting atypical histological and immunohistochemical features (such as trabecular, organoid, microcystic and/or blastemal-like architecture and inhibin A, cytokeratin 7 and/or cytokeratin 19 positivity) that do not allow a formal diagnosis of the more common aforementioned liver cancers. Patients may present abdominal distension and pain, a palpable abdominal mass and elevated liver enzymes." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "424943" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Adenocarcinoma of the liver and intrahepatic biliary tract" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Adenocarcinoma of the liver and intrahepatic biliary tract" ] .
+}
+

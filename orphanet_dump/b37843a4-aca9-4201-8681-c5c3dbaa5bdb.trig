@@ -1,0 +1,27 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=165958> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:165958" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "B87.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:165958" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "B87.8" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "Cavitary myiasis is a rare parasitic disease characterized by the infestation of natural body cavities (e.g. aural, nasal, oral, urogenital myiasis) and internal organs (e.g. cerebral myiasis, ophthalmomyiasis, intestinal and tracheopulmonary myiasis) with dipteran larvae. Clinical presentation is variable depending on the affected site(s) and degree of infestation and include foreign-body sensation (with or without movement sensation), hemorrhage, pain, edema, sensory loss, malodor, and pruritus, among others. Neurological features (e.g. motor deficits, seizures, reduced mental status, extrapyramidal signs) have been reported in cerebral myiasis." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "165958" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Cavitary myiasis" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Cavitary myiasis" ] .
+}
+

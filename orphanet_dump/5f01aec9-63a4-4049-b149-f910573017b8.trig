@@ -1,0 +1,24 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=79172> a ns1:MedicalCondition ;
+        ns1:alternateName "CCDS",
+            "CDS",
+            "Cerebral creatine deficiency syndrome" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:79172" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:79172" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "Creatine deficiency syndrome (CDS) comprises a group of inborn errors of creatine metabolism, characterized by a global developmental delay, intellectual disability and associated neurological (seizures, movement disorders, myopathy) and behavioral manifestions. CDS includes two creatine biosynthesis disorders; guanidinoacetate methyltransferase deficiency and L- Arginine: glycine amidinotransferase deficiency, as well as X-linked creatine transporter deficiency." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "79172" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Creatine deficiency syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Creatine deficiency syndrome" ] .
+}
+

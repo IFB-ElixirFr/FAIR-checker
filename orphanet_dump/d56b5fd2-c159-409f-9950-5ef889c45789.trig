@@ -1,0 +1,34 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=96055> a ns1:MedicalCondition ;
+        ns1:alternateName "Isochromosome 21" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "12480" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q99.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:96055" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "12480" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:96055" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q99.8" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "Tetrasomy 21 is an extremely rare autosomal anomaly resulting from the presence of 4 copies of chromosome 21, characterized by features of trisomy 21 including developmental delay/intellectual disability, muscular hypotonia, short neck with redundant skin, brachycephaly, microcephaly, flat face, epicanthus, upslanted palpebral fissures, small ears, protruding tongue, single transverse palmar crease, brachydactyly, hypoplastic iliac wings, together with additional features such as prematurity, intrauterine growth retardation, high and broad forehead, hypertelorism. Haematological malignancies are also associated and may occur earlier than in trisomy 21." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "96055" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Tetrasomy 21" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Tetrasomy 21" ] .
+}
+

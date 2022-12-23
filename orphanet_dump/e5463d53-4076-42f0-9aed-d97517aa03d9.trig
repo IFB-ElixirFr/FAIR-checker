@@ -1,0 +1,27 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=314432> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:314432" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:314432" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "K43.6" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "K43.6" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "Spigelian hernia-cryptorchidism syndrome is a rare developmental defect during embryogenesis characterized by a ventral, uni- or bilateral protrusion of extraperitoneal fat, peritoneum and/or intra-abdominal organs through a defect in the spigelian fascia (Spigelian hernia), associated with ipsi- or bilateral undescended testis (usually found within or just beneath the hernial sac) in male neonates. The gubernaculum and/or inguinal canal may be absent." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "314432" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Spigelian hernia-cryptorchidism syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Spigelian hernia-cryptorchidism syndrome" ] .
+}
+

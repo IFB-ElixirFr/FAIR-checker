@@ -1,0 +1,34 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=209370> a ns1:MedicalCondition ;
+        ns1:alternateName "Severe congenital encephalopathy due to MECP2 mutation" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "300673" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q02" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:209370" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q02" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "300673" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:209370" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "Severe neonatal-onset encephalopathy with microcephaly is a rare monogenic disease with epilepsy characterized by neonatal-onset encephalopathy, microcephaly, severe developmental delay or absent development, breathing abnormalities (including central hypoventilation and/or respiratory insufficiency), intractable seizures, abnormal muscle tone and involuntary movements. Early death is usual." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "209370" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Severe neonatal-onset encephalopathy with microcephaly" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Severe neonatal-onset encephalopathy with microcephaly" ] .
+}
+

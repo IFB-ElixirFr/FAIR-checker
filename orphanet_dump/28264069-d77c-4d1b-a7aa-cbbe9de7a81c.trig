@@ -1,0 +1,27 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=512260> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:512260" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G11.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G11.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:512260" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare hereditary ataxia characterized by delayed motor milestones in early infancy, hypotonia, ataxic gait, intention tremor, nystagmus, dysarthric speech, and variable learning difficulties. Neuroimaging shows a mixed picture of cerebellar hypoplasia and degeneration, with an almost absent inferior lobule and thinning of the folia of the vermis. In addition, cisterna magna and fourth ventricle are enlarged with relative sparing of the brain stem volume." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "512260" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Congenital cerebellar ataxia due to RNU12 mutation" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Congenital cerebellar ataxia due to RNU12 mutation" ] .
+}
+

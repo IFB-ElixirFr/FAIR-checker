@@ -1,0 +1,39 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=64754> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "C0265987" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:64754" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "617025" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q82.5" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0265987" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q82.5" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:64754" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "617025" ;
+                ns1:codingSystem "OMIM" ] ;
+        ns1:description "A rare, syndromic nevus characterized by the association of typically unilateral, closely arranged, linear, slightly elevated, multiple, nevus comedonicus lesions located usually on the face, neck, trunk or limbs (with or without a central, dark, firm, hyperkeratotic plug and secondary acneiform lesions) with extracutaneous ocular, skeletal, and/or central nervous system abnormalities, such as ipsilateral cataract, corneal erosion, poly-/syndactyly, absent fifth finger, scoliosis, vertebral defects, corpus callosum agenesis, seizures, interhemispheric cyst, intellectual deficiency, and/or developmental delay." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "64754" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Nevus comedonicus syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Nevus comedonicus syndrome" ] .
+}
+

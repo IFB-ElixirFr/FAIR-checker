@@ -1,0 +1,27 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=519392> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:519392" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "H21.2" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "H21.2" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:519392" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare disorder of the anterior segment of the eye characterized by spontaneous separation of the anterior layer of the iris stroma from the posterior stroma and muscle layers. The anterior layer then splits into strands, and the free ends float freely in the anterior chamber. The condition usually affects patients in the seventh decade of life and is often associated with glaucoma. It may begin on one side but is typically a bilateral disease. The inferior part of the iris is most commonly involved." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "519392" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Isolated iridoschisis" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Isolated iridoschisis" ] .
+}
+

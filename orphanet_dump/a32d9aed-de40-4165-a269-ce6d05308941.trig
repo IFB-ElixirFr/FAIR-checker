@@ -1,0 +1,28 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=199310> a ns1:MedicalCondition ;
+        ns1:alternateName "46,XX/46,XY chimerism" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:199310" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:199310" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q99.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q99.0" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "A rare, sex chromosome disorder of sex development characterized by the two different haploid sets of maternal and paternal chromosomes and variable phenotype - from normal male or female genitalia, to different degrees of ambiguous genitalia, and often infertility. Also, in the cases of monochorionic dizygotic twins, it can be confined to blood of both twins." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "199310" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Tetragametic chimerism" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Tetragametic chimerism" ] .
+}
+

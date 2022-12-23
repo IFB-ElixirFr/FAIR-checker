@@ -1,0 +1,27 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=46484> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "C0028945" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:46484" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:46484" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0028945" ;
+                ns1:codingSystem "UMLS" ] ;
+        ns1:description "Oligodendrogliomas are cerebral tumors that are differentiated from other gliomas on the basis of their unique genetic characteristics and better response to chemotherapy. These tumors are classified according to their grade (low grade oligodendrogliomas: grade II of the WHO classification and anaplastic oligodendrogliomas: grade III of the WHO classification) and according to their pure or mixed histology (oligoastrocytomas)." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "46484" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Oligodendroglial tumor" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Oligodendroglial tumor" ] .
+}
+

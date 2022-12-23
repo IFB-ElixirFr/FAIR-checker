@@ -1,0 +1,21 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=319589> a ns1:MedicalCondition ;
+        ns1:alternateName "Autosomal dominant MSMD due to partial IFNgammaR2 deficiency",
+            "Autosomal dominant MSMD due to partial interferon gamma receptor 2 deficiency",
+            "Autosomal dominant mendelian susceptibility to mycobacterial diseases due to partial interferon gamma receptor 2 deficiency" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "D84.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:319589" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare, genetic variant of mendelian susceptibility to mycobacterial diseases (MSMD) characterized by a partial deficiency in IFN-gammaR2, leading to impaired response to IFN-gamma and, consequently, to recurrent, moderately severe infections with bacillus Calmette-Guérin (BCG) and other environmental mycobacteria (EM)." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "319589" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Autosomal dominant mendelian susceptibility to mycobacterial diseases due to partial IFNgammaR2 deficiency" ] .
+}
+

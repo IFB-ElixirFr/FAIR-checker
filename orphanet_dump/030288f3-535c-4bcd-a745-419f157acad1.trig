@@ -1,0 +1,34 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=306686> a ns1:MedicalCondition ;
+        ns1:alternateName "Delayed encephalopathy due to CO poisoning" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:306686" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0393565" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:306686" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G21.2" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0393565" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G21.2" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "A rare neurologic disease characterized by delayed onset of encephalopathy typically within a few weeks after acute carbon monoxide poisoning. The most common symptoms are cognitive impairment, personality changes, and movement disorder including parkinsonism, among others. Prognosis is good with a high rate of spontaneous recovery within a year." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "306686" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Delayed encephalopathy due to carbon monoxide poisoning" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Delayed encephalopathy due to carbon monoxide poisoning" ] .
+}
+

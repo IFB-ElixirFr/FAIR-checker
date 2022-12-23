@@ -1,0 +1,34 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=2611> a ns1:MedicalCondition ;
+        ns1:alternateName "Linear hamartoma syndrome" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "3259" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q82.5" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:2611" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:2611" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "3259" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q82.5" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "A rare skin disease characterized by a hamartomatous epidermal lesion presenting as a linear array of verrucous, hyperkeratotic papules that often coalesce into plaques and are formed along the lines of Blaschko. The condition is associated with involvement of other organ systems, mainly brain, eye, and skeletal system. It is the result of mosaic post-zygotic mutations and most commonly presents at birth, but may occur anytime during childhood, rarely also in adulthood." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "2611" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Linear verrucous nevus syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Linear verrucous nevus syndrome" ] .
+}
+

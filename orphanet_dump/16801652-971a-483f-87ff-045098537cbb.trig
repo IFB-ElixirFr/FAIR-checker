@@ -1,0 +1,35 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=544488> a ns1:MedicalCondition ;
+        ns1:alternateName "Bachmann-Bupp syndrome",
+            "Ornithine decarboxylase deficiency" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:544488" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "619075" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E72.4" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "619075" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E72.4" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:544488" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare disorder of ornithine metabolism characterized by global developmental delay, alopecia, macrocephaly, and dysmorphic facial features (including high and broad forehead, hypertelorism, ptosis, blepharophimosis, downslanting palpebral fissures, deep-set eyes, large ears, and retrognathia or high arched palate). Additional reported manifestations are sensorineural hearing loss, spasticity, hypotonia, hypoplastic nails, cryptorchidism, and clinodactyly, among others. Brain imaging may show white matter abnormalities, periventricular cysts, enlarged lateral ventricles, or prominent perivascular spaces." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "544488" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Global developmental delay-alopecia-macrocephaly-facial dysmorphism-structural brain anomalies syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Global developmental delay-alopecia-macrocephaly-facial dysmorphism-structural brain anomalies syndrome" ] .
+}
+

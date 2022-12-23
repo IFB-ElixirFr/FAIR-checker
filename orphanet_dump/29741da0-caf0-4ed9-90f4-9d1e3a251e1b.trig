@@ -1,0 +1,28 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=370059> a ns1:MedicalCondition ;
+        ns1:alternateName "Nevus epidermicus verrucosus with angiodysplasia and aneurysms" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "Q84.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q84.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:370059" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:370059" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare, life-threatening, cutaneous disease characterized by a keratinocytic epidermal nevus presenting thick, hystrix-like, white or brownish hyperkeratosis associated with multiple extracutaneous vascular malformations, including angiodysplasia that involves large-vessel arteriovenous shunts that may be fatal during the neonatal period." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "370059" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "NEVADA syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "NEVADA syndrome" ] .
+}
+

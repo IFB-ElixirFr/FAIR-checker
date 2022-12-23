@@ -1,0 +1,34 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=141112> a ns1:MedicalCondition ;
+        ns1:alternateName "Nasal glioma" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "C0266490" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q30.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q30.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:141112" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0266490" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:141112" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "Nasal glial heterotopia is a rare developmental abnormality presenting usually at birth or in early childhood (rarely in adulthood) as a benign, non-pulsatile mass that can lead to nasal obstruction, deformation of the septum and nasal bone, and respiratory distress if untreated. Nasal glial heterotopias have no communication with the central nervous system; however an associated defect in the cribriform plate is sometimes reported." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "141112" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Nasal glial heterotopia" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Nasal glial heterotopia" ] .
+}
+

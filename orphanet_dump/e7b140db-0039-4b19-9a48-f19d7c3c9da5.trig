@@ -1,0 +1,28 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=1006> a ns1:MedicalCondition ;
+        ns1:alternateName "Ipp-Gelfand syndrome" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "D80.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D80.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:1006" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:1006" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare primary immunodeficiency disorder characterized by the association of alopecia areata totalis and antibody deficiency (congenital agammaglobulinemia or incomplete antibody deficiency syndrome), manifesting with recurrent infections. There have been no further descriptions in the literature since 1976." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "1006" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Alopecia antibody deficiency" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Alopecia antibody deficiency" ] .
+}
+

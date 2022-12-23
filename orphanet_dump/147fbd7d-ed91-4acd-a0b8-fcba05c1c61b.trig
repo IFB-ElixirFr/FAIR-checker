@@ -1,0 +1,48 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=709> a ns1:MedicalCondition ;
+        ns1:alternateName "Krause-Kivlin syndrome",
+            "Krause-van Schooneveld-Kivlin syndrome",
+            "Peters anomaly with short limb dwarfism" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:709" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0796012" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0796012" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:709" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "261540" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "8422" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "8422" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q13.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q13.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "261540" ;
+                ns1:codingSystem "OMIM" ] ;
+        ns1:description "Peters plus syndrome is an autosomal recessively inherited syndromic developmental defect of the eye (see this term) characterized by a variable phenotype including Peters anomaly (see this term) and other anterior chamber eye anomalies, short limbs, limb abnormalities (i.e. rhizomelia and brachydactyly), characteristic facial features (upper lip with cupid bow, short palpebral fissures), cleft lip/palate, and mild to severe developmental delay/intellectual disability. Other associated abnormalities reported in some patients include congenital heart defects (i.e. hypoplastic left heart, absence of right pulmonary vein, bicuspid pulmonary valve), genitourinary anomalies (hydronephrosis, renal hypoplasia, renal and ureteral duplication, multicystic dysplastic kidneys, glomerulocystic kidneys) and congenital hypothyroidism." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "709" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Peters plus syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Peters plus syndrome" ] .
+}
+

@@ -1,0 +1,35 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=500144> a ns1:MedicalCondition ;
+        ns1:alternateName "Early-onset progressive encephalopathy-brain atrophy-spasticity syndrome",
+            "PEBAS" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:500144" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:500144" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "617669" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q07.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "617669" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q07.8" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "A rare, genetic neurological disorder characterized by early-onset severe global developmental delay with regression, congenital or acquired microcephaly, hearing loss, truncal hypotonia, appendicular spasticity, and dystonia and/or myoclonus." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "500144" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Early-onset progressive encephalopathy-hearing loss-pons hypoplasia-brain atrophy syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Early-onset progressive encephalopathy-hearing loss-pons hypoplasia-brain atrophy syndrome" ] .
+}
+

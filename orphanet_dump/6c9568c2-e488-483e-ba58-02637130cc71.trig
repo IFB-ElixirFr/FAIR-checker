@@ -1,0 +1,33 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=310> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:310" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:310" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D020195" ;
+                ns1:codingSystem "MeSH" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0270857" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0270857" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D020195" ;
+                ns1:codingSystem "MeSH" ] ;
+        ns1:description "Reflex epilepsy refers to epilepsies where recurrent seizures are provoked by a clearly defined extrinsic (most commonly) or intrinsic triggering stimuli such as flashing lights (photosensitive epilepsy), startling noises (startle epilepsy), urinating (micturition induced seizures), exposure to hot-water (hot water epilepsy, see these terms), eating, reading, and thinking, while being associated with an enduring abnormal predisposition to have such seizures (thereby meeting the conceptual definition of epilepsy)." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "310" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Reflex epilepsy" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Reflex epilepsy" ] .
+}
+

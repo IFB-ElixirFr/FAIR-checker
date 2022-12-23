@@ -1,0 +1,36 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=476394> a ns1:MedicalCondition ;
+        ns1:alternateName "PMP2-related CMT1",
+            "PMP2-related Charcot-Marie-Tooth neuropathy type 1",
+            "PMP2-related hereditary motor and sensory neuropathy type 1" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "G60.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:476394" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "618279" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G60.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "618279" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:476394" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare autosomal dominant hereditary demyelinating motor and sensory neuropathy characterized by progressive distal muscle weakness and atrophy, distal sensory impairment, and decreased or absent reflexes in the affected limbs, with an onset in the first or second decade of life. Median motor nerve conduction velocities are typically less than 38 m/s. Patients often have foot deformities. Sural nerve biopsy shows decrease in myelinated fibers, myelin abnormalities, and onion bulb formation. Fatty replacement of muscle tissue predominantly affects the anterior and lateral compartment of the lower legs." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "476394" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "PMP2-related Charcot-Marie-Tooth disease type 1" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "PMP2-related Charcot-Marie-Tooth disease type 1" ] .
+}
+

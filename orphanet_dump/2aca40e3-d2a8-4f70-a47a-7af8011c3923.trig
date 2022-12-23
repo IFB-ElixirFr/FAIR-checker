@@ -1,0 +1,31 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=93562> a ns1:MedicalCondition ;
+        ns1:alternateName "Familial amyloid nephropathy due to fibrinogen A alpha-chain variant",
+            "Fibrinogen A alpha-chain amyloidosis",
+            "Hereditary amyloid nephropathy due to fibrinogen A alpha-chain variant",
+            "Hereditary renal amyloidosis due to fibrinogen A alpha-chain variant" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "E85.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:93562" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E85.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:93562" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare, hereditary amyloidosis with primary renal involvement characterized by fibrinogen A-alpha-chain amyloid deposition predominantly in the kidney glomeruli and clinically presenting with hypertension, uremia, nephrotic syndrome slowly progressing to end-stage renal disease. Extra-renal involvement is possible, due to neurological, cardiac, visceral and vascular amyloid deposition." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "93562" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "AFib amyloidosis" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "AFib amyloidosis" ] .
+}
+

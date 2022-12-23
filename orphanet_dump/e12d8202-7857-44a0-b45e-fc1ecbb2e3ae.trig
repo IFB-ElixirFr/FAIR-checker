@@ -1,0 +1,29 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=254851> a ns1:MedicalCondition ;
+        ns1:alternateName "Maternally-inherited mitochondrial dystonia",
+            "mtDNA-related dystonia" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "E88.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:254851" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E88.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:254851" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "Maternally-inherited mitochondrial dystonia is a rare neurological mitochondrial DNA-related disorder characterized clinically by progressive pediatric-onset dystonia with variable degrees of severity." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "254851" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Mitochondrial DNA-related dystonia" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Mitochondrial DNA-related dystonia" ] .
+}
+

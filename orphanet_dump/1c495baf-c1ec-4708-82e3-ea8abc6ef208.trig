@@ -1,0 +1,28 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=60026> a ns1:MedicalCondition ;
+        ns1:alternateName "Pulmonary pseudolymphoma" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:60026" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:60026" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "178610" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "178610" ;
+                ns1:codingSystem "OMIM" ] ;
+        ns1:description "Pulmonary nodular lymphoid hyperplasia (PNHL) is a reactive lymphoid proliferation manifesting as solitary or multiple nodules in the lung." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "60026" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Pulmonary nodular lymphoid hyperplasia" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Pulmonary nodular lymphoid hyperplasia" ] .
+}
+

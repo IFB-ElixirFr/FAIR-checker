@@ -1,0 +1,35 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=477787> a ns1:MedicalCondition ;
+        ns1:alternateName "PLA2G4A-related platelet dysfunction",
+            "Platelet dysfunction due to cytosolic phospholipase-A2 alpha deficiency" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "D69.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:477787" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D69.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "618372" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "618372" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:477787" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare genetic hematologic and intestinal disease characterized by childhood onset of bleeding tendency with epistaxis, gum bleeding, gastrointestinal bleeding, hematuria, and menorrhagia due to impaired platelet aggregation and secretion, as well as recurrent gastrointestinal ulcera. Mildly reduced levels of coagulation factor XI have been reported in addition." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "477787" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Cytosolic phospholipase-A2 alpha deficiency associated bleeding disorder" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Cytosolic phospholipase-A2 alpha deficiency associated bleeding disorder" ] .
+}
+

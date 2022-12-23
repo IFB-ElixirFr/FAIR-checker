@@ -1,0 +1,34 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=542301> a ns1:MedicalCondition ;
+        ns1:alternateName "Combined immunodeficiency due to RLTPR deficiency" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "618131" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D82.3" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:542301" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D82.3" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:542301" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "618131" ;
+                ns1:codingSystem "OMIM" ] ;
+        ns1:description "A rare immune dysregulation disease with immunodeficiency characterized by infantile or childhood onset of a variable phenotype including recurrent/persistent bacterial, fungal, and viral infections with involvement of the skin, lower respiratory tract, and gastrointestinal tract, eczema, allergies, and inflammatory bowel disease, among others. EBV-related smooth muscle tumors have also been reported. Immunophenotyping shows decreased Treg counts, as well as a deficient CD3/CD28 co-stimulation response in CD4+ and CD8+ T-cells." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "542301" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Combined immunodeficiency due to CARMIL2 deficiency" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Combined immunodeficiency due to CARMIL2 deficiency" ] .
+}
+

@@ -1,0 +1,27 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=279925> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:279925" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:279925" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "H44.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "H44.1" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "A rare ophthalmic disorder characterized by generalized inflammation of all parts of the uveal tract (iris, ciliary body, and choroid), simultaneously involving adjacent vitreous and retina, without any predominant site of inflammation, due to viral, bacterial, fungal, or parasitic infections. Clinical symptoms include pain, photophobia, redness, blurring of vision, and floaters. Signs on examination are lid edema, ciliary injection, chemosis, keratic precipitates, cells in the anterior chamber, hypopyon, iris nodules and neovascularization, posterior synechiae, macular edema, vitreous and retinal hemorrhage, and retinal detachment, among others. Complications may result in visual loss." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "279925" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Infectious panuveitis" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Infectious panuveitis" ] .
+}
+

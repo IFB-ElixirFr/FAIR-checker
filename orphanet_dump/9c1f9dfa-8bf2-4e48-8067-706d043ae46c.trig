@@ -1,0 +1,40 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=424261> a ns1:MedicalCondition ;
+        ns1:alternateName "Autosomal recessive limb-girdle muscular dystrophy type 2Y",
+            "Autosomal recessive muscular dystrophy due to LAP1B deficiency",
+            "Autosomal recessive muscular dystrophy due to Torsin-1A-interacting protein 1 deficiency",
+            "LGMD type 2Y",
+            "LGMD2Y",
+            "Muscular dystrophy with progressive weakness, distal contractures and rigid spine",
+            "TOR1AIP1-related LGMD" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "G71.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G71.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "617072" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "617072" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:424261" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:424261" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A form of limb-girdle muscular dystrophy, presenting in the first or second decades of life, characterized by slowly progressive proximal and distal muscle weakness and atrophy. Additional manifestations include contractures of the proximal and distal interphalangeal hand joints, rigid spine, restricted pulmonary function, and mild cardiomyopathy." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "424261" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "TOR1AIP1-related limb-girdle muscular dystrophy" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "TOR1AIP1-related limb-girdle muscular dystrophy" ] .
+}
+

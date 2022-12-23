@@ -1,0 +1,50 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=415> a ns1:MedicalCondition ;
+        ns1:alternateName "HHH syndrome",
+            "ORNT1 deficiency",
+            "Ornithine carrier deficiency",
+            "Ornithine translocase deficiency",
+            "Triple H syndrome" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "C0268540" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:415" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "2830" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:415" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E72.4" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "238970" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "2830" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0268540" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "238970" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E72.4" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "A rare, genetic disorder of urea cycle metabolism characterized by either a neonatal-onset with manifestations of lethargy, poor feeding, vomiting and tachypnea or, more commonly, presentations in infancy, childhood or adulthood with chronic neurocognitive deficits, acute encephalopathy and/or coagulation defects or other chronic liver dysfunction." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "415" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Hyperornithinemia-hyperammonemia-homocitrullinuria syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Hyperornithinemia-hyperammonemia-homocitrullinuria syndrome" ] .
+}
+

@@ -1,0 +1,21 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=313795> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "C0796063" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "251255" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:313795" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "Jawad syndrome is a rare, genetic, multiple congenital anomalies/dysmorphic syndrome characterized by congenital microcephaly wih facial dysmorphism (sloping forehead, prominent nose, mild retrognathia), moderate to severe, non-progressive intellectual disability and symmetrical digital malformations of variable degree, including brachydactyly of the fifth fingers with single flexion crease, clinodactyly, syndactyly, polydactyly and hallux valgus. Congenital anonychia and white café au lait-like spots on the skin of hands and feet are also associated." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "313795" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Jawad syndrome" ] .
+}
+

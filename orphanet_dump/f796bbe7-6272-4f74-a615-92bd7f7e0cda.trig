@@ -1,0 +1,33 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=79399> a ns1:MedicalCondition ;
+        ns1:alternateName "Autosomal dominant generalized EBS, intermediate form",
+            "Epidermolysis bullosa simplex, Koebner type",
+            "Epidermolysis bullosa simplex, Köbner type" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "C0079299" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "2147" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q81.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C535961" ;
+                ns1:codingSystem "MeSH" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "131900" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:79399" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "Non-Dowling-Meara generalized epidermolysis bullosa simplex, formerly known as epidermolysis bullosa simplex, Köbner type (EBS-K) is a generalized basal subtype of epidermolysis bullosa simplex (EBS, see this term) characterized by non-herpetiform blisters and erosions arising in particular at sites of friction." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "79399" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Autosomal dominant generalized epidermolysis bullosa simplex, intermediate form" ] .
+}
+

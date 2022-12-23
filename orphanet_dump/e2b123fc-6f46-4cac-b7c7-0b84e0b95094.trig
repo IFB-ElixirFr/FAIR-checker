@@ -1,0 +1,27 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=226313> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "P72.2" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "P72.2" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:226313" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:226313" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "Congenital hypothyroidism due to maternal intake of antithyroid drugs is a rare congenital hypothyroidism disorder characterized by transient, primary, fetal or neonatal hypothyroidism resulting from transplacental transfer of antithyroid drugs due to maternal intake. Patients may present fetal or neonatal goiter, hoarse cry, reduced tendon reflexes, feeding difficulty, constipation, prolonged jaundice and/or respiratory distress. Elevated levels of T4 and thyroid stimulating hormone usually normalize without treatment within 3 weeks of birth." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "226313" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Congenital hypothyroidism due to maternal intake of antithyroid drugs" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Congenital hypothyroidism due to maternal intake of antithyroid drugs" ] .
+}
+

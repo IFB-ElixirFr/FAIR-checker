@@ -1,0 +1,27 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=178533> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "C84.4" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C84.4" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:178533" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:178533" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "Primary cutaneous gamma/delta-positive T-cell lymphoma is a rare, usually aggressive, subtype of cutaneous T-cell lymphoma characterized by infiltration of the epidermis, dermis or subcutaneous tissue by a clonal population of mature, gamma/delta positive cytotoxic T-cells. Typically it presents with ulcerating plaques, tumors, or subcutaneous nodules on the skin of the extremities, however, frequent involvement of mucosal and extranodal sites (such as the nasal cavity, gastrointestinal tract or lungs) is also observed. Cases associated with panniculitis may present with hemophagocytic syndrome (abrupt onset of fever, rash, cytopenia, hepatosplenomegaly and neurological compromise). Infiltration of lymph nodes, spleen and bone marrow is uncommon and resistance to multilineage chemotherapy is reported." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "178533" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Primary cutaneous gamma/delta-positive T-cell lymphoma" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Primary cutaneous gamma/delta-positive T-cell lymphoma" ] .
+}
+

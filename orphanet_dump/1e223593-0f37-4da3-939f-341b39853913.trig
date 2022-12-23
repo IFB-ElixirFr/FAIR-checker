@@ -1,0 +1,27 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=447764> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "K83.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "K83.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:447764" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:447764" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare systemic autoimmune disease characterized by cholestasis and diffuse cholangiographic abnormalities with circular and symmetrical bile duct wall thickening, and elevated serum IgG4 levels. Characteristic histopathological findings include dense infiltration of IgG4-positive plasma cells and extensive fibrosis in the bile duct wall. A marked response to steroid therapy is typical. Patients present with jaundice, cholangitis, pruritis, and sometimes associated findings of autoimmune pancreatitis, sialadenitis, and retroperitoneal fibrosis." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "447764" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "IgG4-related sclerosing cholangitis" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "IgG4-related sclerosing cholangitis" ] .
+}
+

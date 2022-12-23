@@ -1,0 +1,53 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=42775> a ns1:MedicalCondition ;
+        ns1:alternateName "PHACES syndrome",
+            "Pascual-Castroviejo syndrome type 2" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "140850" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "606519" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q28.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10068032" ;
+                ns1:codingSystem "MedDRA" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10068032" ;
+                ns1:codingSystem "MedDRA" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:42775" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "140850" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:42775" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "8338" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q28.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "606519" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "8338" ;
+                ns1:codingSystem "GARD" ] ;
+        ns1:description "PHACE is an acronym used to describe a syndrome characterised by the association of Posterior fossa brain malformations, large facial Haemangiomas, anatomical anomalies of the cerebral Arteries, aortic coarctation and other Cardiac anomalies, and Eye abnormalities. Sternal anomalies are also sometimes present, and in these cases the syndrome is referred to as PHACES. Two additional manifestations have recently been added to the clinical spectrum of PHACE syndrome: stenosis of the vessels at the base of the skull and segmental longitudinal dilations of the internal carotid artery." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "42775" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "PHACE syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "PHACE syndrome" ] .
+}
+

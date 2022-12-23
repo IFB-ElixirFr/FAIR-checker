@@ -1,0 +1,41 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=247623> a ns1:MedicalCondition ;
+        ns1:alternateName "Perinatal lethal Rathbun disease",
+            "Perinatal lethal phosphoethanolaminuria" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "C2673477" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E83.3" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:247623" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E83.3" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "241500" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "241500" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C2673477" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:247623" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare, genetic form of hypophosphatasia (HPP) characterized by markedly impaired bone mineralization <i>in utero</i> due to reduced activity of serum alkaline phosphatase (ALP) and causing stillbirth or respiratory failure within days of birth." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "247623" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Perinatal lethal hypophosphatasia" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Perinatal lethal hypophosphatasia" ] .
+}
+

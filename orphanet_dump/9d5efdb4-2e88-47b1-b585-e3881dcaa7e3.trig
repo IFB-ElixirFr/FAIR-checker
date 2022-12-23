@@ -1,0 +1,39 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=169139> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "D80.7" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:169139" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10044388" ;
+                ns1:codingSystem "MedDRA" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10044388" ;
+                ns1:codingSystem "MedDRA" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0272238" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D80.7" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0272238" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:169139" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare primary immunodeficiency characterized by a delay in the maturation of immunoglobulin production, leading to prolongation of the physiologic hypogammaglobulinemia of the newborn period beyond six months of age. Patients present recurrent respiratory infections, otitis media, bronchitis, gastroenteritis, or allergic symptoms in the first two to four years of life, before the condition resolves spontaneously. Some children may remain asymptomatic, and severe or life-threatening infections are rare. The capacity to synthesize specific antibodies in response to vaccines is usually normal." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "169139" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Transient hypogammaglobulinemia of infancy" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Transient hypogammaglobulinemia of infancy" ] .
+}
+

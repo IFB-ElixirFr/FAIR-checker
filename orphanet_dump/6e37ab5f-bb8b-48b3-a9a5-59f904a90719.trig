@@ -1,0 +1,50 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=83595> a ns1:MedicalCondition ;
+        ns1:alternateName "American mountain fever",
+            "Colorado tick encephalitis",
+            "Colorado tick-borne disease",
+            "Mountain fever",
+            "Mountain tick fever" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "A93.2" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D003121" ;
+                ns1:codingSystem "MeSH" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:83595" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "A93.2" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:83595" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10010022" ;
+                ns1:codingSystem "MedDRA" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D003121" ;
+                ns1:codingSystem "MeSH" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0009400" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0009400" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10010022" ;
+                ns1:codingSystem "MedDRA" ] ;
+        ns1:description "An acute arboviral infection caused by a <i>Coltivirus</i> transmitted by an infected tick and characterized by a biphasic fever with headache, myalgias, arthralgias, and fatigue that can last 3 weeks or more. In some cases, macular, maculopapular, or petechial rash and/or stiff neck, nausea, vomiting, abdominal pain, diarrhea, and sore throat may also occur." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "83595" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Colorado tick fever" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Colorado tick fever" ] .
+}
+

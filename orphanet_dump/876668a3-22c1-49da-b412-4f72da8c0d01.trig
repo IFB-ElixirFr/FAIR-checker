@@ -1,0 +1,58 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=1945> a ns1:MedicalCondition ;
+        ns1:alternateName "BECRS",
+            "BECTS",
+            "BRE",
+            "Benign epilepsy of childhood with centrotemporal spikes",
+            "Benign familial epilepsy of childhood with rolandic spikes",
+            "Benign rolandic epilepsy",
+            "Centrotemporal epilepsy" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "C0376532" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:1945" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0376532" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10287" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "245570" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:1945" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "117100" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "117100" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G40.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "245570" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G40.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10287" ;
+                ns1:codingSystem "GARD" ] ;
+        ns1:description "Rolandic epilepsy (RE) is a focal childhood epilepsy characterized by seizures consisting of unilateral facial sensory-motor symptoms, with electroencephalogram (EEG) showing sharp biphasic waves over the rolandic region. It is an age-related epilepsy, with excellent outcome." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "1945" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Rolandic epilepsy" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Rolandic epilepsy" ] .
+}
+

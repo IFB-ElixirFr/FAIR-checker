@@ -1,0 +1,41 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=83601> a ns1:MedicalCondition ;
+        ns1:alternateName "Hashimoto encephalitis",
+            "SREAT" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:83601" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:83601" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0393639" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "8570" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0393639" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "8570" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G04.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G04.8" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "Steroid-responsive encephalopathy associated with autoimmune thyroiditis (SREAT) is a rare, acquired, neurological disease characterized by encephalopathy associated with elevated antithyroid antibodies, in the absence of other causes. Clinical presentation varies from minor cognitive impairment to status epilepticus and coma, and frequently includes seizures, confusion, speech disorder, memory impairment, ataxia and psychiatric manifestations." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "83601" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Steroid-responsive encephalopathy associated with autoimmune thyroiditis" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Steroid-responsive encephalopathy associated with autoimmune thyroiditis" ] .
+}
+

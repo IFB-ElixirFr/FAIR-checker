@@ -1,0 +1,36 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=300313> a ns1:MedicalCondition ;
+        ns1:alternateName "Congenital cataract-deafness-severe developmental delay syndrome",
+            "Huppke-Brendel syndrome",
+            "Lethal neurodegenerative disorder due to copper transport defect" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:300313" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E88.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "614482" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E88.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "614482" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:300313" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "Congenital cataract-hearing loss-severe developmental delay syndrome is a rare, genetic, lethal, neurometabolic disease characterized by congenital cataracts, sensorineural hearing loss, severe psychomotor developmental delay, severe, generalized muscular hypotonia, and central nervous system abnormalities (incl. cerebellar and cerebral hypoplasia, hypomyelination, wide subarachnoid spaces), in the presence of low serum copper and ceruloplasmin. Nystagmus and seizures have also been reported." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "300313" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Congenital cataract-hearing loss-severe developmental delay syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Congenital cataract-hearing loss-severe developmental delay syndrome" ] .
+}
+

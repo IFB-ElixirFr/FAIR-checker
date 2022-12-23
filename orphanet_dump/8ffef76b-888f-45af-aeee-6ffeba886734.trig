@@ -1,0 +1,40 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=279914> a ns1:MedicalCondition ;
+        ns1:alternateName "IU" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "10022557" ;
+                ns1:codingSystem "MedDRA" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0042166" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0042166" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:279914" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:279914" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "H30.2" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "H30.2" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10022557" ;
+                ns1:codingSystem "MedDRA" ] ;
+        ns1:description "A rare ophthalmic disorder characterized by intraocular inflammation primarily localized to the vitreous and peripheral retina. It incorporates pars planitis, posterior cyclitis, and hyalitis. Patients present with painless floaters, decreased or blurred vision, less frequently with pain, redness, and photophobia. On examination, snow banking, vitreous snowballs, peripheral retinal vascular sheathing, vitreous cells, and vitreous haze can be seen. Complications include epiretinal membrane formation, cataract formation, cystoid macular edema, or band keratopathy, among others. The condition may be idiopathic or occur in the context of infectious or systemic diseases." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "279914" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Intermediate uveitis" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Intermediate uveitis" ] .
+}
+

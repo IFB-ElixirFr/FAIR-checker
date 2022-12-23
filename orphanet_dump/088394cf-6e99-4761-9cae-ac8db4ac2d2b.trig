@@ -1,0 +1,43 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=83629> a ns1:MedicalCondition ;
+        ns1:alternateName "H-SMD",
+            "Hypomyelination-spondyloepimetaphyseal dysplasia syndrome",
+            "Leukoencephalopathy-SEMD syndrome",
+            "Leukoencephalopathy-metaphyseal chondrodysplasia syndrome" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "C1970840" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "300232" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C1970840" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:83629" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G11.4" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "300232" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G11.4" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:83629" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare genetic neurological disorder characterized by the association of hypomyelinating leukodystrophy with spondylometaphyseal dysplasia. Patients present in infancy with absent or delayed ability to walk independently, slowly progressive motor deterioration, spasticity, ataxia, proximal weakness, and joint contractures. Additional manifestations include mild cognitive impairment, short stature, scoliosis, enlarged and deformed joints, dysarthria, nystagmus, visual defects, and mildly dysmorphic features, among others. Mode of inheritance is X-linked recessive." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "83629" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Leukoencephalopathy-spondyloepimetaphyseal dysplasia syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Leukoencephalopathy-spondyloepimetaphyseal dysplasia syndrome" ] .
+}
+

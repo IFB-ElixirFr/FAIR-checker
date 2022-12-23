@@ -1,0 +1,29 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=240094> a ns1:MedicalCondition ;
+        ns1:alternateName "PSP-PAGF",
+            "PSP-pure akinesia with gait freezing" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "G23.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:240094" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:240094" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G23.1" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "An atypical variant of progressive supranuclear palsy (PSP), a rare late-onset neurodegenerative disease, characterized by progressive freezing of gait, speech and writing early in the disease course. Later, axial rigidity, and facial immobility can occur, and supranuclear downgaze paresis may emerge after a decade. Neuropathological characteristics include tau pathology and neuronal loss in specific brain areas, especially in the globus pallidus, subthalamic nucleus, and substantia nigra. The tau pathology is less widespread compared to the other PSP sub-types." ;
+        ns1:epidemiology "Prevalence : 1-9 / 100 000" ;
+        ns1:identifier "240094" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Progressive supranuclear palsy-pure akinesia with gait freezing syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Progressive supranuclear palsy-pure akinesia with gait freezing syndrome" ] .
+}
+

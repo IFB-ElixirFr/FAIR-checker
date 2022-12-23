@@ -1,0 +1,33 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=137814> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "L99.0*" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "L99.0*" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:137814" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:137814" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E85.4+" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E85.4+" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "Macular amyloidosis (MA) is a rare chronic form of cutaneous amyloidosis (see this term), a skin disease characterized by the accumulation of amyloid deposits in the dermis, clinically characterized by pruritic hyperkeratotic gray-brown macules that give a rippled or reticulated pattern of pigmentation usually in the upper back and extensor sites of arms, forearms and legs, and histologically by the deposition of amyloid in the upper dermis and close to the basal cell layer of the epidermis. MA is commonly associated with other skin diseases, such as atopic dermatitis." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "137814" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Macular amyloidosis" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Macular amyloidosis" ] .
+}
+

@@ -1,0 +1,27 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=99049> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:99049" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q25.7" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:99049" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q25.7" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "Pulmonary artery coming from patent ductus arteriosus is a rare, congenital, non-syndromic heart malformation characterized by the presence of a single (or a double) patent ductus arteriosus which associates one or both pulmonary arteries originating from it. Manifestations are variable, frequently presenting with neonatal cyanosis, severe progressive hypoxia, persistent pulmonary hypertension, increased susceptibility to pulmonary infections, and thoracic asymmetry resulting from asymmetric lung volumes." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "99049" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Pulmonary artery coming from patent ductus arteriosus" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Pulmonary artery coming from patent ductus arteriosus" ] .
+}
+

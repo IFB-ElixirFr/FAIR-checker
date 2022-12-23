@@ -1,0 +1,27 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=100084> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "C30.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C30.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:100084" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:100084" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "Middle ear neuroendocrine tumor is a rare, otorhinolaryngologic tumor characterized by a mixed glandular and non-glandular histological features and positive immunostaining for pancytokeratin, vimentin, synaptophysin and islet-1 protein. Common signs and symptoms are hearing loss, mass, pain, discharge, equilibrium disturbances, tinnitus and nerve paralysis." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "100084" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Middle ear neuroendocrine tumor" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Middle ear neuroendocrine tumor" ] .
+}
+

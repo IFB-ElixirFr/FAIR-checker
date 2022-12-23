@@ -1,0 +1,35 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=357001> a ns1:MedicalCondition ;
+        ns1:alternateName "Del(19)(p13.13)",
+            "Monosomy 19p13.13" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "613638" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q93.5" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "613638" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q93.5" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:357001" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:357001" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare partial autosomal monosomy characterized by global developmental delay, moderate intellectual disability, macrocephaly, overgrowth, hypotonia, and facial dysmorphism (frontal bossing, down-slanting palpebral fissures). Other associated features variably include ataxia, seizures, ventriculomegaly, ocular abnormalities (strabismus, optic nerve hypoplasia) and gastrointestinal problems (abdominal pain, vomiting, constipation)." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "357001" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "19p13.13 microdeletion syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "19p13.13 microdeletion syndrome" ] .
+}
+

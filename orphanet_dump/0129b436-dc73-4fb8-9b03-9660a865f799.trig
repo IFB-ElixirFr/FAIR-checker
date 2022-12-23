@@ -1,0 +1,42 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=294> a ns1:MedicalCondition ;
+        ns1:alternateName "Antenatal CMV infection",
+            "Antenatal cytomegalovirus infection",
+            "Mother-to-child transmission of cytomegalovirus syndrome" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "P35.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:294" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "P35.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "1480" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0349499" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "1480" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0349499" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:294" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A fetopathy that is likely to occur when a cytomegalovirus (CMV) infected pregnant woman transmits the virus <i>in utero</i>. Children born with congenital CMV infection may present with hepatomegaly, splenomegaly, jaundice, pneumonitis, fetal growth retardation, petechiae, purpura, and thrombocytopenia. Congenital CMV infection can equally result in major neurological sequelae, including microcephaly, intracranial calcifications, sensorineural hearing loss, chorioretinitis, intellectual and motor disabilities, and seizure disorders. CMV disease sequelae caused by a primary infection are usually more severe than those caused by the reactivation of a latent infection." ;
+        ns1:epidemiology "Prevalence : 1-5 / 10 000" ;
+        ns1:identifier "294" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Fetal cytomegalovirus syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Fetal cytomegalovirus syndrome" ] .
+}
+

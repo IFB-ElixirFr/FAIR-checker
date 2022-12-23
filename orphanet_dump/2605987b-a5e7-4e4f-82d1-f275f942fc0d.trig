@@ -1,0 +1,49 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=255210> a ns1:MedicalCondition ;
+        ns1:alternateName "MILS",
+            "Maternally-inherited Leigh disease",
+            "Maternally-inherited infantile subacute necrotizing encephalopathy",
+            "mtDNA-associated Leigh syndrome" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:255210" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:255210" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E88.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "3671" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E88.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "3671" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C2931092" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "256000" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "256000" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C2931092" ;
+                ns1:codingSystem "UMLS" ] ;
+        ns1:description "Maternally inherited Leigh syndrome is a rare subtype of Leigh syndrome (see this term) characterized clinically by encephalopathy, lactic acidosis, seizures, cardiomyopathy, respiratory disorders and developmental delay, with onset in infancy or early childhood, and resulting from maternally-inherited mutations in mitochondrial DNA." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "255210" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Mitochondrial DNA-associated Leigh syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Mitochondrial DNA-associated Leigh syndrome" ] .
+}
+

@@ -1,0 +1,37 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=356978> a ns1:MedicalCondition ;
+        ns1:alternateName "Combined D-2-hydroxyglutaric acidemia and L-2-hydroxyglutaric acidemia",
+            "Combined D-2-hydroxyglutaric aciduria and L-2-hydroxyglutaric aciduria",
+            "D,L-2-HGA",
+            "D,L-2-hydroxyglutaric acidemia" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "E72.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E72.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:356978" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "615182" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:356978" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "615182" ;
+                ns1:codingSystem "OMIM" ] ;
+        ns1:description "A rare inborn error of metabolism characterized by severe neonatal epileptic encephalopathy, episodes of apnea and respiratory distress, severe global developmental delay or absent psychomotor development, severe muscular hypotonia or absent voluntary movements, feeding difficulties and failure to thrive, absence of visual contact, abnormal brain morphology (including cerebral atrophy, ventriculomegaly and hypoplasia or dysplasia of the corpus callosum), mild dysmorphic features (frontal bossing, hypertelorism, downslanting palpebral fissures, flat nasal bridge), elevated CSF and plasma lactate and urinary Krebs cycle metabolites." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "356978" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "D,L-2-hydroxyglutaric aciduria" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "D,L-2-hydroxyglutaric aciduria" ] .
+}
+

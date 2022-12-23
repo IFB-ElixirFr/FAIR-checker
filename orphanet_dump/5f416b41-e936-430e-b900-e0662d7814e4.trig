@@ -1,0 +1,52 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=64739> a ns1:MedicalCondition ;
+        ns1:alternateName "OHSS" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "N98.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:64739" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0085083" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:64739" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "608115" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D016471" ;
+                ns1:codingSystem "MeSH" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "N98.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D016471" ;
+                ns1:codingSystem "MeSH" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0085083" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "608115" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10033266" ;
+                ns1:codingSystem "MedDRA" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10033266" ;
+                ns1:codingSystem "MedDRA" ] ;
+        ns1:description "A rare non-malformative gynecological disease affecting pre-menopausal women usually following treatment with ovarian stimulating hormones, characterized by ovarian enlargement and, to varying degrees, shift of serum from the intravascular space to the third space, mainly into the peritoneal, pleural, and to a lesser extent to the pericardial cavities. Presenting symptoms include abdomen distention, pain, nausea, and vomiting. Severity ranges from mild to life-threatening and is complicated by increased risk of thrombosis, acute hepato-renal failure, acute respiratory distress syndrome, and ovarian torsion and rupture." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "64739" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Ovarian hyperstimulation syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Ovarian hyperstimulation syndrome" ] .
+}
+

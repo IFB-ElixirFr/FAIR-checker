@@ -1,0 +1,28 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=447757> a ns1:MedicalCondition ;
+        ns1:alternateName "AD-SPG9B" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:447757" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G11.4" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G11.4" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:447757" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare predominantly pure hereditary spastic paraplegia characterized by juvenile or adult onset of slowly progressive spastic paraparesis, gait disturbances, and increased tendon reflexes. Additional variable manifestations include pes cavus, dysarthria, sensory impairment, and urinary symptoms. Cognition is normal." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "447757" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Autosomal dominant spastic paraplegia type 9B" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Autosomal dominant spastic paraplegia type 9B" ] .
+}
+

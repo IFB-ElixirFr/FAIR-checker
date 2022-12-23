@@ -1,0 +1,28 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=521219> a ns1:MedicalCondition ;
+        ns1:alternateName "Extrinsic biliary compression syndrome" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:521219" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:521219" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "K80.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "K80.8" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "A rare biliary tract disease characterized by external compression and subsequent obstruction of an extrahepatic biliary duct by one or more gallstones in the cystic duct or the gallbladder. Patients may present with acute or chronic cholecystitis with right upper abdominal pain, nausea, and vomiting, jaundice, or cholangitis. Cholecystobiliary or -enteric fistulae can arise due to chronic inflammation and ulceration." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "521219" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Mirizzi syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Mirizzi syndrome" ] .
+}
+

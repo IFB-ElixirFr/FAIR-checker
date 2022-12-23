@@ -1,0 +1,28 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=294965> a ns1:MedicalCondition ;
+        ns1:alternateName "LCCS" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:294965" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "12643" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:294965" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "12643" ;
+                ns1:codingSystem "GARD" ] ;
+        ns1:description "A group of rare arthrogryposis syndromes characterized by fetal akinesia, multiple congenital contractures, anterior horn cell degeneration, skeletal muscle atrophy, and other features, depending on the subtype. All types are lethal in the fetal or neonatal period." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "294965" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Lethal congenital contracture syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Lethal congenital contracture syndrome" ] .
+}
+

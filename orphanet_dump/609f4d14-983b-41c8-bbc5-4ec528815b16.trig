@@ -1,0 +1,36 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=236> a ns1:MedicalCondition ;
+        ns1:alternateName "Duplication 9p",
+            "Duplication of the short arm of chromosome 9",
+            "Trisomy of the short arm of chromosome 9" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:236" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0265428" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0265428" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:236" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q92.2" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q92.2" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "Trisomy 9p is a rare chromosomal anomaly syndrome, resulting from a partial or complete trisomy of the short arm of chromosome 9, with a wide phenotypic variablility, typically characterized by intellectual disability, craniofacial dysmorphism (e.g. microcephaly, large anterior fontanel, hypertelorism, strabismus, downslanting palpebral fissures, malformed, low-set, protruding ears, bulbous nose, macrostomia, down-turned corners of mouth, micrognathia), digital anomalies (brachydactyly and clinodactyly), and short stature. Less frequently patients present with cardiopathy and renal, skeletal, and central nervous system malformations." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "236" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Trisomy 9p" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Trisomy 9p" ] .
+}
+

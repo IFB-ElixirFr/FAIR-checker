@@ -1,0 +1,35 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=231040> a ns1:MedicalCondition ;
+        ns1:alternateName "Familial lentigines profusa",
+            "Familial multiple lentigines syndrome without systemic involvement" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:231040" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "L81.4" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "L81.4" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:231040" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "151001" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "151001" ;
+                ns1:codingSystem "OMIM" ] ;
+        ns1:description "Familial generalized lentiginosis is a rare, inherited, skin hyperpigmentation disorder characterized by widespread lentigines without associated noncutaneous abnormalities. Patients present multiple brown to dark brown, non-elevated macula of 0.2 to 1 cm in diameter, spread over the entire body, sometimes including palms or soles, but never oral mucosa." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "231040" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Familial generalized lentiginosis" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Familial generalized lentiginosis" ] .
+}
+

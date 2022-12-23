@@ -1,0 +1,27 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=226316> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:226316" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:226316" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "P72.2" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "P72.2" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "Genetic transient congenital hypothyroidism is a rare, thyroid disease characterized by a gene mutation induced, temporary deficiency of thyroid hormones at birth, which later reverts to normal with or without replacement therapy in the first few months or years of life." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "226316" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Genetic transient congenital hypothyroidism" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Genetic transient congenital hypothyroidism" ] .
+}
+

@@ -1,0 +1,48 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=86818> a ns1:MedicalCondition ;
+        ns1:alternateName "AMME complex",
+            "AMME syndrome",
+            "ATS-MR" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "300990" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C1846242" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q87.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "300990" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q87.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:86818" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:86818" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "300194" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "300194" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C1846242" ;
+                ns1:codingSystem "UMLS" ] ;
+        ns1:description "A rare constitutional hemolytic anemia that is characterised by the association of Alport syndrome, midface hypoplasia, intellectual deficit and elliptocytosis. It has been described in two families. The syndrome is transmitted as an X-linked trait is caused by a contiguous gene deletion in Xq22.3 involving several genes including <i>COL4A5</i>, <i>FACL4</i> and <i>AMMECR1</i>." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "86818" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Alport syndrome-intellectual disability-midface hypoplasia-elliptocytosis syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Alport syndrome-intellectual disability-midface hypoplasia-elliptocytosis syndrome" ] .
+}
+

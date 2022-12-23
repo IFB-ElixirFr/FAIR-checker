@@ -1,0 +1,41 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=231500> a ns1:MedicalCondition ;
+        ns1:alternateName "HPS with pulmonary fibrosis",
+            "Hermansky-Pudlak syndrome with pulmonary fibrosis" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:231500" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "614073" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "614073" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E70.3" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "203300" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "203300" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E70.3" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:231500" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "Hermansky-Pudlak syndrome with pulmonary fibrosis as a complication includes two types (HPS-1 and HPS-4) of Hermansky-Pudlak syndrome (HPS; see this term), a multi-system disorder characterized by oculocutaneous albinism, bleeding diathesis and, in some cases, pulmonary fibrosis or granulomatous colitis." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "231500" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Hermansky-Pudlak syndrome due to BLOC-3 deficiency" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Hermansky-Pudlak syndrome due to BLOC-3 deficiency" ] .
+}
+

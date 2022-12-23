@@ -1,0 +1,44 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=88949> a ns1:MedicalCondition ;
+        ns1:alternateName "ADTKD-MUC1",
+            "MCKD1",
+            "MUC1-related medullary cystic kidney disease",
+            "MUCI-related ADTKD",
+            "Medullary cystic kidney disease type 1" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "7002" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q61.5" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "7002" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "174000" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:88949" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:88949" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "174000" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q61.5" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "A rare autosomal dominant tubulointerstitial kidney (ADTKD) disease due to <i>MUC1</i> mutations characterized clinically by a bland urinalysis (absence of blood or protein in the urine), and chronic kidney disease leading to end-stage kidney disease (ESKD) between 20 and 80 years." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "88949" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "MUC1-related autosomal dominant tubulointerstitial kidney disease" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "MUC1-related autosomal dominant tubulointerstitial kidney disease" ] .
+}
+

@@ -1,0 +1,23 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=3240> a ns1:MedicalCondition ;
+        ns1:alternateName "Central nervous system calcification-hearing loss-tubular acidosis-anemia syndrome",
+            "Yoshimura-Takeshita syndrome" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:3240" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:3240" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare, genetic, syndromic, neurological disorder characterized by early infantile-onset of the progressive brain and spinal cord calcification, growth retardation, psychomotor deterioration, deafness, microcytic hypochromic anemia, and variable distal renal tubular acidosis. There have been no further descriptions in the literature since 1997." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "3240" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Central nervous system calcification-deafness-tubular acidosis-anemia syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Central nervous system calcification-deafness-tubular acidosis-anemia syndrome" ] .
+}
+

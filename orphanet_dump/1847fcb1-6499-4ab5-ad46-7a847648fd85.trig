@@ -1,0 +1,21 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=391655> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:391655" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:391655" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare clinical situation occurring in the context of Parkinson disease characterized by return or worsening of symptoms (including motor and/or non-motor symptoms) under antiparkinsonian therapy. Types of off-periods are Morning Off (experienced before the first dose of the day), Delayed On (occurring more frequently after the first dose of the day or after meals), Wearing Off (end-of-dose deterioration), Sudden Off (sudden transition from on to off), and Dose Failure." ;
+        ns1:epidemiology "Prevalence : 1-9 / 100 000" ;
+        ns1:identifier "391655" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Off-periods in Parkinson disease not responding to oral treatment" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Off-periods in Parkinson disease not responding to oral treatment" ] .
+}
+

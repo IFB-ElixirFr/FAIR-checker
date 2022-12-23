@@ -1,0 +1,28 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=91354> a ns1:MedicalCondition ;
+        ns1:alternateName "Hypopituitarism due to empty sella turcica syndrome" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "E23.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E23.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:91354" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:91354" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare pituitary deficiency characterized by herniation of the subarachnoid space into the sella turcica, resulting in flattening of the pituitary gland and endocrine dysfunction. Most common endocrine abnormalities are hyperprolactinemia and growth hormone deficit. Clinical symptoms are highly variable and include headaches, irregular menstruation, galactorrhea, obesity, and visual disturbances, among others." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "91354" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Pituitary deficiency due to empty sella turcica syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Pituitary deficiency due to empty sella turcica syndrome" ] .
+}
+

@@ -1,0 +1,38 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=448010> a ns1:MedicalCondition ;
+        ns1:alternateName "CDG syndrome type Iz",
+            "CDG-Iz",
+            "CDG1Z",
+            "Carbohydrate deficient glycoprotein syndrome type Iz",
+            "Congenital disorder of glycosylation type 1z" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "616457" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:448010" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E77.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "616457" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E77.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:448010" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "CAD-CDG is a rare congenital disorder of glycosylation caused by mutations in the <i>CAD</i> gene and characterized by epileptic encephalopathy, global developmental delay, normocytic anemia and anisopoikilocytosis. Loss of acquired skills in early childhood is present and natural disease course can be lethal in early childhood." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "448010" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "CAD-CDG" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "CAD-CDG" ] .
+}
+

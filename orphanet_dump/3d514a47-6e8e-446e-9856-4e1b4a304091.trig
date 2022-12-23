@@ -1,0 +1,35 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=70590> a ns1:MedicalCondition ;
+        ns1:alternateName "Apnea in full-term infants",
+            "Apnea of infancy" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "P28.4" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:70590" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:70590" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "P28.4" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "6779" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "6779" ;
+                ns1:codingSystem "GARD" ] ;
+        ns1:description "Infantile apnea is a cessation of respiratory air flow that may affect newborns or older children because of neurological impairment of the respiratory rhythm or obstruction of air flow through the air passages. The symptoms include cyanosis, pallor or bradycardia and snoring in case of obstructive apnea." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "70590" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Infantile apnea" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Infantile apnea" ] .
+}
+

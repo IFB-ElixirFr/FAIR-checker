@@ -1,0 +1,30 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=314962> a ns1:MedicalCondition ;
+        ns1:alternateName "HES-R",
+            "Reactive hypereosinophilic syndrome",
+            "Secondary HES" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "D47.5" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:314962" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D47.5" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:314962" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare hypereosinophilic syndrome characterized by hypereosinophilia produced by reactive/non-clonal eosinophils secondary to an underlying medical condition and persisting for at least six months. The disorder can derive from non-neoplastic conditions (such as chronic infections and infestations, allergic reactions, intoxications, or autoimmune and chronic inflammatory disorders) or from neoplasms including non-myeloid malignancies, among others. It is associated with signs of organ infiltration, dysfunction, and damage. Clinical manifestations are highly variable, depending on the organ systems involved, and most commonly include dermatologic, pulmonary, cardiac, gastrointestinal, and cerebral manifestations." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "314962" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Secondary hypereosinophilic syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Secondary hypereosinophilic syndrome" ] .
+}
+

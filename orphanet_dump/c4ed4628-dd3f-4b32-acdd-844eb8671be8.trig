@@ -1,0 +1,28 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=457083> a ns1:MedicalCondition ;
+        ns1:alternateName "SGF" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "Q89.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:457083" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q89.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:457083" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare, non-syndromic visceral malformation characterized by an abnormal, continuous or discontinuous attachment of the spleen to the gonad, epididymis or vas. Continuous type has a direct connection between spleen and the gonad, whereas discontinuous type indicates gonadal tissue fused with an accessory spleen or ectopic spleen tissue without connection to the principal spleen. Males typically present with a scrotal mass or as an incidental finding during the management of cryptorchidism, testicular tumors or inguinal hernia. In females this is usually an incidental finding during laparotomy." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "457083" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Isolated splenogonadal fusion" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Isolated splenogonadal fusion" ] .
+}
+

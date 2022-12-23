@@ -1,0 +1,28 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=289494> a ns1:MedicalCondition ;
+        ns1:alternateName "POLR-related leukodystrophy" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:289494" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G93.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:289494" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G93.8" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "A rare hypomyelinating leukodystrophy disorder characterized by the association of dental abnormalities (delayed dentition, abnormal order of dentition, hypodontia), hypogonadotropic hypogonadism, and hypomyelinating leukodystrophy manifesting with neurodevelopmental delay or regression and/or progressive cerebellar symptoms." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "289494" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "4H leukodystrophy" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "4H leukodystrophy" ] .
+}
+

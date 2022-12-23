@@ -1,0 +1,29 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=217560> a ns1:MedicalCondition ;
+        ns1:alternateName "NCHI",
+            "NEHI" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:217560" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:217560" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C3161105" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C3161105" ;
+                ns1:codingSystem "UMLS" ] ;
+        ns1:description "Neuroendocrine cell hyperplasia of infancy (NCHI) is a non-lethal pediatric form of interstitial lung disease (ILD, see this term) characterized by tachypnea without respiratory failure." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "217560" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Neuroendocrine cell hyperplasia of infancy" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Neuroendocrine cell hyperplasia of infancy" ] .
+}
+

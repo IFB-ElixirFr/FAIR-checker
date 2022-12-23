@@ -1,0 +1,27 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=99131> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "Q24.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:99131" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q24.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:99131" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "Pleuro-pericardial cyst is a rare, mostly congenital, pericardium anomaly characterized by the presence of, usually asymptomatic, cysts which are typically located in the right costophrenic angle and are usually incidentally diagnosed. On occasion, it manifests with chest pain, dyspnea, tachycardia, persistent cough or cardiac arrhythmias. The condition is usually benign, but rare complications, such as cardiac tamponade, cardiogenic shock, mitral valve prolapse, hoarseness atrial fibrillation, right ventricular outflow, tract obstruction, spontaneous internal hemorrhage, pulmonary stenosis and sudden death, may occur." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "99131" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Pleuro-pericardial cyst" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Pleuro-pericardial cyst" ] .
+}
+

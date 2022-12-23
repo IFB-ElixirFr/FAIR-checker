@@ -1,0 +1,33 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=293812> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "10048796" ;
+                ns1:codingSystem "MedDRA" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0877391" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10048796" ;
+                ns1:codingSystem "MedDRA" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0877391" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:293812" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:293812" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare hypersensitivity reaction characterized by the appearance of erythematous or violaceous, round, sometimes painful, plaques that may or may not result in long-lasting pigmentation and which recur (usually at the same site) upon re-exposure to the causative medication. The severe form of the disease, generalized bullous fixed drug eruption, occurs typically in the elderly and may be life-threatening. Onset usually occurs 30 minutes to several hours after administration of the causal medication. Many medications, including paracetamol, have been implicated. The disease may rarely be induced by food. Histology is characterized by interface dermatitis or epidermal necrolysis in bullous forms." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "293812" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Fixed drug eruption" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Fixed drug eruption" ] .
+}
+

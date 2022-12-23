@@ -1,0 +1,27 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=314684> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:314684" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C85.7" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C85.7" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:314684" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "Primary bone lymphoma is a rare lymphoid hemopathy defined as single or multiple tumors in the bone, not associated with infringement or violation of other extranodal malignant lymph nodes outside the area. It usually presents with bone pain, nerve compression, a palpable mass or fracture, while systemic features (fever, night sweats, fatigue, loss of appetite, weight loss) are not common." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "314684" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Primary bone lymphoma" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Primary bone lymphoma" ] .
+}
+

@@ -1,0 +1,30 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=1716> a ns1:MedicalCondition ;
+        ns1:alternateName "Distal duplication 18q",
+            "Telomeric duplication 18q",
+            "Trisomy 18qter" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:1716" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q92.3" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:1716" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q92.3" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "Distal trisomy 18q is a rare, partial autosomal trisomy characterized by a variable phenotype that includes hypotonia, motor delay, mild to severe intellectual disability, seizures, variable cerebral anomalies, finger/toe syndactyly, fifth finger clinodactyly, strabismus, short neck and dysmorphic facial features." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "1716" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Distal trisomy 18q" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Distal trisomy 18q" ] .
+}
+

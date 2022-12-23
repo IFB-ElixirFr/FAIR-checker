@@ -1,0 +1,28 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=213721> a ns1:MedicalCondition ;
+        ns1:alternateName "Endometrial undifferentiated carcinoma" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "C50" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:213721" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:213721" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C50" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "Undifferentiated carcinoma of the corpus uteri is a rare cancer of corpus uteri presenting as a large, polypoid, intraluminal mass with necrosis, composed of small to intermediate-size, relatively uniform, dyshesive cells displaying no differentiation. It usually presents with dysfunctional bleeding or vaginal discharge and, less often, abdominal pain. Association with Lynch syndrome was reported." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "213721" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Undifferentiated carcinoma of the corpus uteri" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Undifferentiated carcinoma of the corpus uteri" ] .
+}
+

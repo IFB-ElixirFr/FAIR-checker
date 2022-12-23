@@ -1,0 +1,27 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=447740> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:447740" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:447740" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D71" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D71" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "A rare functional neutrophil defect characterized by increased susceptibility to aggressive periodontitis in otherwise young, healthy individuals, due to impaired polymorphonuclear leukocyte chemotaxis toward bacterial formylpeptides. The periodontitis is rapidly progressive with progredient destruction of periodontal tissue and attachment loss." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "447740" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Susceptibility to localized juvenile periodontitis" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Susceptibility to localized juvenile periodontitis" ] .
+}
+

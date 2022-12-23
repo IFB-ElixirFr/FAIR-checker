@@ -1,0 +1,28 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=565641> a ns1:MedicalCondition ;
+        ns1:alternateName "Aplastic desmosis coli" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "K59.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:565641" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "K59.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:565641" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare intestinal disease characterized by congenital partial or complete lack of the collagen mesh network in the intestinal wall, resulting in hypoperistalsis or aperistalsis. The enteric nervous system is normal or near-normal in the affected areas, although hypo- and dysganglionosis may be found in some proximal segments of the colon and/or small bowel. Patients present with chronic intractable slow transit constipation." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "565641" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Primary desmosis coli" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Primary desmosis coli" ] .
+}
+

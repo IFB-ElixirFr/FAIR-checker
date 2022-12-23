@@ -1,0 +1,30 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=401901> a ns1:MedicalCondition ;
+        ns1:alternateName "C9ORF72-related Huntington disease phenocopy",
+            "C9ORF72-related Huntington disease-like syndrome",
+            "Huntington disease phenocopy due to C9ORF72 expansions" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:401901" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G10" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:401901" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G10" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "Huntington disease-like syndrome due to C9ORF72 expansions is a rare, genetic neurodegenerative disease characterized by movement disorders, including dystonia, chorea, myoclonus, tremor and rigidity. Associated features are also cognitive and memory impairment, early psychiatric disturbances and behavioral problems." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "401901" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Huntington disease-like syndrome due to C9ORF72 expansions" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Huntington disease-like syndrome due to C9ORF72 expansions" ] .
+}
+

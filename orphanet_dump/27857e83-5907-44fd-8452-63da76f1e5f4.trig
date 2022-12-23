@@ -1,0 +1,33 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=449291> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "300624" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:449291" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q99.2" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:449291" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "300624" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q99.2" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "A rare genetic disease characterized by a variable clinical phenotype which includes similar features but is typically less severe than in affected males. Patients may present with mild to borderline intellectual disability, anxiety, social phobia, selective mutism, attention deficit hyperactivity disorder, language deficit, neurologic signs and symptoms (such as seizures, hypotonia, and clonus), ophthalmologic anomalies (strabismus, refractive errors), and facial dysmorphism (including long face, prominent forehead, large, prominent ears, and mandibular prognathism)." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "449291" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Symptomatic form of fragile X syndrome in female carriers" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Symptomatic form of fragile X syndrome in female carriers" ] .
+}
+

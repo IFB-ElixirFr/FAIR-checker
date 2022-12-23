@@ -1,0 +1,35 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=502444> a ns1:MedicalCondition ;
+        ns1:alternateName "ACER3-related early childhood-onset progressive leukodystrophy",
+            "Leukodystrophy due to alkaline ceramidase 3 deficiency" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "E75.2" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "617762" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:502444" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "617762" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:502444" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E75.2" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "A rare genetic leukodystrophy characterized by infantile onset of stagnation and regression of motor and language development resulting in complete lack of communication and purposeful movement. Further neurological manifestations include truncal hypotonia, appendicular spasticity, dystonia, optic disc pallor, peripheral neuropathy, and neurogenic bladder. Patients also present multiple contractures, late-onset relative macrocephaly, short stature, and facial dysmorphism (including coarse facial features, sloping forehead, thick eyebrows, low-set ears, prominent nose, flat philtrum, and prominent lower lip). Brain imaging at advanced stages shows diffuse abnormal white matter signal and severe atrophy. Sural nerve biopsy reveals decreased myelination." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "502444" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Alkaline ceramidase 3 deficiency" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Alkaline ceramidase 3 deficiency" ] .
+}
+

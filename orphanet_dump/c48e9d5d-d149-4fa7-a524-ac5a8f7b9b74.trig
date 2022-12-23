@@ -1,0 +1,28 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=95711> a ns1:MedicalCondition ;
+        ns1:alternateName "Primary congenital hypothyroidism due to developmental anomaly" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "E03.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:95711" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:95711" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E03.1" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "Thyroid dysgenesis is a type of primary congenital hypothyroidism (see this term), a permanent thyroid hormone deficiency that is present from birth." ;
+        ns1:epidemiology "Prevalence : 1-5 / 10 000" ;
+        ns1:identifier "95711" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Congenital hypothyroidism due to developmental anomaly" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Congenital hypothyroidism due to developmental anomaly" ] .
+}
+

@@ -1,0 +1,27 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=370019> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "Q77.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:370019" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:370019" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q77.8" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "Spondylometaphyseal dysplasia, Czarny-Ratajczak type is a rare primary bone dysplasia disorder characterized by short stature with severe shortening of limbs, genu vara deformity and enlarged joints with movement limitation particularly affecting the hip joints. Radiological findings show coxa vara, generalized metaphyseal irregularities of the tubular bones (including cupping, fraying and splaying) which is more severe in the femur and forearm bones than the metacarpals and phalanges, and vertebral abnormalities including ovoid vertebral bodies with anterior rectangular protrusions, and severe platyspondyly." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "370019" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Spondylometaphyseal dysplasia, Czarny-Ratajczak type" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Spondylometaphyseal dysplasia, Czarny-Ratajczak type" ] .
+}
+

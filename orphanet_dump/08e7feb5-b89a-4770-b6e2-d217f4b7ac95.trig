@@ -1,0 +1,40 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=293825> a ns1:MedicalCondition ;
+        ns1:alternateName "CDA IV",
+            "CDA due to KLF1 mutation",
+            "CDA type 4",
+            "CDA type IV",
+            "CDAN4",
+            "Congenital dyserythropoietic anemia due to KLF1 mutation",
+            "Congenital dyserythropoietic anemia type 4" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:293825" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "613673" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "613673" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D64.4" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:293825" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D64.4" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "Congenital dyserythropoietic anemia type IV (CDA IV) is a newly discovered form of CDA (see this term) characterized by ineffective erythropoiesis and hemolysis that leads to severe anemia at birth." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "293825" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Congenital dyserythropoietic anemia type IV" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Congenital dyserythropoietic anemia type IV" ] .
+}
+

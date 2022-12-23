@@ -1,0 +1,27 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=208524> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "L10.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:208524" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:208524" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "L10.8" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "A rare superficial pemphigus disease characterized by severe intractable pruritus with erythematous or urticarial plaques and sometimes vesicles organized in a herpetiform pattern. Mucosae are generally spared. Eosinophilia in peripheral blood and low titers of circulating autoantibodies are observed in many cases. Histology can show an aspect of either pemphigus (superficial or deep), or an intraepidermal infiltrate rich in eosinophils (eosinophilic spongiosis)." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "208524" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Herpetiform pemphigus" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Herpetiform pemphigus" ] .
+}
+

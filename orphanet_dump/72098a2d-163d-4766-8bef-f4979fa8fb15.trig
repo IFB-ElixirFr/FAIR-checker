@@ -1,0 +1,18 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=100086> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:100086" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C23" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "A rare, very aggressive neuroendocrine neoplasm characterized by the presence of nodular mass(es) arising from the neck, fundus or body of the gallbladder or by diffuse thickening of the gallbladder wall. Patients may be asymptomatic (diagnosed incidentally after surgical resection of the gallbladder) or may present epigastric pain, abdominal mass and/or non-specific symptoms, such as nausea, jaundice, flushing, cough, wheezing, ascites, and anepithymia. Paraneoplastic syndromes, such as Cushing syndrome, hypercalcemia, acanthosis nigricans, bullous pemphigoid, dermatomyositis and the Leser-Trélat sign, may be associated." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "100086" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Gallbladder neuroendocrine tumor" ] .
+}
+

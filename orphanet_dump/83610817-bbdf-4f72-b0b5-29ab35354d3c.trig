@@ -1,0 +1,27 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=57777> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:57777" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "I42.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:57777" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "I42.8" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "Cirrhotic cardiomyopathy is the term used to describe a constellation of features indicative of abnormal heart structure and function in patients with cirrhosis. These include systolic and diastolic dysfunction, electrophysiological changes, and macroscopic and microscopic structural changes." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "57777" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Cirrhotic cardiomyopathy" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Cirrhotic cardiomyopathy" ] .
+}
+

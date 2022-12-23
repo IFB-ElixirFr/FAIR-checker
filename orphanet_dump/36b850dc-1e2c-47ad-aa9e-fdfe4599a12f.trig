@@ -1,0 +1,35 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=2325> a ns1:MedicalCondition ;
+        ns1:alternateName "EBS with anodontia/hypodontia",
+            "Kallin syndrome" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "C0432313" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q81.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q81.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0432313" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:2325" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:2325" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare epidermolysis bullosa simplex characterized by the association of the typical trauma-induced blisters with additional features including hearing impairment, alopecia, hypo- or anodontia, and nail dystrophy. Occurrence of vitiliginous skin areas unrelated to the sites of the blisters has also been described." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "2325" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Epidermolysis bullosa simplex with anodontia/hypodontia" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Epidermolysis bullosa simplex with anodontia/hypodontia" ] .
+}
+

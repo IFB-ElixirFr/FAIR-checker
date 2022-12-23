@@ -1,0 +1,46 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=83313> a ns1:MedicalCondition ;
+        ns1:alternateName "Mediterranean spotted fever" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "10006045" ;
+                ns1:codingSystem "MedDRA" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "A77.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:83313" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0006060" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0006060" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "A77.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D001907" ;
+                ns1:codingSystem "MeSH" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10006045" ;
+                ns1:codingSystem "MedDRA" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:83313" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D001907" ;
+                ns1:codingSystem "MeSH" ] ;
+        ns1:description "A rare spotted fever rickettsiosis caused by infection with the tick-borne bacterium <i>Rickettsia conorii</i>, characterized by the onset of fever after an incubation period of about a week, followed by a centripetally spreading maculopapular rash, which may evolve into a petechial form. Accompanying symptoms are headaches, myalgia and/or arthralgia, among others. The typical ''tache noire'' may be observed at the site of the tick bite for several days. The disease is endemic in Africa, Southern Europe, and India." ;
+        ns1:epidemiology "Prevalence : 1-5 / 10 000" ;
+        ns1:identifier "83313" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Boutonneuse fever" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Boutonneuse fever" ] .
+}
+

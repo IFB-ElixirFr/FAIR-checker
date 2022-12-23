@@ -1,0 +1,34 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=48372> a ns1:MedicalCondition ;
+        ns1:alternateName "Non-cirrhotic nodulation" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "10929" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:48372" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10929" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "K76.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "K76.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:48372" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A form of portosinusoidal vascular disease characterized histologically by the absence of cirrhosis and diffuse benign transformation of the hepatic parenchyma into multiple small nodules (typically 1-3 mm)." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "48372" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Nodular regenerative hyperplasia of the liver" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Nodular regenerative hyperplasia of the liver" ] .
+}
+

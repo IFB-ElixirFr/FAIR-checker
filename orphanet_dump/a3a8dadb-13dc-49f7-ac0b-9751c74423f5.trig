@@ -1,0 +1,40 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=169085> a ns1:MedicalCondition ;
+        ns1:alternateName "Familial CD8 deficiency" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "608957" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D84.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C1837065" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:169085" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D84.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:169085" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C1837065" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "608957" ;
+                ns1:codingSystem "OMIM" ] ;
+        ns1:description "A rare primary immunodeficiency due to a defect in adaptive immunity characterized by the absence of CD8+ T cells with normal immunoglobulin and specific antibody titres in blood and susceptibility to recurrent respiratory bacterial and viral infections. Symptom severity range from fatal respiratory insufficiency to mild or asymptomatic phenotypes." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "169085" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Susceptibility to respiratory infections associated with CD8alpha chain mutation" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Susceptibility to respiratory infections associated with CD8alpha chain mutation" ] .
+}
+

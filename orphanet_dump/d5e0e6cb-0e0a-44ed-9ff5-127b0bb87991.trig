@@ -1,0 +1,33 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=785> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "615363" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "615363" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:785" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:785" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E30" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E30" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "Estrogen resistance syndrome is a rare, genetic endocrine disease characterized by estrogen-receptor insensitivity to estrogens and the presence of elevated estrogen and gonadotropin serum levels. Clinical manifestations include absent breast development and primary amenorrhea in association with multicystic ovaries and/or hypoplastic uterus in female patients, normal or abnormal gonadal development in male patients and markedly delayed bone maturation, persistence of open epiphyses, reduced bone mineral density, and variable tall stature in both sexes. Glucose intolerance, hyperinsulinemia and lipid abnormalities may also be present." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "785" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Estrogen resistance syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Estrogen resistance syndrome" ] .
+}
+

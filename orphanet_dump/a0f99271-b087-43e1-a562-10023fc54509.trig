@@ -1,0 +1,40 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=230857> a ns1:MedicalCondition ;
+        ns1:alternateName "EDS/OI syndrome" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "Q79.6" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:230857" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:230857" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "619120" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q79.6" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "619115" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "619120" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "619115" ;
+                ns1:codingSystem "OMIM" ] ;
+        ns1:description "A rare systemic disease characterized by the association of the features of Ehlers-Danlos syndrome with those of osteogenesis imperfecta. Predominant clinical manifestations include generalized joint hypermobility and dislocations, skin hyperextensibility and/or translucency, easy bruising, and invariable association with mild signs of osteogenesis imperfecta, including short stature, blue sclera, and osteopenia or fractures." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "230857" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Ehlers-Danlos/osteogenesis imperfecta syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Ehlers-Danlos/osteogenesis imperfecta syndrome" ] .
+}
+

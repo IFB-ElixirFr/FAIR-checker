@@ -1,0 +1,40 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=75566> a ns1:MedicalCondition ;
+        ns1:alternateName "Eosinophilic endocarditis" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:75566" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0206143" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "I42.3" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0206143" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10052841" ;
+                ns1:codingSystem "MedDRA" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10052841" ;
+                ns1:codingSystem "MedDRA" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "I42.3" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:75566" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare restrictive cardiomyopathy characterized by hypereosinophilia and fibrous thickening of the endocardium, with usually large thrombi against the ventricle walls, that can lead to cardiovascular complications such as heart failure and thromboembolism. It manifests with symptoms like edema, fatigue and shortness of breath. It is usually secondary to eosinophil-associated tissue damage and is associated with idiopathic hypereosinophilic syndrome, chronic eosinophilic leukemia, carcinoma, or lymphoma." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "75566" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Loeffler endocarditis" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Loeffler endocarditis" ] .
+}
+

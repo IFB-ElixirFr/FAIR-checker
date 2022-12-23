@@ -1,0 +1,35 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=96186> a ns1:MedicalCondition ;
+        ns1:alternateName "Maternal UPD(20)",
+            "UPD(20)mat" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "617352" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q99.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:96186" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:96186" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q99.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "617352" ;
+                ns1:codingSystem "OMIM" ] ;
+        ns1:description "Maternal uniparental disomy of chromosome 20 (UPD 20) is a very rare chromosomal anomaly in which both copies of chromosome 20 are inherited from the mother. The main feature described is prenatal and postnatal growth retardation. Microcephaly, minor dysmorphic features and psychomotor developmental delay have been occasionally reported. Maternal UPD20 is most often ascertained by a mosaic trisomy 20 pregnancy." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "96186" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Maternal uniparental disomy of chromosome 20" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Maternal uniparental disomy of chromosome 20" ] .
+}
+

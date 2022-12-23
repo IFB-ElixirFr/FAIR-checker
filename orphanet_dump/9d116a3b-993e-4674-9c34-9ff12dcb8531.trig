@@ -1,0 +1,27 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=449400> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "I77.6" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:449400" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:449400" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "I77.6" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "A rare systemic autoimmune disease characterized by infiltrates of IgG4-positive plasma cells and lymphocytes in the adventitia of the aorta, resulting in thickening of perivascular tissue or formation of soft tissue masses surrounding the aorta and its major branches (potentially complicated by inflammatory aortic aneurysm), associated with elevated serum IgG4 levels. Preferential location is the infra-renal portion of the abdominal aorta. In addition, medium-sized blood vessels can be involved, and the condition may occur together with IgG4-related disease in other parts of the body. Clinical symptoms are unspecific and include chest or back pain and fever." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "449400" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "IgG4-related aortitis" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "IgG4-related aortitis" ] .
+}
+

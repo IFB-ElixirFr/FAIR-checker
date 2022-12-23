@@ -1,0 +1,29 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=90041> a ns1:MedicalCondition ;
+        ns1:alternateName "Stress erythrocytosis",
+            "Stress polycythemia" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "C0541719" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D75.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10042217" ;
+                ns1:codingSystem "MedDRA" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:90041" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10053885" ;
+                ns1:codingSystem "MedDRA" ] ;
+        ns1:description "Gaisbock syndrome is characterised by secondary polycythemia." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "90041" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Gaisböck syndrome" ] .
+}
+

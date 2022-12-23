@@ -1,0 +1,28 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=477661> a ns1:MedicalCondition ;
+        ns1:alternateName "IL21-related infantile IBD" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "615767" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:477661" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:477661" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "615767" ;
+                ns1:codingSystem "OMIM" ] ;
+        ns1:description "A rare autosomal recessive primary immunodeficiency characterized by infancy onset of severe inflammatory bowel disease with life-threatening diarrhea and failure to thrive, oral aphthous ulcers, and recurrent severe upper and lower respiratory tract infections with finger clubbing. Laboratory examination reveals increased IgE and decreased IgG levels, as well as reduced numbers of circulating CD19+ B-cells including IgM+ naive and class-switched IgG memory B-cells, with a concomitant increase in transitional B-cells, while T-cell numbers and function are normal." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "477661" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "IL21-related infantile inflammatory bowel disease" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "IL21-related infantile inflammatory bowel disease" ] .
+}
+

@@ -1,0 +1,27 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=90065> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "I60.9" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:90065" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:90065" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "I60.9" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "A rare, life threatening rare neurologic disease characterized by a sudden rupture of an intracranial aneurysm into the subarachnoid space. It usually presents with a sudden, severe, excruciating headache accompanied by nausea, vomiting and syncope. Other features may include focal neurological signs, third and sixth nerve palsies, seizures and cardiac failure. Early complications include rebleeding, hydrocephalus, and seizures." ;
+        ns1:epidemiology "Prevalence : 1-5 / 10 000" ;
+        ns1:identifier "90065" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Acquired aneurysmal subarachnoid hemorrhage" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Acquired aneurysmal subarachnoid hemorrhage" ] .
+}
+

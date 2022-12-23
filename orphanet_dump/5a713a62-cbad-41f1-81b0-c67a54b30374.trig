@@ -1,0 +1,47 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=69076> a ns1:MedicalCondition ;
+        ns1:alternateName "Familial renal glycosuria",
+            "SGLT2 deficiency" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "C3245525" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "7548" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "233100" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E74.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:69076" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C3245525" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E74.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "7548" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:69076" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "233100" ;
+                ns1:codingSystem "OMIM" ] ;
+        ns1:description "A rare, genetic, glucose transport disorder characterized by the presence of persistent isolated glucosuria in the absence of both proximal tubular dysfunction and hyperglycemia. The disorder is benign in the majority of cases although it may occasionally manifest with polyuria, enuresis, a mild growth and pubertal maturation delay, hypercalciuria, aminoaciduria and, in severe cases, increased incidence of urinary infections and episodic dehydration and ketosis during pregnancy and starvation." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "69076" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Familial renal glucosuria" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Familial renal glucosuria" ] .
+}
+

@@ -1,0 +1,52 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=863> a ns1:MedicalCondition ;
+        ns1:alternateName "Trichinosis" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "C0040896" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D014235" ;
+                ns1:codingSystem "MeSH" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "B75" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "5250" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "B75" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:863" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10044608" ;
+                ns1:codingSystem "MedDRA" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10044608" ;
+                ns1:codingSystem "MedDRA" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0040896" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "5250" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D014235" ;
+                ns1:codingSystem "MeSH" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:863" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "Trichinellosis is a zoonotic parasitic disease caused by the consumption of raw or undercooked meat (pork and wild game) infected by nematodes of the genus <i>Trichinella</i> and that is characterized by an enteral (intestinal) phase, that can be asymptomatic or that can manifests with diarrhea, nausea, vomiting and abdominal pain, and a parenteral (muscular) phase, manifesting with fever, periorbital edema, muscle swelling and pain, weakness, and in some cases, skin rash and peripheral edema. Rarely, potentially fatal cardiac (i.e. myocarditis), pulmonary (i.e. pneumonitis, respiratory failure), and nervous system (i.e. meningoencephalitis) complications may occur." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "863" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Trichinellosis" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Trichinellosis" ] .
+}
+

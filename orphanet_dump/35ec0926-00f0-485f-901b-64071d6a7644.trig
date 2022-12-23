@@ -1,0 +1,40 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=85284> a ns1:MedicalCondition ;
+        ns1:alternateName "BRESHECK syndrome" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "C3502469" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:85284" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q87.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:85284" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "308205" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q87.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C3502469" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "308205" ;
+                ns1:codingSystem "OMIM" ] ;
+        ns1:description "X-linked mental retardation, Reish type is characterised by Brain anomalies, severe mental Retardation, Ectodermal dysplasia, Skeletal deformities (vertebral anomalies, scoliosis, polydactyly), Ear/eye anomalies (maldevelopment, small optic nerves, low set and large ears with hearing loss) and Kidney dysplasia/hypoplasia (giving the acronym BRESEK syndrome)." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "85284" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "BRESEK syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "BRESEK syndrome" ] .
+}
+

@@ -1,0 +1,48 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=66529> a ns1:MedicalCondition ;
+        ns1:alternateName "Ampulla cardiomyopathy",
+            "Apical ballooning syndrome",
+            "Ballooning cardiomyopathy",
+            "Broken heart syndrome",
+            "Stress cardiomyopathy",
+            "Tako-Tsubo syndrome",
+            "Takotsubo cardiomyopathy",
+            "Takotsubo syndrome",
+            "Transient left ventricular apical ballooning syndrome" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "9400" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:66529" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C1739395" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:66529" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "I42.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "I42.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "9400" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C1739395" ;
+                ns1:codingSystem "UMLS" ] ;
+        ns1:description "A rare cardiac disease characterized by acute occurrence of heart failure after an emotional or physical trigger however, recovery of the wall motion abnormalities are observed within months. Symptoms are similar to acute coronary syndrome (ACS)." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "66529" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Tako-Tsubo cardiomyopathy" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Tako-Tsubo cardiomyopathy" ] .
+}
+

@@ -1,0 +1,33 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=401862> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "616299" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "616299" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:401862" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E88.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E88.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:401862" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "Lipoyl transferase 1 deficiency is a very rare inborn error of metabolism disorder, with a highly variable phenotype, typically characterized by neonatal to infancy-onset of seizures, psychomotor delay, and abnormal muscle tone that may include hypo- and/or hypertonia, resulting in generalized weakness, dystonic movements, and/or progressive respiratory distress, associated with severe lactic acidosis and elevated lactate, ketoglutarate and 2-oxoacids in urine. Additional manifestations may include dehydration, vomiting, signs of liver dysfunction, extrapyramidal signs, spastic tetraparesis, brisk deep tendon reflexes, speech impairment, swallowing difficulties, and pulmonary hypertension." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "401862" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Lipoyl transferase 1 deficiency" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Lipoyl transferase 1 deficiency" ] .
+}
+

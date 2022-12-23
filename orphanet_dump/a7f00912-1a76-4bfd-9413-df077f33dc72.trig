@@ -1,0 +1,45 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=1910> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "2304" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "228355" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "2304" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "P72.2" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:1910" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:1910" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "P72.2" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "228355" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0342200" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0342200" ;
+                ns1:codingSystem "UMLS" ] ;
+        ns1:description "Fetal iodine syndrome refers to symptoms and signs that may be observed in a fetus or newborn when the mother was exposed during pregnancy to inappropriate (insufficient or excessive) amounts of iodine. Iodine deficiency is associated with goiter and hypothyroidism. When severe iodine deficiency occurs during pregnancy, it is associated with congenital hypothyroidism that is manifested by increased neonatal morbi-mortality and severe mental dysfunction, hyperactivity, attention disorders and a substantial decrease of IQ of an irreversible nature. Excessive iodine ingestion during the third trimester of pregnancy can result in hypothyroidism and fetal goiter due to a prolonged inhibition of thyroid hormone synthesis, an increase in thyrotropin (TSH)." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "1910" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Fetal iodine syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Fetal iodine syndrome" ] .
+}
+

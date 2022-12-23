@@ -1,0 +1,33 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=99926> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:99926" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:99926" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C58" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0349557" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0349557" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C58" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "A form of gestational trophoblastic neoplasia characterized histologically by trophoblast proliferation, absence of chorionic villi (except in cases of intraplacental choriocarcinoma) and tissue necrosis with bleeding. The tumor occurs secondary to pregnancy (ectopic or normal), miscarriage, voluntary termination of pregnancy (VTP) or a hydatidiform mole. Indicative signs are persistent unexplained metrorrhagia or secondary increase, stagnation, or non-normalization at 6 months of total serum chorionic gonadotropin (hCG) levels after removal of a hydatidiform mole; persistent unexplained metrorrhagia following spontaneous abortion or VTP; occasionally unexplained metrorrhagia in the weeks or months following normal childbirth or an ectopic pregnancy. Occasionally, metastases (lung, liver, brain, kidneys, vagina) are indicative signs in women of childbearing age." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "99926" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Gestational choriocarcinoma" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Gestational choriocarcinoma" ] .
+}
+

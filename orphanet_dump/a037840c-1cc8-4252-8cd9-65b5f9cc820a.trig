@@ -1,0 +1,33 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=3406> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:3406" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "5395" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "5395" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:3406" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "604093" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "604093" ;
+                ns1:codingSystem "OMIM" ] ;
+        ns1:description "Ulerythema ophryogenesis is characterised by inflammatory keratotic papules occurring on the face, which may be followed by scars, atrophy and alopecia. Prevalence is unknown but the disease, affecting mainly children and young adults, is rare. Erythema with mild hyperkeratosis of the hair follicles resulting in rough papules is observed on the cheeks and lateral aspects of the eyebrows. The disorder occasionally extends to the adjacent scalp, ears and forehead and rarely to the extensor surfaces of the limbs. Symptoms regress with age, although loss of the lateral aspects of the eyebrows can occur. Many cases occur sporadically; autosomal dominant inheritance has also been reported. There is no particular treatment, but patients should avoid sun exposure without UV protection." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "3406" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Ulerythema ophryogenesis" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Ulerythema ophryogenesis" ] .
+}
+

@@ -1,0 +1,30 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=157823> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "G04.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10066431" ;
+                ns1:codingSystem "MedDRA" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:157823" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D020232" ;
+                ns1:codingSystem "MeSH" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "6840" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0270707" ;
+                ns1:codingSystem "UMLS" ] ;
+        ns1:description "A rare neurologic disease characterized by visual agnosia, hyperorality (strong tendency to examine objects orally), hypermetamorphosis (described as the irresistible impulse to notice and react to everything within sight), hypersexuality, changes in dietary habits and hyperphagia, placidity, and amnesia, due to bilateral lesions of the temporal lobe including the hippocampus and amygdala." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "157823" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Klüver-Bucy syndrome" ] .
+}
+

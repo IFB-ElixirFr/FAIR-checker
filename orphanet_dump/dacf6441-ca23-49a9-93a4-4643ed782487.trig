@@ -1,0 +1,46 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=70568> a ns1:MedicalCondition ;
+        ns1:alternateName "PTLD" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "C0432487" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "9553" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D47.9" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:70568" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0432487" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D47.9" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "9553" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10051358" ;
+                ns1:codingSystem "MedDRA" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:70568" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10051358" ;
+                ns1:codingSystem "MedDRA" ] ;
+        ns1:description "A group of rare immunodeficiency-associated lymphoproliferative disorders characterized by lymphoid or plasmacytic proliferations developing in the context of immunosuppression in a recipient of a solid organ or stem cell allograft. The group includes non-destructive post-transplant lymphoproliferative disorders (PTLDs), polymorphic PTLD, monomorphic PTLDs, and classic Hodgkin lymphoma PTLD. Patients may have more than one type of PTLD in a single or in different locations. The most commonly involved sites are lymph nodes, gastrointestinal tract, lungs, and liver, although the disease may occur almost anywhere in the body. In solid organ transplant recipients, PTLD may also involve the allograft." ;
+        ns1:epidemiology "Prevalence : 1-5 / 10 000" ;
+        ns1:identifier "70568" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Post-transplant lymphoproliferative disease" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Post-transplant lymphoproliferative disease" ] .
+}
+

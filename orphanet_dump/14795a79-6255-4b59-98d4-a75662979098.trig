@@ -1,0 +1,30 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=456298> a ns1:MedicalCondition ;
+        ns1:alternateName "Del(1)(p35.2)",
+            "Deletion 1p35.2",
+            "Monosomy 1p35.2" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:456298" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:456298" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q93.5" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q93.5" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "A very rare, chromosomal anomaly characterized by an intrauterine and postnatal growth retardation, short stature, developmental delay, learning difficulties, hearing loss, hypermetropia,and a recognisable facial dysmorphism including prominent forehead, long, myopathic facies, fine eyebrows, small mouth and micrognathia." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "456298" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "1p35.2 microdeletion syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "1p35.2 microdeletion syndrome" ] .
+}
+

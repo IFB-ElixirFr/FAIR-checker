@@ -1,0 +1,28 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=500135> a ns1:MedicalCondition ;
+        ns1:alternateName "MARCH syndrome" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "236500" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:500135" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:500135" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "236500" ;
+                ns1:codingSystem "OMIM" ] ;
+        ns1:description "A rare genetic lethal multiple congenital anomalies/dysmorphic syndrome characterized by severe hydranencephaly and renal dysplasia or agenesis. Pregnancy is complicated by oligo- or anhydramnios, leading to features of Potter sequence (including typical facies and microretrognathia, limb contractures, talipes equinovarus, and pulmonary hypoplasia) in the fetus. Affected fetuses either die <i>in utero</i> or shortly after birth. Histology of the brain shows widespread presence of multinucleated neurons and glial cells." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "500135" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Multinucleated neurons-anhydramnios-renal dysplasia-cerebellar hypoplasia-hydranencephaly syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Multinucleated neurons-anhydramnios-renal dysplasia-cerebellar hypoplasia-hydranencephaly syndrome" ] .
+}
+

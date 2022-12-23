@@ -1,0 +1,36 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=329903> a ns1:MedicalCondition ;
+        ns1:alternateName "Ig-mediated MPGN",
+            "Ig-mediated membranoproliferative glomerulonephritis",
+            "Immunoglobulin-mediated MPGN" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "615008" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "N03.5" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "N03.5" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "615008" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:329903" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:329903" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A primary form of membranoproliferative glomerulonephritis (MPGN) characterized by deposition in the renal glomeruli of immunoglobulin with complement fractions, especially C3. Clinical presentation may range from nephrotic syndrome and acute kidney injury to asymptomatic proteinuria and hematuria." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "329903" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Immunoglobulin-mediated membranoproliferative glomerulonephritis" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Immunoglobulin-mediated membranoproliferative glomerulonephritis" ] .
+}
+

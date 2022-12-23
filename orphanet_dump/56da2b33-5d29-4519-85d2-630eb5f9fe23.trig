@@ -1,0 +1,43 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=75564> a ns1:MedicalCondition ;
+        ns1:alternateName "AISA",
+            "Primary acquired sideroblastic anemia",
+            "RARS",
+            "Refractory anemia with ringed sideroblasts" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:75564" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:75564" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "8249" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "8249" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D64.3" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C1264195" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D64.3" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C1264195" ;
+                ns1:codingSystem "UMLS" ] ;
+        ns1:description "A rare myelodysplastic syndrome (MDS) characterized by ineffective hemopoiesis affecting one or more blood cell lineages (myeloid, erythroid or megakaryocytic) leading to peripheral blood cytopenias and an increased risk of developing leukaemia." ;
+        ns1:epidemiology "Prevalence : 1-9 / 100 000" ;
+        ns1:identifier "75564" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Acquired idiopathic sideroblastic anemia" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Acquired idiopathic sideroblastic anemia" ] .
+}
+

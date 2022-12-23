@@ -1,0 +1,27 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=464329> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "D18.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:464329" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:464329" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D18.1" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "A rare vascular anomaly or angioma characterized by multifocal malformed lymphatic channels lined by clusters or sheets of spindled lymphatic endothelial cells with a predilection for the thoracic cavity, but also involving extra-thoracic locations, especially bones and spleen. Typical clinical signs and symptoms are pericardial and pleural effusions, cough, dyspnea, bleeding, and fractures secondary to bone involvement. Prognosis is generally poor due to the progressive nature of the condition." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "464329" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Kaposiform lymphangiomatosis" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Kaposiform lymphangiomatosis" ] .
+}
+

@@ -1,0 +1,34 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=284454> a ns1:MedicalCondition ;
+        ns1:alternateName "AZOOR" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:284454" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "8640" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0730298" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:284454" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0730298" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "8640" ;
+                ns1:codingSystem "GARD" ] ;
+        ns1:description "A rare acquired retinal disorder characterised by sequential focal degeneration of photoreceptors, retinal pigment epithelium and choroid, with the majority of patients experiencing sudden onset photopsia and acute scotomas. Although patients typically retain decent visual acuity, blind spot enlargement and retinal pigment epithelial disturbances tend to develop over time. Individuals also often complain of distortion of central vision, photophobia and difficulty with night vision, with more advanced cases reporting loss of peripheral vision." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "284454" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Acute zonal occult outer retinopathy" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Acute zonal occult outer retinopathy" ] .
+}
+

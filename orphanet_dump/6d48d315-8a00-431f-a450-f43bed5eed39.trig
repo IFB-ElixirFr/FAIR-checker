@@ -1,0 +1,25 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=748> a ns1:MedicalCondition ;
+        ns1:alternateName "Idiopathic infection caused by BCG or atypical mycobacteria",
+            "MSMD",
+            "Mendelian susceptibility to atypical mycobacteria",
+            "Mendelian susceptibility to mycobacterial infections" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:748" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "12977" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C3266863" ;
+                ns1:codingSystem "UMLS" ] ;
+        ns1:description "Mendelian susceptibility to mycobacterial diseases (MSMD) is a rare immunodeficiency syndrome, characterized by a narrow vulnerability to poorly virulent mycobacteria, such as bacillus Calmette-Guérin (BCG) vaccines and environmental mycobacteria (EM), and defined by severe, recurrent infections, either disseminated or localized." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "748" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Mendelian susceptibility to mycobacterial diseases" ] .
+}
+

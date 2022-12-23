@@ -1,0 +1,38 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=444463> a ns1:MedicalCondition ;
+        ns1:alternateName "Evans syndrome associated with primary immunodeficiency",
+            "TPPII deficiency",
+            "TPPII-related immunodeficiency, autoimmunity, and neurodevelopmental delay with impaired glycolysis and lysosomal expansion disease",
+            "TRIANGLE disease",
+            "Tripeptidyl-peptidase II deficiency" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "619220" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D89.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "619220" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:444463" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D89.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:444463" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare genetic immune disease characterized by infantile or childhood onset of combined immunodeficiency with recurrent viral, bacterial, and fungal infections, severe autoimmunity mainly manifesting as antibody-mediated destruction of red blood cells, platelets, and neutrophils, and mild to moderate developmental delay. Laboratory findings include decreased circulating T-, B-, and natural killer cells, and hypergammaglobulinemia." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "444463" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Autoimmune hemolytic anemia-autoimmune thrombocytopenia-primary immunodeficiency syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Autoimmune hemolytic anemia-autoimmune thrombocytopenia-primary immunodeficiency syndrome" ] .
+}
+

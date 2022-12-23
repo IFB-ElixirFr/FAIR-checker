@@ -1,0 +1,40 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=79299> a ns1:MedicalCondition ;
+        ns1:alternateName "Glucokinase-related hyperinsulinemic hypoglycemia" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "2818" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "602485" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E16.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "602485" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "2818" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:79299" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:79299" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E16.1" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "A form of diffuse hyperinsulinism due to glucokinase hyperactivity and characterized by an excessive/ uncontrolled insulin secretion (inappropriate for the level of glycemia) and recurrent episodes of hypoglycemia induced by fasting and glucose rich meals. The clinical spectrum can range from mild and intermediate cases that respond well to dietary modifications and medical management with diazoxide to severe cases that are unresponsive to diazoxide. The potential development of type 2 diabetes with age is another notable feature." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "79299" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Congenital glucokinase-related hyperinsulinism" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Congenital glucokinase-related hyperinsulinism" ] .
+}
+

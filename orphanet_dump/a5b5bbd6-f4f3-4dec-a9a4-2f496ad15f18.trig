@@ -1,0 +1,56 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=882> a ns1:MedicalCondition ;
+        ns1:alternateName "FAH deficiency",
+            "Fumarylacetoacetase deficiency",
+            "Fumarylacetoacetate hydrolase deficiency",
+            "Hepatorenal tyrosinemia",
+            "Tyrosinemia type I" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:882" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E70.2" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "276700" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "276700" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10069462" ;
+                ns1:codingSystem "MedDRA" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E70.2" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10069462" ;
+                ns1:codingSystem "MedDRA" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0268490" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0268490" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "2658" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:882" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "2658" ;
+                ns1:codingSystem "GARD" ] ;
+        ns1:description "Tyrosinemia type 1 (HTI) is an inborn error of tyrosine catabolism caused by defective activity of fumarylacetoacetate hydrolase (FAH) and is characterized by progressive liver disease, renal tubular dysfunction, porphyria-like crises and a dramatic improvement in prognosis following treatment with nitisinone." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "882" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Tyrosinemia type 1" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Tyrosinemia type 1" ] .
+}
+

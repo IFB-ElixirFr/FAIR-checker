@@ -1,0 +1,44 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=353253> a ns1:MedicalCondition ;
+        ns1:alternateName "BMS",
+            "Oral dysesthesia",
+            "Orodynia",
+            "Stomatodynia",
+            "Stomatopyrosis" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "5974" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "5974" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "K14.6" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0006430" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:353253" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "K14.6" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:353253" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0006430" ;
+                ns1:codingSystem "UMLS" ] ;
+        ns1:description "A rare neurologic disease characterized by an unremitting bilateral symmetrical burning sensation of the oral mucosa without clinical evidence of causative lesions. It most frequently occurs in postmenopausal women and typically affects the tongue, less often the palate, lips, or buccal mucosa. It is often associated with dysgeusia and xerostomia." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "353253" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Burning mouth syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Burning mouth syndrome" ] .
+}
+

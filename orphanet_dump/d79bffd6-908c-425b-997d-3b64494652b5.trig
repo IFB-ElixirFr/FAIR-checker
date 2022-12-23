@@ -1,0 +1,26 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=1439> a ns1:MedicalCondition ;
+        ns1:alternateName "Ring 12",
+            "Ring chromosome 12" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:1439" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q93.2" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0795843" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "1325" ;
+                ns1:codingSystem "GARD" ] ;
+        ns1:description "Ring chromosome 12 syndrome is a rare chromosomal anomaly syndrome with a highly variable phenotype principally characterized by postnatal growth retardation, variable degrees of developmental delay and intellectual disability, microcephaly and facial dysmorphism (incl. epicanthal folds, low-set, cupped ears, prominent nose with flat nasal bridge, high arched palate, micrognathia). Skeletal abnormalities (e.g. pectus excavatum, clinodactyly), congenital heart malformations, cryptorchidism, café-au-lait spots and epilepsy have also been reported." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "1439" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Ring chromosome 12 syndrome" ] .
+}
+

@@ -1,0 +1,34 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=65683> a ns1:MedicalCondition ;
+        ns1:alternateName "Epilepsy due to FCD" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "607341" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q04.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "607341" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q04.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:65683" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:65683" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "Isolated focal cortical dysplasia is a rare, genetic, non-syndromic cerebral malformation due to abnormal neuronal migration disorder characterized by variable-sized, focalized malformations located in any part(s) of the cerebral cortex, which manifests with drug-resistant epilepsy (usually leading to intellectual disability) and behavioral disturbances. Abnormal MRI findings (e.g. abnormal white and/or grey matter signal, blurred gray-white matter junction, localized volume loss, cortical thickening, abnormal gyral pattern, abnormal hippocampus) and variable histopathologic patterns are associated." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "65683" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Isolated focal cortical dysplasia" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Isolated focal cortical dysplasia" ] .
+}
+

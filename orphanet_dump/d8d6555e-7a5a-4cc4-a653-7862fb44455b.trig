@@ -1,0 +1,28 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=1180> a ns1:MedicalCondition ;
+        ns1:alternateName "Boucher-Neuhäuser syndrome" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "944" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "215470" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C1859093" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:1180" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G11.8" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "A very rare autosomal recessive, slowly progressive neurodegenerative disorder characterized by the triad of cerebellar ataxia (that generally manifests at adolescence or early adulthood), chorioretinal dystrophy, which may have a later onset (up to the fifth-sixth decade) leading to variable degrees of visual impairment, and hypogonadotropic hypogonadism (delayed puberty and lack of secondary sex characteristics). Ataxia-hypogonadism-choroidal dystrophy syndrome belongs to a clinical continuum of neurodegenerative disorders along with the clinically overlapping cerebellar ataxia-hypogonadism syndrome (see this term)." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "1180" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Ataxia-hypogonadism-choroidal dystrophy syndrome" ] .
+}
+

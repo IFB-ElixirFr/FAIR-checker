@@ -1,0 +1,27 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=268865> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:268865" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0027806" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:268865" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0027806" ;
+                ns1:codingSystem "UMLS" ] ;
+        ns1:description "A rare, congenital, non-syndromic malformation of neurenteric canal, spinal cord and column, characterized by intraspinal, predominantly intradural-extramedullary cystic mass located typically ventral to the spinal cord. Histopathology reveals columnar or cuboidal epithelium with or without cilia and mucus globules. Patients may be asymptomatic or present with signs and symptoms of compression of the spinal cord and associated nerve roots, such as focal weakness, progressive paresis, paresthesias, gait disturbance, or radicular pain. Concomitant congenital vertebral anomalies are frequently observed." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "268865" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Neurenteric cyst" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Neurenteric cyst" ] .
+}
+

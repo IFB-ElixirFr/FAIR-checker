@@ -1,0 +1,35 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=363746> a ns1:MedicalCondition ;
+        ns1:alternateName "Balint-Holmes syndrome",
+            "Optic ataxia-gaze apraxia-simultanagnosia syndrome" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:363746" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:363746" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "H51.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0270706" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0270706" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "H51.8" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "Balint syndrome is a rare neurologic disease characterized by the triad of optic ataxia, ocular apraxia and simultanagnosia due to posterior parietal lobe lesions. Patients report ophthalmologic difficulties in the absence of underlying ophthalomologic anomalies and present severe visual and spatial disabilities in locating and reaching objects, initiating voluntary eye movements and perceiving more than one object at a time." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "363746" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Balint syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Balint syndrome" ] .
+}
+

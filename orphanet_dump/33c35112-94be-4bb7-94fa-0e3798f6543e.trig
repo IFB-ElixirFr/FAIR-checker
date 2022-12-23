@@ -1,0 +1,53 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=2314> a ns1:MedicalCondition ;
+        ns1:alternateName "AD-HIES",
+            "Autosomal dominant HIES",
+            "Autosomal dominant hyperimmunoglobulin E syndrome",
+            "Buckley syndrome",
+            "Hyperimmunoglobulin E syndrome type 1",
+            "Hyperimmunoglobulin E-recurrent infection syndrome",
+            "Job syndrome",
+            "STAT3 deficiency" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "D82.4" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C2936739" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:2314" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "147060" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "147060" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:2314" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D82.4" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "6800" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C2936739" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "6800" ;
+                ns1:codingSystem "GARD" ] ;
+        ns1:description "A very rare primary immunodeficiency disorder characterized by the clinical triad of high serum IgE (>2000 IU/ml), recurring staphylococcal skin abscesses, and recurrent pneumonia with formation of pneumatoceles." ;
+        ns1:epidemiology "Prevalence : 1-9 / 100 000" ;
+        ns1:identifier "2314" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Autosomal dominant hyper-IgE syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Autosomal dominant hyper-IgE syndrome" ] .
+}
+

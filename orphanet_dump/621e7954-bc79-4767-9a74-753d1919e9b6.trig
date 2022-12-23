@@ -1,0 +1,34 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=19> a ns1:MedicalCondition ;
+        ns1:alternateName "2-hydroxyglutaric acidemia" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:19" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C2746066" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:19" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C2746066" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10761" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10761" ;
+                ns1:codingSystem "GARD" ] ;
+        ns1:description "2-Hydroxyglutaric aciduria is a group of neurometabolic disorders with a wide clinical spectrum ranging from severe neonatal presentations to progressive forms, and asymptomatic cases, characterized biochemically by increased levels of 2-hydroxyglutaric acid in the plasma, cerebrospinal fluid and urine." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "19" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "2-hydroxyglutaric aciduria" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "2-hydroxyglutaric aciduria" ] .
+}
+

@@ -1,0 +1,47 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=572> a ns1:MedicalCondition ;
+        ns1:alternateName "Bare lymphocyte syndrome type 2",
+            "MHC class II deficiency" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "824" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D81.7" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:572" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "209920" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "824" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:572" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "209920" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C2931418" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D81.7" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C2931418" ;
+                ns1:codingSystem "UMLS" ] ;
+        ns1:description "A rare autosomal recessive primary immunodeficiency characterized by absence of HLA class II molecules on the surface of immune cells, leading to severely impaired cellular and humoral immune response to foreign antigens, severe CD4+ T-cell lymphopenia, and hypogammaglobulinemia. The disease clinically manifests with early onset of severe and recurrent infections mainly of the respiratory and gastrointestinal tract, protracted diarrhea with failure to thrive, and autoimmune disease, and is frequently fatal in childhood." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "572" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Immunodeficiency by defective expression of MHC class II" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Immunodeficiency by defective expression of MHC class II" ] .
+}
+

@@ -1,0 +1,27 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=52994> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:52994" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D31.6" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D31.6" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:52994" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "Orbital leiomyoma is a rare benign smooth muscle tumor arising from the walls of orbital vessels characterized by its slow growth and well encapsulated nature. It is usually located in an extraconal position, commonly manifesting with painless proptosis. The tumor is composed of spindle cells arranged in a fibrous stroma rich in dilated sinusoidal capillaries. The nuclei of tumor cells are oval with blunted ends and there are no mitotic figures. Orbital leiomyoma when excised has excellent prognosis for vision and life. One case of orbital leiomyosarcoma that possibly represents sarcomatous change in an orbital leiomyoma following radiation treatment has been reported." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "52994" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Orbital leiomyoma" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Orbital leiomyoma" ] .
+}
+

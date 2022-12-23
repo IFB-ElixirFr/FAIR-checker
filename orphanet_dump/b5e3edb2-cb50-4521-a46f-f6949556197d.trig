@@ -1,0 +1,43 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=183675> a ns1:MedicalCondition ;
+        ns1:alternateName "IgG subclass deficiency with IgA subclass deficiency",
+            "Isolated IgG subclass deficiency",
+            "Kappa-chain deficiency",
+            "Selective IgG subclass deficiency" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "D80.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "614102" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:183675" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "614102" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D80.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C3279824" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:183675" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C3279824" ;
+                ns1:codingSystem "UMLS" ] ;
+        ns1:description "Deficiencies in immunoglobulin (Ig) isotypes (including: isolated IgG subclass deficiency, IgG sublcass deficiency with IgA deficiency and kappa chain deficiency) are primary immunodeficiencies that are often asymptomatic but can be characterized by recurrent, often pyogenic, sinopulmonary infections." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "183675" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Recurrent infections associated with rare immunoglobulin isotypes deficiency" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Recurrent infections associated with rare immunoglobulin isotypes deficiency" ] .
+}
+

@@ -1,0 +1,27 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=221078> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:221078" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:221078" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G52.7" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G52.7" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "Combined hyperactive dysfunction syndrome of the cranial nerves is a rare, acquired peripheral neuropathy characterized by symptoms arising from combined overactivity in cranial nerves, without any explanatory structural lesion. The symptoms may be unilateral or bilateral, may occur synchronously or metachronously, and include trigeminal neuralgia, hemifacial spasm and glossopharyngeal neuralgia." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "221078" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Combined hyperactive dysfunction syndrome of the cranial nerves" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Combined hyperactive dysfunction syndrome of the cranial nerves" ] .
+}
+

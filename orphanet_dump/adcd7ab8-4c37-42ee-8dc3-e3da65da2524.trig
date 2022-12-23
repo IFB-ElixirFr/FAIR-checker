@@ -1,0 +1,28 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=244283> a ns1:MedicalCondition ;
+        ns1:alternateName "BASM syndrome" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:244283" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q44.2" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q44.2" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:244283" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "Biliary atresia with splenic malformation syndrome (BASM) designates the association of biliary atresia (see this term) and splenic abnormalities (mainly polysplenia and less frequently asplenia, double spleen). Cardiac defect, situs inversus and a preduodenal portal vein can also be present. It represents the embryonal or syndromic form of biliary atresia. It affects newborns or infants and is characterized by jaundice, pale stools, dark urine, failure to thrive, hepatomegaly, coagulopathy, anemia and often palpable spleen." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "244283" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Biliary atresia with splenic malformation syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Biliary atresia with splenic malformation syndrome" ] .
+}
+

@@ -1,0 +1,29 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=352734> a ns1:MedicalCondition ;
+        ns1:alternateName "MP OCA type 1",
+            "OCA1-MP" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "E70.3" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:352734" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:352734" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E70.3" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "An extremely rare form of Oculocutaneous albinism type 1 with minimal pigment present, characterized by blond hair (white at birth), variable iris transillumination (blue irides at birth followed by minimal development of pigment during the first decade of life), visual acuity ranging from 20/80-20/200 and white skin, with or without skin nevi." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "352734" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Minimal pigment oculocutaneous albinism type 1" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Minimal pigment oculocutaneous albinism type 1" ] .
+}
+

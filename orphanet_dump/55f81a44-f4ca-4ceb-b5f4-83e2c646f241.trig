@@ -1,0 +1,29 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=585929> a ns1:MedicalCondition ;
+        ns1:alternateName "B lymphoblastic leukemia lymphoma with t(12;21)(p13;q22); TEL-AML1",
+            "B-lymphoblastic leukemia/lymphoma with t(12;21)(p13.2;q22.1); ETV6-RUNX1" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:585929" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C91.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C91.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:585929" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "" ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "585929" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "B-lymphoblastic leukemia/lymphoma with t(12;21)(p13.2;q22.1)" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "B-lymphoblastic leukemia/lymphoma with t(12;21)(p13.2;q22.1)" ] .
+}
+

@@ -1,0 +1,29 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=247234> a ns1:MedicalCondition ;
+        ns1:alternateName "Idiopathic late-onset cerebellar ataxia",
+            "SAOA" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:247234" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G31.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G31.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:247234" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare non-hereditary degenerative ataxia disease characterized by a slowly progressive cerebellar syndrome (with ataxia of stance and gait, upper limb dysmetria and intention tremor, ataxic speech, and oculomotor abnormalities), presenting in adulthood (at around 50 years of age), that is not due to a known cause. Extracerebellar symptoms (e.g., decreased vibration sense and absent or decreased ankle reflexes), polyneuropathy and mild autonomic dysfunction may also be present. Mild cognitive impairment has also rarely been reported." ;
+        ns1:epidemiology "Prevalence : 1-9 / 100 000" ;
+        ns1:identifier "247234" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Sporadic adult-onset ataxia of unknown etiology" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Sporadic adult-onset ataxia of unknown etiology" ] .
+}
+

@@ -1,0 +1,33 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=228426> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "613385" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10775" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10775" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "613385" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:228426" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:228426" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "Syndromic multisystem autoimmune disease due to Itch deficiency is a rare, genetic, systemic autoimmune disease characterized by failure to thrive, global developmental delay, distinctive craniofacial dysmorphism (relative macrocephaly, dolichocephaly, frontal bossing, orbital proptosis, flattened midface with a prominent occiput, low, posteriorly rotated ears, micrognatia), hepato- and/or splenomegaly, and multisystemic autoimmune disease involving the lungs, liver, gut and/or thyroid gland." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "228426" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Syndromic multisystem autoimmune disease due to Itch deficiency" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Syndromic multisystem autoimmune disease due to Itch deficiency" ] .
+}
+

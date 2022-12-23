@@ -1,0 +1,33 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=1067> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "689" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q13.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q13.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "689" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:1067" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:1067" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "An extremely rare syndrome described in three members of a family (a mother and her two children) that is characterized by the association of various ocular abnormalities (partial or complete aniridia, ptosis, pendular nystagmus, corneal pannus, , persistent pupillary membrane, lenticular opacities, foveal hypoplasia, and low visual acuity) with various systemic anomalies including intellectual disability and obesity in the two children, and alopecia, cardiac abnormalities, and frequent spontaneous abortion in the mother. There have been no further descriptions in the literature since 1986." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "1067" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Aniridia-ptosis-intellectual disability-familial obesity syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Aniridia-ptosis-intellectual disability-familial obesity syndrome" ] .
+}
+

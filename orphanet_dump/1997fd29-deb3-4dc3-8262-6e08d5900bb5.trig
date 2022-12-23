@@ -1,0 +1,35 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=169793> a ns1:MedicalCondition ;
+        ns1:alternateName "Severe congenital F9 deficiency",
+            "Severe congenital factor IX deficiency" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "D67" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "306900" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:169793" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D67" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:169793" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "306900" ;
+                ns1:codingSystem "OMIM" ] ;
+        ns1:description "A severe form of hemophilia B characterized by a large deficiency of factor IX (biological activity <1 IU/dL) leading to frequent spontaneous hemorrhage and abnormal bleeding as a result of minor injuries or following trauma, surgery or tooth extraction. It primarily affects males but may also be observed in female carriers of disease-causing mutations." ;
+        ns1:epidemiology "Prevalence : 1-9 / 1 000 000" ;
+        ns1:identifier "169793" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Severe hemophilia B" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Severe hemophilia B" ] .
+}
+

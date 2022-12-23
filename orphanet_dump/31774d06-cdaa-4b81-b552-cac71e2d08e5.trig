@@ -1,0 +1,30 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=90033> a ns1:MedicalCondition ;
+        ns1:alternateName "Warm AIHA",
+            "wAHA",
+            "wAIHA" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:90033" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "7876" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0272118" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D59.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10047822" ;
+                ns1:codingSystem "MedDRA" ] ;
+        ns1:description "Warm autoimmune hemolytic anemia is the most common form of autoimmune hemolytic anemia (see this term) defined by the presence of warm autoantibodies against red blood cells (autoantibodies that are active at temperatures between 37-40°C)." ;
+        ns1:epidemiology "Prevalence : 1-9 / 100 000" ;
+        ns1:identifier "90033" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Autoimmune hemolytic anemia, warm type" ] .
+}
+

@@ -1,0 +1,32 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=99114> a ns1:MedicalCondition ;
+        ns1:alternateName "Absence of the SVC",
+            "Absence of the superior caval vein",
+            "Absence of the superior vena cava",
+            "Agenesis of the SVC",
+            "Agenesis of the superior caval vein" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "Q26.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q26.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:99114" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:99114" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare congenital anomaly of the great veins characterized by unilateral or bilateral complete absence of the superior vena cava (SVC). Unilateral agenesis is mainly asymptomatic (most of the time diagnosed incidentally) and patients usually have otherwise normal heart structure. Bilateral agenesis, however, is frequently associated with other congenital cardiac anomalies and/or conduction abnormalities (such as tetralogy of Fallot, atrial septal defect) and typically present symptoms of SVC syndrome." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "99114" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Agenesis of the superior vena cava" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Agenesis of the superior vena cava" ] .
+}
+

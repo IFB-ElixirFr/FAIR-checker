@@ -1,0 +1,27 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=319325> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:319325" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:319325" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C64" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C64" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "Tubulocystic renal cell carcinoma is an extremely rare subtype of renal cell carcinoma most frequently characterized by a small, solitary, well-circumscribed, unencapsulated renal tumor composed of multiple small to medium-sized cysts with a white or gray, spongy ('bubble wrap-like') cut surface. Patients are usually asymptomatic or could manifest with abdominal pain, abdominal distension and/or hematuria. Progression, recurrence and metastasis rarely occur although lymph node, bone, pleura and liver metastases have been reported." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "319325" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Tubulocystic renal cell carcinoma" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Tubulocystic renal cell carcinoma" ] .
+}
+

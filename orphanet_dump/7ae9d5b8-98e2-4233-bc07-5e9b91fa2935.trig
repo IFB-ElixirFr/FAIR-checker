@@ -1,0 +1,21 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=238621> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:238621" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:238621" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare intestinal disorder characterized by the inability to control the passage of rectal contents (feces, gas) through the anus following ileal pouch-anal anastomosis surgery. Fecal incontinence is usually more frequent during the night than during daytime. The condition generally worsens over time, with a significant negative impact on the quality of life of the patient." ;
+        ns1:epidemiology "Prevalence : 1-9 / 100 000" ;
+        ns1:identifier "238621" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Ileal pouch anal anastomosis related faecal incontinence" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Ileal pouch anal anastomosis related faecal incontinence" ] .
+}
+

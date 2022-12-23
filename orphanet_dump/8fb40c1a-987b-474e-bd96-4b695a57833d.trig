@@ -1,0 +1,21 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=95714> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:95714" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:95714" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "Primary congenital hypothyroidism without thyroid developmental anomaly is a type of primary congenital hypothyroidism (see this term) in which the thyroid gland is anatomically normal." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "95714" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Primary congenital hypothyroidism without thyroid developmental anomaly" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Primary congenital hypothyroidism without thyroid developmental anomaly" ] .
+}
+

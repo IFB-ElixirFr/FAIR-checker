@@ -1,0 +1,28 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=86797> a ns1:MedicalCondition ;
+        ns1:alternateName "Intermediate lichen myxedematosus" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "L98.5" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:86797" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "L98.5" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:86797" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "An intermediate form of lichen myxedematosus (LM) (a form of mucin dermal deposit) which does not meet the criteria for either scleromyxedema or the localized form. Three clinical subtypes have been described and include scleromyxedema without monoclonal gammopathy; localized forms with monoclonal gammopathy and/or systemic symptoms; localized forms with mixed features of the 5 subtypes of localized LM (discrete form, acral persistent papular mucinosis, self-healing papular mucinosis, papular mucinosis of infancy, and a pure nodular form). The course of atypical LM is unpredictable because only a few cases have been reported." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "86797" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Atypical lichen myxedematosus" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Atypical lichen myxedematosus" ] .
+}
+

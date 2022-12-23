@@ -1,0 +1,39 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=187> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "D020159" ;
+                ns1:codingSystem "MeSH" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "6114" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:187" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "6114" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0175683" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D020159" ;
+                ns1:codingSystem "MeSH" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:187" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0175683" ;
+                ns1:codingSystem "UMLS" ] ;
+        ns1:description "Citrullinemia is an autosomal recessively inherited disorder of urea cycle metabolism and ammonia detoxification (see this term) characterized by elevated concentrations of serum citrulline and ammonia. The disease presents with a large range of manifestations including neonatal hyperammonemic encephalopathy with lethargy, seizures and coma; hepatic dysfunction in all age groups; episodes of hyperammonemia and neuropsychiatric symptoms in children or adults, or, can be asymptomatic in some cases (detected in newborn screening programs). Citrullinemia is divided into two main groups that are encoded by different genes: citrullinemia type I (comprised of acute neonatal citrullinemia type I and adult-onset citrullinemia type I) and citrin deficiency (comprised of adult-onset citrullinemia type II and neonatal intrahepatic cholestasis due to citrin deficiency) (see these terms)." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "187" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Citrullinemia" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Citrullinemia" ] .
+}
+

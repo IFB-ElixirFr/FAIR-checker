@@ -1,0 +1,28 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=1544> a ns1:MedicalCondition ;
+        ns1:alternateName "Adolescent benign focal crisis" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:1544" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:1544" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G40.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G40.8" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "A rare epilepsy typically characterized by isolated focal motor and somatosensory seizures. Less frequently other focal seizure types, with or without secondary generalization, have been described. The seizures usually happen when the patient is awake and take a benign course. The condition is transitory, interictal examinations are normal, and there is usually no family history of epilepsy." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "1544" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Benign focal seizures of adolescence" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Benign focal seizures of adolescence" ] .
+}
+

@@ -1,0 +1,40 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=200418> a ns1:MedicalCondition ;
+        ns1:alternateName "Complete factor I deficiency" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:200418" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "610984" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D84.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C3463916" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:200418" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "610984" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D84.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C3463916" ;
+                ns1:codingSystem "UMLS" ] ;
+        ns1:description "Immunodeficiency with factor I anomaly is a rare, genetic, primary immunodeficiency disease characterized by increased susceptibility to recurrent, usually severe, infections (particularly by <i>Neisseria meningitidis</i>, <i>Haemophilus influenzae</i> and <i>Streptococcus pneumoniae</i>), typically manifesting as otitis, sinusitis, bronchitis, pneumonia, and/or meningitis. Autoimmune disease (e.g. systemic lupus erythematosus, glomerulonephritis) and atypical hemolytic uremic syndrome may be associated. Laboratory serum analysis reveals, in addition to diminished or undetectable complement factor I, variably decreased complement C3, complement factor B and complement factor H." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "200418" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Immunodeficiency with factor I anomaly" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Immunodeficiency with factor I anomaly" ] .
+}
+

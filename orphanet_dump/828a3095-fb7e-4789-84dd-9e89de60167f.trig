@@ -1,0 +1,23 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=64744> a ns1:MedicalCondition ;
+        ns1:alternateName "Riedel disease",
+            "Riedel thyroiditis" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:64744" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10039142" ;
+                ns1:codingSystem "MedDRA" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0154162" ;
+                ns1:codingSystem "UMLS" ] ;
+        ns1:description "A fibroinflammatory disorder of the thyroid gland, occuring more frequently in females, characterized a large, hard thyroid mass, and presenting with pressure symptoms (breathing difficul¼ties and dysphagia) or voice hoarseness and aphonia (impingement of recurrent laryngeal nerve). It can often be associated with extracervical fibroinflammatory disorders such as retroperitoneal fibrosis, primary scleroisng cholangitis and autoimmune diseases such as Hashimoto struma, Addison disease, and Biermer disease." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "64744" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "IgG4-related thyroid disease" ] .
+}
+

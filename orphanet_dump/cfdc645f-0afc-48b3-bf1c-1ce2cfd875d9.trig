@@ -1,0 +1,42 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=79244> a ns1:MedicalCondition ;
+        ns1:alternateName "Dihydrolipoamide acetyltransferase component of pyruvate dehydrogenase complex deficiency",
+            "Dihydrolipoyllysine-residue acetyltransferase component of pyruvate dehydrogenase complex deficiency",
+            "Pyruvate dehydrogenase complex component E2 deficiency" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "C1855565" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "245348" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:79244" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:79244" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "245348" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E74.4" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E74.4" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C1855565" ;
+                ns1:codingSystem "UMLS" ] ;
+        ns1:description "A very rare form of pyruvate dehydrogenase deficiency (PDHD) characterized by variable lactic acidosis and neurological dysfunction, mainly appearing during childhood." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "79244" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Pyruvate dehydrogenase E2 deficiency" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Pyruvate dehydrogenase E2 deficiency" ] .
+}
+

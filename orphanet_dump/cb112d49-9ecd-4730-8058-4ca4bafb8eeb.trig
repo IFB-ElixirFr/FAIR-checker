@@ -1,0 +1,28 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=264450> a ns1:MedicalCondition ;
+        ns1:alternateName "Duplication 8p" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:264450" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:264450" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q92.2" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q92.2" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "Trisomy 8p is a rare chromosomal anomaly syndrome, resulting from the partial duplication of the short arm of chromosome 8, with highly variable phenotype ranging from no dysmorphic features and only mild intellectual disability to patients with severe developmental delay, neonatal hypotonia, short stature, profound intellectual disability, mild dysmorphic features (e.g. mild ptosis, hypertelorism, down-slanting palpebral fissures, broad nasal bridge, short, prominent philtrum, abnormal dentition) and structural brain abnormalities. Autism, epilepsy, and spastic paraplegia have also been reported." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "264450" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Trisomy 8p" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Trisomy 8p" ] .
+}
+

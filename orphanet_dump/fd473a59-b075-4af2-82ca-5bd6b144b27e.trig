@@ -1,0 +1,33 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=3176> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "4940" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q05.9" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "4940" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q05.9" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:3176" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:3176" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "Spina bifida-hypospadias syndrome is a rare developmental defect during embryogenesis disorder characterized by the specific association of glandular hypospadias and lumbo-sacral spina bifida. Affected individuals may or may not present additional congenital anomalies, such as hydrocephaly, microstomia, patent ductus arteriosus, cryptorchidism, intestinal malrotation, rocker-bottom feet, and hypertrichosis." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "3176" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Spina bifida-hypospadias syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Spina bifida-hypospadias syndrome" ] .
+}
+

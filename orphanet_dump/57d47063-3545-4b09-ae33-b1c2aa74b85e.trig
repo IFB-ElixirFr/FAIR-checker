@@ -1,0 +1,27 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=556985> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "G31.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:556985" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G31.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:556985" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare genetic neurological disorder characterized by pediatric onset of calcifying leukoencephalopathy and skeletal dysplasia. Reported structural brain abnormalities include agenesis of corpus callosum, ventriculomegaly, congenital hydrocephalus, pontocerebellar hypoplasia, periventricular calcifications, Dandy-Walker malformation and absence of microglia. Characteristic skeletal features include increased bone mineral density (reported in skull, pelvic bone and vertebrae), platyspondyly, and under-modeling of tubular bones with widened/radiolucent metaphysis and constricted/sclerotic diaphysis." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "556985" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Early-onset calcifying leukoencephalopathy-skeletal dysplasia" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Early-onset calcifying leukoencephalopathy-skeletal dysplasia" ] .
+}
+

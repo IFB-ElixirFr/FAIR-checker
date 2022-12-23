@@ -1,0 +1,34 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=86795> a ns1:MedicalCondition ;
+        ns1:alternateName "Papular mucinosis" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "C0263390" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "7321" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:86795" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0263390" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:86795" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "7321" ;
+                ns1:codingSystem "GARD" ] ;
+        ns1:description "A group of skin diseases characterized by the development of papules, nodules and/or plaques with mucin deposits and a variable degree of fibrosis in the absence of thyroid disease. The group comprises five sub-forms: nodular lichen myxedematosus, discrete papular lichen myxedematosus, papular mucinosis of infancy, acral persistent papular mucinosis and self-healing papular mucinosis." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "86795" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Localized lichen myxedematosus" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Localized lichen myxedematosus" ] .
+}
+

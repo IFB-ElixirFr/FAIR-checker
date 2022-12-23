@@ -1,0 +1,28 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=497188> a ns1:MedicalCondition ;
+        ns1:alternateName "DIPG" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:497188" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C72.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C72.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:497188" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare glial tumor characterized by a highly aggressive, diffusely infiltrative pontine lesion generally occurring in children, affecting local nerve fiber tracts and spreading contiguously to involve adjacent structures, but also metastasizing within the central nervous system. Patients mostly present with a short history of symptoms, typically including the classic triad of multiple cranial neuropathies, long tract signs, and ataxia. Signs and symptoms of increased intracranial pressure may present due to obstructive hydrocephalus. Prognosis is poor and not related to histological grade." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "497188" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Diffuse intrinsic pontine glioma" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Diffuse intrinsic pontine glioma" ] .
+}
+

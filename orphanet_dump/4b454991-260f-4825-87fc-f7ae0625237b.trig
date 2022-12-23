@@ -1,0 +1,49 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=86873> a ns1:MedicalCondition ;
+        ns1:alternateName "ANKCL",
+            "Aggressive NK-cell lymphoma",
+            "NK-cell LGL leukemia",
+            "NK-cell large granular lymphocyte leukemia" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "10028811" ;
+                ns1:codingSystem "MedDRA" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:86873" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C1292777" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:86873" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C94.7" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10493" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10493" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C94.7" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10028811" ;
+                ns1:codingSystem "MedDRA" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C1292777" ;
+                ns1:codingSystem "UMLS" ] ;
+        ns1:description "An extremely rare and highly aggressive neoplasm, usually manifesting in the third to fourth decade of life, affecting males and females equally, and characterized by the onset of high fever, weight loss, jaundice, skin infiltration, lymphadenopathy, hepatosplenomegaly, and severe anemia. It has a fulminant and rapidly fatal disease course with the progressive appearance of multiorgan failure and disseminated intravascular coagulation." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "86873" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Aggressive NK-cell leukemia" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Aggressive NK-cell leukemia" ] .
+}
+

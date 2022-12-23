@@ -1,0 +1,37 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=319465> a ns1:MedicalCondition ;
+        ns1:alternateName "Familial AML",
+            "Inherited AML",
+            "Pure familial AML",
+            "Pure familial acute myeloid leukemia" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:319465" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:319465" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "601626" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C92.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "601626" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C92.0" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "Inherited acute myeloid leukemia (AML) is a rare, malignant hematopologic disease characterized by clonal proliferation of myeloid blasts, primarily involving the bone marrow, in association with congenital disorders (e.g. Fanconi anemia, dyskeratosis congenita, Bloom syndrome, Down syndrome, congenital neutropenia, neurofibromatosis, etc.) and genetic defects predisposing to AML. Patients present with signs and symptoms related to ineffective hematopoesis (fatigue, bleeding and bruising, recurrent infections, bone pain) and/or extramedullary site involvement (gingivitis, splenomegaly, etc.). Depending on the underlying genetic defect, there may be additional cancer risks and other health problems present." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "319465" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Inherited acute myeloid leukemia" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Inherited acute myeloid leukemia" ] .
+}
+

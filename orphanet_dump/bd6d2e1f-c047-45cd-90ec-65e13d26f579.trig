@@ -1,0 +1,27 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=795> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "10039447" ;
+                ns1:codingSystem "MedDRA" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:795" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:795" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10039447" ;
+                ns1:codingSystem "MedDRA" ] ;
+        ns1:description "Rare form of salmonellosis is a group of rare invasive salmonellosis that includes infection with <i>Salmonella enterica</i> typhoidal species (<i>S.</i> typhi and <i>S.</i> paratyphi) that results in enteric fever, and infection by invasive non-typhoidal species (typically strains of <i>S.</i> typhimurium and <i>S.</i> enteritidis) which have a high burden amongst immunocompromised or malnourished individuals, and results in bacteriemia, systemic febrile disease, and variable manifestations including lower respiratory tract infection and splenomegaly." ;
+        ns1:epidemiology "Prevalence : 1-9 / 100 000" ;
+        ns1:identifier "795" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Rare form of salmonellosis" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Rare form of salmonellosis" ] .
+}
+

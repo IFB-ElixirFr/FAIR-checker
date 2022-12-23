@@ -1,0 +1,33 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=314993> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:314993" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:314993" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q87.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "608227" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q87.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "608227" ;
+                ns1:codingSystem "OMIM" ] ;
+        ns1:description "Cataract-congenital heart disease-neural tube defect syndrome is a multiple congenital anomaly syndrome characterized by sacral neural tube defects resulting in tethered cord, atrial and/or ventricular septal heart defects (that are detected in infancy), bilateral, symmetrical hyperopia, rapidly progressive early childhood cataracts, bilateral aphakic glaucoma, and abnormal facial features (low frontal hairline, small ears, short philtrum, prominent, widely spaced central incisors, and micrognathia). Hypotonia, growth and developmental delay, seizures, and joint limitation are also reported." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "314993" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Cataract-congenital heart disease-neural tube defect syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Cataract-congenital heart disease-neural tube defect syndrome" ] .
+}
+

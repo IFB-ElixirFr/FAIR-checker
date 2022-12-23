@@ -1,0 +1,18 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=450322> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:450322" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D89.0" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "A rare hematologic disease characterized by high serum viscosity due to polyclonal expansion of immunoglobulins, most commonly in the context of Waldenström's macroglobulinemia, as well as a variety of disorders of immune dysregulation. Patients present with signs and symptoms involving multiple organs, such as bleeding diathesis, mucosal bleeding, retinal hemorrhage, headache, stroke, pulmonary hypertension, and congestive heart failure." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "450322" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Polyclonal hyperviscosity syndrome" ] .
+}
+

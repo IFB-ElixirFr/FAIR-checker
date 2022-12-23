@@ -1,0 +1,40 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=251607> a ns1:MedicalCondition ;
+        ns1:alternateName "PXA" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:251607" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10631" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:251607" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10631" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0334586" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C71.9" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C71.9" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0334586" ;
+                ns1:codingSystem "UMLS" ] ;
+        ns1:description "A rare low-grade astrocytoma characterized by superficial location in the cerebral hemispheres with involvement of the meninges, composed of GFAP-expressing cells showing nuclear and cytoplasmic pleomorphism and xanthomatous change, surrounded by a reticulin network. The tumor corresponds to WHO grade II and typically affects children and young adults, who often present with a long history of seizures. Extent of resection and mitotic index are important prognostic factors." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "251607" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Pleomorphic xanthoastrocytoma" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Pleomorphic xanthoastrocytoma" ] .
+}
+

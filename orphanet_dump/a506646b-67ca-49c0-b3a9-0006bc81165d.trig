@@ -1,0 +1,44 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=386> a ns1:MedicalCondition ;
+        ns1:alternateName "Biliary hamartoma",
+            "MHL",
+            "Mesenchymal hamartoma of liver",
+            "VMC",
+            "Von Meyenburg complexes disease" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "D13.4" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "2651" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "2651" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0334091" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:386" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D13.4" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0334091" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:386" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "Hepatic cystic hamartoma, also named Mesenchyma hamartoma of liver, is a rare benign liver tumor of childhood, usually before the age of 2, of mesenchymal origin and variable clinical presentation (abdominal dissension, abdominal mass, pain, vomiting and signs of inferior vena cava compression)." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "386" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Hepatic cystic hamartoma" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Hepatic cystic hamartoma" ] .
+}
+

@@ -1,0 +1,36 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=443236> a ns1:MedicalCondition ;
+        ns1:alternateName "Familial orthostatic tachycardia due to norepinephrine transporter deficiency",
+            "Orthostatic intolerance due to NET deficiency",
+            "POTS due to NET deficiency" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "604715" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:443236" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "604715" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "I95.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:443236" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "I95.1" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "A rare, genetic, primary orthostatic disorder characterized by dizziness, palpitations, fatigue, blurred vision and tachycardia following postural change from a supine to an upright position, in the absence of hypotension. A syncope with transient cognitive impairment and dyspnea may also occur. The norepinephrine transporter deficiency leads to abnormal uptake and high plasma concentrations of norepinephrine." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "443236" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Postural orthostatic tachycardia syndrome due to NET deficiency" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Postural orthostatic tachycardia syndrome due to NET deficiency" ] .
+}
+

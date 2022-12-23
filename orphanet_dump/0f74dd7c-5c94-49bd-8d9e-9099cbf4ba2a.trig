@@ -1,0 +1,39 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=86902> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "D054740" ;
+                ns1:codingSystem "MeSH" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C1260325" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D054740" ;
+                ns1:codingSystem "MeSH" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:86902" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C96.4" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C96.4" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:86902" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C1260325" ;
+                ns1:codingSystem "UMLS" ] ;
+        ns1:description "A rare dendritic cell neoplasm characterized by a proliferation of spindled to ovoid cells with morphological and immunophenotypic features of follicular dendritic cells. Conventional follicular dendritic cell sarcomas are negative for EBV. The tumor arises as a painless, slow-growing mass in lymph nodes (most often cervical), extranodal sites (such as tonsils, gastrointestinal tract, soft tissue, mediastinum, or lung, among others), or both. Paraneoplastic pemphigus may occur in rare cases. Predictive factors are tumor size, presence of coagulative necrosis, mitotic count, and presence of significant cytological atypia." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "86902" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Follicular dendritic cell sarcoma" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Follicular dendritic cell sarcoma" ] .
+}
+

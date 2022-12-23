@@ -1,0 +1,30 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=96095> a ns1:MedicalCondition ;
+        ns1:alternateName "Dup(3)(q26)",
+            "Dup(3q) syndrome",
+            "Trisomy 3q26" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:96095" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:96095" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q92.3" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q92.3" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "3q26 microduplication syndrome is a rare chromosomal anomaly characterized by prenatal and postnatal growth retardation, developmental delay, intellectual impairment, dysmorphic signs and variable combination of congenital anomalies, including cardiovascular, genitourinary and skeletal anomalies and spectrum of caudal malformations." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "96095" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "3q26 microduplication syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "3q26 microduplication syndrome" ] .
+}
+

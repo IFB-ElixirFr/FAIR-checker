@@ -1,0 +1,28 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=300888> a ns1:MedicalCondition ;
+        ns1:alternateName "DLBCL with chronic inflammation" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "C83.3" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:300888" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C83.3" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:300888" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "Diffuse large B-cell lymphoma with chronic inflammation is an Epstein-Barr virus-associated malignant lymphoproliferative disorder, developing in a context of long-standing or slow-growing, chronically inflamed lesions, such as chronic pyothorax, metallic implants in bones and joints, chronic osteomyelitis, chronic venous ulcer, or, rarely granulomatous inflammation. The tumor is usually primarily localized, with no involvement of other organs." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "300888" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Diffuse large B-cell lymphoma with chronic inflammation" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Diffuse large B-cell lymphoma with chronic inflammation" ] .
+}
+

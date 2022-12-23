@@ -1,0 +1,29 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=324525> a ns1:MedicalCondition ;
+        ns1:alternateName "Hypertrophic cardiomyopathy with kidney anomalies due to mtDNA mutation",
+            "Hypertrophic cardiomyopathy with renal anomalies due to mitochondrial DNA mutation" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:324525" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:324525" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E88.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E88.8" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "A mitochondrial oxidative phosphorylation disorder characterized by hypertrophic and dilated cardiomyopathy, failure to thrive, myopathy with generalized hypotonia and increased creatine kinase, developmental delay and/or regression with cerebral atrophy on brain MRI, renal manifestations including chronic renal failure, renal tubular acidosis and lactic acidosis. Additional clinical features include seizures and respiratory failure." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "324525" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Hypertrophic cardiomyopathy with kidney anomalies due to mitochondrial DNA mutation" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Hypertrophic cardiomyopathy with kidney anomalies due to mitochondrial DNA mutation" ] .
+}
+

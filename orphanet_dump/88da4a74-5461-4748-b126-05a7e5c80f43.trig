@@ -1,0 +1,27 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=79088> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:79088" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:79088" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "5867" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "5867" ;
+                ns1:codingSystem "GARD" ] ;
+        ns1:description "A rare group of acquired lipodystrophies that are characterized by loss of subcutaneous tissue from generally small regions of the body, either single or multiple areas, and are not typically associated with metabolic complications. Some cases may involve lipohypertrophy (insulin). This group includes pressure-induced localized lipoatrophy, drug-induced localized lipodystrophy, panniculitis- induced localized lipodystrophy, centrifugal lipodystrophy, and idiopathic localized lipodystrophy." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "79088" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Localized lipodystrophy" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Localized lipodystrophy" ] .
+}
+

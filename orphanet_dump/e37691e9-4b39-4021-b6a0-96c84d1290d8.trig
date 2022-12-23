@@ -1,0 +1,27 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=466921> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "G71.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:466921" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G71.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:466921" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A progressive muscular dystrophy characterized by co-existence of limb-girdle weakness and diffuse joint contractures without cardiomyopathy. Patients present lower limb weakness progressing to involve also upper limbs and axial muscles and eventually leading to permanent loss of ambulation, widespread joint contractures in the limbs and sometimes the spine, and variable respiratory involvement. Morphological changes in muscle biopsies include rimmed vacuoles, increased internal nuclei, cytoplasmic bodies, and a dystrophic pattern." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "466921" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Childhood-onset progressive contractures-limb-girdle weakness-muscle dystrophy syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Childhood-onset progressive contractures-limb-girdle weakness-muscle dystrophy syndrome" ] .
+}
+

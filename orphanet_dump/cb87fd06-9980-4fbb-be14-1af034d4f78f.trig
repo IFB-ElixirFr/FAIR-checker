@@ -1,0 +1,34 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=436252> a ns1:MedicalCondition ;
+        ns1:alternateName "CID-MIA/early-onset IBD" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "Q82.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "243150" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:436252" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q82.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:436252" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "243150" ;
+                ns1:codingSystem "OMIM" ] ;
+        ns1:description "A rare genetic disease characterized by multiple intestinal atresia in association with combined immunodeficiency and inflammatory bowel disease. Clinical features include widespread atresia extending from the stomach to the rectum, homogenous calcifications in the abdominal cavity, hepatic cholestasis, cirrhosis, and chronic liver failure, hypoplastic thymus, and increased susceptibility to mainly bacteria and viruses. The immunological phenotype consists of profound generalized T-cell lymphopenia and milder natural killer cell and B-cell lymphopenia, as well as low serum levels of IgG, IgA, and IgM, with elevated serum IgE. The disease is mostly fatal in infancy or childhood." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "436252" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Combined immunodeficiency-enteropathy spectrum" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Combined immunodeficiency-enteropathy spectrum" ] .
+}
+

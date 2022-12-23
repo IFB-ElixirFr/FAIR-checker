@@ -1,0 +1,44 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=228423> a ns1:MedicalCondition ;
+        ns1:alternateName "Combined immunodeficiency with susceptibility to mycobacterial, viral and fungal infections",
+            "Dendritic cell, monocyte, B and NK lymphoid deficiency",
+            "MonoMAC",
+            "Monocyte-B-natural killer-dendritic cell deficiency syndrome",
+            "Monocytopenia and mycobacterial infection syndrome" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:228423" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D72.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "614172" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:228423" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10934" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10934" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "614172" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D72.8" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "Monocytopenia with susceptibility to infections is a rare, genetic, primary immunodeficiency disorder characterized by profound circulating monocytopenia, B- and NK-cell lymphopenia and severe dentritic cell decrease, which manifests clinically with disseminated mycobacterial and viral infections, as well as opportunistic fungal and parasitic infections and frequent pulmonary alveolar proteinosis. Predisposition to developping myeloid neoplasms is associated." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "228423" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Monocytopenia with susceptibility to infections" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Monocytopenia with susceptibility to infections" ] .
+}
+

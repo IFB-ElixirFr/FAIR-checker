@@ -1,0 +1,30 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=96100> a ns1:MedicalCondition ;
+        ns1:alternateName "Distal duplication 8q",
+            "Telomeric duplication 8q",
+            "Trisomy 8qter" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:96100" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q92.3" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q92.3" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:96100" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "Distal trisomy 8q is a rare chromosomal anomaly syndrome resulting from the partial duplication of the long arm of chromosome 8, with a highly variable phenotype, typically characterized by growth and developmental delay, intellectual disability, short stature, craniofacial dysmorphism (microcephaly, prominent forehead, hypertelorism, abnormal palpebral fissures, low-set, large ears, anteverted tip of nose, micro/retrognathia), congenital heart defects and skeletal and limb anomalies. Other reported features include ophthalmologic abnormalities (e.g. megalocornea), cryptorchidism, hypertrichosis, and neurologic manifestations (e.g. hypotonia, hearing loss, and seizures)." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "96100" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Distal trisomy 8q" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Distal trisomy 8q" ] .
+}
+

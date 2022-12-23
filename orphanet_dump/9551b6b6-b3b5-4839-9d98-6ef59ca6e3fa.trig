@@ -1,0 +1,29 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=439196> a ns1:MedicalCondition ;
+        ns1:alternateName "NAE",
+            "Necrolytic acral erythema" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "L53.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "L53.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:439196" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:439196" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare skin disease characterized initially by erythematous patches with superficial necrosis, at later stages by hyperkeratotic plaques with a rim of dusky erythema, of exclusively acral distribution with a predilection for the lower extremities, and universal association with hepatitis C virus infection. Patients typically experience pruritus or pain. Serum zinc levels may or may not be decreased, although oral zinc supplementation often improves the condition." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "439196" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Zinc-responsive necrolytic acral erythema" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Zinc-responsive necrolytic acral erythema" ] .
+}
+

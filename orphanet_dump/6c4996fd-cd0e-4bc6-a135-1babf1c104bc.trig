@@ -1,0 +1,30 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=51890> a ns1:MedicalCondition ;
+        ns1:alternateName "ACNES",
+            "Intercostal nerve syndrome",
+            "Rectus abdominis syndrome" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:51890" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G58.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:51890" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G58.0" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "A chronic neuropathic pain syndrome of the abdominal wall caused by entrapment of anterior cutaneous branches of 7 to 12th intercostal nerves along the lateral border of the anterior rectus abdominis fascia causing severe pain and tenderness of the involved dermatome." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "51890" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Anterior cutaneous nerve entrapment syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Anterior cutaneous nerve entrapment syndrome" ] .
+}
+

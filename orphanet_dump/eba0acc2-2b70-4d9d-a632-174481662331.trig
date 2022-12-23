@@ -1,0 +1,28 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=228165> a ns1:MedicalCondition ;
+        ns1:alternateName "Concentric demyelination" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "G37.5" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "5885" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0004712" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:228165" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10010252" ;
+                ns1:codingSystem "MedDRA" ] ;
+        ns1:description "A rare multiple sclerosis variant characterized by discrete concentrically layered, ring-like lesions in the cerebral white matter, consisting of alternating layers of myelinated and demyelinated tissue. Patients most commonly present with symptoms of an intracerebral mass lesion, including headache, cognitive abnormalities, behavioral changes, seizures, aphasia, or hemiparesis, among others, although there may also be classic focal symptoms of multiple sclerosis, such as focal weakness, ataxia, sensory disturbance, or diplopia." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "228165" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Baló concentric sclerosis" ] .
+}
+

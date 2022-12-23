@@ -1,0 +1,35 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=353344> a ns1:MedicalCondition ;
+        ns1:alternateName "Aneurysmal telangiectasia",
+            "Visible and exudative idiopathic juxtafoveolar retinal telangiectasis" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "H35.5" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "H35.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:353344" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "H35.5" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:353344" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "H35.0" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "Idiopathic macular telangiectasia type 1 is a rare, acquired, eye disease characterized by unilateral (rarely bilateral) abnormally dilated and tortuous capillaries around the fovea, associated with multiple arteriolar and venular aneurysms, lipid depositions, and intra-retinal cystoid degeneration. It leads to vision loss due to macular edema with hard exudates." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "353344" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Idiopathic macular telangiectasia type 1" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Idiopathic macular telangiectasia type 1" ] .
+}
+

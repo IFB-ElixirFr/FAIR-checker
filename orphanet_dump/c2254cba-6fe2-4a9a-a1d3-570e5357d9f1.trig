@@ -1,0 +1,33 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=502366> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:502366" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C00.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "275355" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "275355" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:502366" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C00.1" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "A rare head and neck tumor characterized by a firm infiltrative neoplasm with squamous differentiation, most commonly arising at the vermilion border of the lower lip. Patients present with a usually asymptomatic lesion of variable appearance, such as ulceration, a focus of whitish thickening, a dry atrophic area, or an area of persistent chapping and localized flaking and crusting. Carcinomas of the lower lip tend to progress slowly (as opposed to those of the upper lip). Invasion of adjacent structures, including perineural spread, is typical, with a variable rate of metastasis, depending on the location." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "502366" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Squamous cell carcinoma of the lip" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Squamous cell carcinoma of the lip" ] .
+}
+

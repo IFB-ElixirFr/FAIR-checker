@@ -1,0 +1,42 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=370348> a ns1:MedicalCondition ;
+        ns1:alternateName "PPNET",
+            "Peripheral PNET",
+            "Peripheral neuroepithelioma" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "612219" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:370348" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C71.9" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:370348" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C71.9" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0684337" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "612219" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0684337" ;
+                ns1:codingSystem "UMLS" ] ;
+        ns1:description "A rare, aggressive, malignant, neoplastic disease characterized by a usually ill-defined, solid, multilobulated mass, frequently having necrosis, located on any site of the body (except the central nervous system), composed of small, round, poorly differentiated cells, with or without Homer-Wright rosettes, showing varying degrees of neuroectodermal differentiation. Manifestations are variable depending on location, with osteolytic destruction being common when arising from bone." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "370348" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Peripheral primitive neuroectodermal tumor" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Peripheral primitive neuroectodermal tumor" ] .
+}
+

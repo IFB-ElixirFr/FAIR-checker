@@ -1,0 +1,29 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=1698> a ns1:MedicalCondition ;
+        ns1:alternateName "Mosaic trisomy chromosome 12",
+            "Trisomy 12 mosaicism" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "Q92.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q92.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:1698" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:1698" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "Mosaic trisomy 12 is a rare chromosomal anomaly syndrome, with a highly variable phenotype, principally characterized by developmental or growth delay, short stature, craniofacial dysmorphism (e.g. turricephaly, tall forehead, downslanting palpebral fissures, posteriorly rotated and low set ears, narrow palate), congenital heart defects (e.g. atrial septal defect, patent ductus arteriosus), hypotonia, and pigmentary dysplasia. Scoliosis, hearing loss, facial/body asymmetry, and intellectual disability have also been reported." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "1698" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Mosaic trisomy 12" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Mosaic trisomy 12" ] .
+}
+

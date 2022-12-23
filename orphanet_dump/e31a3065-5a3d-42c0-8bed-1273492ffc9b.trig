@@ -1,0 +1,42 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=973> a ns1:MedicalCondition ;
+        ns1:alternateName "Adactyly of hand, unilateral",
+            "Digits 2-5 hypodactyly, unilateral",
+            "Digits 2-5 oligodactyly, unilateral" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "Q71.3" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "377" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "102650" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:973" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "102650" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "377" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:973" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q71.3" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "Congenital absence/hypoplasia of fingers excluding thumb, unilateral is a rare, non-syndromic, terminal transverse limb reduction defect characterized by unilateral absence of the terminal portions of digits 2 to 5, with a mildly hypoplastic thumb and small nail remnants on the digital stumps. Metacarpal bones may be variably reduced." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "973" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Congenital absence/hypoplasia of fingers excluding thumb, unilateral" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Congenital absence/hypoplasia of fingers excluding thumb, unilateral" ] .
+}
+

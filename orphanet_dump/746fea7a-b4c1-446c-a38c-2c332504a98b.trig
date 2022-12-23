@@ -1,0 +1,32 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=84085> a ns1:MedicalCondition ;
+        ns1:alternateName "HAS",
+            "HS",
+            "Hinman-Allen syndrome",
+            "Non-neurogenic neurogenic bladder",
+            "Occult neuropathic bladder" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "N32.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:84085" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "N32.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:84085" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "Hinman syndrome (HS) or non-neurogenic neurogenic bladder is a voiding dysfunction of the bladder of neuropsychological origin that is characterized by functional bladder outlet obstruction in the absence of neurologic deficits." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "84085" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Hinman syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Hinman syndrome" ] .
+}
+

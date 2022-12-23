@@ -1,0 +1,48 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=2388> a ns1:MedicalCondition ;
+        ns1:alternateName "ChAc",
+            "Chorea-acanthocytosis",
+            "Levine-Critchley syndrome" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "C0393576" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "200150" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E78.6" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "3956" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E78.6" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "200150" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:2388" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "3956" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0393576" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:2388" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "Chorea-acanthocytosis (ChAc) is a form of neuroacanthocytosis (see this term) and is characterized clinically by a Huntington disease-like phenotype with progressive neurological symptoms including movement disorders, psychiatric manifestations and cognitive disturbances." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "2388" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Choreoacanthocytosis" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Choreoacanthocytosis" ] .
+}
+

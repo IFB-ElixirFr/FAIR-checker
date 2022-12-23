@@ -1,0 +1,33 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=97252> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:97252" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:97252" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C3164501" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q07.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q07.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C3164501" ;
+                ns1:codingSystem "UMLS" ] ;
+        ns1:description "A rare, non-syndromic, posterior fossa malformation characterized by a cisterna magna that measures above 15 mm in length, 5 mm in height and 20 mm in width (or greater than 10 mm in fetuses) associated with a normal cerebellar vermis and absence of hydrocephalus. The majority of patients are asymptomatic; however, variable neurodevelopmental outcomes, including delayed speech and language development, motor development delay, visiospatial perception difficulties, and attention problems, has been observed in some patients." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "97252" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Mega-cisterna magna" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Mega-cisterna magna" ] .
+}
+

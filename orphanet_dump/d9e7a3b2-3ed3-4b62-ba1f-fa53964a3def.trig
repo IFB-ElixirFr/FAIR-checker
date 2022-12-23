@@ -1,0 +1,27 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=180145> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:180145" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:180145" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q51.5" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q51.5" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "A rare, non-syndromic, uterovaginal malformation characterized by variable degrees of cervical aplasia, ranging from complete agenesis to the presence of a cervix with a cervical canal that contains a blind end. Patients typically present primary amenorrhea, cyclical abdominal or pelvic pain, dyspareunia and/or reproductive problems." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "180145" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Uterine cervical aplasia and agenesis" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Uterine cervical aplasia and agenesis" ] .
+}
+

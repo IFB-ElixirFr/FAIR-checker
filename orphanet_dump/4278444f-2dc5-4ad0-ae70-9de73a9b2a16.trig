@@ -1,0 +1,44 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=85450> a ns1:MedicalCondition ;
+        ns1:alternateName "Amyloidosis, Ostertag type",
+            "Familial amyloid nephropathy",
+            "Familial renal amyloidosis",
+            "Hereditary amyloid nephropathy",
+            "Hereditary renal amyloidosis" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "105200" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E85.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "105200" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:85450" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E85.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "8282" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:85450" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "8282" ;
+                ns1:codingSystem "GARD" ] ;
+        ns1:description "A group of rare renal diseases, characterized by amyloid fibril deposition of apolipoprotein A-I or A-II (AApoAI or AApoAII amyloidosis), lysozyme (ALys amyloidosis) or fibrinogen A-alpha chain (AFib amyloidosis) in one or several organs. Renal involvement leading to chronic renal disease and renal failure is a common sign. Additional manifestations depend on the organ involved and the type of amyloid fibrils deposited." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "85450" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Hereditary amyloidosis with primary renal involvement" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Hereditary amyloidosis with primary renal involvement" ] .
+}
+

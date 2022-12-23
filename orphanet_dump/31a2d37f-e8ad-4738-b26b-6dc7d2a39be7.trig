@@ -1,0 +1,41 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=180182> a ns1:MedicalCondition ;
+        ns1:alternateName "Accessory breasts",
+            "Polymastia" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:180182" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0266010" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:180182" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q83.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10049786" ;
+                ns1:codingSystem "MedDRA" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q83.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0266010" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10049786" ;
+                ns1:codingSystem "MedDRA" ] ;
+        ns1:description "A rare breast malformation characterized by the presence of accessory breasts with a complete ductal system, areola, and nipple in addition to two normal breasts. The accessory breast tissue mostly lies along the milk lines. It is often not recognized until puberty, when it begins to respond to regular hormonal fluctuations, and may develop the same changes as normal breasts throughout life." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "180182" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Supernumerary breasts" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Supernumerary breasts" ] .
+}
+

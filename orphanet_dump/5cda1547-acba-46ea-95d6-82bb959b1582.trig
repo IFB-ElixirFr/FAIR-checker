@@ -1,0 +1,27 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=178522> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "C84.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:178522" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C84.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:178522" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare, primary cutaneous T-cell lymphoma characterized by solitary cutaneous nodule or only regional disease, typically occurring on the head and neck, and involving entire dermis. Sometimes, subcutis and adnexal structures are involved, as well. The infiltrate is nodular or diffuse, composed of small to medium sized pleomorphic lymphocytes and showing mild to moderate cytologic atypia. Neoplastic T-cells are mixed with B-cells, histiocytes, plasma cells and eosinophils." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "178522" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Primary cutaneous CD4+ small/medium-sized pleomorphic T-cell lymphoma" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Primary cutaneous CD4+ small/medium-sized pleomorphic T-cell lymphoma" ] .
+}
+

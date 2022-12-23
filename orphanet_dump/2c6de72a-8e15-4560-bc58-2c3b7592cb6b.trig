@@ -1,0 +1,29 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=261529> a ns1:MedicalCondition ;
+        ns1:alternateName "Ring chromosome Y",
+            "r(Y)" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "Q98.6" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:261529" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q98.6" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:261529" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "Ring chromosome Y syndrome is a rare chromosome Y structural anomaly, with a highly variable phenotype, mostly characterized by short stature, partial to total gonadal failure, sexual infantilism, genital anomalies (e.g. ambiguous genitalia, hypospadias, cryptorchidism), and azoospermia or oligozoospermia. Additional reported features include speech delay, obesity, and acanthosis nigricans. Gender dysphoria and comorbid bipolar disorder have also been observed." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "261529" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Ring chromosome Y syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Ring chromosome Y syndrome" ] .
+}
+

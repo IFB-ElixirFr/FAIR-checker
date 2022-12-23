@@ -1,0 +1,34 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=513436> a ns1:MedicalCondition ;
+        ns1:alternateName "SPG78" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:513436" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:513436" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G11.4" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "617225" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G11.4" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "617225" ;
+                ns1:codingSystem "OMIM" ] ;
+        ns1:description "A rare autosomal recessive complex spastic paraplegia characterized by mostly adult-onset progressive spasticity and weakness predominantly affecting the lower limbs, axonal motor and sensory neuropathy, and cerebellar symptoms like ataxia, dysarthria, and oculomotor abnormalities. Variable degrees of cognitive impairment may also be present. Subtle extrapyramidal involvement and supranuclear gaze palsy were reported in some cases. Features on brain imaging include cerebral and cerebellar atrophy and sometimes abnormalities of the corpus callosum or basal ganglia." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "513436" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Autosomal recessive spastic paraplegia type 78" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Autosomal recessive spastic paraplegia type 78" ] .
+}
+

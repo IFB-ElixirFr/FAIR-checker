@@ -1,0 +1,33 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=319319> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "10064886" ;
+                ns1:codingSystem "MedDRA" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10064886" ;
+                ns1:codingSystem "MedDRA" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C64" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:319319" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C64" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:319319" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "Renal medullary carcinoma is a rare, aggressive subtype of renal cell carcinoma characterized by a large, white or tan, firm, infiltrative tumor with microabscess-like foci centered in the renal medulla, typically presenting with hematuria, abdominal/flank pain, weight loss and fever. It is associated with sickle cell trait and disease and metastasis to the bones and lungs is common at time of diagnosis." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "319319" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Renal medullary carcinoma" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Renal medullary carcinoma" ] .
+}
+

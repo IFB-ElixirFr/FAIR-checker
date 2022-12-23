@@ -1,0 +1,35 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=206473> a ns1:MedicalCondition ;
+        ns1:alternateName "Borderline ovarian epithelial tumor",
+            "Ovarian tumor of low malignant potential" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:206473" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:206473" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C56" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C3665489" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C56" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C3665489" ;
+                ns1:codingSystem "UMLS" ] ;
+        ns1:description "A rare epithelial ovarian neoplasm, distinguished from ovarian carcinomas by the absence of destructive stromal invasion, generally characterized by indolent behavior and excellent prognosis. Most patients are asymptomatic at the time of diagnosis, and the symptoms, if present, are often nonspecific and vague, such as pelvic pain, abdominal mass or, rarely, gastrointestinal problems including early satiety or bloating. Six histological subtypes are currently recognized, based on the epithelial cell type." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "206473" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Borderline epithelial tumor of ovary" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Borderline epithelial tumor of ovary" ] .
+}
+

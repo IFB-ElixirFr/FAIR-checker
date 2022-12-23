@@ -1,0 +1,28 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=530033> a ns1:MedicalCondition ;
+        ns1:alternateName "Dermoid or epidermoid cyst of the CNS" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "Q07.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:530033" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:530033" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q07.8" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "A rare congenital tumor characterized by a benign cyst with epithelial and epidermoid components, originating from embryologic displacement and ectopic growth of ectodermal tissue in the central nervous system. In contrast to epidermoid cysts, dermoid cysts also contain dermis and skin appendages. Most common location is the lumbosacral region, as well as the cerebellopontine angle and parasellar area for intracranial lesions. Clinical presentation depends on the location and size of the tumor and includes pain, muscle weakness, motor and sensory disturbances, and incontinence for intraspinal lesions, and intracranial hypertension, gait disturbances, cranial nerve dysfunction, and visual deficits for intracranial tumors. The cysts may rupture and cause chemical meningitis." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "530033" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Dermoid or epidermoid cyst of the central nervous system" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Dermoid or epidermoid cyst of the central nervous system" ] .
+}
+

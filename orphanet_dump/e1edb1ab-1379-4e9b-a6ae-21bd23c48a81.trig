@@ -1,0 +1,30 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=240112> a ns1:MedicalCondition ;
+        ns1:alternateName "PSP-AOS",
+            "PSP-PNFA",
+            "Progressive supranuclear palsy-apraxia of speech syndrome" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:240112" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G23.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G23.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:240112" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "An atypical variant of progressive supranuclear palsy (PSP), a rare late-onset neurodegenerative disease, characterized by an initial presentation of an isolated speech and language disorder (apraxia of speech, agrammatism, and phonemic errors) years before developing other motor features of PSP. Neuropathological characteristics includes tau pathology and neuronal loss in specific brain areas, especially in the temporal cortex and superior frontal gyrus." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "240112" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Progressive supranuclear palsy-progressive non-fluent aphasia syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Progressive supranuclear palsy-progressive non-fluent aphasia syndrome" ] .
+}
+

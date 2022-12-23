@@ -1,0 +1,48 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=1979> a ns1:MedicalCondition ;
+        ns1:alternateName "Combined insulin, insulin-like growth factor 1 (IGF1) and epidermal growth factor (EGF) deficiency",
+            "Hoepffner-Dreyer-Reimers syndrome",
+            "Werner-like syndrome due to combined growth factor deficiency" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "C2931279" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C2931279" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "233805" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "233805" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E88.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E88.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "12604" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "12604" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:1979" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:1979" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare genetic lipodystrophy characterized by loss of subcutaneous fat layers on the limbs, lipodystrophy in the face and trunk and scleroderma-like skin disorders (thickened skin on the palms and soles and skin pigment changes on the limbs and trunk). Additional clinical signs include joint contractures, reduced relative body weight, a bird-like facial appearance with a beaked nose, micrognathia and insulin-resistant diabetes mellitus." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "1979" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Lipodystrophy due to peptidic growth factors deficiency" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Lipodystrophy due to peptidic growth factors deficiency" ] .
+}
+

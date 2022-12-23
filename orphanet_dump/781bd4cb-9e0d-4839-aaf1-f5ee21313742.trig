@@ -1,0 +1,27 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=244275> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "M31.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:244275" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "M31.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:244275" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare renal disease characterized by thrombotic microangiopathy developing <i>de novo</i> in kidney transplant recipients with no evidence of occurrence of the disease prior to transplantation. Precipitating factors include antibody-mediated rejection, immunosuppressive medication, viral infections, and genetic abnormalities in the complement cascade, among others. The condition most commonly occurs within the first 3-6 months post-transplantation. Clinical presentation is highly variable and ranges from a limited form confined to the kidney with relatively good prognosis to a systemic variant consisting of the classic triad of thrombocytopenia, microangiopathic hemolytic anemia, and acute kidney injury." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "244275" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "De novo thrombotic microangiopathy after kidney transplantation" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "De novo thrombotic microangiopathy after kidney transplantation" ] .
+}
+

@@ -1,0 +1,41 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=1879> a ns1:MedicalCondition ;
+        ns1:alternateName "MSBD syndrome",
+            "Mixed sclerosing bone dystrophy" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "3690" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C3149695" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C3149695" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:1879" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "3690" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:1879" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "M85.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "M85.8" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "Melorheostosis with osteopoikilosis is a rare sclerosing bone dysplasia, combining the clinical and radiological features of melorheostosis and osteopoikilosis (see these terms), that has been reported in some families with osteopoikilosis and that is characterized by a variable presentation of limb pain and deformities." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "1879" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Melorheostosis with osteopoikilosis" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Melorheostosis with osteopoikilosis" ] .
+}
+

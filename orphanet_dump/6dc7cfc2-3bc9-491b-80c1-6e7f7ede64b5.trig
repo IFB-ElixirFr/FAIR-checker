@@ -1,0 +1,33 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=99077> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "C0265885" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:99077" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q25.4" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q25.4" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0265885" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:99077" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "Kommerell diverticulum (KD) is a developmental anomaly of the aortic arch characterized by a diverticulum at the proximal descending aorta of left or right arch configuration that gives rise to an aberrant subclavian artery. KD is primarily asymptomatic but may become symptomatic secondary to dilatation of KD, atheroma and fibrotic changes in paratracheal or paraesophageal tissue, presenting with signs of tracheal compression (more common in children), esophageal compression (dysphagia lusoria; more common in patients with a right sided aortic arch), chest pain, or blood pressure difference in the upper limbs. KD may also predispose toward aortic dissection or rupture." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "99077" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Kommerell diverticulum" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Kommerell diverticulum" ] .
+}
+

@@ -1,0 +1,30 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=171829> a ns1:MedicalCondition ;
+        ns1:alternateName "Del(6)(q16)",
+            "Monosomy 6q16",
+            "Prader-Willi-like syndrome due to microdeletion 6q16" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "Q93.5" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:171829" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q93.5" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:171829" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare Prader-Willi like syndrome due to an interstitial deletion located at 6q16.1q16.2 and characterized by obesity, hyperphagia, hypotonia, small hands and feet, eye/vision anomalies, and global developmental delay." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "171829" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "6q16 microdeletion syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "6q16 microdeletion syndrome" ] .
+}
+

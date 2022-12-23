@@ -1,0 +1,33 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=391487> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "K63.9" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "614162" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:391487" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "614162" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "K63.9" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:391487" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "An extremely rare, autosomal dominant immunological disorder characterized by variable enteropathy, endocrine disorders (e.g. type 1 diabetes mellitus, hypothyroidism), immune dysregulation with pulmonary and blood-borne bacterial infections, and fungal infections (chronic mucocutaneous candidiasis) developing in infancy. Other manifestations include short stature, eczema, hepatosplenomegaly, delayed puberty, and osteoporosis/osteopenia." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "391487" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Autoimmune enteropathy and endocrinopathy-susceptibility to chronic infections syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Autoimmune enteropathy and endocrinopathy-susceptibility to chronic infections syndrome" ] .
+}
+

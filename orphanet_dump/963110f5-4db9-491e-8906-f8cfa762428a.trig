@@ -1,0 +1,35 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=555> a ns1:MedicalCondition ;
+        ns1:alternateName "Celiac sprue",
+            "Coeliac disease",
+            "Coeliac sprue",
+            "Gluten intolerance",
+            "Gluten-induced enteropathy",
+            "Gluten-sensitive enteropathy",
+            "Idiopathic steatorrhea",
+            "Nontropical sprue" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:555" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "K90.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "K90.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:555" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "" ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "555" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "NON RARE IN EUROPE: Celiac disease" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "NON RARE IN EUROPE: Celiac disease" ] .
+}
+

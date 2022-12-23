@@ -1,0 +1,28 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=247724> a ns1:MedicalCondition ;
+        ns1:alternateName "Idiopathic eosinophilia-associated myopathy" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:247724" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:247724" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "M60.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "M60.8" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "A rare idiopathic inflammatory myopathy characterized by eosinophilic infiltration and inflammatory lesions of the skeletal muscle tissue, in the absence of an identifiable causative factor (e.g. parasitic infection, drug intake, systemic or malignant disease). Clinically patients may present focal or generalized muscle weakness and pain, difficulties to walk, motor clumsiness and/or mild bilateral aquilae retraction, as well as elevated serum creatine kinase levels and peripheral blood and/or bone marrow hypereosinophilia." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "247724" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Idiopathic eosinophilic myositis" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Idiopathic eosinophilic myositis" ] .
+}
+

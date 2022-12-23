@@ -1,0 +1,25 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=85128> a ns1:MedicalCondition ;
+        ns1:alternateName "Västerbotten dystrophy" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "H35.5" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C1843816" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:85128" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "607475" ;
+                ns1:codingSystem "OMIM" ] ;
+        ns1:description "Bothnia retinal dystrophy is a rare form of retinal dystrophy, seen mostly in Northern Sweden, presenting in early childhood with night blindness and progressive maculopathy with a decrease in visual acuity, eventually leading to blindness by adulthood. Retinal degeneration, without obvious bone spicule formation, accompanied by affected visual fields and the typical presence of retinitis punctata albescens (see this term) in the posterior pole are also noted." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "85128" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Bothnia retinal dystrophy" ] .
+}
+

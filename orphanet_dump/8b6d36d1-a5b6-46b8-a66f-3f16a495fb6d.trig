@@ -1,0 +1,27 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=99120> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "Q26.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q26.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:99120" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:99120" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "Persistent eustachian valve is a rare congenital anomaly of the inferior vena cava characterized by the postnatal presence of an eustachian valve remnant, which may be asymptomatic and considered a normal variant or prominent and clinically significant. Clinical presentation is variable and includes obstruction of the inferior vena cava, cyanosis, thrombosis, pulmonary embolism, infective endocarditis, and when combined with persistent foramen ovale, it may generate permanent right-to-left shunt." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "99120" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Persistent eustachian valve" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Persistent eustachian valve" ] .
+}
+

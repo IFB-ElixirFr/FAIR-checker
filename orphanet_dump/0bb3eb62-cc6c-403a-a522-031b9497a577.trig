@@ -1,0 +1,20 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=90350> a ns1:MedicalCondition ;
+        ns1:alternateName "ARCL2",
+            "Cutis laxa with joint laxity and developmental delay" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:90350" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0432337" ;
+                ns1:codingSystem "UMLS" ] ;
+        ns1:description "A spectrum of connective tissue disorders characterized by the association of wrinkled, redundant and sagging inelastic skin with growth and developmental delay, and skeletal anomalies. The spectrum ranges from patients with classic autosomal recessive cutis laxa type 2 (ARCL2, Debré type) to patients with a milder form of the disease, wrinkled skin syndrome (WSS)." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "90350" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Autosomal recessive cutis laxa type 2" ] .
+}
+

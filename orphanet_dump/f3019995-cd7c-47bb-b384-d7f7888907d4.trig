@@ -1,0 +1,25 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=498359> a ns1:MedicalCondition ;
+        ns1:alternateName "Aquagenic keratoderma",
+            "Aquagenic syringeal acrokeratoderma",
+            "Aquagenic wrinkling of the palms",
+            "Transient reactive papulotranslucent acrokeratoderma" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:498359" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:498359" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare skin disease characterized by transient wrinkling of the skin, edema, formation of whitish papules, pruritus, burning sensation, or pain, on the palms and/or soles in response to contact with water. Duration of exposure and water temperature affect the rate of development and intensity of the lesions. The condition is more common in females than in males and frequently occurs in patients with cystic fibrosis." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "498359" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Aquagenic palmoplantar keratoderma" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Aquagenic palmoplantar keratoderma" ] .
+}
+

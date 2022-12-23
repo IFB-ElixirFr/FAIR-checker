@@ -1,0 +1,42 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=168816> a ns1:MedicalCondition ;
+        ns1:alternateName "Benign multicystic peritoneal mesothelioma",
+            "Multicystic mesothelioma",
+            "Multilocular peritoneal inclusion cyst" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "10777" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C45.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:168816" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0206680" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:168816" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0206680" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C45.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10777" ;
+                ns1:codingSystem "GARD" ] ;
+        ns1:description "Peritoneal cystic mesothelioma is a rare benign tumor characterized by the formation of intra-abdominal multilocular cystic masses." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "168816" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Peritoneal cystic mesothelioma" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Peritoneal cystic mesothelioma" ] .
+}
+

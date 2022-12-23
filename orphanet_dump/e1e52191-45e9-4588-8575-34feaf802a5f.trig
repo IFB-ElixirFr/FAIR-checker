@@ -1,0 +1,30 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=364039> a ns1:MedicalCondition ;
+        ns1:alternateName "Angiocentric cutaneous T-cell lymphoma of childhood",
+            "HVLL",
+            "Hydroa-like cutaneous T-cell lymphoma" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "C84.5" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:364039" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:364039" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C84.5" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "A very rare Epstein-Barr virus-associated lymphoproliferative disorder characterized by a chronic, recurrent, vesiculopapular rash, which subsequently ulcerates and scars, located mainly on sun-exposed areas and which is associated with systemic manifestations, such as fever, weight loss, asthenia, facial edema, arthralgia, lymphadenopathy, hepatosplenomegaly and/or increased liver enzymes. Hypersensitivity to mosquito bites has been associated and an increased risk of developing systemic lymphoma has been reported." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "364039" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Hydroa vacciniforme-like lymphoma" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Hydroa vacciniforme-like lymphoma" ] .
+}
+

@@ -1,0 +1,36 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=402082> a ns1:MedicalCondition ;
+        ns1:alternateName "EPM5",
+            "PME type 5",
+            "Progressive myoclonus epilepsy type 5" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "G40.3" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "607459" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:402082" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G40.3" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "607459" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:402082" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare, genetic neurological disorder characterized by early-onset progressive ataxia associated with myoclonic seizures, generalized tonic-clonic seizures (which are often sleep-related), and normal to mild intellectual disability. Dysarthria, upward gaze palsy, sensory neuropathy, developmental delay and autistic disorder have also been associated." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "402082" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Progressive myoclonic epilepsy type 5" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Progressive myoclonic epilepsy type 5" ] .
+}
+

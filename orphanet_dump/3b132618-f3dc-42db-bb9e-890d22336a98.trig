@@ -1,0 +1,41 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=90674> a ns1:MedicalCondition ;
+        ns1:alternateName "Isolated TSH deficiency",
+            "Isolated thyrotropin deficiency" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "275100" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10129" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "275100" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E03.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:90674" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E03.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10129" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:90674" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A type of central congenital hypothyroidism, a permanent thyroid deficiency that is present from birth, characterized by low levels of thyroid hormones due to a deficiency in TSH synthesis." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "90674" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Isolated thyroid-stimulating hormone deficiency" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Isolated thyroid-stimulating hormone deficiency" ] .
+}
+

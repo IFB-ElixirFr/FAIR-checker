@@ -1,0 +1,24 @@
+@prefix ns1: <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=> .
+@prefix ns2: <http://schema.org/> .
+
+{
+    ns1:617930 a ns2:MedicalCondition ;
+        ns2:alternateName "F9 deficiency, Leyden type",
+            "Factor IX deficiency, Leyden type" ;
+        ns2:code [ a ns2:MedicalCode ;
+                ns2:codeValue "ORPHA:617930" ;
+                ns2:codingSystem "ORPHAcode" ],
+            [ a ns2:MedicalCode ;
+                ns2:codeValue "ORPHA:617930" ;
+                ns2:codingSystem "ORPHAcode" ] ;
+        ns2:description "" ;
+        ns2:epidemiology "Prevalence : " ;
+        ns2:identifier "617930" ;
+        ns2:name [ a ns2:PronounceableText ;
+                ns2:inLanguage "EN" ;
+                ns2:textValue "Hemophilia B Leyden" ],
+            [ a ns2:PronounceableText ;
+                ns2:inLanguage "EN" ;
+                ns2:textValue "Hemophilia B Leyden" ] .
+}
+

@@ -1,0 +1,29 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=261243> a ns1:MedicalCondition ;
+        ns1:alternateName "Dup(16)(p13.11)",
+            "Trisomy 16p13.11" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:261243" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:261243" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q92.3" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q92.3" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "16p13.11 microduplication syndrome is a recently described syndrome associated with variable clinical features including behavioral abnormalities, developmental delay, congenital heart defects and skeletal anomalies." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "261243" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "16p13.11 microduplication syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "16p13.11 microduplication syndrome" ] .
+}
+

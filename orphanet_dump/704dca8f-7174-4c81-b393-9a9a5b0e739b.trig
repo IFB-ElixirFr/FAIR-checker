@@ -1,0 +1,28 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=2983> a ns1:MedicalCondition ;
+        ns1:alternateName "Verloes-Gillerot-Fryns syndrome" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:2983" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q56.3" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C2931233" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "4550" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "600122" ;
+                ns1:codingSystem "OMIM" ] ;
+        ns1:description "A rare syndrome with 46,XY disorder of sex development characterized by variable degrees of intellectual disability, short stature, severe genital anomalies resulting in sexual ambiguity (such as pseudovaginal perineoscrotal hypospadias and persistence of Müllerian structures), and ocular anomalies (microphthalmia, coloboma). Craniofacial peculiarities (coarse features, deep set eyes), spina bifida, imperforate anus, and sensorineural hearing loss were also described. No new cases have been reported since 1994." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "2983" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Disorder of sex development-intellectual disability syndrome" ] .
+}
+

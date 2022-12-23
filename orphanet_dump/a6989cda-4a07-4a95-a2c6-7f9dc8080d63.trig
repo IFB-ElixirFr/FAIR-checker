@@ -1,0 +1,27 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=83316> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "A79.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:83316" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:83316" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "A79.8" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "Pseudotyphus of California is a rare, flea-borne Rickettsial disease caused by a <i>Rickettsia felis </i> infection. Patients can be asymptomatic or can present with unspecific symptoms (such as fever, headache, generalized maculopapular rash, myalgia, arthralgia and, ocasionally, eschar, lymphadenopathy, nausea, vomiting, loss of appetite and abdominal pain). Rarely, serious manifestations may occur and include neurological dysfunction (photophobia, hearing loss, and signs of meningitis) and pulmonary compromise." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "83316" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Pseudotyphus of California" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Pseudotyphus of California" ] .
+}
+

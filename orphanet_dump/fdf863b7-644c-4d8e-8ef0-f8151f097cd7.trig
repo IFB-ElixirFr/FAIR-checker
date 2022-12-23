@@ -1,0 +1,39 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=86882> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "10066957" ;
+                ns1:codingSystem "MedDRA" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:86882" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C1333984" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C86.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C1333984" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10066957" ;
+                ns1:codingSystem "MedDRA" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:86882" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C86.1" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "A rare T-cell non-Hodgkin lymphoma characterized by a proliferation of cytotoxic T-cells, usually gamma delta T-cells, with involvement of the liver and spleen, but without involvement of lymph nodes. The bone marrow is consistently affected. Patients typically present during adolescence or young adulthood with hepatosplenomegaly, pancytopenia, and systemic symptoms. Peripheral blood involvement may develop later in the disease course. There is a clear male preponderance. The disease often occurs in the context of long-term immunosuppression. The course is aggressive with poor therapy response." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "86882" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Hepatosplenic T-cell lymphoma" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Hepatosplenic T-cell lymphoma" ] .
+}
+

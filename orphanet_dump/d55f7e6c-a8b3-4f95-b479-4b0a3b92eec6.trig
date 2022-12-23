@@ -1,0 +1,22 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=595356> a ns1:MedicalCondition ;
+        ns1:alternateName "Localized DEB" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:595356" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:595356" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A localized form of dystrophic epidermolysis bullosa characterized by blisters confined primarily to the hands and feet (acral form) or to the pretibial region (pretibial form). Nail dystrophy or loss is common and may be an isolated finding (nail only form)." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "595356" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Localized dystrophic epidermolysis bullosa" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Localized dystrophic epidermolysis bullosa" ] .
+}
+

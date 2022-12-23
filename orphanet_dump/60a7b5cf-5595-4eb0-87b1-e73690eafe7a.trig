@@ -1,0 +1,43 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=98791> a ns1:MedicalCondition ;
+        ns1:alternateName "ATR syndrome linked to chromosome 16",
+            "ATR syndrome, deletion type",
+            "ATR-16 syndrome",
+            "Alpha thalassemia-intellectual disability syndrome, deletion type" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "C0795917" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "141750" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D56.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D56.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:98791" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:98791" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "141750" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0795917" ;
+                ns1:codingSystem "UMLS" ] ;
+        ns1:description "A rare developmental defect during embryogenesis, a contiguous gene deletion syndrome, is a form of alpha-thalassemia characterized by microcytosis, hypochromia, normal hemoglobin (Hb) level or mild anemia, associated with developmental abnormalities." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "98791" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Alpha-thalassemia-intellectual disability syndrome linked to chromosome 16" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Alpha-thalassemia-intellectual disability syndrome linked to chromosome 16" ] .
+}
+

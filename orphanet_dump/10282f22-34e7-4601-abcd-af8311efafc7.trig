@@ -1,0 +1,30 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=96069> a ns1:MedicalCondition ;
+        ns1:alternateName "Distal duplication 1p36",
+            "Telomeric duplication 1p36",
+            "Trisomy 1pter" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "Q92.3" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q92.3" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:96069" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:96069" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "Distal trisomy 1p36 is a rare chromosomal anomaly syndrome, resulting from the partial duplication of the short arm of chromosome 1, characterized by borderline to mild intellectual disability, mild developmental delay, metopic craniosynostosis and mild craniofacial dysmorphism (incl. slopping forehead, bitemporal narrowing, blepharophimosis). Other associated abnormalities may include growth retardation, microcephaly, large hands, syndactyly, supernumerary ribs, rectal stenosis and/or anterior displacement of anus. Congenital heart malformations (e.g. atrial septal defect, patent ductus arteriosus) have also been reported." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "96069" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Distal trisomy 1p36" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Distal trisomy 1p36" ] .
+}
+

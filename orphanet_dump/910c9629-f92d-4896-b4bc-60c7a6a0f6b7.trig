@@ -1,0 +1,27 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=458785> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "D18.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:458785" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:458785" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D18.0" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "A rare congenital hemangioma characterized by a superficial, red to violaceous lesion with overlying telangiectasia and a surrounding pale halo, which initially behaves like a rapidly involuting congenital hemangioma, beginning to involute shortly after birth. Involution is then aborted, and a residual tumor virtually indistinguishable from non-involuting congenital hemangioma remains. This lesion grows proportionally with the child and does not regress." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "458785" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Partially involuting congenital hemangioma" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Partially involuting congenital hemangioma" ] .
+}
+

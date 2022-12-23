@@ -1,0 +1,29 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=99123> a ns1:MedicalCondition ;
+        ns1:alternateName "IVC interruption",
+            "Inferior caval vein interruption" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:99123" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q26.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q26.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:99123" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare congenital anomaly of the inferior vena cava characterized by complete interruption of the vessel in which no direct continuity exists between the inferior vena cava and the azygos/hemiazygos system. Clinical manifestations depend on the variant drainage patterns or collaterals and include lower extremity deep vein thrombosis, thromboembolic attacks, leg swelling and pain, lower extremity varices, abdominal pain, intraabdominal varices, and hematochezia, among others. Additional venous abnormalities or cardiac malformations are frequently present." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "99123" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Inferior vena cava interruption without azygos continuation" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Inferior vena cava interruption without azygos continuation" ] .
+}
+

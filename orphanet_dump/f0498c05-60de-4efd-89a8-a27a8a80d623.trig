@@ -1,0 +1,26 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=1661> a ns1:MedicalCondition ;
+        ns1:alternateName "Corneal dystrophy epithelial-short stature syndrome",
+            "Guízar Vázquez-Luengas-Muñoz syndrome" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "Q13.4" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:1661" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C1844671" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "304730" ;
+                ns1:codingSystem "OMIM" ] ;
+        ns1:description "X-linked corneal dermoid (X-CND) is an exceedingly rare, benign, congenital, corneal tumor characterized by bilateral opacification of the cornea with superficial grayish layers and irregular raised whitish plaques, as well as fine blood vessels covering the central cornea, and intact peripheral corneal borders. No other ocular or systemic abnormality is noted. The pattern of inheritance described in the affected family is consistent with X-linked transmission." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "1661" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "X-linked corneal dermoid" ] .
+}
+

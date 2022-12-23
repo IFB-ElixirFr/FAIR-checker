@@ -1,0 +1,33 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=496686> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "G71.2" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "617114" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:496686" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G71.2" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:496686" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "617114" ;
+                ns1:codingSystem "OMIM" ] ;
+        ns1:description "A rare genetic skeletal muscle disease characterized by neonatal to childhood onset of slowly progressive muscle weakness and atrophy primarily affecting the lower limbs, joint contractures, kyphosis or lordosis of the spine, lateral tongue atrophy, and pes equinus. Progression to upper limb involvement, facial weakness, language impairment, intellectual disability, and behavioral abnormalities have been reported in addition. Muscle biopsy shows myopathic changes with increased fiber size variation, internalized nuclei, fiber atrophy, as well as rod structures and core targetoid defects." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "496686" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Kyphosis-lateral tongue atrophy-myofibrillar myopathy syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Kyphosis-lateral tongue atrophy-myofibrillar myopathy syndrome" ] .
+}
+

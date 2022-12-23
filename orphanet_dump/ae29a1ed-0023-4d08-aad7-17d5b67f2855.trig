@@ -1,0 +1,27 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=86906> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:86906" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G40.5" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:86906" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G40.5" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "Hypothalamic hamartomas with gelastic seizures is a rare cerebral malformation with epilepsy syndrome characterized by early-onset gelastic (i.e. ictal laughter) or dacrystic (i.e., ictal crying) seizures due to non-neoplastic developmental malformation - hypothalamic hamartomas. In many patients, seizures progress to other seizure types including focal and generalized seizures, with concomitant cognitive decline and behavioral disorders. Some patients also present a precocious puberty." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "86906" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Hypothalamic hamartomas with gelastic seizures" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Hypothalamic hamartomas with gelastic seizures" ] .
+}
+

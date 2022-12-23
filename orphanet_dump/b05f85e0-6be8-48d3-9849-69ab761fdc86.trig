@@ -1,0 +1,31 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=252202> a ns1:MedicalCondition ;
+        ns1:alternateName "CMMR-D syndrome" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "619101" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "619096" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "276300" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "619097" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:252202" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D80.8" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "Constitutional mismatch repair deficiency syndrome is a rare, inherited cancer-predisposing syndrome characterized by the development of a broad spectrum of malignancies during childhood, including mainly brain, hematological and gastrointestinal cancers, although embryonic and other tumors have also been occasionally reported. Non-neoplastic features, in particular manifestations reminiscent of neurofibromatosis type 1 (e.g., café-au-lait spots, freckling, neurofibromas), as well as premalignant and non-malignant lesions (such as adenomas/polpyps) are frequently present before malignancy development." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "252202" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Constitutional mismatch repair deficiency syndrome" ] .
+}
+

@@ -1,0 +1,40 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=210159> a ns1:MedicalCondition ;
+        ns1:alternateName "Adult HCC" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "C22.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C22.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:210159" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:210159" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "114550" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "6608" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "6608" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "114550" ;
+                ns1:codingSystem "OMIM" ] ;
+        ns1:description "A rare carcinoma of the liver characterized by one to several or many nodules occurring anywhere within the liver, composed of neoplastic epithelial cells with hepatocellular differentiation. The vast majority of tumors are associated with chronic liver disease (such as hepatitis B or C, or steatohepatitis) or exposure to a variety of exogenous agents. Patients may present with signs and symptoms related to the tumor, as well as to the underlying condition. Common manifestations include right upper quadrant abdominal pain, weight loss, hepatosplenomegaly, jaundice, and ascites. Symptomatic tumors generally have poor prognosis." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "210159" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Adult hepatocellular carcinoma" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Adult hepatocellular carcinoma" ] .
+}
+

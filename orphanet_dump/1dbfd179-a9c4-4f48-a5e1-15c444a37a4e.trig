@@ -1,0 +1,27 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=100085> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "C22.7" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:100085" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:100085" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C22.7" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "Primary hepatic neuroendocrine carcinoma (PHNEC) is a rare hepatic tumor that may manifest with abdominal pain or fullness, as well as diarrhea or weight loss. More than 10% of cases are asymptomatic and in rare cases a carcinoid syndrome may be observed." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "100085" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Primary hepatic neuroendocrine carcinoma" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Primary hepatic neuroendocrine carcinoma" ] .
+}
+

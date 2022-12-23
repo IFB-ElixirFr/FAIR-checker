@@ -1,0 +1,28 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=261524> a ns1:MedicalCondition ;
+        ns1:alternateName "UPD(X)pat" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:261524" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:261524" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q99.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q99.8" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "A uniparental disomy of paternal origin that does not seem to have an adverse impact on the phenotype of an individual. There is a possibility of homozygosity for a recessive disease mutation for which the father is a carrier and specific phenotype depends on the inherited disorder." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "261524" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Paternal uniparental disomy of chromosome X" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Paternal uniparental disomy of chromosome X" ] .
+}
+

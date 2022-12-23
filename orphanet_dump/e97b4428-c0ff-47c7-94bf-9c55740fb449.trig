@@ -1,0 +1,30 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=248340> a ns1:MedicalCondition ;
+        ns1:alternateName "Isolated delta-SPD",
+            "Isolated dense-SPD",
+            "Isolated dense-storage pool disease" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:248340" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D69.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:248340" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D69.1" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "Isolated delta-storage pool disease is a rare, isolated, constitutional thrombocytopenia disorder characterized by defective formation and/or malfunction of platelet dense granules, as well as melanosomes in skin cells, resulting in variable manifestations ranging from mild bleeding and easy bruising to moderate mucous/cutaneous hemorrhagic diathesis and bleeding complications after surgery." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "248340" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Isolated delta-storage pool disease" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Isolated delta-storage pool disease" ] .
+}
+

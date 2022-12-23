@@ -1,0 +1,43 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=85321> a ns1:MedicalCondition ;
+        ns1:alternateName "Hearing loss-intellectual disability syndrome, Martin-Probst type",
+            "Martin-Probst syndrome",
+            "X-linked deafness-intellectual disability syndrome syndrome",
+            "X-linked hearing loss-intellectual disability syndrome syndrome" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "Q87.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "300519" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:85321" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C1845285" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "300519" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C1845285" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q87.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:85321" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare X-linked syndromic intellectual disability characterized by congenital sensorineural hearing loss, varying degrees of intellectual disability, short stature, and dysmorphic facial features (such as telecanthus, epicanthic folds, broad nasal root, malar hypoplasia, low-set ears, dental anomalies, and micrognathia). Additional reported manifestations include microcephaly, renal and genitourinary abnormalities, widely spaced, hypoplastic nipples, and adult onset of progressive pancytopenia." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "85321" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Deafness-intellectual disability syndrome, Martin-Probst type" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Deafness-intellectual disability syndrome, Martin-Probst type" ] .
+}
+

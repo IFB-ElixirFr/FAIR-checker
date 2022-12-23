@@ -1,0 +1,39 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=466703> a ns1:MedicalCondition ;
+        ns1:alternateName "CDG syndrome type IIp",
+            "CDG-IIp",
+            "CDG2P",
+            "Carbohydrate deficient glycoprotein syndrome type IIp",
+            "Congenital disorder of glycosylation type 2p",
+            "Congenital disorder of glycosylation type IIp" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:466703" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:466703" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E77.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "616829" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "616829" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E77.8" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "A rare congenital disorder of glycosylation characterized by chronic, non-progressive liver disease, manifesting as mild steatosis with elevated serum transaminases and alkaline phosphatase, hypercholesterolemia, and decreased coagulation factors and ceruloplasmin. Transferrin glycosylation pattern is consistent with a type 2 congenital disorder of glycosylation. Liver biopsy may show mild non-progressive fibrosis. Patients usually remain asymptomatic, although delayed psychomotor development and hypotonia have been reported in single cases." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "466703" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "TMEM199-CDG" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "TMEM199-CDG" ] .
+}
+

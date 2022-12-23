@@ -1,0 +1,40 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=280576> a ns1:MedicalCondition ;
+        ns1:alternateName "NGPS" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "11008" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:280576" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E34.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "614008" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:280576" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "11008" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "614008" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E34.8" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "Nestor-Guillermo progeria syndrome is a rare, genetic, progeroid syndrome characterized by a prematurely aged appearance associated with severe osteolysis (notably on mandible, clavicles, ribs, distal phalanges, and long bones), osteoporosis, generalized lipoatrophy and absence of cardiovascular, atherosclerotic and metabolic complications, presenting a relatively long survival. Additional characteristics include growth retardation, joint stiffness (mainly of fingers, hands, knees, and elbows), wide cranial sutures, dysmorphic facial features (prominent eyes, convex nasal ridge, malocclusion, dental crowding, thin lip vermillion, microretrognathia) and persistent eyebrows, eyelashes and scalp hair." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "280576" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Nestor-Guillermo progeria syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Nestor-Guillermo progeria syndrome" ] .
+}
+

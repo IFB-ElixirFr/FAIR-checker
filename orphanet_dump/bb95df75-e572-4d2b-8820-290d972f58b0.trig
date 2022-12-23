@@ -1,0 +1,33 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=443070> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:443070" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10795" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G44.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G44.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:443070" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10795" ;
+                ns1:codingSystem "GARD" ] ;
+        ns1:description "A rare trigeminal autonomic cephalalgia characterized by indomethacin-sensitive, persistent, strictly unilateral headache lasting for more than three months, associated with ipsilateral conjunctival injection, lacrimation, nasal congestion, rhinorrhea, forehead and facial sweating, miosis, ptosis, eyelid edema, and/or restlessness or agitation, and not better accounted for by another type of headache. Migrainous symptoms such as photophobia are often observed. The headache may be continuous (unremitting subtype) or interrupted by remission periods of more than 24 hours (remitting subtype)." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "443070" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Hemicrania continua" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Hemicrania continua" ] .
+}
+

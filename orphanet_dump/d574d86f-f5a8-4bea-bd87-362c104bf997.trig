@@ -1,0 +1,40 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=251347> a ns1:MedicalCondition ;
+        ns1:alternateName "ATLD" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "C1858391" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "604391" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:251347" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:251347" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G11.3" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C1858391" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "604391" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G11.3" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "A rare genetic disease characterized by slowly progressive cerebellar degeneration resulting in ataxia, oculomotor apraxia, and other cerebellar symptoms. There is an increased frequency of spontaneous chromosomal aberrations, as well as hypersensitivity to ionizing radiation, while telangiectasia is absent." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "251347" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Ataxia-telangiectasia-like disorder" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Ataxia-telangiectasia-like disorder" ] .
+}
+

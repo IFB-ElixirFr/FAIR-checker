@@ -1,0 +1,36 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=330015> a ns1:MedicalCondition ;
+        ns1:alternateName "Lead intoxication",
+            "Plumbism",
+            "Saturnism" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:330015" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0023176" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0023176" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "T56.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:330015" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "T56.0" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "Lead poisoning is defined as acute or chronic exposure to lead resulting in lead accumulation (blood lead concentration (BLC) >5 ug/dL) that can affect every organ system in the body and to which children are more susceptible. Clinical manifestations depend on the amount and duration of exposure and include abdominal pain, colic, constipation, lead line on gingival tissue, arthralgia, myalgia, peripheral neuropathy, fatigue, irritability, anemia, chronic nephropathy and hypertension. In children, even low levels of exposure (BLC <5 ug/dL) is reported to lead to irreversible effects such as loss of cognition, shortening of attention span, alteration of behavior, dyslexia, attention deficit disorder, hypertension, renal impairment, immunotoxicity and toxicity to the reproductive organs." ;
+        ns1:epidemiology "Prevalence : 1-9 / 100 000" ;
+        ns1:identifier "330015" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Lead poisoning" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Lead poisoning" ] .
+}
+

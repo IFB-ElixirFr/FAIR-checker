@@ -1,0 +1,29 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=96123> a ns1:MedicalCondition ;
+        ns1:alternateName "Del(22)",
+            "Deletion 22" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "Q93.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:96123" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:96123" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q93.0" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "A rare autosomal anomaly syndrome, with a highly variable phenotype, typically characterized by short length, joint abnormalities (e.g. dysplasia, hyperextensibility, contractures, dislocation), congenital cardiac defects, and craniofacial dysmorphism (incl. microcephaly, a high, prominent, narrow and/or hairy forehead, epicanthus, upward-slanting and/or small palpebral fissures, broad, high or depressed nasal bridge and malformed ears). Delayed motor development and intellectual disability is observed in patients not presenting early demise." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "96123" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Monosomy 22" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Monosomy 22" ] .
+}
+

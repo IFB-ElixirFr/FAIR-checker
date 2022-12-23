@@ -1,0 +1,40 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=276152> a ns1:MedicalCondition ;
+        ns1:alternateName "MEN4" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "C1970712" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "610755" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D44.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C1970712" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:276152" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "610755" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:276152" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D44.8" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "Multiple endocrine neoplasia type 4 (MEN4) is a very rare form of MEN (see this term), an inherited cancer syndrome, characterized by parathyroid and anterior pituitary tumors, possibly associated with adrenal, renal, and reproductive organ tumors." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "276152" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Multiple endocrine neoplasia type 4" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Multiple endocrine neoplasia type 4" ] .
+}
+

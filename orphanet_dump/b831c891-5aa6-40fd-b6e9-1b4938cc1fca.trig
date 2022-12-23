@@ -1,0 +1,35 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=252050> a ns1:MedicalCondition ;
+        ns1:alternateName "Malignant melanoma of meninges",
+            "Primary melanoma of the CNS" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "C70.9" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "12016" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:252050" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:252050" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C70.9" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "12016" ;
+                ns1:codingSystem "GARD" ] ;
+        ns1:description "Primary melanoma of the central nervous system is a rare tumor of meninges arising from leptomeningeal melanocytes, typically in the perimedullary or high cervical region, in the absence of melanoma outside the CNS. The tumor is typically a darkly pigmented, solid mass, often containing hemorrhagic or necrotic areas, composed of sheets of pleomorphic cells with prominent nucleoli, with frequent mitotic figures and parenchymal invasion. Intracranial tumor may present with signs of raised intracranial pressure, focal neurological symptoms related to tumor location, seizures or subarachnoid hemorrhage, spinal tumor may present with back pain, muscle weakness, numbness, plegia or urinary incontinence." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "252050" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Primary melanoma of the central nervous system" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Primary melanoma of the central nervous system" ] .
+}
+

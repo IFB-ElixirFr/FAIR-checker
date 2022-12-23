@@ -1,0 +1,51 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=95428> a ns1:MedicalCondition ;
+        ns1:alternateName "CDG syndrome type IIh",
+            "CDG-IIh",
+            "CDG2H",
+            "Carbohydrate deficient glycoprotein syndrome type IIh",
+            "Congenital disorder of glycosylation type 2h",
+            "Congenital disorder of glycosylation type IIh" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "611182" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "611182" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "12411" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E77.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "12411" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E77.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C1970021" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C1970021" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:95428" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:95428" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "The CDG (Congenital Disorders of Glycosylation) syndromes are a group of autosomal recessive disorders affecting glycoprotein synthesis. CDG syndrome type IIh is characterised by severe psychomotor retardation, failure to thrive and intolerance to wheat and dairy products." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "95428" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "COG8-CDG" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "COG8-CDG" ] .
+}
+

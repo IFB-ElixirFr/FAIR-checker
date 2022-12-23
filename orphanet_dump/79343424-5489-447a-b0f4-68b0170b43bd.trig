@@ -1,0 +1,41 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=158681> a ns1:MedicalCondition ;
+        ns1:alternateName "EBS with circinate migratory erythema",
+            "EBS-migr" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "609352" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:158681" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C1836284" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q81.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:158681" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q81.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "609352" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C1836284" ;
+                ns1:codingSystem "UMLS" ] ;
+        ns1:description "A rare, inherited, epidermolysis bullosa simplex characterized by belt-like areas of erythema with multiple vesicles and small blisters at the advancing edge of erythema. The lesions occur on the limbs and trunk and heal with brown pigmentation but no scarring. Extracutaneous involvement is absent. Onset of the disease is usually at birth." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "158681" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Epidermolysis bullosa simplex with circinate migratory erythema" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Epidermolysis bullosa simplex with circinate migratory erythema" ] .
+}
+

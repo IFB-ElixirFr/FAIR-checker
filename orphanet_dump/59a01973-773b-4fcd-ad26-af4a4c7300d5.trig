@@ -1,0 +1,36 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=1461> a ns1:MedicalCondition ;
+        ns1:alternateName "Criss-cross atrioventricular relationships",
+            "Superoinferior ventricles",
+            "Twisted atrioventricular connections" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "Q24.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0010334" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:1461" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q24.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:1461" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0010334" ;
+                ns1:codingSystem "UMLS" ] ;
+        ns1:description "Criss cross heart (CCH) is a cardiac malformation where the inflow streams of the two ventricles cross due to twisting of the heart about its major axis. The clinical features depend on the particular cardiac defects associated, like simple or corrected transposition of the great arteries and ventricular septal defects." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "1461" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Criss-cross heart" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Criss-cross heart" ] .
+}
+

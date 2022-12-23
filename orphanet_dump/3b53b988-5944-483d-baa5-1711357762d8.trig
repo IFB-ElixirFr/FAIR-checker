@@ -1,0 +1,33 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=502363> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "275355" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:502363" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "275355" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C06.9" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C06.9" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:502363" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare head and neck tumor characterized by a firm infiltrative neoplasm with squamous differentiation, arising from the mucosal epithelium, and most commonly located in the tongue, floor of the mouth, or gingiva, but also the buccal mucosa or any other area of the oral cavity, depending on prevailing risk factors (such as smoking, alcohol consumption, and tobacco chewing). Patients present with a variably white, erythematous, mixed, nodular, or ulcerated lesion, which may cause discomfort, pain, or reduced mobility of the tongue. The tumor is aggressive with a propensity for local invasion and early lymph node metastasis." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "502363" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Squamous cell carcinoma of the oral cavity" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Squamous cell carcinoma of the oral cavity" ] .
+}
+

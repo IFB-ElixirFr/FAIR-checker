@@ -1,0 +1,54 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=100054> a ns1:MedicalCondition ;
+        ns1:alternateName "F12-related HAE with normal C1 inhibitor",
+            "HAE 3",
+            "HAE-III",
+            "Hereditary angioedema type 3",
+            "Hereditary angioneurotic edema type 3",
+            "Inherited estrogen-associated angioedema",
+            "Inherited estrogen-associated angioneurotic edema",
+            "Inherited estrogen-dependent angioedema",
+            "Inherited estrogen-dependent angioneurotic edema" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "C1960459" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D056828" ;
+                ns1:codingSystem "MeSH" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "T78.3" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "610618" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C1960459" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:100054" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "610618" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:100054" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D056828" ;
+                ns1:codingSystem "MeSH" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "T78.3" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "Hereditary angioedema type 3 (HAE 3) is a form of hereditary angioedema (see this term) characterized by acute edema in subcutaneous tissues, viscera and/or the upper airway." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "100054" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "F12-related hereditary angioedema with normal C1Inh" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "F12-related hereditary angioedema with normal C1Inh" ] .
+}
+

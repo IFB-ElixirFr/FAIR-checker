@@ -1,0 +1,40 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=86819> a ns1:MedicalCondition ;
+        ns1:alternateName "Papular atrichia" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "209500" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "209500" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C1859592" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:86819" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "L65.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "L65.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:86819" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C1859592" ;
+                ns1:codingSystem "UMLS" ] ;
+        ns1:description "A rare inherited form of alopecia characterized by irreversible hair loss during the neonatal period on all hear-bearing areas of the body, later associated with the development of papular lesions all over the body and preferentially on the face and extensor surfaces of the extremities." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "86819" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Atrichia with papular lesions" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Atrichia with papular lesions" ] .
+}
+

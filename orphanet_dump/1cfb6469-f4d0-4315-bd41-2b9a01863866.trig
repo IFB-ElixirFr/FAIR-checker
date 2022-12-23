@@ -1,0 +1,28 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=213726> a ns1:MedicalCondition ;
+        ns1:alternateName "Endometrial serous carcinoma" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "C54.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C54.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:213726" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:213726" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare high-grade endometrial carcinoma characterized by diffuse, marked nuclear pleomorphism, typically exhibiting complex papillary and/or glandular growth patterns and showing abnormal p53 and diffuse p16 immunohistochemistry. The tumor typically arises in atrophic endometrium or in an endometrial polyp. Most patients present with postmenopausal bleeding. Extrauterine metastasis is present in 40-50% of surgically staged cases, most frequently involving lymph nodes or peritoneal sites and omentum. Patients with extrauterine spread have poor outcomes, while endometrium-limited carcinoma has a better prognosis." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "213726" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Serous carcinoma of the corpus uteri" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Serous carcinoma of the corpus uteri" ] .
+}
+

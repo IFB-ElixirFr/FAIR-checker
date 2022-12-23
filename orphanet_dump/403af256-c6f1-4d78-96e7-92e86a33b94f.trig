@@ -1,0 +1,40 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=1918> a ns1:MedicalCondition ;
+        ns1:alternateName "Minoxidil antenatal infection" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "Q86.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:1918" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q86.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0432373" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0432373" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "2308" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:1918" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "2308" ;
+                ns1:codingSystem "GARD" ] ;
+        ns1:description "Fetal minoxidil syndrome is characterized by a group of symptoms that may be observed in a fetus or newborn when the mother has taken minoxidil during pregnancy. Minoxidil is used in the treatment of malignant renal hypertension and as a topical solution to induce scalp hair growth. Hypertrichosis that gradually diminishes during the first six postnatal months has been reported. Additional reported features include cardiac (congenital great vessel transposition and pulmonary valve stenosis), neurodevelopmental (caudal regression sequence) (see these terms), gastrointestinal, renal, and limb malformations. Conclusive studies are however not available." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "1918" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Fetal minoxidil syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Fetal minoxidil syndrome" ] .
+}
+

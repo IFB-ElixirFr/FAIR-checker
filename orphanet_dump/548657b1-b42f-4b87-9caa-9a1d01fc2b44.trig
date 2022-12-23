@@ -1,0 +1,48 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=22> a ns1:MedicalCondition ;
+        ns1:alternateName "4-hydroxybutyric aciduria",
+            "Gamma-hydroxybutyric aciduria",
+            "SSADH deficiency" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "C0268631" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "7695" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:22" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "271980" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "7695" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E72.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "271980" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0268631" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:22" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E72.8" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "A rare neurometabolic disorder of gamma-aminobutyric acid (GABA) metabolism with a nonspecific clinical presentation (ranging from mild to severe) with the most frequent symptoms being cognitive impairment with prominent deficit in expressive language, hypotonia, ataxia, epilepsy, and behavioral dysregulation." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "22" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Succinic semialdehyde dehydrogenase deficiency" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Succinic semialdehyde dehydrogenase deficiency" ] .
+}
+

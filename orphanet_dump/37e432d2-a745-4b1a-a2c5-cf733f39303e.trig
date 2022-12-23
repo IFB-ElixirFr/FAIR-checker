@@ -1,0 +1,39 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=169467> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:169467" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D84.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0398764" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "613912" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D84.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:169467" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0398764" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "613912" ;
+                ns1:codingSystem "OMIM" ] ;
+        ns1:description "Recurrent Neisseria infections due to factor D deficiency is a rare, genetic, primary immunodeficiency disorder characterized by an increased susceptibility to <i> Neisseria </i> bacterial infections, resulting from complement factor D deficiency, typically manifesting as recurrent respiratory infections, recurrent meningitis and/or septicemia. Patients typically present fever, purpuric rash, arthralgia, myalgia and undetectable complement factor D plasma concentrations." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "169467" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Recurrent Neisseria infections due to factor D deficiency" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Recurrent Neisseria infections due to factor D deficiency" ] .
+}
+

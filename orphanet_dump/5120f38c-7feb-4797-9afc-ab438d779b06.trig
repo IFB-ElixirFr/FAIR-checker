@@ -1,0 +1,42 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=330021> a ns1:MedicalCondition ;
+        ns1:alternateName "Hydrargyria",
+            "Mercurialism",
+            "Mercury intoxication" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "C0025427" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0025427" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "T56.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "7021" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:330021" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "7021" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:330021" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "T56.1" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "Mercury poisoning is caused mainly through ingestion or inhalation of any of the 3 forms of mercury, elemental, organic, and inorganic. Exposure to elemental mercury affects the pulmonary (inhalation of mercury vapors causes coughing, chills, fever, shortness of breath), dermatological (mild swelling, vesiculation, scaling, irritation, urticaria, erythema and allergic contact dermatitis accompanied by pain), and peripheral and central nervous (CNS) systems (depression, paranoia, extreme irritability, hallucinations, inability to concentrate, memory loss, hands, head, lips, tongue, jaw and eyelids tremors, weight loss, perpetually low body temperature, drowsiness, headaches, insomnia, fatigue). Exposure to inorganic mercury generally causes development of a metallic taste, local oropharyngeal pain, nausea, vomiting, bloody diarrhea, colic abdominal pain, renal dysfunction and, neurologic abnormalities; while that to organic mercury can lead to delayed neurotoxicity." ;
+        ns1:epidemiology "Prevalence : 1-9 / 100 000" ;
+        ns1:identifier "330021" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Mercury poisoning" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Mercury poisoning" ] .
+}
+

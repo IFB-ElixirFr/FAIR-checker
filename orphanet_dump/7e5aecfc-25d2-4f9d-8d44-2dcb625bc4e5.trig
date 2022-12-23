@@ -1,0 +1,27 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=99138> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "D55.3" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D55.3" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:99138" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:99138" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "Hemolytic anemia due to erythrocyte adenosine deaminase overproduction is a rare, genetic, hematologic disease characterized by mild, chronic hemolytic anemia (due to highly elevated adenosine deaminase activity in red blood cells resulting in their premature destruction), elevated reticulocyte count, splenomegaly and mild hyperbilirubinemia. Other cells and tissues are not affected." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "99138" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Hemolytic anemia due to erythrocyte adenosine deaminase overproduction" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Hemolytic anemia due to erythrocyte adenosine deaminase overproduction" ] .
+}
+

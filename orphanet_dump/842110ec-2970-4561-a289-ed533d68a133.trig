@@ -1,0 +1,28 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=420402> a ns1:MedicalCondition ;
+        ns1:alternateName "SCD syndrome" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "H83.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:420402" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "H83.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:420402" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare otorhinolaryngologic disease characterized by the uni- or bilateral dehiscence of the bone(s) overlying the superior (most common), lateral or posterior semicircular canal(s). Patients present audiological (autophony, aural fullness, conductive hearing loss, pulsatile tinnitus) and/or vestibular symptoms (sound or pressure-evoked oscillopsia or vertigo, characteristic vertical-torsional eye movements), depending on which semicircular canal is affected. Posterior SCD syndrome is associated with high-riding jugular bulb and fibrous dysplasia, while lateral SCD syndrome is associated with chronic otitis media and cholesteatoma, with or without audiological and vestibular symptoms." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "420402" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Semicircular canal dehiscence syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Semicircular canal dehiscence syndrome" ] .
+}
+

@@ -1,0 +1,42 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=300333> a ns1:MedicalCondition ;
+        ns1:alternateName "EBS with nephropathy",
+            "Epidermolysis bullosa simplex with nephropathy",
+            "Nephrotic syndrome-hearing loss-epidermolysis bullosa syndrome" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:300333" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "609057" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C1836823" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "609057" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:300333" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C1836823" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "N08.2" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "N08.2" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "A rare, genetic, renal disease characterized by hereditary nephritis leading to nephrotic syndrome and end-stage renal failure associated with sensorineural hearing loss and pretibial skin blistering followed by atrophy. Other reported manifestations include bilateral lacrimal duct stenosis, dystrophic teeth and nails, bilateral cervical ribs, unilateral kidney, distal vaginal agenesis and anemia due to beta-thalassemia minor." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "300333" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Nephrotic syndrome-epidermolysis bullosa-sensorineural deafness syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Nephrotic syndrome-epidermolysis bullosa-sensorineural deafness syndrome" ] .
+}
+

@@ -1,0 +1,29 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=168621> a ns1:MedicalCondition ;
+        ns1:alternateName "Dysplasia epiphysealis capitis femoris",
+            "Meyer dysplasia" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:168621" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:168621" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q78.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q78.8" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "Meyer dysplasia of the femoral head is a mild localized form of skeletal dysplasia characterized by delayed, irregular ossification of femoral capital epiphysis." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "168621" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Dysplasia of head of femur, Meyer type" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Dysplasia of head of femur, Meyer type" ] .
+}
+

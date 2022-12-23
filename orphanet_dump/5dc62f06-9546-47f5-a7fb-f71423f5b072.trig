@@ -1,0 +1,23 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=96172> a ns1:MedicalCondition ;
+        ns1:alternateName "Ring 3",
+            "Ring chromosome 3" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "Q93.2" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10839" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:96172" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "Ring chromosome 3 syndrome is a rare chromosomal anomaly syndrome with a highly variable phenotype principally characterized by pre- and postnatal growth retardation, short stature, developmental delay, mild to severe intellectual disability, microcephaly and mild dysmorphic features (incl. triangular face, dysplastic ears, upslanting palpebral fissures, epicanthic folds, broad nasal bridge, full nasal tip, long philtrum, downturned corners of the mouth, and micro/retrognathia). Additional manifestations reported include hypotonia, mild articular limitation, hearing loss, digital anomalies (i.e. clinodacytyly, brachydactyly), café-au-lait patches and hypospadias." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "96172" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Ring chromosome 3 syndrome" ] .
+}
+

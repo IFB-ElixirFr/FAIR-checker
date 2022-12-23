@@ -1,0 +1,27 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=319322> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:319322" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C64" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C64" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:319322" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "Mucinous tubular and spindle cell renal carcinoma is a rare subtype of renal cell carcinoma characterized, histologically, by tubular architecture and sheets of spindle cells embedded in a mucinous/myxoid stroma and, macroscopically, by a solid, generally well-circumscribed, partially encapsulated tumor of variable size, with a homogenously colored, bulging cut surface, occassionally containing areas of hemorrhage or necrosis, usually located in the cortex. Patients can present abdominal/flank pain, adbominal mass and/or hematuria, however most are asymptomatic and tumor is discovered incidentally. Indolent behavior is frequent and association with nephrolithiasis and end-stage kidney disease has been noted." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "319322" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Mucinous tubular and spindle cell renal carcinoma" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Mucinous tubular and spindle cell renal carcinoma" ] .
+}
+

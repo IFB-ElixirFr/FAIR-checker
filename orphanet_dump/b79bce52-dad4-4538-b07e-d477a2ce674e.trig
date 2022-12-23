@@ -1,0 +1,30 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=353334> a ns1:MedicalCondition ;
+        ns1:alternateName "Congenital arteriovenous anastomoses of the retina",
+            "Congenital arteriovenous communication of the retina",
+            "Congenital retinal arteriovenous anastomoses" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:353334" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q14.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q14.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:353334" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare neurovascular malformation characterized by a unilateral, direct communication between the arterial and venous system in the retina via abnormal, enlarged vessels, but without interposed capillaries. The inferotemporal vasculature is most commonly affected. Patients may be asymptomatic or present with variable degrees of visual loss. Local vascular complications include vascular occlusions or retinal or vitreous hemorrhages. The anomaly may occur in isolation or as part of Wyburn-Mason syndrome, in which intracranial (usually ipsilateral) arteriovenous malformations are present." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "353334" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Congenital retinal arteriovenous communication" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Congenital retinal arteriovenous communication" ] .
+}
+

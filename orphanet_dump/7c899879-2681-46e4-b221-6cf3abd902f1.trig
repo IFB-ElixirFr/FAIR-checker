@@ -1,0 +1,54 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=63999> a ns1:MedicalCondition ;
+        ns1:alternateName "Fibrosing mediastinitis",
+            "Mediastinal fibrosis",
+            "Sclerosing mediastinitis" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "10027074" ;
+                ns1:codingSystem "MedDRA" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10027074" ;
+                ns1:codingSystem "MedDRA" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "J98.5" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C536136" ;
+                ns1:codingSystem "MeSH" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0264573" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:63999" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:63999" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "8337" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C536136" ;
+                ns1:codingSystem "MeSH" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "8337" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "J98.5" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0264573" ;
+                ns1:codingSystem "UMLS" ] ;
+        ns1:description "A rare systemic autoimmune disease characterized by an aggressive fibroinflammatory process with infiltration of IgG4-positive plasma cells in the mediastinum, potentially resulting in compression and functional impairment of vital mediastinal structures, and associated with elevated serum IgG4. Clinical symptoms are unspecific and include pain or symptoms due to mass effect. The condition may occur together with IgG4-related disease in other parts of the body." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "63999" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "IgG4-related mediastinitis" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "IgG4-related mediastinitis" ] .
+}
+

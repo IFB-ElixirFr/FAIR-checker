@@ -1,0 +1,29 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=96063> a ns1:MedicalCondition ;
+        ns1:alternateName "Mosaic trisomy chromosome 10",
+            "Trisomy 10 mosaicism" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:96063" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q92.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q92.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:96063" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "Mosaic trisomy 10 is a rare chromosomal anomaly syndrome, with a highly variable phenotype, principally characterized by growth delay, craniofacial dysmorphism (incl. prominent forehead, hypertelorism, upslanting palpebral fissures, blepharophimosis, low-set malformed large ears, high arched palate, cleft lip/palate, retrognathia) and cardiac, renal and skeletal (e.g. radial ray defects, scoliosis) malformations, with death usually ocurring neonatally or in early infancy. Other reported features include central nervous system and ear anomalies, as well as facial clefts and anal atresia." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "96063" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Mosaic trisomy 10" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Mosaic trisomy 10" ] .
+}
+

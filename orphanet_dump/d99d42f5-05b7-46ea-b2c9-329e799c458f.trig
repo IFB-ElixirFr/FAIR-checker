@@ -1,0 +1,50 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=85453> a ns1:MedicalCondition ;
+        ns1:alternateName "Familial cutaneous amyloidosis",
+            "PDR",
+            "Partington disease",
+            "X-linked cutaneous amyloidosis",
+            "XLPDR" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "301220" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "301220" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E85.0+" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E85.0+" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:85453" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:85453" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "L99.0*" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0796250" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "L99.0*" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0796250" ;
+                ns1:codingSystem "UMLS" ] ;
+        ns1:description "X-linked reticulate pigmentary disorder is an extremely rare skin disease described in only four families to date and characterized in males by diffuse reticulate brown hyperpigmentated skin lesions developing in early childhood and a variety of systemic manifestations (recurrent pneumonia, corneal opacification, gastrointestinal inflammation, urethral stricture, failure to thrive, hypohidrosis, digital clubbing, and unruly hair and flared eyebrows), while in females, there is only cutaneous involvement with the development in early childhood of localized brown hyperpigmented skin lesions following the lines of Blaschko. This disease was first considered as a cutaneous amyloidosis, but amyloid deposits are an inconstant feature." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "85453" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "X-linked reticulate pigmentary disorder" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "X-linked reticulate pigmentary disorder" ] .
+}
+

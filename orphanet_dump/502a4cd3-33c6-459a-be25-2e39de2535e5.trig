@@ -1,0 +1,35 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=404546> a ns1:MedicalCondition ;
+        ns1:alternateName "Deficiency of IL-36R antagonist",
+            "Deficiency of IL-36Ra" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "L40.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "L40.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:404546" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "614204" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:404546" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "614204" ;
+                ns1:codingSystem "OMIM" ] ;
+        ns1:description "A rare, genetic, autoinflammatory syndrome with immune deficiency disease characterized by recurrent and severe flares of generalized pustular psoriasis associated with high fever, asthenia, and systemic inflammation, due to IL36R antagonist deficiency. Psoriatic nail changes (e.g. pitting and onychomadesis) and ichthyosis may occasionally be associated." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "404546" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "DITRA" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "DITRA" ] .
+}
+

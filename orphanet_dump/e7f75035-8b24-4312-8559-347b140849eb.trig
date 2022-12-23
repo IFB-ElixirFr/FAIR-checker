@@ -1,0 +1,22 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=140874> a ns1:MedicalCondition ;
+        ns1:alternateName "JSRD" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:140874" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:140874" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "Joubert syndrome (JS) and related disorders (JSRD) are a group of developmental delay/multiple congenital anomaly syndromes in which the mandatory feature is the ``molar tooth sign'' (MTS), a complex midbrain-hindbrain malformation recognizable on brain imaging. The MTS is characterized by cerebellar vermis hypodysplasia, thickening and malorientation of the superior cerebellar peduncles and abnormally deep interpeduncular fossa." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "140874" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Joubert syndrome and related disorders" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Joubert syndrome and related disorders" ] .
+}
+

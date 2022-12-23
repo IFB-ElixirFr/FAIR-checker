@@ -1,0 +1,35 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=437552> a ns1:MedicalCondition ;
+        ns1:alternateName "Autosomal recessive primary immunodeficiency with defective spontaneous NK cell cytotoxicity",
+            "CD16 deficiency" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "D84.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:437552" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "615707" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D84.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:437552" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "615707" ;
+                ns1:codingSystem "OMIM" ] ;
+        ns1:description "A rare, genetic primary immunodeficiency characterized by recurrent respiratory and skin viral infections (Epstein-Barr virus, herpes simplex virus, human papillomavirus), deficient spontaneous cytotoxicity of natural killer cells, but preserved antibody-dependent cellular cytotoxicity. No other abnormalities are present on immunologic work-up." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "437552" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Autosomal recessive primary immunodeficiency with defective spontaneous natural killer cell cytotoxicity" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Autosomal recessive primary immunodeficiency with defective spontaneous natural killer cell cytotoxicity" ] .
+}
+

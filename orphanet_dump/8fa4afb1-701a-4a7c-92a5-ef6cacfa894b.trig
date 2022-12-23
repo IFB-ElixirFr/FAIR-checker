@@ -1,0 +1,36 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=505227> a ns1:MedicalCondition ;
+        ns1:alternateName "CID due to GINS1 deficiency",
+            "Combined immunodeficiency with intrauterine growth retardation-NK cell deficiency-neutropenia",
+            "Combined immunodeficiency with intrauterine growth retardation-natural killer cell deficiency-neutropenia" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "617827" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "617827" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D81.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:505227" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:505227" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D81.8" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "A rare syndrome with combined immunodeficiency characterized by intrauterine and postnatal growth retardation, chronic neutropenia, and natural killer (NK) cell deficiency due a defect in DNA replication leading to blockade of immune cell differentiation in the bone marrow, particularly affecting NK cells. Other clinical features include recurrent viral and bacterial infections and eczema, as well as mild facial dysmorphism." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "505227" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Combined immunodeficiency due to GINS1 deficiency" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Combined immunodeficiency due to GINS1 deficiency" ] .
+}
+

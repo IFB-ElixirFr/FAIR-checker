@@ -1,0 +1,40 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=169105> a ns1:MedicalCondition ;
+        ns1:alternateName "Thymoma-immunodeficiency syndrome" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "8622" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D81.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0221027" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:169105" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:169105" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D81.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0221027" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "8622" ;
+                ns1:codingSystem "GARD" ] ;
+        ns1:description "Good syndrome, also known as thymoma-immunodeficiency, is a very rare acquired immunodeficiency syndrome characterized by the association of thymoma and combined B-cell and T-cell immunodeficiency of adult onset with increased susceptibility to infections." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "169105" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Good syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Good syndrome" ] .
+}
+

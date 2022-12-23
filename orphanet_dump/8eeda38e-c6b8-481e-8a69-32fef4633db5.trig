@@ -1,0 +1,40 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=737> a ns1:MedicalCondition ;
+        ns1:alternateName "Palmar, plantar and disseminated porokeratosis" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "C0162838" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q82.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q82.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:737" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:737" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0162838" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "175850" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "175850" ;
+                ns1:codingSystem "OMIM" ] ;
+        ns1:description "A rare genetic disease which is a rare form of porokeratosis occurring mainly in adolescence and characterized by small pruritic or painful keratotic papules that first appear on the palms and soles, and may gradually spread to other body zones." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "737" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Porokeratosis plantaris palmaris et disseminata" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Porokeratosis plantaris palmaris et disseminata" ] .
+}
+

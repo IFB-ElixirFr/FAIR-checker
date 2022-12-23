@@ -1,0 +1,28 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=494418> a ns1:MedicalCondition ;
+        ns1:alternateName "Carcinoma of vulva" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:494418" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C51.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C51.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:494418" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A group of rare tumors of the vulva comprising HPV-associated and HPV-independent squamous cell carcinomas as the most frequent malignant vulvar tumors, basal cell carcinomas, adenocarcinomas, and Bartholin gland carcinomas. Depending on the type of tumor and disease stage, patients may present with a painless vulvar mass or ulcer, or with pruritus, a burning sensation, pain, or bleeding." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "494418" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Vulvar carcinoma" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Vulvar carcinoma" ] .
+}
+

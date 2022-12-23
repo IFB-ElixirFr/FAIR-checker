@@ -1,0 +1,39 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=817> a ns1:MedicalCondition ;
+        ns1:alternateName "Deciduous skin",
+            "Familial continuous skin peeling syndrome",
+            "Idiopathic deciduous skin",
+            "Keratosis exfoliativa congenita",
+            "PSS",
+            "Peeling skin disease" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:817" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "7347" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C1849193" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "7347" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C1849193" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:817" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A group of rare autosomal recessive forms of ichthyosis clinically characterized by superficial, asymptomatic, spontaneous peeling of the skin and histologically by a shedding of the outer layers of the epidermis. PSS presents with either an acral (acral PSS) or a generalized distribution for generalized PSS type A (noninflammatory) or B (inflammatory)." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "817" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Peeling skin syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Peeling skin syndrome" ] .
+}
+

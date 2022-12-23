@@ -1,0 +1,30 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=247546> a ns1:MedicalCondition ;
+        ns1:alternateName "Acute neonatal citrullinemia type 1",
+            "Early-onset citrullinemia type 1",
+            "Early-onset citrullinemia type I" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "E72.2" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:247546" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:247546" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E72.2" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "A severe form of citrullinemia type 1 characterized biologically by hyperammonemia and clinically by progressive lethargy, poor feeding and vomiting, seizures and possible loss of consciousness, within one to a few days of birth, with variable signs of increased intracranial pressure. The condition can lead to significant neurologic deficits." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "247546" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Acute neonatal citrullinemia type I" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Acute neonatal citrullinemia type I" ] .
+}
+

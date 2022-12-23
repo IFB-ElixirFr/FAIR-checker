@@ -1,0 +1,49 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=2698> a ns1:MedicalCondition ;
+        ns1:alternateName "Bart-Pumphrey syndrome",
+            "Knuckle pads-leukonychia-sensorineural deafness-palmoplantar keratoderma syndrome",
+            "Knuckle pads-leukonychia-sensorineural hearing loss-palmoplantar hyperkeratosis syndrome",
+            "Knuckle pads-leukonychia-sensorineural hearing loss-palmoplantar keratoderma syndrome" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "Q82.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "149200" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q82.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:2698" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "3125" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "149200" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0266004" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:2698" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0266004" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "3125" ;
+                ns1:codingSystem "GARD" ] ;
+        ns1:description "A rare, syndromic genetic deafness disease characterized by symmetric or asymmetric knuckle pads (typically located on the distal and interphalangeal joints), leukonychia, diffuse palmoplantar keratoderma, and congenital, mild to moderate sensorineural deafness." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "2698" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Knuckle pads-leukonychia-sensorineural deafness-palmoplantar hyperkeratosis syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Knuckle pads-leukonychia-sensorineural deafness-palmoplantar hyperkeratosis syndrome" ] .
+}
+

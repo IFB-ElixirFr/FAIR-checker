@@ -1,0 +1,23 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=474347> a ns1:MedicalCondition ;
+        ns1:alternateName "Congenital anomaly of interventricular communication",
+            "Congenital ventricular septal anomaly" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:474347" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:474347" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "" ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "474347" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Rare congenital anomaly of ventricular septum" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Rare congenital anomaly of ventricular septum" ] .
+}
+

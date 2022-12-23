@@ -1,0 +1,24 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=90044> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "D58.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "609153" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:90044" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C1836705" ;
+                ns1:codingSystem "UMLS" ] ;
+        ns1:description "Familial pseudohyperkalemia (FP) is an inherited, mild, non-hemolytic subtype of hereditary stomatocytosis that is associated with a temperature-dependent anomaly in red cell membrane permeability to potassium that leads to high <i>in vitro</i> potassium levels in samples stored below 37°C. FP is not associated with additional hematological abnormalities, although affected individuals may show some mild abnormalities like macrocytosis." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "90044" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Familial pseudohyperkalemia" ] .
+}
+

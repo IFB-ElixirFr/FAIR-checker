@@ -1,0 +1,50 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=91385> a ns1:MedicalCondition ;
+        ns1:alternateName "AAE",
+            "Acquired C1 inhibitor deficiency",
+            "Acquired angioneurotic edema",
+            "Acquired bradykinine-induced angioedema",
+            "Acquired non histamine-induced angioedema" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "C538173" ;
+                ns1:codingSystem "MeSH" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:91385" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "8605" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:91385" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "300909" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C2931758" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C2931758" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "8605" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "300909" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C538173" ;
+                ns1:codingSystem "MeSH" ] ;
+        ns1:description "A rare disease characterized by the occurrence of transitory and recurrent subcutaneous and/or submucosal edemas resulting in swelling and/or abdominal pain due to an acquired C1 inhibitor (C1-INH) deficiency." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "91385" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Acquired angioedema" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Acquired angioedema" ] .
+}
+

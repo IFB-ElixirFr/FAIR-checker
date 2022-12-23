@@ -1,0 +1,28 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=436274> a ns1:MedicalCondition ;
+        ns1:alternateName "PXE-like syndrome with retinitis pigmentosa" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "Q82.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:436274" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:436274" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q82.8" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "A rare, genetic, dermis elastic tissue disorder characterized by yellowish skin papules (resembling pseudoxanthoma elasticum) located on the neck, chest and/or flexural areas associated with loose, redundant, sagging skin on trunk and upper limbs, and retinitis pigmentosa, in the absence of clotting abnormalities. Patients present reduced night and peripheral vision, as well as optic nerve pallor, retinal pigment epithelium loss, attenuated retinal vessels and/or black pigment intra-retinal clumps." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "436274" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Pseudoxanthoma elasticum-like skin manifestations with retinitis pigmentosa" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Pseudoxanthoma elasticum-like skin manifestations with retinitis pigmentosa" ] .
+}
+

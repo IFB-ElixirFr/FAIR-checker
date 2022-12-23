@@ -1,0 +1,26 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=3268> a ns1:MedicalCondition ;
+        ns1:alternateName "Giuffré-Tsukahara syndrome",
+            "Tsukahara syndrome" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:3268" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "603438" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "394" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C1863881" ;
+                ns1:codingSystem "UMLS" ] ;
+        ns1:description "Radioulnar synostosis-microcephaly-scoliosis syndrome, also known as Guiffré-Tsukahara syndrome, is an extremely rare syndrome characterized by the association of radioulnar synostosis with microcephaly, scoliosis, short stature and intellectual deficit." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "3268" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Radioulnar synostosis-microcephaly-scoliosis syndrome" ] .
+}
+

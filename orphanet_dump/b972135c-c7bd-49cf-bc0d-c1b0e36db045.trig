@@ -1,0 +1,47 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=1882> a ns1:MedicalCondition ;
+        ns1:alternateName "ANOTHER syndrome",
+            "HEDH syndrome" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "Q82.4" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "2049" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C1857052" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "2049" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C1857052" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:1882" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "225050" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:1882" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "225050" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q82.4" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "A rare, genetic, ectodermal dysplasia syndrome characterized by the association of hypohidrotic ectodermal dysplasia (manifesting with the triad of hypohidrosis, anodontia/hypodontia and hypotrichosis) with primary hypothyroidism and respiratory tract ciliary dyskinesia. Patients frequently present urticaria pigmentosa-like skin pigmentation, increased mast cells and melanin depositions in the dermis and severe, recurrent chest infections. There have been no further descriptions in the literature since 1986." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "1882" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Hypohidrotic ectodermal dysplasia-hypothyroidism-ciliary dyskinesia syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Hypohidrotic ectodermal dysplasia-hypothyroidism-ciliary dyskinesia syndrome" ] .
+}
+

@@ -1,0 +1,33 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=251919> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "10644" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D44.5" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D44.5" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:251919" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10644" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:251919" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare type of pineal parenchymal tumor (PPT) of intermediate-grade malignancy manifesting with visual disturbances, headaches, loss of coordination and balance, nausea and vomiting due to obstructive hydrocephalus, and that is classified as either grade II PPTID (pineal parenchymal tumor of intermediate differentiation) or grade III PPTID according to the degree of neuronal differentiation and mitotic activity." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "251919" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Pineal parenchymal tumor of intermediate differenciation" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Pineal parenchymal tumor of intermediate differenciation" ] .
+}
+

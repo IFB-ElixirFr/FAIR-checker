@@ -1,0 +1,35 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=99050> a ns1:MedicalCondition ;
+        ns1:alternateName "Hemitruncus arteriosus",
+            "Pulmonary artery coming from the aorta" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "Q25.7" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q25.7" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "4586" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "4586" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:99050" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:99050" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare, congenital, heart malformation characterized by anomalous origin of one branch of the pulmonary arteries directly from the aorta and a normal origin of the other pulmonary artery from the main pulmonary artery coming from the right ventricular outflow tract. Patients present respiratory distress, congestive heart failure and failure to thrive within the first days/months of life." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "99050" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Abnormal origin of right or left pulmonary artery from the aorta" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Abnormal origin of right or left pulmonary artery from the aorta" ] .
+}
+

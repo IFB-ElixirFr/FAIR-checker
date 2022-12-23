@@ -1,0 +1,29 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=529799> a ns1:MedicalCondition ;
+        ns1:alternateName "ABE",
+            "Acute kernicterus" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "P57.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:529799" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:529799" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "P57.8" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "A rare neurologic disease characterized by lethargy, hypotonia, poor feeding, opisthotonus, and a typical high-pitched cry due to bilirubin accumulation in the globus pallidus, sub-thalamic nuclei, and other brain regions, resulting from severe neonatal unconjugated hyperbilirubinemia. Onset of symptoms is typically within the first three to five days of life. Additional features include fever, apnea, seizures, and coma. Especially respiratory failure or refractory seizures may lead to a fatal outcome." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "529799" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Acute bilirubin encephalopathy" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Acute bilirubin encephalopathy" ] .
+}
+

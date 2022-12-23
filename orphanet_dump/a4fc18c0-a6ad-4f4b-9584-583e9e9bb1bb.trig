@@ -1,0 +1,35 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=122> a ns1:MedicalCondition ;
+        ns1:alternateName "Fibrofolliculomas with trichodiscomas and acrochordons",
+            "Hornstein-Knickenberg syndrome" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "2322" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10067736" ;
+                ns1:codingSystem "MedDRA" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D23.9" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0346010" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "135150" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:122" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D058249" ;
+                ns1:codingSystem "MeSH" ] ;
+        ns1:description "A rare inherited cancer-predisposing syndrome characterized by skin lesions, kidney tumors, and pulmonary cysts that may be associated with pneumothorax." ;
+        ns1:epidemiology "Prevalence : 1-9 / 1 000 000" ;
+        ns1:identifier "122" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Birt-Hogg-Dubé syndrome" ] .
+}
+

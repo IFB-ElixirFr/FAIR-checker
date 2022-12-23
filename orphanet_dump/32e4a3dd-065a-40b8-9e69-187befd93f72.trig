@@ -1,0 +1,27 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=519402> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "Q14.2" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:519402" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:519402" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q14.2" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "A rare ophthalmic disorder characterized by an abnormally large optic disc (greater than 2.1 mm in diameter). The anomaly is usually bilateral with otherwise normal configuration of the disc, and typically associated with an increased cup-to-disc ratio, a round or horizontal oval optic cup, and an intact, pale-appearing neuroretinal rim. In a less frequent variant, a unilateral, anomalous superior excavation obliterates part of the adjacent neuroretinal rim. In general, visual acuity and visual fields are normal, except for an enlarged blind spot. Ciliary arteries are more common in megalopapilla." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "519402" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Isolated megalopapilla" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Isolated megalopapilla" ] .
+}
+

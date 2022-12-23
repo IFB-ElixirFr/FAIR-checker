@@ -1,0 +1,33 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=90066> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:90066" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "J15.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:90066" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0920182" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "J15.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0920182" ;
+                ns1:codingSystem "UMLS" ] ;
+        ns1:description "A rare pulmonary disease characterized by primary or nonbacteremic pneumonia most frequently arising in an intensive care setting, or bacteremic pneumonia, which is typically associated with neutropenia. Chronic lower respiratory tract infection with development of episodes of pneumonia is common in patients with cystic fibrosis. Acute infections are potentially life-threatening. Patients present with fever, chills, dyspnea, cyanosis, productive cough, as well as signs of severe systemic toxicity. Alveolar hemorrhage, necrosis, and, eventually, cavity formation, are commonly seen." ;
+        ns1:epidemiology "Prevalence : 1-5 / 10 000" ;
+        ns1:identifier "90066" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Pneumonia caused by Pseudomonas aeruginosa infection" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Pneumonia caused by Pseudomonas aeruginosa infection" ] .
+}
+

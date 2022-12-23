@@ -1,0 +1,21 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=210136> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:210136" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:210136" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare disease, manifesting with idiopathic pulmonary fibrosis, hepatic nodular regenerative hyperplasia leading to portal hypertension and thrombocytopenia due to bone marrow hypoplasia. The condition was associated with 100% mortality." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "210136" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Pulmonary fibrosis-hepatic hyperplasia-bone marrow hypoplasia syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Pulmonary fibrosis-hepatic hyperplasia-bone marrow hypoplasia syndrome" ] .
+}
+

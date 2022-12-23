@@ -1,0 +1,35 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=363976> a ns1:MedicalCondition ;
+        ns1:alternateName "GCT of bone",
+            "Osteoclastoma" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "D48.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0206638" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D48.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0206638" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:363976" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:363976" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare bone sarcoma characterized by a usually benign space-occupying lesion, which is nevertheless locally aggressive and massively damaging to surrounding bone tissue. The tumor is composed of giant multinucleated cells (osteoclast-like cells), mononuclear macrophages, and mononuclear stromal cells which secrete pro-myeloid and pro-osteoclastic factors. Metastasis and malignant transformation are rare, but the recurrence rate is high." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "363976" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Giant cell tumor of bone" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Giant cell tumor of bone" ] .
+}
+

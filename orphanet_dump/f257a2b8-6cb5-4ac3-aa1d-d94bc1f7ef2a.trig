@@ -1,0 +1,24 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=495879> a ns1:MedicalCondition ;
+        ns1:alternateName "Congenital absence of the scrotum",
+            "Congenital scrotal absence",
+            "Congenital scrotal agenesis" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:495879" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:495879" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare urogenital tract malformation characterized by the complete absence of the scrotal rugae in the perineum between the penis and anus, with bilateral testes being present in a cryptorchid or ectopic position. Hemiscrotal agenesis refers to the unilateral absence of scrotal skin with an intact midline raphe and ipsilateral cryptorchidism. Both malformations may be isolated findings, or occur in association with other anomalies." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "495879" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Congenital agenesis of the scrotum" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Congenital agenesis of the scrotum" ] .
+}
+

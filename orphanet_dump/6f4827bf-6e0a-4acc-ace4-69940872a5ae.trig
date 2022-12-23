@@ -1,0 +1,43 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=3238> a ns1:MedicalCondition ;
+        ns1:alternateName "Forney syndrome",
+            "Forney-Robinson-Pascoe syndrome",
+            "Mitral regurgitation-deafness-skeletal anomalies syndrome",
+            "Mitral regurgitation-hearing loss-skeletal anomalies syndrome" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "2362" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C2931461" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "157800" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:3238" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C2931461" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:3238" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "2362" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "157800" ;
+                ns1:codingSystem "OMIM" ] ;
+        ns1:description "A rare genetic multiple congenital anomalies/dysmorphic syndrome characterized by growth retardation, short stature, feeding difficulty and failure to thrive, cardiac anomalies (septal defects and/or valve dysplasia), joint laxity, short extremities, brachydactyly, carpal and tarsal fusion, cervical vertebral fusion, inner ear malformation with bilateral conductive hearing loss, and dysmorphic facial features (such as hypertelorism, upslanting palpebral fissures, posteriorly rotated ears, anteverted nares, and long philtrum). Additional variable manifestations include gastroesophageal reflux and genitourinary anomalies, among others." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "3238" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Cardiospondylocarpofacial syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Cardiospondylocarpofacial syndrome" ] .
+}
+

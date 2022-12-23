@@ -1,0 +1,30 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=313781> a ns1:MedicalCondition ;
+        ns1:alternateName "20p subtelomeric deletion syndrome",
+            "Del(20)(p13)",
+            "Monosomy 20p13" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:313781" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q93.5" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:313781" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q93.5" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "20p13 microdeletion syndrome is a rare chromosomal anomaly characterized by developmental delay, mild to moderate intellectual disability, epilepsy, and unspecific dysmorphic signs. High palate, delayed permanent tooth eruption, hypoplastic fingernails, clinodactyly and short fingers have also been reported." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "313781" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "20p13 microdeletion syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "20p13 microdeletion syndrome" ] .
+}
+

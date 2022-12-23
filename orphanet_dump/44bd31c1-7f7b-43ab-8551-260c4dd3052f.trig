@@ -1,0 +1,27 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=35981> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "C0266464" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0266464" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:35981" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:35981" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A heterogenous group of cerebral cortical malformations characterized by excessive cortical folding and abnormal cortical layering that, depending on its topographic distribution, presents with variable combinations of neurological symptoms of varying severity such as epilepsy, developmental delay, intellectual disability, motor dysfunction (e.g. spasticity), and pseudobulbar palsy." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "35981" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Polymicrogyria" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Polymicrogyria" ] .
+}
+

@@ -1,0 +1,32 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=168829> a ns1:MedicalCondition ;
+        ns1:alternateName "EOPPC",
+            "Extra-ovarian primary peritoneal carcinoma",
+            "PPC",
+            "Primary peritoneal serous carcinoma",
+            "Serous surface papillary carcinoma" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "C48.2" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:168829" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C48.2" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:168829" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "Primary peritoneal carcinoma (PPC) is a rare malignant tumor of the peritoneal cavity of extra-ovarian origin, clinically and histologically similar to advanced-stage serous ovarian carcinoma (see this term)." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "168829" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Primary peritoneal carcinoma" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Primary peritoneal carcinoma" ] .
+}
+

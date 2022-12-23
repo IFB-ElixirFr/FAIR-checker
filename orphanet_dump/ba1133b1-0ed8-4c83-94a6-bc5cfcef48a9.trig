@@ -1,0 +1,31 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=90119> a ns1:MedicalCondition ;
+        ns1:alternateName "AR-CMT2 with acrodystrophy",
+            "Autosomal recessive Charcot-Marie-Tooth type 2 with acrodystrophy",
+            "Autosomal recessive axonal Charcot-Marie-Tooth disease with acrodystrophy",
+            "HMSN with acrodystrophy" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "G60.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G60.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:90119" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:90119" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "Hereditary motor and sensory neuropathy with acrodystrophy is a rare axonal hereditary motor and sensory neuropathy characterized by progressive axonal neuropathy with limb weakness and severe distal sensory loss in all limbs and acrodystrophic changes leading to painless non-healing ulcers, osteomyelitis, contractures and mutilating lesions with loss of terminal phalanges. One family with three affected siblings is described and there have been no further descriptions in the literature since 1999." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "90119" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Hereditary motor and sensory neuropathy with acrodystrophy" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Hereditary motor and sensory neuropathy with acrodystrophy" ] .
+}
+

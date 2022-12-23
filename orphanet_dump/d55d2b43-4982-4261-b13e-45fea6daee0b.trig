@@ -1,0 +1,43 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=371428> a ns1:MedicalCondition ;
+        ns1:alternateName "MONA spectrum",
+            "NAO syndrome",
+            "Nodulosis-arthropathy-osteolysis syndrome",
+            "Torg-Winchester syndrome" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "M89.5" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "259600" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "259600" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:371428" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "M89.5" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:371428" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "277950" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "277950" ;
+                ns1:codingSystem "OMIM" ] ;
+        ns1:description "A rare systemic or rheumatologic disease characterized by peripheral osteolysis (especially carpal and tarsal bones), interphalangeal joint erosions, subcutaneous fibrocollagenous nodules, facial dysmorphism, and a wide range of associated manifestations." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "371428" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Multicentric osteolysis-nodulosis-arthropathy spectrum" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Multicentric osteolysis-nodulosis-arthropathy spectrum" ] .
+}
+

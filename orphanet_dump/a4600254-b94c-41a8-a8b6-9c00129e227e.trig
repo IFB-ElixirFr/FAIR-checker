@@ -1,0 +1,27 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=527276> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:527276" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E88.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E88.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:527276" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare mitochondrial disease characterized by a variable phenotype comprising delayed psychomotor development or neurodevelopmental regression, hypotonia, seizures, microcephaly, optic atrophy, pyramidal signs, and peripheral neuropathy, among others. Age of onset and disease severity are also variable with some cases taking a fatal course in early infancy. Serum lactate levels may be elevated. Reported brain imaging findings include abnormal signals in the basal ganglia, cerebral and/or cerebellar atrophy, and white matter abnormalities." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "527276" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Encephalopathy due to mitochondrial and peroxisomal fission defect" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Encephalopathy due to mitochondrial and peroxisomal fission defect" ] .
+}
+

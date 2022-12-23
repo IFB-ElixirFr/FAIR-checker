@@ -1,0 +1,41 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=98833> a ns1:MedicalCondition ;
+        ns1:alternateName "AML M1",
+            "Acute myeloblastic leukemia M1" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "526" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C92.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:98833" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:98833" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0026998" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C92.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0026998" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "526" ;
+                ns1:codingSystem "GARD" ] ;
+        ns1:description "A rare, acute myeloid leukemia characterized by no significant myeloid maturation and more than 90% blast cells in the non-erythroid population. Various degrees of anemia, thrombocytopenia, or pancytopenia are present. Frequent clinical manifestations include fatigue, fever, bleeding disorders, and organomegaly, especially hepatosplenomegaly." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "98833" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Acute myeloblastic leukemia without maturation" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Acute myeloblastic leukemia without maturation" ] .
+}
+

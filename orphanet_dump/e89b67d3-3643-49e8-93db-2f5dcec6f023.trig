@@ -1,0 +1,27 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=171889> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "G71.2" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:171889" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G71.2" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:171889" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "Myopathy with hexagonally cross-linked tubular arrays is a rare, congenital, non-dystrophic, mild, slowly progressive, proximal myopathy characterized by exercise intolerance and post-exercise myalgia without rhabdomyolysis, associated with highly organized hexagonally cross-linked tubular arrays in skeletal muscle biopsy. Additional features may include muscle atrophy (or diffuse hypotrophy), myalgia with or without musclar weakness, paresis of truncal and limb-girdle musculature, minimal ptosis, lumbar hyperlordosis, decreased deep tendon reflexes, contractures and pes equinovarus." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "171889" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Myopathy with hexagonally cross-linked tubular arrays" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Myopathy with hexagonally cross-linked tubular arrays" ] .
+}
+

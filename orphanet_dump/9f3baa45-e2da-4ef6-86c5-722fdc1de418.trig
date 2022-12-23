@@ -1,0 +1,36 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=1216> a ns1:MedicalCondition ;
+        ns1:alternateName "Autosomal dominant benign distal spinal muscular atrophy",
+            "Congenital benign spinal muscular atrophy with contractures",
+            "Congenital nonprogressive spinal muscular atrophy" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:1216" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:1216" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "600175" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G12.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "600175" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G12.1" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "A rare distal hereditary motor neuropathy, with a variable clinical phenotype, typically characterized by congenital, non-progressive, predominantly distal, lower limb muscle weakness and atrophy and congenital (or early-onset) flexion contractures of the hip, knee and ankle joints. Reduced or absent lower limb deep tendon reflexes, skeletal anomalies (bilateral talipes equinovarus, scoliosis, kyphoscoliosis, lumbar hyperlordisis), late ambulation, waddling gait, joint hyperlaxity and/or bladder and bowel dysfuntion are usually also associated." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "1216" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Autosomal dominant congenital benign spinal muscular atrophy" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Autosomal dominant congenital benign spinal muscular atrophy" ] .
+}
+
