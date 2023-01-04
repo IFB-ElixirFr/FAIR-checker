@@ -304,10 +304,10 @@ def ask_LOV(uri):
 
 def inspect_onto_reg(kg, is_inspect_ui):
     query_classes = """
-        SELECT DISTINCT ?class { ?s rdf:type ?class } ORDER BY ?class
+        SELECT DISTINCT ?class WHERE { GRAPH ?g { ?s rdf:type ?class } } ORDER BY ?class
     """
     query_properties = """
-        SELECT DISTINCT ?prop { ?s ?prop ?o } ORDER BY ?prop
+        SELECT DISTINCT ?prop WHERE { GRAPH ?g { ?s ?prop ?o } } ORDER BY ?prop
     """
 
     table_content = {

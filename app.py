@@ -42,6 +42,7 @@ from json import JSONDecodeError
 from pathlib import Path
 import rdflib
 from rdflib import ConjunctiveGraph, URIRef
+from rdflib.namespace import RDF
 import extruct
 import logging
 from rich.console import Console
@@ -1126,19 +1127,38 @@ def handle_embedded_annot_2(data):
     print("Retrieve KG for uri: " + uri)
 
     web_resource = WebResource(uri)
-    kg = web_resource.get_rdf()
-    # kg = web_resource.get_wr_kg_dataset()
-    print(kg.serialize(format="trig"))
-    nb_triples = len(kg)
+    # kg = web_resource.get_rdf()
+    kgs = web_resource.get_wr_kg_dataset()
+    print(kgs.serialize(format="trig"))
+    nb_triples = len(kgs)
     print(nb_triples)
 
-    KGS[sid] = kg
+    KGS[sid] = kgs
+
+    # for kg in kgs.graphs():
+    #     print(kg)
+
+    query_num = """
+    SELECT ?g (COUNT(*) AS ?count)
+    WHERE {
+    graph ?g {?s ?p ?o}
+    }
+    GROUP BY ?g
+    """
+
+
+    qres = kgs.query(query_num)
+
+    kgs_len = {}
+    for g, c in qres:
+        kgs_len[g] = c
 
     emit(
         "send_annot_2",
         {
-            "kg": str(kg.serialize(format=RDF_TYPE[sid])),
+            "kg": str(kgs.serialize(format=RDF_TYPE[sid])),
             "nb_triples": nb_triples,
+            "kgs_len": kgs_len,
         },
     )
 
@@ -1480,9 +1500,9 @@ def check_vocabularies(data):
     print(sid)
     uri = str(data["url"])
     if not sid in KGS.keys():
-        handle_embedded_annot(data)
+        handle_embedded_annot_2(data)
     elif not KGS[sid]:
-        handle_embedded_annot(data)
+        handle_embedded_annot_2(data)
     kg = KGS[sid]
 
     inspect_onto_reg(kg, True)
@@ -1496,9 +1516,9 @@ def check_kg_shape(data):
     print(sid)
     uri = str(data["url"])
     if not sid in KGS.keys():
-        handle_embedded_annot(data)
+        handle_embedded_annot_2(data)
     elif not KGS[sid]:
-        handle_embedded_annot(data)
+        handle_embedded_annot_2(data)
     kg = KGS[sid]
 
     # TODO replace this code with profiles.bioschemas_shape_gen
