@@ -1146,7 +1146,6 @@ def handle_embedded_annot_2(data):
     GROUP BY ?g
     """
 
-
     qres = kgs.query(query_num)
 
     kgs_len = {}
@@ -1157,7 +1156,6 @@ def handle_embedded_annot_2(data):
         "send_annot_2",
         {
             "kg": str(kgs.serialize(format=RDF_TYPE[sid])),
-            "nb_triples": nb_triples,
             "kgs_len": kgs_len,
         },
     )
