@@ -51,8 +51,8 @@ class ImportBSProfileTestCase(unittest.TestCase):
         self.test_github_rate_limite()
         self.assertEqual(31, len(self.profiles))
 
-        # for profile in self.profiles:
-        #     print(profile["name"])
+        for profile in self.profiles:
+            print(profile["name"])
 
     def test_gen_SHACL_from_import(self):
         profiles = get_profiles_specs_from_github()

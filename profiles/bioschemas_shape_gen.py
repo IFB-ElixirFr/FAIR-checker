@@ -390,10 +390,10 @@ def gen_SHACL_from_profile(shape_name, target_classes, min_props, rec_props):
 
     # [sh: alternativePath(ex:father ex: mother  )]
 
-    print(shape_name)
-    print(target_classes)
-    print(min_props)
-    print(rec_props)
+    # print(shape_name)
+    # print(target_classes)
+    # print(min_props)
+    # print(rec_props)
 
     template = Template(shape_template)
     shape = template.render(
@@ -484,19 +484,62 @@ def get_latest_profile(profiles_dict):
 
 def parse_profile(jsonld, profile_name, url_dl):
     profile_dict = {
-        "name": profile_name,
+        "name": "",
         "file": url_dl,
         "required": [],
         "recommended": [],
         "optional": [],
     }
 
-    if "required" in jsonld["@graph"][0]["$validation"]:
-        profile_dict["required"] = jsonld["@graph"][0]["$validation"]["required"]
-    if "recommended" in jsonld["@graph"][0]["$validation"]:
-        profile_dict["recommended"] = jsonld["@graph"][0]["$validation"]["recommended"]
-    if "optional" in jsonld["@graph"][0]["$validation"]:
-        profile_dict["optional"] = jsonld["@graph"][0]["$validation"]["optional"]
+    additional_properties = []
+    for element in jsonld["@graph"]:
+        if element["@type"] == "rdfs:Class":
+            # print("Class: " + element["@id"])
+            profile_dict["name"] = element["rdfs:label"]
+            break
+        # if element["@type"] == "rdf:Property":
+        #     additional_properties.append(element["@id"].replace("bioschemas", "bsc"))
+
+    importance_levels = [
+        "required",
+        "recommended",
+        "optional"
+    ]
+    for importance in importance_levels:
+        if importance in jsonld["@graph"][0]["$validation"]:
+            for property in jsonld["@graph"][0]["$validation"][importance]:
+
+                added = False
+                # Identifying non Schema properties
+                for element in jsonld["@graph"]:
+                    if element["@type"] == "rdf:Property" and property == element["rdfs:label"]:
+                        profile_dict[importance].append(element["@id"].replace("bioschemas", "bsc"))
+                        added = True
+                if added:
+                    continue
+                profile_dict[importance].append("sc:" + property)
+
+    print(json.dumps(profile_dict, indent=2))
+
+    # if "required" in jsonld["@graph"][0]["$validation"]:
+    #     for property in jsonld["@graph"][0]["$validation"]["required"]:
+
+    #         added = False
+    #         # Identifying non Schema properties
+    #         for element in jsonld["@graph"]:
+    #             if element["@type"] == "rdf:Property" and property == element["rdfs:label"]:
+    #                 profile_dict["required"].append(element["@id"].replace("bioschemas", "bsc"))
+    #                 added = True
+    #         if added:
+    #             continue
+    #         profile_dict["required"].append("sc:" + property)
+
+    #     # profile_dict["required"] = jsonld["@graph"][0]["$validation"]["required"]
+    # if "recommended" in jsonld["@graph"][0]["$validation"]:
+    #     profile_dict["recommended"] = jsonld["@graph"][0]["$validation"]["recommended"]
+    # if "optional" in jsonld["@graph"][0]["$validation"]:
+    #     profile_dict["optional"] = jsonld["@graph"][0]["$validation"]["optional"]
+
 
     return profile_dict
 
