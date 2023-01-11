@@ -308,8 +308,22 @@ bs_profiles = {
     },
 }
 
-bs_profiles = gen_shacl_alternatives(bs_profiles)
+def load_profiles():
+    if not path.exists("profiles/bs_profiles.json"):
+        print("Updating from github")
+        profiles = get_profiles_specs_from_github()
+        with open("profiles/bs_profiles.json", "w") as outfile:
+            json.dump(profiles, outfile)
+    else:
+        print("Reading from local file")
+        # Opening JSON file
+        with open("profiles/bs_profiles.json", "r") as openfile:
+            # Reading from json file
+            profiles = json.load(openfile)
+    return profiles
 
+bs_profiles = gen_shacl_alternatives(bs_profiles)
+# bs_profiles = load_profiles()
 
 # bs_profiles = generate_profiles_from_files()
 
@@ -390,11 +404,6 @@ def gen_SHACL_from_profile(shape_name, target_classes, min_props, rec_props):
 
     # [sh: alternativePath(ex:father ex: mother  )]
 
-    # print(shape_name)
-    # print(target_classes)
-    # print(min_props)
-    # print(rec_props)
-
     template = Template(shape_template)
     shape = template.render(
         shape_name=shape_name,
@@ -443,7 +452,6 @@ def get_profiles_specs_from_github():
                                 file["type"] == "file"
                                 and not "DEPRECATED" in file["download_url"]
                             ):
-
                                 regex_version = "_v([0-9]*.[0-9]*)-"
                                 m = re.search(regex_version, file["download_url"])
 
@@ -482,20 +490,33 @@ def get_latest_profile(profiles_dict):
     return latest_url_dl[0]
 
 
+
 def parse_profile(jsonld, profile_name, url_dl):
     profile_dict = {
         "name": "",
         "file": url_dl,
-        "required": [],
+        "required": ["dct:conformsTo"],
         "recommended": [],
         "optional": [],
+        "id": "",
+        "ref_profile": "",
     }
 
     additional_properties = []
     for element in jsonld["@graph"]:
         if element["@type"] == "rdfs:Class":
             # print("Class: " + element["@id"])
+            profile_dict["id"] = element["@id"].replace("bioschemas", "bsc")
             profile_dict["name"] = element["rdfs:label"]
+            if "schema:schemaVersion" in element.keys():
+                profile_dict["ref_profile"] = element["schema:schemaVersion"][0]
+            else:
+                bs_profile_url_base = "https://bioschemas.org/profiles/"
+                bs_profile_url_path = bs_profile_url_base + url_dl.split("/")[-1].replace("_v", "/").strip(".json")
+                profile_dict["ref_profile"] = bs_profile_url_path
+                # print(bs_profile_url_path)
+                r = requests.head(bs_profile_url_path,verify=False,timeout=5) # it is faster to only request the header
+                # print(r.status_code)
             break
         # if element["@type"] == "rdf:Property":
         #     additional_properties.append(element["@id"].replace("bioschemas", "bsc"))
@@ -505,6 +526,7 @@ def parse_profile(jsonld, profile_name, url_dl):
         "recommended",
         "optional"
     ]
+
     for importance in importance_levels:
         if importance in jsonld["@graph"][0]["$validation"]:
             for property in jsonld["@graph"][0]["$validation"][importance]:
@@ -519,7 +541,7 @@ def parse_profile(jsonld, profile_name, url_dl):
                     continue
                 profile_dict[importance].append("sc:" + property)
 
-    print(json.dumps(profile_dict, indent=2))
+
 
     # if "required" in jsonld["@graph"][0]["$validation"]:
     #     for property in jsonld["@graph"][0]["$validation"]["required"]:

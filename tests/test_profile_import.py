@@ -1,10 +1,11 @@
 import unittest
 import requests
 import re
+import json
 from rdflib import ConjunctiveGraph
 
 from profiles.bioschemas_shape_gen import get_profiles_specs_from_github
-from profiles.bioschemas_shape_gen import gen_SHACL_from_profile
+from profiles.bioschemas_shape_gen import gen_SHACL_from_profile, load_profiles
 
 from os import environ, path
 from dotenv import load_dotenv
@@ -49,20 +50,35 @@ class ImportBSProfileTestCase(unittest.TestCase):
         self.test_github_rate_limite()
         profiles = get_profiles_specs_from_github()
         self.test_github_rate_limite()
-        self.assertEqual(31, len(self.profiles))
+        self.assertEqual(31, len(profiles))
 
-        for profile in self.profiles:
-            print(profile["name"])
+        for profile in profiles:
+            print(json.dumps(profile, indent=2))
 
     def test_gen_SHACL_from_import(self):
+        self.test_github_rate_limite()
         profiles = get_profiles_specs_from_github()
         for profile in profiles:
+            print(json.dumps(profile, indent=4))
+            # print(profile["ref_profile"])
             gen_SHACL_from_profile(
                 profile["name"],
                 "sc:" + profile["name"],
                 profile["required"],
                 profile["recommended"],
             )
+
+    def test_load_profiles(self):
+        profiles = load_profiles()
+        for profile in profiles:
+            print(json.dumps(profile, indent=4))
+            gen_SHACL_from_profile(
+                profile["name"],
+                "sc:" + profile["name"],
+                profile["required"],
+                profile["recommended"],
+            )
+
 
     # @unittest.skip("Need github TOKEN key to work")
     def test_import_bs_specs(self):
