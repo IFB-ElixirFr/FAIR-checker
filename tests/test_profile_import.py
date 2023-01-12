@@ -58,25 +58,26 @@ class ImportBSProfileTestCase(unittest.TestCase):
     def test_gen_SHACL_from_import(self):
         self.test_github_rate_limite()
         profiles = get_profiles_specs_from_github()
-        for profile in profiles:
-            print(json.dumps(profile, indent=4))
-            # print(profile["ref_profile"])
+        for profile_key in profiles.keys():
+            print(json.dumps(profiles[profile_key], indent=4))
             gen_SHACL_from_profile(
-                profile["name"],
-                "sc:" + profile["name"],
-                profile["required"],
-                profile["recommended"],
+                profiles[profile_key]["name"],
+                "sc:" + profiles[profile_key]["name"],
+                profiles[profile_key]["min_props"],
+                profiles[profile_key]["rec_props"],
             )
 
     def test_load_profiles(self):
+        self.test_github_rate_limite()
         profiles = load_profiles()
-        for profile in profiles:
-            print(json.dumps(profile, indent=4))
+        print(json.dumps(profiles, indent=4))
+        for profile_key in profiles.keys():
+
             gen_SHACL_from_profile(
-                profile["name"],
-                "sc:" + profile["name"],
-                profile["required"],
-                profile["recommended"],
+                profiles[profile_key]["name"],
+                "sc:" + profiles[profile_key]["name"],
+                profiles[profile_key]["min_props"],
+                profiles[profile_key]["rec_props"],
             )
 
 

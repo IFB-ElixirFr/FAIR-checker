@@ -6,6 +6,7 @@ from rich.table import Table
 from rich.text import Text
 
 from rdflib import ConjunctiveGraph, URIRef
+from rdflib.namespace import RDF
 
 from profiles.bioschemas_shape_gen import gen_SHACL_from_profile
 from profiles.bioschemas_shape_gen import gen_SHACL_from_target_class
@@ -14,6 +15,7 @@ from profiles.bioschemas_shape_gen import validate_any_from_RDF
 from profiles.bioschemas_shape_gen import validate_any_from_KG
 from profiles.bioschemas_shape_gen import validate_any_from_microdata
 from profiles.bioschemas_shape_gen import validate_shape_from_microdata
+from profiles.bioschemas_shape_gen import load_profiles
 
 from profiles.Profile import Profile
 from profiles.ProfileFactory import ProfileFactory
@@ -67,6 +69,44 @@ class GenSHACLTestCase(unittest.TestCase):
         sim = p.compute_similarity(kg)
         print(sim)
         self.assertAlmostEquals(sim, 0.29)
+
+    def test_profile_factory_from_specifications(self):
+        # profiles = ProfileFactory.create_all_profiles_from_specifications()
+        profiles = load_profiles()
+        wr_workflowhub = WebResource("https://workflowhub.eu/workflows/18")
+        wr_kg = wr_workflowhub.get_rdf()
+        print(len(wr_kg))
+
+        query_conformsto = """
+            PREFIX dct: <http://purl.org/dc/terms/>
+
+            SELECT ?o WHERE {
+                ?s dct:conformsTo ?o
+            }
+        """
+        results = wr_kg.query(query_conformsto)
+
+        for r in results:
+            conformsto = r["o"].strip("/")
+            print(conformsto)
+            for profile_key in profiles.keys():
+                if profiles[profile_key]["ref_profile"] == conformsto:
+                    print("Found conformsTo")
+
+                    profile = Profile(
+                        shape_name = profiles[profile_key]["name"],
+                        target_classes = "sc:" + profiles[profile_key]["name"],
+                        min_props = profiles[profile_key]["min_props"],
+                        rec_props = profiles[profile_key]["rec_props"]
+                    )
+                    shape = profile.gen_SHACL_from_profile()
+                    validation = profile.validate_shape(wr_kg, shape)
+                    print(validation)
+
+        for s, p, o in wr_kg.triples((None, RDF.type, None)):
+            print(o.n3(wr_kg.namespace_manager))
+
+
 
     def test_pofile_factory(self):
         console = Console()

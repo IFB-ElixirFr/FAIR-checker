@@ -1,11 +1,13 @@
 # from abc import ABC, abstractmethod
 # import logging
 
+import requests
+
 from rdflib import ConjunctiveGraph, URIRef
 from rdflib.namespace import RDF
 from jinja2 import Template
 from pyshacl import validate
-
+from os import environ, path
 
 # class AbstractProfile(ABC):
 class Profile:

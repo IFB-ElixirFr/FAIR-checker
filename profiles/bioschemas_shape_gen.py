@@ -322,8 +322,8 @@ def load_profiles():
             profiles = json.load(openfile)
     return profiles
 
-bs_profiles = gen_shacl_alternatives(bs_profiles)
-# bs_profiles = load_profiles()
+# bs_profiles = gen_shacl_alternatives(bs_profiles)
+
 
 # bs_profiles = generate_profiles_from_files()
 
@@ -429,7 +429,7 @@ def get_profiles_specs_from_github():
     response = requests.get(url, headers=headers)
 
     if response.status_code == requests.codes.ok:
-        profiles_list = []
+        profiles_dict = {}
         profile_folders_json = response.json()
 
         # Loop over each folder (one folder == one profile and/or one type)
@@ -475,8 +475,8 @@ def get_profiles_specs_from_github():
                                 jsonld, profile_name, latest_url_dl
                             )
 
-                            profiles_list.append(profile_dict)
-        return profiles_list
+                            profiles_dict["sc:" + profile_dict["name"]] = profile_dict
+        return profiles_dict
     else:
         return False
 
@@ -540,7 +540,8 @@ def parse_profile(jsonld, profile_name, url_dl):
                 if added:
                     continue
                 profile_dict[importance].append("sc:" + property)
-
+    profile_dict["min_props"] = profile_dict.pop("required")
+    profile_dict["rec_props"] = profile_dict.pop("recommended")
 
 
     # if "required" in jsonld["@graph"][0]["$validation"]:
@@ -566,44 +567,7 @@ def parse_profile(jsonld, profile_name, url_dl):
     return profile_dict
 
 
-def gen_SHACL_from_specifications():
-    shape_template = """
-        @prefix ns: <https://fair-checker.france-bioinformatique.fr#> .
-        @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-        @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-        @prefix sc: <http://schema.org/> .
-        @prefix bsc: <https://bioschemas.org/> .
-        @prefix dct: <http://purl.org/dc/terms/> .
-        @prefix sh: <http://www.w3.org/ns/shacl#> .
-        @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-        @prefix edam: <http://edamontology.org/> .
-        @prefix biotools: <https://bio.tools/ontology/> .
-
-        ns:{{shape_name}}
-            a sh:NodeShape ;
-            #sh:targetSubjectsOf schema:name ;
-            {% for c in target_classes %}
-            sh:targetClass  {{c}} ;
-            {% endfor %}
-
-            {% for min_prop in min_props %}
-            sh:property [
-                sh:path {{min_prop}} ;
-                sh:minCount 1 ;
-                sh:severity sh:Violation
-            ] ;
-            {% endfor %}
-
-            {% for rec_prop in rec_props %}
-            sh:property [
-                sh:path {{rec_prop}} ;
-                sh:minCount 1 ;
-                sh:severity sh:Warning
-            ] ;
-            {% endfor %}
-        .
-    """
-
+bs_profiles = load_profiles()
 
 def validate_any_from_KG(kg):
     kg.namespace_manager.bind("sc", URIRef("http://schema.org/"))
