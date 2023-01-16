@@ -437,7 +437,7 @@ class ProfileFactory:
             name = bs_profiles[profile_key]["name"]
             profiles[name] = Profile(
                 shape_name=name,
-                target_classes="sc:" + bs_profiles[profile_key]["name"],
+                target_classes=["sc:" + bs_profiles[profile_key]["name"]],
                 min_props=bs_profiles[profile_key]["min_props"],
                 rec_props=bs_profiles[profile_key]["rec_props"],
             )

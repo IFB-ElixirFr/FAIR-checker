@@ -20,6 +20,9 @@ class Profile:
         self.min_props = min_props
         self.rec_props = rec_props
 
+        self.shacl_shape = None
+        self.sub_kg = ConjunctiveGraph()
+
         self.nb_min = len(self.min_props)
         self.nb_rec = len(self.rec_props)
 
@@ -80,6 +83,7 @@ class Profile:
             min_props=min_props,
             rec_props=rec_props,
         )
+        self.shacl_shape = shape
         return shape
 
     def validate_shape(self, knowledge_graph, shacl_shape):
@@ -132,6 +136,25 @@ class Profile:
                 errors.append(f'{r["path"]}')
 
         return conforms, warnings, errors
+
+    def is_matching_profile(self, kg):
+        kg.namespace_manager.bind("sc", URIRef("http://schema.org/"))
+        kg.namespace_manager.bind("bsc", URIRef("https://bioschemas.org/"))
+        kg.namespace_manager.bind("dct", URIRef("http://purl.org/dc/terms/"))
+
+        for s, p, o in kg.triples((None, RDF.type, None)):
+            if o.n3(kg.namespace_manager) in self.target_classes:
+                for x, y, z in kg.triples((s, None, None)):
+                    self.sub_kg.add((x, y, z))
+                return s, o
+
+        return False
+
+    def get_sub_kg(self):
+        return self.sub_kg
+
+    # def get_ref_profile(self):
+    #     return self.ref_profile
 
     def compute_similarity(self, kg) -> float:
         kg.namespace_manager.bind("sc", URIRef("http://schema.org/"))

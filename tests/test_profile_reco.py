@@ -80,7 +80,7 @@ class GenSHACLTestCase(unittest.TestCase):
         query_conformsto = """
             PREFIX dct: <http://purl.org/dc/terms/>
 
-            SELECT ?o WHERE {
+            SELECT ?s ?o WHERE {
                 ?s dct:conformsTo ?o
             }
         """
@@ -88,10 +88,16 @@ class GenSHACLTestCase(unittest.TestCase):
 
         for r in results:
             conformsto = r["o"].strip("/")
+            class_id = r["s"]
+            sub_kg = ConjunctiveGraph()
+            for s, p, o in wr_kg.triples((class_id, None, None)):
+                sub_kg.add((s, p, o))
             print(conformsto)
+            print(sub_kg.serialize(format="json-ld"))
+            print(len(sub_kg))
             for profile_key in profiles.keys():
                 if profiles[profile_key]["ref_profile"] == conformsto:
-                    print("Found conformsTo")
+                    print("Found conformsTo corresponding profile.")
 
                     profile = Profile(
                         shape_name = profiles[profile_key]["name"],
@@ -100,7 +106,10 @@ class GenSHACLTestCase(unittest.TestCase):
                         rec_props = profiles[profile_key]["rec_props"]
                     )
                     shape = profile.gen_SHACL_from_profile()
-                    validation = profile.validate_shape(wr_kg, shape)
+                    validation = profile.validate_shape(
+                        knowledge_graph=sub_kg,
+                        shacl_shape=shape
+                    )
                     print(validation)
 
         for s, p, o in wr_kg.triples((None, RDF.type, None)):

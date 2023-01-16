@@ -62,6 +62,8 @@ from metrics.util import SOURCE
 from metrics.F1B_Impl import F1B_Impl
 from urllib.parse import urlparse
 
+from profiles.Profile import Profile
+from profiles.ProfileFactory import ProfileFactory
 
 import time
 import atexit
@@ -1475,6 +1477,22 @@ def check_kg_shape(data):
     # print(results)
 
 
+@socketio.on("check_kg_shape_old")
+def check_kg_shape_old(data):
+    print("shape validation started")
+    sid = request.sid
+    print(sid)
+    kg = KGS[sid]
+
+    if not kg:
+        print("cannot access current knowledge graph")
+    elif len(kg) == 0:
+        print("cannot validate an empty knowledge graph")
+
+    results = validate_any_from_KG(kg)
+    emit("done_check_shape", results)
+
+
 @socketio.on("check_kg_shape_2")
 def check_kg_shape_2(data):
     print("shape validation started")
@@ -1487,7 +1505,27 @@ def check_kg_shape_2(data):
     elif len(kg) == 0:
         print("cannot validate an empty knowledge graph")
 
-    results = validate_any_from_KG(kg)
+    profiles = ProfileFactory.create_all_profiles_from_specifications()
+    results = {}
+    for p_key in profiles.keys():
+        is_matching = profiles[p_key].is_matching_profile(kg)
+        if is_matching:
+            shacl_shape = profiles[p_key].gen_SHACL_from_profile()
+            sub_kg = profiles[p_key].get_sub_kg()
+            conforms, warnings, errors = profiles[p_key].validate_shape(sub_kg, shacl_shape)
+            s = is_matching[0]
+            o = is_matching[1]
+            results[str(s)] = {
+                "type": str(o),
+                "ref_profile": profiles[p_key]["ref_profile"],
+                "conforms": conforms,
+                "warnings": warnings,
+                "errors": errors,
+            }
+
+    # results = validate_any_from_KG(kg)
+    for r in results:
+        print(results[r])
     emit("done_check_shape", results)
 
 
