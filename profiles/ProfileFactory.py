@@ -1,3 +1,5 @@
+
+from rdflib import ConjunctiveGraph, URIRef
 from profiles.Profile import Profile
 from os import environ, path
 import requests
@@ -255,7 +257,7 @@ bs_profiles = {
 bs_profiles = gen_shacl_alternatives(bs_profiles)
 
 
-def get_profiles_specs_from_github(self):
+def get_profiles_specs_from_github():
     github_token = environ.get("GITHUB_TOKEN")
     headers = {
         "Authorization": "token {}".format(github_token),
@@ -302,15 +304,15 @@ def get_profiles_specs_from_github(self):
 
                         latest_url_dl = ""
                         if releases:
-                            latest_url_dl = self.get_latest_profile(releases)
+                            latest_url_dl = get_latest_profile(releases)
 
                         elif drafts:
-                            latest_url_dl = self.get_latest_profile(drafts)
+                            latest_url_dl = get_latest_profile(drafts)
 
                         if latest_url_dl:
                             response = requests.get(latest_url_dl, headers=headers)
                             jsonld = response.json()
-                            profile_dict = self.parse_profile(
+                            profile_dict = parse_profile(
                                 jsonld, profile_name, latest_url_dl
                             )
 
@@ -319,7 +321,7 @@ def get_profiles_specs_from_github(self):
     else:
         return False
 
-def get_latest_profile(self, profiles_dict):
+def get_latest_profile(profiles_dict):
 
     latest_rel = max(profiles_dict.values())
 
@@ -327,7 +329,7 @@ def get_latest_profile(self, profiles_dict):
     latest_url_dl = [k for k, v in profiles_dict.items() if v == latest_rel]
     return latest_url_dl[0]
 
-def parse_profile(self, jsonld, url_dl):
+def parse_profile(jsonld, url_dl):
     profile_dict = {
         "name": "",
         "file": url_dl,
@@ -397,6 +399,42 @@ def load_profiles():
             profiles = json.load(openfile)
     return profiles
 
+def find_conformsto_subkg(kg):
+    kg.namespace_manager.bind("sc", URIRef("http://schema.org/"))
+    kg.namespace_manager.bind("bsc", URIRef("https://bioschemas.org/"))
+    kg.namespace_manager.bind("dct", URIRef("http://purl.org/dc/terms/"))
+
+    query_conformsto = """
+        PREFIX dct: <http://purl.org/dc/terms/>
+
+        SELECT ?s ?o WHERE {
+            ?s dct:conformsTo ?o
+        }
+    """
+
+    sub_kg_list = []
+
+    results = kg.query(query_conformsto)
+    for r in results:
+        conformsto = r["o"].strip("/")
+        class_id = r["s"]
+        sub_kg = ConjunctiveGraph()
+        for s, p, o in kg.triples((class_id, None, None)):
+            sub_kg.add((s, p, o))
+        # print(sub_kg.serialize(format="json-ld"))
+
+        # if self.get_ref_profile() == conformsto:
+        print("Found conformsTo: " + conformsto)
+        sub_kg_list.append({
+            "sub_kg": sub_kg,
+            "subject": class_id,
+            "object": conformsto
+        })
+
+    return sub_kg_list
+
+
+
 # from enum import Enum, unique
 
 # @unique
@@ -407,11 +445,31 @@ def load_profiles():
 
 class ProfileFactory:
 
+
+    @staticmethod
+    def list_all_conformsto():
+        bs_profiles = load_profiles()
+        list_ct = [bs_profiles[p_key]["ref_profile"] for p_key in bs_profiles.keys()]
+
+        return list_ct
+
+    @staticmethod
+    def create_profile_from_ref_profile(ref_profile):
+        bs_profiles = load_profiles()
+        for profile_key in bs_profiles.keys():
+            if ref_profile == bs_profiles[profile_key]["ref_profile"]:
+                name = bs_profiles[profile_key]["name"]
+                profile = Profile(
+                    shape_name=name,
+                    target_classes=["sc:" + bs_profiles[profile_key]["name"]],
+                    min_props=bs_profiles[profile_key]["min_props"],
+                    rec_props=bs_profiles[profile_key]["rec_props"],
+                    ref_profile=bs_profiles[profile_key]["ref_profile"]
+                ) 
+        return profile   
     #     template_create = """
     # def create_{name}_
     #     """
-
-
 
     @staticmethod
     def create_all_profiles():
@@ -426,6 +484,7 @@ class ProfileFactory:
                 target_classes=[p],
                 min_props=min_props,
                 rec_props=rec_props,
+                ref_profile=bs_profiles[p]["ref_profile"]
             )
         return profiles
 
@@ -440,5 +499,6 @@ class ProfileFactory:
                 target_classes=["sc:" + bs_profiles[profile_key]["name"]],
                 min_props=bs_profiles[profile_key]["min_props"],
                 rec_props=bs_profiles[profile_key]["rec_props"],
+                ref_profile=bs_profiles[profile_key]["ref_profile"]
             )
         return profiles

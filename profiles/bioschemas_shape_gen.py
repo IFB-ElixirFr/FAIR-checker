@@ -514,9 +514,9 @@ def parse_profile(jsonld, profile_name, url_dl):
                 bs_profile_url_base = "https://bioschemas.org/profiles/"
                 bs_profile_url_path = bs_profile_url_base + url_dl.split("/")[-1].replace("_v", "/").strip(".json")
                 profile_dict["ref_profile"] = bs_profile_url_path
-                # print(bs_profile_url_path)
+                print(bs_profile_url_path)
                 r = requests.head(bs_profile_url_path,verify=False,timeout=5) # it is faster to only request the header
-                # print(r.status_code)
+                print(r.status_code)
             break
         # if element["@type"] == "rdf:Property":
         #     additional_properties.append(element["@id"].replace("bioschemas", "bsc"))

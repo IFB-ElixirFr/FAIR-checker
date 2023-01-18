@@ -63,7 +63,7 @@ from metrics.F1B_Impl import F1B_Impl
 from urllib.parse import urlparse
 
 from profiles.Profile import Profile
-from profiles.ProfileFactory import ProfileFactory
+from profiles.ProfileFactory import ProfileFactory, find_conformsto_subkg
 
 import time
 import atexit
@@ -1505,27 +1505,61 @@ def check_kg_shape_2(data):
     elif len(kg) == 0:
         print("cannot validate an empty knowledge graph")
 
+    # A instancier au lancement du serveur et actualuser lors d'updates
     profiles = ProfileFactory.create_all_profiles_from_specifications()
+    
+    list_all_ct = ProfileFactory.list_all_conformsto()
+
     results = {}
-    for p_key in profiles.keys():
-        is_matching = profiles[p_key].is_matching_profile(kg)
-        if is_matching:
-            shacl_shape = profiles[p_key].gen_SHACL_from_profile()
-            sub_kg = profiles[p_key].get_sub_kg()
-            conforms, warnings, errors = profiles[p_key].validate_shape(sub_kg, shacl_shape)
-            s = is_matching[0]
-            o = is_matching[1]
+
+    # Evaluate only profile with conformsTo
+    ct_sub_kg_list = find_conformsto_subkg(kg)
+    for ct_sub_kg in ct_sub_kg_list:
+        s = ct_sub_kg["subject"]
+        ct = ct_sub_kg["object"]
+        sub_kg = ct_sub_kg["sub_kg"]
+        print(ct)
+
+        if ct in list_all_ct:
+
+            ct_profile = ProfileFactory.create_profile_from_ref_profile(ct)
+            shacl_shape = ct_profile.get_shacl_shape()
+            conforms, warnings, errors = ct_profile.validate_shape(sub_kg, shacl_shape)
             results[str(s)] = {
-                "type": str(o),
-                "ref_profile": profiles[p_key]["ref_profile"],
+                "type": str(ct),
+                "ref_profile": ct_profile.get_ref_profile(),
                 "conforms": conforms,
                 "warnings": warnings,
                 "errors": errors,
             }
 
+
+    # TODO Try similarity match her
+
+    # Try to match and evaluate all found corresponding profiles
+    for p_key in profiles.keys():
+        sub_kg_list = profiles[p_key].match_sub_kgs_from_profile(kg)
+
+        if sub_kg_list:
+            for sub_kg in sub_kg_list:
+                s = sub_kg["subject"]
+                if not str(s) in results.keys():
+                    o = sub_kg["object"]
+                    sub_kg = sub_kg["sub_kg"]
+                    shacl_shape = profiles[p_key].get_shacl_shape()
+                    conforms, warnings, errors = profiles[p_key].validate_shape(sub_kg, shacl_shape)
+                    results[str(s)] = {
+                        "type": str(o),
+                        "ref_profile": profiles[p_key].get_ref_profile(),
+                        "conforms": conforms,
+                        "warnings": warnings,
+                        "errors": errors,
+                    }
+
+
+
     # results = validate_any_from_KG(kg)
-    for r in results:
-        print(results[r])
+
     emit("done_check_shape", results)
 
 

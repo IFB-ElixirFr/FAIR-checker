@@ -70,7 +70,7 @@ class ImportBSProfileTestCase(unittest.TestCase):
     def test_load_profiles(self):
         self.test_github_rate_limite()
         profiles = load_profiles()
-        print(json.dumps(profiles, indent=4))
+        # print(json.dumps(profiles, indent=4))
         for profile_key in profiles.keys():
 
             gen_SHACL_from_profile(

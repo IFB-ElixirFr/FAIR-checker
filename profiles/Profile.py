@@ -14,17 +14,26 @@ class Profile:
 
     # cache = {}
 
-    def __init__(self, shape_name, target_classes, min_props, rec_props):
+    def __init__(self, shape_name, target_classes, min_props, rec_props, ref_profile):
         self.shape_name = shape_name
         self.target_classes = target_classes
         self.min_props = min_props
         self.rec_props = rec_props
+        self.ref_profile = ref_profile
 
-        self.shacl_shape = None
-        self.sub_kg = ConjunctiveGraph()
+        self.shacl_shape = self.gen_SHACL_from_profile()
 
         self.nb_min = len(self.min_props)
         self.nb_rec = len(self.rec_props)
+
+    def set_ref_profile(self, ref_profile):
+        self.ref_profile = ref_profile
+    
+    def get_ref_profile(self):
+        return self.ref_profile
+
+    def get_shacl_shape(self):
+        return self.shacl_shape
 
     def gen_SHACL_from_profile(self):
         shape_name = self.shape_name
@@ -83,7 +92,7 @@ class Profile:
             min_props=min_props,
             rec_props=rec_props,
         )
-        self.shacl_shape = shape
+
         return shape
 
     def validate_shape(self, knowledge_graph, shacl_shape):
@@ -137,24 +146,29 @@ class Profile:
 
         return conforms, warnings, errors
 
-    def is_matching_profile(self, kg):
+
+
+    def match_sub_kgs_from_profile(self, kg):
         kg.namespace_manager.bind("sc", URIRef("http://schema.org/"))
         kg.namespace_manager.bind("bsc", URIRef("https://bioschemas.org/"))
         kg.namespace_manager.bind("dct", URIRef("http://purl.org/dc/terms/"))
 
+        sub_kg_list = []
+
         for s, p, o in kg.triples((None, RDF.type, None)):
             if o.n3(kg.namespace_manager) in self.target_classes:
+                print(f"Trying to validate {s} as a(n) {o} resource")
+                sub_kg = ConjunctiveGraph()
                 for x, y, z in kg.triples((s, None, None)):
-                    self.sub_kg.add((x, y, z))
-                return s, o
+                    sub_kg.add((x, y, z))
+                sub_kg_list.append({
+                    "sub_kg": sub_kg,
+                    "subject": s,
+                    "object": o
+                })
 
-        return False
+        return sub_kg_list
 
-    def get_sub_kg(self):
-        return self.sub_kg
-
-    # def get_ref_profile(self):
-    #     return self.ref_profile
 
     def compute_similarity(self, kg) -> float:
         kg.namespace_manager.bind("sc", URIRef("http://schema.org/"))

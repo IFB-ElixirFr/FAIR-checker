@@ -18,7 +18,7 @@ from profiles.bioschemas_shape_gen import validate_shape_from_microdata
 from profiles.bioschemas_shape_gen import load_profiles
 
 from profiles.Profile import Profile
-from profiles.ProfileFactory import ProfileFactory
+from profiles.ProfileFactory import ProfileFactory, find_conformsto_subkg
 
 from metrics.WebResource import WebResource
 
@@ -65,10 +65,15 @@ class GenSHACLTestCase(unittest.TestCase):
             target_classes=["sc:SoftwareApplication"],
             min_props=self.bs_profiles["sc:SoftwareApplication"]["min_props"],
             rec_props=self.bs_profiles["sc:SoftwareApplication"]["rec_props"],
+            ref_profile=self.bs_profiles["sc:SoftwareApplication"]["ref_profile"]
         )
         sim = p.compute_similarity(kg)
         print(sim)
         self.assertAlmostEquals(sim, 0.29)
+
+    def test_list_all_conformsto(self):
+        list_ct = ProfileFactory.list_all_conformsto()
+        print(list_ct)
 
     def test_profile_factory_from_specifications(self):
         # profiles = ProfileFactory.create_all_profiles_from_specifications()
@@ -103,7 +108,8 @@ class GenSHACLTestCase(unittest.TestCase):
                         shape_name = profiles[profile_key]["name"],
                         target_classes = "sc:" + profiles[profile_key]["name"],
                         min_props = profiles[profile_key]["min_props"],
-                        rec_props = profiles[profile_key]["rec_props"]
+                        rec_props = profiles[profile_key]["rec_props"],
+                        ref_profile=profiles[profile_key]["ref_profile"]
                     )
                     shape = profile.gen_SHACL_from_profile()
                     validation = profile.validate_shape(
