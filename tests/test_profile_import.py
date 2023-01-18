@@ -2,6 +2,7 @@ import unittest
 import requests
 import re
 import json
+import yaml
 from rdflib import ConjunctiveGraph
 
 from profiles.bioschemas_shape_gen import get_profiles_specs_from_github
@@ -80,6 +81,11 @@ class ImportBSProfileTestCase(unittest.TestCase):
                 profiles[profile_key]["rec_props"],
             )
 
+    def test_req_profile_versions(self):
+        response = requests.get("https://raw.githubusercontent.com/BioSchemas/bioschemas.github.io/master/_data/profile_versions.yaml")
+        content = response.text 
+        dict_content = yaml.safe_load(content)
+        print(dict_content)
 
     # @unittest.skip("Need github TOKEN key to work")
     def test_import_bs_specs(self):

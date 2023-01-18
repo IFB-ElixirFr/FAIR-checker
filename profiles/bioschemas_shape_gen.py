@@ -9,6 +9,7 @@ from os import walk
 from os import environ, path
 from dotenv import load_dotenv
 import json
+import yaml
 import re
 
 from metrics.WebResource import WebResource
@@ -490,6 +491,10 @@ def get_latest_profile(profiles_dict):
     return latest_url_dl[0]
 
 
+def request_profile_versions():
+    response = requests.get("https://raw.githubusercontent.com/BioSchemas/bioschemas.github.io/master/_data/profile_versions.yaml")
+    content = response.text
+    return content
 
 def parse_profile(jsonld, profile_name, url_dl):
     profile_dict = {
@@ -542,27 +547,6 @@ def parse_profile(jsonld, profile_name, url_dl):
                 profile_dict[importance].append("sc:" + property)
     profile_dict["min_props"] = profile_dict.pop("required")
     profile_dict["rec_props"] = profile_dict.pop("recommended")
-
-
-    # if "required" in jsonld["@graph"][0]["$validation"]:
-    #     for property in jsonld["@graph"][0]["$validation"]["required"]:
-
-    #         added = False
-    #         # Identifying non Schema properties
-    #         for element in jsonld["@graph"]:
-    #             if element["@type"] == "rdf:Property" and property == element["rdfs:label"]:
-    #                 profile_dict["required"].append(element["@id"].replace("bioschemas", "bsc"))
-    #                 added = True
-    #         if added:
-    #             continue
-    #         profile_dict["required"].append("sc:" + property)
-
-    #     # profile_dict["required"] = jsonld["@graph"][0]["$validation"]["required"]
-    # if "recommended" in jsonld["@graph"][0]["$validation"]:
-    #     profile_dict["recommended"] = jsonld["@graph"][0]["$validation"]["recommended"]
-    # if "optional" in jsonld["@graph"][0]["$validation"]:
-    #     profile_dict["optional"] = jsonld["@graph"][0]["$validation"]["optional"]
-
 
     return profile_dict
 
