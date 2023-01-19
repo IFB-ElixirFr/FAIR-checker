@@ -63,7 +63,7 @@ from metrics.F1B_Impl import F1B_Impl
 from urllib.parse import urlparse
 
 from profiles.Profile import Profile
-from profiles.ProfileFactory import ProfileFactory, find_conformsto_subkg
+from profiles.ProfileFactory import ProfileFactory, find_conformsto_subkg, load_profiles, update_profiles
 
 import time
 import atexit
@@ -130,6 +130,9 @@ if app.config["ENV"] == "production":
 
     # Prevent DEV logger from output
     dev_logger.propagate = False
+
+    # Update bioschemas profile when starting server in production
+    update_profiles()
 else:
     app.config.from_object("config.DevelopmentConfig")
 
@@ -216,6 +219,8 @@ metrics = [
     {"name": "a2", "category": "A"},
 ]
 
+# Load bs profils dict (from github if not already in local)
+load_profiles()
 
 METRICS = {}
 # json_metrics = test_metric.getMetrics()
@@ -310,6 +315,8 @@ scheduler.add_job(func=update_vocab_status, trigger="interval", seconds=600)
 scheduler.add_job(
     func=F1B_Impl.update_identifiers_org_dump, trigger="interval", seconds=604800
 )
+scheduler.add_job(func=update_profiles, trigger="interval", seconds=604800)
+
 scheduler.start()
 
 # Shut down the scheduler when exiting the app

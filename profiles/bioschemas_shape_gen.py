@@ -494,7 +494,8 @@ def get_latest_profile(profiles_dict):
 def request_profile_versions():
     response = requests.get("https://raw.githubusercontent.com/BioSchemas/bioschemas.github.io/master/_data/profile_versions.yaml")
     content = response.text
-    return content
+    dict_content = yaml.safe_load(content)
+    return dict_content
 
 def parse_profile(jsonld, profile_name, url_dl):
     profile_dict = {
@@ -507,20 +508,30 @@ def parse_profile(jsonld, profile_name, url_dl):
         "ref_profile": "",
     }
 
+    profiles_versions = request_profile_versions()
+
     additional_properties = []
     for element in jsonld["@graph"]:
         if element["@type"] == "rdfs:Class":
             # print("Class: " + element["@id"])
+            name = element["rdfs:label"]
             profile_dict["id"] = element["@id"].replace("bioschemas", "bsc")
-            profile_dict["name"] = element["rdfs:label"]
+            profile_dict["name"] = name
             if "schema:schemaVersion" in element.keys():
                 profile_dict["ref_profile"] = element["schema:schemaVersion"][0]
             else:
-                bs_profile_url_base = "https://bioschemas.org/profiles/"
-                bs_profile_url_path = bs_profile_url_base + url_dl.split("/")[-1].replace("_v", "/").strip(".json")
+                
+                if profiles_versions[name]["latest_release"]:
+                    latest_version = profiles_versions[name]["latest_release"]
+                else:
+                    latest_version = profiles_versions[name]["latest_publication"]
+
+                bs_profile_url_base = "https://bioschemas.org/profiles/" + name + "/"
+                bs_profile_url_path = bs_profile_url_base + latest_version
+                # bs_profile_url_path = bs_profile_url_base + url_dl.split("/")[-1].replace("_v", "/").strip(".json")
                 profile_dict["ref_profile"] = bs_profile_url_path
                 print(bs_profile_url_path)
-                r = requests.head(bs_profile_url_path,verify=False,timeout=5) # it is faster to only request the header
+                r = requests.head(bs_profile_url_path, verify=False, timeout=5) # it is faster to only request the header
                 print(r.status_code)
             break
         # if element["@type"] == "rdf:Property":
@@ -551,7 +562,7 @@ def parse_profile(jsonld, profile_name, url_dl):
     return profile_dict
 
 
-bs_profiles = load_profiles()
+# bs_profiles = load_profiles()
 
 def validate_any_from_KG(kg):
     kg.namespace_manager.bind("sc", URIRef("http://schema.org/"))

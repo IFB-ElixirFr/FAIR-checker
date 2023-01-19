@@ -6,7 +6,9 @@ import yaml
 from rdflib import ConjunctiveGraph
 
 from profiles.bioschemas_shape_gen import get_profiles_specs_from_github
-from profiles.bioschemas_shape_gen import gen_SHACL_from_profile, load_profiles
+from profiles.bioschemas_shape_gen import gen_SHACL_from_profile
+# from profiles.Profile 
+from profiles.ProfileFactory import load_profiles
 
 from os import environ, path
 from dotenv import load_dotenv
@@ -73,6 +75,9 @@ class ImportBSProfileTestCase(unittest.TestCase):
         profiles = load_profiles()
         # print(json.dumps(profiles, indent=4))
         for profile_key in profiles.keys():
+            ref_profile = profiles[profile_key]["ref_profile"]
+            response = requests.head(ref_profile, verify=False, timeout=5)
+            self.assertEqual(response.status_code, 200)
 
             gen_SHACL_from_profile(
                 profiles[profile_key]["name"],
