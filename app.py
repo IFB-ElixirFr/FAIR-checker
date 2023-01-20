@@ -1899,6 +1899,10 @@ if __name__ == "__main__":
         sys.exit(1)
 
     args = parser.parse_args()
+    print(args)
+
+    if args.update:
+        print("UPDATE BS her")
 
     if args.debug:
         logging.basicConfig(
