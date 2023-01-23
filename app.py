@@ -2,7 +2,6 @@ import copy
 from asyncio.log import logger
 from unittest import result
 import eventlet
-from numpy import broadcast
 
 # from https://github.com/eventlet/eventlet/issues/670
 # eventlet.monkey_patch(select=False)
@@ -20,7 +19,7 @@ from flask import (
     Blueprint,
     url_for,
 )
-from flask_restx import Resource, Api, fields
+from flask_restx import Resource, Api, fields, reqparse
 from flask_swagger_ui import get_swaggerui_blueprint
 from flask_cors import CORS
 from flask_socketio import SocketIO
@@ -37,7 +36,6 @@ import uuid
 import argparse
 import functools
 from argparse import RawTextHelpFormatter
-from datetime import datetime
 from datetime import timedelta
 import json
 from json import JSONDecodeError
@@ -59,6 +57,7 @@ from metrics.Evaluation import Result
 from profiles.bioschemas_shape_gen import validate_any_from_KG
 from profiles.bioschemas_shape_gen import validate_any_from_microdata
 from metrics.util import SOURCE
+from metrics.F1B_Impl import F1B_Impl
 from metrics.F1B_Impl import F1B_Impl
 from urllib.parse import urlparse
 
@@ -162,12 +161,13 @@ prod_logger.debug("DEBUG prod")
 # blueprint = Blueprint('api', __name__, url_prefix='/api')
 
 api = Api(
-    app,
+    app=app,
     title="FAIR-Checker API",
     doc="/swagger",
-    base_path="/api",
-    # base_url='/'
+    base_path="https://fair-checker.france-bioinformatique.fr",
+    # base_url=app.config["SERVER_IP"],
     description=app.config["SERVER_IP"],
+    # url_scheme="https://fair-checker.france-bioinformatique.fr/",
 )
 
 # app.register_blueprint(blueprint)
@@ -416,10 +416,27 @@ def statistics():
 #         return {"data": num ** 2}
 
 
+reqparse = reqparse.RequestParser()
+reqparse.add_argument(
+    "url",
+    type=str,
+    required=True,
+    location="args",
+    help="The URL/DOI of the resource to be evaluated",
+)
+
+
 def generate_check_api(metric):
-    @fc_check_namespace.route("/metric_" + metric.get_principle_tag() + "/<path:url>")
+    @fc_check_namespace.route("/metric_" + metric.get_principle_tag())
     class MetricEval(Resource):
-        def get(self, url):
+        @fc_check_namespace.doc(
+            "Evaluate " + metric.get_principle_tag() + " FAIR metric"
+        )
+        @fc_check_namespace.expect(reqparse)
+        def get(self):
+
+            args = reqparse.parse_args()
+            url = args["url"]
 
             web_res = WebResource(url)
             metric.set_web_resource(web_res)
@@ -444,10 +461,24 @@ for key in METRICS_CUSTOM.keys():
     generate_check_api(METRICS_CUSTOM[key])
 
 
-@fc_check_namespace.route("/metrics_all/<path:url>")
+@fc_check_namespace.route("/metrics_all")
+# @fc_check_namespace.doc(url_fields)
 class MetricEvalAll(Resource):
-    def get(self, url):
+    # reqparse = None
+    # def __init__(self, args):
+    #     self.reqparse = reqparse.RequestParser()
+    #     self.reqparse.add_argument('url', type = str, required = True, location='args', help="Name cannot be blank!")
+    #     # self.reqparse.add_argument('test', type = str, required = True, location='args')
+    #     # super(MetricEvalAll, self).__init__()
+
+    @fc_check_namespace.doc("Evaluates all FAIR metrics at once")
+    @fc_check_namespace.expect(reqparse)
+    def get(self):
         """All FAIR metrics"""
+
+        args = reqparse.parse_args()
+        url = args["url"]
+
         web_res = WebResource(url)
 
         metrics_collection = []
@@ -483,11 +514,19 @@ class MetricEvalAll(Resource):
         return results
 
 
-@fc_inspect_namespace.route("/get_rdf_metadata/<path:url>")
+# fc_check_namespace.add_resource(MetricEvalAll, "/metrics_all")
+
+
+@fc_inspect_namespace.route("/get_rdf_metadata")
 class RetrieveMetadata(Resource):
     @fc_inspect_namespace.produces(["application/ld+json"])
-    def get(self, url):
+    @fc_inspect_namespace.expect(reqparse)
+    def get(self):
         """Get RDF metadata in JSON-LD from a web resource"""
+
+        args = reqparse.parse_args()
+        url = args["url"]
+
         web_res = WebResource(url)
         data_str = web_res.get_rdf().serialize(format="json-ld")
         data_json = json.loads(data_str)
@@ -517,13 +556,16 @@ graph_payload = fc_inspect_namespace.model(
 
 
 def generate_ask_api(describe):
-    @fc_inspect_namespace.route(
-        "/" + describe.__name__ + "/<path:url>", methods=["GET"]
-    )
+    @fc_inspect_namespace.route("/" + describe.__name__, methods=["GET"])
     @fc_inspect_namespace.route("/" + describe.__name__ + "/", methods=["POST"])
     # @api.doc(params={"url": "An URL"})
     class Ask(Resource):
-        def get(self, url):
+        @fc_inspect_namespace.expect(reqparse)
+        def get(self):
+
+            args = reqparse.parse_args()
+            url = args["url"]
+
             web_res = WebResource(url)
             kg = web_res.get_rdf()
             old_kg = copy.deepcopy(kg)
@@ -576,10 +618,16 @@ for describe in describe_list:
     generate_ask_api(describe)
 
 
-@fc_inspect_namespace.route("/inspect_ontologies/<path:url>")
+@fc_inspect_namespace.route("/inspect_ontologies")
 class InspectOntologies(Resource):
-    def get(self, url):
+    # @fc_inspect_namespace.doc('Evaluates all FAIR metrics at once')
+    @fc_inspect_namespace.expect(reqparse)
+    def get(self):
         """Inspect if RDF properties and classes are found in ontology registries (OLS, LOV, BioPortal)"""
+
+        args = reqparse.parse_args()
+        url = args["url"]
+
         web_res = WebResource(url)
         kg = web_res.get_rdf()
 
