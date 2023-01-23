@@ -1547,19 +1547,7 @@ def check_kg_shape_old(data):
     results = validate_any_from_KG(kg)
     emit("done_check_shape", results)
 
-
-@socketio.on("check_kg_shape_2")
-def check_kg_shape_2(data):
-    print("shape validation started")
-    sid = request.sid
-    print(sid)
-    kg = KGS[sid]
-
-    if not kg:
-        print("cannot access current knowledge graph")
-    elif len(kg) == 0:
-        print("cannot validate an empty knowledge graph")
-
+def evaluate_bioschemas_profiles(kg):
     # A instancier au lancement du serveur et actualuser lors d'updates
     profiles = ProfileFactory.create_all_profiles_from_specifications()
     
@@ -1611,11 +1599,68 @@ def check_kg_shape_2(data):
 
     # TODO Try similarity match her for profiles that are not matched
 
+    return results
+
+@socketio.on("check_kg_shape_2")
+def check_kg_shape_2(data):
+    print("shape validation started")
+    sid = request.sid
+    print(sid)
+    kg = KGS[sid]
+
+    if not kg:
+        print("cannot access current knowledge graph")
+    elif len(kg) == 0:
+        print("cannot validate an empty knowledge graph")
+
+    results = evaluate_bioschemas_profiles(kg)
+
     # results = validate_any_from_KG(kg)
 
     emit("done_check_shape", results)
 
+def update_bioschemas_valid(func):
+    @functools.wraps(func)
+    def wrapper_decorator(*args, **kwargs):
+        # Do something before
+        start_time = time.time()
 
+        value = func(*args, **kwargs)
+
+        # Do something after
+        elapsed_time = round((time.time() - start_time), 2)
+        logging.info(f"Bioschemas validation processed in {elapsed_time} s")
+        # emit("done_check_shape", res, namespace="/validate_bioschemas")
+        # socketio.emit("done_check_shape", res, namespace="/inspect")
+        return value
+
+    return wrapper_decorator
+
+
+@app.route("/validate_bioschemas")
+@update_bioschemas_valid
+def validate_bioschemas():
+    uri = request.args.get("uri")
+    logging.info(f"Validating Bioschemas markup for {uri}")
+
+    kg = WebResource(uri).get_rdf()
+    print(len(kg))
+
+    results = evaluate_bioschemas_profiles(kg)
+
+    # res, kg = validate_any_from_microdata(input_url=uri)
+
+    m = []
+    return render_template(
+        "bioschemas.html",
+        results=results,
+        kg=kg,
+        f_metrics=m,
+        sample_data=sample_resources,
+        title="Inspect",
+        subtitle="to enhance metadata quality",
+        jld=buildJSONLD(),
+    )
 #######################################
 #######################################
 
@@ -1785,43 +1830,7 @@ def base_metrics():
 #   return response
 
 
-def update_bioschemas_valid(func):
-    @functools.wraps(func)
-    def wrapper_decorator(*args, **kwargs):
-        # Do something before
-        start_time = time.time()
 
-        value = func(*args, **kwargs)
-
-        # Do something after
-        elapsed_time = round((time.time() - start_time), 2)
-        logging.info(f"Bioschemas validation processed in {elapsed_time} s")
-        # emit("done_check_shape", res, namespace="/validate_bioschemas")
-        # socketio.emit("done_check_shape", res, namespace="/inspect")
-        return value
-
-    return wrapper_decorator
-
-
-@app.route("/validate_bioschemas")
-@update_bioschemas_valid
-def validate_bioschemas():
-    uri = request.args.get("uri")
-    logging.debug(f"Validating Bioschemas markup for {uri}")
-
-    res, kg = validate_any_from_microdata(input_url=uri)
-
-    m = []
-    return render_template(
-        "bioschemas.html",
-        results=res,
-        kg=kg,
-        f_metrics=m,
-        sample_data=sample_resources,
-        title="Inspect",
-        subtitle="to enhance metadata quality",
-        jld=buildJSONLD(),
-    )
 
 
 @app.route("/inspect")
