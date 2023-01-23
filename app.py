@@ -1093,18 +1093,37 @@ def handle_get_latest_triples():
     emit("send_triples", {"triples": list_triples})
 
 
+def named_kg_len(kgs):
+    query_num = """
+    SELECT ?g (COUNT(*) AS ?count)
+    WHERE {
+    graph ?g {?s ?p ?o}
+    }
+    GROUP BY ?g
+    """
+
+    qres = kgs.query(query_num)
+
+    kgs_len = {}
+    for g, c in qres:
+        kgs_len[g] = c
+    return kgs_len
+
 @socketio.on("change_rdf_type")
 def handle_change_rdf_type(data):
 
     sid = request.sid
     RDF_TYPE[sid] = data["rdf_type"]
-    kg = KGS[sid]
-    nb_triples = len(kg)
+    kgs = KGS[sid]
+    # nb_triples = len(kg)
+
+    kgs_len = named_kg_len(kgs)
+
     emit(
         "send_annot_2",
         {
-            "kg": str(kg.serialize(format=RDF_TYPE[sid])),
-            "nb_triples": nb_triples,
+            "kg": str(kgs.serialize(format=RDF_TYPE[sid])),
+            "kgs_len": kgs_len,
         },
     )
 
@@ -1129,28 +1148,16 @@ def handle_embedded_annot_2(data):
     web_resource = WebResource(uri)
     # kg = web_resource.get_rdf()
     kgs = web_resource.get_wr_kg_dataset()
-    print(kgs.serialize(format="trig"))
-    nb_triples = len(kgs)
-    print(nb_triples)
+    # print(kgs.serialize(format="trig"))
+    # nb_triples = len(kgs)
+    # print(nb_triples)
 
     KGS[sid] = kgs
 
     # for kg in kgs.graphs():
     #     print(kg)
 
-    query_num = """
-    SELECT ?g (COUNT(*) AS ?count)
-    WHERE {
-    graph ?g {?s ?p ?o}
-    }
-    GROUP BY ?g
-    """
-
-    qres = kgs.query(query_num)
-
-    kgs_len = {}
-    for g, c in qres:
-        kgs_len[g] = c
+    kgs_len = named_kg_len(kgs)
 
     emit(
         "send_annot_2",
@@ -1199,7 +1206,7 @@ def handle_annotationn(data):
 def handle_describe_opencitation(data):
     print("describing opencitation")
     sid = request.sid
-    kg = KGS[sid]
+    kgs = KGS[sid]
     uri = str(data["url"])
     graph = str(data["graph"])
     # kg = ConjunctiveGraph()
@@ -1208,14 +1215,16 @@ def handle_describe_opencitation(data):
     if util.is_DOI(uri):
         uri = util.get_DOI(uri)
         print(f"FOUND DOI: {uri}")
-    kg = util.describe_opencitation(uri, kg)
+    kgs = util.describe_opencitation(uri, kgs)
 
-    nb_triples = len(kg)
+    # nb_triples = len(kg)
+    kgs_len = named_kg_len(kgs)
+
     emit(
         "send_annot_2",
         {
-            "kg": str(kg.serialize(format=RDF_TYPE[sid])),
-            "nb_triples": nb_triples,
+            "kg": str(kgs.serialize(format=RDF_TYPE[sid])),
+            "kgs_len": kgs_len,
         },
     )
 
@@ -1224,7 +1233,7 @@ def handle_describe_opencitation(data):
 def handle_describe_wikidata(data):
     print("describing wikidata")
     sid = request.sid
-    kg = KGS[sid]
+    kgs = KGS[sid]
     uri = str(data["url"])
     graph = str(data["graph"])
     # kg = ConjunctiveGraph()
@@ -1233,13 +1242,16 @@ def handle_describe_wikidata(data):
     if util.is_DOI(uri):
         uri = util.get_DOI(uri)
         print(f"FOUND DOI: {uri}")
-    kg = util.describe_wikidata(uri, kg)
-    nb_triples = len(kg)
+    kgs = util.describe_wikidata(uri, kgs)
+    # nb_triples = len(kg)
+
+    kgs_len = named_kg_len(kgs)
+
     emit(
         "send_annot_2",
         {
-            "kg": str(kg.serialize(format=RDF_TYPE[sid])),
-            "nb_triples": nb_triples,
+            "kg": str(kgs.serialize(format=RDF_TYPE[sid])),
+            "kgs_len": kgs_len,
         },
     )
 
@@ -1248,7 +1260,7 @@ def handle_describe_wikidata(data):
 def handle_describe_loa(data):
     print("describing loa")
     sid = request.sid
-    kg = KGS[sid]
+    kgs = KGS[sid]
     uri = str(data["url"])
     graph = str(data["graph"])
     # kg = ConjunctiveGraph()
@@ -1257,13 +1269,16 @@ def handle_describe_loa(data):
     if util.is_DOI(uri):
         uri = util.get_DOI(uri)
         print(f"FOUND DOI: {uri}")
-    kg = util.describe_openaire(uri, kg)
-    nb_triples = len(kg)
+    kgs = util.describe_openaire(uri, kgs)
+    # nb_triples = len(kgs)
+
+    kgs_len = named_kg_len(kgs)
+
     emit(
         "send_annot_2",
         {
-            "kg": str(kg.serialize(format=RDF_TYPE[sid])),
-            "nb_triples": nb_triples,
+            "kg": str(kgs.serialize(format=RDF_TYPE[sid])),
+            "kgs_len": kgs_len,
         },
     )
 

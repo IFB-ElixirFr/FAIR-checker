@@ -65,6 +65,7 @@ class WebResource:
         ChromeDriverManager().install(), options=chrome_options
     )
     # WEB_BROWSER_HEADLESS.implicitly_wait(20)
+    
     SERVER_TIMEOUT = 30
 
     status_code = None
@@ -500,7 +501,8 @@ class WebResource:
 
         browser = WebResource.WEB_BROWSER_HEADLESS
         browser.get(url)
-
+        resp = requests.get(url)
+        print(len(resp.content))
         WebDriverWait(self.WEB_BROWSER_HEADLESS, self.SERVER_TIMEOUT).until(
             lambda wd: self.WEB_BROWSER_HEADLESS.execute_script("return document.readyState") == 'complete',
             "Page taking too long to load"
