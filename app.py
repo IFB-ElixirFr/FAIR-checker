@@ -1540,9 +1540,6 @@ def check_kg_shape_2(data):
                 "errors": errors,
             }
 
-
-    # TODO Try similarity match her
-
     # Try to match and evaluate all found corresponding profiles
     for p_key in profiles.keys():
         sub_kg_list = profiles[p_key].match_sub_kgs_from_profile(kg)
@@ -1564,6 +1561,7 @@ def check_kg_shape_2(data):
                     }
 
 
+    # TODO Try similarity match her for profiles that are not matched
 
     # results = validate_any_from_KG(kg)
 
@@ -1761,7 +1759,7 @@ def update_bioschemas_valid(func):
 @update_bioschemas_valid
 def validate_bioschemas():
     uri = request.args.get("uri")
-    logging.debug(f"Validating Bioschemas markup fr {uri}")
+    logging.debug(f"Validating Bioschemas markup for {uri}")
 
     res, kg = validate_any_from_microdata(input_url=uri)
 
