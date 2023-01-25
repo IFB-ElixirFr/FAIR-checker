@@ -1,4 +1,4 @@
-from rdflib import ConjunctiveGraph, URIRef
+from rdflib import ConjunctiveGraph, URIRef, RDF
 from profiles.Profile import Profile
 from os import environ, path
 import requests
@@ -6,6 +6,7 @@ import re
 import json
 import os
 import yaml
+from tqdm import tqdm
 
 # from profiles.bioschemas_shape_gen import bs_profiles
 
@@ -292,7 +293,7 @@ def get_profiles_specs_from_github():
                         for file in results_files:
                             if (
                                 file["type"] == "file"
-                                and not "DEPRECATED" in file["download_url"]
+                                and "DEPRECATED" not in file["download_url"]
                             ):
                                 regex_version = "_v([0-9]*.[0-9]*)-"
                                 m = re.search(regex_version, file["download_url"])
@@ -300,7 +301,8 @@ def get_profiles_specs_from_github():
                                 if "RELEASE" in file["download_url"]:
                                     releases[file["download_url"]] = float(m.group(1))
                                     # releases[m.group(1)] = res["download_url"]
-                                elif "DRAFT" in file["download_url"]:
+                                # elif "DRAFT" in file["download_url"]:
+                                if "DRAFT" in file["download_url"]:
                                     drafts[file["download_url"]] = float(m.group(1))
 
                         latest_url_dl = ""
@@ -310,12 +312,35 @@ def get_profiles_specs_from_github():
                         elif drafts:
                             latest_url_dl = get_latest_profile(drafts)
 
+
+                        # To get only latest profile
+
                         if latest_url_dl:
                             response = requests.get(latest_url_dl, headers=headers)
                             jsonld = response.json()
-                            profile_dict = parse_profile(jsonld, latest_url_dl)
-
+                            profile_dict = parse_profile(
+                                jsonld, latest_url_dl
+                            )
                             profiles_dict["sc:" + profile_dict["name"]] = profile_dict
+
+                        # To get all profiles and not only latest
+
+                        # for url in releases.keys():
+                        #     response = requests.get(url, headers=headers)
+                        #     jsonld = response.json()
+                        #     profile_dict = parse_profile(
+                        #         jsonld, latest_url_dl
+                        #     )
+                        #     profile_key = url.split("/")[-1]
+                        #     profiles_dict["sc:" + profile_key] = profile_dict
+                        # for url in drafts.keys():
+                        #     response = requests.get(url, headers=headers)
+                        #     jsonld = response.json()
+                        #     profile_dict = parse_profile(
+                        #         jsonld, latest_url_dl
+                        #     )
+                        #     profile_key = url.split("/")[-1]
+                        #     profiles_dict["sc:" + profile_key] = profile_dict
         return profiles_dict
     else:
         return False
@@ -362,7 +387,6 @@ def parse_profile(jsonld, url_dl):
             if "schema:schemaVersion" in element.keys():
                 profile_dict["ref_profile"] = element["schema:schemaVersion"][0]
             else:
-
                 if profiles_versions[name]["latest_release"]:
                     latest_version = profiles_versions[name]["latest_release"]
                 else:
@@ -372,14 +396,17 @@ def parse_profile(jsonld, url_dl):
                 bs_profile_url_path = bs_profile_url_base + latest_version
                 # bs_profile_url_path = bs_profile_url_base + url_dl.split("/")[-1].replace("_v", "/").strip(".json")
                 profile_dict["ref_profile"] = bs_profile_url_path
-                r = requests.head(
-                    bs_profile_url_path, verify=False, timeout=5
-                )  # it is faster to only request the header
+                # r = requests.head(bs_profile_url_path, verify=False, timeout=5) # it is faster to only request the header
+                # print(r.status_code)
             break
         # if element["@type"] == "rdf:Property":
         #     additional_properties.append(element["@id"].replace("bioschemas", "bsc"))
 
-    importance_levels = ["required", "recommended", "optional"]
+    importance_levels = [
+        "required",
+        "recommended",
+        "optional"
+    ]
 
     for importance in importance_levels:
         if importance in jsonld["@graph"][0]["$validation"]:
@@ -451,6 +478,7 @@ def find_conformsto_subkg(kg):
         identifier = r["x"]
         type = r["type"]
         sub_kg = ConjunctiveGraph()
+
         for s, p, o in kg.triples((identifier, None, None)):
             sub_kg.add((s, p, o))
         # print(sub_kg.serialize(format="json-ld"))
