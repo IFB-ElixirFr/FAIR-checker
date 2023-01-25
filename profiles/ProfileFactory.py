@@ -1,4 +1,3 @@
-
 from rdflib import ConjunctiveGraph, URIRef, RDF
 from profiles.Profile import Profile
 from os import environ, path
@@ -313,31 +312,35 @@ def get_profiles_specs_from_github():
                         elif drafts:
                             latest_url_dl = get_latest_profile(drafts)
 
-                        # if latest_url_dl:
-                        #     response = requests.get(latest_url_dl, headers=headers)
+
+                        # To get only latest profile
+
+                        if latest_url_dl:
+                            response = requests.get(latest_url_dl, headers=headers)
+                            jsonld = response.json()
+                            profile_dict = parse_profile(
+                                jsonld, latest_url_dl
+                            )
+                            profiles_dict["sc:" + profile_dict["name"]] = profile_dict
+
+                        # To get all profiles and not only latest
+
+                        # for url in releases.keys():
+                        #     response = requests.get(url, headers=headers)
                         #     jsonld = response.json()
                         #     profile_dict = parse_profile(
                         #         jsonld, latest_url_dl
                         #     )
-                        #     profiles_dict["sc:" + profile_dict["name"]] = profile_dict
-
-                        for url in releases.keys():
-                            response = requests.get(url, headers=headers)
-                            jsonld = response.json()
-                            profile_dict = parse_profile(
-                                jsonld, latest_url_dl
-                            )
-                            profile_key = url.split("/")[-1]
-                            profiles_dict["sc:" + profile_key] = profile_dict
-                        for url in drafts.keys():
-                            response = requests.get(url, headers=headers)
-                            jsonld = response.json()
-                            profile_dict = parse_profile(
-                                jsonld, latest_url_dl
-                            )
-                            profile_key = url.split("/")[-1]
-                            profiles_dict["sc:" + profile_key] = profile_dict
-                            
+                        #     profile_key = url.split("/")[-1]
+                        #     profiles_dict["sc:" + profile_key] = profile_dict
+                        # for url in drafts.keys():
+                        #     response = requests.get(url, headers=headers)
+                        #     jsonld = response.json()
+                        #     profile_dict = parse_profile(
+                        #         jsonld, latest_url_dl
+                        #     )
+                        #     profile_key = url.split("/")[-1]
+                        #     profiles_dict["sc:" + profile_key] = profile_dict
         return profiles_dict
     else:
         return False
@@ -353,7 +356,9 @@ def get_latest_profile(profiles_dict):
 
 
 def request_profile_versions():
-    response = requests.get("https://raw.githubusercontent.com/BioSchemas/bioschemas.github.io/master/_data/profile_versions.yaml")
+    response = requests.get(
+        "https://raw.githubusercontent.com/BioSchemas/bioschemas.github.io/master/_data/profile_versions.yaml"
+    )
     content = response.text
     dict_content = yaml.safe_load(content)
     return dict_content
@@ -410,8 +415,13 @@ def parse_profile(jsonld, url_dl):
                 added = False
                 # Identifying non Schema properties
                 for element in jsonld["@graph"]:
-                    if element["@type"] == "rdf:Property" and property == element["rdfs:label"]:
-                        profile_dict[importance].append(element["@id"].replace("bioschemas", "bsc"))
+                    if (
+                        element["@type"] == "rdf:Property"
+                        and property == element["rdfs:label"]
+                    ):
+                        profile_dict[importance].append(
+                            element["@id"].replace("bioschemas", "bsc")
+                        )
                         added = True
                 if added:
                     continue
@@ -422,6 +432,7 @@ def parse_profile(jsonld, url_dl):
     profile_dict["rec_props"] = profile_dict.pop("recommended")
 
     return profile_dict
+
 
 def load_profiles():
     if not path.exists("profiles/bs_profiles.json"):
@@ -438,10 +449,12 @@ def load_profiles():
             profiles = json.load(openfile)
     return profiles
 
+
 def update_profiles():
     if path.exists("profiles/bs_profiles.json"):
         os.remove("profiles/bs_profiles.json")
         load_profiles()
+
 
 def find_conformsto_subkg(kg):
     kg.namespace_manager.bind("sc", URIRef("http://schema.org/"))
@@ -451,8 +464,9 @@ def find_conformsto_subkg(kg):
     query_conformsto = """
         PREFIX dct: <http://purl.org/dc/terms/>
 
-        SELECT ?s ?o WHERE {
-            ?s dct:conformsTo ?o
+        SELECT ?x ?profile ?type WHERE {
+            ?x dct:conformsTo ?profile .
+            ?x rdf:type ?type .
         }
     """
 
@@ -460,8 +474,9 @@ def find_conformsto_subkg(kg):
 
     results = kg.query(query_conformsto)
     for r in results:
-        conformsto = r["o"].strip("/")
-        class_id = r["s"]
+        conformsto = r["profile"].strip("/")
+        identifier = r["x"]
+        type = r["type"]
         sub_kg = ConjunctiveGraph()
 
         for s, p, o in kg.triples((class_id, None, None)):
@@ -469,15 +484,17 @@ def find_conformsto_subkg(kg):
         # print(sub_kg.serialize(format="json-ld"))
 
         # if self.get_ref_profile() == conformsto:
-        print("Found conformsTo: " + conformsto)
-        sub_kg_list.append({
-            "sub_kg": sub_kg,
-            "subject": class_id,
-            "object": conformsto
-        })
+        print(f"Found instance of type {type} that should conforms to {conformsto}")
+        sub_kg_list.append(
+            {
+                "sub_kg": sub_kg,
+                "subject": identifier,
+                "profile": conformsto,
+                "type": type,
+            }
+        )
 
     return sub_kg_list
-
 
 
 # from enum import Enum, unique
@@ -489,8 +506,6 @@ def find_conformsto_subkg(kg):
 
 
 class ProfileFactory:
-
-
     @staticmethod
     def list_all_conformsto():
         bs_profiles = load_profiles()
@@ -509,9 +524,10 @@ class ProfileFactory:
                     target_classes=["sc:" + bs_profiles[profile_key]["name"]],
                     min_props=bs_profiles[profile_key]["min_props"],
                     rec_props=bs_profiles[profile_key]["rec_props"],
-                    ref_profile=bs_profiles[profile_key]["ref_profile"]
-                ) 
-        return profile   
+                    ref_profile=bs_profiles[profile_key]["ref_profile"],
+                )
+        return profile
+
     #     template_create = """
     # def create_{name}_
     #     """
@@ -529,7 +545,7 @@ class ProfileFactory:
                 target_classes=[p],
                 min_props=min_props,
                 rec_props=rec_props,
-                ref_profile=bs_profiles[p]["ref_profile"]
+                ref_profile=bs_profiles[p]["ref_profile"],
             )
         return profiles
 
@@ -544,6 +560,6 @@ class ProfileFactory:
                 target_classes=["sc:" + bs_profiles[profile_key]["name"]],
                 min_props=bs_profiles[profile_key]["min_props"],
                 rec_props=bs_profiles[profile_key]["rec_props"],
-                ref_profile=bs_profiles[profile_key]["ref_profile"]
+                ref_profile=bs_profiles[profile_key]["ref_profile"],
             )
         return profiles
