@@ -1,5 +1,4 @@
 import copy
-from asyncio.log import logger
 from unittest import result
 import eventlet
 
@@ -62,7 +61,12 @@ from metrics.F1B_Impl import F1B_Impl
 from urllib.parse import urlparse
 
 from profiles.Profile import Profile
-from profiles.ProfileFactory import ProfileFactory, find_conformsto_subkg, load_profiles, update_profiles
+from profiles.ProfileFactory import (
+    ProfileFactory,
+    find_conformsto_subkg,
+    load_profiles,
+    update_profiles,
+)
 
 import time
 import atexit
@@ -131,7 +135,7 @@ if app.config["ENV"] == "production":
     dev_logger.propagate = False
 
     # Update bioschemas profile when starting server in production
-    update_profiles()
+    # update_profiles()
 else:
     app.config.from_object("config.DevelopmentConfig")
 
@@ -1561,10 +1565,11 @@ def check_kg_shape_old(data):
     results = validate_any_from_KG(kg)
     emit("done_check_shape", results)
 
+
 def evaluate_bioschemas_profiles(kg):
     # A instancier au lancement du serveur et actualuser lors d'updates
     profiles = ProfileFactory.create_all_profiles_from_specifications()
-    
+
     list_all_ct = ProfileFactory.list_all_conformsto()
 
     results = {}
@@ -1573,7 +1578,8 @@ def evaluate_bioschemas_profiles(kg):
     ct_sub_kg_list = find_conformsto_subkg(kg)
     for ct_sub_kg in ct_sub_kg_list:
         s = ct_sub_kg["subject"]
-        ct = ct_sub_kg["object"]
+        ct = ct_sub_kg["profile"]
+        t = ct_sub_kg["type"]
         sub_kg = ct_sub_kg["sub_kg"]
         print(ct)
 
@@ -1583,7 +1589,7 @@ def evaluate_bioschemas_profiles(kg):
             shacl_shape = ct_profile.get_shacl_shape()
             conforms, warnings, errors = ct_profile.validate_shape(sub_kg, shacl_shape)
             results[str(s)] = {
-                "type": str(ct),
+                "type": str(t),
                 "ref_profile": ct_profile.get_ref_profile(),
                 "conforms": conforms,
                 "warnings": warnings,
@@ -1601,7 +1607,9 @@ def evaluate_bioschemas_profiles(kg):
                     o = sub_kg["object"]
                     sub_kg = sub_kg["sub_kg"]
                     shacl_shape = profiles[p_key].get_shacl_shape()
-                    conforms, warnings, errors = profiles[p_key].validate_shape(sub_kg, shacl_shape)
+                    conforms, warnings, errors = profiles[p_key].validate_shape(
+                        sub_kg, shacl_shape
+                    )
                     results[str(s)] = {
                         "type": str(o),
                         "ref_profile": profiles[p_key].get_ref_profile(),
@@ -1610,10 +1618,10 @@ def evaluate_bioschemas_profiles(kg):
                         "errors": errors,
                     }
 
-
     # TODO Try similarity match her for profiles that are not matched
 
     return results
+
 
 @socketio.on("check_kg_shape_2")
 def check_kg_shape_2(data):
@@ -1633,6 +1641,7 @@ def check_kg_shape_2(data):
 
     emit("done_check_shape", results)
 
+
 def update_bioschemas_valid(func):
     @functools.wraps(func)
     def wrapper_decorator(*args, **kwargs):
@@ -1651,10 +1660,10 @@ def update_bioschemas_valid(func):
     return wrapper_decorator
 
 
-@app.route("/validate_bioschemas")
+@app.route("/bioschemas_validation")
 @update_bioschemas_valid
 def validate_bioschemas():
-    uri = request.args.get("uri")
+    uri = request.args.get("url")
     logging.info(f"Validating Bioschemas markup for {uri}")
 
     kg = WebResource(uri).get_rdf()
@@ -1675,6 +1684,8 @@ def validate_bioschemas():
         subtitle="to enhance metadata quality",
         jld=buildJSONLD(),
     )
+
+
 #######################################
 #######################################
 
@@ -1842,9 +1853,6 @@ def base_metrics():
 #   response.headers.add('Access-Control-Allow-Headers', 'Content-Type,Authorization')
 #   response.headers.add('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS')
 #   return response
-
-
-
 
 
 @app.route("/inspect")
