@@ -30,6 +30,7 @@ def list_api_inspect():
 class APITestCase(unittest.TestCase):
     url_biotools = "https://bio.tools/jaspar"
     url_datacite = "https://search.datacite.org/works/10.7892/boris.108387"
+    url_workflow_hub = "https://workflowhub.eu/workflows/18"
 
     def setUp(self):
         app.config["ENV"] = "test"
@@ -117,7 +118,7 @@ class APITestCase(unittest.TestCase):
 
     def test_inspect_bioschemas(self):
         response = self.app.get(
-            "/api/inspect/bioschemas_validation?url=" + self.url_biotools,
+            "/api/inspect/bioschemas_validation?url=" + self.url_workflow_hub,
         )
-        self.assertEqual(200, response.status_code)
+        self.assertEqual(200, response.get_json())
         self.assertLess(0, len(response.get_json()))
