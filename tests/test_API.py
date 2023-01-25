@@ -117,7 +117,7 @@ class APITestCase(unittest.TestCase):
 
     def test_inspect_bioschemas(self):
         response = self.app.get(
-            "/api/inspect/validate_bioschemas/" + self.url_biotools,
+            "/api/inspect/bioschemas_validation?url=" + self.url_biotools,
         )
         self.assertEqual(200, response.status_code)
         self.assertLess(0, len(response.get_json()))
