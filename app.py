@@ -634,6 +634,20 @@ class InspectOntologies(Resource):
         return check_kg(kg, True)
 
 
+@fc_inspect_namespace.route("/bioschemas_validation")
+class InspectBioschemas(Resource):
+    @fc_inspect_namespace.expect(reqparse)
+    def get(self):
+        """Validate an RDF JSON-LD graph against Bioschemas profiles"""
+        args = reqparse.parse_args()
+        url = args["url"]
+
+        web_res = WebResource(url)
+        kg = web_res.get_rdf()
+        results = validate_any_from_KG(kg)
+        return results
+
+
 def list_routes():
     return ["%s" % rule for rule in app.url_map.iter_rules()]
 

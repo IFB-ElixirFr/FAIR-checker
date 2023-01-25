@@ -226,7 +226,7 @@ class CommunityVocabTestCase(unittest.TestCase):
         print("toto")
         print(len(kg))
         print(len(cleaned_kg))
-        self.assertEquals(len(kg) - 2, len(cleaned_kg))
+        self.assertEqual(len(kg) - 2, len(cleaned_kg))
 
     def test_exclude_xhtml(self):
         ns = "http://www.w3.org/1999/xhtml/vocab#"
@@ -246,7 +246,7 @@ class CommunityVocabTestCase(unittest.TestCase):
         print(q_xhtml)
 
         res = kg.query(q_xhtml)
-        self.assertEquals(len(res), 1)
+        self.assertEqual(len(res), 1)
 
         q_del = (
             'DELETE {?s ?p ?o} WHERE { ?s ?p ?o . FILTER (strstarts(str(?p), "'
@@ -257,7 +257,7 @@ class CommunityVocabTestCase(unittest.TestCase):
         print(kg.serialize(format="turtle"))
 
         res = kg.query(q_xhtml)
-        self.assertEquals(len(res), 0)
+        self.assertEqual(len(res), 0)
 
 
 if __name__ == "__main__":
