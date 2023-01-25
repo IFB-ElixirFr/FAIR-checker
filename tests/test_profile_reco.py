@@ -1,5 +1,6 @@
 from contextlib import AbstractAsyncContextManager
 import unittest
+import os
 
 from rich.console import Console
 from rich.table import Table
@@ -17,6 +18,7 @@ from profiles.bioschemas_shape_gen import validate_shape_from_microdata
 
 from profiles.Profile import Profile
 from profiles.ProfileFactory import ProfileFactory
+from profiles.ProfileFactory import gen_shacl_alternatives
 
 from metrics.WebResource import WebResource
 
