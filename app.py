@@ -650,7 +650,7 @@ class InspectBioschemas(Resource):
 
         web_res = WebResource(url)
         kg = web_res.get_rdf()
-        results = validate_any_from_KG(kg)
+        results = evaluate_bioschemas_profiles(kg)
         return results
 
 
@@ -1569,7 +1569,7 @@ def check_kg_shape_old(data):
 
 
 def evaluate_bioschemas_profiles(kg):
-    # A instancier au lancement du serveur et actualuser lors d'updates
+    # A instancier au lancement du serveur et actualiser lors d'updates
     profiles = ProfileFactory.create_all_profiles_from_specifications()
 
     list_all_ct = ProfileFactory.list_all_conformsto()
@@ -1583,9 +1583,6 @@ def evaluate_bioschemas_profiles(kg):
         ct = ct_sub_kg["profile"]
         t = ct_sub_kg["type"]
         sub_kg = ct_sub_kg["sub_kg"]
-        print("############################")
-        print(s)
-        print(ct)
 
         if ct in list_all_ct:
 
