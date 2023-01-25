@@ -131,7 +131,7 @@ if app.config["ENV"] == "production":
     dev_logger.propagate = False
 
     # Update bioschemas profile when starting server in production
-    update_profiles()
+    # update_profiles()
 else:
     app.config.from_object("config.DevelopmentConfig")
 
@@ -633,7 +633,8 @@ class InspectOntologies(Resource):
 
         return check_kg(kg, True)
 
-
+ 
+# TODO update method
 @fc_inspect_namespace.route("/bioschemas_validation")
 class InspectBioschemas(Resource):
     @fc_inspect_namespace.expect(reqparse)
@@ -1575,6 +1576,8 @@ def evaluate_bioschemas_profiles(kg):
         s = ct_sub_kg["subject"]
         ct = ct_sub_kg["object"]
         sub_kg = ct_sub_kg["sub_kg"]
+        print("############################")
+        print(s)
         print(ct)
 
         if ct in list_all_ct:
