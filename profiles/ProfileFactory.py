@@ -479,7 +479,7 @@ def find_conformsto_subkg(kg):
         type = r["type"]
         sub_kg = ConjunctiveGraph()
 
-        for s, p, o in kg.triples((class_id, None, None)):
+        for s, p, o in kg.triples((identifier, None, None)):
             sub_kg.add((s, p, o))
         # print(sub_kg.serialize(format="json-ld"))
 
