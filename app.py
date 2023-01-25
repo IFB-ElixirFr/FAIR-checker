@@ -617,7 +617,7 @@ class InspectBioschemas(Resource):
         """Validate an RDF JSON-LD graph against Bioschemas profiles"""
         args = reqparse.parse_args()
         url = args["url"]
-        
+
         web_res = WebResource(url)
         kg = web_res.get_rdf()
         results = validate_any_from_KG(kg)
