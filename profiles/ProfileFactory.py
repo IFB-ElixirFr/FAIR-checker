@@ -12,6 +12,7 @@ from tqdm import tqdm
 
 PROFILES = ProfileFactory.create_all_profiles_from_specifications()
 
+
 def gen_shacl_alternatives(bs_profiles):
     res = {}
     for p in bs_profiles.keys():
@@ -313,15 +314,12 @@ def get_profiles_specs_from_github():
                         elif drafts:
                             latest_url_dl = get_latest_profile(drafts)
 
-
                         # To get only latest profile
 
                         if latest_url_dl:
                             response = requests.get(latest_url_dl, headers=headers)
                             jsonld = response.json()
-                            profile_dict = parse_profile(
-                                jsonld, latest_url_dl
-                            )
+                            profile_dict = parse_profile(jsonld, latest_url_dl)
                             profiles_dict["sc:" + profile_dict["name"]] = profile_dict
 
                         # To get all profiles and not only latest
@@ -403,11 +401,7 @@ def parse_profile(jsonld, url_dl):
         # if element["@type"] == "rdf:Property":
         #     additional_properties.append(element["@id"].replace("bioschemas", "bsc"))
 
-    importance_levels = [
-        "required",
-        "recommended",
-        "optional"
-    ]
+    importance_levels = ["required", "recommended", "optional"]
 
     for importance in importance_levels:
         if importance in jsonld["@graph"][0]["$validation"]:
@@ -498,7 +492,7 @@ def find_conformsto_subkg(kg):
     return sub_kg_list
 
 
-def evaluate_profile_from_conformsto():
+def evaluate_profile_from_conformsto(kg):
     # A instancier au lancement du serveur et actualiser lors d'updates
 
     list_all_ct = ProfileFactory.list_all_conformsto()
@@ -527,7 +521,8 @@ def evaluate_profile_from_conformsto():
             }
     return results
 
-def evaluate_profile_from_type():
+
+def evaluate_profile_from_type(kg):
     # A instancier au lancement du serveur et actualiser lors d'updates
 
     results = {}
@@ -554,6 +549,7 @@ def evaluate_profile_from_type():
                         "errors": errors,
                     }
     return results
+
 
 # from enum import Enum, unique
 
