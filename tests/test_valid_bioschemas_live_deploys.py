@@ -1,19 +1,14 @@
 import unittest
-
-from rdflib import ConjunctiveGraph, URIRef
-
-from profiles.bioschemas_shape_gen import gen_SHACL_from_profile
-from profiles.bioschemas_shape_gen import gen_SHACL_from_target_class
-from profiles.bioschemas_shape_gen import validate_shape_from_RDF
-from profiles.bioschemas_shape_gen import validate_any_from_RDF
-from profiles.bioschemas_shape_gen import validate_any_from_KG
-from profiles.bioschemas_shape_gen import validate_any_from_microdata
-from profiles.bioschemas_shape_gen import validate_shape_from_microdata
-
-from metrics.WebResource import WebResource
-
 import requests
 import random
+import cProfile
+from pstats import Stats, SortKey
+
+from profiles.ProfileFactory import (
+    evaluate_profile_from_type,
+    evaluate_profile_from_conformsto,
+)
+from metrics.WebResource import WebResource
 
 
 class BioschemasLiveDeploysTestCase(unittest.TestCase):
@@ -24,9 +19,26 @@ class BioschemasLiveDeploysTestCase(unittest.TestCase):
         browser.quit()
 
     def test_workflow_validation(self):
-        res = validate_any_from_microdata(
-            input_url="https://workflowhub.eu/workflows/263"
-        )
+        input_url = "https://workflowhub.eu/workflows/263"
+        print(input_url)
+        web_resource = WebResource(input_url)
+        print(f"fetching {input_url}")
+        kg = web_resource.get_rdf()
+        print(f"got {len(kg)} triples")
+        res = evaluate_profile_from_type(kg)
+        print(f"bioschemas validation results : ")
+        print()
+        print(res)
+        print()
+        # self.assertEqual(
+        #     len(res[0]["https://workflowhub.eu/workflows/263?version=1"]["errors"]), 4
+        # )
+
+    def test_workflow_conformsto(self):
+        input_url = "https://workflowhub.eu/workflows/263"
+        web_resource = WebResource(input_url)
+        kg = web_resource.get_rdf()
+        res = evaluate_profile_from_conformsto(kg)
         self.assertEqual(
             len(res[0]["https://workflowhub.eu/workflows/263?version=1"]["errors"]), 4
         )
@@ -60,4 +72,15 @@ class BioschemasLiveDeploysTestCase(unittest.TestCase):
 
 
 if __name__ == "__main__":
-    unittest.main()
+    do_profiling = True
+    if do_profiling:
+        with cProfile.Profile() as pr:
+            unittest.main()
+        with open("profiling_stats.txt", "w") as stream:
+            stats = Stats(pr, stream=stream)
+            stats.strip_dirs()
+            stats.sort_stats("time")
+            stats.dump_stats(".prof_stats")
+            stats.print_stats()
+    else:
+        unittest.main()
