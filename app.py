@@ -2,7 +2,6 @@ import copy
 from asyncio.log import logger
 from unittest import result
 import eventlet
-from numpy import broadcast
 
 # from https://github.com/eventlet/eventlet/issues/670
 # eventlet.monkey_patch(select=False)
@@ -20,7 +19,7 @@ from flask import (
     Blueprint,
     url_for,
 )
-from flask_restx import Resource, Api, fields
+from flask_restx import Resource, Api, fields, reqparse
 from flask_swagger_ui import get_swaggerui_blueprint
 from flask_cors import CORS
 from flask_socketio import SocketIO
@@ -37,7 +36,6 @@ import uuid
 import argparse
 import functools
 from argparse import RawTextHelpFormatter
-from datetime import datetime
 from datetime import timedelta
 import json
 from json import JSONDecodeError
@@ -59,6 +57,7 @@ from metrics.Evaluation import Result
 from profiles.bioschemas_shape_gen import validate_any_from_KG
 from profiles.bioschemas_shape_gen import validate_any_from_microdata
 from metrics.util import SOURCE
+from metrics.F1B_Impl import F1B_Impl
 from urllib.parse import urlparse
 
 
@@ -156,12 +155,13 @@ prod_logger.debug("DEBUG prod")
 # blueprint = Blueprint('api', __name__, url_prefix='/api')
 
 api = Api(
-    app,
+    app=app,
     title="FAIR-Checker API",
     doc="/swagger",
-    base_path="/api",
-    # base_url='/'
+    base_path="https://fair-checker.france-bioinformatique.fr",
+    # base_url=app.config["SERVER_IP"],
     description=app.config["SERVER_IP"],
+    # url_scheme="https://fair-checker.france-bioinformatique.fr/",
 )
 
 # app.register_blueprint(blueprint)
@@ -234,6 +234,10 @@ FILE_UUID = ""
 
 DICT_TEMP_RES = {}
 
+STATUS_BIOPORTAL = requests.head("https://bioportal.bioontology.org/").status_code
+STATUS_OLS = requests.head("https://www.ebi.ac.uk/ols/index").status_code
+STATUS_LOV = requests.head("https://lov.linkeddata.es/dataset/lov/sparql").status_code
+
 DICT_BANNER_INFO = {"banner_message_info": {}}
 
 # Update banner info with the message in .env
@@ -258,17 +262,8 @@ def display_info():
     return DICT_BANNER_INFO
 
 
-def validate_status(url):
-    return requests.head(url).status_code == 200
-
-
-@app.context_processor
-def display_vocab_status():
-    global DICT_BANNER_INFO
-
-    # status_bioportal = validate_status("https://bioportal.bioontology.org/")
-    # status_ols = validate_status("https://www.ebi.ac.uk/ols/index")
-    # status_lov = validate_status("https://lov.linkeddata.es/dataset/lov/sparql")
+def update_vocab_status():
+    global DICT_BANNER_INFO, STATUS_BIOPORTAL, STATUS_OLS, STATUS_LOV
 
     STATUS_BIOPORTAL = requests.head("https://bioportal.bioontology.org/").status_code
     STATUS_OLS = requests.head("https://www.ebi.ac.uk/ols/index").status_code
@@ -296,12 +291,22 @@ def display_vocab_status():
     else:
         DICT_BANNER_INFO["banner_message_info"].pop("status_lov", None)
 
+    prod_logger.info("Updating banner status")
+
+
+@app.context_processor
+def display_vocab_status():
+    global DICT_BANNER_INFO
+
     return DICT_BANNER_INFO
 
 
 scheduler = BackgroundScheduler()
-scheduler.add_job(func=display_vocab_status, trigger="interval", seconds=600)
+scheduler.add_job(func=update_vocab_status, trigger="interval", seconds=600)
 # scheduler.add_job(func=display_info, trigger="interval", seconds=600)
+scheduler.add_job(
+    func=F1B_Impl.update_identifiers_org_dump, trigger="interval", seconds=604800
+)
 scheduler.start()
 
 # Shut down the scheduler when exiting the app
@@ -401,10 +406,27 @@ def statistics():
 #         return {"data": num ** 2}
 
 
+reqparse = reqparse.RequestParser()
+reqparse.add_argument(
+    "url",
+    type=str,
+    required=True,
+    location="args",
+    help="The URL/DOI of the resource to be evaluated",
+)
+
+
 def generate_check_api(metric):
-    @fc_check_namespace.route("/metric_" + metric.get_principle_tag() + "/<path:url>")
+    @fc_check_namespace.route("/metric_" + metric.get_principle_tag())
     class MetricEval(Resource):
-        def get(self, url):
+        @fc_check_namespace.doc(
+            "Evaluate " + metric.get_principle_tag() + " FAIR metric"
+        )
+        @fc_check_namespace.expect(reqparse)
+        def get(self):
+
+            args = reqparse.parse_args()
+            url = args["url"]
 
             web_res = WebResource(url)
             metric.set_web_resource(web_res)
@@ -429,30 +451,30 @@ for key in METRICS_CUSTOM.keys():
     generate_check_api(METRICS_CUSTOM[key])
 
 
-@fc_check_namespace.route("/metrics_all/<path:url>")
+@fc_check_namespace.route("/metrics_all")
+# @fc_check_namespace.doc(url_fields)
 class MetricEvalAll(Resource):
-    def get(self, url):
+    # reqparse = None
+    # def __init__(self, args):
+    #     self.reqparse = reqparse.RequestParser()
+    #     self.reqparse.add_argument('url', type = str, required = True, location='args', help="Name cannot be blank!")
+    #     # self.reqparse.add_argument('test', type = str, required = True, location='args')
+    #     # super(MetricEvalAll, self).__init__()
+
+    @fc_check_namespace.doc("Evaluates all FAIR metrics at once")
+    @fc_check_namespace.expect(reqparse)
+    def get(self):
         """All FAIR metrics"""
+
+        args = reqparse.parse_args()
+        url = args["url"]
+
         web_res = WebResource(url)
 
-        metrics_collection = []
-        metrics_collection.append(FAIRMetricsFactory.get_F1A(web_res))
-        metrics_collection.append(FAIRMetricsFactory.get_F1B(web_res))
-        metrics_collection.append(FAIRMetricsFactory.get_F2A(web_res))
-        metrics_collection.append(FAIRMetricsFactory.get_F2B(web_res))
-        metrics_collection.append(FAIRMetricsFactory.get_I1(web_res))
-        metrics_collection.append(FAIRMetricsFactory.get_I1A(web_res))
-        metrics_collection.append(FAIRMetricsFactory.get_I1B(web_res))
-        metrics_collection.append(FAIRMetricsFactory.get_I2(web_res))
-        metrics_collection.append(FAIRMetricsFactory.get_I2A(web_res))
-        metrics_collection.append(FAIRMetricsFactory.get_I2B(web_res))
-        metrics_collection.append(FAIRMetricsFactory.get_I3(web_res))
-        metrics_collection.append(FAIRMetricsFactory.get_R11(web_res))
-        metrics_collection.append(FAIRMetricsFactory.get_R12(web_res))
-        metrics_collection.append(FAIRMetricsFactory.get_R13(web_res))
-
         results = []
-        for metric in metrics_collection:
+        for key in METRICS_CUSTOM.keys():
+            metric = METRICS_CUSTOM[key]
+            metric.set_web_resource(web_res)
             result = metric.evaluate()
             data = {
                 "metric": result.get_metrics(),
@@ -468,11 +490,19 @@ class MetricEvalAll(Resource):
         return results
 
 
-@fc_inspect_namespace.route("/get_rdf_metadata/<path:url>")
+# fc_check_namespace.add_resource(MetricEvalAll, "/metrics_all")
+
+
+@fc_inspect_namespace.route("/get_rdf_metadata")
 class RetrieveMetadata(Resource):
     @fc_inspect_namespace.produces(["application/ld+json"])
-    def get(self, url):
+    @fc_inspect_namespace.expect(reqparse)
+    def get(self):
         """Get RDF metadata in JSON-LD from a web resource"""
+
+        args = reqparse.parse_args()
+        url = args["url"]
+
         web_res = WebResource(url)
         data_str = web_res.get_rdf().serialize(format="json-ld")
         data_json = json.loads(data_str)
@@ -502,13 +532,16 @@ graph_payload = fc_inspect_namespace.model(
 
 
 def generate_ask_api(describe):
-    @fc_inspect_namespace.route(
-        "/" + describe.__name__ + "/<path:url>", methods=["GET"]
-    )
+    @fc_inspect_namespace.route("/" + describe.__name__, methods=["GET"])
     @fc_inspect_namespace.route("/" + describe.__name__ + "/", methods=["POST"])
     # @api.doc(params={"url": "An URL"})
     class Ask(Resource):
-        def get(self, url):
+        @fc_inspect_namespace.expect(reqparse)
+        def get(self):
+
+            args = reqparse.parse_args()
+            url = args["url"]
+
             web_res = WebResource(url)
             kg = web_res.get_rdf()
             old_kg = copy.deepcopy(kg)
@@ -561,10 +594,16 @@ for describe in describe_list:
     generate_ask_api(describe)
 
 
-@fc_inspect_namespace.route("/inspect_ontologies/<path:url>")
+@fc_inspect_namespace.route("/inspect_ontologies")
 class InspectOntologies(Resource):
-    def get(self, url):
+    # @fc_inspect_namespace.doc('Evaluates all FAIR metrics at once')
+    @fc_inspect_namespace.expect(reqparse)
+    def get(self):
         """Inspect if RDF properties and classes are found in ontology registries (OLS, LOV, BioPortal)"""
+
+        args = reqparse.parse_args()
+        url = args["url"]
+
         web_res = WebResource(url)
         kg = web_res.get_rdf()
 

@@ -62,3 +62,7 @@ class CacheTestCase(unittest.TestCase):
         print(f'{res["property"]} exists ? {res["exists"]}')
         res = long_ask("prop_0")
         print(f'{res["property"]} exists ? {res["exists"]}')
+
+        self.assertEqual(10, len(cache))
+        cache.pop(("prop_8",))
+        self.assertEqual(9, len(cache))
