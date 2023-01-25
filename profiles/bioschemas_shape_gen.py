@@ -309,6 +309,7 @@ bs_profiles = {
     },
 }
 
+
 def load_profiles():
     if not path.exists("profiles/bs_profiles.json"):
         print("Updating from github")
@@ -323,7 +324,8 @@ def load_profiles():
             profiles = json.load(openfile)
     return profiles
 
-# bs_profiles = gen_shacl_alternatives(bs_profiles)
+
+bs_profiles = gen_shacl_alternatives(bs_profiles)
 
 
 # bs_profiles = generate_profiles_from_files()
@@ -492,10 +494,13 @@ def get_latest_profile(profiles_dict):
 
 
 def request_profile_versions():
-    response = requests.get("https://raw.githubusercontent.com/BioSchemas/bioschemas.github.io/master/_data/profile_versions.yaml")
+    response = requests.get(
+        "https://raw.githubusercontent.com/BioSchemas/bioschemas.github.io/master/_data/profile_versions.yaml"
+    )
     content = response.text
     dict_content = yaml.safe_load(content)
     return dict_content
+
 
 def parse_profile(jsonld, profile_name, url_dl):
     profile_dict = {
@@ -520,7 +525,6 @@ def parse_profile(jsonld, profile_name, url_dl):
             if "schema:schemaVersion" in element.keys():
                 profile_dict["ref_profile"] = element["schema:schemaVersion"][0]
             else:
-                
                 if profiles_versions[name]["latest_release"]:
                     latest_version = profiles_versions[name]["latest_release"]
                 else:
@@ -531,17 +535,15 @@ def parse_profile(jsonld, profile_name, url_dl):
                 # bs_profile_url_path = bs_profile_url_base + url_dl.split("/")[-1].replace("_v", "/").strip(".json")
                 profile_dict["ref_profile"] = bs_profile_url_path
                 print(bs_profile_url_path)
-                r = requests.head(bs_profile_url_path, verify=False, timeout=5) # it is faster to only request the header
+                r = requests.head(
+                    bs_profile_url_path, verify=False, timeout=5
+                )  # it is faster to only request the header
                 print(r.status_code)
             break
         # if element["@type"] == "rdf:Property":
         #     additional_properties.append(element["@id"].replace("bioschemas", "bsc"))
 
-    importance_levels = [
-        "required",
-        "recommended",
-        "optional"
-    ]
+    importance_levels = ["required", "recommended", "optional"]
 
     for importance in importance_levels:
         if importance in jsonld["@graph"][0]["$validation"]:
@@ -550,8 +552,13 @@ def parse_profile(jsonld, profile_name, url_dl):
                 added = False
                 # Identifying non Schema properties
                 for element in jsonld["@graph"]:
-                    if element["@type"] == "rdf:Property" and property == element["rdfs:label"]:
-                        profile_dict[importance].append(element["@id"].replace("bioschemas", "bsc"))
+                    if (
+                        element["@type"] == "rdf:Property"
+                        and property == element["rdfs:label"]
+                    ):
+                        profile_dict[importance].append(
+                            element["@id"].replace("bioschemas", "bsc")
+                        )
                         added = True
                 if added:
                     continue
@@ -563,6 +570,7 @@ def parse_profile(jsonld, profile_name, url_dl):
 
 
 # bs_profiles = load_profiles()
+
 
 def validate_any_from_KG(kg):
     kg.namespace_manager.bind("sc", URIRef("http://schema.org/"))
@@ -673,6 +681,9 @@ def validate_any_from_microdata(input_url):
             conforms, warnings, errors = validate_shape(
                 knowledge_graph=sub_kg, shacl_shape=shacl_shape
             )
+
+            # if no errors, then we answer "valid"
+            conforms = len(errors) == 0
             results[str(s)] = {
                 "type": str(o),
                 "ref_profile": ref_profile,
