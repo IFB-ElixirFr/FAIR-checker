@@ -91,15 +91,15 @@ class GenSHACLTestCase(unittest.TestCase):
             input_url="https://bio.tools/api/jaspar?format=jsonld", rdf_syntax="json-ld"
         )
         self.assertGreater(len(res), 0)
-        self.assertEquals(len(res["https://bio.tools/jaspar"]["warnings"]), 5)
-        self.assertEquals(len(res["https://bio.tools/jaspar"]["errors"]), 3)
+        self.assertEqual(len(res["https://bio.tools/jaspar"]["warnings"]), 5)
+        self.assertEqual(len(res["https://bio.tools/jaspar"]["errors"]), 3)
 
     def test_pangaea_validation(self):
         res = validate_any_from_microdata(
             input_url="https://doi.pangaea.de/10.1594/PANGAEA.914331"
         )
         self.assertGreater(len(res[0]), 0)
-        self.assertEquals(
+        self.assertEqual(
             len(res[0]["https://doi.org/10.1594/PANGAEA.914331"]["errors"]), 0
         )
 
@@ -109,10 +109,10 @@ class GenSHACLTestCase(unittest.TestCase):
         )
         self.assertGreater(len(res[0]), 0)
         self.assertFalse(res[0]["https://doi.org/10.7892/boris.108387"]["conforms"])
-        self.assertEquals(
+        self.assertEqual(
             len(res[0]["https://doi.org/10.7892/boris.108387"]["errors"]), 2
         )
-        self.assertEquals(
+        self.assertEqual(
             len(res[0]["https://doi.org/10.7892/boris.108387"]["warnings"]), 11
         )
 
@@ -126,8 +126,8 @@ class GenSHACLTestCase(unittest.TestCase):
         res = validate_any_from_KG(kg=kg)
         self.assertGreater(len(res), 0)
         self.assertFalse(res["https://doi.org/10.7892/boris.108387"]["conforms"])
-        self.assertEquals(len(res["https://doi.org/10.7892/boris.108387"]["errors"]), 2)
-        self.assertEquals(
+        self.assertEqual(len(res["https://doi.org/10.7892/boris.108387"]["errors"]), 2)
+        self.assertEqual(
             len(res["https://doi.org/10.7892/boris.108387"]["warnings"]), 11
         )
 
