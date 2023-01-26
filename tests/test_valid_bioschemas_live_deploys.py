@@ -3,9 +3,16 @@ import requests
 import random
 import json
 
+from metrics.FairCheckerExceptions import (
+    BioschemasProfileNotFoundException,
+    BioschemasProfileException,
+)
+
 from profiles.ProfileFactory import (
     evaluate_profile_from_type,
     evaluate_profile_with_conformsto,
+    ProfileFactory,
+    PROFILES,
 )
 from metrics.WebResource import WebResource
 
@@ -117,7 +124,7 @@ class BioschemasLiveDeploysTestCase(unittest.TestCase):
         #     len(res["https://fair-checker.france-bioinformatique.fr"]["errors"]), 0
         # )
 
-    def test_shape_generation(self):
+    def test_profile_url_generation(self):
         profiles = gen_urls_for_live_deploys_profiles()
         wrong_urls = []
         correct_urls = []
@@ -135,6 +142,26 @@ class BioschemasLiveDeploysTestCase(unittest.TestCase):
         print(correct_urls)
         print("Non resolvable profile URLs:")
         print(wrong_urls)
+
+    def test_shape_generation(self):
+        print()
+        pf = ProfileFactory()
+        for p in PROFILE_URLS:
+            try:
+                print(p)
+                ct_profile = pf.create_profile_from_ref_profile(p)
+                if ct_profile is None:
+                    raise BioschemasProfileNotFoundException(
+                        f"Can not find profile for URL {p}"
+                    )
+                shacl_shape = ct_profile.get_shacl_shape()
+                if shacl_shape is None:
+                    raise BioschemasProfileException(
+                        f"Can not generate SHACL shape for URL {p}"
+                    )
+                # print(shacl_shape)
+            except BioschemasProfileException as error:
+                print(error)
 
     def test_all(self):
         to_be_skipped = [
