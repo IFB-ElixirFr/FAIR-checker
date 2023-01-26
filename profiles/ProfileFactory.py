@@ -54,10 +54,11 @@ def get_profiles_specs_from_github():
                                     releases[file["download_url"]] = float(m.group(1))
                                     # releases[m.group(1)] = res["download_url"]
                                 # elif "DRAFT" in file["download_url"]:
-                                if "DRAFT" in file["download_url"]:
+                                elif "DRAFT" in file["download_url"]:
                                     drafts[file["download_url"]] = float(m.group(1))
 
                         latest_url_dl = ""
+
                         # if releases:
                         #     latest_url_dl = get_latest_profile(releases)
                         #     response = requests.get(latest_url_dl, headers=headers)
@@ -106,6 +107,7 @@ def request_profile_versions():
 def parse_profile(jsonld, url_dl):
     profile_dict = {
         "name": "",
+        "target_classes": [],
         "file": url_dl,
         "required": ["dct:conformsTo"],
         "recommended": [],
@@ -123,6 +125,7 @@ def parse_profile(jsonld, url_dl):
             name = element["rdfs:label"]
             profile_dict["id"] = element["@id"].replace("bioschemas", "bsc")
             profile_dict["name"] = name
+            profile_dict["target_classes"].append(element["rdfs:subClassOf"]["@id"])
             if "schema:schemaVersion" in element.keys():
                 profile_dict["ref_profile"] = element["schema:schemaVersion"][0]
             else:
@@ -171,13 +174,13 @@ def parse_profile(jsonld, url_dl):
 
 def load_profiles():
     if not path.exists("profiles/bs_profiles.json"):
-        # dev_logger.info("Updating Bioschemas profiles from github")
+        print("Updating Bioschemas profiles from github")
         profiles = get_profiles_specs_from_github()
         with open("profiles/bs_profiles.json", "w") as outfile:
             json.dump(profiles, outfile)
-        # dev_logger.info("Profiles updated")
+        print("Profiles updated")
     else:
-        # dev_logger.info("Reading Bioschemas profiles from local file")
+        print("Reading Bioschemas profiles from local file")
         # Opening JSON file
         with open("profiles/bs_profiles.json", "r") as openfile:
             # Reading from json file
@@ -241,6 +244,7 @@ def evaluate_profile_with_conformsto(kg):
 
     # Evaluate only profile with conformsTo
     ct_sub_kg_list = find_conformsto_subkg(kg)
+
     for ct_sub_kg in ct_sub_kg_list:
         s = ct_sub_kg["subject"]
         ct = ct_sub_kg["profile"]
@@ -248,20 +252,23 @@ def evaluate_profile_with_conformsto(kg):
         sub_kg = ct_sub_kg["sub_kg"]
 
         if ct in list_all_ct:
-
             ct_profile = ProfileFactory.create_profile_from_ref_profile(ct)
-            shacl_shape = ct_profile.get_shacl_shape()
-            conforms, warnings, errors = ct_profile.validate_shape(sub_kg, shacl_shape)
-            # we override the final result to exclude warnings
-            conforms = len(errors) == 0
 
-            results[str(s)] = {
-                "type": str(t),
-                "ref_profile": ct_profile.get_ref_profile(),
-                "conforms": conforms,
-                "warnings": warnings,
-                "errors": errors,
-            }
+            if ct_profile is not None:
+                shacl_shape = ct_profile.get_shacl_shape()
+                conforms, warnings, errors = ct_profile.validate_shape(
+                    sub_kg, shacl_shape
+                )
+                # we override the final result to exclude warnings
+                conforms = len(errors) == 0
+
+                results[str(s)] = {
+                    "type": str(t),
+                    "ref_profile": ct_profile.get_ref_profile(),
+                    "conforms": conforms,
+                    "warnings": warnings,
+                    "errors": errors,
+                }
     return results
 
 
@@ -321,7 +328,7 @@ class ProfileFactory:
                 name = bs_profiles[profile_key]["name"]
                 profile = Profile(
                     shape_name=name,
-                    target_classes=["sc:" + bs_profiles[profile_key]["name"]],
+                    target_classes=bs_profiles[profile_key]["target_classes"],
                     min_props=bs_profiles[profile_key]["min_props"],
                     rec_props=bs_profiles[profile_key]["rec_props"],
                     ref_profile=bs_profiles[profile_key]["ref_profile"],
@@ -336,7 +343,7 @@ class ProfileFactory:
             name = bs_profiles[profile_key]["name"]
             profiles[name] = Profile(
                 shape_name=name,
-                target_classes=["sc:" + bs_profiles[profile_key]["name"]],
+                target_classes=bs_profiles[profile_key]["target_classes"],
                 min_props=bs_profiles[profile_key]["min_props"],
                 rec_props=bs_profiles[profile_key]["rec_props"],
                 ref_profile=bs_profiles[profile_key]["ref_profile"],

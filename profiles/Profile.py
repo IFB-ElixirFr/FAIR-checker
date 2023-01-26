@@ -57,6 +57,7 @@ class Profile:
             @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
             @prefix edam: <http://edamontology.org/> .
             @prefix biotools: <https://bio.tools/ontology/> .
+            @prefix bioschemastypes: <https://discovery.biothings.io/view/bioschemastypes/> .
 
             ns:{{shape_name}}
                 a sh:NodeShape ;
