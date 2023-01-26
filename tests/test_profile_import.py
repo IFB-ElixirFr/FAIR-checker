@@ -8,7 +8,7 @@ from rdflib import ConjunctiveGraph
 from profiles.bioschemas_shape_gen import get_profiles_specs_from_github
 from profiles.bioschemas_shape_gen import gen_SHACL_from_profile
 # from profiles.Profile 
-from profiles.ProfileFactory import load_profiles, evaluate_profile_from_conformsto, evaluate_profile_from_type
+from profiles.ProfileFactory import load_profiles, evaluate_profile_with_conformsto, evaluate_profile_from_type
 
 from os import environ, path
 from dotenv import load_dotenv
@@ -90,12 +90,42 @@ class ImportBSProfileTestCase(unittest.TestCase):
                 profiles[profile_key]["rec_props"],
             )
 
-    def test_conformsto_eval(self):
+    def test_wfh_conformsto_eval(self):
         url = "https://workflowhub.eu/workflows/18"
         kg = WebResource(url).get_rdf()
-        print(len(kg))
-        result = evaluate_profile_from_conformsto(kg)
-        print(result)
+
+        self.assertEqual(len(kg), 49)
+        result = evaluate_profile_with_conformsto(kg)
+
+        self.assertEqual(len(result), 1)
+
+    def test_wfh_type_eval(self):
+        url = "https://workflowhub.eu/workflows/18"
+        kg = WebResource(url).get_rdf()
+
+        self.assertEqual(len(kg), 49)
+        result = evaluate_profile_from_type(kg)
+
+        self.assertEqual(len(result), 11)
+
+    def test_fairchecker_conformsto_eval(self):
+        url = "https://fair-checker.france-bioinformatique.fr/"
+        kg = WebResource(url).get_rdf()
+
+        self.assertEqual(len(kg), 35)
+        result = evaluate_profile_with_conformsto(kg)
+
+        self.assertEqual(len(result), 0)
+
+    def test_fairchecker_type_eval(self):
+        url = "https://fair-checker.france-bioinformatique.fr/"
+        kg = WebResource(url).get_rdf()
+
+        self.assertEqual(len(kg), 35)
+
+        result = evaluate_profile_from_type(kg)
+
+        self.assertEqual(len(result), 0)
 
 
 
@@ -104,6 +134,10 @@ class ImportBSProfileTestCase(unittest.TestCase):
         content = response.text 
         dict_content = yaml.safe_load(content)
         print(dict_content)
+
+
+
+
 
     # @unittest.skip("Need github TOKEN key to work")
     def test_import_bs_specs(self):

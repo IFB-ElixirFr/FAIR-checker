@@ -67,7 +67,7 @@ from profiles.ProfileFactory import (
     find_conformsto_subkg,
     load_profiles,
     update_profiles,
-    evaluate_profile_from_conformsto,
+    evaluate_profile_with_conformsto,
     evaluate_profile_from_type
 )
 
@@ -1578,7 +1578,7 @@ def evaluate_bioschemas_profiles(kg):
     results = {}
 
     # Evaluate only profile with conformsTo
-    results_conformsto = evaluate_profile_from_conformsto(kg)
+    results_conformsto = evaluate_profile_with_conformsto(kg)
 
     # Try to match and evaluate all found corresponding profiles
     results_type = evaluate_profile_from_type(kg)

@@ -149,13 +149,15 @@ class Profile:
 
 
     def match_sub_kgs_from_profile(self, kg):
-        kg.namespace_manager.bind("sc", URIRef("http://schema.org/"))
+        kg.namespace_manager.bind("sc", URIRef("https://schema.org/"))
         kg.namespace_manager.bind("bsc", URIRef("https://bioschemas.org/"))
         kg.namespace_manager.bind("dct", URIRef("http://purl.org/dc/terms/"))
 
         sub_kg_list = []
 
         for s, p, o in kg.triples((None, RDF.type, None)):
+            # print(o)
+            # print(o.n3(kg.namespace_manager))
             if o.n3(kg.namespace_manager) in self.target_classes:
                 print(f"Trying to validate {s} as a(n) {o} resource")
                 sub_kg = ConjunctiveGraph()
@@ -166,7 +168,7 @@ class Profile:
                     "subject": s,
                     "object": o
                 })
-
+        print(sub_kg_list)
         return sub_kg_list
 
 
