@@ -81,7 +81,7 @@ class BioschemasLiveDeploysTestCase(unittest.TestCase):
         input_url = "https://workflowhub.eu/workflows/263"
         web_resource = WebResource(input_url)
         kg = web_resource.get_rdf()
-        res = evaluate_profile_from_conformsto(kg)
+        res = evaluate_profile_with_conformsto(kg)
         print(json.dumps(res, indent=4))
 
         self.assertEqual(
@@ -152,7 +152,7 @@ class BioschemasLiveDeploysTestCase(unittest.TestCase):
                 ct_profile = pf.create_profile_from_ref_profile(p)
                 if ct_profile is None:
                     raise BioschemasProfileNotFoundException(
-                        f"Can not find profile for URL {p}"
+                        f"Can not find JSON profile for URL {p} in "
                     )
                 shacl_shape = ct_profile.get_shacl_shape()
                 if shacl_shape is None:

@@ -7,6 +7,7 @@ import json
 import os
 import yaml
 from tqdm import tqdm
+
 # from app import dev_logger
 
 
@@ -57,23 +58,16 @@ def get_profiles_specs_from_github():
                                     drafts[file["download_url"]] = float(m.group(1))
 
                         latest_url_dl = ""
-                        if releases:
-                            latest_url_dl = get_latest_profile(releases)
-                            response = requests.get(latest_url_dl, headers=headers)
-                            jsonld = response.json()
-                            profile_dict = parse_profile(jsonld, latest_url_dl)
-                            profiles_dict[profile_dict["ref_profile"]] = profile_dict
 
-                        elif drafts:
-                            latest_url_dl = get_latest_profile(drafts)
-                            response = requests.get(latest_url_dl, headers=headers)
-                            jsonld = response.json()
-                            profile_dict = parse_profile(jsonld, latest_url_dl)
-                            profiles_dict[profile_dict["ref_profile"]] = profile_dict
+                        # if releases:
+                        #     latest_url_dl = get_latest_profile(releases)
+                        #     response = requests.get(latest_url_dl, headers=headers)
+                        #     jsonld = response.json()
+                        #     profile_dict = parse_profile(jsonld, latest_url_dl)
+                        #     profiles_dict[profile_dict["ref_profile"]] = profile_dict
 
-                        # To get only latest profile
-
-                        # if latest_url_dl:
+                        # if drafts:
+                        #     latest_url_dl = get_latest_profile(drafts)
                         #     response = requests.get(latest_url_dl, headers=headers)
                         #     jsonld = response.json()
                         #     profile_dict = parse_profile(jsonld, latest_url_dl)
@@ -81,22 +75,12 @@ def get_profiles_specs_from_github():
 
                         # To get all profiles and not only latest
 
-                        # for url in releases.keys():
-                        #     response = requests.get(url, headers=headers)
-                        #     jsonld = response.json()
-                        #     profile_dict = parse_profile(
-                        #         jsonld, latest_url_dl
-                        #     )
-                        #     profile_key = url.split("/")[-1]
-                        #     profiles_dict["sc:" + profile_key] = profile_dict
-                        # for url in drafts.keys():
-                        #     response = requests.get(url, headers=headers)
-                        #     jsonld = response.json()
-                        #     profile_dict = parse_profile(
-                        #         jsonld, latest_url_dl
-                        #     )
-                        #     profile_key = url.split("/")[-1]
-                        #     profiles_dict["sc:" + profile_key] = profile_dict
+                        all_urls = list(releases.keys()) + list(drafts.keys())
+                        for url in all_urls:
+                            response = requests.get(url, headers=headers)
+                            jsonld = response.json()
+                            profile_dict = parse_profile(jsonld, latest_url_dl)
+                            profiles_dict[profile_dict["ref_profile"]] = profile_dict
         return profiles_dict
     else:
         return False
@@ -272,7 +256,9 @@ def evaluate_profile_with_conformsto(kg):
 
             if ct_profile is not None:
                 shacl_shape = ct_profile.get_shacl_shape()
-                conforms, warnings, errors = ct_profile.validate_shape(sub_kg, shacl_shape)
+                conforms, warnings, errors = ct_profile.validate_shape(
+                    sub_kg, shacl_shape
+                )
                 # we override the final result to exclude warnings
                 conforms = len(errors) == 0
 
