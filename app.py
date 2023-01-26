@@ -1560,7 +1560,7 @@ def buildJSONLD():
     jld = {
         "@context": [
             {"sc": "https://schema.org/"},
-            {"dct": "https://purl.org/dc/terms/"},
+            {"dct": "http://purl.org/dc/terms/"},
             {"prov": "http://www.w3.org/ns/prov#"},
         ],
         "@type": ["sc:WebApplication", "prov:Entity"],
