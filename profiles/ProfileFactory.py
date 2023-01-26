@@ -7,6 +7,7 @@ import json
 import os
 import yaml
 from tqdm import tqdm
+# from app import dev_logger
 
 
 def get_profiles_specs_from_github():
@@ -58,17 +59,25 @@ def get_profiles_specs_from_github():
                         latest_url_dl = ""
                         if releases:
                             latest_url_dl = get_latest_profile(releases)
-
-                        elif drafts:
-                            latest_url_dl = get_latest_profile(drafts)
-
-                        # To get only latest profile
-
-                        if latest_url_dl:
                             response = requests.get(latest_url_dl, headers=headers)
                             jsonld = response.json()
                             profile_dict = parse_profile(jsonld, latest_url_dl)
-                            profiles_dict["sc:" + profile_dict["name"]] = profile_dict
+                            profiles_dict[profile_dict["ref_profile"]] = profile_dict
+
+                        if drafts:
+                            latest_url_dl = get_latest_profile(drafts)
+                            response = requests.get(latest_url_dl, headers=headers)
+                            jsonld = response.json()
+                            profile_dict = parse_profile(jsonld, latest_url_dl)
+                            profiles_dict[profile_dict["ref_profile"]] = profile_dict
+
+                        # To get only latest profile
+
+                        # if latest_url_dl:
+                        #     response = requests.get(latest_url_dl, headers=headers)
+                        #     jsonld = response.json()
+                        #     profile_dict = parse_profile(jsonld, latest_url_dl)
+                        #     profiles_dict[profile_dict["ref_profile"]] = profile_dict
 
                         # To get all profiles and not only latest
 
@@ -179,13 +188,13 @@ def parse_profile(jsonld, url_dl):
 
 def load_profiles():
     if not path.exists("profiles/bs_profiles.json"):
-        # print("Updating Bioschemas profiles from github")
+        # dev_logger.info("Updating Bioschemas profiles from github")
         profiles = get_profiles_specs_from_github()
         with open("profiles/bs_profiles.json", "w") as outfile:
             json.dump(profiles, outfile)
-        # print("Profiles updated")
+        # dev_logger.info("Profiles updated")
     else:
-        # print("Reading Bioschemas profiles from local file")
+        # dev_logger.info("Reading Bioschemas profiles from local file")
         # Opening JSON file
         with open("profiles/bs_profiles.json", "r") as openfile:
             # Reading from json file

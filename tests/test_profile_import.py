@@ -125,7 +125,7 @@ class ImportBSProfileTestCase(unittest.TestCase):
 
         result = evaluate_profile_from_type(kg)
 
-        self.assertEqual(len(result), 0)
+        self.assertEqual(len(result), 3)
 
 
 

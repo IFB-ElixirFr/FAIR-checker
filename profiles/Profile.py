@@ -168,7 +168,6 @@ class Profile:
                     "subject": s,
                     "object": o
                 })
-        print(sub_kg_list)
         return sub_kg_list
 
 
