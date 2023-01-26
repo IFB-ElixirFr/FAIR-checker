@@ -8,10 +8,12 @@ from rdflib import ConjunctiveGraph
 from profiles.bioschemas_shape_gen import get_profiles_specs_from_github
 from profiles.bioschemas_shape_gen import gen_SHACL_from_profile
 # from profiles.Profile 
-from profiles.ProfileFactory import load_profiles
+from profiles.ProfileFactory import load_profiles, evaluate_profile_from_conformsto, evaluate_profile_from_type
 
 from os import environ, path
 from dotenv import load_dotenv
+
+from metrics.WebResource import WebResource 
 
 
 basedir = path.abspath(path.dirname(__file__))
@@ -73,14 +75,12 @@ class ImportBSProfileTestCase(unittest.TestCase):
     def test_load_profiles(self):
         self.test_github_rate_limite()
         profiles = load_profiles()
-        # print(json.dumps(profiles, indent=4))
+        print(json.dumps(profiles, indent=4))
         print(len(profiles))
         for profile_key in profiles.keys():
             ref_profile = profiles[profile_key]["ref_profile"]
             response = requests.head(ref_profile, verify=False, timeout=5)
-            print(ref_profile=="")
-            print(ref_profile)
-            print(response.status_code)
+
             # self.assertEqual(response.status_code, 200)
 
             gen_SHACL_from_profile(
@@ -89,6 +89,15 @@ class ImportBSProfileTestCase(unittest.TestCase):
                 profiles[profile_key]["min_props"],
                 profiles[profile_key]["rec_props"],
             )
+
+    def test_conformsto_eval(self):
+        url = "https://workflowhub.eu/workflows/18"
+        kg = WebResource(url).get_rdf()
+        print(len(kg))
+        result = evaluate_profile_from_conformsto(kg)
+        print(result)
+
+
 
     def test_req_profile_versions(self):
         response = requests.get("https://raw.githubusercontent.com/BioSchemas/bioschemas.github.io/master/_data/profile_versions.yaml")

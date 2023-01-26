@@ -10,7 +10,7 @@ from tqdm import tqdm
 
 # from profiles.bioschemas_shape_gen import bs_profiles
 
-PROFILES = ProfileFactory.create_all_profiles_from_specifications()
+
 
 
 def gen_shacl_alternatives(bs_profiles):
@@ -617,3 +617,5 @@ class ProfileFactory:
                 ref_profile=bs_profiles[profile_key]["ref_profile"],
             )
         return profiles
+
+PROFILES = ProfileFactory.create_all_profiles_from_specifications()
