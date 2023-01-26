@@ -8,7 +8,7 @@ from rdflib import ConjunctiveGraph
 from profiles.bioschemas_shape_gen import get_profiles_specs_from_github
 from profiles.bioschemas_shape_gen import gen_SHACL_from_profile
 # from profiles.Profile 
-from profiles.ProfileFactory import load_profiles, evaluate_profile_with_conformsto, evaluate_profile_from_type
+from profiles.ProfileFactory import load_profiles, update_profiles, evaluate_profile_with_conformsto, evaluate_profile_from_type
 
 from os import environ, path
 from dotenv import load_dotenv
@@ -89,6 +89,9 @@ class ImportBSProfileTestCase(unittest.TestCase):
                 profiles[profile_key]["min_props"],
                 profiles[profile_key]["rec_props"],
             )
+
+    def test_update_profiles(self):
+        update_profiles()
 
     def test_wfh_conformsto_eval(self):
         url = "https://workflowhub.eu/workflows/18"
