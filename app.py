@@ -67,6 +67,8 @@ from profiles.ProfileFactory import (
     find_conformsto_subkg,
     load_profiles,
     update_profiles,
+    evaluate_profile_from_conformsto,
+    evaluate_profile_from_type
 )
 
 import time
@@ -1570,54 +1572,25 @@ def check_kg_shape_old(data):
 
 def evaluate_bioschemas_profiles(kg):
     # A instancier au lancement du serveur et actualiser lors d'updates
-    profiles = ProfileFactory.create_all_profiles_from_specifications()
+    # profiles = ProfileFactory.create_all_profiles_from_specifications()
 
-    list_all_ct = ProfileFactory.list_all_conformsto()
 
     results = {}
 
     # Evaluate only profile with conformsTo
-    ct_sub_kg_list = find_conformsto_subkg(kg)
-    for ct_sub_kg in ct_sub_kg_list:
-        s = ct_sub_kg["subject"]
-        ct = ct_sub_kg["profile"]
-        t = ct_sub_kg["type"]
-        sub_kg = ct_sub_kg["sub_kg"]
-
-        if ct in list_all_ct:
-
-            ct_profile = ProfileFactory.create_profile_from_ref_profile(ct)
-            shacl_shape = ct_profile.get_shacl_shape()
-            conforms, warnings, errors = ct_profile.validate_shape(sub_kg, shacl_shape)
-            results[str(s)] = {
-                "type": str(t),
-                "ref_profile": ct_profile.get_ref_profile(),
-                "conforms": conforms,
-                "warnings": warnings,
-                "errors": errors,
-            }
+    results_conformsto = evaluate_profile_from_conformsto(kg)
 
     # Try to match and evaluate all found corresponding profiles
-    for p_key in profiles.keys():
-        sub_kg_list = profiles[p_key].match_sub_kgs_from_profile(kg)
+    results_type = evaluate_profile_from_type(kg)
 
-        if sub_kg_list:
-            for sub_kg in sub_kg_list:
-                s = sub_kg["subject"]
-                if not str(s) in results.keys():
-                    o = sub_kg["object"]
-                    sub_kg = sub_kg["sub_kg"]
-                    shacl_shape = profiles[p_key].get_shacl_shape()
-                    conforms, warnings, errors = profiles[p_key].validate_shape(
-                        sub_kg, shacl_shape
-                    )
-                    results[str(s)] = {
-                        "type": str(o),
-                        "ref_profile": profiles[p_key].get_ref_profile(),
-                        "conforms": conforms,
-                        "warnings": warnings,
-                        "errors": errors,
-                    }
+    for result_key in results_conformsto.keys():
+        results[result_key] = results_conformsto[result_key]
+
+    for result_key in results_type.keys():
+        if result_key not in results:
+            results[result_key] = results_type[result_key]
+
+
 
     # TODO Try similarity match her for profiles that are not matched
 
