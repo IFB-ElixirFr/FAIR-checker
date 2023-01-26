@@ -57,8 +57,7 @@ def get_profiles_specs_from_github():
                                 elif "DRAFT" in file["download_url"]:
                                     drafts[file["download_url"]] = float(m.group(1))
 
-                        latest_url_dl = ""
-
+                        # latest_url_dl = ""
                         # if releases:
                         #     latest_url_dl = get_latest_profile(releases)
                         #     response = requests.get(latest_url_dl, headers=headers)
@@ -76,10 +75,13 @@ def get_profiles_specs_from_github():
                         # To get all profiles and not only latest
 
                         all_urls = list(releases.keys()) + list(drafts.keys())
+                        print(all_urls)
+                        print(len(all_urls))
+
                         for url in all_urls:
                             response = requests.get(url, headers=headers)
                             jsonld = response.json()
-                            profile_dict = parse_profile(jsonld, latest_url_dl)
+                            profile_dict = parse_profile(jsonld, url)
                             profiles_dict[profile_dict["ref_profile"]] = profile_dict
         return profiles_dict
     else:
@@ -118,14 +120,19 @@ def parse_profile(jsonld, url_dl):
 
     profiles_versions = request_profile_versions()
 
-    additional_properties = []
     for element in jsonld["@graph"]:
         if element["@type"] == "rdfs:Class":
             # print("Class: " + element["@id"])
             name = element["rdfs:label"]
             profile_dict["id"] = element["@id"].replace("bioschemas", "bsc")
             profile_dict["name"] = name
-            profile_dict["target_classes"].append(element["rdfs:subClassOf"]["@id"])
+
+            # replace DDE prefix by schema.org prefix for Schema.org types
+            sc_type = element["rdfs:subClassOf"]["@id"].replace(
+                "bioschemastypes:", "sc:"
+            )
+
+            profile_dict["target_classes"].append(sc_type)
             if "schema:schemaVersion" in element.keys():
                 profile_dict["ref_profile"] = element["schema:schemaVersion"][0]
             else:
@@ -256,6 +263,7 @@ def evaluate_profile_with_conformsto(kg):
 
             if ct_profile is not None:
                 shacl_shape = ct_profile.get_shacl_shape()
+                print(shacl_shape)
                 conforms, warnings, errors = ct_profile.validate_shape(
                     sub_kg, shacl_shape
                 )
@@ -340,9 +348,8 @@ class ProfileFactory:
         profiles = {}
         bs_profiles = load_profiles()
         for profile_key in bs_profiles.keys():
-            name = bs_profiles[profile_key]["name"]
-            profiles[name] = Profile(
-                shape_name=name,
+            profiles[profile_key] = Profile(
+                shape_name=bs_profiles[profile_key]["name"],
                 target_classes=bs_profiles[profile_key]["target_classes"],
                 min_props=bs_profiles[profile_key]["min_props"],
                 rec_props=bs_profiles[profile_key]["rec_props"],

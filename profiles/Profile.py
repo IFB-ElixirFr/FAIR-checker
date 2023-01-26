@@ -28,7 +28,7 @@ class Profile:
 
     def set_ref_profile(self, ref_profile):
         self.ref_profile = ref_profile
-    
+
     def get_ref_profile(self):
         return self.ref_profile
 
@@ -58,6 +58,7 @@ class Profile:
             @prefix edam: <http://edamontology.org/> .
             @prefix biotools: <https://bio.tools/ontology/> .
             @prefix bioschemastypes: <https://discovery.biothings.io/view/bioschemastypes/> .
+            @prefix bh2022GH: <https://discovery.biothings.io/view/bh2022GH/> .
 
             ns:{{shape_name}}
                 a sh:NodeShape ;
@@ -98,7 +99,6 @@ class Profile:
 
     def validate_shape(self, knowledge_graph, shacl_shape):
         # print(knowledge_graph.serialize(format="turtle"))
-
         r = validate(
             data_graph=knowledge_graph,
             data_graph_format="turtle",
@@ -111,7 +111,6 @@ class Profile:
             meta_shacl=False,
             debug=False,
         )
-
         conforms, results_graph, results_text = r
 
         report_query = """
@@ -142,12 +141,12 @@ class Profile:
                 )
                 warnings.append(f'{r["path"]}')
             if "#Violation" in r["severity"]:
-                print(f'ERROR: Property {r["path"]} must be provided for {r["node"]}')
+                print(
+                    f'ERROR: Property {r["path"]} must be provided for {r["node"]}'
+                )
                 errors.append(f'{r["path"]}')
 
         return conforms, warnings, errors
-
-
 
     def match_sub_kgs_from_profile(self, kg):
         kg.namespace_manager.bind("sc", URIRef("https://schema.org/"))
@@ -164,13 +163,8 @@ class Profile:
                 sub_kg = ConjunctiveGraph()
                 for x, y, z in kg.triples((s, None, None)):
                     sub_kg.add((x, y, z))
-                sub_kg_list.append({
-                    "sub_kg": sub_kg,
-                    "subject": s,
-                    "object": o
-                })
+                sub_kg_list.append({"sub_kg": sub_kg, "subject": s, "object": o})
         return sub_kg_list
-
 
     def compute_similarity(self, kg) -> float:
         kg.namespace_manager.bind("sc", URIRef("http://schema.org/"))

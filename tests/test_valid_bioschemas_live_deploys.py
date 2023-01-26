@@ -66,7 +66,7 @@ class BioschemasLiveDeploysTestCase(unittest.TestCase):
         browser = WebResource.WEB_BROWSER_HEADLESS
         browser.quit()
 
-    def test_workflow_validation(self):
+    def test_workflow_without_conformsto(self):
         input_url = "https://workflowhub.eu/workflows/263"
         web_resource = WebResource(input_url)
         kg = web_resource.get_rdf()
@@ -77,7 +77,19 @@ class BioschemasLiveDeploysTestCase(unittest.TestCase):
             len(res["https://workflowhub.eu/workflows/263?version=1"]["errors"]), 2
         )
 
-    def test_workflow_conformsto(self):
+    def test_profile_workfolw(self):
+
+        wf_profile_url = (
+            "https://bioschemas.org/profiles/ComputationalWorkflow/1.0-RELEASE"
+        )
+        print(PROFILES)
+        p = PROFILES[wf_profile_url]
+        print(p.shape_name)
+        print(p.ref_profile)
+        print(p.target_classes)
+        print(p.shacl_shape)
+
+    def test_workflow_with_conformsto(self):
         input_url = "https://workflowhub.eu/workflows/263"
         web_resource = WebResource(input_url)
         kg = web_resource.get_rdf()
@@ -142,6 +154,15 @@ class BioschemasLiveDeploysTestCase(unittest.TestCase):
         print(correct_urls)
         print("Non resolvable profile URLs:")
         print(wrong_urls)
+
+    def test_json_profile_accessibility(self):
+        for p in PROFILE_URLS:
+            version = p.split("/")[-1]
+            profile_name = p.split("/")[-2]
+            print(f"Profile {profile_name} version {version}")
+            github_file = f"https://raw.githubusercontent.com/BioSchemas/specifications/master/{profile_name}/jsonld/{profile_name}_v{version}.json"
+            response = requests.head(github_file)
+            print(f"{github_file}: {response.status_code}")
 
     def test_shape_generation(self):
         print()
