@@ -9,6 +9,48 @@ from profiles.ProfileFactory import (
 )
 from metrics.WebResource import WebResource
 
+PROFILE_URLS = [
+    "https://bioschemas.org/profiles/Taxon/0.7-DRAFT",
+    "https://bioschemas.org/profiles/Study/0.2-DRAFT",
+    "https://bioschemas.org/profiles/ProteinAnnotation/0.6-DRAFT",
+    "https://bioschemas.org/profiles/TaxonName/0.1-DRAFT",
+    "https://bioschemas.org/profiles/Dataset/0.4-DRAFT",
+    "https://bioschemas.org/profiles/Gene/1.0-RELEASE",
+    "https://bioschemas.org/profiles/Course/1.0-RELEASE",
+    "https://bioschemas.org/profiles/DataCatalog/",
+    "https://bioschemas.org/profiles/TrainingMaterial/1.0-RELEASE",
+    "https://bioschemas.org/profiles/ComputationalTool/1.0-RELEASE",
+    "https://bioschemas.org/profiles/ComputationalWorkflow/1.0-RELEASE",
+    "https://bioschemas.org/profiles/CourseInstance/0.9-DRAFT",
+    "https://bioschemas.org/profiles/SequenceRange/0.1-DRAFT",
+    "https://bioschemas.org/profiles/ScholarlyArticle/0.2-DRAFT-2020_12_03",
+    "https://bioschemas.org/profiles/Disease/0.1-DRAFT",
+    "https://bioschemas.org/profiles/Person/0.2-DRAFT-2019_07_19",
+    "https://bioschemas.org/profiles/Dataset/0.3-RELEASE-2019_06_14",
+    "https://bioschemas.org/profiles/Taxon/0.6-RELEASE",
+    "https://bioschemas.org/profiles/CourseInstance/1.0-RELEASE",
+    "https://bioschemas.org/profiles/Course/0.10-DRAFT",
+    "https://bioschemas.org/profiles/FormalParameter/1.0-RELEASE",
+    "https://bioschemas.org/profiles/MolecularEntity/0.5-RELEASE",
+    "https://bioschemas.org/profiles/Dataset/1.0-RELEASE",
+    "https://bioschemas.org/profiles/Protein/0.12-DRAFT",
+]
+
+
+def gen_urls_for_live_deploys_profiles():
+    live_deploys_remote_file = "https://raw.githubusercontent.com/BioSchemas/bioschemas.github.io/master/_data/live_deployments.json"
+    res = requests.get(live_deploys_remote_file)
+    live_deploys = res.json()
+    # for r in random.sample(live_deploys["resources"], 5):
+    profile_urls = []
+    for r in live_deploys["resources"]:
+        # print(json.dumps(r, indent=2))
+        profile_url_prefix = "https://bioschemas.org/profiles/"
+        for p in r["profiles"]:
+            profile_url = profile_url_prefix + p["profileName"] + "/" + p["conformsTo"]
+            profile_urls.append(profile_url)
+    return list(set(profile_urls))
+
 
 class BioschemasLiveDeploysTestCase(unittest.TestCase):
     @classmethod
@@ -75,6 +117,25 @@ class BioschemasLiveDeploysTestCase(unittest.TestCase):
         #     len(res["https://fair-checker.france-bioinformatique.fr"]["errors"]), 0
         # )
 
+    def test_shape_generation(self):
+        profiles = gen_urls_for_live_deploys_profiles()
+        wrong_urls = []
+        correct_urls = []
+        for p in profiles:
+            print(p)
+            response = requests.get(p)
+            if response.status_code != 200:
+                wrong_urls.append(p)
+            else:
+                correct_urls.append(p)
+        print(f"{len(profiles)} declared profiles in live deploys")
+        print(f"{len(correct_urls)} profile urls are ok")
+        print(f"{len(wrong_urls)} profile urls are not resolvable")
+        print("Correct URLs:")
+        print(correct_urls)
+        print("Non resolvable profile URLs:")
+        print(wrong_urls)
+
     def test_all(self):
         to_be_skipped = [
             "https://www.proteinatlas.org/",
@@ -84,6 +145,7 @@ class BioschemasLiveDeploysTestCase(unittest.TestCase):
             "https://humanmine.org/",
             "https://www.rhea-db.org/",
             "http://www.ebi.ac.uk/pdbe/",
+            "https://www.omicsdi.org/",
         ]
         valid_bioschemas = []
         print()
