@@ -10,8 +10,6 @@ from tqdm import tqdm
 
 # from profiles.bioschemas_shape_gen import bs_profiles
 
-PROFILES = ProfileFactory.create_all_profiles_from_specifications()
-
 
 def gen_shacl_alternatives(bs_profiles):
     res = {}
@@ -492,7 +490,7 @@ def find_conformsto_subkg(kg):
     return sub_kg_list
 
 
-def evaluate_profile_from_conformsto(kg):
+def evaluate_profile_with_conformsto(kg):
     # A instancier au lancement du serveur et actualiser lors d'updates
 
     list_all_ct = ProfileFactory.list_all_conformsto()
@@ -512,6 +510,9 @@ def evaluate_profile_from_conformsto(kg):
             ct_profile = ProfileFactory.create_profile_from_ref_profile(ct)
             shacl_shape = ct_profile.get_shacl_shape()
             conforms, warnings, errors = ct_profile.validate_shape(sub_kg, shacl_shape)
+            # we override the final result to exclude warnings
+            conforms = len(errors) == 0
+
             results[str(s)] = {
                 "type": str(t),
                 "ref_profile": ct_profile.get_ref_profile(),
@@ -541,6 +542,9 @@ def evaluate_profile_from_type(kg):
                     conforms, warnings, errors = PROFILES[p_key].validate_shape(
                         sub_kg, shacl_shape
                     )
+
+                    # we override the final result to exclude warnings
+                    conforms = len(errors) == 0
                     results[str(s)] = {
                         "type": str(o),
                         "ref_profile": PROFILES[p_key].get_ref_profile(),
@@ -617,3 +621,6 @@ class ProfileFactory:
                 ref_profile=bs_profiles[profile_key]["ref_profile"],
             )
         return profiles
+
+
+PROFILES = ProfileFactory.create_all_profiles_from_specifications()
