@@ -8,7 +8,7 @@ from rdflib import ConjunctiveGraph
 from profiles.bioschemas_shape_gen import get_profiles_specs_from_github
 from profiles.bioschemas_shape_gen import gen_SHACL_from_profile
 # from profiles.Profile 
-from profiles.ProfileFactory import load_profiles, update_profiles, evaluate_profile_with_conformsto, evaluate_profile_from_type
+from profiles.ProfileFactory import get_profiles_specs_from_dde, load_profiles, update_profiles, evaluate_profile_with_conformsto, evaluate_profile_from_type
 
 from os import environ, path
 from dotenv import load_dotenv
@@ -130,7 +130,8 @@ class ImportBSProfileTestCase(unittest.TestCase):
 
         self.assertEqual(len(result), 3)
 
-
+    def test_get_profiles_specs_from_dde(self):
+        get_profiles_specs_from_dde()
 
     def test_req_profile_versions(self):
         response = requests.get("https://raw.githubusercontent.com/BioSchemas/bioschemas.github.io/master/_data/profile_versions.yaml")
