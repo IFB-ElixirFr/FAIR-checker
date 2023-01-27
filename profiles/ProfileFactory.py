@@ -6,7 +6,112 @@ import re
 import json
 import os
 import yaml
-from rdflib import URIRef, ConjunctiveGraph
+from tqdm import tqdm
+
+# from app import dev_logger
+
+
+def get_profiles_specs_from_dde():
+    url_release_profiles = "https://raw.githubusercontent.com/BioSchemas/bioschemas-dde/main/bioschemas.json"
+    url_draft_profiles = "https://raw.githubusercontent.com/BioSchemas/bioschemas-dde/main/bioschemasdrafts.json"
+    response = requests.get(url_release_profiles)
+    if response.status_code == 200:
+        profiles_dict = {}
+        profiles_jsonld = response.json()
+        print(len(profiles_jsonld))
+        for element in profiles_jsonld["@graph"]:
+            profile_dict = {
+                "name": "",
+                "target_classes": [],
+                "file": "",
+                "required": ["dct:conformsTo"],
+                "recommended": [],
+                "optional": [],
+                "id": "",
+                "ref_profile": "",
+            }
+            profiles_versions = request_profile_versions()
+
+            # for element in profiles_jsonld["@graph"]:
+            if element["@type"] == "rdfs:Class":
+                # print("Class: " + element["@id"])
+                name = element["rdfs:label"]
+                profile_dict["id"] = element["@id"].replace("bioschemas", "bsc")
+                profile_dict["name"] = name
+
+                sc_type = element["rdfs:subClassOf"]["@id"]
+
+                # replace DDE prefix by schema.org prefix for Schema.org types
+                replace_prefix = {
+                    "bioschemastypes:": "sc:",
+                    # "bioschemastypesdrafts:": "sc:",
+                    "schema:": "sc:",
+                }
+                for i, j in replace_prefix.items():
+                    sc_type = sc_type.replace(i, j)
+
+                profile_dict["target_classes"].append(sc_type)
+                if "schema:schemaVersion" in element.keys():
+                    for url in element["schema:schemaVersion"]:
+                        if "https://bioschemas.org" in url:
+                            profile_dict["ref_profile"] = url
+                            # print(url)
+                            # print(requests.head(url).status_code)
+                        else:
+                            raw_file_base = "https://raw.githubusercontent.com/BioSchemas/specifications/master/"
+                            file_url = url
+                            file_url_path = file_url.split("/master/")[-1]
+                            raw_file_url = raw_file_base + file_url_path
+                            profile_dict["file"] = raw_file_url
+                            # print(requests.head(raw_file_url).status_code)
+                else:
+                    if profiles_versions[name]["latest_release"]:
+                        latest_version = profiles_versions[name]["latest_release"]
+                    else:
+                        latest_version = profiles_versions[name]["latest_publication"]
+
+                    bs_profile_url_base = (
+                        "https://bioschemas.org/profiles/" + name + "/"
+                    )
+                    bs_profile_url_path = bs_profile_url_base + latest_version
+                    # bs_profile_url_path = bs_profile_url_base + url_dl.split("/")[-1].replace("_v", "/").strip(".json")
+                    profile_dict["ref_profile"] = bs_profile_url_path
+                    # r = requests.head(bs_profile_url_path, verify=False, timeout=5) # it is faster to only request the header
+                    # print(r.status_code)
+                # break
+                # if element["@type"] == "rdf:Property":
+                #     additional_properties.append(element["@id"].replace("bioschemas", "bsc"))
+
+                importance_levels = ["required", "recommended", "optional"]
+
+                for importance in importance_levels:
+                    if "$validation" in element:
+                        if importance in element["$validation"]:
+                            for property in element["$validation"][importance]:
+
+                                added = False
+                                # Identifying non Schema properties
+                                for elem in element:
+                                    if (
+                                        element["@type"] == "rdf:Property"
+                                        and property == element["rdfs:label"]
+                                    ):
+                                        profile_dict[importance].append(
+                                            element["@id"].replace("bioschemas", "bsc")
+                                        )
+                                        added = True
+                                if added:
+                                    continue
+                                profile_dict[importance].append("sc:" + property)
+
+                profiles_dict[profile_dict["ref_profile"]] = profile_dict
+                print(json.dumps(profile_dict, indent=2))
+
+            # for compatibility with existing code
+        profile_dict["min_props"] = profile_dict.pop("required")
+        profile_dict["rec_props"] = profile_dict.pop("recommended")
+
+    print(len(profiles_dict))
 
 
 def get_profiles_specs_from_github():
@@ -186,7 +291,7 @@ def parse_profile(jsonld, url_dl):
                     continue
                 profile_dict[importance].append("sc:" + property)
 
-    # for compatibility with existring code
+    # for compatibility with existing code
     profile_dict["min_props"] = profile_dict.pop("required")
     profile_dict["rec_props"] = profile_dict.pop("recommended")
 
