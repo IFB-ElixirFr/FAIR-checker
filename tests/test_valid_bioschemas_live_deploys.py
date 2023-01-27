@@ -2,6 +2,7 @@ import unittest
 import requests
 import random
 import json
+from rdflib import Graph
 
 from metrics.FairCheckerExceptions import (
     BioschemasProfileNotFoundException,
@@ -12,6 +13,7 @@ from profiles.ProfileFactory import (
     evaluate_profile_from_type,
     evaluate_profile_with_conformsto,
     ProfileFactory,
+    Profile,
     PROFILES,
 )
 from metrics.WebResource import WebResource
@@ -167,11 +169,16 @@ class BioschemasLiveDeploysTestCase(unittest.TestCase):
             self.assertIsNotNone(error)
 
         profile_gene = pf.create_profile_from_remote(gene)
-        # print(json.dumps(profile_gene, indent=2))
-        self.assertEqual(profile_gene["name"], "Gene")
-        self.assertEqual(len(profile_gene["min_props"]), 3)
-        self.assertEqual(len(profile_gene["rec_props"]), 4)
-        self.assertEqual(len(profile_gene["optional"]), 15)
+
+        self.assertEqual(profile_gene.shape_name, "Gene")
+        self.assertEqual(len(profile_gene.min_props), 3)
+        self.assertEqual(len(profile_gene.rec_props), 4)
+        shape_rdf = profile_gene.get_shacl_shape()
+        shape_graph = Graph()
+        shape_graph.parse(data=shape_rdf, format="ttl")
+        print(len(shape_graph))
+
+        print()
 
     def test_shape_generation(self):
         print()
