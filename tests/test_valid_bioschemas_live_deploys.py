@@ -2,6 +2,7 @@ import unittest
 import requests
 import random
 import json
+from rdflib import Graph
 
 from metrics.FairCheckerExceptions import (
     BioschemasProfileNotFoundException,
@@ -12,6 +13,7 @@ from profiles.ProfileFactory import (
     evaluate_profile_from_type,
     evaluate_profile_with_conformsto,
     ProfileFactory,
+    Profile,
     PROFILES,
 )
 from metrics.WebResource import WebResource
@@ -156,42 +158,24 @@ class BioschemasLiveDeploysTestCase(unittest.TestCase):
         print(wrong_urls)
 
     def test_json_profile_accessibility(self):
-        pf = ProfileFactory()
         datacat = "https://bioschemas.org/profiles/DataCatalog/"
         gene = "https://bioschemas.org/profiles/Gene/1.0-RELEASE"
 
         try:
-            pf.create_profile_from_remote(datacat)
+            ProfileFactory.create_profile_from_remote(datacat)
         except BioschemasProfileNotFoundException as error:
             print(error)
             self.assertIsNotNone(error)
 
-        profile_gene = pf.create_profile_from_remote(gene)
-        # print(json.dumps(profile_gene, indent=2))
-        self.assertEqual(profile_gene["name"], "Gene")
-        self.assertEqual(len(profile_gene["min_props"]), 3)
-        self.assertEqual(len(profile_gene["rec_props"]), 4)
-        self.assertEqual(len(profile_gene["optional"]), 15)
+        profile_gene = ProfileFactory.create_profile_from_remote(gene)
 
-    def test_shape_generation(self):
-        print()
-        pf = ProfileFactory()
-        for p in PROFILE_URLS:
-            try:
-                print(p)
-                ct_profile = pf.create_profile_from_ref_profile(p)
-                if ct_profile is None:
-                    raise BioschemasProfileNotFoundException(
-                        f"Can not find JSON profile for URL {p} in "
-                    )
-                shacl_shape = ct_profile.get_shacl_shape()
-                if shacl_shape is None:
-                    raise BioschemasProfileException(
-                        f"Can not generate SHACL shape for URL {p}"
-                    )
-                # print(shacl_shape)
-            except BioschemasProfileException as error:
-                print(error)
+        self.assertEqual(profile_gene.shape_name, "Gene")
+        self.assertEqual(len(profile_gene.min_props), 3)
+        self.assertEqual(len(profile_gene.rec_props), 4)
+        shape_rdf = profile_gene.get_shacl_shape()
+        shape_graph = Graph()
+        shape_graph.parse(data=shape_rdf, format="ttl")
+        self.assertEqual(len(shape_graph), 30)
 
     def test_all(self):
         to_be_skipped = [

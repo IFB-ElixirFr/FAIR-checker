@@ -10,7 +10,12 @@ from pyshacl import validate
 from os import environ, path
 
 # class AbstractProfile(ABC):
+
+
 class Profile:
+
+    # TODO doc class
+    # TODO getters for class attributes
 
     # cache = {}
 
@@ -47,42 +52,42 @@ class Profile:
         # print(rec_props)
 
         shape_template = """
-            @prefix ns: <https://fair-checker.france-bioinformatique.fr#> .
-            @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-            @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-            @prefix sc: <http://schema.org/> .
-            @prefix bsc: <https://bioschemas.org/> .
-            @prefix dct: <http://purl.org/dc/terms/> .
-            @prefix sh: <http://www.w3.org/ns/shacl#> .
-            @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-            @prefix edam: <http://edamontology.org/> .
-            @prefix biotools: <https://bio.tools/ontology/> .
-            @prefix bioschemastypes: <https://discovery.biothings.io/view/bioschemastypes/> .
-            @prefix bh2022GH: <https://discovery.biothings.io/view/bh2022GH/> .
+@prefix ns: <https://fair-checker.france-bioinformatique.fr#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sc: <http://schema.org/> .
+@prefix bsc: <https://bioschemas.org/> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix edam: <http://edamontology.org/> .
+@prefix biotools: <https://bio.tools/ontology/> .
+@prefix bioschemastypes: <https://discovery.biothings.io/view/bioschemastypes/> .
+@prefix bh2022GH: <https://discovery.biothings.io/view/bh2022GH/> .
 
-            ns:{{shape_name}}
-                a sh:NodeShape ;
-                #sh:targetSubjectsOf schema:name ;
-                {% for c in target_classes %}
-                sh:targetClass  {{c}} ;
-                {% endfor %}
+ns:{{shape_name}}
+    a sh:NodeShape ;
+    
+    {% for c in target_classes %}
+    sh:targetClass  {{c}} ;
+    {% endfor %}
 
-                {% for min_prop in min_props %}
-                sh:property [
-                    sh:path {{min_prop}} ;
-                    sh:minCount 1 ;
-                    sh:severity sh:Violation
-                ] ;
-                {% endfor %}
+    {% for min_prop in min_props %}
+    sh:property [
+        sh:path {{min_prop}} ;
+        sh:minCount 1 ;
+        sh:severity sh:Violation
+    ] ;
+    {% endfor %}
 
-                {% for rec_prop in rec_props %}
-                sh:property [
-                    sh:path {{rec_prop}} ;
-                    sh:minCount 1 ;
-                    sh:severity sh:Warning
-                ] ;
-                {% endfor %}
-            .
+    {% for rec_prop in rec_props %}
+    sh:property [
+        sh:path {{rec_prop}} ;
+        sh:minCount 1 ;
+        sh:severity sh:Warning
+    ] ;
+    {% endfor %}
+.
         """
 
         # [sh: alternativePath(ex:father ex: mother  )]
@@ -141,9 +146,7 @@ class Profile:
                 )
                 warnings.append(f'{r["path"]}')
             if "#Violation" in r["severity"]:
-                print(
-                    f'ERROR: Property {r["path"]} must be provided for {r["node"]}'
-                )
+                print(f'ERROR: Property {r["path"]} must be provided for {r["node"]}')
                 errors.append(f'{r["path"]}')
 
         return conforms, warnings, errors

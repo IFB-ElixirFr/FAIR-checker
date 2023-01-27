@@ -210,6 +210,16 @@ def request_profile_versions():
 
 
 def parse_profile(jsonld, url_dl):
+    """_summary_
+
+    Args:
+        jsonld (_type_): _description_
+        url_dl (_type_): _description_
+
+    Returns:
+        _type_: _description_
+    """
+
     profile_dict = {
         "name": "",
         "target_classes": [],
@@ -460,8 +470,16 @@ class ProfileFactory:
                 f"Cannot access file <{github_file}> for profile <{profile_name}> version <{version}> at <{p}>"
             )
         response = requests.get(github_file)
-        res_profile = parse_profile(response.json(), github_file)
-        return res_profile
+        dict_profile = parse_profile(response.json(), github_file)
+
+        profile = Profile(
+            shape_name=dict_profile["name"],
+            target_classes=dict_profile["target_classes"],
+            min_props=dict_profile["min_props"],
+            rec_props=dict_profile["rec_props"],
+            ref_profile=dict_profile["ref_profile"],
+        )
+        return profile
 
     @staticmethod
     def create_profile_from_ref_profile(ref_profile):
