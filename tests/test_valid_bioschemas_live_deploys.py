@@ -162,7 +162,7 @@ class BioschemasLiveDeploysTestCase(unittest.TestCase):
         gene = "https://bioschemas.org/profiles/Gene/1.0-RELEASE"
 
         try:
-            pf.create_profile_from_remote(datacat)
+            ProfileFactory.create_profile_from_remote(datacat)
         except BioschemasProfileNotFoundException as error:
             print(error)
             self.assertIsNotNone(error)
