@@ -57,32 +57,32 @@ def get_profiles_specs_from_github():
                                 elif "DRAFT" in file["download_url"]:
                                     drafts[file["download_url"]] = float(m.group(1))
 
-                        # latest_url_dl = ""
-                        # if releases:
-                        #     latest_url_dl = get_latest_profile(releases)
-                        #     response = requests.get(latest_url_dl, headers=headers)
-                        #     jsonld = response.json()
-                        #     profile_dict = parse_profile(jsonld, latest_url_dl)
-                        #     profiles_dict[profile_dict["ref_profile"]] = profile_dict
+                        latest_url_dl = ""
+                        if releases:
+                            latest_url_dl = get_latest_profile(releases)
+                            response = requests.get(latest_url_dl, headers=headers)
+                            jsonld = response.json()
+                            profile_dict = parse_profile(jsonld, latest_url_dl)
+                            profiles_dict[profile_dict["ref_profile"]] = profile_dict
 
-                        # if drafts:
-                        #     latest_url_dl = get_latest_profile(drafts)
-                        #     response = requests.get(latest_url_dl, headers=headers)
-                        #     jsonld = response.json()
-                        #     profile_dict = parse_profile(jsonld, latest_url_dl)
-                        #     profiles_dict[profile_dict["ref_profile"]] = profile_dict
+                        elif drafts:
+                            latest_url_dl = get_latest_profile(drafts)
+                            response = requests.get(latest_url_dl, headers=headers)
+                            jsonld = response.json()
+                            profile_dict = parse_profile(jsonld, latest_url_dl)
+                            profiles_dict[profile_dict["ref_profile"]] = profile_dict
 
                         # To get all profiles and not only latest
 
-                        all_urls = list(releases.keys()) + list(drafts.keys())
-                        print(all_urls)
-                        print(len(all_urls))
+                        # all_urls = list(releases.keys()) + list(drafts.keys())
+                        # print(all_urls)
+                        # print(len(all_urls))
 
-                        for url in all_urls:
-                            response = requests.get(url, headers=headers)
-                            jsonld = response.json()
-                            profile_dict = parse_profile(jsonld, url)
-                            profiles_dict[profile_dict["ref_profile"]] = profile_dict
+                        # for url in all_urls:
+                        #     response = requests.get(url, headers=headers)
+                        #     jsonld = response.json()
+                        #     profile_dict = parse_profile(jsonld, url)
+                        #     profiles_dict[profile_dict["ref_profile"]] = profile_dict
         return profiles_dict
     else:
         return False
@@ -127,10 +127,16 @@ def parse_profile(jsonld, url_dl):
             profile_dict["id"] = element["@id"].replace("bioschemas", "bsc")
             profile_dict["name"] = name
 
+            sc_type = element["rdfs:subClassOf"]["@id"]
+
             # replace DDE prefix by schema.org prefix for Schema.org types
-            sc_type = element["rdfs:subClassOf"]["@id"].replace(
-                "bioschemastypes:", "sc:"
-            )
+            replace_prefix = {
+                "bioschemastypes:": "sc:",
+                # "bioschemastypesdrafts:": "sc:",
+                "schema:": "sc:",
+            }
+            for i, j in replace_prefix.items():
+                sc_type = sc_type.replace(i, j)
 
             profile_dict["target_classes"].append(sc_type)
             if "schema:schemaVersion" in element.keys():
