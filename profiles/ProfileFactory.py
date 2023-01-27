@@ -1,14 +1,11 @@
-from rdflib import ConjunctiveGraph, URIRef, RDF
 from profiles.Profile import Profile
+from metrics.FairCheckerExceptions import BioschemasProfileNotFoundException
 from os import environ, path
 import requests
 import re
 import json
 import os
 import yaml
-from tqdm import tqdm
-
-# from app import dev_logger
 
 
 def get_profiles_specs_from_github():
@@ -327,6 +324,32 @@ class ProfileFactory:
         list_ct = [bs_profiles[p_key]["ref_profile"] for p_key in bs_profiles.keys()]
 
         return list_ct
+
+    @staticmethod
+    def create_profile_from_remote(bioschemas_profile_url):
+        """generates a compact representation of a profile
+
+        Args:
+            bioschemas_profile_url (str): from the profile URL,
+            generates the JSON file GitHub URL, parse it and
+            returns its compact representation.
+
+        Returns:
+            dict: compact representation of the profile
+        """
+        p = bioschemas_profile_url
+        version = p.split("/")[-1]
+        profile_name = p.split("/")[-2]
+        print(f"Profile {profile_name} version {version}")
+        github_file = f"https://raw.githubusercontent.com/BioSchemas/specifications/master/{profile_name}/jsonld/{profile_name}_v{version}.json"
+        response_header = requests.head(github_file)
+        if response_header.status_code != 200:
+            raise BioschemasProfileNotFoundException(
+                f"Cannot access file <{github_file}> for profile <{profile_name}> version <{version}> at <{p}>"
+            )
+        response = requests.get(github_file)
+        res_profile = parse_profile(response.json(), github_file)
+        return res_profile
 
     @staticmethod
     def create_profile_from_ref_profile(ref_profile):

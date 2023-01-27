@@ -156,13 +156,22 @@ class BioschemasLiveDeploysTestCase(unittest.TestCase):
         print(wrong_urls)
 
     def test_json_profile_accessibility(self):
-        for p in PROFILE_URLS:
-            version = p.split("/")[-1]
-            profile_name = p.split("/")[-2]
-            print(f"Profile {profile_name} version {version}")
-            github_file = f"https://raw.githubusercontent.com/BioSchemas/specifications/master/{profile_name}/jsonld/{profile_name}_v{version}.json"
-            response = requests.head(github_file)
-            print(f"{github_file}: {response.status_code}")
+        pf = ProfileFactory()
+        datacat = "https://bioschemas.org/profiles/DataCatalog/"
+        gene = "https://bioschemas.org/profiles/Gene/1.0-RELEASE"
+
+        try:
+            pf.create_profile_from_remote(datacat)
+        except BioschemasProfileNotFoundException as error:
+            print(error)
+            self.assertIsNotNone(error)
+
+        profile_gene = pf.create_profile_from_remote(gene)
+        # print(json.dumps(profile_gene, indent=2))
+        self.assertEqual(profile_gene["name"], "Gene")
+        self.assertEqual(len(profile_gene["min_props"]), 3)
+        self.assertEqual(len(profile_gene["rec_props"]), 4)
+        self.assertEqual(len(profile_gene["optional"]), 15)
 
     def test_shape_generation(self):
         print()
