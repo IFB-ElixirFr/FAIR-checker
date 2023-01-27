@@ -158,7 +158,6 @@ class BioschemasLiveDeploysTestCase(unittest.TestCase):
         print(wrong_urls)
 
     def test_json_profile_accessibility(self):
-        pf = ProfileFactory()
         datacat = "https://bioschemas.org/profiles/DataCatalog/"
         gene = "https://bioschemas.org/profiles/Gene/1.0-RELEASE"
 
@@ -168,7 +167,7 @@ class BioschemasLiveDeploysTestCase(unittest.TestCase):
             print(error)
             self.assertIsNotNone(error)
 
-        profile_gene = pf.create_profile_from_remote(gene)
+        profile_gene = ProfileFactory.create_profile_from_remote(gene)
 
         self.assertEqual(profile_gene.shape_name, "Gene")
         self.assertEqual(len(profile_gene.min_props), 3)
@@ -177,26 +176,6 @@ class BioschemasLiveDeploysTestCase(unittest.TestCase):
         shape_graph = Graph()
         shape_graph.parse(data=shape_rdf, format="ttl")
         self.assertEqual(len(shape_graph), 30)
-
-    def test_shape_generation(self):
-        print()
-        pf = ProfileFactory()
-        for p in PROFILE_URLS:
-            try:
-                print(p)
-                ct_profile = pf.create_profile_from_ref_profile(p)
-                if ct_profile is None:
-                    raise BioschemasProfileNotFoundException(
-                        f"Can not find JSON profile for URL {p} in "
-                    )
-                shacl_shape = ct_profile.get_shacl_shape()
-                if shacl_shape is None:
-                    raise BioschemasProfileException(
-                        f"Can not generate SHACL shape for URL {p}"
-                    )
-                # print(shacl_shape)
-            except BioschemasProfileException as error:
-                print(error)
 
     def test_all(self):
         to_be_skipped = [
