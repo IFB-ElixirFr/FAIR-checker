@@ -176,9 +176,7 @@ class BioschemasLiveDeploysTestCase(unittest.TestCase):
         shape_rdf = profile_gene.get_shacl_shape()
         shape_graph = Graph()
         shape_graph.parse(data=shape_rdf, format="ttl")
-        print(len(shape_graph))
-
-        print()
+        self.assertEqual(len(shape_graph), 30)
 
     def test_shape_generation(self):
         print()
