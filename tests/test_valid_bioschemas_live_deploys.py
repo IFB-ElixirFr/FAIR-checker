@@ -12,6 +12,7 @@ from metrics.FairCheckerExceptions import (
 from profiles.ProfileFactory import (
     evaluate_profile_from_type,
     evaluate_profile_with_conformsto,
+    dyn_evaluate_profile_with_conformsto,
     ProfileFactory,
     Profile,
     PROFILES,
@@ -79,23 +80,11 @@ class BioschemasLiveDeploysTestCase(unittest.TestCase):
             len(res["https://workflowhub.eu/workflows/263?version=1"]["errors"]), 2
         )
 
-    def test_profile_workfolw(self):
-
-        wf_profile_url = (
-            "https://bioschemas.org/profiles/ComputationalWorkflow/1.0-RELEASE"
-        )
-        print(PROFILES)
-        p = PROFILES[wf_profile_url]
-        print(p.shape_name)
-        print(p.ref_profile)
-        print(p.target_classes)
-        print(p.shacl_shape)
-
     def test_workflow_with_conformsto(self):
         input_url = "https://workflowhub.eu/workflows/263"
         web_resource = WebResource(input_url)
         kg = web_resource.get_rdf()
-        res = evaluate_profile_with_conformsto(kg)
+        res = dyn_evaluate_profile_with_conformsto(kg)
         print(json.dumps(res, indent=4))
 
         self.assertEqual(
@@ -109,7 +98,7 @@ class BioschemasLiveDeploysTestCase(unittest.TestCase):
         kg = web_resource.get_rdf()
         print(kg.serialize(format="ttl"))
         self.assertGreater(len(kg), 0)
-        res = evaluate_profile_with_conformsto(kg)
+        res = dyn_evaluate_profile_with_conformsto(kg)
         print(json.dumps(res, indent=2))
         self.assertEqual(res["conforms"], True)
         self.assertEqual(len(res["https://cells.ebisc.org/BIHi006-D"]["errors"]), 0)
@@ -187,23 +176,35 @@ class BioschemasLiveDeploysTestCase(unittest.TestCase):
             "https://www.rhea-db.org/",
             "http://www.ebi.ac.uk/pdbe/",
             "https://www.omicsdi.org/",
+            "https://ippidb.pasteur.fr/",
+            "https://mint.bio.uniroma2.it/",
         ]
         valid_bioschemas = []
         print()
         live_deploys_remote_file = "https://raw.githubusercontent.com/BioSchemas/bioschemas.github.io/master/_data/live_deployments.json"
         res = requests.get(live_deploys_remote_file)
         live_deploys = res.json()
-        for r in random.sample(live_deploys["resources"], 5):
+        # for r in random.sample(live_deploys["resources"], 5):
+        for r in live_deploys["resources"]:
             print(r["url"])
             if not r["url"] in to_be_skipped:
-                validation_res, kg = validate_any_from_microdata(r["url"])
-                for k in validation_res.keys():
-                    if validation_res[k]["conforms"]:
-                        print(f"VALID Bioschemas markup for {k}")
-                        valid_bioschemas.append(validation_res[k])
-                    else:
-                        print(validation_res[k])
-        print("valid_bioschemas")
+                try:
+                    web_resource = WebResource(r["url"])
+                    kg = web_resource.get_rdf()
+                    try:
+                        validation_res = dyn_evaluate_profile_with_conformsto(kg)
+                        for k in validation_res.keys():
+                            if validation_res[k]["conforms"]:
+                                print(f"VALID Bioschemas markup for {k}")
+                                valid_bioschemas.append(validation_res[k])
+                            else:
+                                print(validation_res[k])
+                    except BioschemasProfileException as error:
+                        print(error)
+                except Exception as error:
+                    print(error)
+                    to_be_skipped.append(r["url"])
+        print(to_be_skipped)
 
 
 if __name__ == "__main__":

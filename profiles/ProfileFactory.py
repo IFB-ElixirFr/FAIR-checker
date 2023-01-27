@@ -6,6 +6,7 @@ import re
 import json
 import os
 import yaml
+from rdflib import URIRef, ConjunctiveGraph
 
 
 def get_profiles_specs_from_github():
@@ -253,6 +254,42 @@ def find_conformsto_subkg(kg):
         )
 
     return sub_kg_list
+
+
+def dyn_evaluate_profile_with_conformsto(kg):
+    """_summary_
+
+    Args:
+        kg (_type_): _description_
+
+    Returns:
+        _type_: _description_
+    """
+    results = {}
+
+    # Evaluate only profile with conformsTo
+    ct_sub_kg_list = find_conformsto_subkg(kg)
+
+    for ct_sub_kg in ct_sub_kg_list:
+        s = ct_sub_kg["subject"]
+        ct = ct_sub_kg["profile"]
+        t = ct_sub_kg["type"]
+        sub_kg = ct_sub_kg["sub_kg"]
+
+        profile = ProfileFactory.create_profile_from_remote(ct)
+        shacl_shape = profile.get_shacl_shape()
+        # print(shacl_shape)
+        conforms, warnings, errors = profile.validate_shape(sub_kg, shacl_shape)
+        # we override the final result to exclude warnings
+        conforms = len(errors) == 0
+        results[str(s)] = {
+            "type": str(t),
+            "ref_profile": profile.get_ref_profile(),
+            "conforms": conforms,
+            "warnings": warnings,
+            "errors": errors,
+        }
+    return results
 
 
 def evaluate_profile_with_conformsto(kg):
