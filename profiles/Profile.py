@@ -285,8 +285,8 @@ ns:{{shape_name}}
 
     def __str__(self):
         return (
-            f"Profile :{self.shape_name}"
-            f"\n\tTarget :{self.target_classes}"
+            f"Profile: {self.shape_name}"
+            f"\n\tTarget: {self.target_classes}"
             # f"\n\t {self.principle} "
             # f"\n\t {self.name} "
             # f"\n\t {self.desc} "
