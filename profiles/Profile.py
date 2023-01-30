@@ -31,8 +31,22 @@ class Profile:
         self.nb_min = len(self.min_props)
         self.nb_rec = len(self.rec_props)
 
-    def set_ref_profile(self, ref_profile):
-        self.ref_profile = ref_profile
+    # def set_ref_profile(self, ref_profile):
+    #     self.ref_profile = ref_profile
+
+
+
+    def get_name(self):
+        return self.shape_name
+
+    def get_target(self):
+        return self.target_classes
+
+    def get_required(self):
+        return self.min_props
+
+    def get_recommended(self):
+        return self.rec_props
 
     def get_ref_profile(self):
         return self.ref_profile
@@ -271,7 +285,8 @@ ns:{{shape_name}}
 
     def __str__(self):
         return (
-            f"Profile {self.shape_name}"
+            f"Profile :{self.shape_name}"
+            f"\n\tTarget :{self.target_classes}"
             # f"\n\t {self.principle} "
             # f"\n\t {self.name} "
             # f"\n\t {self.desc} "

@@ -7,24 +7,23 @@ import json
 import os
 import yaml
 from tqdm import tqdm
+from rdflib import URIRef, ConjunctiveGraph
 
 # from app import dev_logger
 
 
-def get_profiles_specs_from_dde():
-    url_release_profiles = "https://raw.githubusercontent.com/BioSchemas/bioschemas-dde/main/bioschemas.json"
-    url_draft_profiles = "https://raw.githubusercontent.com/BioSchemas/bioschemas-dde/main/bioschemasdrafts.json"
-    response = requests.get(url_release_profiles)
+def profile_file_parser(url_profile):
+    response = requests.get(url_profile)
     if response.status_code == 200:
         profiles_dict = {}
         profiles_jsonld = response.json()
-        print(len(profiles_jsonld))
+
         for element in profiles_jsonld["@graph"]:
             profile_dict = {
                 "name": "",
                 "target_classes": [],
                 "file": "",
-                "required": ["dct:conformsTo"],
+                "required": [],
                 "recommended": [],
                 "optional": [],
                 "id": "",
@@ -78,9 +77,7 @@ def get_profiles_specs_from_dde():
                     profile_dict["ref_profile"] = bs_profile_url_path
                     # r = requests.head(bs_profile_url_path, verify=False, timeout=5) # it is faster to only request the header
                     # print(r.status_code)
-                # break
-                # if element["@type"] == "rdf:Property":
-                #     additional_properties.append(element["@id"].replace("bioschemas", "bsc"))
+
 
                 importance_levels = ["required", "recommended", "optional"]
 
@@ -91,13 +88,15 @@ def get_profiles_specs_from_dde():
 
                                 added = False
                                 # Identifying non Schema properties
-                                for elem in element:
+                                for elem in profiles_jsonld["@graph"]:
                                     if (
-                                        element["@type"] == "rdf:Property"
-                                        and property == element["rdfs:label"]
+                                        elem["@type"] == "rdf:Property"
+                                        and property == elem["rdfs:label"]
                                     ):
+
                                         profile_dict[importance].append(
-                                            element["@id"].replace("bioschemas", "bsc")
+                                            # Maybe change prefix in shape gen instead
+                                            elem["@id"].replace("bioschemas:", "bsc:")
                                         )
                                         added = True
                                 if added:
@@ -105,15 +104,33 @@ def get_profiles_specs_from_dde():
                                 profile_dict[importance].append("sc:" + property)
 
                 profiles_dict[profile_dict["ref_profile"]] = profile_dict
-                print(json.dumps(profile_dict, indent=2))
-
-            # for compatibility with existing code
-        profile_dict["min_props"] = profile_dict.pop("required")
-        profile_dict["rec_props"] = profile_dict.pop("recommended")
-
-    print(len(profiles_dict))
 
 
+    # for compatibility with existing code
+    # profile_dict["min_props"] = profile_dict.pop("required")
+    # profile_dict["rec_props"] = profile_dict.pop("recommended")
+
+    # print(json.dumps(profiles_dict, indent=2))
+    # print(len(profiles_dict))
+    return profiles_dict
+
+def get_profiles_from_dde():
+    url_profiles = [
+        "https://raw.githubusercontent.com/BioSchemas/bioschemas-dde/main/bioschemas.json",
+        "https://raw.githubusercontent.com/BioSchemas/bioschemas-dde/main/bioschemasdrafts.json",
+    ]
+    results = {}
+    profiles_names_list = []
+    for url_profile in url_profiles:
+        profiles_dict = profile_file_parser(url_profile)
+
+        for profile_key in profiles_dict:
+            if profiles_dict[profile_key]["name"] not in profiles_names_list:
+                results[profile_key] = profiles_dict[profile_key]
+                profiles_names_list.append(profiles_dict[profile_key]["name"])
+    return results
+
+@DeprecationWarning
 def get_profiles_specs_from_github():
     github_token = environ.get("GITHUB_TOKEN")
     headers = {
@@ -163,17 +180,18 @@ def get_profiles_specs_from_github():
                         latest_url_dl = ""
                         if releases:
                             latest_url_dl = get_latest_profile(releases)
-                            response = requests.get(latest_url_dl, headers=headers)
-                            jsonld = response.json()
-                            profile_dict = parse_profile(jsonld, latest_url_dl)
-                            profiles_dict[profile_dict["ref_profile"]] = profile_dict
-
                         elif drafts:
                             latest_url_dl = get_latest_profile(drafts)
-                            response = requests.get(latest_url_dl, headers=headers)
-                            jsonld = response.json()
-                            profile_dict = parse_profile(jsonld, latest_url_dl)
-                            profiles_dict[profile_dict["ref_profile"]] = profile_dict
+
+
+                        if latest_url_dl:
+                            profile_dict = profile_file_parser(latest_url_dl)
+                            for profile_k in profile_dict.keys():
+                                profiles_dict[profile_dict[profile_k]["ref_profile"]] = profile_dict[profile_k]
+
+
+
+
 
                         # To get all profiles and not only latest
 
@@ -208,7 +226,7 @@ def request_profile_versions():
     dict_content = yaml.safe_load(content)
     return dict_content
 
-
+@DeprecationWarning
 def parse_profile(jsonld, url_dl):
     """_summary_
 
@@ -301,7 +319,7 @@ def parse_profile(jsonld, url_dl):
 def load_profiles():
     if not path.exists("profiles/bs_profiles.json"):
         print("Updating Bioschemas profiles from github")
-        profiles = get_profiles_specs_from_github()
+        profiles = get_profiles_from_dde()
         with open("profiles/bs_profiles.json", "w") as outfile:
             json.dump(profiles, outfile)
         print("Profiles updated")
@@ -505,14 +523,17 @@ class ProfileFactory:
             raise BioschemasProfileNotFoundException(
                 f"Cannot access file <{github_file}> for profile <{profile_name}> version <{version}> at <{p}>"
             )
-        response = requests.get(github_file)
-        dict_profile = parse_profile(response.json(), github_file)
+        # response = requests.get(github_file)
+        # dict_profile = parse_profile(response.json(), github_file)
+
+        dict_profile = profile_file_parser(github_file)
+        dict_profile = dict_profile[bioschemas_profile_url]
 
         profile = Profile(
             shape_name=dict_profile["name"],
             target_classes=dict_profile["target_classes"],
-            min_props=dict_profile["min_props"],
-            rec_props=dict_profile["rec_props"],
+            min_props=dict_profile["required"],
+            rec_props=dict_profile["recommended"],
             ref_profile=dict_profile["ref_profile"],
         )
         return profile
@@ -526,8 +547,8 @@ class ProfileFactory:
                 profile = Profile(
                     shape_name=name,
                     target_classes=bs_profiles[profile_key]["target_classes"],
-                    min_props=bs_profiles[profile_key]["min_props"],
-                    rec_props=bs_profiles[profile_key]["rec_props"],
+                    min_props=bs_profiles[profile_key]["required"],
+                    rec_props=bs_profiles[profile_key]["recommended"],
                     ref_profile=bs_profiles[profile_key]["ref_profile"],
                 )
                 return profile
@@ -540,8 +561,8 @@ class ProfileFactory:
             profiles[profile_key] = Profile(
                 shape_name=bs_profiles[profile_key]["name"],
                 target_classes=bs_profiles[profile_key]["target_classes"],
-                min_props=bs_profiles[profile_key]["min_props"],
-                rec_props=bs_profiles[profile_key]["rec_props"],
+                min_props=bs_profiles[profile_key]["required"],
+                rec_props=bs_profiles[profile_key]["recommended"],
                 ref_profile=bs_profiles[profile_key]["ref_profile"],
             )
         return profiles

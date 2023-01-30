@@ -8,7 +8,9 @@ from rdflib import ConjunctiveGraph
 from profiles.bioschemas_shape_gen import get_profiles_specs_from_github
 from profiles.bioschemas_shape_gen import gen_SHACL_from_profile
 # from profiles.Profile 
-from profiles.ProfileFactory import get_profiles_specs_from_dde, load_profiles, update_profiles, evaluate_profile_with_conformsto, evaluate_profile_from_type
+from profiles.ProfileFactory import profile_file_parser, load_profiles, update_profiles, evaluate_profile_with_conformsto, evaluate_profile_from_type
+
+from profiles.ProfileFactory import ProfileFactory
 
 from os import environ, path
 from dotenv import load_dotenv
@@ -75,23 +77,30 @@ class ImportBSProfileTestCase(unittest.TestCase):
     def test_load_profiles(self):
         self.test_github_rate_limite()
         profiles = load_profiles()
-        print(json.dumps(profiles, indent=4))
-        print(len(profiles))
-        for profile_key in profiles.keys():
-            ref_profile = profiles[profile_key]["ref_profile"]
-            response = requests.head(ref_profile, verify=False, timeout=5)
+        self.assertEqual(31, len(profiles))
 
-            # self.assertEqual(response.status_code, 200)
 
-            gen_SHACL_from_profile(
-                profiles[profile_key]["name"],
-                "sc:" + profiles[profile_key]["name"],
-                profiles[profile_key]["min_props"],
-                profiles[profile_key]["rec_props"],
-            )
+    def test_create_profile_object(self):
+        profiles_list = ProfileFactory.create_all_profiles_from_specifications()
+        self.assertEqual(31, len(profiles_list))
+
 
     def test_update_profiles(self):
         update_profiles()
+
+    def test_ref_profiles(self):
+        profiles_dict = ProfileFactory.create_all_profiles_from_specifications()
+        for profile_k in profiles_dict.keys():
+            ref_profile = profiles_dict[profile_k].get_ref_profile()
+            response = requests.head(ref_profile, verify=False, timeout=5)
+            print(ref_profile)
+            print(response.status_code)
+            # self.assertEqual(response.status_code, 200)
+
+    def test_profile_get_name(self):
+        profiles_dict = ProfileFactory.create_all_profiles_from_specifications()
+        for profile_k in profiles_dict.keys():
+            print(profiles_dict[profile_k])
 
     def test_wfh_conformsto_eval(self):
         url = "https://workflowhub.eu/workflows/18"
@@ -130,8 +139,26 @@ class ImportBSProfileTestCase(unittest.TestCase):
 
         self.assertEqual(len(result), 3)
 
-    def test_get_profiles_specs_from_dde(self):
-        get_profiles_specs_from_dde()
+    def test_profile_file_parser(self):
+
+        url_profiles = [
+            "https://raw.githubusercontent.com/BioSchemas/bioschemas-dde/main/bioschemas.json",
+            "https://raw.githubusercontent.com/BioSchemas/bioschemas-dde/main/bioschemasdrafts.json",
+            "https://raw.githubusercontent.com/BioSchemas/specifications/master/Gene/jsonld/Gene_v0.3-DRAFT-2018_08_21.json",
+            "https://raw.githubusercontent.com/BioSchemas/specifications/master/ComputationalWorkflow/jsonld/ComputationalWorkflow_v1.0-RELEASE.json"
+        ]
+
+        results = {}
+        profiles_names_list = []
+        for url_profile in url_profiles:
+            profiles_dict = profile_file_parser(url_profile)
+
+            for profile_key in profiles_dict:
+                if profiles_dict[profile_key]["name"] not in profiles_names_list:
+                    results[profile_key] = profiles_dict[profile_key]
+                    profiles_names_list.append(profiles_dict[profile_key]["name"])
+        self.assertEqual(len(results), 31)
+
 
     def test_req_profile_versions(self):
         response = requests.get("https://raw.githubusercontent.com/BioSchemas/bioschemas.github.io/master/_data/profile_versions.yaml")
