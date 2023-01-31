@@ -68,7 +68,8 @@ from profiles.ProfileFactory import (
     load_profiles,
     update_profiles,
     evaluate_profile_with_conformsto,
-    evaluate_profile_from_type
+    evaluate_profile_from_type,
+    dyn_evaluate_profile_with_conformsto
 )
 
 import time
@@ -652,7 +653,25 @@ class InspectBioschemas(Resource):
 
         web_res = WebResource(url)
         kg = web_res.get_rdf()
-        results = evaluate_bioschemas_profiles(kg)
+        results = {}
+
+        # Evaluate only profile with conformsTo
+        results_conformsto = dyn_evaluate_profile_with_conformsto(kg)
+
+        # Try to match and evaluate all found corresponding profiles
+        results_type = evaluate_profile_from_type(kg)
+
+        for result_key in results_conformsto.keys():
+            results[result_key] = results_conformsto[result_key]
+
+        for result_key in results_type.keys():
+            if result_key not in results:
+                results[result_key] = results_type[result_key]
+
+
+
+        # TODO Try similarity match her for profiles that are not matched
+
         return results
 
 
@@ -1578,7 +1597,7 @@ def evaluate_bioschemas_profiles(kg):
     results = {}
 
     # Evaluate only profile with conformsTo
-    results_conformsto = evaluate_profile_with_conformsto(kg)
+    results_conformsto = dyn_evaluate_profile_with_conformsto(kg)
 
     # Try to match and evaluate all found corresponding profiles
     results_type = evaluate_profile_from_type(kg)

@@ -70,12 +70,13 @@ class Profile:
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix sc: <http://schema.org/> .
-@prefix bsc: <https://bioschemas.org/> .
+@prefix bsc: <https://discovery.biothings.io/view/bioschemas/> .
 @prefix dct: <http://purl.org/dc/terms/> .
 @prefix sh: <http://www.w3.org/ns/shacl#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix edam: <http://edamontology.org/> .
 @prefix biotools: <https://bio.tools/ontology/> .
+@prefix bioschemasdrafts: <https://discovery.biothings.io/view/bioschemasdrafts/> .
 @prefix bioschemastypes: <https://discovery.biothings.io/view/bioschemastypes/> .
 @prefix bh2022GH: <https://discovery.biothings.io/view/bh2022GH/> .
 
