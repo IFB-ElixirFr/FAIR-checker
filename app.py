@@ -674,7 +674,7 @@ class InspectBioschemas(Resource):
 
         return results
 
-@fc_inspect_namespace.route("/bioschemas_validation_conformsto")
+@fc_inspect_namespace.route("/bioschemas_validation_by_conformsto")
 class InspectBioschemasConformsTo(Resource):
     @fc_inspect_namespace.expect(reqparse)
     def get(self):
@@ -694,7 +694,7 @@ class InspectBioschemasConformsTo(Resource):
         return results_conformsto
 
 
-@fc_inspect_namespace.route("/bioschemas_validation_typesmatch")
+@fc_inspect_namespace.route("/bioschemas_validation_by_types")
 class InspectBioschemasTypesMatch(Resource):
     @fc_inspect_namespace.expect(reqparse)
     def get(self):
