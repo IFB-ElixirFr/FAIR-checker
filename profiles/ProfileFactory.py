@@ -43,7 +43,7 @@ def profile_file_parser(url_profile):
                 # replace DDE prefix by schema.org prefix for Schema.org types
                 replace_prefix = {
                     "bioschemastypes:": "sc:",
-                    # "bioschemastypesdrafts:": "sc:",
+                    "bioschemastypesdrafts:": "sc:",
                     "schema:": "sc:",
                 }
                 for i, j in replace_prefix.items():
@@ -130,7 +130,8 @@ def get_profiles_from_dde():
                 profiles_names_list.append(profiles_dict[profile_key]["name"])
     return results
 
-@DeprecationWarning
+
+# @DeprecationWarning
 def get_profiles_specs_from_github():
     github_token = environ.get("GITHUB_TOKEN")
     headers = {
@@ -226,7 +227,8 @@ def request_profile_versions():
     dict_content = yaml.safe_load(content)
     return dict_content
 
-@DeprecationWarning
+
+# @DeprecationWarning
 def parse_profile(jsonld, url_dl):
     """_summary_
 
@@ -320,6 +322,7 @@ def load_profiles():
     if not path.exists("profiles/bs_profiles.json"):
         print("Updating Bioschemas profiles from github")
         profiles = get_profiles_from_dde()
+        # profiles = get_profiles_specs_from_github()
         with open("profiles/bs_profiles.json", "w") as outfile:
             json.dump(profiles, outfile)
         print("Profiles updated")

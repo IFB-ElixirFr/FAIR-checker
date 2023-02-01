@@ -674,6 +674,43 @@ class InspectBioschemas(Resource):
 
         return results
 
+@fc_inspect_namespace.route("/bioschemas_validation_conformsto")
+class InspectBioschemasConformsTo(Resource):
+    @fc_inspect_namespace.expect(reqparse)
+    def get(self):
+        """Validate an RDF JSON-LD graph against Bioschemas profiles"""
+        args = reqparse.parse_args()
+        url = args["url"]
+
+        web_res = WebResource(url)
+        kg = web_res.get_rdf()
+
+
+        # Evaluate only profile with conformsTo
+        results_conformsto = dyn_evaluate_profile_with_conformsto(kg)
+
+        # TODO Try similarity match her for profiles that are not matched
+
+        return results_conformsto
+
+
+@fc_inspect_namespace.route("/bioschemas_validation_typesmatch")
+class InspectBioschemasTypesMatch(Resource):
+    @fc_inspect_namespace.expect(reqparse)
+    def get(self):
+        """Validate an RDF JSON-LD graph against Bioschemas profiles"""
+        args = reqparse.parse_args()
+        url = args["url"]
+
+        web_res = WebResource(url)
+        kg = web_res.get_rdf()
+
+        # Try to match and evaluate all found corresponding profiles
+        results_type = evaluate_profile_from_type(kg)
+
+        # TODO Try similarity match her for profiles that are not matched
+
+        return results_type
 
 def list_routes():
     return ["%s" % rule for rule in app.url_map.iter_rules()]

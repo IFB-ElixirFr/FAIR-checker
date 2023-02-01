@@ -65,6 +65,9 @@ class Profile:
         # print(min_props)
         # print(rec_props)
 
+        # @prefix bsc: <https://bioschemas.org/> .
+        # @prefix bsc: <https://discovery.biothings.io/view/bioschemas/> .
+
         shape_template = """
 @prefix ns: <https://fair-checker.france-bioinformatique.fr#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
