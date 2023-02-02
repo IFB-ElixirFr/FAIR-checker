@@ -1,4 +1,6 @@
-<link rel="stylesheet" href="../static/css/bulma-divider.min.css">{% extends "layout.html" %}
+<link rel="stylesheet" href="../static/css/bulma-divider.min.css">
+
+{% extends "layout.html" %}
 
 {% block nav %}
 {% include 'nav.html' %}
@@ -84,7 +86,7 @@
 
 
     data = {{ results | tojson | safe }};
-    console.log(data)
+    // console.log(data)
     var valid_html = "";
     $.each(data, function (key, value) {
         var resource = key
@@ -124,7 +126,7 @@
         }
         valid_html += '</div>'
     });
-    console.log(valid_html)
+    // console.log(valid_html)
     $('#block_valid').html(valid_html);
     $("#section-describe").find(".block").removeClass("is-hidden");
     $("#article-bioschemas-check").find(".block").removeClass("is-hidden");
@@ -180,17 +182,23 @@
             <div class="block">
                 <section id="section-BioSchemas" class="section">
                     <!-- <h3 class="title is-3">BioSchemas profiles checks</h3> -->
+
                     <p>Bioschemas is a community effort aimed at reusing and extending Schema.org for better life
                         science digital resource findability. Several profiles are defined for each kind of Life Science
                         resources, specifying minimal, recommended or optional information. Are minimal
                         information missing ? Should other information be provided for better findability ?</p>
                     <br>
+
                     <div class="field is-grouped is-grouped-centered">
                         <!-- <p class="control"><a id="btn_fairness" class="button is-primary">Vocab. checks</a></p> -->
                         <!-- <p class="control"><a id="btn_bioschemas" class="button is-warning is-large">Check BioSchemas
                             </a>
                         </p> -->
                     </div>
+
+                    {% block test %}
+                    {% include 'bioschemas_report.html' %}
+                    {% endblock %}
 
                     <div id="block_valid" class="block">
 

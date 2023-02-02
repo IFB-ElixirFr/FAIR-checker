@@ -43,7 +43,7 @@ def profile_file_parser(url_profile):
                 # replace DDE prefix by schema.org prefix for Schema.org types
                 replace_prefix = {
                     "bioschemastypes:": "sc:",
-                    "bioschemastypesdrafts:": "sc:",
+                    # "bioschemastypesdrafts:": "sc:",
                     "schema:": "sc:",
                 }
                 for i, j in replace_prefix.items():
@@ -131,7 +131,7 @@ def get_profiles_from_dde():
     return results
 
 
-# @DeprecationWarning
+@DeprecationWarning
 def get_profiles_specs_from_github():
     github_token = environ.get("GITHUB_TOKEN")
     headers = {
@@ -228,7 +228,7 @@ def request_profile_versions():
     return dict_content
 
 
-# @DeprecationWarning
+@DeprecationWarning
 def parse_profile(jsonld, url_dl):
     """_summary_
 
@@ -409,6 +409,7 @@ def dyn_evaluate_profile_with_conformsto(kg):
         # we override the final result to exclude warnings
         conforms = len(errors) == 0
         results[str(s)] = {
+            "method": "by_conformsto",
             "type": str(t),
             "ref_profile": profile.get_ref_profile(),
             "conforms": conforms,
@@ -418,6 +419,7 @@ def dyn_evaluate_profile_with_conformsto(kg):
     return results
 
 
+@DeprecationWarning
 def evaluate_profile_with_conformsto(kg):
     # A instancier au lancement du serveur et actualiser lors d'updates
 
@@ -479,6 +481,7 @@ def evaluate_profile_from_type(kg):
                     # we override the final result to exclude warnings
                     conforms = len(errors) == 0
                     results[str(s)] = {
+                        "method": "by_type",
                         "type": str(o),
                         "ref_profile": PROFILES[p_key].get_ref_profile(),
                         "conforms": conforms,
