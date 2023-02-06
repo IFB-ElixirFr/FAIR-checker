@@ -2,14 +2,41 @@
 
 $(document).ready(function () {
 
-    data = {{ results | tojson | safe }};
+    // console.log('trying to connect...');
+    // var socket = io.connect({{ config['SERVER_IP'] | tojson }});
+    // console.log('connected');    
 
-    const valid_container = document.getElementById("block_test");
+    // socket.on('connect', function () {
+    //     socket.emit('hello', { data: 'I\'m connected!' });
+    //     console.log('hello message sent');
+    // });
 
 
+    {% if request.path == '/bioschemas_validation' %}
+        console.log("Static loading");
+        data = {{ results | tojson | safe }};
+        validation_report_gen(data, "static");
+
+    // {% elif request.path == '/inspect' %}
+    //     console.log("Dynamic loading");
+    //     socket.on('done_check_shape', function (data) {
+    //         console.log("DONE !!");
+    //         validation_report_gen(data, "dynamic");
+    //         $("#btn_bioschemas").removeClass("is-loading");
+    //         $("#btn_annot_bioschemas").removeClass("is-hidden");
+    //     });
+    {% endif %}
+
+    
+});
+
+function validation_report_gen(data, generation){
+
+    const valid_container = document.getElementById("block_valid_report");
 
     const hvalid_template = document.getElementById('head-valid-template').innerHTML;
     const tvalid_template = document.getElementById("table-valid-template").innerHTML;
+    const tvalids_template = document.getElementById("tables-valid-template").innerHTML;
     const rvalid_template = document.getElementById("row-valid-template").innerHTML;
 
     let index = 0;
@@ -22,29 +49,49 @@ $(document).ready(function () {
         let conforms = data[key]['conforms']
         let method = data[key]['method']
 
-        if (method == "by_conformsto") {
-            console.log("conformsTo");
+        if ((method != "by_conformsto") && (generation == "static")) {
+            return;
+        };
 
-        }
+
+        var method_str
+        if (method == "by_conformsto") {
+            var bs_logo_html = '<img src="{{ url_for("static",filename="images/hexagon_color_bs.png") }}" width="25" height="25">'
+            method_str = bs_logo_html + "&nbsp;Found&nbsp;<b>conformsTo</b>&nbsp;property, validating with&nbsp;";
+        } else if (method == "by_type") {
+            method_str = "No&nbsp;<b>conformsTo</b>&nbsp;found, validating using type with&nbsp;";
+        };
 
         // Validation report head
         let hvalid_rendered = Mustache.render(hvalid_template, { 
             resource: resource,
             type: type,
             profile: profile,
+            method_str: method_str,
         });
         valid_container.innerHTML += hvalid_rendered;
 
 
-        valid_container.innerHTML += '<div class="columns is-multiline is-mobile">';
+        // Required results tables
+        var trequi_index = index.toString() + "-requi-tbody"
+        var treco_index = index.toString() + "-reco-tbody"
+        let table_rendered = Mustache.render(tvalids_template, { 
+            thead_requi: "Required missing properties",
+            index_requi: trequi_index,
+            thead_reco: "Improvements",
+            index_reco: treco_index,
+
+        });
+        valid_container.innerHTML += table_rendered;
+
 
         // Required results table
-        var trequi_index = index.toString() + "-requi-tbody"
-        let trequired_rendered = Mustache.render(tvalid_template, { 
-            thead: "Required missing properties",
-            index: trequi_index,
-        });
-        valid_container.innerHTML += trequired_rendered;
+        // var trequi_index = index.toString() + "-requi-tbody"
+        // let trequired_rendered = Mustache.render(tvalid_template, { 
+        //     thead: "Required missing properties",
+        //     index: trequi_index,
+        // });
+        // valid_container.innerHTML += trequired_rendered;
 
         // Required results row
         let tmiss_body_container = document.getElementById(trequi_index);
@@ -59,12 +106,12 @@ $(document).ready(function () {
 
 
         // Recommended results table
-        var treco_index = index.toString() + "-reco-tbody"
-        let trecommended_rendered = Mustache.render(tvalid_template, { 
-            thead: "Improvements",
-            index: treco_index,
-        });
-        valid_container.innerHTML += trecommended_rendered;
+        // var treco_index = index.toString() + "-reco-tbody"
+        // let trecommended_rendered = Mustache.render(tvalid_template, { 
+        //     thead: "Improvements",
+        //     index: treco_index,
+        // });
+        // valid_container.innerHTML += trecommended_rendered;
 
         // Recommended results row
         let treco_body_container = document.getElementById(treco_index);
@@ -77,40 +124,67 @@ $(document).ready(function () {
             treco_body_container.innerHTML += row_reco_valid_rendered;
         });
 
-        valid_container.innerHTML += '</div>';
     });
-});
+};
+
 
 </script>
 
 
+<!-- Template validation head -->
+<!-- <script id="head-valid-template" type="text/x-handlebars-template"></script> -->
 <script id="head-valid-template" type="text/html">
-    <h5 class="subtitle">
-        <span class="tag is-info is-light">
-            <a target="_blank" href="{% raw %}{{resource}}{% endraw %}">{% raw %}{{resource}}{% endraw %}</a>
-        </span>
-        has type 
-        <span class="tag is-dark">
-            <a target="_blank" href="{% raw %}{{type}}{% endraw %}">{% raw %}{{type}}{% endraw %}</a>
-        </span>
-
-    <p>should be conform to profile 
-        <span class="tag is-dark">
-            <a target=_blank href="{% raw %}{{profile}}{% endraw %}">{% raw %}{{profile}}{% endraw %}</a>
-        </span>
-    </p>
+    <hr size="10" background-color="#dbdbdb!important">
+    <h5 class="subtitle" style="line-height: 1.5;">
+        <p>
+            <span class="tag is-info is-light">
+                <a target="_blank" href="{% raw %}{{resource}}{% endraw %}">{% raw %}{{resource}}{% endraw %}</a>
+            </span>
+            has type 
+            <span class="tag is-dark">
+                <a target="_blank" href="{% raw %}{{type}}{% endraw %}">{% raw %}{{type}}{% endraw %}</a>
+            </span>
+        </p>
+        <p>
+            <div style="display:flex; align-items:center;">
+                {% raw %}{{{method_str }}}{% endraw %}
+            
+                <span class="tag is-dark">
+                    <a target=_blank href="{% raw %}{{profile}}{% endraw %}">{% raw %}{{profile}}{% endraw %}</a>
+                </span>
+            </div>
+        </p>
     </h5>
+
 </script>
 
-<script id="table-valid-template" type="text/html">
+
+<!-- Template validation head for conformsTo-->
+<script id="head-ct-valid-template" type="text/html">
+
+</script>
+
+
+<!-- Template validation tables required and recommended -->
+<script id="tables-valid-template" type="text/html">
+    <div class="columns is-multiline is-mobile">
         <div class="column is-one-half">
             <table class="table is-striped is-fullwidth">
-                <thead><tr><th>{% raw %}{{thead}}{% endraw %}</th></tr></thead>
-                <tbody id="{% raw %}{{index}}{% endraw %}"></tbody>
+                <thead><tr><th>{% raw %}{{thead_requi}}{% endraw %}</th></tr></thead>
+                <tbody id="{% raw %}{{index_requi}}{% endraw %}"></tbody>
             </table>
         </div>
+        <div class="column is-one-half">
+            <table class="table is-striped is-fullwidth">
+                <thead><tr><th>{% raw %}{{thead_reco}}{% endraw %}</th></tr></thead>
+                <tbody id="{% raw %}{{index_reco}}{% endraw %}"></tbody>
+            </table>
+        </div>
+    </div>
 </script>
 
+
+<!-- Template to generate each row of validations template -->
 <script id="row-valid-template" type="text/html">
     <tr>
         <td>
@@ -125,9 +199,22 @@ $(document).ready(function () {
 
 
 
+<!-- /!\ Not used ! Template for one table -->
+<script id="table-valid-template" type="text/html">
+        <div class="column is-one-half">
+            <table class="table is-striped is-fullwidth">
+                <thead><tr><th>{% raw %}{{thead}}{% endraw %}</th></tr></thead>
+                <tbody id="{% raw %}{{index}}{% endraw %}"></tbody>
+            </table>
+        </div>
+</script>
+
+
+
+
 
 <div id="block_valid_report" class="block">
-    <div id="block_test">
+    <!-- <div id="block_test">
 
     </div>
     {{ request.path }}
@@ -143,5 +230,5 @@ $(document).ready(function () {
                 </div>
             {% endif %}
         {% endfor %}
-    {% endif %}
+    {% endif %} -->
 </div>

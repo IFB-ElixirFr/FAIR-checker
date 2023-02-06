@@ -1609,7 +1609,7 @@ def check_kg_shape(data):
     # results = bioschemas_shape.validate_any_from_microdata(uri)
     # print(results)
 
-
+@DeprecationWarning
 @socketio.on("check_kg_shape_old")
 def check_kg_shape_old(data):
     print("shape validation started")
@@ -1646,9 +1646,9 @@ def evaluate_bioschemas_profiles(kg):
         if result_key not in results:
             results[result_key] = results_type[result_key]
 
-
-
     # TODO Try similarity match her for profiles that are not matched
+
+    print(results.keys())
 
     return results
 
