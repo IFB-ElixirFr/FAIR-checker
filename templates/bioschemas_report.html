@@ -54,11 +54,19 @@ function validation_report_gen(data, generation){
         };
 
 
+        // Create 2 differents template, one for each case
         var method_str
+        var bs_logo_html
+        var before_str
+        var after_str
         if (method == "by_conformsto") {
-            var bs_logo_html = '<img src="{{ url_for("static",filename="images/hexagon_color_bs.png") }}" width="25" height="25">'
+            bs_logo_html = '<img src="{{ url_for("static",filename="images/hexagon_color_bs.png") }}" width="25" height="25">'
+            before_str = "&nbsp; Using &nbsp;"
+            after_str = "&nbsp; for validation, specified from the &nbsp;<b>dct:conformsTo</b>&nbsp; property."
             method_str = bs_logo_html + "&nbsp;Found&nbsp;<b>conformsTo</b>&nbsp;property, validating with&nbsp;";
         } else if (method == "by_type") {
+            before_str = "No &nbsp;<b>dct:conformsTo</b>&nbsp; property found trying the &nbsp;"
+            after_str = "&nbsp; profile for validation."
             method_str = "No&nbsp;<b>conformsTo</b>&nbsp;found, validating using type with&nbsp;";
         };
 
@@ -68,6 +76,9 @@ function validation_report_gen(data, generation){
             type: type,
             profile: profile,
             method_str: method_str,
+            before_str: before_str,
+            after_str: after_str,
+            bs_logo_html: bs_logo_html
         });
         valid_container.innerHTML += hvalid_rendered;
 
@@ -147,11 +158,13 @@ function validation_report_gen(data, generation){
         </p>
         <p>
             <div style="display:flex; align-items:center;">
-                {% raw %}{{{method_str }}}{% endraw %}
-            
+                <!-- {% raw %}{{{ method_str }}}{% endraw %} -->
+                {% raw %}{{{ bs_logo_html }}}{% endraw %}
+                {% raw %}{{{ before_str }}}{% endraw %}
                 <span class="tag is-dark">
                     <a target=_blank href="{% raw %}{{profile}}{% endraw %}">{% raw %}{{profile}}{% endraw %}</a>
                 </span>
+                {% raw %}{{{ after_str }}}{% endraw %}
             </div>
         </p>
     </h5>
