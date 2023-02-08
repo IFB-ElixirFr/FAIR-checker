@@ -54,30 +54,13 @@ function validation_report_gen(data, generation){
         };
 
 
-        // Create 2 differents template, one for each case
-        var method_str
-        var bs_logo_html
-        var before_str
-        var after_str
-        if (method == "by_conformsto") {
-            bs_logo_html = '<img src="{{ url_for("static",filename="images/hexagon_color_bs.png") }}" width="25" height="25">'
-            before_str = "&nbsp; Using &nbsp;"
-            after_str = "&nbsp; for validation, specified from the &nbsp;<b>dct:conformsTo</b>&nbsp; property."
-            method_str = bs_logo_html + "&nbsp;Found&nbsp;<b>conformsTo</b>&nbsp;property, validating with&nbsp;";
-        } else if (method == "by_type") {
-            before_str = "No &nbsp;<b>dct:conformsTo</b>&nbsp; property found trying the &nbsp;"
-            after_str = "&nbsp; profile for validation."
-            method_str = "No&nbsp;<b>conformsTo</b>&nbsp;found, validating using type with&nbsp;";
-        };
-
+        var bs_logo_html = '<img src="{{ url_for("static",filename="images/hexagon_color_bs.png") }}" width="25" height="25" style="vertical-align:middle;">'
         // Validation report head
         let hvalid_rendered = Mustache.render(hvalid_template, { 
+            is_method_ct: Boolean(method == "by_conformsto"),
             resource: resource,
             type: type,
             profile: profile,
-            method_str: method_str,
-            before_str: before_str,
-            after_str: after_str,
             bs_logo_html: bs_logo_html
         });
         valid_container.innerHTML += hvalid_rendered;
@@ -148,7 +131,7 @@ function validation_report_gen(data, generation){
     <hr name="bs_report_sep">
     <h5 class="subtitle" style="line-height: 1.5;">
         <p>
-            <span class="tag is-info is-light">
+            <span class="tag is-info is-medium is-light">
                 <a target="_blank" href="{% raw %}{{resource}}{% endraw %}">{% raw %}{{resource}}{% endraw %}</a>
             </span>
             has type 
@@ -157,18 +140,31 @@ function validation_report_gen(data, generation){
             </span>
         </p>
         <p>
-            <div style="display:flex; align-items:center;">
-                <!-- {% raw %}{{{ method_str }}}{% endraw %} -->
-                {% raw %}{{{ bs_logo_html }}}{% endraw %}
-                {% raw %}{{{ before_str }}}{% endraw %}
+            <div>
+                {% raw %}
+                {{ #is_method_ct }}
+
+                {{{ bs_logo_html }}} 
+                &nbsp;Using&nbsp;
                 <span class="tag is-dark">
-                    <a target=_blank href="{% raw %}{{profile}}{% endraw %}">{% raw %}{{profile}}{% endraw %}</a>
+                    <a target=_blank href="{{profile}}">{{profile}}</a>
                 </span>
-                {% raw %}{{{ after_str }}}{% endraw %}
+                &nbsp;for validation, specified from the&nbsp;<b>dct:conformsTo</b>&nbsp;property.
+
+                {{ /is_method_ct }}
+                {{ ^is_method_ct}}
+
+                No&nbsp;<b>dct:conformsTo</b>&nbsp;property found, using&nbsp;
+                <span class="tag is-dark">
+                    <a target=_blank href="{{profile}}">{{profile}}</a>
+                </span>
+                &nbsp;profile for validation.
+
+                {{ /is_method_ct }}
+                {% endraw %}
             </div>
         </p>
     </h5>
-
 </script>
 
 

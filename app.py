@@ -678,7 +678,7 @@ class InspectBioschemas(Resource):
 class InspectBioschemasConformsTo(Resource):
     @fc_inspect_namespace.expect(reqparse)
     def get(self):
-        """Validate an RDF JSON-LD graph against Bioschemas profiles"""
+        """Validate an RDF JSON-LD graph against Bioschemas profiles using dct:conformsTo"""
         args = reqparse.parse_args()
         url = args["url"]
 
@@ -698,7 +698,7 @@ class InspectBioschemasConformsTo(Resource):
 class InspectBioschemasTypesMatch(Resource):
     @fc_inspect_namespace.expect(reqparse)
     def get(self):
-        """Validate an RDF JSON-LD graph against Bioschemas profiles"""
+        """Validate an RDF JSON-LD graph against Bioschemas profiles using types"""
         args = reqparse.parse_args()
         url = args["url"]
 
