@@ -210,6 +210,7 @@ def get_profiles_specs_from_github():
         return False
 
 
+@DeprecationWarning
 def get_latest_profile(profiles_dict):
 
     latest_rel = max(profiles_dict.values())
@@ -415,6 +416,8 @@ def dyn_evaluate_profile_with_conformsto(kg):
             "conforms": conforms,
             "warnings": warnings,
             "errors": errors,
+            "deprecated": profile.get_is_deprecated(),
+            "latest_profile": profile.get_latest_profile(),
         }
     return results
 
@@ -487,9 +490,64 @@ def evaluate_profile_from_type(kg):
                         "conforms": conforms,
                         "warnings": warnings,
                         "errors": errors,
+                        "deprecated": PROFILES[p_key].get_is_deprecated(),
+                        "latest_profile": PROFILES[p_key].get_latest_profile(),
                     }
     return results
 
+
+def is_profile_deprecated(profile_name, profile_versions):
+    # profile_versions = request_profile_versions()
+    if profile_name in profile_versions.keys():
+        if profile_versions[profile_name]["status"] == "deprecated":
+            return True
+        elif profile_versions[profile_name]["status"] == "active":
+            return False
+        else:
+            return False
+
+
+def is_profile_version_latest(profile_name, version, profile_versions):
+
+    # profile_versions = request_profile_versions()
+
+    if profile_name in profile_versions.keys():
+        if profile_versions[profile_name]["latest_release"] == version:
+            return True
+        elif profile_versions[profile_name]["latest_publication"] == version:
+            return True
+        else:
+            return False
+    else:
+        return False
+
+
+def get_latest_ref_profile_from_pname(profile_name, profile_versions):
+
+    bs_ref_profile_base = (
+        "https://bioschemas.org/profiles/" + profile_name + "/"
+    )
+
+    # profile_versions = request_profile_versions()
+    if profile_name in profile_versions.keys():
+        if profile_versions[profile_name]["latest_release"]:
+            latest_profile_version = profile_versions[profile_name]["latest_release"]
+            bs_ref_profile_latest = bs_ref_profile_base + latest_profile_version
+            if requests.head(bs_ref_profile_latest, verify=False).status_code == 200:
+                return bs_ref_profile_latest
+            else:
+                return None
+        elif profile_versions[profile_name]["latest_publication"]:
+            latest_profile_version = profile_versions[profile_name]["latest_publication"]
+            bs_ref_profile_latest = bs_ref_profile_base + latest_profile_version
+            if requests.head(bs_ref_profile_latest, verify=False).status_code == 200:
+                return bs_ref_profile_latest
+            else:
+                return None
+        else:
+            return None
+    else:
+        return None
 
 # from enum import Enum, unique
 
@@ -535,12 +593,32 @@ class ProfileFactory:
         dict_profile = profile_file_parser(github_file)
         dict_profile = dict_profile[bioschemas_profile_url]
 
+        # get latest profile versions
+        profile_versions = request_profile_versions()
+
+        # Check if the profile in dct:conformsTo is deprecated
+        is_deprecated = is_profile_deprecated(profile_name, profile_versions)
+
+        # Check if the profile in dct:conformsTo is the latest one
+        is_latest_profile = is_profile_version_latest(profile_name, version, profile_versions)
+        if is_latest_profile:
+            latest_ref_profile = True
+        else:
+            latest_ref_profile = get_latest_ref_profile_from_pname(profile_name, profile_versions)
+
+        print("#####################")
+        print("Deprecated: " + str(is_deprecated))
+        print("Latest: " + str(latest_ref_profile))
+        print("#####################")
+
         profile = Profile(
             shape_name=dict_profile["name"],
             target_classes=dict_profile["target_classes"],
             min_props=dict_profile["required"],
             rec_props=dict_profile["recommended"],
             ref_profile=dict_profile["ref_profile"],
+            deprecated=is_deprecated,
+            latest=latest_ref_profile,
         )
         return profile
 

@@ -39,15 +39,17 @@ function validation_report_gen(data, generation){
     const tvalids_template = document.getElementById("tables-valid-template").innerHTML;
     const rvalid_template = document.getElementById("row-valid-template").innerHTML;
 
-    let index = 0;
+    var index = 0;
     $.each(data, function (key, value) {
         index++;
         var str_index = index.toString();
-        let resource = key
-        let type = data[key]['type']
-        let profile = data[key]['ref_profile']
-        let conforms = data[key]['conforms']
-        let method = data[key]['method']
+        var resource = key
+        var type = data[key]['type']
+        var profile = data[key]['ref_profile']
+        var conforms = data[key]['conforms']
+        var method = data[key]['method']
+        var deprecated = data[key]['deprecated']
+        var latest_profile = data[key]['latest_profile']
 
         if ((method != "by_conformsto") && (generation == "static")) {
             return;
@@ -56,12 +58,14 @@ function validation_report_gen(data, generation){
 
         var bs_logo_html = '<img src="{{ url_for("static",filename="images/hexagon_color_bs.png") }}" width="25" height="25" style="vertical-align:middle;">'
         // Validation report head
-        let hvalid_rendered = Mustache.render(hvalid_template, { 
+        var hvalid_rendered = Mustache.render(hvalid_template, { 
             is_method_ct: Boolean(method == "by_conformsto"),
             resource: resource,
             type: type,
             profile: profile,
-            bs_logo_html: bs_logo_html
+            bs_logo_html: bs_logo_html,
+            deprecated: deprecated,
+            latest_profile: latest_profile,
         });
         valid_container.innerHTML += hvalid_rendered;
 
@@ -69,26 +73,16 @@ function validation_report_gen(data, generation){
         // Required results tables
         var trequi_index = index.toString() + "-requi-tbody"
         var treco_index = index.toString() + "-reco-tbody"
-        let table_rendered = Mustache.render(tvalids_template, { 
-            thead_requi: "Required missing properties",
+        var table_rendered = Mustache.render(tvalids_template, { 
             index_requi: trequi_index,
-            thead_reco: "Improvements",
             index_reco: treco_index,
 
         });
         valid_container.innerHTML += table_rendered;
 
 
-        // Required results table
-        // var trequi_index = index.toString() + "-requi-tbody"
-        // let trequired_rendered = Mustache.render(tvalid_template, { 
-        //     thead: "Required missing properties",
-        //     index: trequi_index,
-        // });
-        // valid_container.innerHTML += trequired_rendered;
-
         // Required results row
-        let tmiss_body_container = document.getElementById(trequi_index);
+        var tmiss_body_container = document.getElementById(trequi_index);
         $.each(data[key]['errors'], function (index, item) {
             let row_requi_valid_rendered = Mustache.render(rvalid_template, { 
                 item: item,
@@ -99,16 +93,8 @@ function validation_report_gen(data, generation){
         });
 
 
-        // Recommended results table
-        // var treco_index = index.toString() + "-reco-tbody"
-        // let trecommended_rendered = Mustache.render(tvalid_template, { 
-        //     thead: "Improvements",
-        //     index: treco_index,
-        // });
-        // valid_container.innerHTML += trecommended_rendered;
-
         // Recommended results row
-        let treco_body_container = document.getElementById(treco_index);
+        var treco_body_container = document.getElementById(treco_index);
         $.each(data[key]['warnings'], function (index, item) {
             let row_reco_valid_rendered = Mustache.render(rvalid_template, { 
                 item: item,
@@ -131,7 +117,7 @@ function validation_report_gen(data, generation){
     <hr name="bs_report_sep">
     <h5 class="subtitle" style="line-height: 1.5;">
         <p>
-            <span class="tag is-info is-medium is-light">
+            <span class="tag is-dark is-medium is-light">
                 <a target="_blank" href="{% raw %}{{resource}}{% endraw %}">{% raw %}{{resource}}{% endraw %}</a>
             </span>
             has type 
@@ -164,6 +150,9 @@ function validation_report_gen(data, generation){
                 {% endraw %}
             </div>
         </p>
+        <p>
+            Latest profile: {% raw %}{{ latest_profile }}{% endraw %}
+        </p>
     </h5>
 </script>
 
@@ -179,13 +168,13 @@ function validation_report_gen(data, generation){
     <div class="columns is-multiline is-mobile">
         <div class="column is-one-half">
             <table class="table is-striped is-fullwidth">
-                <thead><tr><th>{% raw %}{{thead_requi}}{% endraw %}</th></tr></thead>
+                <thead><tr><th>Required missing properties</th></tr></thead>
                 <tbody id="{% raw %}{{index_requi}}{% endraw %}"></tbody>
             </table>
         </div>
         <div class="column is-one-half">
             <table class="table is-striped is-fullwidth">
-                <thead><tr><th>{% raw %}{{thead_reco}}{% endraw %}</th></tr></thead>
+                <thead><tr><th>Improvements</th></tr></thead>
                 <tbody id="{% raw %}{{index_reco}}{% endraw %}"></tbody>
             </table>
         </div>

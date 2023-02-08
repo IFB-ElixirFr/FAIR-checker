@@ -19,12 +19,14 @@ class Profile:
 
     # cache = {}
 
-    def __init__(self, shape_name, target_classes, min_props, rec_props, ref_profile):
+    def __init__(self, shape_name, target_classes, min_props, rec_props, ref_profile, latest=True, deprecated=False):
         self.shape_name = shape_name
         self.target_classes = target_classes
         self.min_props = min_props
         self.rec_props = rec_props
         self.ref_profile = ref_profile
+        self.latest = latest
+        self.deprecated = deprecated
 
         self.shacl_shape = self.gen_SHACL_from_profile()
 
@@ -53,6 +55,12 @@ class Profile:
 
     def get_shacl_shape(self):
         return self.shacl_shape
+
+    def get_is_deprecated(self):
+        return self.deprecated
+
+    def get_latest_profile(self):
+        return self.latest
 
     def gen_SHACL_from_profile(self):
         shape_name = self.shape_name
@@ -136,6 +144,8 @@ ns:{{shape_name}}
         )
         conforms, results_graph, results_text = r
 
+        print("Evaluating: " + str(self.target_classes))
+
         report_query = """
                 SELECT ?node ?path ?path ?severity WHERE {
                     ?v rdf:type sh:ValidationReport ;
@@ -159,12 +169,12 @@ ns:{{shape_name}}
         errors = []
         for r in results:
             if "#Warning" in r["severity"]:
-                print(
-                    f'WARNING: Property {r["path"]} should be provided for {r["node"]}'
-                )
+                # print(
+                #     f'WARNING: Property {r["path"]} should be provided for {r["node"]}'
+                # )
                 warnings.append(f'{r["path"]}')
             if "#Violation" in r["severity"]:
-                print(f'ERROR: Property {r["path"]} must be provided for {r["node"]}')
+                # print(f'ERROR: Property {r["path"]} must be provided for {r["node"]}')
                 errors.append(f'{r["path"]}')
 
         return conforms, warnings, errors
