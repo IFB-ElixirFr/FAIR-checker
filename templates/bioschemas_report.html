@@ -50,6 +50,7 @@ function validation_report_gen(data, generation){
         var method = data[key]['method']
         var deprecated = data[key]['deprecated']
         var latest_profile = data[key]['latest_profile']
+        var show_latest_profile = Boolean(latest_profile == true)
 
         if ((method != "by_conformsto") && (generation == "static")) {
             return;
@@ -64,8 +65,9 @@ function validation_report_gen(data, generation){
             type: type,
             profile: profile,
             bs_logo_html: bs_logo_html,
-            deprecated: deprecated,
-            latest_profile: latest_profile,
+            deprecated: true,
+            show_latest_profile: show_latest_profile,
+            latest_profile: "https://bioschemas.org/profiles/Example-latest-profile",
         });
         valid_container.innerHTML += hvalid_rendered;
 
@@ -74,6 +76,8 @@ function validation_report_gen(data, generation){
         var trequi_index = index.toString() + "-requi-tbody"
         var treco_index = index.toString() + "-reco-tbody"
         var table_rendered = Mustache.render(tvalids_template, { 
+            resource: resource,
+            conforms: true,
             index_requi: trequi_index,
             index_reco: treco_index,
 
@@ -117,7 +121,7 @@ function validation_report_gen(data, generation){
     <hr name="bs_report_sep">
     <h5 class="subtitle" style="line-height: 1.5;">
         <p>
-            <span class="tag is-dark is-medium is-light">
+            <span class="tag is-dark is-medium">
                 <a target="_blank" href="{% raw %}{{resource}}{% endraw %}">{% raw %}{{resource}}{% endraw %}</a>
             </span>
             has type 
@@ -135,6 +139,11 @@ function validation_report_gen(data, generation){
                 <span class="tag is-dark">
                     <a target=_blank href="{{profile}}">{{profile}}</a>
                 </span>
+                {{ #deprecated }}
+                <span class="tag is-info">
+                    Deprecated
+                </span>
+                {{ /deprecated }}
                 &nbsp;for validation, specified from the&nbsp;<b>dct:conformsTo</b>&nbsp;property.
 
                 {{ /is_method_ct }}
@@ -151,7 +160,14 @@ function validation_report_gen(data, generation){
             </div>
         </p>
         <p>
-            Latest profile: {% raw %}{{ latest_profile }}{% endraw %}
+            {% raw %}
+            {{ #show_latest_profile }}
+            There is a more recent version of this profile, you may concider to update it: 
+            <span class="tag is-info is-light">
+                <a target=_blank href="{{ latest_profile }}">{{ latest_profile }}</a>
+            </span>
+            {{ /show_latest_profile }}
+            {% endraw %}
         </p>
     </h5>
 </script>
@@ -171,6 +187,19 @@ function validation_report_gen(data, generation){
                 <thead><tr><th>Required missing properties</th></tr></thead>
                 <tbody id="{% raw %}{{index_requi}}{% endraw %}"></tbody>
             </table>
+            {% raw %}
+            {{ #conforms }}
+            <p>
+                Congratulation, 
+                <span class="tag is-success is-light is-medium">
+                    <a target=_blank href="{{ resource }}">{{ resource }}</a>
+                </span>
+                has a 
+                <span class="has-text-success has-text-weight-bold">valid</span> 
+                Bioschemas profile !
+            </p>
+            {{ /conforms }}
+            {% endraw %}
         </div>
         <div class="column is-one-half">
             <table class="table is-striped is-fullwidth">

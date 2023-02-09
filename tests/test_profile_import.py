@@ -125,7 +125,7 @@ class ImportBSProfileTestCase(unittest.TestCase):
         kg = WebResource(url).get_rdf()
 
         self.assertEqual(len(kg), 35)
-        result = evaluate_profile_with_conformsto(kg)
+        result = dyn_evaluate_profile_with_conformsto(kg)
 
         self.assertEqual(len(result), 0)
 
