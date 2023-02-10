@@ -36,7 +36,7 @@ class FAIRMetricsFactory:
 
     @staticmethod
     def get_FC_metrics():
-        fc_metrics_list = {
+        fc_metrics = {
             F1A_Impl().get_name(): F1A_Impl(),
             F1B_Impl().get_name(): F1B_Impl(),
             F2A_Impl().get_name(): F2A_Impl(),
@@ -49,6 +49,23 @@ class FAIRMetricsFactory:
             R12_Impl().get_name(): R12_Impl(),
             R13_Impl().get_name(): R13_Impl(),
         }
+        return fc_metrics
+
+    @staticmethod
+    def get_FC_impl(web_resource=None):
+        fc_metrics_list = [
+            F1A_Impl(web_resource),
+            F1B_Impl(web_resource),
+            F2A_Impl(web_resource),
+            F2B_Impl(web_resource),
+            A11_Impl(web_resource),
+            I1_Impl(web_resource),
+            I2_Impl(web_resource),
+            I3_Impl(web_resource),
+            R11_Impl(web_resource),
+            R12_Impl(web_resource),
+            R13_Impl(web_resource),
+        ]
         return fc_metrics_list
 
     @staticmethod

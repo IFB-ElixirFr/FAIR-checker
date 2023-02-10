@@ -58,7 +58,7 @@ class APITestCase(unittest.TestCase):
             "/api/check/metrics_all?url=" + self.url_biotools,
             # headers={"Content-Type": "application/json"}
         )
-
+        response.get_json()
         self.assertEqual(200, response.status_code)
         self.assertEqual(11, len(response.get_json()))
 
@@ -120,5 +120,37 @@ class APITestCase(unittest.TestCase):
         response = self.app.get(
             "/api/inspect/bioschemas_validation?url=" + self.url_workflow_hub,
         )
-        self.assertEqual(200, response.get_json())
+        print(len(response.get_json()))
+
+
+        results_errors_list = []
+        results_warnings_list = []
+
+        expected_errors_list = [2, 5, 5, 3, 3, 3, 3, 3, 3, 3, 3]
+        expected_warnings_list = [12, 12, 11, 8, 8, 8, 8, 8, 8, 8, 8]
+
+        result_json = response.get_json()
+        for key in result_json.keys():
+            results_errors_list.append(len(result_json[key]["errors"]))
+            results_warnings_list.append(len(result_json[key]["warnings"]))
+
+
+        self.assertCountEqual(results_errors_list, expected_errors_list)
+        self.assertCountEqual(results_warnings_list, expected_warnings_list)
+
+        self.assertEqual(200, response.status_code)
         self.assertLess(0, len(response.get_json()))
+
+    #TODO add assertions
+    def test_inspect_bioschemas_by_conformsto(self):
+        response = self.app.get(
+            "/api/inspect/bioschemas_validation_by_conformsto?url=" + self.url_workflow_hub,
+        )
+        print(len(response.get_json()))
+
+    #TODO add assertions
+    def test_inspect_bioschemas_by_types(self):
+        response = self.app.get(
+            "/api/inspect/bioschemas_validation_by_types?url=" + self.url_workflow_hub,
+        )
+        print(len(response.get_json()))

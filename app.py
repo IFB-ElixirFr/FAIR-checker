@@ -490,20 +490,13 @@ class MetricEvalAll(Resource):
         web_res = WebResource(url)
 
         metrics_collection = []
-        metrics_collection.append(FAIRMetricsFactory.get_F1A(web_res))
-        metrics_collection.append(FAIRMetricsFactory.get_F1B(web_res))
-        metrics_collection.append(FAIRMetricsFactory.get_F2A(web_res))
-        metrics_collection.append(FAIRMetricsFactory.get_F2B(web_res))
-        metrics_collection.append(FAIRMetricsFactory.get_I1(web_res))
-        metrics_collection.append(FAIRMetricsFactory.get_I1A(web_res))
-        metrics_collection.append(FAIRMetricsFactory.get_I1B(web_res))
-        metrics_collection.append(FAIRMetricsFactory.get_I2(web_res))
-        metrics_collection.append(FAIRMetricsFactory.get_I2A(web_res))
-        metrics_collection.append(FAIRMetricsFactory.get_I2B(web_res))
-        metrics_collection.append(FAIRMetricsFactory.get_I3(web_res))
-        metrics_collection.append(FAIRMetricsFactory.get_R11(web_res))
-        metrics_collection.append(FAIRMetricsFactory.get_R12(web_res))
-        metrics_collection.append(FAIRMetricsFactory.get_R13(web_res))
+        for metric_key in METRICS_CUSTOM.keys():
+            metric = METRICS_CUSTOM[metric_key]
+            metric.set_web_resource(web_res)
+            metrics_collection.append(metric)
+
+        # metrics_collection = FAIRMetricsFactory.get_FC_impl(web_res)
+
 
         results = []
         for metric in metrics_collection:
@@ -2044,20 +2037,10 @@ if __name__ == "__main__":
             web_res = WebResource(url)
 
             metrics_collection = []
-            metrics_collection.append(FAIRMetricsFactory.get_F1A(web_res))
-            metrics_collection.append(FAIRMetricsFactory.get_F1B(web_res))
-            metrics_collection.append(FAIRMetricsFactory.get_F2A(web_res))
-            metrics_collection.append(FAIRMetricsFactory.get_F2B(web_res))
-            metrics_collection.append(FAIRMetricsFactory.get_I1(web_res))
-            metrics_collection.append(FAIRMetricsFactory.get_I1A(web_res))
-            metrics_collection.append(FAIRMetricsFactory.get_I1B(web_res))
-            metrics_collection.append(FAIRMetricsFactory.get_I2(web_res))
-            metrics_collection.append(FAIRMetricsFactory.get_I2A(web_res))
-            metrics_collection.append(FAIRMetricsFactory.get_I2B(web_res))
-            metrics_collection.append(FAIRMetricsFactory.get_I3(web_res))
-            metrics_collection.append(FAIRMetricsFactory.get_R11(web_res))
-            metrics_collection.append(FAIRMetricsFactory.get_R12(web_res))
-            metrics_collection.append(FAIRMetricsFactory.get_R13(web_res))
+            for metric_key in METRICS_CUSTOM.keys():
+                metric = METRICS_CUSTOM[metric_key]
+                metric.set_web_resource(web_res)
+                metrics_collection.append(metric)
 
             if args.bioschemas:
                 logging.info("Bioschemas eval")

@@ -73,7 +73,7 @@ class GenSHACLTestCase(unittest.TestCase):
 
     def test_list_all_conformsto(self):
         list_ct = ProfileFactory.list_all_conformsto()
-        print(list_ct)
+        self.assertEqual(len(list_ct), 31)
 
     def test_profile_factory_from_specifications(self):
         # profiles = ProfileFactory.create_all_profiles_from_specifications()
@@ -97,18 +97,18 @@ class GenSHACLTestCase(unittest.TestCase):
             sub_kg = ConjunctiveGraph()
             for s, p, o in wr_kg.triples((class_id, None, None)):
                 sub_kg.add((s, p, o))
-            print(conformsto)
-            print(sub_kg.serialize(format="json-ld"))
-            print(len(sub_kg))
+            # print(conformsto)
+            # print(sub_kg.serialize(format="json-ld"))
+            # print(len(sub_kg))
             for profile_key in profiles.keys():
                 if profiles[profile_key]["ref_profile"] == conformsto:
                     print("Found conformsTo corresponding profile.")
 
                     profile = Profile(
                         shape_name = profiles[profile_key]["name"],
-                        target_classes = "sc:" + profiles[profile_key]["name"],
-                        min_props = profiles[profile_key]["min_props"],
-                        rec_props = profiles[profile_key]["rec_props"],
+                        target_classes = profiles[profile_key]["target_classes"],
+                        min_props = profiles[profile_key]["required"],
+                        rec_props = profiles[profile_key]["recommended"],
                         ref_profile=profiles[profile_key]["ref_profile"]
                     )
                     shape = profile.gen_SHACL_from_profile()
@@ -116,11 +116,11 @@ class GenSHACLTestCase(unittest.TestCase):
                         knowledge_graph=sub_kg,
                         shacl_shape=shape
                     )
-                    print(validation)
+                    conforms, warnings, errors = validation
 
-        for s, p, o in wr_kg.triples((None, RDF.type, None)):
-            print(o.n3(wr_kg.namespace_manager))
-
+                    self.assertFalse(conforms)
+                    self.assertEqual(len(warnings), 12)
+                    self.assertEqual(len(errors), 3)
 
 
     def test_pofile_factory(self):
@@ -140,7 +140,7 @@ class GenSHACLTestCase(unittest.TestCase):
 
         results = {}
 
-        profiles = ProfileFactory.create_all_profiles()
+        profiles = ProfileFactory.create_all_profiles_from_specifications()
 
         console.print(f"Loaded {len(profiles)} Bioschemas profiles")
 
