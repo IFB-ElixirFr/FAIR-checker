@@ -26,7 +26,7 @@ jobs:
       - uses: conda-incubator/setup-miniconda@v2
         with:
           python-version: 3.8
-          conda-build-version: "4.13.0"
+          conda-build-version: "*"
           channels: conda-forge,defaults
           channel-priority: true
 
@@ -40,7 +40,7 @@ jobs:
 
       - shell: bash -l {0}
         run: |
-          mamba env update -n test --file environment.yml
+          conda env update -n test --file environment.yml
       - name: Create mongoDB Docker container
         run: sudo docker run -d -p 27017:27017 mongo:latest
 
