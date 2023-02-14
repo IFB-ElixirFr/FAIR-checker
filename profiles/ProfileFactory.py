@@ -396,6 +396,7 @@ def dyn_evaluate_profile_with_conformsto(kg):
 
     # Evaluate only profile with conformsTo
     ct_sub_kg_list = find_conformsto_subkg(kg)
+    print(ct_sub_kg_list)
 
     for ct_sub_kg in ct_sub_kg_list:
         s = ct_sub_kg["subject"]
