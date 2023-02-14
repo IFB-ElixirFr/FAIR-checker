@@ -15,6 +15,7 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-      - uses: rickstaa/action-black@v1
+      - uses: psf/black@stable
         with:
-          black_args: ". --check --diff --color"
+          options: ". --check --diff --color"
+          version: "22.12.0"
