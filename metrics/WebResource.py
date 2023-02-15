@@ -258,6 +258,9 @@ class WebResource:
                     print(err)
                     continue
 
+                if jsonld is None:
+                    continue
+
                 if type(jsonld) == list:
                     jsonld = jsonld[0]
                 if "@context" in jsonld.keys():
