@@ -63,8 +63,7 @@ class WebResource:
         if rdf_graph is None:
             # get static RDF metadata (already available in html sources)
             kg_1 = self.extract_rdf_extruct(self.url)
-
-            if "html" in self.content_type:
+            if self.content_type and ("html" in self.content_type):
                 logging.info("Resource content_type is HTML")
                 # get dynamic RDF metadata (generated from JS)
                 kg_2 = WebResource.extract_rdf_selenium(self.url)
@@ -131,7 +130,6 @@ class WebResource:
             try:
                 nb_retry += 1
                 response = requests.get(url=url, timeout=10, verify=False)
-                break
             except SSLError:
                 time.sleep(5)
             except requests.exceptions.Timeout:
@@ -141,6 +139,10 @@ class WebResource:
                 print(e)
                 print("ConnectionError, retrying...")
                 time.sleep(10)
+
+        if not response:
+            logger.error(f"Could not get HTML doc from {url}")
+            return ConjunctiveGraph()
 
         self.status_code = response.status_code
         self.content_type = response.headers["Content-Type"]
