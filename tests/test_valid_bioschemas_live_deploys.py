@@ -68,9 +68,8 @@ def get_live_deploys_urls():
     live_deploys = res.json()
     # for r in random.sample(live_deploys["resources"], 5):
     for r in live_deploys["resources"]:
-        print(r["url"])
         results.append(r["url"])
-    return list(set(results))
+    return results
 
 
 class BioschemasLiveDeploysTestCase(unittest.TestCase):
@@ -182,13 +181,20 @@ class BioschemasLiveDeploysTestCase(unittest.TestCase):
     def test_ld_bioschemas_annot(self):
         res = get_live_deploys_urls()
         errors = []
-        for r in res:
-            kg = WebResource(r).get_rdf()
-            if not len(kg) > 0:
-                print(f"Error with {r}")
-                errors.append(r)
-            else:
-                print(len(kg))
+        i = 0
+        for r in reversed(res):
+            if True:
+                i += 1
+                print("#######" + str(i))
+                status_code = requests.head(r).status_code
+                print(r)
+                print("Status code: " + str(status_code))
+                kg = WebResource(r).get_rdf()
+                print("Triples: " + str(len(kg)))
+                if not len(kg) > 0:
+                    print(f"# Error with {r}")
+                    errors.append(r)
+
         print(f"{len(res)} tested URLS")
         print(f"{len(errors)} failing URLS")
         print(errors)
