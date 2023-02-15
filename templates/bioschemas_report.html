@@ -50,7 +50,7 @@ function validation_report_gen(data, generation){
         var method = data[key]['method']
         var deprecated = data[key]['deprecated']
         var latest_profile = data[key]['latest_profile']
-        var show_latest_profile = Boolean(latest_profile == true)
+        var show_latest_profile = Boolean(latest_profile != true)
 
         if ((method != "by_conformsto") && (generation == "static")) {
             return;
@@ -65,9 +65,9 @@ function validation_report_gen(data, generation){
             type: type,
             profile: profile,
             bs_logo_html: bs_logo_html,
-            deprecated: true,
+            deprecated: deprecated,
             show_latest_profile: show_latest_profile,
-            latest_profile: "https://bioschemas.org/profiles/Example-latest-profile",
+            latest_profile: latest_profile,
         });
         valid_container.innerHTML += hvalid_rendered;
 
@@ -77,7 +77,7 @@ function validation_report_gen(data, generation){
         var treco_index = index.toString() + "-reco-tbody"
         var table_rendered = Mustache.render(tvalids_template, { 
             resource: resource,
-            conforms: true,
+            conforms: conforms,
             index_requi: trequi_index,
             index_reco: treco_index,
 

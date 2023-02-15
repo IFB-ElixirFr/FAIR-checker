@@ -54,15 +54,22 @@ def profile_file_parser(url_profile):
                     for url in element["schema:schemaVersion"]:
                         if "https://bioschemas.org" in url:
                             profile_dict["ref_profile"] = url
-                            # print(url)
-                            # print(requests.head(url).status_code)
+
+                            status_code = requests.head(url).status_code
+                            if status_code != 200:
+                                print(url)
+                                # print(status_code)
                         else:
                             raw_file_base = "https://raw.githubusercontent.com/BioSchemas/specifications/master/"
                             file_url = url
                             file_url_path = file_url.split("/master/")[-1]
                             raw_file_url = raw_file_base + file_url_path
                             profile_dict["file"] = raw_file_url
-                            # print(requests.head(raw_file_url).status_code)
+
+                            # status_code = requests.head(raw_file_url).status_code
+                            # if status_code != 200:
+                            print(raw_file_url)
+                            # print(status_code)
                 else:
                     if profiles_versions[name]["latest_release"]:
                         latest_version = profiles_versions[name]["latest_release"]
@@ -118,6 +125,8 @@ def get_profiles_from_dde():
     url_profiles = [
         "https://raw.githubusercontent.com/BioSchemas/bioschemas-dde/main/bioschemas.json",
         "https://raw.githubusercontent.com/BioSchemas/bioschemas-dde/main/bioschemasdrafts.json",
+        # "https://raw.githubusercontent.com/BioSchemas/bioschemas-dde/main/bioschemastypes.json",
+        # "https://raw.githubusercontent.com/BioSchemas/bioschemas-dde/main/bioschemastypesdrafts.json"
     ]
     results = {}
     profiles_names_list = []
@@ -404,22 +413,35 @@ def dyn_evaluate_profile_with_conformsto(kg):
         t = ct_sub_kg["type"]
         sub_kg = ct_sub_kg["sub_kg"]
 
-        profile = ProfileFactory.create_profile_from_remote(ct)
-        shacl_shape = profile.get_shacl_shape()
-        # print(shacl_shape)
-        conforms, warnings, errors = profile.validate_shape(sub_kg, shacl_shape)
-        # we override the final result to exclude warnings
-        conforms = len(errors) == 0
-        results[str(s)] = {
-            "method": "by_conformsto",
-            "type": str(t),
-            "ref_profile": profile.get_ref_profile(),
-            "conforms": conforms,
-            "warnings": warnings,
-            "errors": errors,
-            "deprecated": profile.get_is_deprecated(),
-            "latest_profile": profile.get_latest_profile(),
-        }
+        try:
+            profile = ProfileFactory.create_profile_from_remote(ct)
+            shacl_shape = profile.get_shacl_shape()
+            # print(shacl_shape)
+            conforms, warnings, errors = profile.validate_shape(sub_kg, shacl_shape)
+            # we override the final result to exclude warnings
+            conforms = len(errors) == 0
+            results[str(s)] = {
+                "method": "by_conformsto",
+                "type": str(t),
+                "ref_profile": profile.get_ref_profile(),
+                "conforms": conforms,
+                "warnings": warnings,
+                "errors": errors,
+                "deprecated": profile.get_is_deprecated(),
+                "latest_profile": profile.get_latest_profile(),
+            }
+        except BioschemasProfileNotFoundException as e:
+            print(e)
+            profile_versions = request_profile_versions()
+            profile_name = ct.split("/")[-2]
+            bs_latest_profile = get_latest_ref_profile_from_pname(profile_name, profile_versions)
+            print(bs_latest_profile)
+            print("TOTO")
+            profile = ProfileFactory.create_profile_from_ref_profile(bs_latest_profile)
+
+            print(profile)
+
+
     return results
 
 
@@ -627,6 +649,7 @@ class ProfileFactory:
     def create_profile_from_ref_profile(ref_profile):
         bs_profiles = load_profiles()
         for profile_key in bs_profiles.keys():
+            print(bs_profiles[profile_key]["ref_profile"])
             if ref_profile == bs_profiles[profile_key]["ref_profile"]:
                 name = bs_profiles[profile_key]["name"]
                 profile = Profile(
