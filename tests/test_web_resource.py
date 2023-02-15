@@ -103,6 +103,10 @@ class WebResourceTestCase(unittest.TestCase):
         logging.info(f"{len(fc.get_rdf())} loaded RDF triples")
         self.assertGreaterEqual(len(fc.get_rdf()), 35)
 
+    def test_elixir(self):
+        elixir = WebResource("https://www.elixir-europe.org/")
+        logging.info(f"{len(elixir.get_rdf())} loaded RDF triples")
+
 
 if __name__ == "__main__":
     unittest.main()

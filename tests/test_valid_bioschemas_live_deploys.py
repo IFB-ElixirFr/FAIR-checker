@@ -1,6 +1,5 @@
 import unittest
 import requests
-import random
 import json
 from rdflib import Graph
 
@@ -60,6 +59,18 @@ def gen_urls_for_live_deploys_profiles():
             profile_url = profile_url_prefix + p["profileName"] + "/" + p["conformsTo"]
             profile_urls.append(profile_url)
     return list(set(profile_urls))
+
+
+def get_live_deploys_urls():
+    results = []
+    live_deploys_remote_file = "https://raw.githubusercontent.com/BioSchemas/bioschemas.github.io/master/_data/live_deployments.json"
+    res = requests.get(live_deploys_remote_file)
+    live_deploys = res.json()
+    # for r in random.sample(live_deploys["resources"], 5):
+    for r in live_deploys["resources"]:
+        print(r["url"])
+        results.append(r["url"])
+    return list(set(results))
 
 
 class BioschemasLiveDeploysTestCase(unittest.TestCase):
@@ -167,6 +178,20 @@ class BioschemasLiveDeploysTestCase(unittest.TestCase):
         shape_graph = Graph()
         shape_graph.parse(data=shape_rdf, format="ttl")
         self.assertEqual(len(shape_graph), 26)
+
+    def test_ld_bioschemas_annot(self):
+        res = get_live_deploys_urls()
+        errors = []
+        for r in res:
+            kg = WebResource(r).get_rdf()
+            if not len(kg) > 0:
+                print(f"Error with {r}")
+                errors.append(r)
+            else:
+                print(len(kg))
+        print(f"{len(res)} tested URLS")
+        print(f"{len(errors)} failing URLS")
+        print(errors)
 
     def test_all(self):
         to_be_skipped = [
