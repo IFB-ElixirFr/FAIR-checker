@@ -126,8 +126,10 @@ class WebResource:
 
     # @staticmethod
     def extract_rdf_extruct(self, url) -> ConjunctiveGraph:
-        while True:
+        nb_retry = 0
+        while nb_retry < 3:
             try:
+                nb_retry += 1
                 response = requests.get(url=url, timeout=10, verify=False)
                 break
             except SSLError:
