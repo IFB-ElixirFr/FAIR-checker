@@ -199,6 +199,7 @@ class BioschemasLiveDeploysTestCase(unittest.TestCase):
         print(f"{len(errors)} failing URLS")
         print(errors)
 
+
     def test_all(self):
         to_be_skipped = [
             "https://www.proteinatlas.org/",

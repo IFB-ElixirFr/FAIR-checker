@@ -108,5 +108,37 @@ class WebResourceTestCase(unittest.TestCase):
         logging.info(f"{len(elixir.get_rdf())} loaded RDF triples")
 
 
+    def test_UnicodeDecodeError_resources(self):
+        urls = [
+            # "https://workflowhub.eu/workflows/18"
+            # "https://ebisc.org/",
+            "https://www.metanetx.org/",
+            # "https://www.ebi.ac.uk/interpro/",
+            # "https://datacatalog.elixir-luxembourg.org/",
+            # "https://ippidb.pasteur.fr/",
+            # "http://edgar.biocomp.unibo.it/",
+            # "http://phenpath.biocomp.unibo.it/phenpath/",
+            # "https://humanmine.org/",
+            # "https://prosite.expasy.org",
+            # "https://enzyme.expasy.org",
+            # "https://hamap.expasy.org/",
+            # "https://www.ebi.ac.uk/chembl/",
+            # "http://www.ebi.ac.uk/Tools/hmmer/",
+        ]
+
+        for url in urls:
+            wr_kg = WebResource(url).get_rdf()
+            print(len(wr_kg))
+
+    def test_UTF8_error_resources(self):
+        urls = [
+   
+        ]
+
+        for url in urls:
+            wr_kg = WebResource(url).get_rdf()
+            print(len(wr_kg))
+
+
 if __name__ == "__main__":
     unittest.main()

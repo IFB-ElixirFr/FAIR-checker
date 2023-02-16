@@ -145,6 +145,8 @@ class WebResource:
             logger.error(f"Could not get HTML doc from {url}")
             return ConjunctiveGraph()
 
+        # response.encoding = 'ISO-8859-1'
+        print(response.encoding)
         self.status_code = response.status_code
         self.content_type = response.headers["Content-Type"]
         html_source = response.content
@@ -163,8 +165,10 @@ class WebResource:
                     ):
                         md["@context"] = self.static_file_path
                 try:
+                    print(type(json.dumps(md, ensure_ascii=False)))
+                    print(type(md))
                     kg.parse(
-                        data=json.dumps(md, ensure_ascii=False),
+                        data=md,
                         format="json-ld",
                         publicID=url,
                     )
@@ -267,6 +271,8 @@ class WebResource:
                     if "//schema.org" in jsonld["@context"]:
                         jsonld["@context"] = WebResource.static_file_path
                 try:
+                    print(type(json.dumps(jsonld, ensure_ascii=False)))
+                    print(type(jsonld))
                     kg.parse(
                         data=json.dumps(jsonld, ensure_ascii=False),
                         format="json-ld",
