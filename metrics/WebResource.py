@@ -145,8 +145,9 @@ class WebResource:
             logger.error(f"Could not get HTML doc from {url}")
             return ConjunctiveGraph()
 
-        # response.encoding = 'ISO-8859-1'
+        response.encoding = 'UTF-8'
         print(response.encoding)
+        print(response.headers["Content-Type"])
         self.status_code = response.status_code
         self.content_type = response.headers["Content-Type"]
         html_source = response.content
@@ -154,6 +155,14 @@ class WebResource:
         data = extruct.extract(
             html_source, syntaxes=["microdata", "rdfa", "json-ld"], errors="ignore"
         )
+
+        for d in data["json-ld"]:
+            print(len(d))
+            json_test = json.dumps(d, indent=2, ensure_ascii=True)
+            print(json_test)
+            data_json = json.loads(json_test)
+            print(data_json)
+            print(len(data_json))
 
         kg = ConjunctiveGraph()
 
@@ -168,7 +177,7 @@ class WebResource:
                     print(type(json.dumps(md, ensure_ascii=False)))
                     print(type(md))
                     kg.parse(
-                        data=md,
+                        data=json_test,
                         format="json-ld",
                         publicID=url,
                     )

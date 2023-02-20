@@ -109,11 +109,12 @@ class WebResourceTestCase(unittest.TestCase):
 
 
     def test_UnicodeDecodeError_resources(self):
+        # Workflohub is working correctly, it is a positive control
         urls = [
             # "https://workflowhub.eu/workflows/18"
             # "https://ebisc.org/",
-            "https://www.metanetx.org/",
-            # "https://www.ebi.ac.uk/interpro/",
+            # "https://www.metanetx.org/",
+            "https://www.ebi.ac.uk/interpro/",
             # "https://datacatalog.elixir-luxembourg.org/",
             # "https://ippidb.pasteur.fr/",
             # "http://edgar.biocomp.unibo.it/",
