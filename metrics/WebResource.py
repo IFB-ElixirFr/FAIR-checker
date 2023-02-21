@@ -145,9 +145,9 @@ class WebResource:
             logger.error(f"Could not get HTML doc from {url}")
             return ConjunctiveGraph()
 
-        response.encoding = 'UTF-8'
-        print(response.encoding)
-        print(response.headers["Content-Type"])
+        # response.encoding = 'UTF-8'
+        # print(response.encoding)
+        # print(response.headers["Content-Type"])
         self.status_code = response.status_code
         self.content_type = response.headers["Content-Type"]
         html_source = response.content
@@ -156,31 +156,37 @@ class WebResource:
             html_source, syntaxes=["microdata", "rdfa", "json-ld"], errors="ignore"
         )
 
-        for d in data["json-ld"]:
-            print(len(d))
-            json_test = json.dumps(d, indent=2, ensure_ascii=True)
-            print(json_test)
-            data_json = json.loads(json_test)
-            print(data_json)
-            print(len(data_json))
+        # for d in data["json-ld"]:
+        #     print(len(d))
+        #     json_test = json.dumps(d, ensure_ascii=True)
+        #     # print(json_test)
+        #     data_json = json.loads(json_test)
+        #     # print(data_json)
+        #     print(len(data_json))
 
-        kg = ConjunctiveGraph()
+        kg_jsonld = ConjunctiveGraph()
+
+        # kg = ConjunctiveGraph()
 
         if "json-ld" in data.keys():
             for md in data["json-ld"]:
                 if "@context" in md.keys():
-                    if ("https://schema.org" in md["@context"]) or (
-                        "http://schema.org" in md["@context"]
-                    ):
+                    if "//schema.org" in md["@context"]:
                         md["@context"] = self.static_file_path
+                    if type(md["@context"]) == list:
+                        for i, context in enumerate(md["@context"]):
+                            if "//schema.org" in context:
+                                md["@context"][i] = self.static_file_path
                 try:
-                    print(type(json.dumps(md, ensure_ascii=False)))
+                    print(md)
                     print(type(md))
-                    kg.parse(
-                        data=json_test,
+                    print(len(kg_jsonld))
+                    kg_jsonld.parse(
+                        data=md,
                         format="json-ld",
                         publicID=url,
                     )
+                    print(len(kg_jsonld))
                 except UnicodeDecodeError as unicode_error:
                     logger.error(
                         f"Cannot parse RDF from {url} due to UnicodeDecodeError"
@@ -189,16 +195,20 @@ class WebResource:
                 except json.JSONDecodeError as json_error:
                     logger.error(f"Cannot parse RDF from {url} due to JSONDecodeError")
                     logger.error(json_error)
+
+        kg_rdfa = ConjunctiveGraph()
 
         if "rdfa" in data.keys():
             for md in data["rdfa"]:
                 if "@context" in md.keys():
-                    if ("https://schema.org" in md["@context"]) or (
-                        "http://schema.org" in md["@context"]
-                    ):
+                    if "//schema.org" in md["@context"]:
                         md["@context"] = self.static_file_path
+                    if type(md["@context"]) == list:
+                        for i, context in enumerate(md["@context"]):
+                            if "//schema.org" in context:
+                                md["@context"][i] = self.static_file_path
                 try:
-                    kg.parse(
+                    kg_rdfa.parse(
                         data=json.dumps(md, ensure_ascii=False),
                         format="json-ld",
                         publicID=url,
@@ -211,16 +221,20 @@ class WebResource:
                 except json.JSONDecodeError as json_error:
                     logger.error(f"Cannot parse RDF from {url} due to JSONDecodeError")
                     logger.error(json_error)
+
+        kg_microdata = ConjunctiveGraph()
 
         if "microdata" in data.keys():
             for md in data["microdata"]:
                 if "@context" in md.keys():
-                    if ("https://schema.org" in md["@context"]) or (
-                        "http://schema.org" in md["@context"]
-                    ):
+                    if "//schema.org" in md["@context"]:
                         md["@context"] = self.static_file_path
+                    if type(md["@context"]) == list:
+                        for i, context in enumerate(md["@context"]):
+                            if "//schema.org" in context:
+                                md["@context"][i] = self.static_file_path
                 try:
-                    kg.parse(
+                    kg_microdata.parse(
                         data=json.dumps(md, ensure_ascii=False),
                         format="json-ld",
                         publicID=url,
@@ -234,13 +248,16 @@ class WebResource:
                     logger.error(f"Cannot parse RDF from {url} due to JSONDecodeError")
                     logger.error(json_error)
 
-        logging.debug(kg.serialize(format="turtle"))
+        kg_extruct = kg_jsonld + kg_rdfa + kg_microdata
 
-        kg.namespace_manager.bind("sc", URIRef("http://schema.org/"))
-        kg.namespace_manager.bind("bsc", URIRef("https://bioschemas.org/"))
-        kg.namespace_manager.bind("dct", URIRef("http://purl.org/dc/terms/"))
+        logging.debug(kg_extruct.serialize(format="turtle"))
 
-        return kg
+        kg_extruct.namespace_manager.bind("sc", URIRef("http://schema.org/"))
+        kg_extruct.namespace_manager.bind("bsc", URIRef("https://bioschemas.org/"))
+        kg_extruct.namespace_manager.bind("dct", URIRef("http://purl.org/dc/terms/"))
+
+        print(len(kg_extruct))
+        return kg_extruct
 
     @staticmethod
     def extract_rdf_selenium(url) -> ConjunctiveGraph:
@@ -279,9 +296,13 @@ class WebResource:
                 if "@context" in jsonld.keys():
                     if "//schema.org" in jsonld["@context"]:
                         jsonld["@context"] = WebResource.static_file_path
+                    if type(jsonld["@context"]) == list:
+                        for i, context in enumerate(jsonld["@context"]):
+                            if "//schema.org" in context:
+                                jsonld["@context"][i] = WebResource.static_file_path
                 try:
-                    print(type(json.dumps(jsonld, ensure_ascii=False)))
-                    print(type(jsonld))
+                    print(json.dumps(jsonld, ensure_ascii=False))
+                    print(len(jsonld))
                     kg.parse(
                         data=json.dumps(jsonld, ensure_ascii=False),
                         format="json-ld",
