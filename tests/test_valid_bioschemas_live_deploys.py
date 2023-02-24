@@ -68,9 +68,8 @@ def get_live_deploys_urls():
     live_deploys = res.json()
     # for r in random.sample(live_deploys["resources"], 5):
     for r in live_deploys["resources"]:
-        print(r["url"])
         results.append(r["url"])
-    return list(set(results))
+    return results
 
 
 class BioschemasLiveDeploysTestCase(unittest.TestCase):
@@ -183,6 +182,7 @@ class BioschemasLiveDeploysTestCase(unittest.TestCase):
         res = get_live_deploys_urls()
         errors = []
         for r in res:
+            print(r)
             kg = WebResource(r).get_rdf()
             if not len(kg) > 0:
                 print(f"Error with {r}")

@@ -107,6 +107,18 @@ class WebResourceTestCase(unittest.TestCase):
         elixir = WebResource("https://www.elixir-europe.org/")
         logging.info(f"{len(elixir.get_rdf())} loaded RDF triples")
 
+    def test_biosamples(self):
+        biosamples = WebResource("https://www.ebi.ac.uk/biosamples/")
+        logging.info(f"{len(biosamples.get_rdf())} loaded RDF triples")
+
+    def test_pscan(self):
+        pscan = WebResource("http://159.149.160.88/pscan/")
+        logging.info(f"{len(pscan.get_rdf())} loaded RDF triples")
+
+    def test_expasy(self):
+        expasy = WebResource("https://prosite.expasy.org")
+        logging.info(f"{len(expasy.get_rdf())} loaded RDF triples")
+
 
 if __name__ == "__main__":
     unittest.main()
