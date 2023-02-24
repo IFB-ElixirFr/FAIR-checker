@@ -63,11 +63,12 @@ class WebResource:
         if rdf_graph is None:
             # get static RDF metadata (already available in html sources)
             kg_1 = self.extract_rdf_extruct(self.url)
-            if self.content_type and ("html" in self.content_type):
-                logging.info("Resource content_type is HTML")
-                # get dynamic RDF metadata (generated from JS)
-                kg_2 = WebResource.extract_rdf_selenium(self.url)
-                self.rdf = kg_1 + kg_2
+            if self.content_type:
+                if ("html" in self.content_type) or ("ld+json" in self.content_type):
+                    logging.info("Resource content_type is HTML")
+                    # get dynamic RDF metadata (generated from JS)
+                    kg_2 = WebResource.extract_rdf_selenium(self.url)
+                    self.rdf = kg_1 + kg_2
             else:
                 self.rdf = kg_1
         else:
