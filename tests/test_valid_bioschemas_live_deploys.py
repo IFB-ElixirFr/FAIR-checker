@@ -180,20 +180,24 @@ class BioschemasLiveDeploysTestCase(unittest.TestCase):
 
     def test_ld_bioschemas_annot(self):
         res = get_live_deploys_urls()
+        print(res)
         errors = []
         i = 0
         for r in reversed(res):
             if True:
                 i += 1
                 print("#######" + str(i))
-                status_code = requests.head(r).status_code
-                print(r)
-                print("Status code: " + str(status_code))
-                kg = WebResource(r).get_rdf()
-                print("Triples: " + str(len(kg)))
-                if not len(kg) > 0:
-                    print(f"# Error with {r}")
-                    errors.append(r)
+                try:
+                    status_code = requests.head(r).status_code
+                    print(r)
+                    print("Status code: " + str(status_code))
+                    kg = WebResource(r).get_rdf()
+                    print("Triples: " + str(len(kg)))
+                    if not len(kg) > 0:
+                        print(f"# Error with {r}")
+                        errors.append(r)
+                except requests.exceptions.ConnectionError as e:
+                    print(e)
 
         print(f"{len(res)} tested URLS")
         print(f"{len(errors)} failing URLS")

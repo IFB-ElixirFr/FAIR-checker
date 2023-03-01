@@ -132,6 +132,7 @@ class WebResource:
             try:
                 nb_retry += 1
                 response = requests.get(url=url, timeout=10, verify=False)
+                break
             except SSLError:
                 time.sleep(5)
             except requests.exceptions.Timeout:
@@ -171,6 +172,14 @@ class WebResource:
 
         if "json-ld" in data.keys():
             for md in data["json-ld"]:
+                md = json.loads(json.dumps(md).replace("https://schema.org/", self.static_file_path))
+                md = json.loads(json.dumps(md).replace("http://schema.org/", self.static_file_path))
+                md = json.loads(json.dumps(md).replace("https://schema.org", self.static_file_path))
+                md = json.loads(json.dumps(md).replace("http://schema.org", self.static_file_path))
+                # jsonld_str = json.dumps(md)
+                # jsonld_str.replace('"https://schema.org/"', self.static_file_path)
+                # jsonld_str.replace('"http://schema.org/"', self.static_file_path)
+
                 if "@context" in md.keys():
                     if "//schema.org" in md["@context"]:
                         md["@context"] = self.static_file_path
@@ -179,15 +188,15 @@ class WebResource:
                             if "//schema.org" in context:
                                 md["@context"][i] = self.static_file_path
                 try:
-                    print(md)
-                    print(type(md))
-                    print(len(kg_jsonld))
+                    # print(md)
+                    # print(type(md))
+                    # print(len(kg_jsonld))
                     kg_jsonld.parse(
                         data=md,
                         format="json-ld",
                         publicID=url,
                     )
-                    print(len(kg_jsonld))
+                    # print(len(kg_jsonld))
                 except UnicodeDecodeError as unicode_error:
                     logger.error(
                         f"Cannot parse RDF from {url} due to UnicodeDecodeError"
@@ -257,7 +266,7 @@ class WebResource:
         kg_extruct.namespace_manager.bind("bsc", URIRef("https://bioschemas.org/"))
         kg_extruct.namespace_manager.bind("dct", URIRef("http://purl.org/dc/terms/"))
 
-        print(len(kg_extruct))
+        # print(len(kg_extruct))
         return kg_extruct
 
     @staticmethod
@@ -292,18 +301,25 @@ class WebResource:
                 if jsonld is None:
                     continue
 
-                if type(jsonld) == list:
-                    jsonld = jsonld[0]
-                if "@context" in jsonld.keys():
-                    if "//schema.org" in jsonld["@context"]:
-                        jsonld["@context"] = WebResource.static_file_path
-                    if type(jsonld["@context"]) == list:
-                        for i, context in enumerate(jsonld["@context"]):
-                            if "//schema.org" in context:
-                                jsonld["@context"][i] = WebResource.static_file_path
+                jsonld = json.loads(json.dumps(jsonld).replace("https://schema.org/", WebResource.static_file_path))
+                jsonld = json.loads(json.dumps(jsonld).replace("http://schema.org/", WebResource.static_file_path))
+                jsonld = json.loads(json.dumps(jsonld).replace("https://schema.org", WebResource.static_file_path))
+                jsonld = json.loads(json.dumps(jsonld).replace("http://schema.org", WebResource.static_file_path))
+             
+                    
+
+                # if type(jsonld) == list:
+                #     jsonld = jsonld[0]
+                # if "@context" in jsonld.keys():
+                #     if "//schema.org" in jsonld["@context"]:
+                #         jsonld["@context"] = WebResource.static_file_path
+                #     if type(jsonld["@context"]) == list:
+                #         for i, context in enumerate(jsonld["@context"]):
+                #             if "//schema.org" in context:
+                #                 jsonld["@context"][i] = WebResource.static_file_path
                 try:
-                    print(json.dumps(jsonld, ensure_ascii=False))
-                    print(len(jsonld))
+                    # print(json.dumps(jsonld, ensure_ascii=False))
+                    # print(len(jsonld))
                     kg.parse(
                         data=json.dumps(jsonld, ensure_ascii=False),
                         format="json-ld",
