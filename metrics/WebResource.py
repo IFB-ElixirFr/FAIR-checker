@@ -31,9 +31,6 @@ class WebResource:
     }
 
     base_path = Path(__file__).parent.parent  # current directory
-    static_file_path = "file://" + str(
-        (base_path / "static/data/jsonldcontext.json").resolve()
-    )
 
     chrome_options = Options()
     chrome_options.add_argument("--headless")
@@ -144,7 +141,6 @@ class WebResource:
         if not response:
             logger.error(f"Could not get HTML doc from {url}")
             return ConjunctiveGraph()
-
 
         self.status_code = response.status_code
         self.content_type = response.headers["Content-Type"]
