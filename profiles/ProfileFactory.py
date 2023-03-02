@@ -85,7 +85,6 @@ def profile_file_parser(url_profile):
                     # r = requests.head(bs_profile_url_path, verify=False, timeout=5) # it is faster to only request the header
                     # print(r.status_code)
 
-
                 importance_levels = ["required", "recommended", "optional"]
 
                 for importance in importance_levels:
@@ -112,7 +111,6 @@ def profile_file_parser(url_profile):
 
                 profiles_dict[profile_dict["ref_profile"]] = profile_dict
 
-
     # for compatibility with existing code
     # profile_dict["min_props"] = profile_dict.pop("required")
     # profile_dict["rec_props"] = profile_dict.pop("recommended")
@@ -120,6 +118,7 @@ def profile_file_parser(url_profile):
     # print(json.dumps(profiles_dict, indent=2))
     # print(len(profiles_dict))
     return profiles_dict
+
 
 def get_profiles_from_dde():
     url_profiles = [
@@ -193,15 +192,12 @@ def get_profiles_specs_from_github():
                         elif drafts:
                             latest_url_dl = get_latest_profile(drafts)
 
-
                         if latest_url_dl:
                             profile_dict = profile_file_parser(latest_url_dl)
                             for profile_k in profile_dict.keys():
-                                profiles_dict[profile_dict[profile_k]["ref_profile"]] = profile_dict[profile_k]
-
-
-
-
+                                profiles_dict[
+                                    profile_dict[profile_k]["ref_profile"]
+                                ] = profile_dict[profile_k]
 
                         # To get all profiles and not only latest
 
@@ -434,13 +430,14 @@ def dyn_evaluate_profile_with_conformsto(kg):
             print(e)
             profile_versions = request_profile_versions()
             profile_name = ct.split("/")[-2]
-            bs_latest_profile = get_latest_ref_profile_from_pname(profile_name, profile_versions)
+            bs_latest_profile = get_latest_ref_profile_from_pname(
+                profile_name, profile_versions
+            )
             print(bs_latest_profile)
             print("TOTO")
             profile = ProfileFactory.create_profile_from_ref_profile(bs_latest_profile)
 
             print(profile)
-
 
     return results
 
@@ -547,9 +544,7 @@ def is_profile_version_latest(profile_name, version, profile_versions):
 
 def get_latest_ref_profile_from_pname(profile_name, profile_versions):
 
-    bs_ref_profile_base = (
-        "https://bioschemas.org/profiles/" + profile_name + "/"
-    )
+    bs_ref_profile_base = "https://bioschemas.org/profiles/" + profile_name + "/"
 
     # profile_versions = request_profile_versions()
     if profile_name in profile_versions.keys():
@@ -561,7 +556,9 @@ def get_latest_ref_profile_from_pname(profile_name, profile_versions):
             else:
                 return None
         elif profile_versions[profile_name]["latest_publication"]:
-            latest_profile_version = profile_versions[profile_name]["latest_publication"]
+            latest_profile_version = profile_versions[profile_name][
+                "latest_publication"
+            ]
             bs_ref_profile_latest = bs_ref_profile_base + latest_profile_version
             if requests.head(bs_ref_profile_latest, verify=False).status_code == 200:
                 return bs_ref_profile_latest
@@ -571,6 +568,7 @@ def get_latest_ref_profile_from_pname(profile_name, profile_versions):
             return None
     else:
         return None
+
 
 # from enum import Enum, unique
 
@@ -623,11 +621,15 @@ class ProfileFactory:
         is_deprecated = is_profile_deprecated(profile_name, profile_versions)
 
         # Check if the profile in dct:conformsTo is the latest one
-        is_latest_profile = is_profile_version_latest(profile_name, version, profile_versions)
+        is_latest_profile = is_profile_version_latest(
+            profile_name, version, profile_versions
+        )
         if is_latest_profile:
             latest_ref_profile = True
         else:
-            latest_ref_profile = get_latest_ref_profile_from_pname(profile_name, profile_versions)
+            latest_ref_profile = get_latest_ref_profile_from_pname(
+                profile_name, profile_versions
+            )
 
         print("#####################")
         print("Deprecated: " + str(is_deprecated))

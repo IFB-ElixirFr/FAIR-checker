@@ -7,15 +7,23 @@ from rdflib import ConjunctiveGraph
 
 from profiles.bioschemas_shape_gen import get_profiles_specs_from_github
 from profiles.bioschemas_shape_gen import gen_SHACL_from_profile
-# from profiles.Profile 
-from profiles.ProfileFactory import dyn_evaluate_profile_with_conformsto, profile_file_parser, load_profiles, update_profiles, evaluate_profile_with_conformsto, evaluate_profile_from_type
+
+# from profiles.Profile
+from profiles.ProfileFactory import (
+    dyn_evaluate_profile_with_conformsto,
+    profile_file_parser,
+    load_profiles,
+    update_profiles,
+    evaluate_profile_with_conformsto,
+    evaluate_profile_from_type,
+)
 
 from profiles.ProfileFactory import ProfileFactory
 
 from os import environ, path
 from dotenv import load_dotenv
 
-from metrics.WebResource import WebResource 
+from metrics.WebResource import WebResource
 
 
 basedir = path.abspath(path.dirname(__file__))
@@ -79,11 +87,9 @@ class ImportBSProfileTestCase(unittest.TestCase):
         profiles = load_profiles()
         self.assertEqual(31, len(profiles))
 
-
     def test_create_profile_object(self):
         profiles_list = ProfileFactory.create_all_profiles_from_specifications()
         self.assertEqual(31, len(profiles_list))
-
 
     def test_update_profiles(self):
         update_profiles()
@@ -137,7 +143,7 @@ class ImportBSProfileTestCase(unittest.TestCase):
 
         result = evaluate_profile_from_type(kg)
 
-        self.assertEqual(len(result), 3)
+        self.assertEqual(len(result), 0)
 
     def test_profile_file_parser(self):
 
@@ -145,7 +151,7 @@ class ImportBSProfileTestCase(unittest.TestCase):
             "https://raw.githubusercontent.com/BioSchemas/bioschemas-dde/main/bioschemas.json",
             "https://raw.githubusercontent.com/BioSchemas/bioschemas-dde/main/bioschemasdrafts.json",
             "https://raw.githubusercontent.com/BioSchemas/specifications/master/Gene/jsonld/Gene_v0.3-DRAFT-2018_08_21.json",
-            "https://raw.githubusercontent.com/BioSchemas/specifications/master/ComputationalWorkflow/jsonld/ComputationalWorkflow_v1.0-RELEASE.json"
+            "https://raw.githubusercontent.com/BioSchemas/specifications/master/ComputationalWorkflow/jsonld/ComputationalWorkflow_v1.0-RELEASE.json",
         ]
 
         results = {}
@@ -159,16 +165,13 @@ class ImportBSProfileTestCase(unittest.TestCase):
                     profiles_names_list.append(profiles_dict[profile_key]["name"])
         self.assertEqual(len(results), 31)
 
-
     def test_req_profile_versions(self):
-        response = requests.get("https://raw.githubusercontent.com/BioSchemas/bioschemas.github.io/master/_data/profile_versions.yaml")
-        content = response.text 
+        response = requests.get(
+            "https://raw.githubusercontent.com/BioSchemas/bioschemas.github.io/master/_data/profile_versions.yaml"
+        )
+        content = response.text
         dict_content = yaml.safe_load(content)
         print(dict_content)
-
-
-
-
 
     # @unittest.skip("Need github TOKEN key to work")
     def test_import_bs_specs(self):

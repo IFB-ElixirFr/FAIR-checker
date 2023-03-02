@@ -37,7 +37,7 @@ class WebResourceTestCase(unittest.TestCase):
             "https://data.inrae.fr/dataset.xhtml?persistentId=doi:10.15454/P27LDX"
         )
         logging.info(f"{len(dataverse.get_rdf())} loaded RDF triples")
-        self.assertEqual(len(dataverse.get_rdf()), 0)
+        self.assertEqual(len(dataverse.get_rdf()), 234)
         print()
 
     def test_workflowhub(self):
@@ -119,7 +119,6 @@ class WebResourceTestCase(unittest.TestCase):
         expasy = WebResource("https://prosite.expasy.org")
         logging.info(f"{len(expasy.get_rdf())} loaded RDF triples")
 
-
     def test_UnicodeDecodeError_resources(self):
         # Workflohub is working correctly, it is a positive control
         urls = [
@@ -143,9 +142,10 @@ class WebResourceTestCase(unittest.TestCase):
             wr_kg = WebResource(url).get_rdf()
             print(len(wr_kg))
 
-    def test_UTF8_error_resources(self):
+    def test_schema_file_context(self):
         urls = [
-   
+            # "https://www.metanetx.org/",
+            "https://bio.tools/jaspar"
         ]
 
         for url in urls:

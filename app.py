@@ -69,7 +69,7 @@ from profiles.ProfileFactory import (
     update_profiles,
     evaluate_profile_with_conformsto,
     evaluate_profile_from_type,
-    dyn_evaluate_profile_with_conformsto
+    dyn_evaluate_profile_with_conformsto,
 )
 
 import time
@@ -497,7 +497,6 @@ class MetricEvalAll(Resource):
 
         # metrics_collection = FAIRMetricsFactory.get_FC_impl(web_res)
 
-
         results = []
         for metric in metrics_collection:
             result = metric.evaluate()
@@ -634,7 +633,7 @@ class InspectOntologies(Resource):
 
         return check_kg(kg, True)
 
- 
+
 # TODO update method
 @fc_inspect_namespace.route("/bioschemas_validation")
 class InspectBioschemas(Resource):
@@ -661,11 +660,10 @@ class InspectBioschemas(Resource):
             if result_key not in results:
                 results[result_key] = results_type[result_key]
 
-
-
         # TODO Try similarity match her for profiles that are not matched
 
         return results
+
 
 @fc_inspect_namespace.route("/bioschemas_validation_by_conformsto")
 class InspectBioschemasConformsTo(Resource):
@@ -677,7 +675,6 @@ class InspectBioschemasConformsTo(Resource):
 
         web_res = WebResource(url)
         kg = web_res.get_rdf()
-
 
         # Evaluate only profile with conformsTo
         results_conformsto = dyn_evaluate_profile_with_conformsto(kg)
@@ -704,6 +701,7 @@ class InspectBioschemasTypesMatch(Resource):
         # TODO Try similarity match her for profiles that are not matched
 
         return results_type
+
 
 def list_routes():
     return ["%s" % rule for rule in app.url_map.iter_rules()]
@@ -1602,6 +1600,7 @@ def check_kg_shape(data):
     # results = bioschemas_shape.validate_any_from_microdata(uri)
     # print(results)
 
+
 @DeprecationWarning
 @socketio.on("check_kg_shape_old")
 def check_kg_shape_old(data):
@@ -1622,7 +1621,6 @@ def check_kg_shape_old(data):
 def evaluate_bioschemas_profiles(kg):
     # A instancier au lancement du serveur et actualiser lors d'updates
     # profiles = ProfileFactory.create_all_profiles_from_specifications()
-
 
     results = {}
 

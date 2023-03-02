@@ -172,21 +172,29 @@ class WebResource:
 
         if "json-ld" in data.keys():
             for md in data["json-ld"]:
-                md = json.loads(json.dumps(md).replace("https://schema.org/", self.static_file_path))
-                md = json.loads(json.dumps(md).replace("http://schema.org/", self.static_file_path))
-                md = json.loads(json.dumps(md).replace("https://schema.org", self.static_file_path))
-                md = json.loads(json.dumps(md).replace("http://schema.org", self.static_file_path))
+                md = json.loads(
+                    json.dumps(md).replace("https://schema.org/", self.static_file_path)
+                )
+                md = json.loads(
+                    json.dumps(md).replace("http://schema.org/", self.static_file_path)
+                )
+                md = json.loads(
+                    json.dumps(md).replace("https://schema.org", self.static_file_path)
+                )
+                md = json.loads(
+                    json.dumps(md).replace("http://schema.org", self.static_file_path)
+                )
                 # jsonld_str = json.dumps(md)
                 # jsonld_str.replace('"https://schema.org/"', self.static_file_path)
                 # jsonld_str.replace('"http://schema.org/"', self.static_file_path)
 
-                if "@context" in md.keys():
-                    if "//schema.org" in md["@context"]:
-                        md["@context"] = self.static_file_path
-                    if type(md["@context"]) == list:
-                        for i, context in enumerate(md["@context"]):
-                            if "//schema.org" in context:
-                                md["@context"][i] = self.static_file_path
+                # if "@context" in md.keys():
+                #     if "//schema.org" in md["@context"]:
+                #         md["@context"] = self.static_file_path
+                #     if type(md["@context"]) == list:
+                #         for i, context in enumerate(md["@context"]):
+                #             if "//schema.org" in context:
+                #                 md["@context"][i] = self.static_file_path
                 try:
                     # print(md)
                     # print(type(md))
@@ -301,12 +309,26 @@ class WebResource:
                 if jsonld is None:
                     continue
 
-                jsonld = json.loads(json.dumps(jsonld).replace("https://schema.org/", WebResource.static_file_path))
-                jsonld = json.loads(json.dumps(jsonld).replace("http://schema.org/", WebResource.static_file_path))
-                jsonld = json.loads(json.dumps(jsonld).replace("https://schema.org", WebResource.static_file_path))
-                jsonld = json.loads(json.dumps(jsonld).replace("http://schema.org", WebResource.static_file_path))
-             
-                    
+                jsonld = json.loads(
+                    json.dumps(jsonld).replace(
+                        "https://schema.org/", WebResource.static_file_path
+                    )
+                )
+                jsonld = json.loads(
+                    json.dumps(jsonld).replace(
+                        "http://schema.org/", WebResource.static_file_path
+                    )
+                )
+                jsonld = json.loads(
+                    json.dumps(jsonld).replace(
+                        "https://schema.org", WebResource.static_file_path
+                    )
+                )
+                jsonld = json.loads(
+                    json.dumps(jsonld).replace(
+                        "http://schema.org", WebResource.static_file_path
+                    )
+                )
 
                 # if type(jsonld) == list:
                 #     jsonld = jsonld[0]

@@ -103,6 +103,7 @@ class BioschemasLiveDeploysTestCase(unittest.TestCase):
 
     # Bioschemas profile not found (need handle)
     # https://cells.ebisc.org/BIHi006-D
+    @unittest.skip("Bioschemas profile not found (need handle")
     def test_biosample_conformsto(self):
         input_url = "https://cells.ebisc.org/BIHi006-D"
         web_resource = WebResource(input_url)

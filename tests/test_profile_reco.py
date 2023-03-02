@@ -65,7 +65,7 @@ class GenSHACLTestCase(unittest.TestCase):
             target_classes=["sc:SoftwareApplication"],
             min_props=self.bs_profiles["sc:SoftwareApplication"]["min_props"],
             rec_props=self.bs_profiles["sc:SoftwareApplication"]["rec_props"],
-            ref_profile=self.bs_profiles["sc:SoftwareApplication"]["ref_profile"]
+            ref_profile=self.bs_profiles["sc:SoftwareApplication"]["ref_profile"],
         )
         sim = p.compute_similarity(kg)
         print(sim)
@@ -105,23 +105,21 @@ class GenSHACLTestCase(unittest.TestCase):
                     print("Found conformsTo corresponding profile.")
 
                     profile = Profile(
-                        shape_name = profiles[profile_key]["name"],
-                        target_classes = profiles[profile_key]["target_classes"],
-                        min_props = profiles[profile_key]["required"],
-                        rec_props = profiles[profile_key]["recommended"],
-                        ref_profile=profiles[profile_key]["ref_profile"]
+                        shape_name=profiles[profile_key]["name"],
+                        target_classes=profiles[profile_key]["target_classes"],
+                        min_props=profiles[profile_key]["required"],
+                        rec_props=profiles[profile_key]["recommended"],
+                        ref_profile=profiles[profile_key]["ref_profile"],
                     )
                     shape = profile.gen_SHACL_from_profile()
                     validation = profile.validate_shape(
-                        knowledge_graph=sub_kg,
-                        shacl_shape=shape
+                        knowledge_graph=sub_kg, shacl_shape=shape
                     )
                     conforms, warnings, errors = validation
 
                     self.assertFalse(conforms)
                     self.assertEqual(len(warnings), 12)
                     self.assertEqual(len(errors), 3)
-
 
     def test_pofile_factory(self):
         console = Console()

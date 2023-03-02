@@ -19,7 +19,16 @@ class Profile:
 
     # cache = {}
 
-    def __init__(self, shape_name, target_classes, min_props, rec_props, ref_profile, latest=True, deprecated=False):
+    def __init__(
+        self,
+        shape_name,
+        target_classes,
+        min_props,
+        rec_props,
+        ref_profile,
+        latest=True,
+        deprecated=False,
+    ):
         self.shape_name = shape_name
         self.target_classes = target_classes
         self.min_props = min_props
@@ -35,8 +44,6 @@ class Profile:
 
     # def set_ref_profile(self, ref_profile):
     #     self.ref_profile = ref_profile
-
-
 
     def get_name(self):
         return self.shape_name
