@@ -34,16 +34,11 @@ class WebResource:
     static_file_path = "file://" + str(
         (base_path / "static/data/jsonldcontext.json").resolve()
     )
-    # static_file_path = "https://schema.org/docs/jsonldcontext.jsonld"
-    # static_file_path = requests.get("https://schema.org/docs/jsonldcontext.jsonld").content
-    
 
     chrome_options = Options()
     chrome_options.add_argument("--headless")
     chrome_options.add_argument("--no-sandbox")
-    # chrome_options.add_experimental_option(
-    #     "prefs", prefs
-    # )
+
     proxy = os.getenv("HTTP_PROXY")
     if proxy:
         chrome_options.add_argument("--proxy-server=" + proxy)
@@ -150,9 +145,7 @@ class WebResource:
             logger.error(f"Could not get HTML doc from {url}")
             return ConjunctiveGraph()
 
-        # response.encoding = 'UTF-8'
-        # print(response.encoding)
-        # print(response.headers["Content-Type"])
+
         self.status_code = response.status_code
         self.content_type = response.headers["Content-Type"]
         html_source = response.content
@@ -160,14 +153,6 @@ class WebResource:
         data = extruct.extract(
             html_source, syntaxes=["microdata", "rdfa", "json-ld"], errors="ignore"
         )
-
-        # for d in data["json-ld"]:
-        #     print(len(d))
-        #     json_test = json.dumps(d, ensure_ascii=True)
-        #     # print(json_test)
-        #     data_json = json.loads(json_test)
-        #     # print(data_json)
-        #     print(len(data_json))
 
         kg_jsonld = ConjunctiveGraph()
 
@@ -195,13 +180,7 @@ class WebResource:
 
         if "rdfa" in data.keys():
             for md in data["rdfa"]:
-                if "@context" in md.keys():
-                    if "//schema.org" in md["@context"]:
-                        md["@context"] = self.static_file_path
-                    if type(md["@context"]) == list:
-                        for i, context in enumerate(md["@context"]):
-                            if "//schema.org" in context:
-                                md["@context"][i] = self.static_file_path
+
                 try:
                     kg_rdfa.parse(
                         data=json.dumps(md, ensure_ascii=False),
@@ -221,13 +200,7 @@ class WebResource:
 
         if "microdata" in data.keys():
             for md in data["microdata"]:
-                if "@context" in md.keys():
-                    if "//schema.org" in md["@context"]:
-                        md["@context"] = self.static_file_path
-                    if type(md["@context"]) == list:
-                        for i, context in enumerate(md["@context"]):
-                            if "//schema.org" in context:
-                                md["@context"][i] = self.static_file_path
+
                 try:
                     kg_microdata.parse(
                         data=json.dumps(md, ensure_ascii=False),
@@ -260,7 +233,6 @@ class WebResource:
 
         browser = WebResource.WEB_BROWSER_HEADLESS
         browser.get(url)
-        # self.html_source = browser.page_source
         # browser.quit()
         logging.debug(type(browser.page_source))
         logging.info(f"size of the parsed web page: {len(browser.page_source)}")

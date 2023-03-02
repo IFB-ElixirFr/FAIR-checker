@@ -209,7 +209,8 @@ class BioschemasLiveDeploysTestCase(unittest.TestCase):
         kg = WebResource(resource).get_rdf()
         print(len(kg))
         print(kg.serialize(format="json-ld"))
-        print(kg.serialize(format="turtle"))
+        # print(kg.serialize(format="turtle"))
+        print(kg.serialize(format="nquads"))
 
     def test_all(self):
         to_be_skipped = [
