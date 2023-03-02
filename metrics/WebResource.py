@@ -36,7 +36,6 @@ class WebResource:
     )
     # static_file_path = "https://schema.org/docs/jsonldcontext.jsonld"
     # static_file_path = requests.get("https://schema.org/docs/jsonldcontext.jsonld").content
-    
 
     chrome_options = Options()
     chrome_options.add_argument("--headless")
