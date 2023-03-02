@@ -1,4 +1,6 @@
-<link rel="stylesheet" href="../static/css/bulma-divider.min.css">{% extends "layout.html" %}
+<link rel="stylesheet" href="../static/css/bulma-divider.min.css">
+
+{% extends "layout.html" %}
 
 {% block nav %}
 {% include 'nav.html' %}
@@ -8,20 +10,19 @@
 
 <script type="text/javascript" charset="utf-8">
 
-    $(document).ready(function () {
+$(document).ready(function () {
 
-        console.log("ready!");
-        $("#notif").addClass("is-hidden");
+    console.log("ready!");
+    $("#notif").addClass("is-hidden");
 
-        console.log('trying to connect...');
-        var socket = io.connect({{ config['SERVER_IP']| tojson }});
+    console.log('trying to connect...');
+    var socket = io.connect({{ config['SERVER_IP']| tojson }});
     //var socket = io();
     console.log('connected');
 
     //////////////////
     // click handlers
     //////////////////
-
 
     //////////////////
     // event handlers
@@ -33,102 +34,55 @@
     });
 
 
-    socket.on('done_check_shape', function (data) {
-        console.log("Validated SHACL shape");
-        console.log(data);
-        var valid_html = "";
-        $.each(data, function (key, value) {
-            var resource = key
-            var type = data[key]['type']
-            var profile = data[key]['ref_profile']
-            var conforms = data[key]['conforms']
-            valid_html += '<div class="block">'
-            valid_html += '<h5 class="subtitle"> <span class="tag is-info is-light"><a target=_blank href=' + resource + '></h5'
-            valid_html += '<p>' + resource + '</a></span> has type <span class="tag is-dark"><a target=_blank href=' + type + '>' + type + '</a></span> </p>'
-            valid_html += '<p>should be conform to profile <span class="tag is-dark"><a target=_blank href=' + profile + '>' + profile + '</a></span></p><br>'
-
-            if (conforms == true) {
-                valid_html += '<p> has a <span class="has-text-success has-text-weight-bold">valid</span> Bioschemas profile</p>'
-            } else {
-                valid_html += '<div class="columns is-multiline is-mobile">'
-                valid_html += '<div class="column is-one-half">'
-                valid_html += '<table class="table is-striped is-fullwidth">'
-                valid_html += '<thead><tr><th>Required missing properties</th></tr></thead>'
-                valid_html += '<tbody>'
-                $.each(data[key]['errors'], function (index, item) {
-                    var row = '<tr>';
-                    row += '<td> <span class="tag is-light"><a target=_blank href=' + item + '>' + item + '</a></span> <span class="has-text-danger has-text-weight-bold">must be</span> provided</td>';
-                    valid_html += row + '</tr>';
-                });
-                valid_html += '</tbody></table></div>'
-                valid_html += '<div class="column is-one-half">'
-                valid_html += '<table class="table is-striped is-fullwidth">'
-                valid_html += '<thead><tr><th>Improvements</th></tr></thead>'
-                valid_html += '<tbody>'
-                $.each(data[key]['warnings'], function (index, item) {
-                    var row = '<tr>';
-                    row += '<td><span class="tag is-light"><a target=_blank href=' + item + '>' + item + '</a></span> <span class="has-text-warning has-text-weight-bold">should be</span> provided</td>';
-                    valid_html += row + '</tr>';
-                });
-                valid_html += '</tbody></table></div>'
-                valid_html += '</div>'
-            }
-            valid_html += '</div>'
-        });
-        $('#block_valid').html(valid_html);
-        // $("#btn_bioschemas").removeClass("is-loading");
-        // $("#btn_annot_bioschemas").removeClass("is-hidden");
-        // $("#article-bioschemas-check").find(".block").removeClass("is-hidden");
-    });
 
 
 
-    data = {{ results | tojson | safe }};
-    console.log(data)
-    var valid_html = "";
-    $.each(data, function (key, value) {
-        var resource = key
-        var type = data[key]['type']
-        var profile = data[key]['ref_profile']
-        var conforms = data[key]['conforms']
-        valid_html += '<div class="block">'
-        valid_html += '<h5 class="subtitle"> <span class="tag is-info is-light"><a target=_blank href=' + resource + '></h5'
-        valid_html += '<p>' + resource + '</a></span> has type <span class="tag is-dark"><a target=_blank href=' + type + '>' + type + '</a></span> </p>'
-        valid_html += '<p>should be conform to profile <span class="tag is-dark"><a target=_blank href=' + profile + '>' + profile + '</a></span></p><br>'
+    // data = {{ results | tojson | safe }};
+    // // console.log(data)
+    // var valid_html = "";
+    // $.each(data, function (key, value) {
+    //     var resource = key
+    //     var type = data[key]['type']
+    //     var profile = data[key]['ref_profile']
+    //     var conforms = data[key]['conforms']
+    //     valid_html += '<div class="block">'
+    //     valid_html += '<h5 class="subtitle"> <span class="tag is-info is-light"><a target=_blank href=' + resource + '></h5'
+    //     valid_html += '<p>' + resource + '</a></span> has type <span class="tag is-dark"><a target=_blank href=' + type + '>' + type + '</a></span> </p>'
+    //     valid_html += '<p>should be conform to profile <span class="tag is-dark"><a target=_blank href=' + profile + '>' + profile + '</a></span></p><br>'
 
-        if (conforms == true) {
-            valid_html += '<p> has a <span class="has-text-success has-text-weight-bold">valid</span> Bioschemas profile</p>'
-        } else {
-            valid_html += '<div class="columns is-multiline is-mobile">'
-            valid_html += '<div class="column is-one-half">'
-            valid_html += '<table class="table is-striped is-fullwidth">'
-            valid_html += '<thead><tr><th>Required missing properties</th></tr></thead>'
-            valid_html += '<tbody>'
-            $.each(data[key]['errors'], function (index, item) {
-                var row = '<tr>';
-                row += '<td> <span class="tag is-light"><a target=_blank href=' + item + '>' + item + '</a></span> <span class="has-text-danger has-text-weight-bold">must be</span> provided</td>';
-                valid_html += row + '</tr>';
-            });
-            valid_html += '</tbody></table></div>'
-            valid_html += '<div class="column is-one-half">'
-            valid_html += '<table class="table is-striped is-fullwidth">'
-            valid_html += '<thead><tr><th>Improvements</th></tr></thead>'
-            valid_html += '<tbody>'
-            $.each(data[key]['warnings'], function (index, item) {
-                var row = '<tr>';
-                row += '<td><span class="tag is-light"><a target=_blank href=' + item + '>' + item + '</a></span> <span class="has-text-warning has-text-weight-bold">should be</span> provided</td>';
-                valid_html += row + '</tr>';
-            });
-            valid_html += '</tbody></table></div>'
-            valid_html += '</div>'
-        }
-        valid_html += '</div>'
-    });
-    console.log(valid_html)
-    $('#block_valid').html(valid_html);
-    $("#section-describe").find(".block").removeClass("is-hidden");
-    $("#article-bioschemas-check").find(".block").removeClass("is-hidden");
-    $("#btn_annot_bioschemas").removeClass("is-hidden");
+    //     if (conforms == true) {
+    //         valid_html += '<p> has a <span class="has-text-success has-text-weight-bold">valid</span> Bioschemas profile</p>'
+    //     } else {
+    //         valid_html += '<div class="columns is-multiline is-mobile">'
+    //         valid_html += '<div class="column is-one-half">'
+    //         valid_html += '<table class="table is-striped is-fullwidth">'
+    //         valid_html += '<thead><tr><th>Required missing properties</th></tr></thead>'
+    //         valid_html += '<tbody>'
+    //         $.each(data[key]['errors'], function (index, item) {
+    //             var row = '<tr>';
+    //             row += '<td> <span class="tag is-light"><a target=_blank href=' + item + '>' + item + '</a></span> <span class="has-text-danger has-text-weight-bold">must be</span> provided</td>';
+    //             valid_html += row + '</tr>';
+    //         });
+    //         valid_html += '</tbody></table></div>'
+    //         valid_html += '<div class="column is-one-half">'
+    //         valid_html += '<table class="table is-striped is-fullwidth">'
+    //         valid_html += '<thead><tr><th>Improvements</th></tr></thead>'
+    //         valid_html += '<tbody>'
+    //         $.each(data[key]['warnings'], function (index, item) {
+    //             var row = '<tr>';
+    //             row += '<td><span class="tag is-light"><a target=_blank href=' + item + '>' + item + '</a></span> <span class="has-text-warning has-text-weight-bold">should be</span> provided</td>';
+    //             valid_html += row + '</tr>';
+    //         });
+    //         valid_html += '</tbody></table></div>'
+    //         valid_html += '</div>'
+    //     }
+    //     valid_html += '</div>'
+    // });
+    // // console.log(valid_html)
+    // $('#block_valid').html(valid_html);
+    // $("#section-describe").find(".block").removeClass("is-hidden");
+    // $("#article-bioschemas-check").find(".block").removeClass("is-hidden");
+    // $("#btn_annot_bioschemas").removeClass("is-hidden");
 
 });
 
@@ -180,11 +134,13 @@
             <div class="block">
                 <section id="section-BioSchemas" class="section">
                     <!-- <h3 class="title is-3">BioSchemas profiles checks</h3> -->
+
                     <p>Bioschemas is a community effort aimed at reusing and extending Schema.org for better life
                         science digital resource findability. Several profiles are defined for each kind of Life Science
                         resources, specifying minimal, recommended or optional information. Are minimal
                         information missing ? Should other information be provided for better findability ?</p>
                     <br>
+
                     <div class="field is-grouped is-grouped-centered">
                         <!-- <p class="control"><a id="btn_fairness" class="button is-primary">Vocab. checks</a></p> -->
                         <!-- <p class="control"><a id="btn_bioschemas" class="button is-warning is-large">Check BioSchemas
@@ -192,9 +148,13 @@
                         </p> -->
                     </div>
 
-                    <div id="block_valid" class="block">
+                    {% block test %}
+                    {% include 'bioschemas_report.html' %}
+                    {% endblock %}
 
-                    </div>
+                    <!-- <div id="block_valid" class="block">
+
+                    </div> -->
 
                 </section>
 
