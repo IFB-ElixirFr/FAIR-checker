@@ -215,6 +215,7 @@ class BioschemasLiveDeploysTestCase(unittest.TestCase):
         # print(kg.serialize(format="turtle"))
         print(kg.serialize(format="nquads"))
 
+    @unittest.skip("Need it on bioschemas side")
     def test_all(self):
         to_be_skipped = [
             "https://www.proteinatlas.org/",
