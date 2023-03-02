@@ -201,11 +201,9 @@ class BioschemasLiveDeploysTestCase(unittest.TestCase):
                 except requests.exceptions.ConnectionError as e:
                     print(e)
 
-
         print(f"{len(res)} tested URLS")
         print(f"{len(errors)} failing URLS")
         print(errors)
-
 
     @unittest.skip("Error with curly in RDF URIs not handled for turtle serialization")
     def test_uri_invalid(self):
