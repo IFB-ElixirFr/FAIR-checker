@@ -142,8 +142,10 @@ class ImportBSProfileTestCase(unittest.TestCase):
         self.assertEqual(len(kg), 35)
 
         result = evaluate_profile_from_type(kg)
+        print(result)
 
-        self.assertEqual(len(result), 0)
+        self.assertEqual(len(result), 3)
+        self.assertTrue(result["https://orcid.org/0000-0002-3597-8557"]["conforms"])
 
     def test_profile_file_parser(self):
 

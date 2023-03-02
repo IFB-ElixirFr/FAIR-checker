@@ -184,7 +184,7 @@ class BioschemasLiveDeploysTestCase(unittest.TestCase):
         print(res)
         errors = []
         i = 0
-        for r in reversed(res):
+        for r in res:
             if True:
                 i += 1
                 print("#######" + str(i))
@@ -203,6 +203,13 @@ class BioschemasLiveDeploysTestCase(unittest.TestCase):
         print(f"{len(res)} tested URLS")
         print(f"{len(errors)} failing URLS")
         print(errors)
+
+    def test_uri_invalid(self):
+        resource = "https://ebisc.org/"
+        kg = WebResource(resource).get_rdf()
+        print(len(kg))
+        print(kg.serialize(format="json-ld"))
+        print(kg.serialize(format="turtle"))
 
     def test_all(self):
         to_be_skipped = [
