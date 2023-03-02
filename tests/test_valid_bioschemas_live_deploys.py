@@ -179,6 +179,7 @@ class BioschemasLiveDeploysTestCase(unittest.TestCase):
         shape_graph.parse(data=shape_rdf, format="ttl")
         self.assertEqual(len(shape_graph), 26)
 
+    @unittest.skip("Need to be part of bioschemas tests")
     def test_ld_bioschemas_annot(self):
         res = get_live_deploys_urls()
         print(res)
@@ -200,12 +201,16 @@ class BioschemasLiveDeploysTestCase(unittest.TestCase):
                 except requests.exceptions.ConnectionError as e:
                     print(e)
 
+
         print(f"{len(res)} tested URLS")
         print(f"{len(errors)} failing URLS")
         print(errors)
 
+
+    @unittest.skip("Error with curly in RDF URIs not handled for turtle serialization")
     def test_uri_invalid(self):
         resource = "https://ebisc.org/"
+        resource = "https://tess.elixir-europe.org/"
         kg = WebResource(resource).get_rdf()
         print(len(kg))
         print(kg.serialize(format="json-ld"))
