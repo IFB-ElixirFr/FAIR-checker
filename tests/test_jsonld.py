@@ -58,8 +58,6 @@ class JsonLDTestCase(unittest.TestCase):
     @classmethod
     def tearDownModule(cls) -> None:
         super().tearDownModule()
-        # browser = WebResource.WEB_BROWSER_HEADLESS
-        # browser.quit()
 
     def test_http_context(self):
         kg = ConjunctiveGraph()
