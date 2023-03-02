@@ -34,6 +34,9 @@ class WebResource:
     static_file_path = "file://" + str(
         (base_path / "static/data/jsonldcontext.json").resolve()
     )
+    # static_file_path = "https://schema.org/docs/jsonldcontext.jsonld"
+    # static_file_path = requests.get("https://schema.org/docs/jsonldcontext.jsonld").content
+    
 
     chrome_options = Options()
     chrome_options.add_argument("--headless")
@@ -172,39 +175,13 @@ class WebResource:
 
         if "json-ld" in data.keys():
             for md in data["json-ld"]:
-                md = json.loads(
-                    json.dumps(md).replace("https://schema.org/", self.static_file_path)
-                )
-                md = json.loads(
-                    json.dumps(md).replace("http://schema.org/", self.static_file_path)
-                )
-                md = json.loads(
-                    json.dumps(md).replace("https://schema.org", self.static_file_path)
-                )
-                md = json.loads(
-                    json.dumps(md).replace("http://schema.org", self.static_file_path)
-                )
-                # jsonld_str = json.dumps(md)
-                # jsonld_str.replace('"https://schema.org/"', self.static_file_path)
-                # jsonld_str.replace('"http://schema.org/"', self.static_file_path)
 
-                # if "@context" in md.keys():
-                #     if "//schema.org" in md["@context"]:
-                #         md["@context"] = self.static_file_path
-                #     if type(md["@context"]) == list:
-                #         for i, context in enumerate(md["@context"]):
-                #             if "//schema.org" in context:
-                #                 md["@context"][i] = self.static_file_path
                 try:
-                    # print(md)
-                    # print(type(md))
-                    # print(len(kg_jsonld))
                     kg_jsonld.parse(
                         data=md,
                         format="json-ld",
                         publicID=url,
                     )
-                    # print(len(kg_jsonld))
                 except UnicodeDecodeError as unicode_error:
                     logger.error(
                         f"Cannot parse RDF from {url} due to UnicodeDecodeError"
@@ -309,39 +286,7 @@ class WebResource:
                 if jsonld is None:
                     continue
 
-                jsonld = json.loads(
-                    json.dumps(jsonld).replace(
-                        "https://schema.org/", WebResource.static_file_path
-                    )
-                )
-                jsonld = json.loads(
-                    json.dumps(jsonld).replace(
-                        "http://schema.org/", WebResource.static_file_path
-                    )
-                )
-                jsonld = json.loads(
-                    json.dumps(jsonld).replace(
-                        "https://schema.org", WebResource.static_file_path
-                    )
-                )
-                jsonld = json.loads(
-                    json.dumps(jsonld).replace(
-                        "http://schema.org", WebResource.static_file_path
-                    )
-                )
-
-                # if type(jsonld) == list:
-                #     jsonld = jsonld[0]
-                # if "@context" in jsonld.keys():
-                #     if "//schema.org" in jsonld["@context"]:
-                #         jsonld["@context"] = WebResource.static_file_path
-                #     if type(jsonld["@context"]) == list:
-                #         for i, context in enumerate(jsonld["@context"]):
-                #             if "//schema.org" in context:
-                #                 jsonld["@context"][i] = WebResource.static_file_path
                 try:
-                    # print(json.dumps(jsonld, ensure_ascii=False))
-                    # print(len(jsonld))
                     kg.parse(
                         data=json.dumps(jsonld, ensure_ascii=False),
                         format="json-ld",
@@ -357,7 +302,7 @@ class WebResource:
                     logger.error(f"Cannot parse RDF from {url} due to JSONDecodeError")
                     logger.error(json_error)
                 logging.debug(f"{len(kg)} retrieved triples in KG")
-                logging.debug(kg.serialize(format="turtle"))
+                # logging.debug(kg.serialize(format="turtle"))
 
         except NoSuchElementException:
             logging.warning('Can\'t find "application/ld+json" content')
