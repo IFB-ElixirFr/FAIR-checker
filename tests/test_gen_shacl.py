@@ -87,6 +87,7 @@ class GenSHACLTestCase(unittest.TestCase):
         shape, ref_profile = gen_SHACL_from_target_class(target_class=target_class)
         self.assertTrue("sh:path" in shape)
 
+    @unittest.skip("Issue with parsing remote bio.tools jsonld")
     def test_biotools_validation(self):
         res = validate_any_from_RDF(
             input_url="https://bio.tools/api/jaspar?format=jsonld", rdf_syntax="json-ld"
