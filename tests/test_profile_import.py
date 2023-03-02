@@ -175,4 +175,3 @@ class ImportBSProfileTestCase(unittest.TestCase):
         content = response.text
         dict_content = yaml.safe_load(content)
         print(dict_content)
-
