@@ -728,7 +728,7 @@ def list_routes():
 
 @socketio.on("webresource")
 def handle_webresource(url):
-    dev_logger.info("A new url to retrieve metadata from !")
+    dev_logger.info("URL: " + url)
 
 
 @socketio.on("evaluate_metric")
@@ -745,10 +745,9 @@ def handle_metric(json):
     metric_name = json["metric_name"]
     client_metric_id = json["id"]
     url = json["url"]
-    dev_logger.info("Testing: " + url)
 
     # if implem == "FAIRMetrics":
-    # evaluate_fairmetrics(json, metric_name, client_metric_id, url)
+    #     evaluate_fairmetrics(json, metric_name, client_metric_id, url)
     if implem == "FAIR-Checker":
         evaluate_fc_metrics(metric_name, client_metric_id, url)
     else:
@@ -858,11 +857,7 @@ def evaluate_fc_metrics(metric_name, client_metric_id, url):
         url (str): The URI/URL of the resource to be evaluated
     """
 
-    dev_logger.info("Evaluating: " + metric_name)
-
     id = METRICS_CUSTOM[metric_name].get_id()
-    dev_logger.info("ID: " + id)
-    dev_logger.info("Client ID: " + client_metric_id)
     # Faire une fonction recursive ?
     if cache.get(url) == "pulling":
         while True:
@@ -880,7 +875,7 @@ def evaluate_fc_metrics(metric_name, client_metric_id, url):
 
     METRICS_CUSTOM[metric_name].set_web_resource(webresource)
     name = METRICS_CUSTOM[metric_name].get_principle_tag()
-    dev_logger.warning("Evaluation: " + metric_name)
+    dev_logger.warning("Evaluating FC metric: " + name)
 
     result = METRICS_CUSTOM[metric_name].evaluate()
 
@@ -915,7 +910,8 @@ def evaluate_fc_metrics(metric_name, client_metric_id, url):
         "csv_line": csv_line,
     }
     emit("done_" + client_metric_id, emit_json)
-    dev_logger.info("DONE our own metric !")
+    dev_logger.info("DONE FC metric: " + name)
+
 
 ### To Remove ?
 @socketio.on("quick_structured_data_search")
@@ -1124,7 +1120,7 @@ def write_temp_metric_res_file(principle, api_url, time, score, comment, content
 
 
 ### To remove ? (note used, using Javascript instead)
-@app.route("/base_metrics/csv-download/<uuid>")
+@app.route("/check/csv-download/<uuid>")
 def csv_download(uuid):
     print("downloading !")
     print(uuid)
@@ -1151,6 +1147,7 @@ def csv_download(uuid):
     except Exception as e:
         return str(e)
 
+
 ### To remove ?
 @socketio.on("connect")
 def handle_connect():
@@ -1163,6 +1160,7 @@ def handle_connect():
     sid = request.sid
 
     dev_logger.info("Connected with SID " + sid)
+
 
 ### To remove ?
 @socketio.on("disconnect")
@@ -1453,12 +1451,21 @@ def handle_embedded_annot(data):
     print(step)
 
 
-@socketio.on("complete_kg")
-def handle_complete_kg(json):
-    print("completing KG for " + str(json["url"]))
-
-
 def check_kg(kg, is_api):
+    """
+    In Inspect UI, check if classes and properties are found in reference registries
+    such as LOV, OLS, BioPortal, or is from Bioschemas.
+
+    Args:
+        kg (rdflib.ConjunctiveGraph): The RDF graph associated with the evaluated resource
+        is_api (bool): Indicate if the function if called from the UI or the API
+
+    Returns:
+        dict: Result of the classes and properties found or not in each registry to display to the UI
+    """
+
+    dev_logger.info("Starting Check Vocabularies")
+
     query_classes = """
         SELECT DISTINCT ?class { ?s rdf:type ?class } ORDER BY ?class
     """
@@ -1473,11 +1480,14 @@ def check_kg(kg, is_api):
         "properties_false": [],
         "done": False,
     }
+
+    dev_logger.info("Retrieving all classes in KG")
     qres = kg.query(query_classes)
     for row in qres:
         namespace = urlparse(row["class"]).netloc
         class_entry = {}
 
+        # If property is from Bioschemas, validate the property
         if namespace == "bioschemas.org":
             class_entry = {
                 "name": row["class"],
@@ -1496,6 +1506,7 @@ def check_kg(kg, is_api):
 
         table_content["classes"].append(class_entry)
 
+    dev_logger.info("Retrieving all properties in KG")
     qres = kg.query(query_properties)
     for row in qres:
         namespace = urlparse(row["prop"]).netloc
@@ -1522,6 +1533,7 @@ def check_kg(kg, is_api):
     if not is_api:
         emit("done_check", table_content)
 
+    dev_logger.info("Checking if classes exists in registries")
     for c in table_content["classes"]:
 
         c["tag"]["OLS"] = util.ask_OLS(c["name"])
@@ -1545,6 +1557,7 @@ def check_kg(kg, is_api):
         if all(all_false_rule) and not "Bioschemas" in c["tag"]:
             table_content["classes_false"].append(c["name"])
 
+    dev_logger.info("Checking if properties exists in registries")
     for p in table_content["properties"]:
 
         p["tag"]["OLS"] = util.ask_OLS(p["name"])
@@ -1568,69 +1581,38 @@ def check_kg(kg, is_api):
             table_content["properties_false"].append(p["name"])
 
     table_content["done"] = True
+
+    # Need to emit the result if called from the UI
     if not is_api:
         emit("done_check", table_content)
+
+    dev_logger.info("Check vocabularies done")
     return table_content
 
 
 @socketio.on("check_kg")
-def check_vocabularies(data):
-    step = 0
+def check_vocabularies():
+    """
+    Socketio Handler, call the function to check if classes and properties are found in registries (Check Vocabularies).
+    """
+
+    # Get the stored Graph to check vocabularies in registries
     sid = request.sid
-    print(sid)
-    uri = str(data["url"])
-    if not sid in KGS.keys():
-        handle_embedded_annot(data)
-    elif not KGS[sid]:
-        handle_embedded_annot(data)
     kg = KGS[sid]
 
     check_kg(kg, False)
 
 
-@DeprecationWarning
-@socketio.on("check_kg_shape")
-def check_kg_shape(data):
-    step = 0
-    sid = request.sid
-    print(sid)
-    uri = str(data["url"])
-    if not sid in KGS.keys():
-        handle_embedded_annot(data)
-    elif not KGS[sid]:
-        handle_embedded_annot(data)
-    kg = KGS[sid]
-
-    # TODO replace this code with profiles.bioschemas_shape_gen
-    warnings, errors = util.shape_checks(kg)
-    data = {"errors": errors, "warnings": warnings}
-    emit("done_check_shape", data)
-
-    # replacement
-    # results = bioschemas_shape.validate_any_from_microdata(uri)
-    # print(results)
-
-
-@DeprecationWarning
-@socketio.on("check_kg_shape_old")
-def check_kg_shape_old(data):
-    print("shape validation started")
-    sid = request.sid
-    print(sid)
-    kg = KGS[sid]
-
-    if not kg:
-        print("cannot access current knowledge graph")
-    elif len(kg) == 0:
-        print("cannot validate an empty knowledge graph")
-
-    results = validate_any_from_KG(kg)
-    emit("done_check_shape", results)
-
-
 def evaluate_bioschemas_profiles(kg):
-    # A instancier au lancement du serveur et actualiser lors d'updates
-    # profiles = ProfileFactory.create_all_profiles_from_specifications()
+    """
+    Evaluate RDF Graph against profiles from Bioschemas using SHACL constraints
+
+    Args:
+        kg (rdflib.ConjunctiveGraph): Graph object to evaluate
+
+    Returns:
+        dict: The results of the evaluation
+    """
 
     results = {}
 
@@ -1649,30 +1631,32 @@ def evaluate_bioschemas_profiles(kg):
 
     # TODO Try similarity match her for profiles that are not matched
 
-    print(results.keys())
+    dev_logger.info("DONE, evaluated " + str(len(results.keys())) + " profiles")
 
     return results
 
 
 @socketio.on("check_kg_shape_2")
-def check_kg_shape_2(data):
-    print("shape validation started")
+def check_kg_shape_2():
+    """
+    Socketio Handler, call the function to evaluate the profiles against the tested resource using SHACL
+    """
+
+    dev_logger.info("Starting profiles evaluations with shapes")
     sid = request.sid
-    print(sid)
     kg = KGS[sid]
 
     if not kg:
-        print("cannot access current knowledge graph")
+        dev_logger.info("Cannot access current knowledge graph")
     elif len(kg) == 0:
-        print("cannot validate an empty knowledge graph")
+        dev_logger.info("Cannot validate an empty knowledge graph")
 
     results = evaluate_bioschemas_profiles(kg)
-
-    # results = validate_any_from_KG(kg)
 
     emit("done_check_shape", results)
 
 
+### To remove ?
 def update_bioschemas_valid(func):
     @functools.wraps(func)
     def wrapper_decorator(*args, **kwargs):
@@ -1694,17 +1678,22 @@ def update_bioschemas_valid(func):
 @app.route("/bioschemas_validation")
 @update_bioschemas_valid
 def validate_bioschemas():
+    """
+    Route to directly evaluate RDF Graph against profiles from Bioschemas using SHACL constraints without intermediate steps
+
+    Returns:
+        function: Flask template renderer
+    """
     uri = request.args.get("url")
-    logging.info(f"Validating Bioschemas markup for {uri}")
+    dev_logger.info(f"Validating Bioschemas markup for {uri}")
 
     kg = WebResource(uri).get_rdf()
-    print(len(kg))
+    dev_logger.info("Found " + str(len(kg)) + " triples")
 
     results = evaluate_bioschemas_profiles(kg)
 
-    # res, kg = validate_any_from_microdata(input_url=uri)
-
     m = []
+
     return render_template(
         "bioschemas.html",
         results=results,
@@ -1717,19 +1706,12 @@ def validate_bioschemas():
     )
 
 
-#######################################
-#######################################
-
-
-def cb():
-    print("received message originating from server")
-
-
 def buildJSONLD():
     """
-    Create the Advanced page JSON-LD annotation using schema.org
+    Create the FAIR-Checker pages JSON-LD annotation using schema.org
 
-    @return str
+    Returns:
+        str: JSON-LD string describing the FAIR-Checker application
     """
 
     repo = git.Repo(".")
@@ -1793,38 +1775,17 @@ def buildJSONLD():
 
 
 @app.route("/check", methods=["GET"])
-def base_metrics():
+def check():
     """
-    Load the Advanced page elements loading informations from FAIRMetrics API.
+    Route to load the UI Check page elements loading informations from FAIR-Checker metrics.
     Generate a page allowing test of independent metrics.
 
-    @return render_template
+    Returns:
+        function: Flask template renderer
     """
     # unique id to retrieve content results of tests
     content_uuid = str(uuid.uuid1())
     DICT_TEMP_RES[content_uuid] = ""
-
-    # print(str(session.items()))
-    # sid = request.sid
-    # return render_template('test_asynch.html')
-    # metrics = []
-    #
-    # metrics_res = METRICS_RES
-    #
-    # for metric in metrics_res:
-    #     # remove "FAIR Metrics Gen2" from metric name
-    #     name = metric["name"].replace('FAIR Metrics Gen2- ','')
-    #     # same but other syntax because of typo
-    #     name = name.replace('FAIR Metrics Gen2 - ','')
-    #     metrics.append({
-    #         "name": name,
-    #         "description": metric["description"],
-    #         "api_url": metric["smarturl"],
-    #         "id": "metric_" + metric["@id"].rsplit('/', 1)[-1],
-    #         "principle": metric["principle"],
-    #         "principle_tag": metric["principle"].rsplit('/', 1)[-1],
-    #         "principle_category": metric["principle"].rsplit('/', 1)[-1][0],
-    #     })
 
     raw_jld = buildJSONLD()
 
@@ -1846,24 +1807,6 @@ def base_metrics():
             }
         )
 
-    # for key in METRICS.keys():
-    #     print()
-    #     metrics.append(
-    #         {
-    #             "name": METRICS[key].get_name(),
-    #             "implem": METRICS[key].get_implem(),
-    #             "description": METRICS[key].get_desc(),
-    #             "api_url": METRICS[key].get_api(),
-    #             "id": "metric_" + METRICS[key].get_id().rsplit("/", 1)[-1],
-    #             "principle": METRICS[key].get_principle(),
-    #             "principle_tag": METRICS[key].get_principle().rsplit("/", 1)[-1],
-    #             "principle_category": METRICS[key]
-    #             .get_principle()
-    #             .rsplit("/", 1)[-1][0],
-    #         }
-    #     )
-
-    # response =
     return make_response(
         render_template(
             "check.html",
@@ -1878,24 +1821,16 @@ def base_metrics():
     # )).headers.add('Access-Control-Allow-Origin', '*')
 
 
-# @app.after_request
-# def after_request(response):
-#   response.headers.add('Access-Control-Allow-Origin', '*')
-#   response.headers.add('Access-Control-Allow-Headers', 'Content-Type,Authorization')
-#   response.headers.add('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS')
-#   return response
-
-
 @app.route("/inspect")
-def kg_metrics_2():
-    # m = [{  "name": "i1",
-    #         "description": "desc i1",
-    #         "id": "metric_i1",
-    #         "principle": "principle for i1" }]
-    m = []
+def inspect():
+    """
+    Route to load the UI Inspect page elements
+
+    Returns:
+        function: Flask template renderer
+    """
     return render_template(
         "inspect.html",
-        f_metrics=m,
         sample_data=sample_resources,
         title="Inspect",
         subtitle="to enhance metadata quality",

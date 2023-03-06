@@ -211,6 +211,7 @@
         $('#block_valid').html("");
         $('#t_classes').html("");
         $('#t_properties').html("");
+        $('#block_valid_report').html("");
         $('#vocab_interpret').hide();
         socket.emit('retrieve_embedded_annot_2', { url: $("#url").val() });
     });
@@ -252,15 +253,13 @@
         $("#section-KG").removeClass("is-hidden");
         $("#section-LinkedData").removeClass("is-hidden");
         $("#section-BioSchemas").addClass("is-hidden");
-        socket.emit('check_kg', { url: $("#url").val() });
+        socket.emit('check_kg');
     });
 
     $("#btn_bioschemas").click(function () {
         $(this).addClass("is-loading");
         $("#section-KG").removeClass("is-hidden");
-        // $("#section-LinkedData").addClass("is-hidden");
-        // $("#section-BioSchemas").removeClass("is-hidden");
-        socket.emit('check_kg_shape_2', { url: $("#url").val(), kg: $("#microdata").val() });
+        socket.emit('check_kg_shape_2');
     });
 
     // Change RDF type button
@@ -318,10 +317,12 @@
     // event handlers
     //////////////////
 
+    ///// To remove ?
     socket.on('connect', function () {
         socket.emit('hello', { data: 'I\'m connected!' });
         console.log('hello message sent');
     });
+
 
     socket.on('update_annot_2', function (value) {
         console.log("UPDATE ANNOT 2")
@@ -332,6 +333,9 @@
             $("#p1").attr("value", value);
         }
     });
+    /////
+
+
     socket.on('send_annot_2', function (value) {
         console.log(value);
         //cm.setValue(value);
@@ -522,7 +526,7 @@
     });
 
 
-
+    ///// To remove ?
     {% for f in f_metrics %}
     socket.on('done_{{f.id}}', function (value) {
         console.log('DONE {{f.name}}');
@@ -538,6 +542,7 @@
 
     });
     {% endfor %}
+    /////
 
     socket.on('fast', function (value) {
         if ("done".includes(value)) {

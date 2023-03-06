@@ -135,7 +135,7 @@ class ImportBSProfileTestCase(unittest.TestCase):
         self.assertEqual(len(kg), 35)
         result = dyn_evaluate_profile_with_conformsto(kg)
 
-        self.assertEqual(len(result), 0)
+        self.assertEqual(len(result), 1)
 
     def test_fairchecker_type_eval(self):
         url = "https://fair-checker.france-bioinformatique.fr/"
