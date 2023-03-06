@@ -753,6 +753,12 @@ def list_routes():
 
 @socketio.on("webresource")
 def handle_webresource(url):
+    """
+    Handler for URL in field
+
+    Args:
+        url (str): URL in field that should be evaluated
+    """
     dev_logger.info("URL: " + url)
 
 
