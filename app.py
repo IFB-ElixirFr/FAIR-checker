@@ -12,12 +12,9 @@ from flask import (
     Flask,
     request,
     render_template,
-    session,
     send_file,
     send_from_directory,
     make_response,
-    Blueprint,
-    url_for,
 )
 from flask_restx import Resource, Api, fields, reqparse
 from flask_swagger_ui import get_swaggerui_blueprint
@@ -57,7 +54,6 @@ from metrics.Evaluation import Result
 from profiles.bioschemas_shape_gen import validate_any_from_KG
 from profiles.bioschemas_shape_gen import validate_any_from_microdata
 from metrics.util import SOURCE
-from metrics.F1B_Impl import F1B_Impl
 from metrics.F1B_Impl import F1B_Impl
 from urllib.parse import urlparse
 
@@ -165,9 +161,7 @@ prod_logger.warning("Watch out prod!")
 prod_logger.info("I told you so prod")
 prod_logger.debug("DEBUG prod")
 
-
-# blueprint = Blueprint('api', __name__, url_prefix='/api')
-
+# Instanciate the Swagger API
 api = Api(
     app=app,
     title="FAIR-Checker API",
@@ -177,8 +171,6 @@ api = Api(
     description=app.config["SERVER_IP"],
     # url_scheme="https://fair-checker.france-bioinformatique.fr/",
 )
-
-# app.register_blueprint(blueprint)
 
 metrics_namespace = api.namespace("metrics", description="Metrics assessment")
 fc_check_namespace = api.namespace(
@@ -234,9 +226,7 @@ METRICS = {}
 # json_metrics = test_metric.getMetrics()
 factory = FAIRMetricsFactory()
 
-# # A DEPLACER AU LANCEMENT DU SERVEUR ######
 # METRICS_RES = test_metric.getMetrics()
-
 METRICS_CUSTOM = factory.get_FC_metrics()
 
 for i, key in enumerate(METRICS_CUSTOM):
@@ -259,6 +249,12 @@ DICT_BANNER_INFO = {"banner_message_info": {}}
 # Update banner info with the message in .env
 @app.context_processor
 def display_info():
+    """
+    Get the message from .env file to display in the UI in a top banner
+
+    Returns:
+        dict: Updated dict with the message from the .env
+    """
     global DICT_BANNER_INFO
 
     try:
@@ -279,6 +275,9 @@ def display_info():
 
 
 def update_vocab_status():
+    """
+    Method that check the status_code of BioPortal, OLS and LOV to know if the URLs are UP, if not, dislay it in the info banner
+    """
     global DICT_BANNER_INFO, STATUS_BIOPORTAL, STATUS_OLS, STATUS_LOV
 
     STATUS_BIOPORTAL = requests.head("https://bioportal.bioontology.org/").status_code
@@ -312,6 +311,12 @@ def update_vocab_status():
 
 @app.context_processor
 def display_vocab_status():
+    """
+    Function that make the banner info dictionnary available for all templates
+
+    Returns:
+        dict: Dictionnary containing eventual informations to display in the optional warning banner
+    """
     global DICT_BANNER_INFO
 
     return DICT_BANNER_INFO
@@ -333,6 +338,12 @@ atexit.register(lambda: scheduler.shutdown())
 
 @app.context_processor
 def inject_app_version():
+    """
+    Function that make the FAIR-Checker latest version available in all templates using github tags
+
+    Returns:
+        dict: Dictionnary containing the latest FAIR-Checker version
+    """
     repo = git.Repo(".")
     tags = sorted(repo.tags, key=lambda t: t.commit.committed_datetime)
     latest_tag = tags[-1]
@@ -341,11 +352,23 @@ def inject_app_version():
 
 @app.context_processor
 def inject_jsonld():
+    """
+    Functione that make the FAIR-Checker JSON-LD available to all templates
+
+    Returns:
+        dict: Dictionnary containing the JSON-LD describing FAIR-Checker application
+    """
     return dict(jld=buildJSONLD())
 
 
 @app.route("/favicon.ico")
 def favicon():
+    """
+    Setup FAIR-Checker favicon
+
+    Returns:
+        function: Flask function
+    """
     return send_from_directory(
         os.path.join(app.root_path, "static"),
         "favicon.ico",
@@ -355,6 +378,15 @@ def favicon():
 
 @app.route("/docs/<path:filename>")
 def documentation(filename):
+    """
+    Setup FAIR-Checker user documentation
+
+    Args:
+        filename (str): Name of the file that contains the documentation
+
+    Returns:
+        function: Flask function to retrieve documentation file
+    """
     return send_from_directory("docs/_build/html", filename)
 
 
@@ -369,6 +401,12 @@ def home():
 
 @app.route("/about")
 def about():
+    """
+    Route to load the about page
+
+    Returns:
+        function: Flask template renderer
+    """
     return render_template(
         "about.html",
         title="About",
@@ -378,6 +416,12 @@ def about():
 
 @app.route("/statistics")
 def statistics():
+    """
+    Route to load usage statistics of FAIR-Checker
+
+    Returns:
+        function: Flask template renderer
+    """
     return render_template(
         "statistics.html",
         title="Statistics",
@@ -405,25 +449,7 @@ def statistics():
         r_failures=stats.this_week_for_named_metrics(prefix="R", success=0),
     )
 
-
-# my_fields = api.model(
-#     "MyModel",
-#     {
-#         "name": fields.String(description="The name"),
-#         "type": fields.String(description="The object type", enum=["A", "B"]),
-#         "age": fields.Integer(min=0),
-#         "num": fields.Integer(description="The num to get the square of", min=0),
-#         # 'url': fields.String(Description='The URL of the resource to be tested', required=True)
-#     },
-# )
-
-# @api.route("/square/<int:num>")
-# class TestSquare(Resource):
-#     @api.marshal_with(my_fields)
-#     def get(self, num):
-#         return {"data": num ** 2}
-
-
+# Argument parser for Flask restx API
 reqparse = reqparse.RequestParser()
 reqparse.add_argument(
     "url",
@@ -432,7 +458,6 @@ reqparse.add_argument(
     location="args",
     help="The URL/DOI of the resource to be evaluated",
 )
-
 
 def generate_check_api(metric):
     @fc_check_namespace.route("/metric_" + metric.get_principle_tag())
@@ -1837,44 +1862,7 @@ def inspect():
     )
 
 
-@app.route("/test_url", methods=["POST"])
-def testUrl():
-    test_url = request.form.get("url")
 
-    number = test_metric.getMetrics()
-    # socketio.emit('newnumber', {'number': number}, namespace='/test')
-    socketio.emit("my response", {"data": "got it!"}, namespace="/test")
-
-    (
-        headers_list,
-        descriptions_list,
-        test_score_list,
-        time_list,
-        comments_list,
-    ) = test_metric.webTestMetrics(test_url)
-
-    results_list = []
-    for i, elem in enumerate(headers_list):
-        if i != 0:
-            res_dict = {}
-            res_dict["header"] = headers_list[i]
-            res_dict["score"] = test_score_list[i]
-            res_dict["time"] = time_list[i]
-            try:
-                res_dict["comments"] = comments_list[i].replace("\n", "<br>")
-                res_dict["descriptions"] = descriptions_list[i]
-            except IndexError:
-                res_dict["comments"] = ""
-                res_dict["descriptions"] = ""
-            results_list.append(res_dict)
-        # if i == 4:
-        # print(res_dict)
-
-    return render_template(
-        "result.html",
-        test_url=test_url,
-        results_list=results_list,
-    )
 
 
 parser = argparse.ArgumentParser(
