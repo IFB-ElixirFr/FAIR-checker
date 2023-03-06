@@ -757,6 +757,18 @@ def handle_metric(json):
 
 
 def evaluate_fairmetrics(json, metric_name, client_metric_id, url):
+    """
+    Function that evaluate a metric from FAIRMetrics and emit the result
+
+    Args:
+        json (_type_): _description_
+        metric_name (_type_): _description_
+        client_metric_id (_type_): _description_
+        url (_type_): _description_
+
+    Returns:
+        _type_: _description_
+    """
     id = METRICS[metric_name].get_id()
     api_url = METRICS[metric_name].get_api()
     principle = METRICS[metric_name].get_principle()
@@ -837,12 +849,17 @@ def evaluate_fairmetrics(json, metric_name, client_metric_id, url):
 
 
 def evaluate_fc_metrics(metric_name, client_metric_id, url):
-    # print("OK FC Metrics")
-    # print(cache.get("TOTO"))
-    # print(METRICS_CUSTOM)
+    """
+    Function that evaluate a metric from FAIR-Checker metrics and emit the result
 
-    dev_logger.info("Evaluating FAIR-Checker metric")
-    # prod_logger.info("Evaluating FAIR-Checker metric")
+    Args:
+        metric_name (str): The name of the metric
+        client_metric_id (str): The id of the metric in the UI (to update the correct line)
+        url (str): The URI/URL of the resource to be evaluated
+    """
+
+    dev_logger.info("Evaluating: " + metric_name)
+
     id = METRICS_CUSTOM[metric_name].get_id()
     dev_logger.info("ID: " + id)
     dev_logger.info("Client ID: " + client_metric_id)
@@ -865,7 +882,6 @@ def evaluate_fc_metrics(metric_name, client_metric_id, url):
     name = METRICS_CUSTOM[metric_name].get_principle_tag()
     dev_logger.warning("Evaluation: " + metric_name)
 
-    # dev_logger.info("Evaluating: " + metric_name)
     result = METRICS_CUSTOM[metric_name].evaluate()
 
     score = result.get_score()
@@ -873,14 +889,11 @@ def evaluate_fc_metrics(metric_name, client_metric_id, url):
     evaluation_time = result.get_test_time() - timedelta(
         microseconds=result.get_test_time().microseconds
     )
-    # comment = result.get_reason()
     comment = result.get_log_html()
 
     recommendation = result.get_recommendation()
-    # print(recommendation)
 
     # Persist Evaluation oject in MongoDB
-    implem = METRICS_CUSTOM[metric_name].get_implem()
     result.persist(str(SOURCE.UI))
 
     id = METRICS_CUSTOM[metric_name].get_id()
@@ -900,12 +913,11 @@ def evaluate_fc_metrics(metric_name, client_metric_id, url):
         "comment": comment,
         "recommendation": recommendation,
         "csv_line": csv_line,
-        # "name": name,
     }
     emit("done_" + client_metric_id, emit_json)
     dev_logger.info("DONE our own metric !")
 
-
+### To Remove ?
 @socketio.on("quick_structured_data_search")
 def handle_quick_structured_data_search(url):
     if url == "":
@@ -918,7 +930,15 @@ def handle_quick_structured_data_search(url):
 
 
 def recommendation(emit_json, metric_name, comment):
+    """
+    Recommendations for FAIRMetrics (Mark D W.)
+    Emit the result to the Check UI
 
+    Args:
+        emit_json (dict): Dictionnary containing results of evaluation
+        metric_name (str): Name of the evaluated metric
+        comment (str): Explaination of what the metric did (evaluation + results)
+    """
     recommendation_dict = {
         # F1
         "unique_identifier": {
@@ -1068,7 +1088,19 @@ def recommendation(emit_json, metric_name, comment):
         emit_json["recommendation"] = "Recommendation will be available soon."
 
 
+### To Remove ?
 def write_temp_metric_res_file(principle, api_url, time, score, comment, content_uuid):
+    """
+    _summary_
+
+    Args:
+        principle (_type_): _description_
+        api_url (_type_): _description_
+        time (_type_): _description_
+        score (_type_): _description_
+        comment (_type_): _description_
+        content_uuid (_type_): _description_
+    """
     global DICT_TEMP_RES
     sid = request.sid
     temp_file_path = "./temp/" + sid
@@ -1091,15 +1123,7 @@ def write_temp_metric_res_file(principle, api_url, time, score, comment, content
         DICT_TEMP_RES[content_uuid] = line
 
 
-@socketio.on("download_csv")
-def handle_csv_download():
-
-    # temp_file_path = "./temp/" + FILE_UUID
-
-    print("Received download request from " + FILE_UUID)
-    # csv_download(temp_file_path)
-
-
+### To remove ? (note used, using Javascript instead)
 @app.route("/base_metrics/csv-download/<uuid>")
 def csv_download(uuid):
     print("downloading !")
@@ -1123,24 +1147,11 @@ def csv_download(uuid):
             mimetype="text/csv",
             cache_timeout=-1,
         )
-        # return send_from_directory(
-        #     "./temp/" + sid,
-        #     as_attachment=True,
-        #     attachment_filename='metrics_results.csv',
-        #     mimetype='text/csv'
-        # )
+
     except Exception as e:
         return str(e)
 
-
-# # not working
-# @socketio.on("connected")
-# def handle_connected(json):
-
-#     print(request.namespace.socket.sessid)
-#     print(request.namespace)
-
-
+### To remove ?
 @socketio.on("connect")
 def handle_connect():
     global FILE_UUID
@@ -1153,11 +1164,7 @@ def handle_connect():
 
     dev_logger.info("Connected with SID " + sid)
 
-    # Creates a new temp file
-    # with open("./temp/" + sid, 'w') as fp:
-    #     pass
-
-
+### To remove ?
 @socketio.on("disconnect")
 def handle_disconnected():
     print("Disconnected")
@@ -1169,26 +1176,16 @@ def handle_disconnected():
         os.remove("./temp/" + sid)
 
 
-#######################################
-#######################################
-
-
-@socketio.on("get_latest_triples")
-def handle_get_latest_triples():
-    sid = request.sid
-    kg = KGS[sid]
-
-    list_triples = []
-    for s, p, o in kg.triples((None, None, None)):
-        triple = {"subject": s, "predicate": p, "object": o}
-        list_triples.append(triple)
-    emit("send_triples", {"triples": list_triples})
-
-
 @socketio.on("change_rdf_type")
 def handle_change_rdf_type(data):
+    """
+    Socketio Handler, a function that change the output format of the displayed RDF Graph
 
+    Args:
+        data (dict): A dict containing the new RDF Graph format to use for display in Inspect UI
+    """
     sid = request.sid
+    dev_logger.info("New format to display KG: " + data["rdf_type"])
     RDF_TYPE[sid] = data["rdf_type"]
     kg = KGS[sid]
     nb_triples = len(kg)
@@ -1204,24 +1201,23 @@ def handle_change_rdf_type(data):
 @socketio.on("retrieve_embedded_annot_2")
 def handle_embedded_annot_2(data):
     """
-    socketio Handler to aggregate original page metadata with sparql endpoints.
-    emit the result of sparql requests
+    Socketio Handler, create an instance of WebResource using the given URL in Inspect UI,
+    retrieve RDF metadata and sent it back with emit to the UI
 
-    @param data dict Contains the data needed to aggregate (url, etc).
+    Args:
+        data (dict): Contains the data needed to aggregate (url, etc).
     """
-    # step = 0
-    print("handle annot_2")
+
     sid = request.sid
-    print(sid)
+    dev_logger.info("Session ID: " + sid)
     RDF_TYPE[sid] = "turtle"
     uri = str(data["url"])
-    print("retrieving embedded annotations for " + uri)
-    print("Retrieve KG for uri: " + uri)
+    dev_logger.info("Retrieve KG for uri: " + uri)
 
     web_resource = WebResource(uri)
     kg = web_resource.get_rdf()
     nb_triples = len(kg)
-    print(nb_triples)
+    dev_logger.info("Found " + str(nb_triples) + " triples")
 
     KGS[sid] = kg
 
@@ -1234,6 +1230,7 @@ def handle_embedded_annot_2(data):
     )
 
 
+### To remove ?
 @socketio.on("update_annot_bioschemas")
 def handle_annotationn(data):
     new_kg = rdflib.ConjunctiveGraph()
@@ -1270,17 +1267,21 @@ def handle_annotationn(data):
 
 @socketio.on("describe_opencitation")
 def handle_describe_opencitation(data):
-    print("describing opencitation")
+    """
+    Socketio Handler, try to aggregate more metadata using Opencitation SPARQL endpoint
+
+    Args:
+        data (dict): Dictionnary containing the URL/URI of the resource
+    """
+    dev_logger.info("Describing with Opencitation")
     sid = request.sid
     kg = KGS[sid]
     uri = str(data["url"])
-    graph = str(data["graph"])
-    # kg = ConjunctiveGraph()
-    # kg.parse(data=graph, format="turtle")
+
     # check if id or doi in uri
     if util.is_DOI(uri):
         uri = util.get_DOI(uri)
-        print(f"FOUND DOI: {uri}")
+        dev_logger.info(f"FOUND DOI: {uri}")
     kg = util.describe_opencitation(uri, kg)
 
     nb_triples = len(kg)
@@ -1295,13 +1296,17 @@ def handle_describe_opencitation(data):
 
 @socketio.on("describe_wikidata")
 def handle_describe_wikidata(data):
-    print("describing wikidata")
+    """
+    Socketio Handler, try to aggregate more metadata using Wikidata SPARQL endpoint
+
+    Args:
+        data (dict): Dictionnary containing the URL/URI of the resource
+    """
+    dev_logger.info("Describing with Wikidata")
     sid = request.sid
     kg = KGS[sid]
     uri = str(data["url"])
-    graph = str(data["graph"])
-    # kg = ConjunctiveGraph()
-    # kg.parse(data=graph, format="turtle")
+
     # check if id or doi in uri
     if util.is_DOI(uri):
         uri = util.get_DOI(uri)
@@ -1319,13 +1324,17 @@ def handle_describe_wikidata(data):
 
 @socketio.on("describe_loa")
 def handle_describe_loa(data):
-    print("describing loa")
+    """
+    Socketio Handler, try to aggregate more metadata using LOA SPARQL endpoint
+
+    Args:
+        data (dict): Dictionnary containing the URL/URI of the resource
+    """
+    dev_logger.info("Describing with LOA")
     sid = request.sid
     kg = KGS[sid]
     uri = str(data["url"])
-    graph = str(data["graph"])
-    # kg = ConjunctiveGraph()
-    # kg.parse(data=graph, format="turtle")
+
     # check if id or doi in uri
     if util.is_DOI(uri):
         uri = util.get_DOI(uri)
@@ -1341,6 +1350,7 @@ def handle_describe_loa(data):
     )
 
 
+### To remove ?
 @DeprecationWarning
 @socketio.on("retrieve_embedded_annot")
 def handle_embedded_annot(data):

@@ -99,6 +99,7 @@
   // event handlers
   //////////////////
 
+  /////// To remove ?
   socket.on('connect', function () {
     socket.emit('hello', { data: 'I\'m connected!' });
     console.log('hello message sent');
@@ -109,6 +110,7 @@
     socket.emit('disconnect', { uuid: content_uuid });
     console.log('send dc message');
   });
+  //////////
 
 
 
@@ -515,7 +517,7 @@
     $("#notif").removeClass("is-hidden");
   });
 
-
+//////// To remove ?
   // trigger quick_structured_data_search on focus lost
   $("#quick_search_button").on('click', function () {
     console.log("focus lost");
@@ -536,6 +538,7 @@
     }
 
   });
+////////
 
   // socket.emit('fast');
   //   socket.emit('slow');

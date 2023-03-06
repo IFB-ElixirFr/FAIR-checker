@@ -289,7 +289,7 @@
         $("#section-BioSchemas").addClass("is-hidden");
     });
 
-
+    //////// To remove ?
     $("#btn_submit_annot_bioschemas").click(function () {
 
         var err_selector = $('[id^="bs_err_annot_"]');
@@ -312,6 +312,7 @@
         console.log(warn);
         socket.emit('update_annot_bioschemas', { err: err, warn: warn, url: url });
     });
+    ////////
 
     //////////////////
     // event handlers
@@ -343,8 +344,6 @@
         $("#btn_describe_biotools").removeClass("is-loading");
         $("#btn_describe_loa").removeClass("is-loading");
         $("#btn_kg").removeClass("is-loading");
-        // Call Graph display update here
-        // socket.emit('get_latest_triples');
     });
 
     socket.on('send_bs_annot', function (value) {
@@ -809,6 +808,8 @@
 </article>
 <!--    </div>-->
 <!-- </section> -->
+
+<!-- To remove ?  -->
 <div class="block">
     <article id="article-BioSchemas-annot" class="message is-info is-hidden">
         <div class="message-header">
