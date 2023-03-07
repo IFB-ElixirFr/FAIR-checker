@@ -59,14 +59,25 @@ cache_BP = TTLCache(
 )
 
 # DOI regex
-regex = r"10.\d{4,9}\/[-._;()\/:A-Z0-9]+"
+REGEX = r"10.\d{4,9}\/[-._;()\/:A-Z0-9]+"
 
 # Describe datacite
 def describe_opencitation(uri, g):
+    """
+    A function that make a call to the OpenCitation SPARQL endpoint
+
+    Args:
+        uri (str): The URL/URI of the resource we want more metadata for
+        g (rdflib.ConjunctiveGraph): The RDF Graph containing the metadata of the resource
+
+    Returns:
+        rdflib.ConjunctiveGraph: The RDF Graph with eventually new metadata
+    """    
     graph_pre_size = len(g)
     endpoint = "https://opencitations.net/sparql"
-    # print(f"SPARQL for [ {uri} ] with enpoint [ {endpoint} ]")
-    # sparql = SPARQLWrapper("https://query.wikidata.org/sparql")
+
+    # Log with dev_logger instead
+    logging.debug(f"SPARQL for [ {uri} ] with enpoint [ {endpoint} ]")
     query = (
         """
             PREFIX cito: <http://purl.org/spar/cito/>
@@ -85,8 +96,6 @@ def describe_opencitation(uri, g):
     """
     )
 
-    # print(query)
-
     h = {"Accept": "text/turtle"}
     p = {"query": query}
 
@@ -94,20 +103,29 @@ def describe_opencitation(uri, g):
     g.parse(data=res.text, format="turtle")
 
     graph_post_size = len(g)
-    # print(f"{graph_post_size - graph_pre_size} added new triples")
 
-    ######################
-
-    # print(g.serialize(format='turtle').decode())
+    # Log with dev_logger instead
+    logging.debug(f"{graph_post_size - graph_pre_size} added new triples")
     return g
 
 
 # Describe lod.openaire
 def describe_openaire(uri, g):
-    # g = Graph()
+    """
+    A function that make a call to the OpenAIRE SPARQL endpoint
+
+    Args:
+        uri (str): The URL/URI of the resource we want more metadata for
+        g (rdflib.ConjunctiveGraph): The RDF Graph containing the metadata of the resource
+
+    Returns:
+        rdflib.ConjunctiveGraph: The RDF Graph with eventually new metadata
+    """   
     graph_pre_size = len(g)
-    logging.debug(f"SPARQL for [ {uri} ] with enpoint [ LOA ]")
-    sparql = SPARQLWrapper("http://lod.openaire.eu/sparql")
+    endpoint = "http://lod.openaire.eu/sparql"
+    # Log with dev_logger instead
+    logging.debug(f"SPARQL for [ {uri} ] with enpoint [ {endpoint} ]")
+    sparql = SPARQLWrapper(endpoint)
     sparql.setQuery(
         """
             DESCRIBE ?x WHERE {
@@ -118,24 +136,35 @@ def describe_openaire(uri, g):
     """
     )
 
-    g_len = Graph()
     sparql.setReturnFormat(N3)
+
     results = sparql.query().convert()
-    # print("Results: " + str(len(g_len.parse(data=results, format="n3"))))
     g.parse(data=results, format="turtle")
+
     graph_post_size = len(g)
-    # print(f"{graph_post_size - graph_pre_size} added new triples")
-    # print(g.serialize(format='turtle').decode())
+
+    # Log with dev_logger instead
+    logging.debug(f"{graph_post_size - graph_pre_size} added new triples")
     return g
 
 
 # Describe Wikidata
 def describe_wikidata(uri, g):
-    # g = Graph()
+    """
+    A function that make a call to the Wikidata SPARQL endpoint
+
+    Args:
+        uri (str): The URL/URI of the resource we want more metadata for
+        g (rdflib.ConjunctiveGraph): The RDF Graph containing the metadata of the resource
+
+    Returns:
+        rdflib.ConjunctiveGraph: The RDF Graph with eventually new metadata
+    """   
     graph_pre_size = len(g)
     endpoint = "https://query.wikidata.org/sparql"
+    # Log with dev_logger instead
     logging.debug(f"SPARQL for [ {uri} ] with enpoint [ {endpoint} ]")
-    # sparql = SPARQLWrapper("https://query.wikidata.org/sparql")
+
     query = (
         """
             PREFIX wd: <http://www.wikidata.org/entity/>
@@ -156,8 +185,6 @@ def describe_wikidata(uri, g):
     """
     )
 
-    # print(query)
-
     h = {"Accept": "application/sparql-results+xml"}
     p = {"query": query}
 
@@ -165,13 +192,14 @@ def describe_wikidata(uri, g):
     g.parse(data=res.text, format="xml")
 
     graph_post_size = len(g)
-    logging.debug(f"{graph_post_size - graph_pre_size} added new triples")
 
-    # print(g.serialize(format='turtle').decode())
+    # Log with dev_logger instead
+    logging.debug(f"{graph_post_size - graph_pre_size} added new triples")
     return g
 
 
 # Describe a tool based on experimental bio.tools SPARQL endpoint
+@DeprecationWarning
 def describe_biotools(uri, g):
     logging.debug(f"SPARQL for [ {uri} ] with enpoint [ https://130.226.25.41/sparql ]")
 
@@ -183,11 +211,19 @@ def describe_biotools(uri, g):
 
     g.parse(data=res.text, format="turtle")
 
-    # print(g.serialize(format='turtle').decode())
     return g
 
 
 def is_URL(any_url):
+    """
+    Function to validate if a string is an actual URL
+
+    Args:
+        any_url (str): The string to be test
+
+    Returns:
+        bool: Return if the string is a valid URL or not
+    """
     if validators.url(any_url):
         return True
     else:
@@ -195,15 +231,40 @@ def is_URL(any_url):
 
 
 def is_DOI(uri):
-    return bool(re.search(regex, uri, re.MULTILINE | re.IGNORECASE))
+    """
+    Function to validate if a string is an actual DOI
+
+    Args:
+        uri (str): The string to be test
+
+    Returns:
+        bool: Return if the string is a valid DOI or not
+    """
+    return bool(re.search(REGEX, uri, re.MULTILINE | re.IGNORECASE))
 
 
 def get_DOI(uri):
-    match = re.search(regex, uri, re.MULTILINE | re.IGNORECASE)
+    """
+    Function to extract the DOI from a string
+
+    Args:
+        uri (str): The string that contain a DOI
+
+    Returns:
+        str: Return the extractef DOI
+    """
+    match = re.search(REGEX, uri, re.MULTILINE | re.IGNORECASE)
     return match.group(0)
 
 
 def remove_key_from_value(d, val):
+    """
+    Remove a key from a dictionnary for a specific value
+
+    Args:
+        d (dict): The dictionnary from  with we want te remove a key
+        val (None): The value to remove the key from (Remove item from cache with None value)
+    """
     keys = [k for k, v in d.items() if v == val]
     if keys:
         for key in keys:
@@ -214,13 +275,18 @@ def remove_key_from_value(d, val):
 def ask_BioPortal(uri, type):
     """
     Checks that the URI is registered in one of the ontologies indexed in BioPortal.
-    :param uri:
-    :return: True if the URI is registered in one of the ontologies indexed in BioPortal, False otherwise, and None if registry is unreachable.
-    """
+
+    Args:
+        uri (str): The URI to be checked
+        type (str): To tell if the check if for a class or a property
+
+    Returns:
+        bool: True if the URI is registered in one of the ontologies indexed in BioPortal, False otherwise, and None if registry is unreachable
+    """    
     remove_key_from_value(cache_BP, None)
 
     app.logger.debug(f"Call to the BioPortal REST API for [ {uri} ]")
-    # print(app.config)
+
     with app.app_context():
         api_key = current_app.config["BIOPORTAL_APIKEY"]
     h = {"Accept": "application/json", "Authorization": "apikey token=" + str(api_key)}
@@ -252,9 +318,13 @@ def ask_BioPortal(uri, type):
 def ask_OLS(uri):
     """
     Checks that the URI is registered in one of the ontologies indexed in OLS.
-    :param uri:
-    :return: True if the URI is registered in one of the ontologies indexed in OLS, False otherwise, and None if registry is unreachable.
-    """
+
+    Args:
+        uri (str): The URI to be checked
+
+    Returns:
+        bool: True if the URI is registered in one of the ontologies indexed in OLS, False otherwise, and None if registry is unreachable.
+    """   
     remove_key_from_value(cache_OLS, None)
 
     app.logger.debug(f"Call to the OLS REST API for [ {uri} ]")
@@ -278,9 +348,13 @@ def ask_OLS(uri):
 def ask_LOV(uri):
     """
     Checks that the URI is registered in one of the ontologies indexed in LOV (Linked Open Vocabularies).
-    :param uri:
-    :return: True if the URI is registered in one of the ontologies indexed in LOV, False otherwise, and None if registry is unreachable.
-    """
+
+    Args:
+        uri (str): The URI to be checked
+
+    Returns:
+        bool: True if the URI is registered in one of the ontologies indexed in LOV, False otherwise, and None if registry is unreachable.
+    """   
     remove_key_from_value(cache_LOV, None)
 
     app.logger.debug(
@@ -301,7 +375,7 @@ def ask_LOV(uri):
         return None
 
 
-# @Deprecated
+@DeprecationWarning
 def gen_shape(property_list=None, class_list=None, recommendation=None):
     """
 
@@ -316,7 +390,7 @@ def gen_shape(property_list=None, class_list=None, recommendation=None):
     return None
 
 
-# @Deprecated
+@DeprecationWarning
 def shape_checks(kg):
     """
 
@@ -506,8 +580,6 @@ def shape_checks(kg):
         }
     """
 
-    # print("toto")
-    # print(results_graph.serialize(format="turtle"))
 
     results = results_graph.query(report_query)
     warnings = []
@@ -527,6 +599,15 @@ def shape_checks(kg):
 
 
 def extract_rdf_from_html(uri):
+    """
+    Use request and extring library to extract RDF metadata from a URL/URI of a resource
+
+    Args:
+        uri (str): The URL/URI to extract RDF metadata from
+
+    Returns:
+        dict: A dict that contains the extracted RDF metadata
+    """
     page = requests.get(uri)
     html = page.content
 
@@ -536,22 +617,30 @@ def extract_rdf_from_html(uri):
     return d
 
 
+@DeprecationWarning
 def extruct_to_rdf(extruct_str):
 
-    g = ConjunctiveGraph()
+    g_jsonld = ConjunctiveGraph()
 
     for md in extruct_str["json-ld"]:
-        g.parse(data=json.dumps(md, ensure_ascii=False), format="json-ld")
+        g_jsonld.parse(data=json.dumps(md, ensure_ascii=False), format="json-ld")
+
+    g_rdfa = ConjunctiveGraph()
 
     for md in extruct_str["rdfa"]:
-        g.parse(data=json.dumps(md, ensure_ascii=False), format="json-ld")
+        g_rdfa.parse(data=json.dumps(md, ensure_ascii=False), format="json-ld")
+
+    g_microdata = ConjunctiveGraph()
 
     for md in extruct_str["microdata"]:
-        g.parse(data=json.dumps(md, ensure_ascii=False), format="json-ld")
+       g_microdata.parse(data=json.dumps(md, ensure_ascii=False), format="json-ld")
+
+    g = g_jsonld + g_rdfa + g_microdata
 
     return g
 
 
+@DeprecationWarning
 def rdf_to_triple_list(graph):
     tuple_list = []
     for s, p, o in graph.triples((None, None, None)):
@@ -575,6 +664,16 @@ def rdf_to_triple_list(graph):
 
 
 def clean_kg_excluding_ns_prefix(kg, ns_prefix) -> ConjunctiveGraph:
+    """
+    Remove RDF triples that use a specific namespace prefix
+
+    Args:
+        kg (rdflib.ConjunctiveGraph): rdflib Graph
+        ns_prefix (str): Prefix we want to remove triples from
+
+    Returns:
+        ConjunctiveGraph: The cleaned RDF Graph
+    """
     cleaned_kg = copy.deepcopy(kg)
     q_del = (
         'DELETE {?s ?p ?o} WHERE { ?s ?p ?o . FILTER (strstarts(str(?p), "'
@@ -585,6 +684,7 @@ def clean_kg_excluding_ns_prefix(kg, ns_prefix) -> ConjunctiveGraph:
     return cleaned_kg
 
 
+# TODO Alban, Document or Delete ?
 def replace_value_char_for_key(key, var, old_char, new_char):
     if hasattr(var, "items"):
         for k, v in var.items():
