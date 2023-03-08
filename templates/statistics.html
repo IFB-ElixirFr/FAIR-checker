@@ -9,12 +9,6 @@
 <script type="text/javascript" charset="utf-8">
 
     $( document ).ready(function() {
-
-<!--        var cm = new CodeMirror.fromTextArea(document.getElementById("editor"), {-->
-<!--            lineNumbers: true,-->
-<!--            lineWrapping: true,-->
-<!--         });-->
-
         console.log( "ready!" );
         $("#notif").addClass("is-hidden");
 
@@ -46,12 +40,7 @@
 <section class="hero is-warning">
     <div class="hero-body">
         <div class="container">
-            <!--      <h1 class="title">-->
-            <!--        Primary title-->
-            <!--      </h1>-->
-            <!--      <h2 class="subtitle">-->
-            <!--        Primary subtitle-->
-            <!--      </h2>-->
+
 
             <section class="section">
                 <nav class="level">
@@ -164,7 +153,6 @@
         <p>Last 7 days results</p>
     </div>
     <div class="message-body">
-        <!-- <canvas id="myChart" width="400" height="400"></canvas> -->
         <section>
             <!-- Create a div where the graph will take place -->
             <div>
@@ -181,7 +169,6 @@
     <div class="message-body">
 
         <div class="field is-grouped is-grouped-centered">
-            <!-- <canvas id="myChart" width="400" height="400"></canvas> -->
             <p class="control">
                 <button id="update_stats_total" data-fair="Total" class="button is-info"><i
                         class="fa fa-bar-chart fa-fw"></i>Total
@@ -240,8 +227,6 @@
       ]
   };
 
-
-
   var myBarChart = new Chart(ctx, {
       type: 'bar',
       data: data2,
@@ -269,13 +254,6 @@
   var failures_labels = {{ failures_weekly|tojson }}.map(v => (v.x));
   var labels = [...new Set([...success_labels, ...failures_labels])].sort();
 
-  // const labels = Object.keys({{ failures_weekly|tojson }});
-  // const values_success = Object.values({{ success_weekly|tojson }});
-  // const values_failures = Object.values({{ failures_weekly|tojson }});
-
-  // console.log(labels);
-  // console.log(values_failures);
-
   var array1 = [1, 2, 3];
   var array2 = [2, 3, 4];
   console.log();
@@ -299,24 +277,6 @@
               fill: false,
               data: {{ failures_weekly|tojson }},
           },
-          // {
-          //     label: "Success",
-          //     borderWidth: '1',
-          //     borderColor: 'rgba(75, 192, 192, 1)',
-          //     // backgroundColor: 'rgba(219, 242, 242, 0.5)',
-          //     fill: false,
-          //     data: {{ success_weekly|tojson }},
-          //     type: "line",
-          // },
-          // {
-          //     label: "Failures",
-          //     borderWidth: '1',
-          //     borderColor: 'rgba(255, 99, 132, 1)',
-          //     // backgroundColor: 'rgba(255, 224, 230, 0.5)',
-          //     fill: false,
-          //     data: {{ failures_weekly|tojson }},
-          //     type: "line",
-          // },
       ]
   };
 
@@ -398,7 +358,6 @@
     myLineChart.data.datasets[0].data = values_success;
     myLineChart.data.datasets[1].data = values_failures;
     myLineChart.update();
-
   });
 
 </script>

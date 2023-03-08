@@ -1,6 +1,5 @@
 import copy
 from asyncio.log import logger
-from unittest import result
 import eventlet
 
 # from https://github.com/eventlet/eventlet/issues/670
@@ -17,14 +16,12 @@ from flask import (
     make_response,
 )
 from flask_restx import Resource, Api, fields, reqparse
-from flask_swagger_ui import get_swaggerui_blueprint
 from flask_cors import CORS
 from flask_socketio import SocketIO
 from flask_socketio import emit
 from flask_caching import Cache
-from flask import current_app
-from os import environ, path
-from dotenv import load_dotenv, dotenv_values
+from os import path
+from dotenv import dotenv_values
 import secrets
 import time
 import os
@@ -51,8 +48,6 @@ from metrics import test_metric
 from metrics.FAIRMetricsFactory import FAIRMetricsFactory
 from metrics.WebResource import WebResource
 from metrics.Evaluation import Result
-from profiles.bioschemas_shape_gen import validate_any_from_KG
-from profiles.bioschemas_shape_gen import validate_any_from_microdata
 from metrics.util import SOURCE
 from metrics.F1B_Impl import F1B_Impl
 from urllib.parse import urlparse
@@ -68,7 +63,6 @@ from profiles.ProfileFactory import (
     dyn_evaluate_profile_with_conformsto,
 )
 
-import time
 import atexit
 import requests
 
@@ -608,7 +602,7 @@ def generate_ask_api(describe):
             if util.is_DOI(url):
                 url = util.get_DOI(url)
             new_kg = describe(url, old_kg)
-            print(type(describe))
+
             triples_before = len(kg)
             triples_after = len(new_kg)
             data = {
@@ -751,7 +745,8 @@ def list_routes():
 @socketio.on("webresource")
 def handle_webresource(url):
     """
-    Handler for URL in field
+    Warning: Not used yet
+    Handler for URL changes in field, might be used to create WebResource object in advance to improve evaluation times
 
     Args:
         url (str): URL in field that should be evaluated
@@ -1691,7 +1686,7 @@ def check_kg_shape_2():
 
 
 ### To remove ?
-@DeprecationWarning
+# @DeprecationWarning
 def update_bioschemas_valid(func):
     @functools.wraps(func)
     def wrapper_decorator(*args, **kwargs):

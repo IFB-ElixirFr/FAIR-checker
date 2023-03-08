@@ -100,16 +100,16 @@
   //////////////////
 
   /////// To remove ?
-  socket.on('connect', function () {
-    socket.emit('hello', { data: 'I\'m connected!' });
-    console.log('hello message sent');
-  });
+  // socket.on('connect', function () {
+  //   socket.emit('hello', { data: 'I\'m connected!' });
+  //   console.log('hello message sent');
+  // });
 
-  socket.on('disconnect', function () {
-    content_uuid = $("#download_csv").data("dl");
-    socket.emit('disconnect', { uuid: content_uuid });
-    console.log('send dc message');
-  });
+  // socket.on('disconnect', function () {
+  //   content_uuid = $("#download_csv").data("dl");
+  //   socket.emit('disconnect', { uuid: content_uuid });
+  //   console.log('send dc message');
+  // });
   //////////
 
 
@@ -157,7 +157,7 @@
       $("#btn_test_checked").removeClass("is-loading");
       $("#btn_test_all").removeClass("is-loading");
       // $("#btn_test_all").prop("disabled", false);
-      $("#btn_test_checked").prop("disabled", false);
+      // $("#btn_test_checked").prop("disabled", false);
     }
 
     // put checkbox in tested state true and trigger change
@@ -167,12 +167,7 @@
   socket.on('done_{{f.id}}', function (value) {
     console.log('DONE {{f.name}}');
     $("#test_{{f.id}}").removeClass("is-loading");
-    // $("#test_{{f.id}}").prop("disabled", true);
 
-    console.log(value['time']);
-    console.log(value['score']);
-    console.log("toto");
-    console.log(value['csv_line']);
     csv_lines.push(value['csv_line']);
 
 
@@ -231,7 +226,7 @@
 
       }
     });
-    console.log($("#p1").parent().closest('div').data("label"));
+
     $("#p1").parent().closest('div').data("label", "toto");
 
     // add recommandation if score == 0
@@ -275,7 +270,7 @@
     // // show table
     $("#result_table_{{f.id}}").show();
     // open card
-    $("#metric_card_content_{{f.id}}").removeClass("is-hidden");
+    // $("#metric_card_content_{{f.id}}").removeClass("is-hidden");
 
     // check if all metric are done
     is_loading = false
@@ -285,18 +280,17 @@
       }
     });
     if (!is_loading) {
-      console.log("all done !!!!");
-      $("#btn_test_checked").removeClass("is-loading");
+      // $("#btn_test_checked").removeClass("is-loading");
       $("#btn_test_all").removeClass("is-loading");
       // $("#btn_test_all").prop("disabled", false);
       $("#download_csv").prop("disabled", false);
-      $("#btn_test_checked").prop("disabled", false);
+      // $("#btn_test_checked").prop("disabled", false);
     }
 
     // put checkbox in tested state true and trigger change
     $("#checkbox_test_{{f.id}}").data('tested', true).trigger("change");
 
-    update_radar_chart();
+    // update_radar_chart();
     update_radar_chart2();
 
   });
@@ -308,58 +302,58 @@
 
 
   // check all category boxes
-  $('[id^=checkbox_all_]').on('click', function ($e) {
-    target_name = $(this).data("target");
-    is_checked = $(this).prop("checked");
-    $('[name=' + target_name + ']').prop("checked", is_checked).trigger("change");
+  // $('[id^=checkbox_all_]').on('click', function ($e) {
+  //   target_name = $(this).data("target");
+  //   is_checked = $(this).prop("checked");
+  //   $('[name=' + target_name + ']').prop("checked", is_checked).trigger("change");
 
-  });
+  // });
 
   // check checkbox state to disable or not "btn_test_checked"
-  $('[id^=checkbox_test_]').change(function (id) {
-    is_checked = this.checked;
-    is_tested = $(this).data("tested");
-    is_disabled_button = $("#btn_test_checked").prop('disabled');
+  // $('[id^=checkbox_test_]').change(function (id) {
+  //   is_checked = this.checked;
+  //   is_tested = $(this).data("tested");
+  //   is_disabled_button = $("#btn_test_checked").prop('disabled');
 
-    $("#btn_test_checked").prop('disabled', true);
+  //   $("#btn_test_checked").prop('disabled', true);
 
-    all_tested = true;
-    $('[id^=checkbox_test_]').each(function (id) {
-      is_checked = this.checked;
-      is_tested = $(this).data("tested");
-      is_disabled_button = $("#btn_test_checked").prop('disabled');
-      if (is_disabled_button && !is_tested && is_checked) {
-        $("#btn_test_checked").prop('disabled', false);
-      };
+  //   all_tested = true;
+  //   $('[id^=checkbox_test_]').each(function (id) {
+  //     is_checked = this.checked;
+  //     is_tested = $(this).data("tested");
+  //     is_disabled_button = $("#btn_test_checked").prop('disabled');
+  //     if (is_disabled_button && !is_tested && is_checked) {
+  //       $("#btn_test_checked").prop('disabled', false);
+  //     };
 
-      if (!is_tested) {
-        all_tested = false
-      };
-    });
+  //     if (!is_tested) {
+  //       all_tested = false
+  //     };
+  //   });
 
-    if (all_tested) {
-      // $("#btn_test_all").prop("disabled", true);
-    }
-  });
+  //   if (all_tested) {
+  //     // $("#btn_test_all").prop("disabled", true);
+  //   }
+  // });
 
   // start all selected metrics test
-  $("#btn_test_checked").on('click', function ($e) {
+  // $("#btn_test_checked").on('click', function ($e) {
 
-    $("#btn_test_checked").addClass("is-loading");
-    $("#btn_test_all").prop('disabled', true);
+  //   $("#btn_test_checked").addClass("is-loading");
+  //   $("#btn_test_all").prop('disabled', true);
 
-    $('[id^=checkbox_test_]').each(function (id) {
-      is_checked = $(this).prop("checked");
-      target_id = $(this).data("target");
+  //   $('[id^=checkbox_test_]').each(function (id) {
+  //     is_checked = $(this).prop("checked");
+  //     target_id = $(this).data("target");
 
-      if (is_checked) {
-        console.log("gogo metric");
-        console.log(target_id);
-        $("#" + target_id).trigger("click");
-      }
-    });
+  //     if (is_checked) {
+  //       console.log("gogo metric");
+  //       console.log(target_id);
+  //       $("#" + target_id).trigger("click");
+  //     }
+  //   });
 
-  });
+  // });
 
   // start all metrics test
   $("#btn_test_all").on('click', function ($e) {
@@ -369,14 +363,10 @@
     }
     $("#btn_test_checked").prop('disabled', true);
     $("#btn_test_all").addClass("is-loading");
-
-
     $('[id^=test_]').each(function (id) {
       $(this).trigger("click");
-      // console.log($(this).attr('id'))
     });
   });
-
 
 
   //  detect doi regex
@@ -386,16 +376,12 @@
     result = test_DOI(str_url);
     // console.log(n)
     if (result) {
-
-
-
       var doi_button = $('<button>', {
         "id": "doi_button",
         "class": "button is-small is-info is-light",
         "title": "Click to select only the DOI",
         "value": result,
       })
-
         .text(result)
         // .append('<i class="fa fa-clipboard is-pulled-left"></i>')
         .click(function () {
@@ -450,35 +436,31 @@
   });
 
   // show examples
-  $("#show_examples, #url_examples").on({
-    mouseenter: function () {
-      //stuff to do on mouse enter
+  // $("#show_examples, #url_examples").on({
+  //   mouseenter: function () {
+  //     //stuff to do on mouse enter
 
-      $("#show_examples").children("i").removeClass("fa-chevron-down");
-      $("#show_examples").children("i").addClass("fa-chevron-up");
-      elem_id = $(this).attr('id');
-      // if ( elem_id == "show_examples" ) {
-      //   $("#url_examples").slideDown("200");
-      // } else {
-      //   $("#url_examples").show();
-      // }
-      $("#url_examples").show();
-    },
-    mouseleave: function () {
-      //stuff to do on mouse leave
+  //     $("#show_examples").children("i").removeClass("fa-chevron-down");
+  //     $("#show_examples").children("i").addClass("fa-chevron-up");
+  //     elem_id = $(this).attr('id');
 
-      $("#show_examples").children("i").removeClass("fa-chevron-up");
-      $("#show_examples").children("i").addClass("fa-chevron-down");
-      // $("#url_examples").slideUp();
-      $("#url_examples").hide();
-    }
-  });
+  //     $("#url_examples").show();
+  //   },
+  //   mouseleave: function () {
+  //     //stuff to do on mouse leave
+
+  //     $("#show_examples").children("i").removeClass("fa-chevron-up");
+  //     $("#show_examples").children("i").addClass("fa-chevron-down");
+  //     // $("#url_examples").slideUp();
+  //     $("#url_examples").hide();
+  //   }
+  // });
 
 
 
-  $("#btn_advanced_test").on('click', function ($e) {
-    $("#select_metrics").toggle("fast");
-  });
+  // $("#btn_advanced_test").on('click', function ($e) {
+  //   $("#select_metrics").toggle("fast");
+  // });
 
   $("#download_csv").on('click', function ($e) {
     csv_lines.sort(function (a, b) {
@@ -511,38 +493,35 @@
     document.body.removeChild(downloadLink);
   });
 
-  socket.on('long', function (value) {
-    console.log('END LONG');
-    $("#notif").text(value);
-    $("#notif").removeClass("is-hidden");
-  });
+  // socket.on('long', function (value) {
+  //   console.log('END LONG');
+  //   $("#notif").text(value);
+  //   $("#notif").removeClass("is-hidden");
+  // });
 
 //////// To remove ?
   // trigger quick_structured_data_search on focus lost
-  $("#quick_search_button").on('click', function () {
-    console.log("focus lost");
-    socket.emit('quick_structured_data_search', $("#url").val())
-  });
-  socket.on('done_data_search', function (array) {
-    $("#structured_data_table > tbody").empty();
-    // console.log(value);
-    // var structured_data_table = $("#structured_data_table")
-    for (const elements of array) {
+  // $("#quick_search_button").on('click', function () {
+  //   console.log("focus lost");
+  //   socket.emit('quick_structured_data_search', $("#url").val())
+  // });
+  // socket.on('done_data_search', function (array) {
+  //   $("#structured_data_table > tbody").empty();
+  //   // console.log(value);
+  //   // var structured_data_table = $("#structured_data_table")
+  //   for (const elements of array) {
 
-      var table_body = $('#structured_data_table').find('tbody');
-      var table_row = table_body.append($('<tr>'));
-      for (const elem of elements) {
-        table_row.append($('<td>').text(elem));
-      }
+  //     var table_body = $('#structured_data_table').find('tbody');
+  //     var table_row = table_body.append($('<tr>'));
+  //     for (const elem of elements) {
+  //       table_row.append($('<td>').text(elem));
+  //     }
 
-    }
+  //   }
 
-  });
+  // });
 ////////
 
-  // socket.emit('fast');
-  //   socket.emit('slow');
-  //   socket.emit('long');
   });
 
   function test_DOI(str_url) {
@@ -564,25 +543,12 @@
 
 
 </script>
-<!--<article id="disclaimer" class="message is-warning">-->
-<!--    <div class="message-body">-->
-<!--        <b>Disclaimer:</b> FAIR-Checker is under active development and is not intended to be used yet in production-->
-<!--        environment.-->
-<!--    </div>-->
-<!--</article>-->
-
-
-{#<h1 class="title">How FAIR is my resource ?</h1>#}
 
 <!-- input uri section -->
 <article id="url_selection" class="message">
-  {# <div class="subtitle">#}
 
-    {# </div>#}
   <div class="message-body is-check">
     <h1 class="subtitle"><b>Enter resource identifier (URL/DOI)</b></h1>
-    {#
-    <hr style="width:10%">#}
     <div class="field has-addons">
       <div class="control is-expanded">
 
@@ -608,34 +574,6 @@
 
     <br>
 
-    <!-- <button class="button is-info is-small" id="show_examples">Example<i class="fa fa-chevron-down fa-fw" aria-hidden="true"></i></button> -->
-    <!-- <div id="url_examples" style="display: none;">
-          <br>
-          <article class="message is-info" >
-            <div class="message-body">
-              <div class="columns is-multiline is-mobile">
-                {% for k in sample_data.keys() %}
-                    <div class="column is-4">
-                        <div class="field">
-                            <label class="label">{{k}}</label>
-                            <div class="control">
-
-                                <div class="select">
-                                    <select id="sample_{{k}}">
-                                        {% for s in sample_data[k] %}
-                                        <option>{{ s }}</option>
-                                        {% endfor %}
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                {% endfor %}
-                </div>
-              </div>
-          </article>
-        </div> -->
-    <!-- <div class="section"> -->
     <div class="columns is-centered is-vcentered">
       <div class="column is-half">
         <progress id="p1" class="progress is-primary is-centered" value="0" max="11"></progress>
@@ -649,13 +587,9 @@
           </button>
         </p>
       </div>
-
-
     </div>
 
-
     {% for k in sample_data.keys() %}
-
     <div class="columns is-centered">
       <div class="column is-narrow">
         <div class="panel">
@@ -672,45 +606,12 @@
     </div>
     {% endfor %}
 
-    <!-- </div> -->
   </div>
-  <!-- <br>
-    <div class="card">
-        <header class="card-header">
-
-            <div class="card-header-title">
-              <button id="quick_search_button" class="button is-info">Quick structured data search<i class="fa fa-search fa-fw"></i></button>
-            </div>
-
-            <a class="card-header-icon card-toggle">
-              <i class="fa fa-angle-down"></i>
-            </a>
-        </header>
-        <div id="quick_structured_data_search" class="card-content is-hidden">
-          <table id="structured_data_table" class="table is-hoverable">
-              <thead>
-                  <td>Subject</td>
-                  <td>Predicate</td>
-                  <td>Object</td>
-              </thead>
-              <tbody>
-              </tbody>
-          </table>
-        </div>
-    </div> -->
 
 </article>
 
-<!-- <p class="control">
-  <button id="btn_advanced_test" class="button is-info"><i class="fa fa-bar-chart fa-fw"></i>Advanced Test</button>
-</p> -->
 
-
-
-
-
-
-<!-- Metrics sselection checkboxes section -->
+<!-- Metrics selection checkboxes section -->
 <article id="select_metrics" class="message" style="display: none;">
   <div class="message-header">
     <p>Select the metrics you want to test</p>
@@ -752,14 +653,12 @@
       {% endfor %}
     </div>
     <br>
-    <p class="columns is-centered">
+    <!-- <p class="columns is-centered">
       <button id="btn_test_checked" class="button is-info" disabled="disabled"><i class="fa fa-bar-chart fa-fw"></i>Test
         checked metrics
       </button>
-    </p>
+    </p> -->
   </div>
-
-
 </article>
 
 
@@ -793,29 +692,6 @@
 {% include 'metrics_modal.html' %}
 
 
-
-<!-- <article id="metrics_details_rec" class="message is-info">
-    <div class="message-header">
-        <p>List of metrics with details and completion status</p>
-    </div>
-    <div class="message-body">
-      <div class="columns is-multiline is-mobile">
-          {% for f in f_metrics %}
-              <div class="column is-one-third">
-                  {% set title=f.name %}
-                  {% set principle=f.principle %}
-                  {% set principle_category=f.principle_category %}
-                  {% set tag=f.principle_tag %}
-                  {% set desc=f.description %}
-                  {% set api_url=f.api_url %}
-                  {% set id=f.id %}
-                  {% include 'metrics_card.html' with context %}
-              </div>
-          {% endfor %}
-      </div>
-    </div>
-    https://github.com/IFB-ElixirFr/fair-checker.git
-</article> -->
 </div>
 
 <script type="text/javascript">

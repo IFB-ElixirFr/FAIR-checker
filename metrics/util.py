@@ -1,7 +1,5 @@
-from time import time
 from SPARQLWrapper import SPARQLWrapper, N3, JSON, RDF, TURTLE, JSONLD
-from rdflib import Graph, ConjunctiveGraph, Namespace
-from rdflib.namespace import RDF
+from rdflib import ConjunctiveGraph
 import requests
 
 requests.packages.urllib3.disable_warnings(
@@ -12,12 +10,8 @@ from jinja2 import Template
 from pyshacl import validate
 import extruct
 import json
-from pathlib import Path
 from datetime import datetime, timedelta
 from enum import Enum
-from lxml import html
-from selenium import webdriver
-from selenium.webdriver.chrome.options import Options
 from cachetools import cached, TTLCache
 from flask import Flask
 from flask import current_app
@@ -25,7 +19,6 @@ import logging
 import copy
 import re
 import validators
-from requests.auth import HTTPBasicAuth
 
 
 class SOURCE(Enum):
@@ -33,16 +26,12 @@ class SOURCE(Enum):
     API = 2
 
     def __str__(self):
-        # return str(self.value)
         return str(self.name)
 
 
 app = Flask(__name__)
 
-# if app.config["ENV"] == "production":
 app.config.from_object("config.Config")
-# else:
-#     app.config.from_object("config.DevelopmentConfig")
 
 # caching results (timer in config.py)
 with app.app_context():
@@ -61,6 +50,7 @@ cache_BP = TTLCache(
 # DOI regex
 REGEX = r"10.\d{4,9}\/[-._;()\/:A-Z0-9]+"
 
+
 # Describe datacite
 def describe_opencitation(uri, g):
     """
@@ -72,7 +62,7 @@ def describe_opencitation(uri, g):
 
     Returns:
         rdflib.ConjunctiveGraph: The RDF Graph with eventually new metadata
-    """    
+    """
     graph_pre_size = len(g)
     endpoint = "https://opencitations.net/sparql"
 
@@ -120,7 +110,7 @@ def describe_openaire(uri, g):
 
     Returns:
         rdflib.ConjunctiveGraph: The RDF Graph with eventually new metadata
-    """   
+    """
     graph_pre_size = len(g)
     endpoint = "http://lod.openaire.eu/sparql"
     # Log with dev_logger instead
@@ -159,7 +149,7 @@ def describe_wikidata(uri, g):
 
     Returns:
         rdflib.ConjunctiveGraph: The RDF Graph with eventually new metadata
-    """   
+    """
     graph_pre_size = len(g)
     endpoint = "https://query.wikidata.org/sparql"
     # Log with dev_logger instead
@@ -199,7 +189,7 @@ def describe_wikidata(uri, g):
 
 
 # Describe a tool based on experimental bio.tools SPARQL endpoint
-@DeprecationWarning
+# @DeprecationWarning
 def describe_biotools(uri, g):
     logging.debug(f"SPARQL for [ {uri} ] with enpoint [ https://130.226.25.41/sparql ]")
 
@@ -282,7 +272,7 @@ def ask_BioPortal(uri, type):
 
     Returns:
         bool: True if the URI is registered in one of the ontologies indexed in BioPortal, False otherwise, and None if registry is unreachable
-    """    
+    """
     remove_key_from_value(cache_BP, None)
 
     app.logger.debug(f"Call to the BioPortal REST API for [ {uri} ]")
@@ -324,7 +314,7 @@ def ask_OLS(uri):
 
     Returns:
         bool: True if the URI is registered in one of the ontologies indexed in OLS, False otherwise, and None if registry is unreachable.
-    """   
+    """
     remove_key_from_value(cache_OLS, None)
 
     app.logger.debug(f"Call to the OLS REST API for [ {uri} ]")
@@ -354,7 +344,7 @@ def ask_LOV(uri):
 
     Returns:
         bool: True if the URI is registered in one of the ontologies indexed in LOV, False otherwise, and None if registry is unreachable.
-    """   
+    """
     remove_key_from_value(cache_LOV, None)
 
     app.logger.debug(
@@ -375,7 +365,7 @@ def ask_LOV(uri):
         return None
 
 
-@DeprecationWarning
+# @DeprecationWarning
 def gen_shape(property_list=None, class_list=None, recommendation=None):
     """
 
@@ -390,7 +380,7 @@ def gen_shape(property_list=None, class_list=None, recommendation=None):
     return None
 
 
-@DeprecationWarning
+# @DeprecationWarning
 def shape_checks(kg):
     """
 
@@ -580,7 +570,6 @@ def shape_checks(kg):
         }
     """
 
-
     results = results_graph.query(report_query)
     warnings = []
     errors = []
@@ -617,7 +606,7 @@ def extract_rdf_from_html(uri):
     return d
 
 
-@DeprecationWarning
+# @DeprecationWarning
 def extruct_to_rdf(extruct_str):
 
     g_jsonld = ConjunctiveGraph()
@@ -633,14 +622,14 @@ def extruct_to_rdf(extruct_str):
     g_microdata = ConjunctiveGraph()
 
     for md in extruct_str["microdata"]:
-       g_microdata.parse(data=json.dumps(md, ensure_ascii=False), format="json-ld")
+        g_microdata.parse(data=json.dumps(md, ensure_ascii=False), format="json-ld")
 
     g = g_jsonld + g_rdfa + g_microdata
 
     return g
 
 
-@DeprecationWarning
+# @DeprecationWarning
 def rdf_to_triple_list(graph):
     tuple_list = []
     for s, p, o in graph.triples((None, None, None)):
