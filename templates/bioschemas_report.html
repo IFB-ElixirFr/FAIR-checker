@@ -2,9 +2,11 @@
 
 $(document).ready(function () {
 
+    socket.on('connect', function () {
+        socket.emit('hello', { data: 'Connected!' });
+    });
 
     {% if request.path == '/bioschemas_validation' %}
-        console.log("Static loading");
         data = {{ results | tojson | safe }};
         validation_report_gen(data, "static");
     {% endif %}

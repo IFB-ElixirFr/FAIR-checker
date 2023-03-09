@@ -8,21 +8,17 @@
 
 <script type="text/javascript" charset="utf-8">
   $(document).ready(function () {
-    console.log("ready!");
-    $("#notif").addClass("is-hidden");
 
-    console.log('trying to connect...');
     var socket = io.connect({{ config['SERVER_IP']| tojson }});
-  //var socket = io();
-  console.log('connected');
 
-  console.log({{ config['SERVER_IP']| tojson }});
+    socket.on('connect', function () {
+      socket.emit('hello', { data: 'Connected!' });
+    });
   //////////////////
   // select url to test
   //////////////////
   {% for k in sample_data.keys() %}
   $("#sample_{{k}}").on("click", function () {
-    console.log(this.value);
     $("#url").val(this.value);
     $("#url").trigger('input');
     $('#sample_{{k}} option[value="{{ k }}"]').attr("selected", "selected");
@@ -31,7 +27,6 @@
 
   // Exemple selector Button
   $('[id^="resource_"]').on("click", function () {
-    console.log($(this).children("a").text());
     $("#url").val($(this).children("a").data("url"));
     $("#url").trigger("input");
   });
@@ -44,9 +39,7 @@
   {% for f in f_metrics %}
   $("#test_{{f.id}}").on('click', function ($e) {
     $e.preventDefault();
-    console.log("Testing metric {{f.name}}");
-    console.log("ID: " + "{{f.id}}");
-    console.log("Value: " + "{{f.api_url}}");
+
     $(this).addClass("is-loading");
 
     $("#row_score_{{f.id}}").text("");
@@ -99,21 +92,6 @@
   // event handlers
   //////////////////
 
-  /////// To remove ?
-  // socket.on('connect', function () {
-  //   socket.emit('hello', { data: 'I\'m connected!' });
-  //   console.log('hello message sent');
-  // });
-
-  // socket.on('disconnect', function () {
-  //   content_uuid = $("#download_csv").data("dl");
-  //   socket.emit('disconnect', { uuid: content_uuid });
-  //   console.log('send dc message');
-  // });
-  //////////
-
-
-
   var csv_lines = []
 
   {% for f in f_metrics %}
@@ -153,11 +131,7 @@
       }
     });
     if (!is_loading) {
-      console.log("all done !!!!");
-      $("#btn_test_checked").removeClass("is-loading");
       $("#btn_test_all").removeClass("is-loading");
-      // $("#btn_test_all").prop("disabled", false);
-      // $("#btn_test_checked").prop("disabled", false);
     }
 
     // put checkbox in tested state true and trigger change
@@ -165,7 +139,7 @@
   });
 
   socket.on('done_{{f.id}}', function (value) {
-    console.log('DONE {{f.name}}');
+
     $("#test_{{f.id}}").removeClass("is-loading");
 
     csv_lines.push(value['csv_line']);
@@ -217,13 +191,11 @@
 
 
     //update progressbar
-    // current = parseInt($("#p1").attr("value"));
     progress = 0
     $("#p1").attr("value", progress);
     $('[id^=row_score]').each(function (progress) {
       if ($(this).text() != "") {
         $("#p1").attr("value", progress + 1);
-
       }
     });
 
@@ -264,13 +236,10 @@
             $this.data("show", "no");
         };
 
-        // $this.text(linkText);
     });
 
     // // show table
     $("#result_table_{{f.id}}").show();
-    // open card
-    // $("#metric_card_content_{{f.id}}").removeClass("is-hidden");
 
     // check if all metric are done
     is_loading = false
@@ -280,17 +249,13 @@
       }
     });
     if (!is_loading) {
-      // $("#btn_test_checked").removeClass("is-loading");
       $("#btn_test_all").removeClass("is-loading");
-      // $("#btn_test_all").prop("disabled", false);
       $("#download_csv").prop("disabled", false);
-      // $("#btn_test_checked").prop("disabled", false);
     }
 
     // put checkbox in tested state true and trigger change
     $("#checkbox_test_{{f.id}}").data('tested', true).trigger("change");
 
-    // update_radar_chart();
     update_radar_chart2();
 
   });
@@ -299,61 +264,6 @@
   //////////////////
   // exec all button
   //////////////////
-
-
-  // check all category boxes
-  // $('[id^=checkbox_all_]').on('click', function ($e) {
-  //   target_name = $(this).data("target");
-  //   is_checked = $(this).prop("checked");
-  //   $('[name=' + target_name + ']').prop("checked", is_checked).trigger("change");
-
-  // });
-
-  // check checkbox state to disable or not "btn_test_checked"
-  // $('[id^=checkbox_test_]').change(function (id) {
-  //   is_checked = this.checked;
-  //   is_tested = $(this).data("tested");
-  //   is_disabled_button = $("#btn_test_checked").prop('disabled');
-
-  //   $("#btn_test_checked").prop('disabled', true);
-
-  //   all_tested = true;
-  //   $('[id^=checkbox_test_]').each(function (id) {
-  //     is_checked = this.checked;
-  //     is_tested = $(this).data("tested");
-  //     is_disabled_button = $("#btn_test_checked").prop('disabled');
-  //     if (is_disabled_button && !is_tested && is_checked) {
-  //       $("#btn_test_checked").prop('disabled', false);
-  //     };
-
-  //     if (!is_tested) {
-  //       all_tested = false
-  //     };
-  //   });
-
-  //   if (all_tested) {
-  //     // $("#btn_test_all").prop("disabled", true);
-  //   }
-  // });
-
-  // start all selected metrics test
-  // $("#btn_test_checked").on('click', function ($e) {
-
-  //   $("#btn_test_checked").addClass("is-loading");
-  //   $("#btn_test_all").prop('disabled', true);
-
-  //   $('[id^=checkbox_test_]').each(function (id) {
-  //     is_checked = $(this).prop("checked");
-  //     target_id = $(this).data("target");
-
-  //     if (is_checked) {
-  //       console.log("gogo metric");
-  //       console.log(target_id);
-  //       $("#" + target_id).trigger("click");
-  //     }
-  //   });
-
-  // });
 
   // start all metrics test
   $("#btn_test_all").on('click', function ($e) {
@@ -371,10 +281,10 @@
 
   //  detect doi regex
   $("#url").on('input', function (id) {
-    console.log("url updated");
+
     str_url = $(this).val();
     result = test_DOI(str_url);
-    // console.log(n)
+
     if (result) {
       var doi_button = $('<button>', {
         "id": "doi_button",
@@ -388,17 +298,14 @@
           $("#url").val(result);
         });
       doi_button.prepend('<i class="fa fa-clipboard is-pulled-left"></i>&ensp;');
-      console.log("It is a DOI !");
 
       $("#is_doi").html('&ensp;-&ensp;The input contains the following DOIs that you can also test: ');
       $("#is_doi").append(doi_button);
 
-      console.log(result);
     } else {
       $("#is_doi").text("");
     };
   });
-
 
 
   $("#url").on('input', function (id) {
@@ -406,8 +313,9 @@
     helper = $("#url_helper");
     statut_logo = $("#url_statut");
     if (is_valid_http_url(str_url) || test_DOI(str_url)) {
+
       socket.emit('webresource', str_url)
-      console.log("Is valid !");
+
       $(this).removeClass("is-danger");
       $(this).addClass("is-success");
       helper.removeClass("is-danger");
@@ -415,7 +323,9 @@
       helper.text("The URL/DOI is valid");
       statut_logo.addClass("fa-check");
       statut_logo.removeClass("fa-exclamation-triangle");
+
     } else if (str_url === "") {
+
       $(this).removeClass("is-danger");
       $(this).removeClass("is-success");
       helper.removeClass("is-danger");
@@ -423,8 +333,9 @@
       helper.text("");
       statut_logo.removeClass("fa-check");
       statut_logo.removeClass("fa-exclamation-triangle");
+
     } else {
-      console.log("Is not valid !");
+
       $(this).removeClass("is-success");
       $(this).addClass("is-danger");
       helper.removeClass("is-success");
@@ -432,36 +343,11 @@
       helper.text("The URL/DOI is not valid");
       statut_logo.removeClass("fa-check");
       statut_logo.addClass("fa-exclamation-triangle");
+      
     };
   });
 
-  // show examples
-  // $("#show_examples, #url_examples").on({
-  //   mouseenter: function () {
-  //     //stuff to do on mouse enter
-
-  //     $("#show_examples").children("i").removeClass("fa-chevron-down");
-  //     $("#show_examples").children("i").addClass("fa-chevron-up");
-  //     elem_id = $(this).attr('id');
-
-  //     $("#url_examples").show();
-  //   },
-  //   mouseleave: function () {
-  //     //stuff to do on mouse leave
-
-  //     $("#show_examples").children("i").removeClass("fa-chevron-up");
-  //     $("#show_examples").children("i").addClass("fa-chevron-down");
-  //     // $("#url_examples").slideUp();
-  //     $("#url_examples").hide();
-  //   }
-  // });
-
-
-
-  // $("#btn_advanced_test").on('click', function ($e) {
-  //   $("#select_metrics").toggle("fast");
-  // });
-
+  // Generate file to export checks results in CSV
   $("#download_csv").on('click', function ($e) {
     csv_lines.sort(function (a, b) {
         return a.id.substring(3) - b.id.substring(3);
@@ -493,34 +379,6 @@
     document.body.removeChild(downloadLink);
   });
 
-  // socket.on('long', function (value) {
-  //   console.log('END LONG');
-  //   $("#notif").text(value);
-  //   $("#notif").removeClass("is-hidden");
-  // });
-
-//////// To remove ?
-  // trigger quick_structured_data_search on focus lost
-  // $("#quick_search_button").on('click', function () {
-  //   console.log("focus lost");
-  //   socket.emit('quick_structured_data_search', $("#url").val())
-  // });
-  // socket.on('done_data_search', function (array) {
-  //   $("#structured_data_table > tbody").empty();
-  //   // console.log(value);
-  //   // var structured_data_table = $("#structured_data_table")
-  //   for (const elements of array) {
-
-  //     var table_body = $('#structured_data_table').find('tbody');
-  //     var table_row = table_body.append($('<tr>'));
-  //     for (const elem of elements) {
-  //       table_row.append($('<td>').text(elem));
-  //     }
-
-  //   }
-
-  // });
-////////
 
   });
 
@@ -574,6 +432,7 @@
 
     <br>
 
+    <!-- progress bar -->
     <div class="columns is-centered is-vcentered">
       <div class="column is-half">
         <progress id="p1" class="progress is-primary is-centered" value="0" max="11"></progress>
@@ -589,6 +448,7 @@
       </div>
     </div>
 
+    <!-- resource examples -->
     {% for k in sample_data.keys() %}
     <div class="columns is-centered">
       <div class="column is-narrow">
@@ -611,7 +471,7 @@
 </article>
 
 
-<!-- Metrics selection checkboxes section -->
+<!-- Metrics selection checkboxes section [NOT USED] -->
 <article id="select_metrics" class="message" style="display: none;">
   <div class="message-header">
     <p>Select the metrics you want to test</p>
@@ -653,15 +513,12 @@
       {% endfor %}
     </div>
     <br>
-    <!-- <p class="columns is-centered">
-      <button id="btn_test_checked" class="button is-info" disabled="disabled"><i class="fa fa-bar-chart fa-fw"></i>Test
-        checked metrics
-      </button>
-    </p> -->
+
   </div>
 </article>
 
 
+<!-- Radar chart summary -->
 <article id="radar_chart" class="message">
   <div class="message-body is-check">
     <h1 class="subtitle"><b>Radar chart of metrics completion</b></h1>
@@ -669,7 +526,7 @@
   </div>
 </article>
 
-
+<!-- Metrics table -->
 <article id="metrics_details_rec" class="message">
   <div class="message-body is-check">
     <h1 class="subtitle is-inline-block"><b>List of metrics with details and results</b></h1>
@@ -690,7 +547,6 @@
 </article>
 
 {% include 'metrics_modal.html' %}
-
 
 </div>
 

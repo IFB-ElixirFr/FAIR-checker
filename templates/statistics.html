@@ -9,27 +9,19 @@
 <script type="text/javascript" charset="utf-8">
 
     $( document ).ready(function() {
-        console.log( "ready!" );
-        $("#notif").addClass("is-hidden");
-
-        console.log('trying to connect...');
+        
         var socket = io.connect({{ config['SERVER_IP']|tojson }});
-        //var socket = io();
-        console.log('connected');
 
         //////////////////
         // click handlers
         //////////////////
 
-
-
         //////////////////
         // event handlers
         //////////////////
 
-        socket.on('connect', function() {
-            socket.emit('hello', {data: 'I\'m connected!'});
-            console.log('hello message sent');
+        socket.on('connect', function () {
+            socket.emit('hello', { data: 'Connected!' });
         });
     });
 
@@ -247,8 +239,6 @@
 
 <script>
   var ctx = document.getElementById("myLineChart").getContext("2d");
-  console.log( {{ success_weekly|tojson }});
-  console.log( {{ failures_weekly|tojson }});
 
   var success_labels = {{ success_weekly|tojson }}.map(v => (v.x));
   var failures_labels = {{ failures_weekly|tojson }}.map(v => (v.x));
@@ -256,7 +246,6 @@
 
   var array1 = [1, 2, 3];
   var array2 = [2, 3, 4];
-  console.log();
 
   var data = {
       // labels: ["2020-47","2020-48","2021-1","2021-2","2021-3","2021-4","2021-6"],

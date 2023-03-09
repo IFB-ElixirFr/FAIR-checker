@@ -23,8 +23,7 @@ $(document).ready(function () {
     //////////////////
 
     socket.on('connect', function () {
-        socket.emit('hello', { data: 'I\'m connected!' });
-        console.log('hello message sent');
+        socket.emit('hello', { data: 'Connected!' });
     });
 
 });
