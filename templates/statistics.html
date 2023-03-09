@@ -295,15 +295,8 @@
                 title: function(tooltipItem, data) {
                     return "";
                 },
-                // label: function(tooltipItem, data) {
-                //     return data['datasets'][0]['data'][tooltipItem['index']];
-                // },
             },
         },
-        // hover: {
-        //    mode: 'index',
-        //    intersect: false
-        // },
         scales: {
             xAxes: [{
                 type: 'category',
@@ -322,8 +315,6 @@
 <script>
   // start all selected metrics test
   $("button[id^='update_stats_']").on('click', function($e){
-    // console.log($(this).data("fair"));
-
 
     switch ($(this).data("fair")) {
       case 'Total':
@@ -333,7 +324,6 @@
         break;
       case 'F':
         myLineChart.options.title.text = 'Findable';
-        // var labels = Object.keys({{ success_weekly|tojson }});
         var values_success = Object.values({{ f_success_weekly|tojson }});
         var values_failures = Object.values({{ f_failures_weekly|tojson }});
         break;
