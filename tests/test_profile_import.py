@@ -134,8 +134,12 @@ class ImportBSProfileTestCase(unittest.TestCase):
 
         self.assertEqual(len(kg), 35)
         result = dyn_evaluate_profile_with_conformsto(kg)
+        print(json.dumps(result, indent=True))
 
-        self.assertEqual(len(result), 0)
+        self.assertGreater(len(result), 0)
+        self.assertEqual(
+            result["https://github.com/IFB-ElixirFr/FAIR-checker"]["conforms"], True
+        )
 
     def test_fairchecker_type_eval(self):
         url = "https://fair-checker.france-bioinformatique.fr/"
