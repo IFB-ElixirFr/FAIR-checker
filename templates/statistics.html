@@ -12,6 +12,8 @@
         
         var socket = io.connect({{ config['SERVER_IP']|tojson }});
 
+        socket.emit('connect', { data: 'Connecting!' });
+
         //////////////////
         // click handlers
         //////////////////
@@ -20,9 +22,6 @@
         // event handlers
         //////////////////
 
-        socket.on('connect', function () {
-            socket.emit('hello', { data: 'Connected!' });
-        });
     });
 
 </script>
@@ -246,6 +245,7 @@
 
   var array1 = [1, 2, 3];
   var array2 = [2, 3, 4];
+  console.log();
 
   var data = {
       // labels: ["2020-47","2020-48","2021-1","2021-2","2021-3","2021-4","2021-6"],

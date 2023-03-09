@@ -11,9 +11,8 @@
 
     var socket = io.connect({{ config['SERVER_IP']| tojson }});
 
-    socket.on('connect', function () {
-      socket.emit('hello', { data: 'Connected!' });
-    });
+    socket.emit('connect', { data: 'Connecting!' });
+    
   //////////////////
   // select url to test
   //////////////////
@@ -313,7 +312,6 @@
     helper = $("#url_helper");
     statut_logo = $("#url_statut");
     if (is_valid_http_url(str_url) || test_DOI(str_url)) {
-
       socket.emit('webresource', str_url)
 
       $(this).removeClass("is-danger");
@@ -323,9 +321,7 @@
       helper.text("The URL/DOI is valid");
       statut_logo.addClass("fa-check");
       statut_logo.removeClass("fa-exclamation-triangle");
-
     } else if (str_url === "") {
-
       $(this).removeClass("is-danger");
       $(this).removeClass("is-success");
       helper.removeClass("is-danger");
@@ -333,9 +329,8 @@
       helper.text("");
       statut_logo.removeClass("fa-check");
       statut_logo.removeClass("fa-exclamation-triangle");
-
     } else {
-
+      console.log("Is not valid !");
       $(this).removeClass("is-success");
       $(this).addClass("is-danger");
       helper.removeClass("is-success");
@@ -343,7 +338,6 @@
       helper.text("The URL/DOI is not valid");
       statut_logo.removeClass("fa-check");
       statut_logo.addClass("fa-exclamation-triangle");
-      
     };
   });
 

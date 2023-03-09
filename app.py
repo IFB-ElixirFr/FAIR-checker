@@ -230,8 +230,6 @@ KGS = {}
 
 RDF_TYPE = {}
 
-FILE_UUID = ""
-
 DICT_TEMP_RES = {}
 
 STATUS_BIOPORTAL = requests.head("https://bioportal.bioontology.org/").status_code
@@ -936,19 +934,6 @@ def evaluate_fc_metrics(metric_name, client_metric_id, url):
     dev_logger.info("DONE FC metric: " + name)
 
 
-### To Remove ?
-@DeprecationWarning
-@socketio.on("quick_structured_data_search")
-def handle_quick_structured_data_search(url):
-    if url == "":
-        return False
-
-    extruct_rdf = util.extract_rdf_from_html(url)
-    graph = util.extruct_to_rdf(extruct_rdf)
-    result_list = util.rdf_to_triple_list(graph)
-    emit("done_data_search", result_list)
-
-
 def recommendation(emit_json, metric_name, comment):
     """
     Recommendations for FAIRMetrics (Mark D W.)
@@ -1108,98 +1093,21 @@ def recommendation(emit_json, metric_name, comment):
         emit_json["recommendation"] = "Recommendation will be available soon."
 
 
-### To Remove ?
-@DeprecationWarning
-def write_temp_metric_res_file(principle, api_url, time, score, comment, content_uuid):
-    """
-    _summary_
-
-    Args:
-        principle (_type_): _description_
-        api_url (_type_): _description_
-        time (_type_): _description_
-        score (_type_): _description_
-        comment (_type_): _description_
-        content_uuid (_type_): _description_
-    """
-    global DICT_TEMP_RES
-    sid = request.sid
-    temp_file_path = "./temp/" + sid
-
-    principle = principle.split("/")[-1]
-    api_url = api_url.split("/")[-1].lstrip("gen2_")
-    name = principle + "_" + api_url
-    # print(name)
-
-    line = '"{}"\t"{}"\t"{}"\t"{}"\n'.format(name, score, str(time), comment)
-    # write csv file
-    if os.path.exists(temp_file_path):
-        with open(temp_file_path, "a") as fp:
-            fp.write(line)
-            print("success written")
-
-    if content_uuid in DICT_TEMP_RES.keys():
-        DICT_TEMP_RES[content_uuid] += line
-    else:
-        DICT_TEMP_RES[content_uuid] = line
-
-
-### To remove ? (note used, using Javascript instead)
-@DeprecationWarning
-@app.route("/check/csv-download/<uuid>")
-def csv_download(uuid):
-    print("downloading !")
-    print(uuid)
-
-    output = io.StringIO()
-    output.write(DICT_TEMP_RES[uuid])
-    # write file object in BytesIO from StringIO
-    content = output.getvalue().encode("utf-8")
-    mem = io.BytesIO()
-    mem.write(content)
-    mem.seek(0)
-
-    # print(json.dumps(DICT_TEMP_RES, sort_keys=True, indent=4))
-
-    try:
-        return send_file(
-            mem,
-            as_attachment=True,
-            attachment_filename="results.csv",
-            mimetype="text/csv",
-            cache_timeout=-1,
-        )
-
-    except Exception as e:
-        return str(e)
-
 
 ### To remove ?
 @DeprecationWarning
 @socketio.on("connect")
 def handle_connect():
-    global FILE_UUID
-    print("The random id using uuid() is : ", end="")
-    FILE_UUID = str(uuid.uuid1())
-    print(FILE_UUID)
-    print(request)
-
     sid = request.sid
-
     dev_logger.info("Connected with SID " + sid)
 
 
-### To remove ?
+## To remove ?
 @DeprecationWarning
 @socketio.on("disconnect")
 def handle_disconnected():
-    print("Disconnected")
     sid = request.sid
-
-    time.sleep(5)
-    print("Cleaning temp file after disconnect: " + sid)
-    if os.path.exists("./temp/" + sid):
-        os.remove("./temp/" + sid)
+    dev_logger.info("Disconnecting SID " + sid)
 
 
 @socketio.on("change_rdf_type")
@@ -1254,42 +1162,6 @@ def handle_embedded_annot_2(data):
             "nb_triples": nb_triples,
         },
     )
-
-
-### To remove ?
-@DeprecationWarning
-@socketio.on("update_annot_bioschemas")
-def handle_annotationn(data):
-    new_kg = rdflib.ConjunctiveGraph()
-    new_kg.namespace_manager.bind("sc", URIRef("http://schema.org/"))
-    new_kg.namespace_manager.bind("bsc", URIRef("https://bioschemas.org/"))
-    new_kg.namespace_manager.bind("dct", URIRef("http://purl.org/dc/terms/"))
-
-    # TODO check that url is well formed
-    if util.is_URL(data["url"]):
-        uri = rdflib.URIRef(data["url"])
-
-        for p in data["warn"].keys():
-            if data["warn"][p]:
-                value = data["warn"][p]
-                if util.is_URL(value):
-                    new_kg.add((uri, rdflib.URIRef(p), rdflib.URIRef(value)))
-                else:
-                    new_kg.add((uri, rdflib.URIRef(p), rdflib.Literal(value)))
-
-        for p in data["err"].keys():
-            if data["err"][p]:
-                value = data["err"][p]
-                if util.is_URL(value):
-                    new_kg.add((uri, rdflib.URIRef(p), rdflib.URIRef(value)))
-                else:
-                    new_kg.add((uri, rdflib.URIRef(p), rdflib.Literal(value)))
-
-        # print("****** Turtle syntax *****")
-        # print(new_kg.serialize(format='turtle').decode())
-        # print("**************************")
-
-        emit("send_bs_annot", str(new_kg.serialize(format="json-ld")))
 
 
 @socketio.on("describe_opencitation")
@@ -1375,109 +1247,6 @@ def handle_describe_loa(data):
             "nb_triples": nb_triples,
         },
     )
-
-
-### To remove ?
-@DeprecationWarning
-@socketio.on("retrieve_embedded_annot")
-def handle_embedded_annot(data):
-    """
-    socketio Handler to aggregate original page metadata with sparql endpoints.
-    emit the result of sparql requests
-
-    @param data dict Contains the data needed to aggregate (url, etc).
-    """
-    step = 0
-    sid = request.sid
-    print(sid)
-    uri = str(data["url"])
-    print("retrieving embedded annotations for " + uri)
-    print("Retrieve KG for uri: " + uri)
-    # page = requests.get(uri)
-    # html = page.content
-
-    # use selenium to retrieve Javascript genereted content
-    html = util.get_html_selenium(uri)
-
-    d = extruct.extract(
-        html, syntaxes=["microdata", "rdfa", "json-ld"], errors="ignore"
-    )
-
-    kg = ConjunctiveGraph()
-
-    # kg = util.get_rdf_selenium(uri, kg)
-
-    # kg = util.extruct_to_rdf(d)
-
-    base_path = Path(__file__).parent  ## current directory
-    static_file_path = str((base_path / "static/data/jsonldcontext.json").resolve())
-
-    # remove whitespaces from @id values after axtruct
-    for key, val in d.items():
-        for dict in d[key]:
-            list(util.replace_value_char_for_key("@id", dict, " ", "_"))
-
-    for md in d["json-ld"]:
-        if "@context" in md.keys():
-            if ("https://schema.org" in md["@context"]) or (
-                "http://schema.org" in md["@context"]
-            ):
-                md["@context"] = static_file_path
-        kg.parse(data=json.dumps(md, ensure_ascii=False), format="json-ld")
-    for md in d["rdfa"]:
-        if "@context" in md.keys():
-            if ("https://schema.org" in md["@context"]) or (
-                "http://schema.org" in md["@context"]
-            ):
-                md["@context"] = static_file_path
-        kg.parse(data=json.dumps(md, ensure_ascii=False), format="json-ld")
-    for md in d["microdata"]:
-        if "@context" in md.keys():
-            if ("https://schema.org" in md["@context"]) or (
-                "http://schema.org" in md["@context"]
-            ):
-                md["@context"] = static_file_path
-        kg.parse(data=json.dumps(md, ensure_ascii=False), format="json-ld")
-
-    KGS[sid] = kg
-
-    step += 1
-    emit("update_annot", step)
-    emit("send_annot", str(kg.serialize(format="turtle").decode()))
-    print(len(kg))
-
-    # check if id or doi in uri
-    if util.is_DOI(uri):
-        uri = util.get_DOI(uri)
-        print(f"FOUND DOI: {uri}")
-        # describe on lod.openair
-
-        # @TODO fix wikidata / LOA / etc. access
-        kg = util.describe_openaire(uri, kg)
-        step += 1
-        emit("update_annot", step)
-        emit("send_annot", str(kg.serialize(format="turtle").decode()))
-        print(len(kg))
-
-    # kg = util.describe_opencitation(uri, kg)
-    # step += 1
-    # emit('update_annot', step)
-    # emit('send_annot', str(kg.serialize(format='turtle').decode()))
-    # print(len(kg))
-    #
-    # kg = util.describe_wikidata(uri, kg)
-    # step += 1
-    # emit('update_annot', step)
-    # emit('send_annot', str(kg.serialize(format='turtle').decode()))
-    # print(len(kg))
-
-    kg = util.describe_biotools(uri, kg)
-    step += 1
-    emit("update_annot", step)
-    emit("send_annot", str(kg.serialize(format="turtle").decode()))
-    print(f"ended with step {step}")
-    print(len(kg))
-    print(step)
 
 
 def check_kg(kg, is_api):
@@ -1685,7 +1454,7 @@ def check_kg_shape_2():
     emit("done_check_shape", results)
 
 
-### To remove ?
+### What the goal of this function @Alban ?
 # @DeprecationWarning
 def update_bioschemas_valid(func):
     @functools.wraps(func)

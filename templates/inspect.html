@@ -14,9 +14,7 @@ $(document).ready(function () {
 
     var socket = io.connect({{ config['SERVER_IP']| tojson }});
 
-    socket.on('connect', function () {
-        socket.emit('hello', { data: 'Connected!' });
-    });
+    socket.emit('connect', { data: 'Connecting!' });
 
     //////////////////
     // click handlers
@@ -233,11 +231,13 @@ $(document).ready(function () {
 
     socket.on('done_check_shape', function (data) {
 
+        console.log("Bioschemas profiles validated");
         validation_report_gen(data, "dynamic");
 
         $("#btn_bioschemas").removeClass("is-loading");
         $("#btn_annot_bioschemas").removeClass("is-hidden");
     });
+
 
 });
 
