@@ -16,11 +16,14 @@ from metrics.recommendation import json_rec
 class F2A_Impl(AbstractFAIRMetrics):
 
     """
-    GOAL :
+    GOAL: Verifies that the resource uses structured metadata, in this instance RDF metadata
 
     """
 
     def __init__(self, web_resource=None):
+        """
+        The constructor of the metric implementation
+        """
         super().__init__(web_resource)
         self.name = "Structured metadata"
         self.id = "3"
@@ -32,6 +35,12 @@ class F2A_Impl(AbstractFAIRMetrics):
         """
 
     def weak_evaluate(self, eval=None) -> Evaluation:
+        """
+        The weak evaluation for F2A metric, not doing anything at the moment, only strong is defined
+
+        Returns:
+            Evaluation: The Evaluation object containing eventual new informations
+        """
         if not eval:
             eval = self.get_evaluation()
             eval.set_implem(self.implem)
@@ -40,7 +49,10 @@ class F2A_Impl(AbstractFAIRMetrics):
 
     def strong_evaluate(self, eval=None) -> Evaluation:
         """
-        at least one embedded RDF triple
+        The strong evaluation for F2A metric, at least one embedded RDF triple
+
+        Returns:
+            Evaluation: The Evaluation object containing eventual new informations
         """
 
         if not eval:

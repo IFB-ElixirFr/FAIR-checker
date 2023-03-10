@@ -20,6 +20,9 @@ class F2B_Impl(AbstractFAIRMetrics):
     """
 
     def __init__(self, web_resource=None):
+        """
+        The constructor of the metric implementation
+        """
         super().__init__(web_resource)
         self.name = "Shared vocabularies for metadata"
         self.id = "4"
@@ -33,7 +36,10 @@ class F2B_Impl(AbstractFAIRMetrics):
 
     def weak_evaluate(self, eval=None):
         """
-        at least one used ontology classe or property known in major ontology registries (OLS, BioPortal, LOV)
+        The weak evaluation for F2B metric, at least one used ontology classe or property known in major ontology registries (OLS, BioPortal, LOV)
+
+        Returns:
+            Evaluation: The Evaluation object containing eventual new informations
         """
         if not eval:
             eval = self.get_evaluation()
@@ -98,7 +104,10 @@ class F2B_Impl(AbstractFAIRMetrics):
 
     def strong_evaluate(self, eval=None):
         """
-        all used ontology classes and properties  known in major ontology registries (OLS, BioPortal, LOV)
+        The strong evaluation for F2B metric, all used ontology classes and properties  known in major ontology registries (OLS, BioPortal, LOV)
+
+        Returns:
+            Evaluation: The Evaluation object containing eventual new informations
         """
         if not eval:
             eval = self.get_evaluation()
@@ -135,7 +144,6 @@ class F2B_Impl(AbstractFAIRMetrics):
                 )
 
                 class_not_in_registries = True
-                # return eval
 
         # True if one of the classes is not in OLS, LOV or BioPortal
         if class_not_in_registries:
@@ -161,7 +169,6 @@ class F2B_Impl(AbstractFAIRMetrics):
                 )
 
                 property_not_in_registries = True
-                # return eval
 
         # True if one of the properties is not in OLS, LOV or BioPortal
         if property_not_in_registries:

@@ -31,14 +31,15 @@ class Evaluation:
         end_time (datetime): Store the endtime of the evaluation
         score (str): The score of the evaluation, can be 0, 1 or 2
         recommendation (str): The recommendation for the user
-        result_text (_type_): _description_
-        reason (_type_): _description_
+        result_text (str): The whole result of the nanopub returne by FAIRMetrics API 
+        reason (str): The execution log of the FAIRMetrics evaluationr
         web_resource (WebResource): The evaluated WebResource object
         metrics (str): The tag of the metric used to evaluate the WebResource
         target_uri (str): The URI/URL of the evaluated resource
         implem (str): The name of the implementor of the metric
 
     """
+
     eval_logger = None
     log_capture_string = None
 
@@ -47,7 +48,7 @@ class Evaluation:
     score = None
     recommendation = "No recommendation, metric validated"
 
-    # Result_tet and reason are used by FAIRMetrics only (result_text: whole nanopub content, reason: comment/log)
+    # Result_text and reason are used by FAIRMetrics only (result_text: whole nanopub content, reason: comment/log)
     # Might be deprecated
     result_text = None
     reason = None
@@ -265,6 +266,12 @@ class Evaluation:
 
     # used by FAIRMetrics, need to be replaced by logs
     def get_reason(self):
+        """
+        The logs of a FAIRMetrics (Mark D W) evaluation returned by its API
+
+        Returns:
+            str: The logs of FAIRMetrics evaluation
+        """
         return self.reason
 
     def get_metrics(self):

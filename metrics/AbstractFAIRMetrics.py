@@ -6,6 +6,12 @@ from metrics.Evaluation import Result, Evaluation
 
 
 class AbstractFAIRMetrics(ABC):
+    """
+    The AbstractFAIRMetrics class
+
+    Args:
+        ABC (ABC): Generic abstract class
+    """    
 
     COMMON_SPARQL_PREFIX = """
 PREFIX schema: <http://schema.org/>
@@ -24,6 +30,12 @@ PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
     cache = {}
 
     def __init__(self, web_resource=None):
+        """
+        The constructor of the AbstractFAIRMetrics
+
+        Args:
+            web_resource (WebResource, optional): A WebResource that will be evaluated. Defaults to None.
+        """
         self.name = "My metric name"
         self.id = "My id"
         self.desc = "My desc"
@@ -40,55 +52,146 @@ PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
 
     # name
     def get_name(self):
+        """
+        Get the name of the metric
+
+        Returns:
+            str: The name of the metric
+        """
         return self.name
 
     # desc
     def get_desc(self):
+        """
+        Get the description of the metric
+
+        Returns:
+            str: The description of the metric
+        """
         return self.desc
-        # print(f'Description: {self.desc}')
 
     def get_id(self):
+        """
+        Get the ID of the metric
+
+        Returns:
+            str: The ID of the metric
+        """
         return self.id
 
     def get_principle(self):
+        """
+        Get the principle to which the metric apply
+
+        Returns:
+            str: The principle of the metric
+        """
         return self.principle
 
     def get_principle_tag(self):
+        """
+        Get the principle TAG of the metric (F1A, I2, etc)
+
+        Returns:
+            str: The principle TAG of the metric
+        """
         return self.principle_tag
 
     def get_creator(self):
+        """
+        Get the creator name of the metric
+
+        Returns:
+            str: The creator of the metric
+        """
         return self.creator
 
     def get_implem(self):
+        """
+        Get the implementator of the metric (e.g. FAIR-Checker, FAIRMetrics, etc)
+
+        Returns:
+            str: The implementator of the metric
+        """
         return self.implem
 
     def get_creation_date(self):
+        """
+        Get the creation date of the metric
+
+        Returns:
+            str: The creation date of the metric
+        """
         return self.created_at
 
     def get_update_date(self):
+        """
+        Get the latest update date of the metric
+
+        Returns:
+            str: The update date of the metric
+        """
         return self.updated_at
 
     def get_requests_status_code(self):
+        """
+        Get the status_code of the URL WebResource instance evaluated
+
+        Returns:
+            int: The status_code of the resource 
+        """
         return self.requests_status_code
 
     def get_web_resource(self):
+        """
+        Get the WebResource instance that is evaluated
+
+        Returns:
+            WebResource: The WebResource instance
+        """
         return self.web_resource
 
     def get_evaluation(self):
+        """
+        Get the Evaluation instance for a metric and a specific resource
+
+        Returns:
+            Evaluation: The evaluation instance
+        """
         return self.evaluation
 
     def set_id(self, id):
+        """
+        Set the ID of the FAIR metric
+
+        Args:
+            id (str): The ID of the metric
+        """
         self.id = id
 
     def set_web_resource(self, web_resource):
+        """
+        Set the WebResoure using an existing instance that will be evaluated
+
+        Args:
+            web_resource (WebResource): The WebResource instance
+        """
         self.web_resource = web_resource
 
     def set_new_evaluation(self):
+        """
+        Set a new instance of an evaluation
+        """
         self.evaluation = Evaluation()
 
     def evaluate(self) -> Evaluation:
+        """
+        Evaluate a WebResource using the FAIR metric implementation
 
-        # print([cls.get_implem(self) for cls in AbstractFAIRMetrics.__subclasses__()])
+        Returns:
+            Evaluation: The Evaluation instance completed with results and metadata informations
+        """
+
         logging.debug(f"Evaluating metrics {self.get_name()}")
         logging.debug(f"Evaluating metrics {self.get_principle_tag()}")
         self.set_new_evaluation()
@@ -151,6 +254,12 @@ PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
         pass
 
     def __str__(self):
+        """
+        The string method that displays the metric informations.
+
+        Returns:
+            str: The string method
+        """
         return (
             f"FAIR metrics {self.id} : "
             f"\n\t {self.principle} "

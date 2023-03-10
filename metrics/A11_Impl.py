@@ -5,7 +5,7 @@ from metrics.recommendation import json_rec
 
 class A11_Impl(AbstractFAIRMetrics):
     """
-    GOAL : retrieve embedded semantic annotations
+    GOAL: retrieve embedded semantic annotations
     Check that how classes and properties are known in major standards, as reported in LOV :
        1. extract RDF annotations from web page
        2. list all used RDFS / OWL classes : ?class matching triple pattern ( ?x rdf:type ?class)
@@ -14,6 +14,9 @@ class A11_Impl(AbstractFAIRMetrics):
     """
 
     def __init__(self, web_resource=None):
+        """
+        The constructor of the metric implementation
+        """
         super().__init__(web_resource)
         self.name = "Open resolution protocol"
         self.id = "15"
@@ -26,12 +29,24 @@ class A11_Impl(AbstractFAIRMetrics):
         """
 
     def weak_evaluate(self):
+        """
+        The weak evaluation for A11 metric, not doing anything at the moment, only strong is defined
+
+        Returns:
+            Evaluation: The Evaluation object containing eventual new informations
+        """
         eval = self.get_evaluation()
         eval.set_implem(self.implem)
         eval.set_metrics(self.principle_tag)
         return eval
 
     def strong_evaluate(self):
+        """
+        The strong evaluation for A11 metric, check that the resource is accessible via an open protocol (HTTP here)
+
+        Returns:
+            Evaluation: The Evaluation object containing eventual new informations
+        """
         eval = self.get_evaluation()
         eval.set_implem(self.implem)
         eval.set_metrics(self.principle_tag)

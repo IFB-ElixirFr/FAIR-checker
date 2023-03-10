@@ -1,25 +1,17 @@
 import logging
-import json
 
-import requests
-from pathlib import Path
-from urllib.parse import urlparse
 import logging
-from rdflib import URIRef
 
 from metrics.AbstractFAIRMetrics import AbstractFAIRMetrics
-from datetime import timedelta
-from metrics.FairCheckerExceptions import FairCheckerException
 from metrics.Evaluation import Evaluation
-import validators
-import re
+
 from metrics.recommendation import json_rec
 
 
 class F1A_Impl(AbstractFAIRMetrics):
 
     """
-    GOAL :
+    GOAL: Checking that the resource identifie is an URL thant can be reach, meaning it is unique.
 
     """
 
@@ -36,6 +28,12 @@ class F1A_Impl(AbstractFAIRMetrics):
         """
 
     def weak_evaluate(self, eval=None) -> Evaluation:
+        """
+        The weak evaluation for F1A metric, not doing anything at the moment, only strong is defined
+
+        Returns:
+            Evaluation: The Evaluation object containing eventual new informations
+        """
         if not eval:
             eval = self.get_evaluation()
             eval.set_implem(self.implem)
@@ -43,6 +41,12 @@ class F1A_Impl(AbstractFAIRMetrics):
         return eval
 
     def strong_evaluate(self, eval=None) -> Evaluation:
+        """
+        The strong evaluation for F1A metric, checks that the resource URL is Unique.
+
+        Returns:
+            Evaluation: The Evaluation object containing eventual new informations
+        """
         eval = self.get_evaluation()
         eval.set_implem(self.implem)
         eval.set_metrics(self.principle_tag)
@@ -66,18 +70,21 @@ class F1A_Impl(AbstractFAIRMetrics):
     def blank_node_evaluate(self) -> Evaluation:
         """
         We check here that embedded metadata do not contain RDF blank nodes.
+
+        Returns:
+            Evaluation: The Evaluation object containing eventual new informations
         """
         eval = self.get_evaluation()
         eval.set_implem(self.implem)
         eval.set_metrics(self.principle_tag)
 
         query_blank_nodes = """ 
-ASK {  
-    ?s ?p ?o .
-    #FILTER ( isBlank(?s) || isBlank(?p) || isBlank(?o) )
-    FILTER ( isBlank(?o) )
-}
-            """
+            ASK {  
+                ?s ?p ?o .
+                #FILTER ( isBlank(?s) || isBlank(?p) || isBlank(?o) )
+                FILTER ( isBlank(?o) )
+            }
+        """
 
         eval.log_info("Looking for structured metadata in the web page")
         kg = self.get_web_resource().get_rdf()

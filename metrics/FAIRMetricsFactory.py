@@ -27,15 +27,44 @@ class Implem(Enum):
 
 
 class FAIRMetricsFactory:
+    """
+    Factory to instanciate various FAIR metrics
+    """
     def get_metric(
         self, name, id, desc, api, principle, creator, created_at, updated_at
     ):
+        """
+        Intanciate a FAIRMetrics of Mark D. W.
+
+        Args:
+            name (str): Name of the metric
+            id (str): ID of the metric
+            desc (str): The description of the metric
+            api (str): URL of the API to make a FAIRMetrics evaluation
+            principle (str): The principle to which apply the metric
+            creator (str): The creator of the metric
+            created_at (str): The date when the metric was created
+            updated_at (str): The date when the metric was updated
+
+        Returns:
+            _type_: _description_
+        """
         return FAIRMetricsImpl(
             name, id, desc, api, principle, creator, created_at, updated_at
         )
 
     @staticmethod
     def get_FC_metrics():
+        """
+        Instanciate all the FAIR-Checker implementations of FAIR metrics
+
+        Args:
+            web_resource (WebResource, optional): The WebResource instance that will be evaluated. Defaults to None.
+            impl (str, optional): The implementator name. Defaults to Implem.FAIR_CHECKER.
+
+        Returns:
+            dict: A dict of FAIRMetricsImpl instances of the FAIR metric implementation
+        """
         fc_metrics = {
             F1A_Impl().get_name(): F1A_Impl(),
             F1B_Impl().get_name(): F1B_Impl(),
@@ -53,6 +82,16 @@ class FAIRMetricsFactory:
 
     @staticmethod
     def get_FC_impl(web_resource=None):
+        """
+        Instanciate all the FAIR-Checker implementations of FAIR metrics
+
+        Args:
+            web_resource (WebResource, optional): The WebResource instance that will be evaluated. Defaults to None.
+            impl (str, optional): The implementator name. Defaults to Implem.FAIR_CHECKER.
+
+        Returns:
+            list: A list of FAIRMetricsImpl instances of the FAIR metric implementation
+        """
         fc_metrics_list = [
             F1A_Impl(web_resource),
             F1B_Impl(web_resource),
@@ -70,6 +109,16 @@ class FAIRMetricsFactory:
 
     @staticmethod
     def get_F1B(web_resource=None, impl=Implem.FAIR_CHECKER):
+        """
+        Instanciate the F1B FAIR metric
+
+        Args:
+            web_resource (WebResource, optional): The WebResource instance that will be evaluated. Defaults to None.
+            impl (str, optional): The implementator name. Defaults to Implem.FAIR_CHECKER.
+
+        Returns:
+            FAIRMetricsImpl: An instance of the FAIR metric implementation
+        """
         if impl == Implem.FAIR_METRICS_API:
             return F1B_Impl_fm(web_resource)
         else:
@@ -77,6 +126,16 @@ class FAIRMetricsFactory:
 
     @staticmethod
     def get_F1A(web_resource=None, impl=Implem.FAIR_CHECKER):
+        """
+        Instanciate the F1A FAIR metric
+
+        Args:
+            web_resource (WebResource, optional): The WebResource instance that will be evaluated. Defaults to None.
+            impl (str, optional): The implementator name. Defaults to Implem.FAIR_CHECKER.
+
+        Returns:
+            FAIRMetricsImpl: An instance of the FAIR metric implementation
+        """
         if impl == Implem.FAIR_METRICS_API:
             return F1A_Impl_fm(web_resource)
         else:
@@ -84,6 +143,16 @@ class FAIRMetricsFactory:
 
     @staticmethod
     def get_F2A(web_resource, impl=Implem.FAIR_CHECKER):
+        """
+        Instanciate the F2A FAIR metric
+
+        Args:
+            web_resource (WebResource, optional): The WebResource instance that will be evaluated. Defaults to None.
+            impl (str, optional): The implementator name. Defaults to Implem.FAIR_CHECKER.
+
+        Returns:
+            FAIRMetricsImpl: An instance of the FAIR metric implementation
+        """
         if impl == Implem.FAIR_METRICS_API:
             raise NotYetImplementedException
         else:
@@ -91,6 +160,16 @@ class FAIRMetricsFactory:
 
     @staticmethod
     def get_F2B(web_resource, impl=Implem.FAIR_CHECKER):
+        """
+        Instanciate the F2B FAIR metric
+
+        Args:
+            web_resource (WebResource, optional): The WebResource instance that will be evaluated. Defaults to None.
+            impl (str, optional): The implementator name. Defaults to Implem.FAIR_CHECKER.
+
+        Returns:
+            FAIRMetricsImpl: An instance of the FAIR metric implementation
+        """
         if impl == Implem.FAIR_METRICS_API:
             raise NotYetImplementedException
         else:
@@ -98,6 +177,16 @@ class FAIRMetricsFactory:
 
     @staticmethod
     def get_A11(web_resource, impl=Implem.FAIR_CHECKER):
+        """
+        Instanciate the A11 FAIR metric
+
+        Args:
+            web_resource (WebResource, optional): The WebResource instance that will be evaluated. Defaults to None.
+            impl (str, optional): The implementator name. Defaults to Implem.FAIR_CHECKER.
+
+        Returns:
+            FAIRMetricsImpl: An instance of the FAIR metric implementation
+        """
         if impl == Implem.FAIR_METRICS_API:
             raise NotYetImplementedException
         else:
@@ -105,6 +194,16 @@ class FAIRMetricsFactory:
 
     @staticmethod
     def get_I1(web_resource, impl=Implem.FAIR_CHECKER):
+        """
+        Instanciate the I2 FAIR metric
+
+        Args:
+            web_resource (WebResource, optional): The WebResource instance that will be evaluated. Defaults to None.
+            impl (str, optional): The implementator name. Defaults to Implem.FAIR_CHECKER.
+
+        Returns:
+            FAIRMetricsImpl: An instance of the FAIR metric implementation
+        """
         if impl == Implem.FAIR_METRICS_API:
             raise NotYetImplementedException
         else:
@@ -112,6 +211,16 @@ class FAIRMetricsFactory:
 
     @staticmethod
     def get_I1A(web_resource, impl=Implem.FAIR_CHECKER):
+        """
+        Instanciate the I1A FAIR metric
+
+        Args:
+            web_resource (WebResource, optional): The WebResource instance that will be evaluated. Defaults to None.
+            impl (str, optional): The implementator name. Defaults to Implem.FAIR_CHECKER.
+
+        Returns:
+            FAIRMetricsImpl: An instance of the FAIR metric implementation
+        """
         if impl == Implem.FAIR_METRICS_API:
             raise NotYetImplementedException
         else:
@@ -119,6 +228,16 @@ class FAIRMetricsFactory:
 
     @staticmethod
     def get_I1B(web_resource, impl=Implem.FAIR_CHECKER):
+        """
+        Instanciate the I1B FAIR metric
+
+        Args:
+            web_resource (WebResource, optional): The WebResource instance that will be evaluated. Defaults to None.
+            impl (str, optional): The implementator name. Defaults to Implem.FAIR_CHECKER.
+
+        Returns:
+            FAIRMetricsImpl: An instance of the FAIR metric implementation
+        """
         if impl == Implem.FAIR_METRICS_API:
             raise NotYetImplementedException
         else:
@@ -126,6 +245,16 @@ class FAIRMetricsFactory:
 
     @staticmethod
     def get_I2(web_resource, impl=Implem.FAIR_CHECKER):
+        """
+        Instanciate the I2 FAIR metric
+
+        Args:
+            web_resource (WebResource, optional): The WebResource instance that will be evaluated. Defaults to None.
+            impl (str, optional): The implementator name. Defaults to Implem.FAIR_CHECKER.
+
+        Returns:
+            FAIRMetricsImpl: An instance of the FAIR metric implementation
+        """
         if impl == Implem.FAIR_METRICS_API:
             raise NotYetImplementedException
         else:
@@ -133,6 +262,16 @@ class FAIRMetricsFactory:
 
     @staticmethod
     def get_I2A(web_resource, impl=Implem.FAIR_CHECKER):
+        """
+        Instanciate the I2A FAIR metric
+
+        Args:
+            web_resource (WebResource, optional): The WebResource instance that will be evaluated. Defaults to None.
+            impl (str, optional): The implementator name. Defaults to Implem.FAIR_CHECKER.
+
+        Returns:
+            FAIRMetricsImpl: An instance of the FAIR metric implementation
+        """
         if impl == Implem.FAIR_METRICS_API:
             raise NotYetImplementedException
         else:
@@ -140,6 +279,16 @@ class FAIRMetricsFactory:
 
     @staticmethod
     def get_I2B(web_resource, impl=Implem.FAIR_CHECKER):
+        """
+        Instanciate the I2B FAIR metric
+
+        Args:
+            web_resource (WebResource, optional): The WebResource instance that will be evaluated. Defaults to None.
+            impl (str, optional): The implementator name. Defaults to Implem.FAIR_CHECKER.
+
+        Returns:
+            FAIRMetricsImpl: An instance of the FAIR metric implementation
+        """
         if impl == Implem.FAIR_METRICS_API:
             raise NotYetImplementedException
         else:
@@ -147,6 +296,16 @@ class FAIRMetricsFactory:
 
     @staticmethod
     def get_I3(web_resource, impl=Implem.FAIR_CHECKER):
+        """
+        Instanciate the I3 FAIR metric
+
+        Args:
+            web_resource (WebResource, optional): The WebResource instance that will be evaluated. Defaults to None.
+            impl (str, optional): The implementator name. Defaults to Implem.FAIR_CHECKER.
+
+        Returns:
+            FAIRMetricsImpl: An instance of the FAIR metric implementation
+        """
         if impl == Implem.FAIR_METRICS_API:
             raise NotYetImplementedException
         else:
@@ -154,6 +313,16 @@ class FAIRMetricsFactory:
 
     @staticmethod
     def get_R11(web_resource, impl=Implem.FAIR_CHECKER):
+        """
+        Instanciate the R11 FAIR metric
+
+        Args:
+            web_resource (WebResource, optional): The WebResource instance that will be evaluated. Defaults to None.
+            impl (str, optional): The implementator name. Defaults to Implem.FAIR_CHECKER.
+
+        Returns:
+            FAIRMetricsImpl: An instance of the FAIR metric implementation
+        """
         if impl == Implem.FAIR_METRICS_API:
             raise NotYetImplementedException
         else:
@@ -161,6 +330,16 @@ class FAIRMetricsFactory:
 
     @staticmethod
     def get_R12(web_resource, impl=Implem.FAIR_CHECKER):
+        """
+        Instanciate the R12 FAIR metric
+
+        Args:
+            web_resource (WebResource, optional): The WebResource instance that will be evaluated. Defaults to None.
+            impl (str, optional): The implementator name. Defaults to Implem.FAIR_CHECKER.
+
+        Returns:
+            FAIRMetricsImpl: An instance of the FAIR metric implementation
+        """
         if impl == Implem.FAIR_METRICS_API:
             raise NotYetImplementedException
         else:
@@ -168,6 +347,16 @@ class FAIRMetricsFactory:
 
     @staticmethod
     def get_R13(web_resource, impl=Implem.FAIR_CHECKER):
+        """
+        Instanciate the R13 FAIR metric
+
+        Args:
+            web_resource (WebResource, optional): The WebResource instance that will be evaluated. Defaults to None.
+            impl (str, optional): The implementator name. Defaults to Implem.FAIR_CHECKER.
+
+        Returns:
+            FAIRMetricsImpl: An instance of the FAIR metric implementation
+        """
         if impl == Implem.FAIR_METRICS_API:
             raise NotYetImplementedException
         else:

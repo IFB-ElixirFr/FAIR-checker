@@ -75,11 +75,15 @@ class F1B_Impl(AbstractFAIRMetrics):
         return check
 
     """
-    GOAL :
-
+    GOAL:
+        Weak: FAIR-Checker verifies that at least one namespace from identifiers.org is used in metadata.<br><br>
+        Strong: FAIR-Checker verifies that the  “identifier” property from DCTerms or Schema.org vocabularies is present in metadata.
     """
 
     def __init__(self, web_resource=None):
+        """
+        The constructor of the metric implementation
+        """
         super().__init__(web_resource)
         self.name = "Persistent IDs"
         self.id = "2"
@@ -87,13 +91,16 @@ class F1B_Impl(AbstractFAIRMetrics):
         self.principle_tag = "F1B"
         self.implem = "FAIR-Checker"
         self.desc = """
-            Weak : FAIR-Checker verifies that at least one namespace from identifiers.org is used in metadata.<br><br>
-            Strong : FAIR-Checker verifies that the  “identifier” property from DCTerms or Schema.org vocabularies is present in metadata. 
+            Weak: FAIR-Checker verifies that at least one namespace from identifiers.org is used in metadata.<br><br>
+            Strong: FAIR-Checker verifies that the  “identifier” property from DCTerms or Schema.org vocabularies is present in metadata. 
         """
 
     def weak_evaluate(self):
         """
         at least one of the RDF term (subject, predicate, or object) reuse one of the Identifiers.org namespaces
+
+        Returns:
+            Evaluation: The Evaluation object containing eventual new informations
         """
         eval = self.get_evaluation()
         eval.set_implem(self.implem)
@@ -119,6 +126,9 @@ class F1B_Impl(AbstractFAIRMetrics):
     def strong_evaluate(self):
         """
         dcterms:identifiers or schema:identifier and known in Identifiers.org
+
+        Returns:
+            Evaluation: The Evaluation object containing eventual new informations
         """
         eval = self.get_evaluation()
         eval.set_implem(self.implem)
@@ -127,10 +137,10 @@ class F1B_Impl(AbstractFAIRMetrics):
         query_identifiers = (
             self.COMMON_SPARQL_PREFIX
             + """ 
-ASK { 
-    VALUES ?p {dct:identifier schema:identifier} . 
-    ?s ?p ?o .
-}
+                ASK { 
+                    VALUES ?p {dct:identifier schema:identifier} . 
+                    ?s ?p ?o .
+                }
             """
         )
         # eval.log_info(f"Running query:" + f"\n{query_identifiers}")

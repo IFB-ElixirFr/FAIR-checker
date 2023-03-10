@@ -5,11 +5,15 @@ from metrics.F2B_Impl import F2B_Impl
 class R13_Impl(AbstractFAIRMetrics):
 
     """
-    GOAL :
-
+    GOAL:
+        Weak: FAIR-Checker verifies that at least one used ontology class or property are known in major ontology registries (OLS, BioPortal, LOV)<br><br>
+        Strong: FAIR-Checker verifies that all used ontology classes or properties are known in major ontology registries (OLS, BioPortal, LOV)
     """
 
     def __init__(self, web_resource=None):
+        """
+        The constructor of the metric implementation
+        """
         super().__init__(web_resource)
         self.name = "Community standards"
         self.id = "14"

@@ -7,7 +7,7 @@ import logging
 class I1_Impl(AbstractFAIRMetrics):
 
     """
-    GOAL :
+    GOAL: To verify that structured metadata in RDF format are found in the web resource.
 
     """
 
