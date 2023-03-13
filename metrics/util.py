@@ -302,6 +302,7 @@ def ask_LOV(uri):
         app.logger.error(res.text)
         return None
 
+
 def inspect_onto_reg(kg, is_inspect_ui):
     query_classes = """
         SELECT DISTINCT ?class WHERE { GRAPH ?g { ?s rdf:type ?class } } ORDER BY ?class
@@ -415,6 +416,7 @@ def inspect_onto_reg(kg, is_inspect_ui):
     if is_inspect_ui:
         emit("done_check", table_content)
     return table_content
+
 
 # @Deprecated
 def gen_shape(property_list=None, class_list=None, recommendation=None):

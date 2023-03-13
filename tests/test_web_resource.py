@@ -133,7 +133,6 @@ class WebResourceTestCase(unittest.TestCase):
         )
         logging.info(f"{len(inrae_dataverse_html.get_rdf())} loaded RDF triples")
         self.assertEqual(0, len(inrae_dataverse_html.get_rdf()))
-        
 
     def test_turtle(self):
         turtle_WR = WebResource("https://www.w3.org/TR/turtle/examples/example1.ttl")
@@ -167,7 +166,6 @@ class WebResourceTestCase(unittest.TestCase):
 
     def test_named_graph(self):
 
-
         RDFLib = Namespace("https://rdflib.github.io/")
 
         # turtle
@@ -176,10 +174,8 @@ class WebResourceTestCase(unittest.TestCase):
         content_turtle = response.text
         g_turtle = ConjunctiveGraph(identifier="http://webresource/turtle")
 
-
         g_turtle.parse(data=content_turtle, format="turtle")
         g_turtle.bind("wr", Namespace("http://webresource/"))
-
 
         # n3
         url_n3 = "https://www.w3.org/2002/11/rddl/ex1.n3"
@@ -187,10 +183,8 @@ class WebResourceTestCase(unittest.TestCase):
         content_n3 = response.text
         g_n3 = ConjunctiveGraph(identifier="http://webresource/links")
 
-
         g_n3.parse(data=content_n3, format="n3")
         g_n3.bind("wr", Namespace("http://webresource/"))
-
 
         ds = Dataset()
         ds.add_graph(g_turtle)
@@ -201,8 +195,8 @@ class WebResourceTestCase(unittest.TestCase):
         # print(ds.serialize(format="trig"))
         # print(g_all.serialize(format="trig"))
         print(len(ds))
-        for c in ds.graphs():  
-            print(len(c))  
+        for c in ds.graphs():
+            print(len(c))
         print(len(g_turtle))
         print(len(g_n3))
         # print(len(g_all))
@@ -210,7 +204,9 @@ class WebResourceTestCase(unittest.TestCase):
     def test_named_graph_pangaea(self):
 
         # jsonld
-        url_jsonld = "https://doi.pangaea.de/10.1594/PANGAEA.932827?format=metadata_jsonld"
+        url_jsonld = (
+            "https://doi.pangaea.de/10.1594/PANGAEA.932827?format=metadata_jsonld"
+        )
         wr_pangaea = WebResource(url_jsonld)
         content_jsonld = wr_pangaea.get_kg_auto().serialize(format="json-ld")
         g_jsonld = ConjunctiveGraph(identifier="http://webresource/jsonld")
@@ -225,7 +221,6 @@ class WebResourceTestCase(unittest.TestCase):
         g_html = ConjunctiveGraph(identifier="http://webresource/html")
         g_html.parse(data=content_html, format="json-ld", publicID=url_html)
         g_html.bind("wr", Namespace("http://webresource/"))
-        
 
         ds = Dataset()
         ds.add_graph(g_jsonld)
@@ -237,8 +232,8 @@ class WebResourceTestCase(unittest.TestCase):
         # print(g_all.serialize(format="trig"))
 
         for c in ds.graphs():
-            print(len(c))  
-            print(c)  
+            print(len(c))
+            print(c)
 
         print(len(g_jsonld))
         print(len(g_html))
@@ -252,13 +247,13 @@ class WebResourceTestCase(unittest.TestCase):
 
         print(wr_pangaea.get_wr_kg_dataset().serialize(format="trig"))
 
-
     def test_biotools_named_kg(self):
         bwa = WebResource("http://bio.tools/bwa")
         for kg in bwa.get_wr_kg_dataset().graphs():
             print(len(kg))
         # logging.info(f"{len(bwa.get_wr_kg_dataset())} loaded RDF triples")
         # self.assertGreaterEqual(len(bwa.get_rdf()), 121)
+
     # def test_define_var(self):
     #     url_html = "https://doi.pangaea.de/10.1594/PANGAEA.932827"
     #     wr_pangaea = WebResource(url_html)

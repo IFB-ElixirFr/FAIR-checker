@@ -1202,6 +1202,7 @@ def named_kg_len(kgs):
         kgs_len[g] = c
     return kgs_len
 
+
 @socketio.on("change_rdf_type")
 def handle_change_rdf_type(data):
 
@@ -1481,7 +1482,6 @@ def handle_embedded_annot(data):
 @socketio.on("complete_kg")
 def handle_complete_kg(json):
     print("completing KG for " + str(json["url"]))
-
 
 
 # def inspect_onto_reg(kg, is_inspect_ui):

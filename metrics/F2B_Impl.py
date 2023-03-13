@@ -5,7 +5,6 @@ from metrics.util import ask_BioPortal, ask_OLS, ask_LOV, inspect_onto_reg
 from metrics.recommendation import json_rec
 
 
-
 class F2B_Impl(AbstractFAIRMetrics):
 
     query_classes = """
@@ -42,7 +41,6 @@ class F2B_Impl(AbstractFAIRMetrics):
             eval.set_metrics(self.principle_tag)
         kgs = self.get_web_resource().get_wr_kg_dataset()
 
-
         is_kg_empty = True
         for kg in kgs.graphs():
             if len(kg) > 0:
@@ -55,7 +53,6 @@ class F2B_Impl(AbstractFAIRMetrics):
         eval.log_info(
             "Checking if at least one class used in RDF is known in OLS, LOV, or BioPortal"
         )
-
 
         qres = kgs.query(self.query_classes)
         for row in qres:
@@ -143,12 +140,9 @@ class F2B_Impl(AbstractFAIRMetrics):
         # print(results["classes_false"])
         # print(results["properties_false"])
 
-
         for class_entry in results["classes_false"]:
             print(f"{class_entry} not known in OLS, LOV, or BioPortal")
-            eval.log_warning(
-                f"{class_entry} class not known in OLS, LOV, or BioPortal"
-            )
+            eval.log_warning(f"{class_entry} class not known in OLS, LOV, or BioPortal")
 
         if results["classes_false"]:
             eval.set_recommendations(json_rec["F2B"]["reco1"])
@@ -160,11 +154,10 @@ class F2B_Impl(AbstractFAIRMetrics):
             eval.log_warning(
                 f"{property_entry} property not known in OLS, LOV, or BioPortal"
             )
-        if results["properties_false"]:    
+        if results["properties_false"]:
             eval.set_recommendations(json_rec["F2B"]["reco2"])
         else:
             eval.log_info("All properties found in those ontology registries")
-
 
         # if True, go to weak evaluation
         if results["classes_false"] or results["properties_false"]:
