@@ -139,10 +139,10 @@ ns:{{shape_name}}
         # print(knowledge_graph.serialize(format="turtle"))
         r = validate(
             data_graph=knowledge_graph,
-            data_graph_format="turtle",
+            data_graph_format="trig",
             shacl_graph=shacl_shape,
             # shacl_graph = my_shacl_constraint,
-            shacl_graph_format="turtle",
+            shacl_graph_format="trig",
             ont_graph=None,
             inference="rdfs",
             abort_on_first=False,

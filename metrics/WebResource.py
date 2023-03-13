@@ -321,7 +321,8 @@ class WebResource:
         return self.url
 
     def get_rdf(self):
-        return self.rdf
+        # return self.rdf
+        return self.wr_dataset
 
     def get_wr_kg_dataset(self):
         return self.wr_dataset
@@ -467,32 +468,13 @@ class WebResource:
 
     # TODO Extruct can work with Selenium
 
-    def retrieve_html_request(self):
+
+    def request_from_url(self, url):
         nb_retry = 0
         while nb_retry < 3:
             try:
                 nb_retry += 1
-                response = requests.get(url=self.url, timeout=15, verify=False)
-                break
-            except SSLError:
-                time.sleep(5)
-            except requests.exceptions.Timeout:
-                print("Timeout, retrying")
-                time.sleep(5)
-            except requests.exceptions.ConnectionError as e:
-                print(e)
-                print("ConnectionError, retrying...")
-                time.sleep(10)
-
-        self.status_code = response.status_code
-        self.html_requests = response.content
-
-    # @staticmethod
-    def extract_rdf_extruct(self, url) -> ConjunctiveGraph:
-        while True:
-            try:
-                nb_retry += 1
-                response = requests.get(url=url, timeout=10, verify=False)
+                response = requests.get(url=url, timeout=15, verify=False)
                 break
             except SSLError:
                 time.sleep(5)
@@ -506,6 +488,46 @@ class WebResource:
 
         # self.html_requests = response.content
         return response
+
+    # def retrieve_html_request(self):
+    #     nb_retry = 0
+    #     while nb_retry < 3:
+    #         try:
+    #             nb_retry += 1
+    #             response = requests.get(url=self.url, timeout=15, verify=False)
+    #             break
+    #         except SSLError:
+    #             time.sleep(5)
+    #         except requests.exceptions.Timeout:
+    #             print("Timeout, retrying")
+    #             time.sleep(5)
+    #         except requests.exceptions.ConnectionError as e:
+    #             print(e)
+    #             print("ConnectionError, retrying...")
+    #             time.sleep(10)
+
+    #     self.status_code = response.status_code
+    #     self.html_requests = response.content
+
+    # # @staticmethod
+    # def extract_rdf_extruct(self, url) -> ConjunctiveGraph:
+    #     while True:
+    #         try:
+
+    #             response = requests.get(url=url, timeout=10, verify=False)
+    #             break
+    #         except SSLError:
+    #             time.sleep(5)
+    #         except requests.exceptions.Timeout:
+    #             print("Timeout, retrying")
+    #             time.sleep(5)
+    #         except requests.exceptions.ConnectionError as e:
+    #             print(e)
+    #             print("ConnectionError, retrying...")
+    #             time.sleep(10)
+
+    #     # self.html_requests = response.content
+    #     return response
 
     def get_html_selenium(self, url):
 
@@ -537,11 +559,6 @@ class WebResource:
 
         if "json-ld" in data.keys():
             for md in data["json-ld"]:
-                if "@context" in md.keys():
-                    if ("https://schema.org" in md["@context"]) or (
-                        "http://schema.org" in md["@context"]
-                    ):
-                        md["@context"] = self.static_file_path
                 kg_jsonld.parse(
                     data=json.dumps(md, ensure_ascii=False),
                     format="json-ld",
@@ -552,11 +569,6 @@ class WebResource:
 
         if "rdfa" in data.keys():
             for md in data["rdfa"]:
-                if "@context" in md.keys():
-                    if ("https://schema.org" in md["@context"]) or (
-                        "http://schema.org" in md["@context"]
-                    ):
-                        md["@context"] = self.static_file_path
                 kg_rdfa.parse(
                     data=json.dumps(md, ensure_ascii=False),
                     format="json-ld",
@@ -567,11 +579,6 @@ class WebResource:
 
         if "microdata" in data.keys():
             for md in data["microdata"]:
-                if "@context" in md.keys():
-                    if ("https://schema.org" in md["@context"]) or (
-                        "http://schema.org" in md["@context"]
-                    ):
-                        md["@context"] = self.static_file_path
                 kg_microdata.parse(
                     data=json.dumps(md, ensure_ascii=False),
                     format="json-ld",

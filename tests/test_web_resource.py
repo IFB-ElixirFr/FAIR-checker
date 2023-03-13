@@ -41,7 +41,7 @@ class WebResourceTestCase(unittest.TestCase):
             "https://data.inrae.fr/dataset.xhtml?persistentId=doi:10.15454/P27LDX"
         )
         logging.info(f"{len(dataverse.get_rdf())} loaded RDF triples")
-        self.assertEqual(len(dataverse.get_rdf()), 234)
+        self.assertEqual(len(dataverse.get_rdf()), 206)
         print()
         self.assertEqual(len(dataverse.get_rdf()), 0)
 
@@ -132,7 +132,7 @@ class WebResourceTestCase(unittest.TestCase):
             "https://data.inrae.fr/dataset.xhtml?persistentId=doi:10.15454/P27LDX"
         )
         logging.info(f"{len(inrae_dataverse_html.get_rdf())} loaded RDF triples")
-        self.assertEqual(0, len(inrae_dataverse_html.get_rdf()))
+        self.assertEqual(206, len(inrae_dataverse_html.get_rdf()))
 
     def test_turtle(self):
         turtle_WR = WebResource("https://www.w3.org/TR/turtle/examples/example1.ttl")
@@ -152,7 +152,7 @@ class WebResourceTestCase(unittest.TestCase):
     def test_pangaea(self):
         pangaea_WR = WebResource("https://doi.pangaea.de/10.1594/PANGAEA.932827")
         # logging.info(f"{len(pangaea_WR.get_rdf())} loaded RDF triples")
-        self.assertEqual(246, len(pangaea_WR.get_rdf()))
+        self.assertEqual(241, len(pangaea_WR.get_rdf()))
 
     def test_uniprot(self):
         uniprot_WR = WebResource("https://www.uniprot.org/uniprotkb/P05067/entry")
@@ -162,7 +162,7 @@ class WebResourceTestCase(unittest.TestCase):
     def test_uniprot_rest(self):
         uniprot_rest_WR = WebResource("https://rest.uniprot.org/uniprotkb/P05067.rdf")
         logging.info(f"{len(uniprot_rest_WR.get_rdf())} loaded RDF triples")
-        self.assertEqual(19791, len(uniprot_rest_WR.get_rdf()))
+        self.assertEqual(18938, len(uniprot_rest_WR.get_rdf()))
 
     def test_named_graph(self):
 

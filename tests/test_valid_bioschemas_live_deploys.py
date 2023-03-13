@@ -97,6 +97,7 @@ class BioschemasLiveDeploysTestCase(unittest.TestCase):
         res = dyn_evaluate_profile_with_conformsto(kg)
         print(json.dumps(res, indent=4))
 
+        print(len(kg))
         self.assertEqual(
             len(res["https://workflowhub.eu/workflows/263?version=1"]["errors"]), 2
         )

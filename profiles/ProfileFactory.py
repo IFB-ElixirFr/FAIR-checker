@@ -8,6 +8,7 @@ import os
 import yaml
 from tqdm import tqdm
 from rdflib import URIRef, ConjunctiveGraph
+from rdflib.namespace import RDF
 
 # from app import dev_logger
 
@@ -356,8 +357,10 @@ def find_conformsto_subkg(kg):
         PREFIX dct: <http://purl.org/dc/terms/>
 
         SELECT ?x ?profile ?type WHERE {
-            ?x dct:conformsTo ?profile .
-            ?x rdf:type ?type .
+            GRAPH ?g {
+                ?x dct:conformsTo ?profile .
+                ?x rdf:type ?type .
+            }
         }
     """
 
@@ -370,10 +373,11 @@ def find_conformsto_subkg(kg):
         type = r["type"]
         sub_kg = ConjunctiveGraph()
 
-        for s, p, o in kg.triples((identifier, None, None)):
-            sub_kg.add((s, p, o))
-        # print(sub_kg.serialize(format="json-ld"))
+        for s, p, o, g in kg.quads((identifier, None, None, None)):
 
+            sub_kg.add((s, p, o, g))
+        # print(sub_kg.serialize(format="json-ld"))
+        print(sub_kg.serialize(format="trig"))
         # if self.get_ref_profile() == conformsto:
         print(f"Found instance of type {type} that should conforms to {conformsto}")
         sub_kg_list.append(
