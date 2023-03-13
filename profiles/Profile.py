@@ -193,14 +193,15 @@ ns:{{shape_name}}
 
         sub_kg_list = []
 
-        for s, p, o in kg.triples((None, RDF.type, None)):
+        # for s, p, o in kg.triples((None, RDF.type, None)):
+        for (s, p, o, g) in kg.quads((None, RDF.type, None, None)):
             # print(o)
             # print(o.n3(kg.namespace_manager))
             if o.n3(kg.namespace_manager) in self.target_classes:
                 print(f"Trying to validate {s} as a(n) {o} resource")
                 sub_kg = ConjunctiveGraph()
-                for x, y, z in kg.triples((s, None, None)):
-                    sub_kg.add((x, y, z))
+                for x, y, z, g in kg.quads((s, None, None, None)):
+                    sub_kg.add((x, y, z, g))
                 sub_kg_list.append({"sub_kg": sub_kg, "subject": s, "object": o})
         return sub_kg_list
 

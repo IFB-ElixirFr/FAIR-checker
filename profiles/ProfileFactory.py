@@ -348,10 +348,10 @@ def update_profiles():
         load_profiles()
 
 
-def find_conformsto_subkg(kg):
-    kg.namespace_manager.bind("sc", URIRef("http://schema.org/"))
-    kg.namespace_manager.bind("bsc", URIRef("https://bioschemas.org/"))
-    kg.namespace_manager.bind("dct", URIRef("http://purl.org/dc/terms/"))
+def find_conformsto_subkg(ds):
+    ds.namespace_manager.bind("sc", URIRef("http://schema.org/"))
+    ds.namespace_manager.bind("bsc", URIRef("https://bioschemas.org/"))
+    ds.namespace_manager.bind("dct", URIRef("http://purl.org/dc/terms/"))
 
     query_conformsto = """
         PREFIX dct: <http://purl.org/dc/terms/>
@@ -365,19 +365,18 @@ def find_conformsto_subkg(kg):
     """
 
     sub_kg_list = []
+    results = ds.query(query_conformsto)
 
-    results = kg.query(query_conformsto)
     for r in results:
         conformsto = r["profile"].strip("/")
         identifier = r["x"]
         type = r["type"]
         sub_kg = ConjunctiveGraph()
 
-        for s, p, o, g in kg.quads((identifier, None, None, None)):
-
+        for (s, p, o, g) in ds.quads((identifier, None, None, None)):
+            # print(f"{s} -> {p} -> {o} -> {g.identifier}")
             sub_kg.add((s, p, o, g))
-        # print(sub_kg.serialize(format="json-ld"))
-        print(sub_kg.serialize(format="trig"))
+        # print(sub_kg.serialize(format="trig"))
         # if self.get_ref_profile() == conformsto:
         print(f"Found instance of type {type} that should conforms to {conformsto}")
         sub_kg_list.append(

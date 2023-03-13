@@ -93,7 +93,8 @@ class WebResource:
         self.id = "WebResource Unique ID for cache"
         self.url = url
 
-        self.wr_dataset = Dataset()
+        # TODO rename variable
+        self.wr_dataset = ConjunctiveGraph()
 
         # self.kg_links_header = ConjunctiveGraph(identifier="http://webresource/links_headers")
         # self.kg_auto = ConjunctiveGraph(identifier="http://webresource/auto")
@@ -208,19 +209,29 @@ class WebResource:
             )
 
             self.kg_auto.bind("wr", Namespace("http://webresource/"))
-            self.wr_dataset.add_graph(self.kg_auto)
+            # self.wr_dataset.add_graph(self.kg_auto)
+            for s, p, o in self.kg_auto:
+                self.wr_dataset.add((s, p, o, URIRef(self.url + "#auto")))
 
             self.kg_brut.bind("wr", Namespace("http://webresource/"))
-            self.wr_dataset.add_graph(self.kg_brut)
+            # self.wr_dataset.add_graph(self.kg_brut)
+            for s, p, o in self.kg_brut:
+                self.wr_dataset.add((s, p, o, URIRef(self.url + "#mimetypes")))
 
             self.kg_links_header.bind("wr", Namespace("http://webresource/"))
-            self.wr_dataset.add_graph(self.kg_links_header)
+            # self.wr_dataset.add_graph(self.kg_links_header)
+            for s, p, o in self.kg_links_header:
+                self.wr_dataset.add((s, p, o, URIRef(self.url + "#links_header")))
 
             self.kg_links_html.bind("wr", Namespace("http://webresource/"))
-            self.wr_dataset.add_graph(self.kg_links_html)
+            # self.wr_dataset.add_graph(self.kg_links_html)
+            for s, p, o in self.kg_links_html:
+                self.wr_dataset.add((s, p, o, URIRef(self.url + "#links")))
 
             self.kg_html.bind("wr", Namespace("http://webresource/"))
-            self.wr_dataset.add_graph(self.kg_html)
+            # self.wr_dataset.add_graph(self.kg_html)
+            for s, p, o in self.kg_html:
+                self.wr_dataset.add((s, p, o, URIRef(self.url)))
 
             # self.wr_dataset.bind("sc", Namespace("http://schema.org/"))
             # self.wr_dataset.namespace_manager.bind("sc", URIRef("http://schema.org/"))
@@ -240,8 +251,8 @@ class WebResource:
             print("BRUTFORCE: " + str(len(self.kg_brut)))
             print("LINKS HTML: " + str(len(self.kg_links_html)))
 
-            for kg in self.get_wr_kg_dataset().graphs():
-                print(len(kg))
+            # for kg in self.get_wr_kg_dataset().graphs():
+            #     print(len(kg))
 
         else:
             self.rdf = rdf_graph
@@ -467,7 +478,6 @@ class WebResource:
         return links
 
     # TODO Extruct can work with Selenium
-
 
     def request_from_url(self, url):
         nb_retry = 0
