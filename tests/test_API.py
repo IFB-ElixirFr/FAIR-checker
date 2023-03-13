@@ -30,6 +30,7 @@ def list_api_inspect():
 class APITestCase(unittest.TestCase):
     url_biotools = "https://bio.tools/jaspar"
     url_datacite = "https://search.datacite.org/works/10.7892/boris.108387"
+    url_workflow_hub = "https://workflowhub.eu/workflows/18"
 
     def setUp(self):
         app.config["ENV"] = "test"
@@ -57,7 +58,7 @@ class APITestCase(unittest.TestCase):
             "/api/check/metrics_all?url=" + self.url_biotools,
             # headers={"Content-Type": "application/json"}
         )
-
+        response.get_json()
         self.assertEqual(200, response.status_code)
         self.assertEqual(11, len(response.get_json()))
 
@@ -83,11 +84,11 @@ class APITestCase(unittest.TestCase):
                     get_api_url + self.url_datacite,
                 )
                 self.assertEqual(200, get_response.status_code)
-                self.assertEqual(45, get_response.get_json()["triples_before"])
+                self.assertEqual(81, get_response.get_json()["triples_before"])
                 if "/api/inspect/describe_openaire" in get_api_url:
-                    self.assertEqual(73, get_response.get_json()["triples_after"])
+                    self.assertEqual(109, get_response.get_json()["triples_after"])
                 else:
-                    self.assertEqual(45, get_response.get_json()["triples_after"])
+                    self.assertEqual(81, get_response.get_json()["triples_after"])
 
                 # POST
                 response = self.app.get(
@@ -101,11 +102,11 @@ class APITestCase(unittest.TestCase):
                     api_url, json={"json-ld": graph, "url": url}
                 )
                 self.assertEqual(200, post_response.status_code)
-                self.assertEqual(45, post_response.get_json()["triples_before"])
+                self.assertEqual(81, post_response.get_json()["triples_before"])
                 if "/api/inspect/describe_openaire" in api_url:
-                    self.assertEqual(73, post_response.get_json()["triples_after"])
+                    self.assertEqual(109, post_response.get_json()["triples_after"])
                 else:
-                    self.assertEqual(45, post_response.get_json()["triples_after"])
+                    self.assertEqual(81, post_response.get_json()["triples_after"])
 
     def test_inspect_ontologies(self):
         response = self.app.get(
@@ -114,3 +115,51 @@ class APITestCase(unittest.TestCase):
         self.assertEqual(200, response.status_code)
         self.assertEqual(3, len(response.get_json()["classes"]))
         self.assertEqual(14, len(response.get_json()["properties"]))
+
+    def test_inspect_bioschemas(self):
+        response = self.app.get(
+            "/api/inspect/bioschemas_validation?url=" + self.url_workflow_hub,
+        )
+        print(len(response.get_json()))
+
+        results_errors_list = []
+        results_warnings_list = []
+
+        expected_errors_list = [2, 5, 5, 3, 3, 3, 3, 3, 3, 3, 3]
+        expected_warnings_list = [12, 12, 11, 8, 8, 8, 8, 8, 8, 8, 8]
+
+        result_json = response.get_json()
+        for key in result_json.keys():
+            results_errors_list.append(len(result_json[key]["errors"]))
+            results_warnings_list.append(len(result_json[key]["warnings"]))
+
+        self.assertCountEqual(results_errors_list, expected_errors_list)
+        self.assertCountEqual(results_warnings_list, expected_warnings_list)
+
+        self.assertEqual(200, response.status_code)
+        self.assertLess(0, len(response.get_json()))
+
+    # TODO add assertions
+    def test_inspect_bioschemas_by_conformsto(self):
+        response = self.app.get(
+            "/api/inspect/bioschemas_validation_by_conformsto?url="
+            + self.url_workflow_hub,
+        )
+
+        json = response.get_json()
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(
+            len(json["https://workflowhub.eu/workflows/18?version=1"]["errors"]), 2
+        )
+        self.assertEqual(
+            len(json["https://workflowhub.eu/workflows/18?version=1"]["warnings"]), 12
+        )
+
+    # TODO add assertions
+    def test_inspect_bioschemas_by_types(self):
+        response = self.app.get(
+            "/api/inspect/bioschemas_validation_by_types?url=" + self.url_workflow_hub,
+        )
+        json = response.get_json()
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(len(json), 11)

@@ -36,8 +36,11 @@ from pyparsing import (
 )
 import pyparsing as pp
 from pyparsing import pyparsing_common as ppc
+from json.decoder import JSONDecodeError
 
 from metrics.util import clean_kg_excluding_ns_prefix
+
+logger = logging.getLogger("DEV")
 
 
 class WebResource:
@@ -48,16 +51,11 @@ class WebResource:
     }
 
     base_path = Path(__file__).parent.parent  # current directory
-    static_file_path = "file://" + str(
-        (base_path / "static/data/jsonldcontext.json").resolve()
-    )
 
     chrome_options = Options()
     chrome_options.add_argument("--headless")
     chrome_options.add_argument("--no-sandbox")
-    # chrome_options.add_experimental_option(
-    #     "prefs", prefs
-    # )
+
     proxy = os.getenv("HTTP_PROXY")
     if proxy:
         chrome_options.add_argument("--proxy-server=" + proxy)
@@ -479,10 +477,31 @@ class WebResource:
 
     # TODO Extruct can work with Selenium
 
+    def retrieve_html_request(self):
+        nb_retry = 0
+        while nb_retry < 3:
+            try:
+                nb_retry += 1
+                response = requests.get(url=self.url, timeout=15, verify=False)
+                break
+            except SSLError:
+                time.sleep(5)
+            except requests.exceptions.Timeout:
+                print("Timeout, retrying")
+                time.sleep(5)
+            except requests.exceptions.ConnectionError as e:
+                print(e)
+                print("ConnectionError, retrying...")
+                time.sleep(10)
 
-    def request_from_url(self, url):
+        self.status_code = response.status_code
+        self.html_requests = response.content
+
+    # @staticmethod
+    def extract_rdf_extruct(self, url) -> ConjunctiveGraph:
         while True:
             try:
+                nb_retry += 1
                 response = requests.get(url=url, timeout=10, verify=False)
                 break
             except SSLError:
