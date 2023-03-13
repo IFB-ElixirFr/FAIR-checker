@@ -21,21 +21,6 @@ import json
 import os
 import re
 
-from pyparsing import (
-    Word,
-    alphas,
-    alphanums,
-    Group,
-    Combine,
-    Forward,
-    ZeroOrMore,
-    Optional,
-    oneOf,
-    QuotedString,
-    Suppress,
-)
-import pyparsing as pp
-from pyparsing import pyparsing_common as ppc
 from json.decoder import JSONDecodeError
 
 from metrics.util import clean_kg_excluding_ns_prefix
@@ -64,7 +49,7 @@ class WebResource:
         ChromeDriverManager().install(), options=chrome_options
     )
     # WEB_BROWSER_HEADLESS.implicitly_wait(20)
-    
+
     SERVER_TIMEOUT = 30
 
     status_code = None
@@ -81,7 +66,7 @@ class WebResource:
         "kg_auto",
         "kg_brut",
         "kg_links_html",
-        "kg_html"
+        "kg_html",
     ]
 
     # source: https://docs.aws.amazon.com/neptune/latest/userguide/sparql-media-type-support.html
@@ -109,7 +94,7 @@ class WebResource:
         self.url = url
 
         self.wr_dataset = Dataset()
-        
+
         # self.kg_links_header = ConjunctiveGraph(identifier="http://webresource/links_headers")
         # self.kg_auto = ConjunctiveGraph(identifier="http://webresource/auto")
         # self.kg_brut = ConjunctiveGraph(identifier="http://webresource/brut")
@@ -117,11 +102,9 @@ class WebResource:
         # self.kg_html = ConjunctiveGraph(identifier="http://webresource/html")
 
         self.init_kgs()
-        
+
         # b = [self.get_var_name(el) for el in kg_list]
         # print(b)
-
-
 
         if rdf_graph is None:
 
@@ -143,7 +126,6 @@ class WebResource:
             # get RDF from HTTP headers
             self.get_kg_from_header(described_by)
 
-
             # if not html, try to retrieve rdf from possible rdf format
             if mimetype != "text/html":
 
@@ -152,13 +134,17 @@ class WebResource:
                 # generate rdf graph from mapped mimetypes
                 for rdf_format in rdf_formats:
                     print(rdf_format)
-                    self.kg_auto = self.get_rdf_from_mimetype_match(self.url, rdf_format, self.kg_auto)
+                    self.kg_auto = self.get_rdf_from_mimetype_match(
+                        self.url, rdf_format, self.kg_auto
+                    )
 
                 # if no rdf found: brutforce testing each RDF formats regardless of mimetypes
                 if len(self.kg_auto) == 0:
                     rdf_str = response.text
                     for rdf_format in self.RDF_MEDIA_TYPES_MAPPING.keys():
-                        self.kg_brut = self.get_rdf_from_mimetype_match(url, rdf_format, self.kg_brut)
+                        self.kg_brut = self.get_rdf_from_mimetype_match(
+                            url, rdf_format, self.kg_brut
+                        )
 
                 logging.info(
                     "Resource content_type is: " + self.headers["Content-Type"]
@@ -211,9 +197,6 @@ class WebResource:
                 self.html_content = self.request_from_url(self.url)
                 self.html_to_rdf_extruct(self.html_content)
 
-                
-
-
             self.rdf = (
                 # self.kg_requests
                 # + self.kg_selenium
@@ -264,7 +247,9 @@ class WebResource:
             self.rdf = rdf_graph
 
         self.rdf.namespace_manager.bind("sc", URIRef("http://schema.org/"))
-        self.rdf.namespace_manager.bind("namespacebsc", URIRef("https://bioschemas.org/"))
+        self.rdf.namespace_manager.bind(
+            "namespacebsc", URIRef("https://bioschemas.org/")
+        )
         self.rdf.namespace_manager.bind("dct", URIRef("http://purl.org/dc/terms/"))
         self.rdf = clean_kg_excluding_ns_prefix(
             self.rdf, "http://www.w3.org/1999/xhtml/vocab#"
@@ -276,15 +261,24 @@ class WebResource:
         for var_str in self.kg_var_strings:
             # print(var_str)
 
-            setattr(WebResource, var_str, ConjunctiveGraph(identifier="http://webresource/" + var_str))
-
+            setattr(
+                WebResource,
+                var_str,
+                ConjunctiveGraph(identifier="http://webresource/" + var_str),
+            )
 
             clean_kg_excluding_ns_prefix(
                 getattr(WebResource, var_str), "http://schema.org/"
             )
-            getattr(WebResource, var_str).namespace_manager.bind("sc", URIRef("http://schema.org/"))
-            getattr(WebResource, var_str).namespace_manager.bind("bsc", URIRef("https://bioschemas.org/"))
-            getattr(WebResource, var_str).namespace_manager.bind("dct", URIRef("http://purl.org/dc/terms/"))
+            getattr(WebResource, var_str).namespace_manager.bind(
+                "sc", URIRef("http://schema.org/")
+            )
+            getattr(WebResource, var_str).namespace_manager.bind(
+                "bsc", URIRef("https://bioschemas.org/")
+            )
+            getattr(WebResource, var_str).namespace_manager.bind(
+                "dct", URIRef("http://purl.org/dc/terms/")
+            )
             # getattr(WebResource, var_str).bind("sc", Namespace("http://schema.org/"))
             clean_kg_excluding_ns_prefix(
                 getattr(WebResource, var_str), "http://www.w3.org/1999/xhtml/vocab#"
@@ -294,17 +288,14 @@ class WebResource:
         # for namespace in self.kg_links_header.namespaces():
         #     print(namespace)
 
-
         # self.kg_links_header.namespace_manager.bind("sc", URIRef("http://schema.org/"))
         # self.kg_links_header.namespace_manager.bind("bsc", URIRef("https://bioschemas.org/"))
         # self.kg_links_header.namespace_manager.bind("dct", URIRef("http://purl.org/dc/terms/"))
-
 
     # def get_var_name(variable):
     #     for name, value in globals().items():
     #         if value is variable:
     #             return name
-
 
     def get_kg_from_header(self, described_by):
         # get RDF from HTTP headers
@@ -322,7 +313,6 @@ class WebResource:
 
             for rdf_format in rdf_formats:
                 self.get_rdf_from_mimetype_match(url, rdf_format, self.kg_links_header)
-
 
     # def get_kg_from_rdf_formats(self, format):
     #     print("toto")
@@ -374,7 +364,7 @@ class WebResource:
                     kg.add((s, p, o))
                 # print("######################")
                 # for namespace in kg.namespaces():
-                #     print(namespace)   
+                #     print(namespace)
             except Exception as err:
                 # if error UnicodeDecodeError execute following code, otherwise continue to next format
                 if type(err).__name__ == "UnicodeDecodeError":
@@ -430,7 +420,7 @@ class WebResource:
         kg_temp.parse(data=json_str, format="json-ld", publicID=url)
         for s, p, o in kg_temp:
             kg.add((s, p, o))
-     
+
         return kg
 
     def retrieve_links_from_headers(self):
@@ -525,8 +515,11 @@ class WebResource:
         resp = requests.get(url)
         print(len(resp.content))
         WebDriverWait(self.WEB_BROWSER_HEADLESS, self.SERVER_TIMEOUT).until(
-            lambda wd: self.WEB_BROWSER_HEADLESS.execute_script("return document.readyState") == 'complete',
-            "Page taking too long to load"
+            lambda wd: self.WEB_BROWSER_HEADLESS.execute_script(
+                "return document.readyState"
+            )
+            == "complete",
+            "Page taking too long to load",
         )
         html_content = browser.page_source
         logging.debug(type(browser.page_source))
@@ -588,7 +581,6 @@ class WebResource:
         kg_extruct = kg_jsonld + kg_rdfa + kg_microdata
 
         # logging.debug(kg_extruct.serialize(format="turtle"))
-
 
         for s, p, o in kg_extruct:
             self.kg_html.add((s, p, o))
@@ -688,8 +680,6 @@ class WebResource:
     #     logging.debug(type(browser.page_source))
     #     print(browser.page_source)
     #     logging.info(f"Size of the parsed web page: {len(browser.page_source)}")
-
-
 
     #     try:
     #         element = browser.find_element_by_xpath(
