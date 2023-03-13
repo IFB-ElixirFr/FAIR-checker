@@ -12,6 +12,7 @@ from pathlib import Path
 import rdflib
 from rdflib import ConjunctiveGraph, URIRef, Dataset, Namespace
 import requests
+import time
 
 requests.packages.urllib3.disable_warnings(
     requests.packages.urllib3.exceptions.InsecureRequestWarning
@@ -501,6 +502,7 @@ class WebResource:
 
         browser = WebResource.WEB_BROWSER_HEADLESS
         browser.get(url)
+        time.sleep(1)
         resp = requests.get(url)
         print(len(resp.content))
         WebDriverWait(self.WEB_BROWSER_HEADLESS, self.SERVER_TIMEOUT).until(
