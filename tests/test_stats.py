@@ -1,5 +1,5 @@
 import sys
-from metrics import Evaluation
+from metrics.Evaluation import Evaluation
 
 sys.path.insert(1, "..")
 

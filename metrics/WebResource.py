@@ -95,6 +95,9 @@ class WebResource:
 
         # TODO rename variable
         self.wr_dataset = ConjunctiveGraph()
+        self.wr_dataset.namespace_manager.bind("sc", URIRef("http://schema.org/"))
+        self.wr_dataset.namespace_manager.bind("bsc", URIRef("https://bioschemas.org/"))
+        self.wr_dataset.namespace_manager.bind("dct", URIRef("http://purl.org/dc/terms/"))
 
         # self.kg_links_header = ConjunctiveGraph(identifier="http://webresource/links_headers")
         # self.kg_auto = ConjunctiveGraph(identifier="http://webresource/auto")

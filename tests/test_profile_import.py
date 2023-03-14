@@ -120,11 +120,11 @@ class ImportBSProfileTestCase(unittest.TestCase):
         self.assertEqual(len(result), 1)
 
     def test_wfh_type_eval(self):
+
         url = "https://workflowhub.eu/workflows/18"
         kg = WebResource(url).get_rdf()
 
         self.assertEqual(len(kg), 49)
-        print(kg.serialize(format="trig"))
 
         result = evaluate_profile_from_type(kg)
 

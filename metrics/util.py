@@ -1,6 +1,6 @@
 from time import time
 from SPARQLWrapper import SPARQLWrapper, N3, JSON, RDF, TURTLE, JSONLD
-from rdflib import Graph, ConjunctiveGraph, Namespace
+from rdflib import Graph, ConjunctiveGraph, Namespace, URIRef
 from rdflib.namespace import RDF
 import requests
 
@@ -93,7 +93,13 @@ def describe_opencitation(uri, g):
     p = {"query": query}
 
     res = requests.get(endpoint, headers=h, params=p, verify=False)
-    g.parse(data=res.text, format="turtle")
+    # g.parse(data=res.text, format="turtle")
+
+    new_g = ConjunctiveGraph()
+    new_g.parse(data=res.text, format="turtle")
+    for s, p, o in new_g:
+        g.add((s, p, o, URIRef(uri + "#opencitations")))
+
 
     graph_post_size = len(g)
     # print(f"{graph_post_size - graph_pre_size} added new triples")
@@ -123,8 +129,15 @@ def describe_openaire(uri, g):
     g_len = Graph()
     sparql.setReturnFormat(N3)
     results = sparql.query().convert()
+    # g.parse(data=results, format="turtle")
     # print("Results: " + str(len(g_len.parse(data=results, format="n3"))))
-    g.parse(data=results, format="turtle")
+
+    new_g = ConjunctiveGraph()
+    new_g.parse(data=results, format="turtle")
+    for s, p, o in new_g:
+        g.add((s, p, o, URIRef(uri + "#openaire")))
+
+
     graph_post_size = len(g)
     # print(f"{graph_post_size - graph_pre_size} added new triples")
     # print(g.serialize(format='turtle').decode())
@@ -164,7 +177,12 @@ def describe_wikidata(uri, g):
     p = {"query": query}
 
     res = requests.get(endpoint, headers=h, params=p, verify=False)
-    g.parse(data=res.text, format="xml")
+    # g.parse(data=res.text, format="xml")
+
+    new_g = ConjunctiveGraph()
+    new_g.parse(data=res.text, format="xml")
+    for s, p, o in new_g:
+        g.add((s, p, o, URIRef(uri + "#wikidata")))
 
     graph_post_size = len(g)
     logging.debug(f"{graph_post_size - graph_pre_size} added new triples")

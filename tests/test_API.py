@@ -84,11 +84,11 @@ class APITestCase(unittest.TestCase):
                     get_api_url + self.url_datacite,
                 )
                 self.assertEqual(200, get_response.status_code)
-                self.assertEqual(81, get_response.get_json()["triples_before"])
+                self.assertEqual(45, get_response.get_json()["triples_before"])
                 if "/api/inspect/describe_openaire" in get_api_url:
-                    self.assertEqual(109, get_response.get_json()["triples_after"])
+                    self.assertEqual(73, get_response.get_json()["triples_after"])
                 else:
-                    self.assertEqual(81, get_response.get_json()["triples_after"])
+                    self.assertEqual(45, get_response.get_json()["triples_after"])
 
                 # POST
                 response = self.app.get(
@@ -102,11 +102,11 @@ class APITestCase(unittest.TestCase):
                     api_url, json={"json-ld": graph, "url": url}
                 )
                 self.assertEqual(200, post_response.status_code)
-                self.assertEqual(81, post_response.get_json()["triples_before"])
+                self.assertEqual(45, post_response.get_json()["triples_before"])
                 if "/api/inspect/describe_openaire" in api_url:
-                    self.assertEqual(109, post_response.get_json()["triples_after"])
+                    self.assertEqual(73, post_response.get_json()["triples_after"])
                 else:
-                    self.assertEqual(81, post_response.get_json()["triples_after"])
+                    self.assertEqual(45, post_response.get_json()["triples_after"])
 
     def test_inspect_ontologies(self):
         response = self.app.get(

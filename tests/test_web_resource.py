@@ -42,8 +42,6 @@ class WebResourceTestCase(unittest.TestCase):
         )
         logging.info(f"{len(dataverse.get_rdf())} loaded RDF triples")
         self.assertEqual(len(dataverse.get_rdf()), 206)
-        print()
-        self.assertEqual(len(dataverse.get_rdf()), 0)
 
     def test_workflowhub(self):
         wf = WebResource("https://workflowhub.eu/workflows/263")
@@ -241,18 +239,11 @@ class WebResourceTestCase(unittest.TestCase):
     def test_wr_named_graph(self):
         url_html = "https://doi.pangaea.de/10.1594/PANGAEA.932827"
         wr_pangaea = WebResource(url_html)
-        for c in wr_pangaea.get_wr_kg_dataset().graphs():
-            print(c.identifier)
-            print(len(c))
-
-        print(wr_pangaea.get_wr_kg_dataset().serialize(format="trig"))
+        self.assertEqual(len(wr_pangaea.get_rdf()), 241)
 
     def test_biotools_named_kg(self):
         bwa = WebResource("http://bio.tools/bwa")
-        for kg in bwa.get_wr_kg_dataset().graphs():
-            print(len(kg))
-        # logging.info(f"{len(bwa.get_wr_kg_dataset())} loaded RDF triples")
-        # self.assertGreaterEqual(len(bwa.get_rdf()), 121)
+        self.assertEqual(len(bwa.get_rdf()), 121)
 
     # def test_define_var(self):
     #     url_html = "https://doi.pangaea.de/10.1594/PANGAEA.932827"

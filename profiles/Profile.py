@@ -194,21 +194,23 @@ ns:{{shape_name}}
         kg.namespace_manager.bind("dct", URIRef("http://purl.org/dc/terms/"))
 
         sub_kg_list = []
+        # print(kg.serialize(format="trig"))
 
         # for s, p, o in kg.triples((None, RDF.type, None)):
         for (s, p, o, g) in kg.quads((None, RDF.type, None, None)):
             # print(o)
             # print(o.n3(kg.namespace_manager))
+
             if o.n3(kg.namespace_manager) in self.target_classes:
                 print(f"Trying to validate {s} as a(n) {o} resource")
                 sub_kg = ConjunctiveGraph()
-                i = 0
+
                 for x, y, z, g in kg.quads((s, None, None, None)):
-                    i += 1
-                    print(f"{x} -> {y} -> {z} -> {g}")
-                    print(i)
+
+                    # print(f"{x} -> {y} -> {z} -> {g}")
+                    # print(i)
                     sub_kg.add((x, y, z))
-                print(sub_kg.serialize(format="trig"))
+                # print(sub_kg.serialize(format="trig"))
                 sub_kg_list.append({"sub_kg": sub_kg, "subject": s, "object": o})
 
         return sub_kg_list
