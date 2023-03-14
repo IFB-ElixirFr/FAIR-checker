@@ -211,12 +211,12 @@ class WebResource:
             self.kg_auto.bind("wr", Namespace("http://webresource/"))
             # self.wr_dataset.add_graph(self.kg_auto)
             for s, p, o in self.kg_auto:
-                self.wr_dataset.add((s, p, o, URIRef(self.url + "#auto")))
+                self.wr_dataset.add((s, p, o, URIRef(self.url + "#mimetypes_match")))
 
             self.kg_brut.bind("wr", Namespace("http://webresource/"))
             # self.wr_dataset.add_graph(self.kg_brut)
             for s, p, o in self.kg_brut:
-                self.wr_dataset.add((s, p, o, URIRef(self.url + "#mimetypes")))
+                self.wr_dataset.add((s, p, o, URIRef(self.url + "#rdfformats_match")))
 
             self.kg_links_header.bind("wr", Namespace("http://webresource/"))
             # self.wr_dataset.add_graph(self.kg_links_header)
@@ -226,12 +226,12 @@ class WebResource:
             self.kg_links_html.bind("wr", Namespace("http://webresource/"))
             # self.wr_dataset.add_graph(self.kg_links_html)
             for s, p, o in self.kg_links_html:
-                self.wr_dataset.add((s, p, o, URIRef(self.url + "#links")))
+                self.wr_dataset.add((s, p, o, URIRef(self.url + "#links_html")))
 
             self.kg_html.bind("wr", Namespace("http://webresource/"))
             # self.wr_dataset.add_graph(self.kg_html)
             for s, p, o in self.kg_html:
-                self.wr_dataset.add((s, p, o, URIRef(self.url)))
+                self.wr_dataset.add((s, p, o, URIRef(self.url + "#html")))
 
             # self.wr_dataset.bind("sc", Namespace("http://schema.org/"))
             # self.wr_dataset.namespace_manager.bind("sc", URIRef("http://schema.org/"))

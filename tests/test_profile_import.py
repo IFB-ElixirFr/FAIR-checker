@@ -124,7 +124,11 @@ class ImportBSProfileTestCase(unittest.TestCase):
         kg = WebResource(url).get_rdf()
 
         self.assertEqual(len(kg), 49)
+        print(kg.serialize(format="trig"))
+
         result = evaluate_profile_from_type(kg)
+
+        print(result)
 
         self.assertEqual(len(result), 11)
 
@@ -135,7 +139,7 @@ class ImportBSProfileTestCase(unittest.TestCase):
         self.assertEqual(len(kg), 35)
         result = dyn_evaluate_profile_with_conformsto(kg)
 
-        self.assertEqual(len(result), 0)
+        self.assertEqual(len(result), 1)
 
     def test_fairchecker_type_eval(self):
         url = "https://fair-checker.france-bioinformatique.fr/"

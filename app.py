@@ -653,6 +653,7 @@ class InspectBioschemas(Resource):
 
         # Try to match and evaluate all found corresponding profiles
         results_type = evaluate_profile_from_type(kg)
+        print(results_type)
 
         for result_key in results_conformsto.keys():
             results[result_key] = results_conformsto[result_key]
@@ -698,6 +699,7 @@ class InspectBioschemasTypesMatch(Resource):
 
         # Try to match and evaluate all found corresponding profiles
         results_type = evaluate_profile_from_type(kg)
+        print(results_type)
 
         # TODO Try similarity match her for profiles that are not matched
 

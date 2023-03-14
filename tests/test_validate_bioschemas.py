@@ -6,7 +6,7 @@ from profiles.ProfileFactory import find_conformsto_subkg, dyn_evaluate_profile_
 
 class ValidateBioschemasTestCase(unittest.TestCase):
 
-    uri_wf = "https://workflowhub.eu/workflows/45"
+    uri_wf = "https://workflowhub.eu/workflows/18"
     uri_tool = "https://bio.tools/bwa"
     uri_dataset = "https://doi.pangaea.de/10.1594/PANGAEA.914331"
 
@@ -41,9 +41,9 @@ class ValidateBioschemasTestCase(unittest.TestCase):
 
 
     def test_named_graph(self):
-        wr_kg = WebResource(self.uri_tool).get_rdf()
-        validation_ct = dyn_evaluate_profile_with_conformsto(wr_kg)
+        wr_kg = WebResource(self.uri_wf).get_rdf()
+        # validation_ct = dyn_evaluate_profile_with_conformsto(wr_kg)
         validation_type = evaluate_profile_from_type(wr_kg)
 
-        print(validation_ct)
+        # print(validation_ct)
         print(validation_type)

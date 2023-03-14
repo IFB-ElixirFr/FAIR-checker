@@ -100,6 +100,7 @@ class F1B_Impl(AbstractFAIRMetrics):
         eval.set_metrics(self.principle_tag)
 
         kgs = self.get_web_resource().get_wr_kg_dataset()
+        kg = self.get_web_resource().get_rdf()
 
         # print(kg.serialize(format="trig"))
 
@@ -111,18 +112,18 @@ class F1B_Impl(AbstractFAIRMetrics):
         eval.log_info(
             "Checking that at least one namespace from identifiers.org is in metadata"
         )
-        for kg in kgs:
-            for s, p, o in kg:
-                for term in [s, o]:
-                    if F1B_Impl.is_known_pid_scheme(str(term), namespaces):
-                        eval.log_info(
-                            f"Found an Identifiers.org namespace for {str(term)}"
-                        )
-                        eval.set_score(1)
-                        return eval
-            eval.log_info("No namespace from identifiers.org found")
-            eval.set_recommendations(json_rec["F1B"]["reco1"])
-            eval.set_score(0)
+        # for kg in kgs:
+        for s, p, o in kg:
+            for term in [s, o]:
+                if F1B_Impl.is_known_pid_scheme(str(term), namespaces):
+                    eval.log_info(
+                        f"Found an Identifiers.org namespace for {str(term)}"
+                    )
+                    eval.set_score(1)
+                    return eval
+        eval.log_info("No namespace from identifiers.org found")
+        eval.set_recommendations(json_rec["F1B"]["reco1"])
+        eval.set_score(0)
         return eval
 
     def strong_evaluate(self):
@@ -148,17 +149,18 @@ ASK {
             "Checking if there is either schema:identifier or dct:identifier property in metadata"
         )
 
-        for kg in self.get_web_resource().get_wr_kg_dataset().graphs():
+        kg = self.get_web_resource().get_rdf()
+        # for kg in self.get_web_resource().get_wr_kg_dataset().graphs():
 
-            res = kg.query(query_identifiers)
-            for bool_res in res:
-                if bool_res:
-                    eval.log_info("Found at least one of those property in metadata")
-                    eval.set_score(2)
-                    return eval
-                else:
-                    eval.log_info("None of those property were found in metadata")
-                    eval.log_info("Trying weaker evaluation")
-                    eval.set_score(0)
+        res = kg.query(query_identifiers)
+        for bool_res in res:
+            if bool_res:
+                eval.log_info("Found at least one of those property in metadata")
+                eval.set_score(2)
+                return eval
+            else:
+                eval.log_info("None of those property were found in metadata")
+                eval.log_info("Trying weaker evaluation")
+                eval.set_score(0)
         return eval
         # pass

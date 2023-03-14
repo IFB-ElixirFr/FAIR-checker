@@ -152,6 +152,7 @@ ns:{{shape_name}}
         conforms, results_graph, results_text = r
 
         print("Evaluating: " + str(self.target_classes))
+        # print(knowledge_graph.serialize(format="trig"))
 
         report_query = """
                 SELECT ?node ?path ?path ?severity WHERE {
@@ -175,6 +176,7 @@ ns:{{shape_name}}
         warnings = []
         errors = []
         for r in results:
+            
             if "#Warning" in r["severity"]:
                 # print(
                 #     f'WARNING: Property {r["path"]} should be provided for {r["node"]}'
@@ -182,8 +184,8 @@ ns:{{shape_name}}
                 warnings.append(f'{r["path"]}')
             if "#Violation" in r["severity"]:
                 # print(f'ERROR: Property {r["path"]} must be provided for {r["node"]}')
+                # print(r["path"])
                 errors.append(f'{r["path"]}')
-
         return conforms, warnings, errors
 
     def match_sub_kgs_from_profile(self, kg):
@@ -200,9 +202,15 @@ ns:{{shape_name}}
             if o.n3(kg.namespace_manager) in self.target_classes:
                 print(f"Trying to validate {s} as a(n) {o} resource")
                 sub_kg = ConjunctiveGraph()
+                i = 0
                 for x, y, z, g in kg.quads((s, None, None, None)):
-                    sub_kg.add((x, y, z, g))
+                    i += 1
+                    print(f"{x} -> {y} -> {z} -> {g}")
+                    print(i)
+                    sub_kg.add((x, y, z))
+                print(sub_kg.serialize(format="trig"))
                 sub_kg_list.append({"sub_kg": sub_kg, "subject": s, "object": o})
+
         return sub_kg_list
 
     def compute_similarity(self, kg) -> float:

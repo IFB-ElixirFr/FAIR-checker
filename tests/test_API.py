@@ -71,7 +71,7 @@ class APITestCase(unittest.TestCase):
         kg.parse(
             data=json.dumps(response.get_json(), ensure_ascii=False), format="json-ld"
         )
-        self.assertEqual(98, len(kg))
+        self.assertEqual(95, len(kg))
 
     def test_describe_individual(self):
         for api_url in list_api_inspect():

@@ -39,12 +39,14 @@ class F2B_Impl(AbstractFAIRMetrics):
             eval = self.get_evaluation()
             eval.set_implem(self.implem)
             eval.set_metrics(self.principle_tag)
-        kgs = self.get_web_resource().get_wr_kg_dataset()
+        # kgs = self.get_web_resource().get_wr_kg_dataset()
+        kg = self.get_web_resource().get_rdf()
 
         is_kg_empty = True
-        for kg in kgs.graphs():
-            if len(kg) > 0:
-                is_kg_empty = False
+        # for kg in kgs.graphs():
+        if len(kg) > 0:
+            is_kg_empty = False
+
         if is_kg_empty:
             eval.set_score(0)
             return eval
@@ -54,7 +56,7 @@ class F2B_Impl(AbstractFAIRMetrics):
             "Checking if at least one class used in RDF is known in OLS, LOV, or BioPortal"
         )
 
-        qres = kgs.query(self.query_classes)
+        qres = kg.query(self.query_classes)
         for row in qres:
             logging.debug(f'evaluating class {row["class"]}')
             if ask_OLS(row["class"]):
@@ -109,12 +111,13 @@ class F2B_Impl(AbstractFAIRMetrics):
             eval = self.get_evaluation()
             eval.set_implem(self.implem)
             eval.set_metrics(self.principle_tag)
-        kgs = self.get_web_resource().get_wr_kg_dataset()
+        # kgs = self.get_web_resource().get_wr_kg_dataset()
+        kg = self.get_web_resource().get_rdf()
 
         is_kg_empty = True
-        for kg in kgs.graphs():
-            if len(kg) > 0:
-                is_kg_empty = False
+        # for kg in kgs.graphs():
+        if len(kg) > 0:
+            is_kg_empty = False
 
         if is_kg_empty:
             eval.log_info(
@@ -130,7 +133,7 @@ class F2B_Impl(AbstractFAIRMetrics):
             "Checking if all classes used in RDF are known in OLS, LOV, or BioPortal"
         )
 
-        results = inspect_onto_reg(kgs, False)
+        results = inspect_onto_reg(kg, False)
         print(results)
         print("#######")
         # for kg in kgs.graphs():
