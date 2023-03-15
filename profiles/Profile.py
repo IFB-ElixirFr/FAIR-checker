@@ -87,7 +87,8 @@ class Profile:
             @prefix fc: <https://fair-checker.france-bioinformatique.fr#> .
             @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
             @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-            @prefix sc: <https://schema.org/> .
+            @prefix sc: <http://schema.org/> .
+            @prefix scs: <https://schema.org/> .
             @prefix bsc: <https://discovery.biothings.io/view/bioschemas/> .
             @prefix dct: <http://purl.org/dc/terms/> .
             @prefix sh: <http://www.w3.org/ns/shacl#> .
@@ -107,7 +108,11 @@ class Profile:
 
                 {% for min_prop in min_props %}
                 sh:property [
+                    {% if ("sc:" in min_prop) %}
+                    sh:path [sh:alternativePath({{min_prop}} {{min_prop.replace("sc", "scs")}})] ;
+                    {% else %}
                     sh:path {{min_prop}} ;
+                    {% endif %}
                     sh:minCount 1 ;
                     sh:severity sh:Violation
                 ] ;
@@ -115,7 +120,11 @@ class Profile:
 
                 {% for rec_prop in rec_props %}
                 sh:property [
+                    {% if ("sc:" in rec_prop) %}
+                    sh:path [sh:alternativePath({{rec_prop}} {{rec_prop.replace("sc", "scs")}})] ;
+                    {% else %}
                     sh:path {{rec_prop}} ;
+                    {% endif %}
                     sh:minCount 1 ;
                     sh:severity sh:Warning
                 ] ;
@@ -208,7 +217,9 @@ class Profile:
                 print(f"Trying to validate {s} as a(n) {o} resource")
                 sub_kg = ConjunctiveGraph()
                 sub_kg.namespace_manager.bind("sc", URIRef("https://schema.org/"))
-                sub_kg.namespace_manager.bind("dct", URIRef("http://purl.org/dc/terms/"))
+                sub_kg.namespace_manager.bind(
+                    "dct", URIRef("http://purl.org/dc/terms/")
+                )
 
                 for x, y, z, g in kg.quads((s, None, None, None)):
 
