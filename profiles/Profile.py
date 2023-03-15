@@ -103,12 +103,12 @@ class Profile:
                 a sh:NodeShape ;
                 
                 {% for c in target_classes %}
-                sh:targetClass  {{c}} ;
+                sh:targetClass  [{{c}}, {{c.replace("sc", "scs")}}] ;
                 {% endfor %}
 
                 {% for min_prop in min_props %}
                 sh:property [
-                    {% if ("sc:" in min_prop) %}
+                    {% if min_prop.startswith("sc:") %}
                     sh:path [sh:alternativePath({{min_prop}} {{min_prop.replace("sc", "scs")}})] ;
                     {% else %}
                     sh:path {{min_prop}} ;
@@ -120,7 +120,7 @@ class Profile:
 
                 {% for rec_prop in rec_props %}
                 sh:property [
-                    {% if ("sc:" in rec_prop) %}
+                    {% if rec_prop.startswith("sc:") %}
                     sh:path [sh:alternativePath({{rec_prop}} {{rec_prop.replace("sc", "scs")}})] ;
                     {% else %}
                     sh:path {{rec_prop}} ;
