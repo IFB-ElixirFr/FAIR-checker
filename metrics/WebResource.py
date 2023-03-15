@@ -11,6 +11,7 @@ import extruct
 from pathlib import Path
 import rdflib
 from rdflib import ConjunctiveGraph, URIRef, Dataset, Namespace
+from rdflib.namespace import NamespaceManager
 import requests
 import time
 
@@ -95,7 +96,9 @@ class WebResource:
 
         # TODO rename variable
         self.wr_dataset = ConjunctiveGraph()
-        self.wr_dataset.namespace_manager.bind("sc", URIRef("http://schema.org/"))
+
+        # self.wr_dataset.namespace_manager.bind("sc", URIRef("http://schema.org/"))
+        # self.wr_dataset.namespace_manager.bind("sc", URIRef("https://schema.org/"))
         self.wr_dataset.namespace_manager.bind("bsc", URIRef("https://bioschemas.org/"))
         self.wr_dataset.namespace_manager.bind("dct", URIRef("http://purl.org/dc/terms/"))
 
@@ -236,10 +239,16 @@ class WebResource:
             for s, p, o in self.kg_html:
                 self.wr_dataset.add((s, p, o, URIRef(self.url + "#html")))
 
-            # self.wr_dataset.bind("sc", Namespace("http://schema.org/"))
-            # self.wr_dataset.namespace_manager.bind("sc", URIRef("http://schema.org/"))
-            # self.wr_dataset.namespace_manager.bind("bsc", URIRef("https://bioschemas.org/"))
-            # self.wr_dataset.namespace_manager.bind("dct", URIRef("http://purl.org/dc/terms/"))
+            # define the correct namespace for sc prefix
+            # if self.is_schema_http(self.wr_dataset):
+            #     self.wr_dataset.namespace_manager.bind("sc", URIRef("http://schema.org/"))
+            # else:
+            #     self.wr_dataset.namespace_manager.bind("sc", URIRef("https://schema.org/"))
+
+            # replace all http with https for schema.org
+            self.wr_dataset.namespace_manager.bind("sc", URIRef("https://schema.org/"))
+            self.wr_dataset = self.schema_https_convert(self.wr_dataset)
+
             self.wr_dataset = clean_kg_excluding_ns_prefix(
                 self.wr_dataset, "http://www.w3.org/1999/xhtml/vocab#"
             )
@@ -260,9 +269,9 @@ class WebResource:
         else:
             self.rdf = rdf_graph
 
-        self.rdf.namespace_manager.bind("sc", URIRef("http://schema.org/"))
+        # self.rdf.namespace_manager.bind("sc", URIRef("http://schema.org/"))
         self.rdf.namespace_manager.bind(
-            "namespacebsc", URIRef("https://bioschemas.org/")
+            "bsc", URIRef("https://bioschemas.org/")
         )
         self.rdf.namespace_manager.bind("dct", URIRef("http://purl.org/dc/terms/"))
         self.rdf = clean_kg_excluding_ns_prefix(
@@ -281,12 +290,12 @@ class WebResource:
                 ConjunctiveGraph(identifier="http://webresource/" + var_str),
             )
 
-            clean_kg_excluding_ns_prefix(
-                getattr(WebResource, var_str), "http://schema.org/"
-            )
-            getattr(WebResource, var_str).namespace_manager.bind(
-                "sc", URIRef("http://schema.org/")
-            )
+            # clean_kg_excluding_ns_prefix(
+            #     getattr(WebResource, var_str), "http://schema.org/"
+            # )
+            # getattr(WebResource, var_str).namespace_manager.bind(
+            #     "sc", URIRef("https://schema.org/")
+            # )
             getattr(WebResource, var_str).namespace_manager.bind(
                 "bsc", URIRef("https://bioschemas.org/")
             )
@@ -358,6 +367,43 @@ class WebResource:
 
     def get_http_header(self):
         return self.headers
+
+    def is_schema_http(self, kg):
+        for s, p, o, g in kg.quads(None):
+            changed = False
+            new_s = s
+            if str(s).startswith("http://schema.org"):
+                return True
+            if str(p).startswith("http://schema.org"):
+                return True
+            new_o = o
+            if isinstance(o, rdflib.URIRef):
+                if str(o).startswith("http://schema.org"):
+                    return True
+        return False
+    
+    # Could be a static method
+    def schema_https_convert(self, kg):
+        for s, p, o, g in kg.quads(None):
+            changed = False
+            new_s = s
+            if str(s).startswith("http://schema.org"):
+                new_s = rdflib.URIRef(str(s).replace("http", "https", 1))
+                changed = True
+            new_p = p
+            if str(p).startswith("http://schema.org"):
+                new_p = rdflib.URIRef(str(p).replace("http", "https", 1))
+                changed = True
+            new_o = o
+            if isinstance(o, rdflib.URIRef):
+                if str(o).startswith("http://schema.org"):
+                    new_o = rdflib.URIRef(str(o).replace("http", "https", 1))
+                    changed = True
+            if changed:
+                kg.remove((s,p,o,g))
+                kg.add((new_s, new_p, new_o, g))
+        return kg
+
 
     def get_rdf_from_mimetype_match(self, url, rdf_format, kg):
         logging.debug("Getting RDF from: " + rdf_format)

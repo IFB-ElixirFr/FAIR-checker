@@ -84,42 +84,42 @@ class Profile:
         # @prefix bsc: <https://discovery.biothings.io/view/bioschemas/> .
 
         shape_template = """
-@prefix ns: <https://fair-checker.france-bioinformatique.fr#> .
-@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix sc: <http://schema.org/> .
-@prefix bsc: <https://discovery.biothings.io/view/bioschemas/> .
-@prefix dct: <http://purl.org/dc/terms/> .
-@prefix sh: <http://www.w3.org/ns/shacl#> .
-@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-@prefix edam: <http://edamontology.org/> .
-@prefix biotools: <https://bio.tools/ontology/> .
-@prefix bioschemasdrafts: <https://discovery.biothings.io/view/bioschemasdrafts/> .
-@prefix bioschemastypes: <https://discovery.biothings.io/view/bioschemastypes/> .
-@prefix bh2022GH: <https://discovery.biothings.io/view/bh2022GH/> .
+            @prefix fc: <https://fair-checker.france-bioinformatique.fr#> .
+            @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+            @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+            @prefix sc: <https://schema.org/> .
+            @prefix bsc: <https://discovery.biothings.io/view/bioschemas/> .
+            @prefix dct: <http://purl.org/dc/terms/> .
+            @prefix sh: <http://www.w3.org/ns/shacl#> .
+            @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+            @prefix edam: <http://edamontology.org/> .
+            @prefix biotools: <https://bio.tools/ontology/> .
+            @prefix bioschemasdrafts: <https://discovery.biothings.io/view/bioschemasdrafts/> .
+            @prefix bioschemastypes: <https://discovery.biothings.io/view/bioschemastypes/> .
+            @prefix bh2022GH: <https://discovery.biothings.io/view/bh2022GH/> .
 
-ns:{{shape_name}}
-    a sh:NodeShape ;
-    
-    {% for c in target_classes %}
-    sh:targetClass  {{c}} ;
-    {% endfor %}
+            fc:{{shape_name}}
+                a sh:NodeShape ;
+                
+                {% for c in target_classes %}
+                sh:targetClass  {{c}} ;
+                {% endfor %}
 
-    {% for min_prop in min_props %}
-    sh:property [
-        sh:path {{min_prop}} ;
-        sh:minCount 1 ;
-        sh:severity sh:Violation
-    ] ;
-    {% endfor %}
+                {% for min_prop in min_props %}
+                sh:property [
+                    sh:path {{min_prop}} ;
+                    sh:minCount 1 ;
+                    sh:severity sh:Violation
+                ] ;
+                {% endfor %}
 
-    {% for rec_prop in rec_props %}
-    sh:property [
-        sh:path {{rec_prop}} ;
-        sh:minCount 1 ;
-        sh:severity sh:Warning
-    ] ;
-    {% endfor %}
+                {% for rec_prop in rec_props %}
+                sh:property [
+                    sh:path {{rec_prop}} ;
+                    sh:minCount 1 ;
+                    sh:severity sh:Warning
+                ] ;
+                {% endfor %}
 .
         """
 
@@ -136,13 +136,13 @@ ns:{{shape_name}}
         return shape
 
     def validate_shape(self, knowledge_graph, shacl_shape):
-        # print(knowledge_graph.serialize(format="turtle"))
+        print(knowledge_graph.serialize(format="turtle"))
         r = validate(
             data_graph=knowledge_graph,
-            data_graph_format="trig",
+            data_graph_format="turtle",
             shacl_graph=shacl_shape,
             # shacl_graph = my_shacl_constraint,
-            shacl_graph_format="trig",
+            shacl_graph_format="turtle",
             ont_graph=None,
             inference="rdfs",
             abort_on_first=False,
@@ -170,13 +170,14 @@ ns:{{shape_name}}
 
         results = results_graph.query(report_query)
         # print("VALIDATION RESULTS")
-        # print(results_text)
+        print(shacl_shape)
+        print(results_text)
         # print(conforms)
         # print(results_graph.serialize(format="turtle"))
         warnings = []
         errors = []
         for r in results:
-            
+
             if "#Warning" in r["severity"]:
                 # print(
                 #     f'WARNING: Property {r["path"]} should be provided for {r["node"]}'
@@ -186,6 +187,8 @@ ns:{{shape_name}}
                 # print(f'ERROR: Property {r["path"]} must be provided for {r["node"]}')
                 # print(r["path"])
                 errors.append(f'{r["path"]}')
+        print(errors)
+        print(warnings)
         return conforms, warnings, errors
 
     def match_sub_kgs_from_profile(self, kg):
@@ -204,6 +207,8 @@ ns:{{shape_name}}
             if o.n3(kg.namespace_manager) in self.target_classes:
                 print(f"Trying to validate {s} as a(n) {o} resource")
                 sub_kg = ConjunctiveGraph()
+                sub_kg.namespace_manager.bind("sc", URIRef("https://schema.org/"))
+                sub_kg.namespace_manager.bind("dct", URIRef("http://purl.org/dc/terms/"))
 
                 for x, y, z, g in kg.quads((s, None, None, None)):
 

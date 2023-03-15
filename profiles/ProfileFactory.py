@@ -349,7 +349,7 @@ def update_profiles():
 
 
 def find_conformsto_subkg(kg):
-    kg.namespace_manager.bind("sc", URIRef("http://schema.org/"))
+    kg.namespace_manager.bind("sc", URIRef("https://schema.org/"))
     kg.namespace_manager.bind("bsc", URIRef("https://bioschemas.org/"))
     kg.namespace_manager.bind("dct", URIRef("http://purl.org/dc/terms/"))
 
@@ -372,6 +372,8 @@ def find_conformsto_subkg(kg):
         identifier = r["x"]
         type = r["type"]
         sub_kg = ConjunctiveGraph()
+        sub_kg.namespace_manager.bind("sc", URIRef("https://schema.org/"))
+        sub_kg.namespace_manager.bind("dct", URIRef("http://purl.org/dc/terms/"))
 
         for (s, p, o, g) in kg.quads((identifier, None, None, None)):
             # print(f"{s} -> {p} -> {o} -> {g.identifier}")

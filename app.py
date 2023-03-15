@@ -1765,12 +1765,12 @@ def buildJSONLD():
     latest_tag = tags[-1]
 
     jld = {
-        "@context": [
-            {"sc": "https://schema.org/"},
-            {"dct": "http://purl.org/dc/terms/"},
-            {"prov": "http://www.w3.org/ns/prov#"},
-        ],
-        "@type": ["sc:WebApplication", "prov:Entity"],
+        "@context": {
+            "sc": "https://schema.org/",
+            "dct": "http://purl.org/dc/terms/",
+            "prov": "http://www.w3.org/ns/prov#",
+        },
+        "@type": ["sc:SoftwareApplication", "prov:Entity"],
         "@id": "https://github.com/IFB-ElixirFr/FAIR-checker",
         "dct:conformsTo": "https://bioschemas.org/profiles/ComputationalTool/1.0-RELEASE",
         "sc:name": "FAIR-Checker",
