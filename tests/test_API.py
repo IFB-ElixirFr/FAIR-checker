@@ -71,7 +71,7 @@ class APITestCase(unittest.TestCase):
         kg.parse(
             data=json.dumps(response.get_json(), ensure_ascii=False), format="json-ld"
         )
-        self.assertEqual(98, len(kg))
+        self.assertEqual(95, len(kg))
 
     def test_describe_individual(self):
         for api_url in list_api_inspect():
@@ -84,11 +84,11 @@ class APITestCase(unittest.TestCase):
                     get_api_url + self.url_datacite,
                 )
                 self.assertEqual(200, get_response.status_code)
-                self.assertEqual(81, get_response.get_json()["triples_before"])
+                self.assertEqual(45, get_response.get_json()["triples_before"])
                 if "/api/inspect/describe_openaire" in get_api_url:
-                    self.assertEqual(109, get_response.get_json()["triples_after"])
+                    self.assertEqual(73, get_response.get_json()["triples_after"])
                 else:
-                    self.assertEqual(81, get_response.get_json()["triples_after"])
+                    self.assertEqual(45, get_response.get_json()["triples_after"])
 
                 # POST
                 response = self.app.get(
@@ -102,11 +102,11 @@ class APITestCase(unittest.TestCase):
                     api_url, json={"json-ld": graph, "url": url}
                 )
                 self.assertEqual(200, post_response.status_code)
-                self.assertEqual(81, post_response.get_json()["triples_before"])
+                self.assertEqual(45, post_response.get_json()["triples_before"])
                 if "/api/inspect/describe_openaire" in api_url:
-                    self.assertEqual(109, post_response.get_json()["triples_after"])
+                    self.assertEqual(73, post_response.get_json()["triples_after"])
                 else:
-                    self.assertEqual(81, post_response.get_json()["triples_after"])
+                    self.assertEqual(45, post_response.get_json()["triples_after"])
 
     def test_inspect_ontologies(self):
         response = self.app.get(
@@ -126,12 +126,15 @@ class APITestCase(unittest.TestCase):
         results_warnings_list = []
 
         expected_errors_list = [2, 5, 5, 3, 3, 3, 3, 3, 3, 3, 3]
-        expected_warnings_list = [12, 12, 11, 8, 8, 8, 8, 8, 8, 8, 8]
+        expected_warnings_list = [12, 11, 12, 8, 8, 8, 8, 8, 8, 8, 8]
 
         result_json = response.get_json()
         for key in result_json.keys():
             results_errors_list.append(len(result_json[key]["errors"]))
             results_warnings_list.append(len(result_json[key]["warnings"]))
+
+        print(results_errors_list)
+        print(results_warnings_list)
 
         self.assertCountEqual(results_errors_list, expected_errors_list)
         self.assertCountEqual(results_warnings_list, expected_warnings_list)

@@ -1,5 +1,6 @@
 from SPARQLWrapper import SPARQLWrapper, N3, JSON, RDF, TURTLE, JSONLD
-from rdflib import ConjunctiveGraph
+from rdflib import Graph, ConjunctiveGraph, Namespace, URIRef
+from rdflib.namespace import RDF
 import requests
 
 requests.packages.urllib3.disable_warnings(
@@ -15,10 +16,13 @@ from enum import Enum
 from cachetools import cached, TTLCache
 from flask import Flask
 from flask import current_app
+from flask_socketio import emit
 import logging
 import copy
 import re
 import validators
+from requests.auth import HTTPBasicAuth
+from urllib.parse import urlparse
 
 
 class SOURCE(Enum):
@@ -90,7 +94,11 @@ def describe_opencitation(uri, g):
     p = {"query": query}
 
     res = requests.get(endpoint, headers=h, params=p, verify=False)
-    g.parse(data=res.text, format="turtle")
+
+    new_g = ConjunctiveGraph()
+    new_g.parse(data=res.text, format="turtle")
+    for s, p, o in new_g:
+        g.add((s, p, o, URIRef(uri + "#opencitations")))
 
     graph_post_size = len(g)
 
@@ -129,7 +137,11 @@ def describe_openaire(uri, g):
     sparql.setReturnFormat(N3)
 
     results = sparql.query().convert()
-    g.parse(data=results, format="turtle")
+
+    new_g = ConjunctiveGraph()
+    new_g.parse(data=results, format="turtle")
+    for s, p, o in new_g:
+        g.add((s, p, o, URIRef(uri + "#openaire")))
 
     graph_post_size = len(g)
 
@@ -179,7 +191,11 @@ def describe_wikidata(uri, g):
     p = {"query": query}
 
     res = requests.get(endpoint, headers=h, params=p, verify=False)
-    g.parse(data=res.text, format="xml")
+
+    new_g = ConjunctiveGraph()
+    new_g.parse(data=res.text, format="xml")
+    for s, p, o in new_g:
+        g.add((s, p, o, URIRef(uri + "#wikidata")))
 
     graph_post_size = len(g)
 
@@ -363,6 +379,131 @@ def ask_LOV(uri):
         app.logger.error("Cound not connect to LOV")
         app.logger.error(res.text)
         return None
+
+
+def inspect_onto_reg(kg, is_inspect_ui):
+    """
+    Check if all terms: properties and classes can be find in ontology registries such as LOV, OLS and BioPortal
+
+    Args:
+        kg (ConjunctiveGraph): The RDF Graph that contains web resource metadata
+        is_inspect_ui (bool): Specify if the method is called from the UI or from the API (don't need async emit in this case)
+
+    Returns:
+        list: A list that contains the result for each term in a dictionnary
+    """
+    query_classes = """
+        SELECT DISTINCT ?class WHERE { GRAPH ?g { ?s rdf:type ?class } } ORDER BY ?class
+    """
+    query_properties = """
+        SELECT DISTINCT ?prop WHERE { GRAPH ?g { ?s ?prop ?o } } ORDER BY ?prop
+    """
+
+    table_content = {
+        "classes": [],
+        "classes_false": [],
+        "properties": [],
+        "properties_false": [],
+        "done": False,
+    }
+    qres = kg.query(query_classes)
+    for row in qres:
+        namespace = urlparse(row["class"]).netloc
+        class_entry = {}
+
+        if namespace == "bioschemas.org":
+            class_entry = {
+                "name": row["class"],
+                "tag": {
+                    "OLS": None,
+                    "LOV": None,
+                    "BioPortal": None,
+                    "Bioschemas": True,
+                },
+            }
+        else:
+            class_entry = {
+                "name": row["class"],
+                "tag": {"OLS": None, "LOV": None, "BioPortal": None},
+            }
+
+        table_content["classes"].append(class_entry)
+
+    qres = kg.query(query_properties)
+    for row in qres:
+        namespace = urlparse(row["prop"]).netloc
+        property_entry = {}
+
+        if namespace == "bioschemas.org":
+            property_entry = {
+                "name": row["prop"],
+                "tag": {
+                    "OLS": None,
+                    "LOV": None,
+                    "BioPortal": None,
+                    "Bioschemas": True,
+                },
+            }
+        else:
+            property_entry = {
+                "name": row["prop"],
+                "tag": {"OLS": None, "LOV": None, "BioPortal": None},
+            }
+
+        table_content["properties"].append(property_entry)
+
+    if is_inspect_ui:
+        emit("done_check", table_content)
+
+    for c in table_content["classes"]:
+
+        c["tag"]["OLS"] = ask_OLS(c["name"])
+        if is_inspect_ui:
+            emit("done_check", table_content)
+
+        c["tag"]["LOV"] = ask_LOV(c["name"])
+        if is_inspect_ui:
+            emit("done_check", table_content)
+
+        c["tag"]["BioPortal"] = ask_BioPortal(c["name"], "class")
+        if is_inspect_ui:
+            emit("done_check", table_content)
+
+        all_false_rule = [
+            c["tag"]["OLS"] == False,
+            c["tag"]["LOV"] == False,
+            c["tag"]["BioPortal"] == False,
+        ]
+
+        if all(all_false_rule) and not "Bioschemas" in c["tag"]:
+            table_content["classes_false"].append(c["name"])
+
+    for p in table_content["properties"]:
+
+        p["tag"]["OLS"] = ask_OLS(p["name"])
+        if is_inspect_ui:
+            emit("done_check", table_content)
+
+        p["tag"]["LOV"] = ask_LOV(p["name"])
+        if is_inspect_ui:
+            emit("done_check", table_content)
+
+        p["tag"]["BioPortal"] = ask_BioPortal(p["name"], "property")
+        if is_inspect_ui:
+            emit("done_check", table_content)
+
+        all_false_rule = [
+            p["tag"]["OLS"] == False,
+            p["tag"]["LOV"] == False,
+            p["tag"]["BioPortal"] == False,
+        ]
+        if all(all_false_rule) and not "Bioschemas" in p["tag"]:
+            table_content["properties_false"].append(p["name"])
+
+    table_content["done"] = True
+    if is_inspect_ui:
+        emit("done_check", table_content)
+    return table_content
 
 
 # @DeprecationWarning

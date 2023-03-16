@@ -1,17 +1,17 @@
 import logging
 
 from metrics.AbstractFAIRMetrics import AbstractFAIRMetrics
-from metrics.util import ask_BioPortal, ask_OLS, ask_LOV
+from metrics.util import ask_BioPortal, ask_OLS, ask_LOV, inspect_onto_reg
 from metrics.recommendation import json_rec
 
 
 class F2B_Impl(AbstractFAIRMetrics):
 
     query_classes = """
-            SELECT DISTINCT ?class { ?s rdf:type ?class } ORDER BY ?class
+            SELECT DISTINCT ?class WHERE { GRAPH ?g { ?s rdf:type ?class } } ORDER BY ?class
         """
     query_properties = """
-            SELECT DISTINCT ?prop { ?s ?prop ?o } ORDER BY ?prop
+            SELECT DISTINCT ?prop WHERE { GRAPH ?g { ?s ?prop ?o } } ORDER BY ?prop
         """
 
     """
@@ -45,9 +45,15 @@ class F2B_Impl(AbstractFAIRMetrics):
             eval = self.get_evaluation()
             eval.set_implem(self.implem)
             eval.set_metrics(self.principle_tag)
+        # kgs = self.get_web_resource().get_wr_kg_dataset()
         kg = self.get_web_resource().get_rdf()
 
-        if len(kg) == 0:
+        is_kg_empty = True
+        # for kg in kgs.graphs():
+        if len(kg) > 0:
+            is_kg_empty = False
+
+        if is_kg_empty:
             eval.set_score(0)
             return eval
 
@@ -55,6 +61,7 @@ class F2B_Impl(AbstractFAIRMetrics):
         eval.log_info(
             "Checking if at least one class used in RDF is known in OLS, LOV, or BioPortal"
         )
+
         qres = kg.query(self.query_classes)
         for row in qres:
             logging.debug(f'evaluating class {row["class"]}')
@@ -113,9 +120,15 @@ class F2B_Impl(AbstractFAIRMetrics):
             eval = self.get_evaluation()
             eval.set_implem(self.implem)
             eval.set_metrics(self.principle_tag)
+        # kgs = self.get_web_resource().get_wr_kg_dataset()
         kg = self.get_web_resource().get_rdf()
 
-        if len(kg) == 0:
+        is_kg_empty = True
+        # for kg in kgs.graphs():
+        if len(kg) > 0:
+            is_kg_empty = False
+
+        if is_kg_empty:
             eval.log_info(
                 "No RDF found in the web page, can't evaluate if classes or properties are known in OLS, LOV, or BioPortal"
             )
@@ -129,24 +142,19 @@ class F2B_Impl(AbstractFAIRMetrics):
             "Checking if all classes used in RDF are known in OLS, LOV, or BioPortal"
         )
 
-        qres = kg.query(self.query_classes)
-        class_not_in_registries = False
-        for row in qres:
-            logging.debug(f'evaluating class {row["class"]}')
-            if not (
-                ask_OLS(row["class"])
-                or ask_LOV(row["class"])
-                or ask_BioPortal(row["class"], type="class")
-            ):
-                logging.debug(f"{row['class']} not known in OLS, LOV, or BioPortal")
-                eval.log_warning(
-                    f"{row['class']} class not known in OLS, LOV, or BioPortal"
-                )
+        results = inspect_onto_reg(kg, False)
+        print(results)
+        print("#######")
+        # for kg in kgs.graphs():
+        #     results = inspect_onto_reg(kg, False)
+        #     print(results)
+
+        # print(results["classes_false"])
+        # print(results["properties_false"])
 
                 class_not_in_registries = True
 
-        # True if one of the classes is not in OLS, LOV or BioPortal
-        if class_not_in_registries:
+        if results["classes_false"]:
             eval.set_recommendations(json_rec["F2B"]["reco1"])
         else:
             eval.log_info("All classes found in those ontology registries")
@@ -177,7 +185,7 @@ class F2B_Impl(AbstractFAIRMetrics):
             eval.log_info("All properties found in those ontology registries")
 
         # if True, go to weak evaluation
-        if class_not_in_registries or property_not_in_registries:
+        if results["classes_false"] or results["properties_false"]:
             eval.set_score(0)
             return eval
 

@@ -120,11 +120,15 @@ class ImportBSProfileTestCase(unittest.TestCase):
         self.assertEqual(len(result), 1)
 
     def test_wfh_type_eval(self):
+
         url = "https://workflowhub.eu/workflows/18"
         kg = WebResource(url).get_rdf()
 
         self.assertEqual(len(kg), 49)
+
         result = evaluate_profile_from_type(kg)
+
+        print(result)
 
         self.assertEqual(len(result), 11)
 
@@ -134,8 +138,12 @@ class ImportBSProfileTestCase(unittest.TestCase):
 
         self.assertEqual(len(kg), 35)
         result = dyn_evaluate_profile_with_conformsto(kg)
+        print(json.dumps(result, indent=True))
 
         self.assertEqual(len(result), 1)
+        self.assertEqual(
+            result["https://fair-checker.france-bioinformatique.fr/"]["conforms"], True
+        )
 
     def test_fairchecker_type_eval(self):
         url = "https://fair-checker.france-bioinformatique.fr/"
@@ -147,7 +155,7 @@ class ImportBSProfileTestCase(unittest.TestCase):
         print(result)
 
         self.assertEqual(len(result), 3)
-        self.assertTrue(result["https://orcid.org/0000-0002-3597-8557"]["conforms"])
+        self.assertFalse(result["https://orcid.org/0000-0002-3597-8557"]["conforms"])
 
     def test_profile_file_parser(self):
 

@@ -8,6 +8,7 @@ from rdflib.namespace import RDF
 from jinja2 import Template
 from pyshacl import validate
 from os import environ, path
+from metrics.WebResource import WebResource
 
 # class AbstractProfile(ABC):
 
@@ -84,42 +85,51 @@ class Profile:
         # @prefix bsc: <https://discovery.biothings.io/view/bioschemas/> .
 
         shape_template = """
-@prefix ns: <https://fair-checker.france-bioinformatique.fr#> .
-@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix sc: <http://schema.org/> .
-@prefix bsc: <https://discovery.biothings.io/view/bioschemas/> .
-@prefix dct: <http://purl.org/dc/terms/> .
-@prefix sh: <http://www.w3.org/ns/shacl#> .
-@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-@prefix edam: <http://edamontology.org/> .
-@prefix biotools: <https://bio.tools/ontology/> .
-@prefix bioschemasdrafts: <https://discovery.biothings.io/view/bioschemasdrafts/> .
-@prefix bioschemastypes: <https://discovery.biothings.io/view/bioschemastypes/> .
-@prefix bh2022GH: <https://discovery.biothings.io/view/bh2022GH/> .
+            @prefix fc: <https://fair-checker.france-bioinformatique.fr#> .
+            @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+            @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+            @prefix sc: <http://schema.org/> .
+            @prefix scs: <https://schema.org/> .
+            @prefix bsc: <https://discovery.biothings.io/view/bioschemas/> .
+            @prefix dct: <http://purl.org/dc/terms/> .
+            @prefix sh: <http://www.w3.org/ns/shacl#> .
+            @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+            @prefix edam: <http://edamontology.org/> .
+            @prefix biotools: <https://bio.tools/ontology/> .
+            @prefix bioschemasdrafts: <https://discovery.biothings.io/view/bioschemasdrafts/> .
+            @prefix bioschemastypes: <https://discovery.biothings.io/view/bioschemastypes/> .
+            @prefix bh2022GH: <https://discovery.biothings.io/view/bh2022GH/> .
 
-ns:{{shape_name}}
-    a sh:NodeShape ;
-    
-    {% for c in target_classes %}
-    sh:targetClass  {{c}} ;
-    {% endfor %}
+            fc:{{shape_name}}
+                a sh:NodeShape ;
+                
+                {% for c in target_classes %}
+                sh:targetClass {{c}}, {{c.replace("sc:", "scs:")}} ;
+                {% endfor %}
 
-    {% for min_prop in min_props %}
-    sh:property [
-        sh:path {{min_prop}} ;
-        sh:minCount 1 ;
-        sh:severity sh:Violation
-    ] ;
-    {% endfor %}
+                {% for min_prop in min_props %}
+                sh:property [
+                    {% if min_prop.startswith("sc:") %}
+                    sh:path [sh:alternativePath({{min_prop}} {{min_prop.replace("sc:", "scs:")}})] ;
+                    {% else %}
+                    sh:path {{min_prop}} ;
+                    {% endif %}
+                    sh:minCount 1 ;
+                    sh:severity sh:Violation
+                ] ;
+                {% endfor %}
 
-    {% for rec_prop in rec_props %}
-    sh:property [
-        sh:path {{rec_prop}} ;
-        sh:minCount 1 ;
-        sh:severity sh:Warning
-    ] ;
-    {% endfor %}
+                {% for rec_prop in rec_props %}
+                sh:property [
+                    {% if rec_prop.startswith("sc:") %}
+                    sh:path [sh:alternativePath({{rec_prop}} {{rec_prop.replace("sc:", "scs:")}})] ;
+                    {% else %}
+                    sh:path {{rec_prop}} ;
+                    {% endif %}
+                    sh:minCount 1 ;
+                    sh:severity sh:Warning
+                ] ;
+                {% endfor %}
 .
         """
 
@@ -136,7 +146,7 @@ ns:{{shape_name}}
         return shape
 
     def validate_shape(self, knowledge_graph, shacl_shape):
-        # print(knowledge_graph.serialize(format="turtle"))
+
         r = validate(
             data_graph=knowledge_graph,
             data_graph_format="turtle",
@@ -152,6 +162,7 @@ ns:{{shape_name}}
         conforms, results_graph, results_text = r
 
         print("Evaluating: " + str(self.target_classes))
+        # print(knowledge_graph.serialize(format="trig"))
 
         report_query = """
                 SELECT ?node ?path ?path ?severity WHERE {
@@ -169,39 +180,67 @@ ns:{{shape_name}}
 
         results = results_graph.query(report_query)
         # print("VALIDATION RESULTS")
+        print(knowledge_graph.serialize(format="turtle"))
+        print(shacl_shape)
         # print(results_text)
         # print(conforms)
         # print(results_graph.serialize(format="turtle"))
         warnings = []
         errors = []
         for r in results:
+
             if "#Warning" in r["severity"]:
                 # print(
                 #     f'WARNING: Property {r["path"]} should be provided for {r["node"]}'
                 # )
-                warnings.append(f'{r["path"]}')
+                if r["path"].startswith("http://schema.org/"):
+                    pass
+                elif r["path"].startswith("https://schema.org/"):
+                    warnings.append(f'{r["path"]}')
+                else:
+                    warnings.append(f'{r["path"]}')
             if "#Violation" in r["severity"]:
                 # print(f'ERROR: Property {r["path"]} must be provided for {r["node"]}')
-                errors.append(f'{r["path"]}')
-
+                # print(r["path"])
+                if r["path"].startswith("http://schema.org/"):
+                    pass
+                elif r["path"].startswith("https://schema.org/"):
+                    errors.append(f'{r["path"]}')
+                else:
+                    errors.append(f'{r["path"]}')
+        print(errors)
+        print(warnings)
         return conforms, warnings, errors
 
     def match_sub_kgs_from_profile(self, kg):
-        kg.namespace_manager.bind("sc", URIRef("https://schema.org/"))
-        kg.namespace_manager.bind("bsc", URIRef("https://bioschemas.org/"))
-        kg.namespace_manager.bind("dct", URIRef("http://purl.org/dc/terms/"))
+        # kg.namespace_manager.bind("sc", URIRef("http://schema.org/"))
+        # kg.namespace_manager.bind("bsc", URIRef("https://bioschemas.org/"))
+        # kg.namespace_manager.bind("dct", URIRef("http://purl.org/dc/terms/"))
 
         sub_kg_list = []
+        # print(kg.serialize(format="trig"))
 
-        for s, p, o in kg.triples((None, RDF.type, None)):
+        # for s, p, o in kg.triples((None, RDF.type, None)):
+        for (s, p, o, g) in kg.quads((None, RDF.type, None, None)):
             # print(o)
             # print(o.n3(kg.namespace_manager))
-            if o.n3(kg.namespace_manager) in self.target_classes:
+            if o.n3(kg.namespace_manager).replace("scs:", "sc:") in self.target_classes:
                 print(f"Trying to validate {s} as a(n) {o} resource")
                 sub_kg = ConjunctiveGraph()
-                for x, y, z in kg.triples((s, None, None)):
+                sub_kg.namespace_manager.bind("sc", URIRef("http://schema.org/"))
+                sub_kg.namespace_manager.bind("scs", URIRef("https://schema.org/"))
+                sub_kg.namespace_manager.bind(
+                    "dct", URIRef("http://purl.org/dc/terms/")
+                )
+
+                for x, y, z, g in kg.quads((s, None, None, None)):
+
+                    # print(f"{x} -> {y} -> {z} -> {g}")
+                    # print(i)
                     sub_kg.add((x, y, z))
+                # print(sub_kg.serialize(format="trig"))
                 sub_kg_list.append({"sub_kg": sub_kg, "subject": s, "object": o})
+
         return sub_kg_list
 
     def compute_similarity(self, kg) -> float:

@@ -36,6 +36,7 @@ from json import JSONDecodeError
 from pathlib import Path
 import rdflib
 from rdflib import ConjunctiveGraph, URIRef
+from rdflib.namespace import RDF
 import extruct
 import logging
 from rich.console import Console
@@ -48,7 +49,7 @@ from metrics import test_metric
 from metrics.FAIRMetricsFactory import FAIRMetricsFactory
 from metrics.WebResource import WebResource
 from metrics.Evaluation import Result
-from metrics.util import SOURCE
+from metrics.util import SOURCE, inspect_onto_reg
 from metrics.F1B_Impl import F1B_Impl
 from urllib.parse import urlparse
 
@@ -667,7 +668,7 @@ class InspectOntologies(Resource):
         web_res = WebResource(url)
         kg = web_res.get_rdf()
 
-        return check_kg(kg, True)
+        return inspect_onto_reg(kg, False)
 
 
 # TODO update method
@@ -1112,6 +1113,23 @@ def handle_disconnected():
     dev_logger.info("Disconnecting SID " + sid)
 
 
+def named_kg_len(kgs):
+    query_num = """
+    SELECT ?g (COUNT(*) AS ?count)
+    WHERE {
+    graph ?g {?s ?p ?o}
+    }
+    GROUP BY ?g
+    """
+
+    qres = kgs.query(query_num)
+
+    kgs_len = {}
+    for g, c in qres:
+        kgs_len[g] = c
+    return kgs_len
+
+
 @socketio.on("change_rdf_type")
 def handle_change_rdf_type(data):
     """
@@ -1123,13 +1141,16 @@ def handle_change_rdf_type(data):
     sid = request.sid
     dev_logger.info("New format to display KG: " + data["rdf_type"])
     RDF_TYPE[sid] = data["rdf_type"]
-    kg = KGS[sid]
-    nb_triples = len(kg)
+    kgs = KGS[sid]
+    # nb_triples = len(kg)
+
+    kgs_len = named_kg_len(kgs)
+
     emit(
         "send_annot_2",
         {
-            "kg": str(kg.serialize(format=RDF_TYPE[sid])),
-            "nb_triples": nb_triples,
+            "kg": str(kgs.serialize(format=RDF_TYPE[sid])),
+            "kgs_len": kgs_len,
         },
     )
 
@@ -1155,13 +1176,18 @@ def handle_embedded_annot_2(data):
     nb_triples = len(kg)
     dev_logger.info("Found " + str(nb_triples) + " triples")
 
-    KGS[sid] = kg
+    KGS[sid] = kgs
+
+    # for kg in kgs.graphs():
+    #     print(kg)
+
+    kgs_len = named_kg_len(kgs)
 
     emit(
         "send_annot_2",
         {
-            "kg": str(kg.serialize(format=RDF_TYPE[sid])),
-            "nb_triples": nb_triples,
+            "kg": str(kgs.serialize(format=RDF_TYPE[sid])),
+            "kgs_len": kgs_len,
         },
     )
 
@@ -1176,7 +1202,7 @@ def handle_describe_opencitation(data):
     """
     dev_logger.info("Describing with Opencitation")
     sid = request.sid
-    kg = KGS[sid]
+    kgs = KGS[sid]
     uri = str(data["url"])
 
     # check if id or doi in uri
@@ -1185,12 +1211,14 @@ def handle_describe_opencitation(data):
         dev_logger.info(f"FOUND DOI: {uri}")
     kg = util.describe_opencitation(uri, kg)
 
-    nb_triples = len(kg)
+    # nb_triples = len(kg)
+    kgs_len = named_kg_len(kgs)
+
     emit(
         "send_annot_2",
         {
-            "kg": str(kg.serialize(format=RDF_TYPE[sid])),
-            "nb_triples": nb_triples,
+            "kg": str(kgs.serialize(format=RDF_TYPE[sid])),
+            "kgs_len": kgs_len,
         },
     )
 
@@ -1205,20 +1233,23 @@ def handle_describe_wikidata(data):
     """
     dev_logger.info("Describing with Wikidata")
     sid = request.sid
-    kg = KGS[sid]
+    kgs = KGS[sid]
     uri = str(data["url"])
 
     # check if id or doi in uri
     if util.is_DOI(uri):
         uri = util.get_DOI(uri)
         print(f"FOUND DOI: {uri}")
-    kg = util.describe_wikidata(uri, kg)
-    nb_triples = len(kg)
+    kgs = util.describe_wikidata(uri, kgs)
+    # nb_triples = len(kg)
+
+    kgs_len = named_kg_len(kgs)
+
     emit(
         "send_annot_2",
         {
-            "kg": str(kg.serialize(format=RDF_TYPE[sid])),
-            "nb_triples": nb_triples,
+            "kg": str(kgs.serialize(format=RDF_TYPE[sid])),
+            "kgs_len": kgs_len,
         },
     )
 
@@ -1233,20 +1264,23 @@ def handle_describe_loa(data):
     """
     dev_logger.info("Describing with LOA")
     sid = request.sid
-    kg = KGS[sid]
+    kgs = KGS[sid]
     uri = str(data["url"])
 
     # check if id or doi in uri
     if util.is_DOI(uri):
         uri = util.get_DOI(uri)
         print(f"FOUND DOI: {uri}")
-    kg = util.describe_openaire(uri, kg)
-    nb_triples = len(kg)
+    kgs = util.describe_openaire(uri, kgs)
+    # nb_triples = len(kgs)
+
+    kgs_len = named_kg_len(kgs)
+
     emit(
         "send_annot_2",
         {
-            "kg": str(kg.serialize(format=RDF_TYPE[sid])),
-            "nb_triples": nb_triples,
+            "kg": str(kgs.serialize(format=RDF_TYPE[sid])),
+            "kgs_len": kgs_len,
         },
     )
 
@@ -1255,11 +1289,9 @@ def check_kg(kg, is_api):
     """
     In Inspect UI, check if classes and properties are found in reference registries
     such as LOV, OLS, BioPortal, or is from Bioschemas.
-
     Args:
         kg (rdflib.ConjunctiveGraph): The RDF graph associated with the evaluated resource
         is_api (bool): Indicate if the function if called from the UI or the API
-
     Returns:
         dict: Result of the classes and properties found or not in each registry to display to the UI
     """
@@ -1354,7 +1386,7 @@ def check_kg(kg, is_api):
             c["tag"]["BioPortal"] == False,
         ]
 
-        if all(all_false_rule) and not "Bioschemas" in c["tag"]:
+        if all(all_false_rule) and "Bioschemas" not in c["tag"]:
             table_content["classes_false"].append(c["name"])
 
     dev_logger.info("Checking if properties exists in registries")
@@ -1400,7 +1432,7 @@ def check_vocabularies():
     sid = request.sid
     kg = KGS[sid]
 
-    check_kg(kg, False)
+    inspect_onto_reg(kg, True)
 
 
 def evaluate_bioschemas_profiles(kg):
@@ -1520,12 +1552,12 @@ def buildJSONLD():
     latest_tag = tags[-1]
 
     jld = {
-        "@context": [
-            {"sc": "https://schema.org/"},
-            {"dct": "http://purl.org/dc/terms/"},
-            {"prov": "http://www.w3.org/ns/prov#"},
-        ],
-        "@type": ["sc:WebApplication", "prov:Entity"],
+        "@context": {
+            "sc": "https://schema.org/",
+            "dct": "http://purl.org/dc/terms/",
+            "prov": "http://www.w3.org/ns/prov#",
+        },
+        "@type": ["sc:SoftwareApplication", "prov:Entity"],
         "@id": "https://fair-checker.france-bioinformatique.fr",
         "dct:conformsTo": "https://bioschemas.org/profiles/ComputationalTool/1.0-RELEASE",
         "sc:name": "FAIR-Checker",
