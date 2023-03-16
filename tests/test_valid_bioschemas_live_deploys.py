@@ -84,7 +84,7 @@ class BioschemasLiveDeploysTestCase(unittest.TestCase):
         web_resource = WebResource(input_url)
         kg = web_resource.get_rdf()
         res = evaluate_profile_from_type(kg)
-        print(json.dumps(res, indent=4))
+        # print(json.dumps(res, indent=4))
 
         self.assertEqual(
             len(res["https://workflowhub.eu/workflows/263?version=1"]["errors"]), 3
@@ -178,7 +178,7 @@ class BioschemasLiveDeploysTestCase(unittest.TestCase):
         shape_rdf = profile_gene.get_shacl_shape()
         shape_graph = Graph()
         shape_graph.parse(data=shape_rdf, format="ttl")
-        self.assertEqual(len(shape_graph), 26)
+        self.assertEqual(len(shape_graph), 57)
 
     @unittest.skip("Need to be part of bioschemas tests")
     def test_ld_bioschemas_annot(self):

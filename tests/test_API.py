@@ -125,13 +125,16 @@ class APITestCase(unittest.TestCase):
         results_errors_list = []
         results_warnings_list = []
 
-        expected_errors_list = [2, 5, 5, 3, 3, 3, 3, 3, 3, 3, 3]
-        expected_warnings_list = [12, 12, 11, 8, 8, 8, 8, 8, 8, 8, 8]
+        expected_errors_list = [2, 3, 3, 2, 2, 2, 2, 2, 2, 2, 2]
+        expected_warnings_list = [12, 6, 7, 6, 6, 6, 6, 6, 6, 6, 6]
 
         result_json = response.get_json()
         for key in result_json.keys():
             results_errors_list.append(len(result_json[key]["errors"]))
             results_warnings_list.append(len(result_json[key]["warnings"]))
+
+        print(results_errors_list)
+        print(results_warnings_list)
 
         self.assertCountEqual(results_errors_list, expected_errors_list)
         self.assertCountEqual(results_warnings_list, expected_warnings_list)

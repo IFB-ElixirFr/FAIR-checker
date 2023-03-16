@@ -8,7 +8,7 @@ from rdflib.namespace import RDF
 from jinja2 import Template
 from pyshacl import validate
 from os import environ, path
-
+from metrics.WebResource import WebResource
 # class AbstractProfile(ABC):
 
 
@@ -103,13 +103,13 @@ class Profile:
                 a sh:NodeShape ;
                 
                 {% for c in target_classes %}
-                sh:targetClass  [{{c}}, {{c.replace("sc", "scs")}}] ;
+                sh:targetClass {{c}}, {{c.replace("sc:", "scs:")}} ;
                 {% endfor %}
 
                 {% for min_prop in min_props %}
                 sh:property [
                     {% if min_prop.startswith("sc:") %}
-                    sh:path [sh:alternativePath({{min_prop}} {{min_prop.replace("sc", "scs")}})] ;
+                    sh:path [sh:alternativePath({{min_prop}} {{min_prop.replace("sc:", "scs:")}})] ;
                     {% else %}
                     sh:path {{min_prop}} ;
                     {% endif %}
@@ -121,7 +121,7 @@ class Profile:
                 {% for rec_prop in rec_props %}
                 sh:property [
                     {% if rec_prop.startswith("sc:") %}
-                    sh:path [sh:alternativePath({{rec_prop}} {{rec_prop.replace("sc", "scs")}})] ;
+                    sh:path [sh:alternativePath({{rec_prop}} {{rec_prop.replace("sc:", "scs:")}})] ;
                     {% else %}
                     sh:path {{rec_prop}} ;
                     {% endif %}
@@ -145,7 +145,7 @@ class Profile:
         return shape
 
     def validate_shape(self, knowledge_graph, shacl_shape):
-        print(knowledge_graph.serialize(format="turtle"))
+        
         r = validate(
             data_graph=knowledge_graph,
             data_graph_format="turtle",
@@ -179,8 +179,9 @@ class Profile:
 
         results = results_graph.query(report_query)
         # print("VALIDATION RESULTS")
+        print(knowledge_graph.serialize(format="turtle"))
         print(shacl_shape)
-        print(results_text)
+        # print(results_text)
         # print(conforms)
         # print(results_graph.serialize(format="turtle"))
         warnings = []
@@ -191,19 +192,29 @@ class Profile:
                 # print(
                 #     f'WARNING: Property {r["path"]} should be provided for {r["node"]}'
                 # )
-                warnings.append(f'{r["path"]}')
+                if r["path"].startswith("http://schema.org/"):
+                    pass
+                elif r["path"].startswith("https://schema.org/"):
+                    warnings.append(f'{r["path"]}')
+                else:
+                    warnings.append(f'{r["path"]}')
             if "#Violation" in r["severity"]:
                 # print(f'ERROR: Property {r["path"]} must be provided for {r["node"]}')
                 # print(r["path"])
-                errors.append(f'{r["path"]}')
+                if r["path"].startswith("http://schema.org/"):
+                    pass
+                elif r["path"].startswith("https://schema.org/"):
+                    errors.append(f'{r["path"]}')
+                else:
+                    errors.append(f'{r["path"]}')
         print(errors)
         print(warnings)
         return conforms, warnings, errors
 
     def match_sub_kgs_from_profile(self, kg):
-        kg.namespace_manager.bind("sc", URIRef("https://schema.org/"))
-        kg.namespace_manager.bind("bsc", URIRef("https://bioschemas.org/"))
-        kg.namespace_manager.bind("dct", URIRef("http://purl.org/dc/terms/"))
+        # kg.namespace_manager.bind("sc", URIRef("http://schema.org/"))
+        # kg.namespace_manager.bind("bsc", URIRef("https://bioschemas.org/"))
+        # kg.namespace_manager.bind("dct", URIRef("http://purl.org/dc/terms/"))
 
         sub_kg_list = []
         # print(kg.serialize(format="trig"))
@@ -212,11 +223,11 @@ class Profile:
         for (s, p, o, g) in kg.quads((None, RDF.type, None, None)):
             # print(o)
             # print(o.n3(kg.namespace_manager))
-
-            if o.n3(kg.namespace_manager) in self.target_classes:
+            if o.n3(kg.namespace_manager).replace("scs:", "sc:") in self.target_classes:
                 print(f"Trying to validate {s} as a(n) {o} resource")
                 sub_kg = ConjunctiveGraph()
-                sub_kg.namespace_manager.bind("sc", URIRef("https://schema.org/"))
+                sub_kg.namespace_manager.bind("sc", URIRef("http://schema.org/"))
+                sub_kg.namespace_manager.bind("scs", URIRef("https://schema.org/"))
                 sub_kg.namespace_manager.bind(
                     "dct", URIRef("http://purl.org/dc/terms/")
                 )

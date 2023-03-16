@@ -10,6 +10,7 @@ from tqdm import tqdm
 from rdflib import URIRef, ConjunctiveGraph
 from rdflib.namespace import RDF
 
+
 # from app import dev_logger
 
 
@@ -343,15 +344,17 @@ def load_profiles():
 
 
 def update_profiles():
+    global PROFILES
     if path.exists("profiles/bs_profiles.json"):
         os.remove("profiles/bs_profiles.json")
-        load_profiles()
+        # load_profiles()
+        PROFILES = ProfileFactory.create_all_profiles_from_specifications()
 
 
 def find_conformsto_subkg(kg):
-    kg.namespace_manager.bind("sc", URIRef("https://schema.org/"))
-    kg.namespace_manager.bind("bsc", URIRef("https://bioschemas.org/"))
-    kg.namespace_manager.bind("dct", URIRef("http://purl.org/dc/terms/"))
+    # kg.namespace_manager.bind("sc", URIRef("https://schema.org/"))
+    # kg.namespace_manager.bind("bsc", URIRef("https://bioschemas.org/"))
+    # kg.namespace_manager.bind("dct", URIRef("http://purl.org/dc/terms/"))
 
     query_conformsto = """
         PREFIX dct: <http://purl.org/dc/terms/>
@@ -372,7 +375,8 @@ def find_conformsto_subkg(kg):
         identifier = r["x"]
         type = r["type"]
         sub_kg = ConjunctiveGraph()
-        sub_kg.namespace_manager.bind("sc", URIRef("https://schema.org/"))
+        sub_kg.namespace_manager.bind("sc", URIRef("http://schema.org/"))
+        sub_kg.namespace_manager.bind("scs", URIRef("https://schema.org/"))
         sub_kg.namespace_manager.bind("dct", URIRef("http://purl.org/dc/terms/"))
 
         for (s, p, o, g) in kg.quads((identifier, None, None, None)):
@@ -581,7 +585,6 @@ def get_latest_ref_profile_from_pname(profile_name, profile_versions):
 #     FAIR_CHECKER = 1
 #     FAIR_METRICS_API = 2
 
-
 class ProfileFactory:
     @staticmethod
     def list_all_conformsto():
@@ -683,3 +686,7 @@ class ProfileFactory:
 
 
 PROFILES = ProfileFactory.create_all_profiles_from_specifications()
+
+
+
+

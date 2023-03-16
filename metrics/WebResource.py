@@ -368,7 +368,8 @@ class WebResource:
     def get_http_header(self):
         return self.headers
 
-    def is_schema_http(self, kg):
+    @staticmethod
+    def is_schema_http(kg):
         for s, p, o, g in kg.quads(None):
             changed = False
             new_s = s
