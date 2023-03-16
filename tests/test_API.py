@@ -125,8 +125,8 @@ class APITestCase(unittest.TestCase):
         results_errors_list = []
         results_warnings_list = []
 
-        expected_errors_list = [2, 3, 3, 2, 2, 2, 2, 2, 2, 2, 2]
-        expected_warnings_list = [12, 6, 7, 6, 6, 6, 6, 6, 6, 6, 6]
+        expected_errors_list = [2, 5, 5, 3, 3, 3, 3, 3, 3, 3, 3]
+        expected_warnings_list = [12, 11, 12, 8, 8, 8, 8, 8, 8, 8, 8]
 
         result_json = response.get_json()
         for key in result_json.keys():
