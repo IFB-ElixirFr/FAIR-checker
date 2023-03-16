@@ -533,7 +533,7 @@ class WebResource:
         while nb_retry < 3:
             try:
                 nb_retry += 1
-                response = requests.get(url=url, timeout=15, verify=False)
+                response = requests.get(url=url, timeout=30, verify=False)
                 break
             except SSLError:
                 time.sleep(5)
@@ -593,8 +593,10 @@ class WebResource:
         browser = WebResource.WEB_BROWSER_HEADLESS
         browser.get(url)
         time.sleep(1)
-        resp = requests.get(url)
-        print(len(resp.content))
+        browser.set_page_load_timeout(30)
+        browser.implicitly_wait(30)
+        # resp = requests.get(url)
+        # print(len(resp.content))
         WebDriverWait(self.WEB_BROWSER_HEADLESS, self.SERVER_TIMEOUT).until(
             lambda wd: self.WEB_BROWSER_HEADLESS.execute_script(
                 "return document.readyState"
