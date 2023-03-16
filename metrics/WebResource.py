@@ -185,8 +185,8 @@ class WebResource:
                             )
 
                             for rdf_format in rdf_formats:
-                                kg_links_html = self.get_rdf_from_mimetype_match(
-                                    url, rdf_format, kg_links_html
+                                self.kg_links_html = self.get_rdf_from_mimetype_match(
+                                    url, rdf_format, self.kg_links_html
                                 )
 
                 # get RDF metadata directly from html content

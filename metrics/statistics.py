@@ -24,7 +24,7 @@ def evaluations_this_month():
     a_month_ago = datetime.now() - timedelta(30)
 
     # nb_eval = evaluations.find({"started_at": {"$gt": a_day_ago}}).count_documents()
-    nb_eval = evaluations.count_documents({"started_at": {"$gt": a_week_ago}})
+    nb_eval = evaluations.count_documents({"started_at": {"$gt": a_month_ago}})
     return nb_eval
 
 
