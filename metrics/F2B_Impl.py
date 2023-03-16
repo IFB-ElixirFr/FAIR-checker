@@ -45,11 +45,11 @@ class F2B_Impl(AbstractFAIRMetrics):
             eval = self.get_evaluation()
             eval.set_implem(self.implem)
             eval.set_metrics(self.principle_tag)
-        # kgs = self.get_web_resource().get_wr_kg_dataset()
+
         kg = self.get_web_resource().get_rdf()
 
         is_kg_empty = True
-        # for kg in kgs.graphs():
+
         if len(kg) > 0:
             is_kg_empty = False
 
@@ -120,11 +120,11 @@ class F2B_Impl(AbstractFAIRMetrics):
             eval = self.get_evaluation()
             eval.set_implem(self.implem)
             eval.set_metrics(self.principle_tag)
-        # kgs = self.get_web_resource().get_wr_kg_dataset()
+
         kg = self.get_web_resource().get_rdf()
 
         is_kg_empty = True
-        # for kg in kgs.graphs():
+
         if len(kg) > 0:
             is_kg_empty = False
 
@@ -143,43 +143,22 @@ class F2B_Impl(AbstractFAIRMetrics):
         )
 
         results = inspect_onto_reg(kg, False)
-        print(results)
-        print("#######")
-        # for kg in kgs.graphs():
-        #     results = inspect_onto_reg(kg, False)
-        #     print(results)
 
-        # print(results["classes_false"])
-        # print(results["properties_false"])
-
-                class_not_in_registries = True
+        for class_entry in results["classes_false"]:
+            print(f"{class_entry} not known in OLS, LOV, or BioPortal")
+            eval.log_warning(f"{class_entry} class not known in OLS, LOV, or BioPortal")
 
         if results["classes_false"]:
             eval.set_recommendations(json_rec["F2B"]["reco1"])
         else:
             eval.log_info("All classes found in those ontology registries")
 
-        eval.log_info(
-            "Checking if all properties used in RDF are known in OLS, LOV, or BioPortal"
-        )
-        qres = kg.query(self.query_properties)
-        property_not_in_registries = False
-        for row in qres:
-            logging.debug(f'evaluating property {row["prop"]}')
-            if not (
-                ask_OLS(row["prop"])
-                or ask_LOV(row["prop"])
-                or ask_BioPortal(row["prop"], type="property")
-            ):
-                logging.debug(f"{row['prop']} not known in OLS, or LOV, or BioPortal ")
-                eval.log_warning(
-                    f"{row['prop']} property not known in OLS, LOV, or BioPortal"
-                )
-
-                property_not_in_registries = True
-
-        # True if one of the properties is not in OLS, LOV or BioPortal
-        if property_not_in_registries:
+        for property_entry in results["properties_false"]:
+            print(f"{property_entry} not known in OLS, or LOV, or BioPortal ")
+            eval.log_warning(
+                f"{property_entry} property not known in OLS, LOV, or BioPortal"
+            )
+        if results["properties_false"]:
             eval.set_recommendations(json_rec["F2B"]["reco2"])
         else:
             eval.log_info("All properties found in those ontology registries")
@@ -196,4 +175,4 @@ class F2B_Impl(AbstractFAIRMetrics):
             "All classes and properties are known in major ontology registries"
         )
         eval.set_score(2)
-        return eval
+        return 

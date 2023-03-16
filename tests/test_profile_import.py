@@ -138,7 +138,7 @@ class ImportBSProfileTestCase(unittest.TestCase):
 
         self.assertEqual(len(kg), 35)
         result = dyn_evaluate_profile_with_conformsto(kg)
-        print(json.dumps(result, indent=True))
+
 
         self.assertEqual(len(result), 1)
         self.assertEqual(

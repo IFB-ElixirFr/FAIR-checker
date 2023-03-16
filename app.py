@@ -1167,13 +1167,13 @@ def handle_embedded_annot_2(data):
 
     sid = request.sid
     dev_logger.info("Session ID: " + sid)
-    RDF_TYPE[sid] = "turtle"
+    RDF_TYPE[sid] = "trig"
     uri = str(data["url"])
     dev_logger.info("Retrieve KG for uri: " + uri)
 
     web_resource = WebResource(uri)
-    kg = web_resource.get_rdf()
-    nb_triples = len(kg)
+    kgs = web_resource.get_wr_kg_dataset()
+    nb_triples = len(kgs)
     dev_logger.info("Found " + str(nb_triples) + " triples")
 
     KGS[sid] = kgs
@@ -1209,7 +1209,7 @@ def handle_describe_opencitation(data):
     if util.is_DOI(uri):
         uri = util.get_DOI(uri)
         dev_logger.info(f"FOUND DOI: {uri}")
-    kg = util.describe_opencitation(uri, kg)
+    kgs = util.describe_opencitation(uri, kgs)
 
     # nb_triples = len(kg)
     kgs_len = named_kg_len(kgs)
@@ -1283,143 +1283,6 @@ def handle_describe_loa(data):
             "kgs_len": kgs_len,
         },
     )
-
-
-def check_kg(kg, is_api):
-    """
-    In Inspect UI, check if classes and properties are found in reference registries
-    such as LOV, OLS, BioPortal, or is from Bioschemas.
-    Args:
-        kg (rdflib.ConjunctiveGraph): The RDF graph associated with the evaluated resource
-        is_api (bool): Indicate if the function if called from the UI or the API
-    Returns:
-        dict: Result of the classes and properties found or not in each registry to display to the UI
-    """
-
-    dev_logger.info("Starting Check Vocabularies")
-
-    query_classes = """
-        SELECT DISTINCT ?class { ?s rdf:type ?class } ORDER BY ?class
-    """
-    query_properties = """
-        SELECT DISTINCT ?prop { ?s ?prop ?o } ORDER BY ?prop
-    """
-
-    table_content = {
-        "classes": [],
-        "classes_false": [],
-        "properties": [],
-        "properties_false": [],
-        "done": False,
-    }
-
-    dev_logger.info("Retrieving all classes in KG")
-    qres = kg.query(query_classes)
-    for row in qres:
-        namespace = urlparse(row["class"]).netloc
-        class_entry = {}
-
-        # If property is from Bioschemas, validate the property
-        if namespace == "bioschemas.org":
-            class_entry = {
-                "name": row["class"],
-                "tag": {
-                    "OLS": None,
-                    "LOV": None,
-                    "BioPortal": None,
-                    "Bioschemas": True,
-                },
-            }
-        else:
-            class_entry = {
-                "name": row["class"],
-                "tag": {"OLS": None, "LOV": None, "BioPortal": None},
-            }
-
-        table_content["classes"].append(class_entry)
-
-    dev_logger.info("Retrieving all properties in KG")
-    qres = kg.query(query_properties)
-    for row in qres:
-        namespace = urlparse(row["prop"]).netloc
-        property_entry = {}
-
-        if namespace == "bioschemas.org":
-            property_entry = {
-                "name": row["prop"],
-                "tag": {
-                    "OLS": None,
-                    "LOV": None,
-                    "BioPortal": None,
-                    "Bioschemas": True,
-                },
-            }
-        else:
-            property_entry = {
-                "name": row["prop"],
-                "tag": {"OLS": None, "LOV": None, "BioPortal": None},
-            }
-
-        table_content["properties"].append(property_entry)
-
-    if not is_api:
-        emit("done_check", table_content)
-
-    dev_logger.info("Checking if classes exists in registries")
-    for c in table_content["classes"]:
-
-        c["tag"]["OLS"] = util.ask_OLS(c["name"])
-        if not is_api:
-            emit("done_check", table_content)
-
-        c["tag"]["LOV"] = util.ask_LOV(c["name"])
-        if not is_api:
-            emit("done_check", table_content)
-
-        c["tag"]["BioPortal"] = util.ask_BioPortal(c["name"], "class")
-        if not is_api:
-            emit("done_check", table_content)
-
-        all_false_rule = [
-            c["tag"]["OLS"] == False,
-            c["tag"]["LOV"] == False,
-            c["tag"]["BioPortal"] == False,
-        ]
-
-        if all(all_false_rule) and "Bioschemas" not in c["tag"]:
-            table_content["classes_false"].append(c["name"])
-
-    dev_logger.info("Checking if properties exists in registries")
-    for p in table_content["properties"]:
-
-        p["tag"]["OLS"] = util.ask_OLS(p["name"])
-        if not is_api:
-            emit("done_check", table_content)
-
-        p["tag"]["LOV"] = util.ask_LOV(p["name"])
-        if not is_api:
-            emit("done_check", table_content)
-
-        p["tag"]["BioPortal"] = util.ask_BioPortal(p["name"], "property")
-        if not is_api:
-            emit("done_check", table_content)
-
-        all_false_rule = [
-            p["tag"]["OLS"] == False,
-            p["tag"]["LOV"] == False,
-            p["tag"]["BioPortal"] == False,
-        ]
-        if all(all_false_rule) and not "Bioschemas" in p["tag"]:
-            table_content["properties_false"].append(p["name"])
-
-    table_content["done"] = True
-
-    # Need to emit the result if called from the UI
-    if not is_api:
-        emit("done_check", table_content)
-
-    dev_logger.info("Check vocabularies done")
-    return table_content
 
 
 @socketio.on("check_kg")

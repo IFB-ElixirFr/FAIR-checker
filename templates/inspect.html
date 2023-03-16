@@ -14,7 +14,7 @@ $(document).ready(function () {
 
     var socket = io.connect({{ config['SERVER_IP']| tojson }});
 
-    socket.emit('connect', { data: 'Connecting!' });
+    // socket.emit('connect', { data: 'Connecting!' });
 
     //////////////////
     // click handlers
@@ -137,8 +137,16 @@ $(document).ready(function () {
         $("#btn_describe_biotools").removeClass("is-loading");
         $("#btn_describe_loa").removeClass("is-loading");
         $("#btn_kg").removeClass("is-loading");
+
+        $("#kgs_len").text("");
+        $.each(value["kgs_len"], function (index, item) {
+            kg_prov = index.split('#').slice(-1)
+            elem = '<a class="button is-success is-small">From ' + kg_prov + ': ' + item + ' Triples</a>&nbsp;'
+            $("#kgs_len").append(elem);
+        });
     });
 
+    
     socket.on('send_bs_annot', function (value) {
         $("#annotated_bioschemas").val(value);
     });
