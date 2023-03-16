@@ -592,7 +592,7 @@ class WebResource:
 
         browser = WebResource.WEB_BROWSER_HEADLESS
         browser.get(url)
-        time.sleep(1)
+        time.sleep(2)
         browser.set_page_load_timeout(30)
         browser.implicitly_wait(30)
         # resp = requests.get(url)
@@ -606,9 +606,9 @@ class WebResource:
         )
         html_content = browser.page_source
         logging.debug(type(browser.page_source))
-        logging.info(f"size of the parsed web page: {len(browser.page_source)}")
+        logging.info(f"size of the parsed web page: {len(html_content)}")
         # print(browser.page_source)
-        return browser.page_source
+        return html_content
 
     # @staticmethod
     def html_to_rdf_extruct(self, html_source) -> ConjunctiveGraph:
