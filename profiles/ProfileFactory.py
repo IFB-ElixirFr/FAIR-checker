@@ -585,6 +585,7 @@ def get_latest_ref_profile_from_pname(profile_name, profile_versions):
 #     FAIR_CHECKER = 1
 #     FAIR_METRICS_API = 2
 
+
 class ProfileFactory:
     @staticmethod
     def list_all_conformsto():
@@ -686,7 +687,3 @@ class ProfileFactory:
 
 
 PROFILES = ProfileFactory.create_all_profiles_from_specifications()
-
-
-
-

@@ -9,6 +9,7 @@ from jinja2 import Template
 from pyshacl import validate
 from os import environ, path
 from metrics.WebResource import WebResource
+
 # class AbstractProfile(ABC):
 
 
@@ -145,7 +146,7 @@ class Profile:
         return shape
 
     def validate_shape(self, knowledge_graph, shacl_shape):
-        
+
         r = validate(
             data_graph=knowledge_graph,
             data_graph_format="turtle",

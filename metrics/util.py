@@ -100,7 +100,6 @@ def describe_opencitation(uri, g):
     for s, p, o in new_g:
         g.add((s, p, o, URIRef(uri + "#opencitations")))
 
-
     graph_post_size = len(g)
     # print(f"{graph_post_size - graph_pre_size} added new triples")
 
@@ -136,7 +135,6 @@ def describe_openaire(uri, g):
     new_g.parse(data=results, format="turtle")
     for s, p, o in new_g:
         g.add((s, p, o, URIRef(uri + "#openaire")))
-
 
     graph_post_size = len(g)
     # print(f"{graph_post_size - graph_pre_size} added new triples")

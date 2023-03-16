@@ -100,7 +100,9 @@ class WebResource:
         self.wr_dataset.namespace_manager.bind("sc", URIRef("http://schema.org/"))
         self.wr_dataset.namespace_manager.bind("scs", URIRef("https://schema.org/"))
         self.wr_dataset.namespace_manager.bind("bsc", URIRef("https://bioschemas.org/"))
-        self.wr_dataset.namespace_manager.bind("dct", URIRef("http://purl.org/dc/terms/"))
+        self.wr_dataset.namespace_manager.bind(
+            "dct", URIRef("http://purl.org/dc/terms/")
+        )
 
         # self.kg_links_header = ConjunctiveGraph(identifier="http://webresource/links_headers")
         # self.kg_auto = ConjunctiveGraph(identifier="http://webresource/auto")
@@ -270,9 +272,7 @@ class WebResource:
             self.rdf = rdf_graph
 
         # self.rdf.namespace_manager.bind("sc", URIRef("http://schema.org/"))
-        self.rdf.namespace_manager.bind(
-            "bsc", URIRef("https://bioschemas.org/")
-        )
+        self.rdf.namespace_manager.bind("bsc", URIRef("https://bioschemas.org/"))
         self.rdf.namespace_manager.bind("dct", URIRef("http://purl.org/dc/terms/"))
         self.rdf = clean_kg_excluding_ns_prefix(
             self.rdf, "http://www.w3.org/1999/xhtml/vocab#"
@@ -382,7 +382,7 @@ class WebResource:
                 if str(o).startswith("http://schema.org"):
                     return True
         return False
-    
+
     # Could be a static method
     def schema_https_convert(self, kg):
         for s, p, o, g in kg.quads(None):
@@ -401,10 +401,9 @@ class WebResource:
                     new_o = rdflib.URIRef(str(o).replace("http", "https", 1))
                     changed = True
             if changed:
-                kg.remove((s,p,o,g))
+                kg.remove((s, p, o, g))
                 kg.add((new_s, new_p, new_o, g))
         return kg
-
 
     def get_rdf_from_mimetype_match(self, url, rdf_format, kg):
         logging.debug("Getting RDF from: " + rdf_format)

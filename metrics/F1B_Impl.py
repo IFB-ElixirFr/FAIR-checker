@@ -116,9 +116,7 @@ class F1B_Impl(AbstractFAIRMetrics):
         for s, p, o in kg:
             for term in [s, o]:
                 if F1B_Impl.is_known_pid_scheme(str(term), namespaces):
-                    eval.log_info(
-                        f"Found an Identifiers.org namespace for {str(term)}"
-                    )
+                    eval.log_info(f"Found an Identifiers.org namespace for {str(term)}")
                     eval.set_score(1)
                     return eval
         eval.log_info("No namespace from identifiers.org found")
