@@ -78,7 +78,7 @@ class F2B_Impl(AbstractFAIRMetrics):
         eval.log_info(
             "Checking if at least one property used in RDF is known in OLS, LOV, or BioPortal"
         )
-        qres = kgs.query(self.query_properties)
+        qres = kg.query(self.query_properties)
         for row in qres:
             logging.debug(f'evaluating property {row["prop"]}')
             if ask_OLS(row["prop"]):
