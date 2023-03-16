@@ -15,7 +15,7 @@ import metrics.statistics as stats
 import unittest
 
 
-# @unittest.skip("to be run through a cron and with a specific test DB")
+@unittest.skip("to be run through a cron and with a specific test DB")
 class StatisticsTestCase(unittest.TestCase):
     metrics = []
     factory = None
