@@ -1,7 +1,11 @@
 import unittest
 from app import app
 from metrics.WebResource import WebResource
-from profiles.ProfileFactory import find_conformsto_subkg, dyn_evaluate_profile_with_conformsto, evaluate_profile_from_type
+from profiles.ProfileFactory import (
+    find_conformsto_subkg,
+    dyn_evaluate_profile_with_conformsto,
+    evaluate_profile_from_type,
+)
 
 
 class ValidateBioschemasTestCase(unittest.TestCase):
@@ -31,14 +35,12 @@ class ValidateBioschemasTestCase(unittest.TestCase):
         # self.assertEqual(22111, len(response.get_data()))
 
     def test_find_conformsto(self):
-
         wr_kg = WebResource(self.uri_tool).get_rdf()
         sub_kg_list = find_conformsto_subkg(wr_kg)
 
         self.assertEqual(len(sub_kg_list), 1)
         for sub_kg in sub_kg_list:
             print(len(sub_kg["sub_kg"]))
-
 
     def test_named_graph(self):
         wr_kg = WebResource(self.uri_wf).get_rdf()
