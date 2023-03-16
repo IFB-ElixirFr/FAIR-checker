@@ -118,6 +118,7 @@ class GenSHACLTestCase(unittest.TestCase):
             len(res[0]["https://doi.org/10.7892/boris.108387"]["warnings"]), 11
         )
 
+    @unittest.skip("Deprecated, Profile.py should be used instead")
     def test_datacite_validation_kg(self):
         input_url = "https://search.datacite.org/works/10.7892/boris.108387"
         datacite_md = WebResource(input_url)

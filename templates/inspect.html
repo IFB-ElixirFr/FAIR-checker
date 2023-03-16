@@ -207,7 +207,8 @@
     $("#btn_kg").click(function () {
         $(this).addClass("is-loading");
         $("#microdata").val("");
-        $("#nb_triples").text("0" + " triples");
+        // $("#nb_triples").text("0" + " triples");
+        $("#kgs_len").text("");
         $('#block_valid').html("");
         $('#t_classes').html("");
         $('#t_properties').html("");
@@ -337,12 +338,18 @@
         $("#section-describe").find(".block").removeClass("is-hidden");
         $("#article-bioschemas-check").find(".block").removeClass("is-hidden");
         $("#microdata").val(value["kg"]);
-        $("#nb_triples").text(value["nb_triples"] + " triples");
+        // $("#nb_triples").text(value["nb_triples"] + " triples");
         $("#btn_describe_opencitation").removeClass("is-loading");
         $("#btn_describe_wikidata").removeClass("is-loading");
         $("#btn_describe_biotools").removeClass("is-loading");
         $("#btn_describe_loa").removeClass("is-loading");
         $("#btn_kg").removeClass("is-loading");
+
+        $("#kgs_len").text("");
+        $.each(value["kgs_len"], function (index, item) {
+            elem = '<a class="button is-success is-small">' + index + ': ' + item + ' Triples</a>&nbsp;'
+            $("#kgs_len").append(elem);
+        });
         // Call Graph display update here
         // socket.emit('get_latest_triples');
     });
@@ -683,13 +690,15 @@
                     <textarea id="microdata" class="textarea is-small"
                         placeholder="Knowledge graph, in RDF, turtle syntax" rows="15"></textarea>
                 </div>
-                <a id="nb_triples" class="button is-success is-small">[] Triples</a>
+                <div id="kgs_len"></div>
+                <!-- <a id="nb_triples" class="button is-success is-small">[] Triples</a> -->
                 <br>
                 <div class="field is-grouped is-grouped-centered">
                     <p class="control"><a id="btn_rdf_json-ld" data-rdf="json-ld" class="button is-info">JSON-LD</a></p>
-                    <p class="control"><a id="btn_rdf_turtle" data-rdf="turtle" class="button is-info">Turtle</a></p>
-                    <p class="control"><a id="btn_rdf_nt" data-rdf="nt" class="button is-info">NT</a></p>
-                    <p class="control"><a id="btn_rdf_xml" data-rdf="xml" class="button is-info">XML</a></p>
+                    <!-- <p class="control"><a id="btn_rdf_turtle" data-rdf="turtle" class="button is-info">Turtle</a></p> -->
+                    <p class="control"><a id="btn_rdf_trig" data-rdf="trig" class="button is-info">Trig</a></p>
+                    <!-- <p class="control"><a id="btn_rdf_nt" data-rdf="nt" class="button is-info">NT</a></p> -->
+                    <!-- <p class="control"><a id="btn_rdf_xml" data-rdf="xml" class="button is-info">XML</a></p> -->
                 </div>
             </div>
         </div>
