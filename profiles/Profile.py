@@ -1,17 +1,9 @@
-# from abc import ABC, abstractmethod
-# import logging
-
-import requests
-
 from rdflib import ConjunctiveGraph, URIRef
 from rdflib.namespace import RDF
 from jinja2 import Template
 from pyshacl import validate
-from os import environ, path
-from metrics.WebResource import WebResource
-import logging
 
-# class AbstractProfile(ABC):
+import logging
 
 
 class Profile:
@@ -34,7 +26,7 @@ class Profile:
 
         Args:
             shape_name (str): Name of the SHACL shape
-            target_classes (list): List of classes that the shape should evaluate 
+            target_classes (list): List of classes that the shape should evaluate
             min_props (list): List of mandatory properties
             rec_props (list): List of recommended properties
             ref_profile (str): The reference to the profile that should be used in dct:conformsTo, correspond to Bioschemas Web page of the profile
