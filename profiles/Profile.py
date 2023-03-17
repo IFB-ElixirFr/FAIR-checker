@@ -9,16 +9,15 @@ from jinja2 import Template
 from pyshacl import validate
 from os import environ, path
 from metrics.WebResource import WebResource
+import logging
 
 # class AbstractProfile(ABC):
 
 
 class Profile:
-
-    # TODO doc class
-    # TODO getters for class attributes
-
-    # cache = {}
+    """
+    Profile class, one profile instance correspond to one Bioschemas Profile
+    """
 
     def __init__(
         self,
@@ -30,6 +29,18 @@ class Profile:
         latest=True,
         deprecated=False,
     ):
+        """
+        Constructor of the Bioschemas Profile class
+
+        Args:
+            shape_name (str): Name of the SHACL shape
+            target_classes (list): List of classes that the shape should evaluate 
+            min_props (list): List of mandatory properties
+            rec_props (list): List of recommended properties
+            ref_profile (str): The reference to the profile that should be used in dct:conformsTo, correspond to Bioschemas Web page of the profile
+            latest (bool, optional): Is the profile version the latest, if not True give the latest version. Defaults to True.
+            deprecated (bool, optional): Is the profile deprecated of not. Defaults to False.
+        """
         self.shape_name = shape_name
         self.target_classes = target_classes
         self.min_props = min_props
@@ -43,43 +54,86 @@ class Profile:
         self.nb_min = len(self.min_props)
         self.nb_rec = len(self.rec_props)
 
-    # def set_ref_profile(self, ref_profile):
-    #     self.ref_profile = ref_profile
-
     def get_name(self):
+        """
+        Get the name of the profile
+
+        Returns:
+            str: Name of the profile
+        """
         return self.shape_name
 
     def get_target(self):
+        """
+        Get the target classes of the profile
+
+        Returns:
+            str: The target classes of the profile
+        """
         return self.target_classes
 
     def get_required(self):
+        """
+        Get the list of mandatory properties for this profile
+
+        Returns:
+            list: List of the mandatory properties
+        """
         return self.min_props
 
     def get_recommended(self):
+        """
+        Get the list of recommended properties for this profile
+
+        Returns:
+            list: List of the recommended properties
+        """
         return self.rec_props
 
     def get_ref_profile(self):
+        """
+        Get the profile Bioschemas web page URL that the user should refere to with dct:conformsTo
+
+        Returns:
+            str: The reference profile URL to reference to this profile
+        """
         return self.ref_profile
 
     def get_shacl_shape(self):
+        """
+        Get the SHACL shape corresponding to the profile instance
+
+        Returns:
+            str: The SHACL shape
+        """
         return self.shacl_shape
 
     def get_is_deprecated(self):
+        """
+        The boolean that specifiy if the profile is deprecated of not
+
+        Returns:
+            bool: Is the profile deprecated
+        """
         return self.deprecated
 
     def get_latest_profile(self):
+        """
+        Get the latest version of the profile if it is not the latest, return True if it is the latest already
+
+        Returns:
+            True/str: True or the latest version of the profile
+        """
         return self.latest
 
     def gen_SHACL_from_profile(self):
+        """
+        Generate the SHACL shape when the profile instance is created
+        """
         shape_name = self.shape_name
         target_classes = self.target_classes
         min_props = self.min_props
         rec_props = self.rec_props
-
-        # print(shape_name)
-        # print(target_classes)
-        # print(min_props)
-        # print(rec_props)
 
         # @prefix bsc: <https://bioschemas.org/> .
         # @prefix bsc: <https://discovery.biothings.io/view/bioschemas/> .
@@ -102,7 +156,7 @@ class Profile:
 
             fc:{{shape_name}}
                 a sh:NodeShape ;
-                
+
                 {% for c in target_classes %}
                 sh:targetClass {{c}}, {{c.replace("sc:", "scs:")}} ;
                 {% endfor %}
@@ -133,8 +187,6 @@ class Profile:
 .
         """
 
-        # [sh: alternativePath(ex:father ex: mother  )]
-
         template = Template(shape_template)
         shape = template.render(
             shape_name=shape_name,
@@ -146,12 +198,20 @@ class Profile:
         return shape
 
     def validate_shape(self, knowledge_graph, shacl_shape):
+        """
+        Validate a RDF graph against the profile SHACL shape
 
+        Args:
+            knowledge_graph (ConjunctiveGraph): The RDF graph to evaluate
+            shacl_shape (str): The SHACL shape to evaluate the RDF graph against
+
+        Returns:
+            tuple: Conforms is True or False, warnings and errors are list of the missing properties
+        """
         r = validate(
             data_graph=knowledge_graph,
             data_graph_format="turtle",
             shacl_graph=shacl_shape,
-            # shacl_graph = my_shacl_constraint,
             shacl_graph_format="turtle",
             ont_graph=None,
             inference="rdfs",
@@ -161,9 +221,9 @@ class Profile:
         )
         conforms, results_graph, results_text = r
 
-        print("Evaluating: " + str(self.target_classes))
-        # print(knowledge_graph.serialize(format="trig"))
+        logging.info("Evaluating: " + str(self.target_classes))
 
+        # Query to get the result of the validation
         report_query = """
                 SELECT ?node ?path ?path ?severity WHERE {
                     ?v rdf:type sh:ValidationReport ;
@@ -179,20 +239,14 @@ class Profile:
             """
 
         results = results_graph.query(report_query)
-        # print("VALIDATION RESULTS")
-        print(knowledge_graph.serialize(format="turtle"))
-        print(shacl_shape)
-        # print(results_text)
-        # print(conforms)
-        # print(results_graph.serialize(format="turtle"))
+
         warnings = []
         errors = []
+        # Parse the results of the SHACL validation
         for r in results:
 
             if "#Warning" in r["severity"]:
-                # print(
-                #     f'WARNING: Property {r["path"]} should be provided for {r["node"]}'
-                # )
+                # Filter out http for schema.org namespace
                 if r["path"].startswith("http://schema.org/"):
                     pass
                 elif r["path"].startswith("https://schema.org/"):
@@ -200,32 +254,33 @@ class Profile:
                 else:
                     warnings.append(f'{r["path"]}')
             if "#Violation" in r["severity"]:
-                # print(f'ERROR: Property {r["path"]} must be provided for {r["node"]}')
-                # print(r["path"])
+                # Filter out http for schema.org namespace
                 if r["path"].startswith("http://schema.org/"):
                     pass
                 elif r["path"].startswith("https://schema.org/"):
                     errors.append(f'{r["path"]}')
                 else:
                     errors.append(f'{r["path"]}')
-        print(errors)
-        print(warnings)
+
         return conforms, warnings, errors
 
     def match_sub_kgs_from_profile(self, kg):
-        # kg.namespace_manager.bind("sc", URIRef("http://schema.org/"))
-        # kg.namespace_manager.bind("bsc", URIRef("https://bioschemas.org/"))
-        # kg.namespace_manager.bind("dct", URIRef("http://purl.org/dc/terms/"))
+        """
+        Check if a RDF Type (classes) in the Graph match with the target classes of the profile, if it does, get the corresponding sub KGs
+
+        Args:
+            kg (ConjunctiveGraph): The graph to find a classe to validate against this Bioschemas Profile
+
+        Returns:
+            list: _description_
+        """
 
         sub_kg_list = []
-        # print(kg.serialize(format="trig"))
 
-        # for s, p, o in kg.triples((None, RDF.type, None)):
         for (s, p, o, g) in kg.quads((None, RDF.type, None, None)):
-            # print(o)
-            # print(o.n3(kg.namespace_manager))
+
             if o.n3(kg.namespace_manager).replace("scs:", "sc:") in self.target_classes:
-                print(f"Trying to validate {s} as a(n) {o} resource")
+                logging.info(f"Trying to validate {s} as a(n) {o} resource")
                 sub_kg = ConjunctiveGraph()
                 sub_kg.namespace_manager.bind("sc", URIRef("http://schema.org/"))
                 sub_kg.namespace_manager.bind("scs", URIRef("https://schema.org/"))
@@ -235,10 +290,8 @@ class Profile:
 
                 for x, y, z, g in kg.quads((s, None, None, None)):
 
-                    # print(f"{x} -> {y} -> {z} -> {g}")
-                    # print(i)
                     sub_kg.add((x, y, z))
-                # print(sub_kg.serialize(format="trig"))
+
                 sub_kg_list.append({"sub_kg": sub_kg, "subject": s, "object": o})
 
         return sub_kg_list
