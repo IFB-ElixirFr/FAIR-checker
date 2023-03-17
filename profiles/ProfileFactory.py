@@ -704,6 +704,15 @@ class ProfileFactory:
 
     @staticmethod
     def create_profile_from_ref_profile(ref_profile):
+        """
+        Create a specific Profile instance based on a ref_profile
+
+        Args:
+            ref_profile (str): The ref_profile to create a Profile for
+
+        Returns:
+            Profile: A Profile instance of the profile
+        """
         bs_profiles = load_profiles()
         for profile_key in bs_profiles.keys():
             logging.info(bs_profiles[profile_key]["ref_profile"])
