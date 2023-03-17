@@ -1,12 +1,4 @@
-<!-- <button id="update">Update</button> -->
-<!-- <div id="chart-radar" class="columns is-mobile is-centered"></div> -->
-
-<!-- <div>
-  <a id="canvas2svg" class="button is-info" download="ChartImage.svg" href=""><i class="fa fa-download fa-fw"></i>DOWNLOAD</a>
-</div> -->
-
 <canvas id="radar-chart" class="columns is-mobile is-centered"></canvas>
-
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.0"></script>
 
@@ -17,7 +9,6 @@
   ctx.canvas.height = '400';
   ctx.canvas.width = '400';
   var data = {
-      // labels: ["Total", "Findable", "Accessible", "Interoperable", "Reusable"],
       labels: ["Findable", "Interoperable", "Reusable", "Accessible"],
       datasets: [
           {
@@ -48,9 +39,6 @@
 
   options = {
     scale: {
-        // angleLines: {
-        //     display: false
-        // },
       ticks: {
         suggestedMin: 0,
         suggestedMax: 100,
@@ -68,40 +56,15 @@
       duration: 500,
     },
     maintainAspectRatio: false,
-    // responsive: true,
-
-    // hover: {
-    //   mode: 'index',
-    //   intersect: false
-    // }
-
   };
 
   var myRadarChart = new Chart(ctx, {
       type: 'radar',
       options: options,
       data: data,
-      // options: {
-      //     barValueSpacing: 20,
-      //     scales: {
-      //         yAxes: [{
-      //             ticks: {
-      //                 min: 0,
-      //             }
-      //         }]
-      //     }
-      // }
   });
 
   $("#canvas2svg").click(function(){
-    console.log("downloading functionality");
-
-    // /*Get image of canvas element*/
-    // var url_base64jp = document.getElementById("radar-chart").toDataURL("image/jpg");
-    // /*get download button (tag: <a></a>) */
-    // var a =  document.getElementById("canvas2svg");
-    // /*insert chart image url to download button (tag: <a></a>) */
-    // a.href = url_base64jp;
 
     // Add some critical information
     $("svg").attr({ version: '1.1' , xmlns:"http://www.w3.org/2000/svg"});
@@ -119,8 +82,6 @@
   });
 
   function update_radar_chart2() {
-      console.log("updated 2 !");
-      console.log(myRadarChart.data.datasets[0].data)
 
       fs_count = {
         success: {},
@@ -131,13 +92,6 @@
         value = parseInt($(this).text());
         category = $(this).data("category");
 
-
-        // if (!('Total' in fs_count['success'])){
-        //   fs_count['success']['Total'] = 0;
-        // }
-        // if (!('Total' in fs_count['failure'])){
-        //   fs_count['failure']['Total'] = 0;
-        // }
         if (!(category in fs_count['success'])){
           fs_count['success'][category] = 0;
         }
@@ -150,19 +104,14 @@
 
         if (value >= 1) {
           fs_count['success'][category] += 1/size*100;
-          // fs_count['success']['Total'] += 1/total_size*100;
         } else if (value === 0){
           fs_count['failure'][category] += 1/size*100;
-          // fs_count['failure']['Total'] += 1/total_size*100;
         }
 
 
       });
 
-      console.log(fs_count);
-
       values_success = [
-        // fs_count['success']['Total'].toFixed(1),
         fs_count['success']['F'].toFixed(1),
         fs_count['success']['I'].toFixed(1),
         fs_count['success']['R'].toFixed(1),
@@ -170,32 +119,18 @@
       ]
 
       values_failures = [
-        // fs_count['failure']['Total'].toFixed(1),
         fs_count['failure']['F'].toFixed(1),
         fs_count['failure']['I'].toFixed(1),
         fs_count['failure']['R'].toFixed(1),
         fs_count['failure']['A'].toFixed(1),
       ]
       myRadarChart.data.datasets[0].data = values_success;
-      // myRadarChart.data.datasets[1].data = values_failures;
       myRadarChart.update();
   };
 
-
-
 </script>
 
-
-
-
-
-
-
-
-
-
 <script type="text/javascript" charset="utf-8">
-
 
   var chart = RadarChart.chart();
   chart.config({
@@ -208,9 +143,6 @@
     factor: 0.7,
   });
 
-
-
-
   var data = [
     {
       className: 'success', // optional can be used for styling
@@ -221,18 +153,7 @@
         {axis: "Reusable", value: 0},
       ]
     },
-    // {
-    //   className: 'failure',
-    //   axes: [
-    //     {axis: "Findable", value: 0},
-    //     {axis: "Accessible", value: 0},
-    //     {axis: "Interoperable", value: 0},
-    //     {axis: "Reusable", value: 0},
-    //
-    //   ]
-    // }
   ];
-
 
   var cfg = chart.config(); // retrieve default config
   var svg = d3.select('#chart-radar').append('svg')
@@ -242,7 +163,6 @@
 
 
   function update_radar_chart() {
-      console.log("updated !");
 
       fs_count = {
         success: {},
@@ -261,23 +181,17 @@
         }
 
         size = $('[name=checkbox_' + category + ']').length;
-        console.log(size);
 
         if (value == 1) {
           fs_count['success'][category] += 1/size;
 
-          console.log( id + ": " + value );
-          console.log( id + ": " + category );
         } else if (value == 0){
           fs_count['failure'][category] += 1/size;
-          console.log( id + ": " + value );
-          console.log( id + ": " + category );
         }
 
 
       });
 
-      console.log(fs_count);
 
       var data = [
         {
@@ -289,23 +203,12 @@
             {axis: "Reusable", value: fs_count['success']['R']},
           ]
         },
-        // {
-        //   className: 'failure',
-        //   axes: [
-        //     {axis: "Findable", value: fs_count['failure']['F']},
-        //     {axis: "Accessible", value: fs_count['failure']['A']},
-        //     {axis: "Interoperable", value: fs_count['failure']['I']},
-        //     {axis: "Reusable", value: fs_count['failure']['R']},
-        //
-        //   ]
-        // }
       ];
 
       d3.selectAll("svg > *").remove();
 
       svg.append('g').classed('single', 1).datum(data).call(chart);
   };
-
 
   d3.select("#update").on("click", update_radar_chart);
 

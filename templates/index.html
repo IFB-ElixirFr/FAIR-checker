@@ -6,7 +6,6 @@
 {% endblock %}
 
 
-
 {% block body %}
 
 
@@ -26,12 +25,12 @@
                     explore and <b class="has-text-ifb-blue">inspect</b> metadata exposed in web resources.</h2>
             </div>
             <div class="block">
-                <a href="{{ url_for('base_metrics') }}">
+                <a href="{{ url_for('check') }}">
                     <p id="landing_check" class="button is-success is-large">Check&nbsp;<i
                             class="fa fa-check fa-fw"></i>
                     </p>
                 </a>
-                <a href="{{ url_for('kg_metrics_2') }}">
+                <a href="{{ url_for('inspect') }}">
                     <p id="landing_inspect" class="button is-info is-large">Inspect&nbsp;<i
                             class="fa fa-search fa-fw"></i>
                     </p>
@@ -42,16 +41,10 @@
     <div class="column is-one-third">
         <img src="{{ url_for('static',filename='images/fc.png') }}">
     </div>
-    <!-- <div class="column is-one-quarter">
-        <img src="{{ url_for('static',filename='images/ELIXIR_Node_FRANCE.png') }}">
-    </div> -->
+
 </div>
 
-<!-- <div class="columns is-centered">
-    <div class="column is-6">
-        <div class="box">FAIR-Checker is a Web tool to assess FAIR principles and promote their implementation.</div>
-    </div>
-</div> -->
+
 
 <div class="section">
     <h2 class="title">Inspect: how it works ?</h2>

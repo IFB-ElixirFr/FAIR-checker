@@ -5,10 +5,13 @@ from metrics.recommendation import json_rec
 
 class R12_Impl(AbstractFAIRMetrics):
     """
-    GOAL : retrieve embedded semantic annotations
+    GOAL: Check that metadata include provenance.
     """
 
     def __init__(self, web_resource=None):
+        """
+        The constructor of the metric implementation
+        """
         super().__init__(web_resource)
         self.name = "Metadata includes provenance"
         self.id = "13"
@@ -21,12 +24,24 @@ class R12_Impl(AbstractFAIRMetrics):
         """
 
     def weak_evaluate(self):
+        """
+        The weak evaluation for R12 metric, not doing anything at the moment, only strong is defined
+
+        Returns:
+            Evaluation: The Evaluation object containing eventual new informations
+        """
         eval = self.get_evaluation()
         eval.set_implem(self.implem)
         eval.set_metrics(self.principle_tag)
         return eval
 
     def strong_evaluate(self):
+        """
+        The strong evaluation for R12 metric, look for at least one provenance property from PROV, DCTerms, etc in metadata.
+
+        Returns:
+            Evaluation: The Evaluation object containing eventual new informations
+        """
         eval = self.get_evaluation()
         eval.set_implem(self.implem)
         eval.set_metrics(self.principle_tag)

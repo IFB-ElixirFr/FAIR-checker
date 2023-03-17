@@ -75,11 +75,15 @@ class F1B_Impl(AbstractFAIRMetrics):
         return check
 
     """
-    GOAL :
-
+    GOAL:
+        Weak: FAIR-Checker verifies that at least one namespace from identifiers.org is used in metadata.<br><br>
+        Strong: FAIR-Checker verifies that the  “identifier” property from DCTerms or Schema.org vocabularies is present in metadata.
     """
 
     def __init__(self, web_resource=None):
+        """
+        The constructor of the metric implementation
+        """
         super().__init__(web_resource)
         self.name = "Persistent IDs"
         self.id = "2"
@@ -87,32 +91,29 @@ class F1B_Impl(AbstractFAIRMetrics):
         self.principle_tag = "F1B"
         self.implem = "FAIR-Checker"
         self.desc = """
-            Weak : FAIR-Checker verifies that at least one namespace from identifiers.org is used in metadata.<br><br>
-            Strong : FAIR-Checker verifies that the  “identifier” property from DCTerms or Schema.org vocabularies is present in metadata. 
+            Weak: FAIR-Checker verifies that at least one namespace from identifiers.org is used in metadata.<br><br>
+            Strong: FAIR-Checker verifies that the  “identifier” property from DCTerms or Schema.org vocabularies is present in metadata. 
         """
 
     def weak_evaluate(self):
         """
         at least one of the RDF term (subject, predicate, or object) reuse one of the Identifiers.org namespaces
+
+        Returns:
+            Evaluation: The Evaluation object containing eventual new informations
         """
         eval = self.get_evaluation()
         eval.set_implem(self.implem)
         eval.set_metrics(self.principle_tag)
 
-        kgs = self.get_web_resource().get_wr_kg_dataset()
         kg = self.get_web_resource().get_rdf()
-
-        # print(kg.serialize(format="trig"))
-
-        # for kg in self.get_web_resource().get_wr_kg_dataset().graphs():
-        #     print(kg.serialize(format="json-ld"))
 
         namespaces = F1B_Impl.get_known_namespaces()
         eval.log_info("Weak evaluation:")
         eval.log_info(
             "Checking that at least one namespace from identifiers.org is in metadata"
         )
-        # for kg in kgs:
+
         for s, p, o in kg:
             for term in [s, o]:
                 if F1B_Impl.is_known_pid_scheme(str(term), namespaces):
@@ -127,6 +128,9 @@ class F1B_Impl(AbstractFAIRMetrics):
     def strong_evaluate(self):
         """
         dcterms:identifiers or schema:identifier and known in Identifiers.org
+
+        Returns:
+            Evaluation: The Evaluation object containing eventual new informations
         """
         eval = self.get_evaluation()
         eval.set_implem(self.implem)
@@ -134,21 +138,20 @@ class F1B_Impl(AbstractFAIRMetrics):
 
         query_identifiers = (
             self.COMMON_SPARQL_PREFIX
-            + """ 
-ASK { 
-    VALUES ?p {dct:identifier schema:identifier} . 
-    ?s ?p ?o .
-}
+            + """
+                ASK {
+                    VALUES ?p {dct:identifier schema:identifier} .
+                    ?s ?p ?o .
+                }
             """
         )
-        # eval.log_info(f"Running query:" + f"\n{query_identifiers}")
+
         eval.log_info("Strong evaluation:")
         eval.log_info(
             "Checking if there is either schema:identifier or dct:identifier property in metadata"
         )
 
         kg = self.get_web_resource().get_rdf()
-        # for kg in self.get_web_resource().get_wr_kg_dataset().graphs():
 
         res = kg.query(query_identifiers)
         for bool_res in res:

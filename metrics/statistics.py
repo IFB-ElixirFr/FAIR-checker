@@ -1,17 +1,20 @@
 from pymongo import MongoClient
-from datetime import datetime, date, timedelta
+from datetime import datetime, timedelta
 
 
 def evaluations_this_week():
+    """
+    Function that retrieve the number of evaluations made on the last 7 days (one metric is one evaluation)
+
+    Returns:
+        int: The number of evaluations being made
+    """
     client = MongoClient()
     db = client.fair_checker
     evaluations = db.evaluations
 
-    a_day_ago = datetime.now() - timedelta(1)
     a_week_ago = datetime.now() - timedelta(7)
-    a_month_ago = datetime.now() - timedelta(30)
 
-    # nb_eval = evaluations.find({"started_at": {"$gt": a_day_ago}}).count_documents()
     nb_eval = evaluations.count_documents({"started_at": {"$gt": a_week_ago}})
     return nb_eval
 
@@ -29,13 +32,17 @@ def evaluations_this_month():
 
 
 def success_this_week():
+    """
+    Function that retrieve the number of successful evaluations (score 1 or 2) made on the last 7 days (one metric is one evaluation)
+
+    Returns:
+        int: The number of successful evaluations
+    """
     client = MongoClient()
     db = client.fair_checker
     evaluations = db.evaluations
 
-    a_day_ago = datetime.now() - timedelta(1)
     a_week_ago = datetime.now() - timedelta(7)
-    a_month_ago = datetime.now() - timedelta(30)
 
     nb_eval = evaluations.count_documents(
         {"started_at": {"$gt": a_week_ago}, "success": "1"}
@@ -47,13 +54,21 @@ def success_this_week():
 
 
 def this_week_for_named_metrics(prefix="F", success="0"):
+    """
+    Function that retrieve the number of successful or failed evaluations for a specific category of metrics
+
+    Args:
+        prefix (str, optional): Either F, A, I or R. Defaults to "F".
+        success (str, optional): Either 1 or 0 to get failed or success count. Defaults to "0".
+
+    Returns:
+        int: The number of failed or successful evaluations for a given FAIR category
+    """
     client = MongoClient()
     db = client.fair_checker
     evaluations = db.evaluations
 
-    a_day_ago = datetime.now() - timedelta(1)
     a_week_ago = datetime.now() - timedelta(7)
-    a_month_ago = datetime.now() - timedelta(30)
 
     if success == 1:
         evals = evaluations.find(
@@ -78,13 +93,17 @@ def this_week_for_named_metrics(prefix="F", success="0"):
 
 
 def failures_this_week():
+    """
+    Function that retrieve the number of failed evaluations (score 0) made on the last 7 days (one metric is one evaluation)
+
+    Returns:
+        int: The number of failed evaluations
+    """
     client = MongoClient()
     db = client.fair_checker
     evaluations = db.evaluations
 
-    a_day_ago = datetime.now() - timedelta(1)
     a_week_ago = datetime.now() - timedelta(7)
-    a_month_ago = datetime.now() - timedelta(30)
 
     nb_eval = evaluations.count_documents(
         {"started_at": {"$gt": a_week_ago}, "success": "0"}
@@ -93,9 +112,14 @@ def failures_this_week():
 
 
 def success_weekly_one_year():
+    """
+    Function that retrieve the number of successful evaluations per week since one year (one metric is one evaluation)
+
+    Returns:
+        list: A list of dict that contain the number of successful evaluations for each week
+    """
     client = MongoClient()
     db = client.fair_checker
-    evaluations = db.evaluations
 
     a_year_ago = datetime.now() - timedelta(356)
 
@@ -139,9 +163,14 @@ def success_weekly_one_year():
 
 
 def failures_weekly_one_year():
+    """
+    Function that retrieve the number of failed evaluations per week since one year (one metric is one evaluation)
+
+    Returns:
+        list: A list of dict that contain the number of failed evaluations for each week
+    """
     client = MongoClient()
     db = client.fair_checker
-    evaluations = db.evaluations
 
     a_year_ago = datetime.now() - timedelta(356)
 
@@ -184,9 +213,14 @@ def failures_weekly_one_year():
 
 
 def weekly_named_metrics(prefix="F", success=0):
+    """
+    Function that retrieve the number of successful or failed evaluations per week since one year for a specific F, A, I or R category of metrics
+
+    Returns:
+        list: A list of dict that contain the number of successful or failed evaluations for each week for a specific category
+    """
     client = MongoClient()
     db = client.fair_checker
-    evaluations = db.evaluations
 
     a_year_ago = datetime.now() - timedelta(356)
 

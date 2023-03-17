@@ -9,34 +9,19 @@
 <script type="text/javascript" charset="utf-8">
 
     $( document ).ready(function() {
-
-<!--        var cm = new CodeMirror.fromTextArea(document.getElementById("editor"), {-->
-<!--            lineNumbers: true,-->
-<!--            lineWrapping: true,-->
-<!--         });-->
-
-        console.log( "ready!" );
-        $("#notif").addClass("is-hidden");
-
-        console.log('trying to connect...');
+        
         var socket = io.connect({{ config['SERVER_IP']|tojson }});
-        //var socket = io();
-        console.log('connected');
+
+        socket.emit('connect', { data: 'Connecting!' });
 
         //////////////////
         // click handlers
         //////////////////
 
-
-
         //////////////////
         // event handlers
         //////////////////
 
-        socket.on('connect', function() {
-            socket.emit('hello', {data: 'I\'m connected!'});
-            console.log('hello message sent');
-        });
     });
 
 </script>
@@ -46,12 +31,7 @@
 <section class="hero is-warning">
     <div class="hero-body">
         <div class="container">
-            <!--      <h1 class="title">-->
-            <!--        Primary title-->
-            <!--      </h1>-->
-            <!--      <h2 class="subtitle">-->
-            <!--        Primary subtitle-->
-            <!--      </h2>-->
+
 
             <section class="section">
                 <nav class="level">
@@ -164,7 +144,6 @@
         <p>Last 7 days results</p>
     </div>
     <div class="message-body">
-        <!-- <canvas id="myChart" width="400" height="400"></canvas> -->
         <section>
             <!-- Create a div where the graph will take place -->
             <div>
@@ -181,7 +160,6 @@
     <div class="message-body">
 
         <div class="field is-grouped is-grouped-centered">
-            <!-- <canvas id="myChart" width="400" height="400"></canvas> -->
             <p class="control">
                 <button id="update_stats_total" data-fair="Total" class="button is-info"><i
                         class="fa fa-bar-chart fa-fw"></i>Total
@@ -240,8 +218,6 @@
       ]
   };
 
-
-
   var myBarChart = new Chart(ctx, {
       type: 'bar',
       data: data2,
@@ -262,19 +238,10 @@
 
 <script>
   var ctx = document.getElementById("myLineChart").getContext("2d");
-  console.log( {{ success_weekly|tojson }});
-  console.log( {{ failures_weekly|tojson }});
 
   var success_labels = {{ success_weekly|tojson }}.map(v => (v.x));
   var failures_labels = {{ failures_weekly|tojson }}.map(v => (v.x));
   var labels = [...new Set([...success_labels, ...failures_labels])].sort();
-
-  // const labels = Object.keys({{ failures_weekly|tojson }});
-  // const values_success = Object.values({{ success_weekly|tojson }});
-  // const values_failures = Object.values({{ failures_weekly|tojson }});
-
-  // console.log(labels);
-  // console.log(values_failures);
 
   var array1 = [1, 2, 3];
   var array2 = [2, 3, 4];
@@ -299,24 +266,6 @@
               fill: false,
               data: {{ failures_weekly|tojson }},
           },
-          // {
-          //     label: "Success",
-          //     borderWidth: '1',
-          //     borderColor: 'rgba(75, 192, 192, 1)',
-          //     // backgroundColor: 'rgba(219, 242, 242, 0.5)',
-          //     fill: false,
-          //     data: {{ success_weekly|tojson }},
-          //     type: "line",
-          // },
-          // {
-          //     label: "Failures",
-          //     borderWidth: '1',
-          //     borderColor: 'rgba(255, 99, 132, 1)',
-          //     // backgroundColor: 'rgba(255, 224, 230, 0.5)',
-          //     fill: false,
-          //     data: {{ failures_weekly|tojson }},
-          //     type: "line",
-          // },
       ]
   };
 
@@ -335,15 +284,8 @@
                 title: function(tooltipItem, data) {
                     return "";
                 },
-                // label: function(tooltipItem, data) {
-                //     return data['datasets'][0]['data'][tooltipItem['index']];
-                // },
             },
         },
-        // hover: {
-        //    mode: 'index',
-        //    intersect: false
-        // },
         scales: {
             xAxes: [{
                 type: 'category',
@@ -362,8 +304,6 @@
 <script>
   // start all selected metrics test
   $("button[id^='update_stats_']").on('click', function($e){
-    // console.log($(this).data("fair"));
-
 
     switch ($(this).data("fair")) {
       case 'Total':
@@ -373,7 +313,6 @@
         break;
       case 'F':
         myLineChart.options.title.text = 'Findable';
-        // var labels = Object.keys({{ success_weekly|tojson }});
         var values_success = Object.values({{ f_success_weekly|tojson }});
         var values_failures = Object.values({{ f_failures_weekly|tojson }});
         break;
@@ -398,7 +337,6 @@
     myLineChart.data.datasets[0].data = values_success;
     myLineChart.data.datasets[1].data = values_failures;
     myLineChart.update();
-
   });
 
 </script>

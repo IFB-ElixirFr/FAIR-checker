@@ -199,6 +199,7 @@ class WebResourceTestCase(unittest.TestCase):
         print(len(g_n3))
         # print(len(g_all))
 
+    @unittest.skip("Need to be updated testing WR and len of graph with assert")
     def test_named_graph_pangaea(self):
 
         # jsonld

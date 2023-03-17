@@ -17,15 +17,13 @@ from metrics.recommendation import json_rec
 
 class R11_Impl(AbstractFAIRMetrics):
     """
-    GOAL : retrieve embedded semantic annotations
-    Check that how classes and properties are known in major standards, as reported in LOV :
-       1. extract RDF annotations from web page
-       2. list all used RDFS / OWL classes : ?class matching triple pattern ( ?x rdf:type ?class)
-       3. list all used RDFS / OWL properties : ?p matching triple pattern ( ?s ?p ?o)
-       4. for each, ask (efficiently) if it's known in LOV
+    GOAL : Check that metadata include a license
     """
 
     def __init__(self, web_resource=None):
+        """
+        The constructor of the metric implementation
+        """
         super().__init__(web_resource)
         self.name = "Metadata includes license"
         self.id = "12"
@@ -34,16 +32,29 @@ class R11_Impl(AbstractFAIRMetrics):
         self.implem = "FAIR-Checker"
         self.desc = """
             Metadata includes license. <br>
-            FAIR-Checker verifies that at least one license property from Schema.org, DCTerms, or DOAP ontologies are found in metadata. 
+            FAIR-Checker verifies that at least one license property from Schema.org, DCTerms, or DOAP ontologies are found in metadata.
         """
 
     def weak_evaluate(self):
+        """
+        The weak evaluation for R11 metric, not doing anything at the moment, only strong is defined
+
+        Returns:
+            Evaluation: The Evaluation object containing eventual new informations
+        """
         eval = self.get_evaluation()
         eval.set_implem(self.implem)
         eval.set_metrics(self.principle_tag)
         return eval
 
     def strong_evaluate(self):
+        """
+        The strong evaluation for R11 metric, look for at least one license property from Schema.org, DCTerms, etc in metadata.
+
+        Returns:
+            Evaluation: The Evaluation object containing eventual new informations
+        """
+
         eval = self.get_evaluation()
         eval.set_implem(self.implem)
         eval.set_metrics(self.principle_tag)

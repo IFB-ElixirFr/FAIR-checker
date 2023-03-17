@@ -7,11 +7,13 @@ from metrics.recommendation import json_rec
 
 class I3_Impl(AbstractFAIRMetrics):
     """
-    GOAL :
-
+    GOAL: To verifies that at least 3 different URL authorities are used in the URIs of RDF metadata.
     """
 
     def __init__(self, web_resource=None):
+        """
+        The constructor of the metric implementation
+        """
         super().__init__(web_resource)
         self.name = "External links"
         self.id = "11"
@@ -23,13 +25,24 @@ class I3_Impl(AbstractFAIRMetrics):
         """
 
     def weak_evaluate(self):
+        """
+        The weak evaluation for I3 metric, not doing anything at the moment, only strong is defined
+
+        Returns:
+            Evaluation: The Evaluation object containing eventual new informations
+        """
         eval = self.get_evaluation()
         eval.set_implem(self.implem)
         eval.set_metrics(self.principle_tag)
         return eval
 
     def strong_evaluate(self):
-        """at least 3 different URL authorities in URIs"""
+        """
+        The strong evaluation for I3 metric, at least 3 different URL authorities in URIs
+
+        Returns:
+            Evaluation: The Evaluation object containing eventual new informations
+        """
         eval = self.get_evaluation()
         eval.set_implem(self.implem)
         eval.set_metrics(self.principle_tag)

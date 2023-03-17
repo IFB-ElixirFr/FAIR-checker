@@ -1,6 +1,8 @@
 #!/usr/bin/python3
 # -*- coding: utf-8 -*-
 
+# WARNING: Only used for FAIR Metrics from Mark D W, need some cleaning, consider remove it
+
 import os
 
 import urllib

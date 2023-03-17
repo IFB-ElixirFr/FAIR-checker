@@ -34,8 +34,6 @@ d3.csv("https://raw.githubusercontent.com/holtzy/data_to_viz/master/Example_data
 
     size = $('[name=checkbox_' + category + ']').length;
     total_size = $('[name^=checkbox_').length;
-    console.log(value);
-    console.log(category);
 
   });
   data_test = [
@@ -53,7 +51,7 @@ d3.csv("https://raw.githubusercontent.com/holtzy/data_to_viz/master/Example_data
     {Country: "Community standards", Value: 1},
 
   ];
-  console.log(data);
+
   // Scales
   const x = d3.scaleBand()
       .range([0, 2 * Math.PI])    // X axis goes from 0 to 2pi = all around the circle. If I stop at 1Pi, it will be around a half circle

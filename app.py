@@ -1,6 +1,5 @@
 import copy
 from asyncio.log import logger
-from unittest import result
 import eventlet
 
 # from https://github.com/eventlet/eventlet/issues/670
@@ -12,22 +11,17 @@ from flask import (
     Flask,
     request,
     render_template,
-    session,
     send_file,
     send_from_directory,
     make_response,
-    Blueprint,
-    url_for,
 )
 from flask_restx import Resource, Api, fields, reqparse
-from flask_swagger_ui import get_swaggerui_blueprint
 from flask_cors import CORS
 from flask_socketio import SocketIO
 from flask_socketio import emit
 from flask_caching import Cache
-from flask import current_app
-from os import environ, path
-from dotenv import load_dotenv, dotenv_values
+from os import path
+from dotenv import dotenv_values
 import secrets
 import time
 import os
@@ -55,10 +49,7 @@ from metrics import test_metric
 from metrics.FAIRMetricsFactory import FAIRMetricsFactory
 from metrics.WebResource import WebResource
 from metrics.Evaluation import Result
-from profiles.bioschemas_shape_gen import validate_any_from_KG
-from profiles.bioschemas_shape_gen import validate_any_from_microdata
 from metrics.util import SOURCE, inspect_onto_reg
-from metrics.F1B_Impl import F1B_Impl
 from metrics.F1B_Impl import F1B_Impl
 from urllib.parse import urlparse
 
@@ -73,7 +64,6 @@ from profiles.ProfileFactory import (
     dyn_evaluate_profile_with_conformsto,
 )
 
-import time
 import atexit
 import requests
 
@@ -166,9 +156,7 @@ prod_logger.warning("Watch out prod!")
 prod_logger.info("I told you so prod")
 prod_logger.debug("DEBUG prod")
 
-
-# blueprint = Blueprint('api', __name__, url_prefix='/api')
-
+# Instanciate the Swagger API
 api = Api(
     app=app,
     title="FAIR-Checker API",
@@ -178,8 +166,6 @@ api = Api(
     description=app.config["SERVER_IP"],
     # url_scheme="https://fair-checker.france-bioinformatique.fr/",
 )
-
-# app.register_blueprint(blueprint)
 
 metrics_namespace = api.namespace("metrics", description="Metrics assessment")
 fc_check_namespace = api.namespace(
@@ -235,9 +221,7 @@ METRICS = {}
 # json_metrics = test_metric.getMetrics()
 factory = FAIRMetricsFactory()
 
-# # A DEPLACER AU LANCEMENT DU SERVEUR ######
 # METRICS_RES = test_metric.getMetrics()
-
 METRICS_CUSTOM = factory.get_FC_metrics()
 
 for i, key in enumerate(METRICS_CUSTOM):
@@ -246,8 +230,6 @@ for i, key in enumerate(METRICS_CUSTOM):
 KGS = {}
 
 RDF_TYPE = {}
-
-FILE_UUID = ""
 
 DICT_TEMP_RES = {}
 
@@ -260,6 +242,12 @@ DICT_BANNER_INFO = {"banner_message_info": {}}
 # Update banner info with the message in .env
 @app.context_processor
 def display_info():
+    """
+    Get the message from .env file to display in the UI in a top banner
+
+    Returns:
+        dict: Updated dict with the message from the .env
+    """
     global DICT_BANNER_INFO
 
     try:
@@ -280,6 +268,9 @@ def display_info():
 
 
 def update_vocab_status():
+    """
+    Method that check the status_code of BioPortal, OLS and LOV to know if the URLs are UP, if not, dislay it in the info banner
+    """
     global DICT_BANNER_INFO, STATUS_BIOPORTAL, STATUS_OLS, STATUS_LOV
 
     STATUS_BIOPORTAL = requests.head("https://bioportal.bioontology.org/").status_code
@@ -313,6 +304,12 @@ def update_vocab_status():
 
 @app.context_processor
 def display_vocab_status():
+    """
+    Function that make the banner info dictionnary available for all templates
+
+    Returns:
+        dict: Dictionnary containing eventual informations to display in the optional warning banner
+    """
     global DICT_BANNER_INFO
 
     return DICT_BANNER_INFO
@@ -334,6 +331,12 @@ atexit.register(lambda: scheduler.shutdown())
 
 @app.context_processor
 def inject_app_version():
+    """
+    Function that make the FAIR-Checker latest version available in all templates using github tags
+
+    Returns:
+        dict: Dictionnary containing the latest FAIR-Checker version
+    """
     repo = git.Repo(".")
     tags = sorted(repo.tags, key=lambda t: t.commit.committed_datetime)
     latest_tag = tags[-1]
@@ -342,11 +345,23 @@ def inject_app_version():
 
 @app.context_processor
 def inject_jsonld():
+    """
+    Functione that make the FAIR-Checker JSON-LD available to all templates
+
+    Returns:
+        dict: Dictionnary containing the JSON-LD describing FAIR-Checker application
+    """
     return dict(jld=buildJSONLD())
 
 
 @app.route("/favicon.ico")
 def favicon():
+    """
+    Setup FAIR-Checker favicon
+
+    Returns:
+        function: Flask function
+    """
     return send_from_directory(
         os.path.join(app.root_path, "static"),
         "favicon.ico",
@@ -356,6 +371,15 @@ def favicon():
 
 @app.route("/docs/<path:filename>")
 def documentation(filename):
+    """
+    Setup FAIR-Checker user documentation
+
+    Args:
+        filename (str): Name of the file that contains the documentation
+
+    Returns:
+        function: Flask function to retrieve documentation file
+    """
     return send_from_directory("docs/_build/html", filename)
 
 
@@ -370,6 +394,12 @@ def home():
 
 @app.route("/about")
 def about():
+    """
+    Route to load the about page
+
+    Returns:
+        function: Flask template renderer
+    """
     return render_template(
         "about.html",
         title="About",
@@ -379,6 +409,12 @@ def about():
 
 @app.route("/statistics")
 def statistics():
+    """
+    Route to load usage statistics of FAIR-Checker
+
+    Returns:
+        function: Flask template renderer
+    """
     return render_template(
         "statistics.html",
         title="Statistics",
@@ -407,24 +443,7 @@ def statistics():
     )
 
 
-# my_fields = api.model(
-#     "MyModel",
-#     {
-#         "name": fields.String(description="The name"),
-#         "type": fields.String(description="The object type", enum=["A", "B"]),
-#         "age": fields.Integer(min=0),
-#         "num": fields.Integer(description="The num to get the square of", min=0),
-#         # 'url': fields.String(Description='The URL of the resource to be tested', required=True)
-#     },
-# )
-
-# @api.route("/square/<int:num>")
-# class TestSquare(Resource):
-#     @api.marshal_with(my_fields)
-#     def get(self, num):
-#         return {"data": num ** 2}
-
-
+# Argument parser for Flask restx API
 reqparse = reqparse.RequestParser()
 reqparse.add_argument(
     "url",
@@ -436,6 +455,13 @@ reqparse.add_argument(
 
 
 def generate_check_api(metric):
+    """
+    Function that automatically generate endpoints to evaluate independently each FAIR-Checker metric
+
+    Args:
+        metric (metrics): A metric implementation generated by the FAIRMetricsFactory class
+    """
+
     @fc_check_namespace.route("/metric_" + metric.get_principle_tag())
     class MetricEval(Resource):
         @fc_check_namespace.doc(
@@ -446,7 +472,6 @@ def generate_check_api(metric):
 
             args = reqparse.parse_args()
             url = args["url"]
-
             web_res = WebResource(url)
             metric.set_web_resource(web_res)
             result = metric.evaluate()
@@ -473,13 +498,6 @@ for key in METRICS_CUSTOM.keys():
 @fc_check_namespace.route("/metrics_all")
 # @fc_check_namespace.doc(url_fields)
 class MetricEvalAll(Resource):
-    # reqparse = None
-    # def __init__(self, args):
-    #     self.reqparse = reqparse.RequestParser()
-    #     self.reqparse.add_argument('url', type = str, required = True, location='args', help="Name cannot be blank!")
-    #     # self.reqparse.add_argument('test', type = str, required = True, location='args')
-    #     # super(MetricEvalAll, self).__init__()
-
     @fc_check_namespace.doc("Evaluates all FAIR metrics at once")
     @fc_check_namespace.expect(reqparse)
     def get(self):
@@ -557,13 +575,25 @@ graph_payload = fc_inspect_namespace.model(
 
 
 def generate_ask_api(describe):
+    """
+    Function that automatically generate endpoints to aggregate RDF metadata from Wikidata, OpenCitations and OpenAIRE
+
+    Args:
+        describe (function): A describe function that aggregate metadata from an external endpoint
+    """
+
     @fc_inspect_namespace.route("/" + describe.__name__, methods=["GET"])
     @fc_inspect_namespace.route("/" + describe.__name__ + "/", methods=["POST"])
     # @api.doc(params={"url": "An URL"})
     class Ask(Resource):
         @fc_inspect_namespace.expect(reqparse)
         def get(self):
+            """
+            The GET method, taking an URL as input
 
+            Returns:
+                dict: A dictionnary containing the eventualy aggregated RDF Graph
+            """
             args = reqparse.parse_args()
             url = args["url"]
 
@@ -590,6 +620,12 @@ def generate_ask_api(describe):
 
         @fc_inspect_namespace.expect(graph_payload)
         def post(self):
+            """
+            The POST method, taking a rdf graph as input
+
+            Returns:
+                dict: A dictionnary containing the eventualy aggregated RDF Graph
+            """
             json_data = request.get_json(force=True)
             url = json_data["url"]
 
@@ -653,7 +689,6 @@ class InspectBioschemas(Resource):
 
         # Try to match and evaluate all found corresponding profiles
         results_type = evaluate_profile_from_type(kg)
-        print(results_type)
 
         for result_key in results_conformsto.keys():
             results[result_key] = results_conformsto[result_key]
@@ -699,7 +734,6 @@ class InspectBioschemasTypesMatch(Resource):
 
         # Try to match and evaluate all found corresponding profiles
         results_type = evaluate_profile_from_type(kg)
-        print(results_type)
 
         # TODO Try similarity match her for profiles that are not matched
 
@@ -710,28 +744,16 @@ def list_routes():
     return ["%s" % rule for rule in app.url_map.iter_rules()]
 
 
-# def has_no_empty_params(rule):
-#     defaults = rule.defaults if rule.defaults is not None else ()
-#     arguments = rule.arguments if rule.arguments is not None else ()
-#     return len(defaults) >= len(arguments)
-
-
-# @app.route("/site-map")
-# def site_map():
-#     links = []
-#     for rule in app.url_map.iter_rules():
-#         # Filter out rules we can't navigate to in a browser
-#         # and rules that require parameters
-#         if "GET" in rule.methods and has_no_empty_params(rule):
-#             url = url_for(rule.endpoint, **(rule.defaults or {}))
-#             links.append((url, rule.endpoint))
-#     # links is now a list of url, endpoint tuples
-#     return render_template("site_map.html", links=links)
-
-
 @socketio.on("webresource")
 def handle_webresource(url):
-    dev_logger.info("A new url to retrieve metadata from !")
+    """
+    Warning: Not used yet
+    Handler for URL changes in field, might be used to create WebResource object in advance to improve evaluation times
+
+    Args:
+        url (str): URL in field that should be evaluated
+    """
+    dev_logger.info("URL: " + url)
 
 
 @socketio.on("evaluate_metric")
@@ -748,10 +770,9 @@ def handle_metric(json):
     metric_name = json["metric_name"]
     client_metric_id = json["id"]
     url = json["url"]
-    dev_logger.info("Testing: " + url)
 
     # if implem == "FAIRMetrics":
-    # evaluate_fairmetrics(json, metric_name, client_metric_id, url)
+    #     evaluate_fairmetrics(json, metric_name, client_metric_id, url)
     if implem == "FAIR-Checker":
         evaluate_fc_metrics(metric_name, client_metric_id, url)
     else:
@@ -760,6 +781,18 @@ def handle_metric(json):
 
 
 def evaluate_fairmetrics(json, metric_name, client_metric_id, url):
+    """
+    Function that evaluate a metric from FAIRMetrics and emit the result
+
+    Args:
+        json (_type_): _description_
+        metric_name (_type_): _description_
+        client_metric_id (_type_): _description_
+        url (_type_): _description_
+
+    Returns:
+        _type_: _description_
+    """
     id = METRICS[metric_name].get_id()
     api_url = METRICS[metric_name].get_api()
     principle = METRICS[metric_name].get_principle()
@@ -840,15 +873,16 @@ def evaluate_fairmetrics(json, metric_name, client_metric_id, url):
 
 
 def evaluate_fc_metrics(metric_name, client_metric_id, url):
-    # print("OK FC Metrics")
-    # print(cache.get("TOTO"))
-    # print(METRICS_CUSTOM)
+    """
+    Function that evaluate a metric from FAIR-Checker metrics and emit the result
 
-    dev_logger.info("Evaluating FAIR-Checker metric")
-    # prod_logger.info("Evaluating FAIR-Checker metric")
+    Args:
+        metric_name (str): The name of the metric
+        client_metric_id (str): The id of the metric in the UI (to update the correct line)
+        url (str): The URI/URL of the resource to be evaluated
+    """
+
     id = METRICS_CUSTOM[metric_name].get_id()
-    dev_logger.info("ID: " + id)
-    dev_logger.info("Client ID: " + client_metric_id)
     # Faire une fonction recursive ?
     if cache.get(url) == "pulling":
         while True:
@@ -866,9 +900,8 @@ def evaluate_fc_metrics(metric_name, client_metric_id, url):
 
     METRICS_CUSTOM[metric_name].set_web_resource(webresource)
     name = METRICS_CUSTOM[metric_name].get_principle_tag()
-    dev_logger.warning("Evaluation: " + metric_name)
+    dev_logger.warning("Evaluating FC metric: " + name)
 
-    # dev_logger.info("Evaluating: " + metric_name)
     result = METRICS_CUSTOM[metric_name].evaluate()
 
     score = result.get_score()
@@ -876,14 +909,11 @@ def evaluate_fc_metrics(metric_name, client_metric_id, url):
     evaluation_time = result.get_test_time() - timedelta(
         microseconds=result.get_test_time().microseconds
     )
-    # comment = result.get_reason()
     comment = result.get_log_html()
 
     recommendation = result.get_recommendation()
-    # print(recommendation)
 
     # Persist Evaluation oject in MongoDB
-    implem = METRICS_CUSTOM[metric_name].get_implem()
     result.persist(str(SOURCE.UI))
 
     id = METRICS_CUSTOM[metric_name].get_id()
@@ -903,25 +933,21 @@ def evaluate_fc_metrics(metric_name, client_metric_id, url):
         "comment": comment,
         "recommendation": recommendation,
         "csv_line": csv_line,
-        # "name": name,
     }
     emit("done_" + client_metric_id, emit_json)
-    dev_logger.info("DONE our own metric !")
-
-
-@socketio.on("quick_structured_data_search")
-def handle_quick_structured_data_search(url):
-    if url == "":
-        return False
-
-    extruct_rdf = util.extract_rdf_from_html(url)
-    graph = util.extruct_to_rdf(extruct_rdf)
-    result_list = util.rdf_to_triple_list(graph)
-    emit("done_data_search", result_list)
+    dev_logger.info("DONE FC metric: " + name)
 
 
 def recommendation(emit_json, metric_name, comment):
+    """
+    Recommendations for FAIRMetrics (Mark D W.)
+    Emit the result to the Check UI
 
+    Args:
+        emit_json (dict): Dictionnary containing results of evaluation
+        metric_name (str): Name of the evaluated metric
+        comment (str): Explaination of what the metric did (evaluation + results)
+    """
     recommendation_dict = {
         # F1
         "unique_identifier": {
@@ -1071,121 +1097,20 @@ def recommendation(emit_json, metric_name, comment):
         emit_json["recommendation"] = "Recommendation will be available soon."
 
 
-def write_temp_metric_res_file(principle, api_url, time, score, comment, content_uuid):
-    global DICT_TEMP_RES
-    sid = request.sid
-    temp_file_path = "./temp/" + sid
-
-    principle = principle.split("/")[-1]
-    api_url = api_url.split("/")[-1].lstrip("gen2_")
-    name = principle + "_" + api_url
-    # print(name)
-
-    line = '"{}"\t"{}"\t"{}"\t"{}"\n'.format(name, score, str(time), comment)
-    # write csv file
-    if os.path.exists(temp_file_path):
-        with open(temp_file_path, "a") as fp:
-            fp.write(line)
-            print("success written")
-
-    if content_uuid in DICT_TEMP_RES.keys():
-        DICT_TEMP_RES[content_uuid] += line
-    else:
-        DICT_TEMP_RES[content_uuid] = line
-
-
-@socketio.on("download_csv")
-def handle_csv_download():
-
-    # temp_file_path = "./temp/" + FILE_UUID
-
-    print("Received download request from " + FILE_UUID)
-    # csv_download(temp_file_path)
-
-
-@app.route("/base_metrics/csv-download/<uuid>")
-def csv_download(uuid):
-    print("downloading !")
-    print(uuid)
-
-    output = io.StringIO()
-    output.write(DICT_TEMP_RES[uuid])
-    # write file object in BytesIO from StringIO
-    content = output.getvalue().encode("utf-8")
-    mem = io.BytesIO()
-    mem.write(content)
-    mem.seek(0)
-
-    # print(json.dumps(DICT_TEMP_RES, sort_keys=True, indent=4))
-
-    try:
-        return send_file(
-            mem,
-            as_attachment=True,
-            attachment_filename="results.csv",
-            mimetype="text/csv",
-            cache_timeout=-1,
-        )
-        # return send_from_directory(
-        #     "./temp/" + sid,
-        #     as_attachment=True,
-        #     attachment_filename='metrics_results.csv',
-        #     mimetype='text/csv'
-        # )
-    except Exception as e:
-        return str(e)
-
-
-# # not working
-# @socketio.on("connected")
-# def handle_connected(json):
-
-#     print(request.namespace.socket.sessid)
-#     print(request.namespace)
-
-
+### To remove ?
+@DeprecationWarning
 @socketio.on("connect")
 def handle_connect():
-    global FILE_UUID
-    print("The random id using uuid() is : ", end="")
-    FILE_UUID = str(uuid.uuid1())
-    print(FILE_UUID)
-    print(request)
-
     sid = request.sid
-
     dev_logger.info("Connected with SID " + sid)
 
-    # Creates a new temp file
-    # with open("./temp/" + sid, 'w') as fp:
-    #     pass
 
-
+## To remove ?
+@DeprecationWarning
 @socketio.on("disconnect")
 def handle_disconnected():
-    print("Disconnected")
     sid = request.sid
-
-    time.sleep(5)
-    print("Cleaning temp file after disconnect: " + sid)
-    if os.path.exists("./temp/" + sid):
-        os.remove("./temp/" + sid)
-
-
-#######################################
-#######################################
-
-
-@socketio.on("get_latest_triples")
-def handle_get_latest_triples():
-    sid = request.sid
-    kg = KGS[sid]
-
-    list_triples = []
-    for s, p, o in kg.triples((None, None, None)):
-        triple = {"subject": s, "predicate": p, "object": o}
-        list_triples.append(triple)
-    emit("send_triples", {"triples": list_triples})
+    dev_logger.info("Disconnecting SID " + sid)
 
 
 def named_kg_len(kgs):
@@ -1207,8 +1132,14 @@ def named_kg_len(kgs):
 
 @socketio.on("change_rdf_type")
 def handle_change_rdf_type(data):
+    """
+    Socketio Handler, a function that change the output format of the displayed RDF Graph
 
+    Args:
+        data (dict): A dict containing the new RDF Graph format to use for display in Inspect UI
+    """
     sid = request.sid
+    dev_logger.info("New format to display KG: " + data["rdf_type"])
     RDF_TYPE[sid] = data["rdf_type"]
     kgs = KGS[sid]
     # nb_triples = len(kg)
@@ -1227,26 +1158,23 @@ def handle_change_rdf_type(data):
 @socketio.on("retrieve_embedded_annot_2")
 def handle_embedded_annot_2(data):
     """
-    socketio Handler to aggregate original page metadata with sparql endpoints.
-    emit the result of sparql requests
+    Socketio Handler, create an instance of WebResource using the given URL in Inspect UI,
+    retrieve RDF metadata and sent it back with emit to the UI
 
-    @param data dict Contains the data needed to aggregate (url, etc).
+    Args:
+        data (dict): Contains the data needed to aggregate (url, etc).
     """
-    # step = 0
-    print("handle annot_2")
+
     sid = request.sid
-    print(sid)
+    dev_logger.info("Session ID: " + sid)
     RDF_TYPE[sid] = "trig"
     uri = str(data["url"])
-    print("retrieving embedded annotations for " + uri)
-    print("Retrieve KG for uri: " + uri)
+    dev_logger.info("Retrieve KG for uri: " + uri)
 
     web_resource = WebResource(uri)
-    # kg = web_resource.get_rdf()
     kgs = web_resource.get_wr_kg_dataset()
-    # print(kgs.serialize(format="trig"))
-    # nb_triples = len(kgs)
-    # print(nb_triples)
+    nb_triples = len(kgs)
+    dev_logger.info("Found " + str(nb_triples) + " triples")
 
     KGS[sid] = kgs
 
@@ -1264,53 +1192,23 @@ def handle_embedded_annot_2(data):
     )
 
 
-@socketio.on("update_annot_bioschemas")
-def handle_annotationn(data):
-    new_kg = rdflib.ConjunctiveGraph()
-    new_kg.namespace_manager.bind("sc", URIRef("http://schema.org/"))
-    new_kg.namespace_manager.bind("bsc", URIRef("https://bioschemas.org/"))
-    new_kg.namespace_manager.bind("dct", URIRef("http://purl.org/dc/terms/"))
-
-    # TODO check that url is well formed
-    if util.is_URL(data["url"]):
-        uri = rdflib.URIRef(data["url"])
-
-        for p in data["warn"].keys():
-            if data["warn"][p]:
-                value = data["warn"][p]
-                if util.is_URL(value):
-                    new_kg.add((uri, rdflib.URIRef(p), rdflib.URIRef(value)))
-                else:
-                    new_kg.add((uri, rdflib.URIRef(p), rdflib.Literal(value)))
-
-        for p in data["err"].keys():
-            if data["err"][p]:
-                value = data["err"][p]
-                if util.is_URL(value):
-                    new_kg.add((uri, rdflib.URIRef(p), rdflib.URIRef(value)))
-                else:
-                    new_kg.add((uri, rdflib.URIRef(p), rdflib.Literal(value)))
-
-        # print("****** Turtle syntax *****")
-        # print(new_kg.serialize(format='turtle').decode())
-        # print("**************************")
-
-        emit("send_bs_annot", str(new_kg.serialize(format="json-ld")))
-
-
 @socketio.on("describe_opencitation")
 def handle_describe_opencitation(data):
-    print("describing opencitation")
+    """
+    Socketio Handler, try to aggregate more metadata using Opencitation SPARQL endpoint
+
+    Args:
+        data (dict): Dictionnary containing the URL/URI of the resource
+    """
+    dev_logger.info("Describing with Opencitation")
     sid = request.sid
     kgs = KGS[sid]
     uri = str(data["url"])
-    graph = str(data["graph"])
-    # kg = ConjunctiveGraph()
-    # kg.parse(data=graph, format="turtle")
+
     # check if id or doi in uri
     if util.is_DOI(uri):
         uri = util.get_DOI(uri)
-        print(f"FOUND DOI: {uri}")
+        dev_logger.info(f"FOUND DOI: {uri}")
     kgs = util.describe_opencitation(uri, kgs)
 
     # nb_triples = len(kg)
@@ -1327,13 +1225,17 @@ def handle_describe_opencitation(data):
 
 @socketio.on("describe_wikidata")
 def handle_describe_wikidata(data):
-    print("describing wikidata")
+    """
+    Socketio Handler, try to aggregate more metadata using Wikidata SPARQL endpoint
+
+    Args:
+        data (dict): Dictionnary containing the URL/URI of the resource
+    """
+    dev_logger.info("Describing with Wikidata")
     sid = request.sid
     kgs = KGS[sid]
     uri = str(data["url"])
-    graph = str(data["graph"])
-    # kg = ConjunctiveGraph()
-    # kg.parse(data=graph, format="turtle")
+
     # check if id or doi in uri
     if util.is_DOI(uri):
         uri = util.get_DOI(uri)
@@ -1354,13 +1256,17 @@ def handle_describe_wikidata(data):
 
 @socketio.on("describe_loa")
 def handle_describe_loa(data):
-    print("describing loa")
+    """
+    Socketio Handler, try to aggregate more metadata using LOA SPARQL endpoint
+
+    Args:
+        data (dict): Dictionnary containing the URL/URI of the resource
+    """
+    dev_logger.info("Describing with LOA")
     sid = request.sid
     kgs = KGS[sid]
     uri = str(data["url"])
-    graph = str(data["graph"])
-    # kg = ConjunctiveGraph()
-    # kg.parse(data=graph, format="turtle")
+
     # check if id or doi in uri
     if util.is_DOI(uri):
         uri = util.get_DOI(uri)
@@ -1379,286 +1285,29 @@ def handle_describe_loa(data):
     )
 
 
-@DeprecationWarning
-@socketio.on("retrieve_embedded_annot")
-def handle_embedded_annot(data):
-    """
-    socketio Handler to aggregate original page metadata with sparql endpoints.
-    emit the result of sparql requests
-
-    @param data dict Contains the data needed to aggregate (url, etc).
-    """
-    step = 0
-    sid = request.sid
-    print(sid)
-    uri = str(data["url"])
-    print("retrieving embedded annotations for " + uri)
-    print("Retrieve KG for uri: " + uri)
-    # page = requests.get(uri)
-    # html = page.content
-
-    # use selenium to retrieve Javascript genereted content
-    html = util.get_html_selenium(uri)
-
-    d = extruct.extract(
-        html, syntaxes=["microdata", "rdfa", "json-ld"], errors="ignore"
-    )
-
-    kg = ConjunctiveGraph()
-
-    # kg = util.get_rdf_selenium(uri, kg)
-
-    # kg = util.extruct_to_rdf(d)
-
-    base_path = Path(__file__).parent  ## current directory
-    static_file_path = str((base_path / "static/data/jsonldcontext.json").resolve())
-
-    # remove whitespaces from @id values after axtruct
-    for key, val in d.items():
-        for dict in d[key]:
-            list(util.replace_value_char_for_key("@id", dict, " ", "_"))
-
-    for md in d["json-ld"]:
-        if "@context" in md.keys():
-            if ("https://schema.org" in md["@context"]) or (
-                "http://schema.org" in md["@context"]
-            ):
-                md["@context"] = static_file_path
-        kg.parse(data=json.dumps(md, ensure_ascii=False), format="json-ld")
-    for md in d["rdfa"]:
-        if "@context" in md.keys():
-            if ("https://schema.org" in md["@context"]) or (
-                "http://schema.org" in md["@context"]
-            ):
-                md["@context"] = static_file_path
-        kg.parse(data=json.dumps(md, ensure_ascii=False), format="json-ld")
-    for md in d["microdata"]:
-        if "@context" in md.keys():
-            if ("https://schema.org" in md["@context"]) or (
-                "http://schema.org" in md["@context"]
-            ):
-                md["@context"] = static_file_path
-        kg.parse(data=json.dumps(md, ensure_ascii=False), format="json-ld")
-
-    KGS[sid] = kg
-
-    step += 1
-    emit("update_annot", step)
-    emit("send_annot", str(kg.serialize(format="turtle").decode()))
-    print(len(kg))
-
-    # check if id or doi in uri
-    if util.is_DOI(uri):
-        uri = util.get_DOI(uri)
-        print(f"FOUND DOI: {uri}")
-        # describe on lod.openair
-
-        # @TODO fix wikidata / LOA / etc. access
-        kg = util.describe_openaire(uri, kg)
-        step += 1
-        emit("update_annot", step)
-        emit("send_annot", str(kg.serialize(format="turtle").decode()))
-        print(len(kg))
-
-    # kg = util.describe_opencitation(uri, kg)
-    # step += 1
-    # emit('update_annot', step)
-    # emit('send_annot', str(kg.serialize(format='turtle').decode()))
-    # print(len(kg))
-    #
-    # kg = util.describe_wikidata(uri, kg)
-    # step += 1
-    # emit('update_annot', step)
-    # emit('send_annot', str(kg.serialize(format='turtle').decode()))
-    # print(len(kg))
-
-    kg = util.describe_biotools(uri, kg)
-    step += 1
-    emit("update_annot", step)
-    emit("send_annot", str(kg.serialize(format="turtle").decode()))
-    print(f"ended with step {step}")
-    print(len(kg))
-    print(step)
-
-
-@socketio.on("complete_kg")
-def handle_complete_kg(json):
-    print("completing KG for " + str(json["url"]))
-
-
-# def inspect_onto_reg(kg, is_inspect_ui):
-#     query_classes = """
-#         SELECT DISTINCT ?class { ?s rdf:type ?class } ORDER BY ?class
-#     """
-#     query_properties = """
-#         SELECT DISTINCT ?prop { ?s ?prop ?o } ORDER BY ?prop
-#     """
-
-#     table_content = {
-#         "classes": [],
-#         "classes_false": [],
-#         "properties": [],
-#         "properties_false": [],
-#         "done": False,
-#     }
-#     qres = kg.query(query_classes)
-#     for row in qres:
-#         namespace = urlparse(row["class"]).netloc
-#         class_entry = {}
-
-#         if namespace == "bioschemas.org":
-#             class_entry = {
-#                 "name": row["class"],
-#                 "tag": {
-#                     "OLS": None,
-#                     "LOV": None,
-#                     "BioPortal": None,
-#                     "Bioschemas": True,
-#                 },
-#             }
-#         else:
-#             class_entry = {
-#                 "name": row["class"],
-#                 "tag": {"OLS": None, "LOV": None, "BioPortal": None},
-#             }
-
-#         table_content["classes"].append(class_entry)
-
-#     qres = kg.query(query_properties)
-#     for row in qres:
-#         namespace = urlparse(row["prop"]).netloc
-#         property_entry = {}
-
-#         if namespace == "bioschemas.org":
-#             property_entry = {
-#                 "name": row["prop"],
-#                 "tag": {
-#                     "OLS": None,
-#                     "LOV": None,
-#                     "BioPortal": None,
-#                     "Bioschemas": True,
-#                 },
-#             }
-#         else:
-#             property_entry = {
-#                 "name": row["prop"],
-#                 "tag": {"OLS": None, "LOV": None, "BioPortal": None},
-#             }
-
-#         table_content["properties"].append(property_entry)
-
-#     if is_inspect_ui:
-#         emit("done_check", table_content)
-
-#     for c in table_content["classes"]:
-
-#         c["tag"]["OLS"] = util.ask_OLS(c["name"])
-#         if is_inspect_ui:
-#             emit("done_check", table_content)
-
-#         c["tag"]["LOV"] = util.ask_LOV(c["name"])
-#         if is_inspect_ui:
-#             emit("done_check", table_content)
-
-#         c["tag"]["BioPortal"] = util.ask_BioPortal(c["name"], "class")
-#         if is_inspect_ui:
-#             emit("done_check", table_content)
-
-#         all_false_rule = [
-#             c["tag"]["OLS"] == False,
-#             c["tag"]["LOV"] == False,
-#             c["tag"]["BioPortal"] == False,
-#         ]
-
-#         if all(all_false_rule) and not "Bioschemas" in c["tag"]:
-#             table_content["classes_false"].append(c["name"])
-
-#     for p in table_content["properties"]:
-
-#         p["tag"]["OLS"] = util.ask_OLS(p["name"])
-#         if is_inspect_ui:
-#             emit("done_check", table_content)
-
-#         p["tag"]["LOV"] = util.ask_LOV(p["name"])
-#         if is_inspect_ui:
-#             emit("done_check", table_content)
-
-#         p["tag"]["BioPortal"] = util.ask_BioPortal(p["name"], "property")
-#         if is_inspect_ui:
-#             emit("done_check", table_content)
-
-#         all_false_rule = [
-#             p["tag"]["OLS"] == False,
-#             p["tag"]["LOV"] == False,
-#             p["tag"]["BioPortal"] == False,
-#         ]
-#         if all(all_false_rule) and not "Bioschemas" in p["tag"]:
-#             table_content["properties_false"].append(p["name"])
-
-#     table_content["done"] = True
-#     if is_inspect_ui:
-#         emit("done_check", table_content)
-#     return table_content
-
-
 @socketio.on("check_kg")
-def check_vocabularies(data):
-    step = 0
+def check_vocabularies():
+    """
+    Socketio Handler, call the function to check if classes and properties are found in registries (Check Vocabularies).
+    """
+
+    # Get the stored Graph to check vocabularies in registries
     sid = request.sid
-    print(sid)
-    uri = str(data["url"])
-    if not sid in KGS.keys():
-        handle_embedded_annot_2(data)
-    elif not KGS[sid]:
-        handle_embedded_annot_2(data)
     kg = KGS[sid]
 
     inspect_onto_reg(kg, True)
 
 
-@DeprecationWarning
-@socketio.on("check_kg_shape")
-def check_kg_shape(data):
-    step = 0
-    sid = request.sid
-    print(sid)
-    uri = str(data["url"])
-    if not sid in KGS.keys():
-        handle_embedded_annot_2(data)
-    elif not KGS[sid]:
-        handle_embedded_annot_2(data)
-    kg = KGS[sid]
-
-    # TODO replace this code with profiles.bioschemas_shape_gen
-    warnings, errors = util.shape_checks(kg)
-    data = {"errors": errors, "warnings": warnings}
-    emit("done_check_shape", data)
-
-    # replacement
-    # results = bioschemas_shape.validate_any_from_microdata(uri)
-    # print(results)
-
-
-@DeprecationWarning
-@socketio.on("check_kg_shape_old")
-def check_kg_shape_old(data):
-    print("shape validation started")
-    sid = request.sid
-    print(sid)
-    kg = KGS[sid]
-
-    if not kg:
-        print("cannot access current knowledge graph")
-    elif len(kg) == 0:
-        print("cannot validate an empty knowledge graph")
-
-    results = validate_any_from_KG(kg)
-    emit("done_check_shape", results)
-
-
 def evaluate_bioschemas_profiles(kg):
-    # A instancier au lancement du serveur et actualiser lors d'updates
-    # profiles = ProfileFactory.create_all_profiles_from_specifications()
+    """
+    Evaluate RDF Graph against profiles from Bioschemas using SHACL constraints
+
+    Args:
+        kg (rdflib.ConjunctiveGraph): Graph object to evaluate
+
+    Returns:
+        dict: The results of the evaluation
+    """
 
     results = {}
 
@@ -1677,30 +1326,33 @@ def evaluate_bioschemas_profiles(kg):
 
     # TODO Try similarity match her for profiles that are not matched
 
-    print(results.keys())
+    dev_logger.info("DONE, evaluated " + str(len(results.keys())) + " profiles")
 
     return results
 
 
 @socketio.on("check_kg_shape_2")
-def check_kg_shape_2(data):
-    print("shape validation started")
+def check_kg_shape_2():
+    """
+    Socketio Handler, call the function to evaluate the profiles against the tested resource using SHACL
+    """
+
+    dev_logger.info("Starting profiles evaluations with shapes")
     sid = request.sid
-    print(sid)
     kg = KGS[sid]
 
     if not kg:
-        print("cannot access current knowledge graph")
+        dev_logger.info("Cannot access current knowledge graph")
     elif len(kg) == 0:
-        print("cannot validate an empty knowledge graph")
+        dev_logger.info("Cannot validate an empty knowledge graph")
 
     results = evaluate_bioschemas_profiles(kg)
-
-    # results = validate_any_from_KG(kg)
 
     emit("done_check_shape", results)
 
 
+### What the goal of this function @Alban ?
+# @DeprecationWarning
 def update_bioschemas_valid(func):
     @functools.wraps(func)
     def wrapper_decorator(*args, **kwargs):
@@ -1722,17 +1374,22 @@ def update_bioschemas_valid(func):
 @app.route("/bioschemas_validation")
 @update_bioschemas_valid
 def validate_bioschemas():
+    """
+    Route to directly evaluate RDF Graph against profiles from Bioschemas using SHACL constraints without intermediate steps
+
+    Returns:
+        function: Flask template renderer
+    """
     uri = request.args.get("url")
-    logging.info(f"Validating Bioschemas markup for {uri}")
+    dev_logger.info(f"Validating Bioschemas markup for {uri}")
 
     kg = WebResource(uri).get_rdf()
-    print(len(kg))
+    dev_logger.info("Found " + str(len(kg)) + " triples")
 
     results = evaluate_bioschemas_profiles(kg)
 
-    # res, kg = validate_any_from_microdata(input_url=uri)
-
     m = []
+
     return render_template(
         "bioschemas.html",
         results=results,
@@ -1745,19 +1402,12 @@ def validate_bioschemas():
     )
 
 
-#######################################
-#######################################
-
-
-def cb():
-    print("received message originating from server")
-
-
 def buildJSONLD():
     """
-    Create the Advanced page JSON-LD annotation using schema.org
+    Create the FAIR-Checker pages JSON-LD annotation using schema.org
 
-    @return str
+    Returns:
+        str: JSON-LD string describing the FAIR-Checker application
     """
 
     repo = git.Repo(".")
@@ -1771,13 +1421,15 @@ def buildJSONLD():
             "prov": "http://www.w3.org/ns/prov#",
         },
         "@type": ["sc:SoftwareApplication", "prov:Entity"],
-        "@id": "https://github.com/IFB-ElixirFr/FAIR-checker",
+        "@id": "https://fair-checker.france-bioinformatique.fr",
         "dct:conformsTo": "https://bioschemas.org/profiles/ComputationalTool/1.0-RELEASE",
         "sc:name": "FAIR-Checker",
         "sc:url": "https://fair-checker.france-bioinformatique.fr",
         "sc:applicationCategory": "Bioinformatics",
         "sc:applicationSubCategory": "Automated FAIR testing",
         "sc:softwareVersion": str(latest_tag),
+        "sc:softwareHelp": "https://fair-checker.france-bioinformatique.fr/docs/index.html",
+        "sc:codeRepository": "https://github.com/IFB-ElixirFr/FAIR-checker",
         "sc:operatingSystem": "Any",
         "sc:description": """FAIR-Checker is a tool aimed at assessing FAIR principles and empowering data provider to enhance the quality of their digital resources.
             Data providers and consumers can check how FAIR are web resources. Developers can explore and inspect metadata exposed in web resources.""",
@@ -1821,38 +1473,17 @@ def buildJSONLD():
 
 
 @app.route("/check", methods=["GET"])
-def base_metrics():
+def check():
     """
-    Load the Advanced page elements loading informations from FAIRMetrics API.
+    Route to load the UI Check page elements loading informations from FAIR-Checker metrics.
     Generate a page allowing test of independent metrics.
 
-    @return render_template
+    Returns:
+        function: Flask template renderer
     """
     # unique id to retrieve content results of tests
     content_uuid = str(uuid.uuid1())
     DICT_TEMP_RES[content_uuid] = ""
-
-    # print(str(session.items()))
-    # sid = request.sid
-    # return render_template('test_asynch.html')
-    # metrics = []
-    #
-    # metrics_res = METRICS_RES
-    #
-    # for metric in metrics_res:
-    #     # remove "FAIR Metrics Gen2" from metric name
-    #     name = metric["name"].replace('FAIR Metrics Gen2- ','')
-    #     # same but other syntax because of typo
-    #     name = name.replace('FAIR Metrics Gen2 - ','')
-    #     metrics.append({
-    #         "name": name,
-    #         "description": metric["description"],
-    #         "api_url": metric["smarturl"],
-    #         "id": "metric_" + metric["@id"].rsplit('/', 1)[-1],
-    #         "principle": metric["principle"],
-    #         "principle_tag": metric["principle"].rsplit('/', 1)[-1],
-    #         "principle_category": metric["principle"].rsplit('/', 1)[-1][0],
-    #     })
 
     raw_jld = buildJSONLD()
 
@@ -1874,24 +1505,6 @@ def base_metrics():
             }
         )
 
-    # for key in METRICS.keys():
-    #     print()
-    #     metrics.append(
-    #         {
-    #             "name": METRICS[key].get_name(),
-    #             "implem": METRICS[key].get_implem(),
-    #             "description": METRICS[key].get_desc(),
-    #             "api_url": METRICS[key].get_api(),
-    #             "id": "metric_" + METRICS[key].get_id().rsplit("/", 1)[-1],
-    #             "principle": METRICS[key].get_principle(),
-    #             "principle_tag": METRICS[key].get_principle().rsplit("/", 1)[-1],
-    #             "principle_category": METRICS[key]
-    #             .get_principle()
-    #             .rsplit("/", 1)[-1][0],
-    #         }
-    #     )
-
-    # response =
     return make_response(
         render_template(
             "check.html",
@@ -1906,67 +1519,19 @@ def base_metrics():
     # )).headers.add('Access-Control-Allow-Origin', '*')
 
 
-# @app.after_request
-# def after_request(response):
-#   response.headers.add('Access-Control-Allow-Origin', '*')
-#   response.headers.add('Access-Control-Allow-Headers', 'Content-Type,Authorization')
-#   response.headers.add('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS')
-#   return response
-
-
 @app.route("/inspect")
-def kg_metrics_2():
-    # m = [{  "name": "i1",
-    #         "description": "desc i1",
-    #         "id": "metric_i1",
-    #         "principle": "principle for i1" }]
-    m = []
+def inspect():
+    """
+    Route to load the UI Inspect page elements
+
+    Returns:
+        function: Flask template renderer
+    """
     return render_template(
         "inspect.html",
-        f_metrics=m,
         sample_data=sample_resources,
         title="Inspect",
         subtitle="to enhance metadata quality",
-    )
-
-
-@app.route("/test_url", methods=["POST"])
-def testUrl():
-    test_url = request.form.get("url")
-
-    number = test_metric.getMetrics()
-    # socketio.emit('newnumber', {'number': number}, namespace='/test')
-    socketio.emit("my response", {"data": "got it!"}, namespace="/test")
-
-    (
-        headers_list,
-        descriptions_list,
-        test_score_list,
-        time_list,
-        comments_list,
-    ) = test_metric.webTestMetrics(test_url)
-
-    results_list = []
-    for i, elem in enumerate(headers_list):
-        if i != 0:
-            res_dict = {}
-            res_dict["header"] = headers_list[i]
-            res_dict["score"] = test_score_list[i]
-            res_dict["time"] = time_list[i]
-            try:
-                res_dict["comments"] = comments_list[i].replace("\n", "<br>")
-                res_dict["descriptions"] = descriptions_list[i]
-            except IndexError:
-                res_dict["comments"] = ""
-                res_dict["descriptions"] = ""
-            results_list.append(res_dict)
-        # if i == 4:
-        # print(res_dict)
-
-    return render_template(
-        "result.html",
-        test_url=test_url,
-        results_list=results_list,
     )
 
 

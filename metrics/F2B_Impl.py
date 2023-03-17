@@ -20,6 +20,9 @@ class F2B_Impl(AbstractFAIRMetrics):
     """
 
     def __init__(self, web_resource=None):
+        """
+        The constructor of the metric implementation
+        """
         super().__init__(web_resource)
         self.name = "Shared vocabularies for metadata"
         self.id = "4"
@@ -33,17 +36,20 @@ class F2B_Impl(AbstractFAIRMetrics):
 
     def weak_evaluate(self, eval=None):
         """
-        at least one used ontology classe or property known in major ontology registries (OLS, BioPortal, LOV)
+        The weak evaluation for F2B metric, at least one used ontology classe or property known in major ontology registries (OLS, BioPortal, LOV)
+
+        Returns:
+            Evaluation: The Evaluation object containing eventual new informations
         """
         if not eval:
             eval = self.get_evaluation()
             eval.set_implem(self.implem)
             eval.set_metrics(self.principle_tag)
-        # kgs = self.get_web_resource().get_wr_kg_dataset()
+
         kg = self.get_web_resource().get_rdf()
 
         is_kg_empty = True
-        # for kg in kgs.graphs():
+
         if len(kg) > 0:
             is_kg_empty = False
 
@@ -105,17 +111,20 @@ class F2B_Impl(AbstractFAIRMetrics):
 
     def strong_evaluate(self, eval=None):
         """
-        all used ontology classes and properties  known in major ontology registries (OLS, BioPortal, LOV)
+        The strong evaluation for F2B metric, all used ontology classes and properties  known in major ontology registries (OLS, BioPortal, LOV)
+
+        Returns:
+            Evaluation: The Evaluation object containing eventual new informations
         """
         if not eval:
             eval = self.get_evaluation()
             eval.set_implem(self.implem)
             eval.set_metrics(self.principle_tag)
-        # kgs = self.get_web_resource().get_wr_kg_dataset()
+
         kg = self.get_web_resource().get_rdf()
 
         is_kg_empty = True
-        # for kg in kgs.graphs():
+
         if len(kg) > 0:
             is_kg_empty = False
 
@@ -134,14 +143,6 @@ class F2B_Impl(AbstractFAIRMetrics):
         )
 
         results = inspect_onto_reg(kg, False)
-        print(results)
-        print("#######")
-        # for kg in kgs.graphs():
-        #     results = inspect_onto_reg(kg, False)
-        #     print(results)
-
-        # print(results["classes_false"])
-        # print(results["properties_false"])
 
         for class_entry in results["classes_false"]:
             print(f"{class_entry} not known in OLS, LOV, or BioPortal")
@@ -174,4 +175,4 @@ class F2B_Impl(AbstractFAIRMetrics):
             "All classes and properties are known in major ontology registries"
         )
         eval.set_score(2)
-        return eval
+        return

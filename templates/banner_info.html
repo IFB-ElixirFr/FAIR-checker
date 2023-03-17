@@ -1,9 +1,6 @@
 {% if banner_message_info %}
 <section class="hero is-warning">
     <div class="hero-body">
-        <!-- <p class="title">
-          Warning hero
-        </p> -->
         <p class="subtitle">
           {% for message in banner_message_info %}
             {{ banner_message_info[message]|safe }}
