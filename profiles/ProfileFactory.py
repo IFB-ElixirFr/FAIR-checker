@@ -6,15 +6,22 @@ import re
 import json
 import os
 import yaml
-from tqdm import tqdm
 from rdflib import URIRef, ConjunctiveGraph
-from rdflib.namespace import RDF
-
+import logging
 
 # from app import dev_logger
 
 
 def profile_file_parser(url_profile):
+    """
+    Parse profile files from github Specifications or DDE into a dictionnary of profile(s) that can be used to instantiate Profile class
+
+    Args:
+        url_profile (str): The URL of the file (jsonld) that contains the specifications for the profile(s)
+
+    Returns:
+        dict: Dictionnary containing the profiles important informations
+    """
     response = requests.get(url_profile)
     if response.status_code == 200:
         profiles_dict = {}
@@ -33,9 +40,7 @@ def profile_file_parser(url_profile):
             }
             profiles_versions = request_profile_versions()
 
-            # for element in profiles_jsonld["@graph"]:
             if element["@type"] == "rdfs:Class":
-                # print("Class: " + element["@id"])
                 name = element["rdfs:label"]
                 profile_dict["id"] = element["@id"].replace("bioschemas", "bsc")
                 profile_dict["name"] = name
@@ -43,6 +48,7 @@ def profile_file_parser(url_profile):
                 sc_type = element["rdfs:subClassOf"]["@id"]
 
                 # replace DDE prefix by schema.org prefix for Schema.org types
+                # Need to consider not replacing bioschemastypes: by sc: (would need update to target_classes in Profile for that)
                 replace_prefix = {
                     "bioschemastypes:": "sc:",
                     # "bioschemastypesdrafts:": "sc:",
@@ -57,10 +63,6 @@ def profile_file_parser(url_profile):
                         if "https://bioschemas.org" in url:
                             profile_dict["ref_profile"] = url
 
-                            status_code = requests.head(url).status_code
-                            if status_code != 200:
-                                print(url)
-                                # print(status_code)
                         else:
                             raw_file_base = "https://raw.githubusercontent.com/BioSchemas/specifications/master/"
                             file_url = url
@@ -68,10 +70,6 @@ def profile_file_parser(url_profile):
                             raw_file_url = raw_file_base + file_url_path
                             profile_dict["file"] = raw_file_url
 
-                            # status_code = requests.head(raw_file_url).status_code
-                            # if status_code != 200:
-                            print(raw_file_url)
-                            # print(status_code)
                 else:
                     if profiles_versions[name]["latest_release"]:
                         latest_version = profiles_versions[name]["latest_release"]
@@ -82,10 +80,7 @@ def profile_file_parser(url_profile):
                         "https://bioschemas.org/profiles/" + name + "/"
                     )
                     bs_profile_url_path = bs_profile_url_base + latest_version
-                    # bs_profile_url_path = bs_profile_url_base + url_dl.split("/")[-1].replace("_v", "/").strip(".json")
                     profile_dict["ref_profile"] = bs_profile_url_path
-                    # r = requests.head(bs_profile_url_path, verify=False, timeout=5) # it is faster to only request the header
-                    # print(r.status_code)
 
                 importance_levels = ["required", "recommended", "optional"]
 
@@ -113,16 +108,18 @@ def profile_file_parser(url_profile):
 
                 profiles_dict[profile_dict["ref_profile"]] = profile_dict
 
-    # for compatibility with existing code
-    # profile_dict["min_props"] = profile_dict.pop("required")
-    # profile_dict["rec_props"] = profile_dict.pop("recommended")
-
-    # print(json.dumps(profiles_dict, indent=2))
-    # print(len(profiles_dict))
     return profiles_dict
 
 
 def get_profiles_from_dde():
+    """
+    Get all profiles informations from the DDE profiles definitions
+
+    Returns:
+        dict: _description_
+    """
+
+    # Source files to get profiles from DDE
     url_profiles = [
         "https://raw.githubusercontent.com/BioSchemas/bioschemas-dde/main/bioschemas.json",
         "https://raw.githubusercontent.com/BioSchemas/bioschemas-dde/main/bioschemasdrafts.json",
@@ -135,12 +132,13 @@ def get_profiles_from_dde():
         profiles_dict = profile_file_parser(url_profile)
 
         for profile_key in profiles_dict:
+            # add only once
             if profiles_dict[profile_key]["name"] not in profiles_names_list:
                 results[profile_key] = profiles_dict[profile_key]
                 profiles_names_list.append(profiles_dict[profile_key]["name"])
     return results
 
-
+# To delete
 @DeprecationWarning
 def get_profiles_specs_from_github():
     github_token = environ.get("GITHUB_TOKEN")
@@ -228,6 +226,12 @@ def get_latest_profile(profiles_dict):
 
 
 def request_profile_versions():
+    """
+    Get the YAML definition of status (deprecated, latest, etc) for each profile from the file
+
+    Returns:
+        dict: The YAML file content as a dictionnary
+    """
     response = requests.get(
         "https://raw.githubusercontent.com/BioSchemas/bioschemas.github.io/master/_data/profile_versions.yaml"
     )
@@ -327,6 +331,12 @@ def parse_profile(jsonld, url_dl):
 
 
 def load_profiles():
+    """
+    Read the stored profiles informations, if not existing load it from github Bioschemas (Specifications/DDE)
+
+    Returns:
+        dict: The content of the saved file containing Bioschemas profiles informations
+    """
     if not path.exists("profiles/bs_profiles.json"):
         print("Updating Bioschemas profiles from github")
         profiles = get_profiles_from_dde()
@@ -344,17 +354,25 @@ def load_profiles():
 
 
 def update_profiles():
+    """
+    Update the bs_profiles.json file containing BS profiles informations and read it again
+    """
     global PROFILES
     if path.exists("profiles/bs_profiles.json"):
         os.remove("profiles/bs_profiles.json")
-        # load_profiles()
         PROFILES = ProfileFactory.create_all_profiles_from_specifications()
 
 
 def find_conformsto_subkg(kg):
-    # kg.namespace_manager.bind("sc", URIRef("https://schema.org/"))
-    # kg.namespace_manager.bind("bsc", URIRef("https://bioschemas.org/"))
-    # kg.namespace_manager.bind("dct", URIRef("http://purl.org/dc/terms/"))
+    """
+    Find classes containing dct:conformsTo property and get the sub graph(s) that contains it
+
+    Args:
+        kg (ConjunctiveGraph): The RDF graph that might contains the conformsTo to find
+
+    Returns:
+        list: List of sub graph(s) ConjunctiveGraph containing a conformsTo
+    """
 
     query_conformsto = """
         PREFIX dct: <http://purl.org/dc/terms/>
@@ -380,11 +398,10 @@ def find_conformsto_subkg(kg):
         sub_kg.namespace_manager.bind("dct", URIRef("http://purl.org/dc/terms/"))
 
         for (s, p, o, g) in kg.quads((identifier, None, None, None)):
-            # print(f"{s} -> {p} -> {o} -> {g.identifier}")
+
             sub_kg.add((s, p, o))
-        # print(sub_kg.serialize(format="trig"))
-        # if self.get_ref_profile() == conformsto:
-        print(f"Found instance of type {type} that should conforms to {conformsto}")
+
+        logging.info(f"Found instance of type {type} that should conforms to {conformsto}")
         sub_kg_list.append(
             {
                 "sub_kg": sub_kg,
@@ -398,19 +415,19 @@ def find_conformsto_subkg(kg):
 
 
 def dyn_evaluate_profile_with_conformsto(kg):
-    """_summary_
+    """
+    Generate dynamically the profile based on the dct:conformsTo property (support profiles that are not the latest)
 
     Args:
-        kg (_type_): _description_
+        kg (ConjunctiveGraph): The RDF graph to evaluate
 
     Returns:
-        _type_: _description_
+        dict: The results of the evaluation
     """
     results = {}
 
     # Evaluate only profile with conformsTo
     ct_sub_kg_list = find_conformsto_subkg(kg)
-    print(ct_sub_kg_list)
 
     for ct_sub_kg in ct_sub_kg_list:
         s = ct_sub_kg["subject"]
@@ -421,8 +438,8 @@ def dyn_evaluate_profile_with_conformsto(kg):
         try:
             profile = ProfileFactory.create_profile_from_remote(ct)
             shacl_shape = profile.get_shacl_shape()
-            # print(shacl_shape)
             conforms, warnings, errors = profile.validate_shape(sub_kg, shacl_shape)
+
             # we override the final result to exclude warnings
             conforms = len(errors) == 0
             results[str(s)] = {
@@ -450,6 +467,7 @@ def dyn_evaluate_profile_with_conformsto(kg):
     return results
 
 
+# Replaced by dyn_evaluate_profile_with_conformsto ; need to remove
 @DeprecationWarning
 def evaluate_profile_with_conformsto(kg):
     # A instancier au lancement du serveur et actualiser lors d'updates
@@ -490,7 +508,15 @@ def evaluate_profile_with_conformsto(kg):
 
 
 def evaluate_profile_from_type(kg):
-    # A instancier au lancement du serveur et actualiser lors d'updates
+    """
+    Find classes in the RDF graph that a profile has a target class for, et evaluate them
+
+    Args:
+        kg (ConjunctiveGraph): The RDF Graph to find classes to evaluate
+
+    Returns:
+        dict: The results of the evaluation
+    """
 
     results = {}
 
@@ -525,7 +551,16 @@ def evaluate_profile_from_type(kg):
 
 
 def is_profile_deprecated(profile_name, profile_versions):
-    # profile_versions = request_profile_versions()
+    """
+    Check if a profile is deprecated given its name and version
+
+    Args:
+        profile_name (str): The name of the profile to check version for
+        profile_versions (str): The profile versions list to check from
+
+    Returns:
+        bool: True if the profile is deprecated, False instead
+    """
     if profile_name in profile_versions.keys():
         if profile_versions[profile_name]["status"] == "deprecated":
             return True
@@ -536,8 +571,17 @@ def is_profile_deprecated(profile_name, profile_versions):
 
 
 def is_profile_version_latest(profile_name, version, profile_versions):
+    """
+    Check if a profile version is the latest given its name and version
 
-    # profile_versions = request_profile_versions()
+    Args:
+        profile_name (str): The name of the profile to check version for
+        version (str): The version of the profile to check version for
+        profile_versions (str): The profile version to check
+
+    Returns:
+        bool: The profile versions list to check from
+    """
 
     if profile_name in profile_versions.keys():
         if profile_versions[profile_name]["latest_release"] == version:
@@ -551,6 +595,16 @@ def is_profile_version_latest(profile_name, version, profile_versions):
 
 
 def get_latest_ref_profile_from_pname(profile_name, profile_versions):
+    """
+    Get the latest ref_profile URL for a given profile name and the list of profile versions
+
+    Args:
+        profile_name (str): The name of the profile to check version for
+        profile_versions (str): The profile version to check
+
+    Returns:
+        str: The latest ref_profile from the profile name
+    """
 
     bs_ref_profile_base = "https://bioschemas.org/profiles/" + profile_name + "/"
 
@@ -578,15 +632,13 @@ def get_latest_ref_profile_from_pname(profile_name, profile_versions):
         return None
 
 
-# from enum import Enum, unique
-
-# @unique
-# class Implem(Enum):
-#     FAIR_CHECKER = 1
-#     FAIR_METRICS_API = 2
-
-
 class ProfileFactory:
+    """
+    The factory to create Profiles instance
+
+    Raises:
+        BioschemasProfileNotFoundException: If profile doesn't exist
+    """
     @staticmethod
     def list_all_conformsto():
         bs_profiles = load_profiles()
@@ -639,11 +691,6 @@ class ProfileFactory:
                 profile_name, profile_versions
             )
 
-        print("#####################")
-        print("Deprecated: " + str(is_deprecated))
-        print("Latest: " + str(latest_ref_profile))
-        print("#####################")
-
         profile = Profile(
             shape_name=dict_profile["name"],
             target_classes=dict_profile["target_classes"],
@@ -659,7 +706,7 @@ class ProfileFactory:
     def create_profile_from_ref_profile(ref_profile):
         bs_profiles = load_profiles()
         for profile_key in bs_profiles.keys():
-            print(bs_profiles[profile_key]["ref_profile"])
+            logging.info(bs_profiles[profile_key]["ref_profile"])
             if ref_profile == bs_profiles[profile_key]["ref_profile"]:
                 name = bs_profiles[profile_key]["name"]
                 profile = Profile(
@@ -673,6 +720,12 @@ class ProfileFactory:
 
     @staticmethod
     def create_all_profiles_from_specifications():
+        """
+        Read the bs_profiles.json file and create all latest instances of Bioschemas profiles
+
+        Returns:
+            dict: A dict containing all the latest instances of Bioschemas profiles
+        """
         profiles = {}
         bs_profiles = load_profiles()
         for profile_key in bs_profiles.keys():
