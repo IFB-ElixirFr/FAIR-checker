@@ -7,7 +7,7 @@ from metrics.recommendation import json_rec
 
 class I3_Impl(AbstractFAIRMetrics):
     """
-    GOAL: To verifies that at least 3 different URL authorities are used in the URIs of RDF metadata. 
+    GOAL: To verifies that at least 3 different URL authorities are used in the URIs of RDF metadata.
     """
 
     def __init__(self, web_resource=None):

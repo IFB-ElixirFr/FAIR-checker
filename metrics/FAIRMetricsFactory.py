@@ -30,6 +30,7 @@ class FAIRMetricsFactory:
     """
     Factory to instanciate various FAIR metrics
     """
+
     def get_metric(
         self, name, id, desc, api, principle, creator, created_at, updated_at
     ):

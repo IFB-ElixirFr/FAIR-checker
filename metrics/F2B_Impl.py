@@ -175,4 +175,4 @@ class F2B_Impl(AbstractFAIRMetrics):
             "All classes and properties are known in major ontology registries"
         )
         eval.set_score(2)
-        return 
+        return

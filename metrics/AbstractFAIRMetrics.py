@@ -11,7 +11,7 @@ class AbstractFAIRMetrics(ABC):
 
     Args:
         ABC (ABC): Generic abstract class
-    """    
+    """
 
     COMMON_SPARQL_PREFIX = """
 PREFIX schema: <http://schema.org/>
@@ -138,7 +138,7 @@ PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
         Get the status_code of the URL WebResource instance evaluated
 
         Returns:
-            int: The status_code of the resource 
+            int: The status_code of the resource
         """
         return self.requests_status_code
 

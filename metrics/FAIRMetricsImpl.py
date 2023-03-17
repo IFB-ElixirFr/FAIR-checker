@@ -10,6 +10,7 @@ class FAIRMetricsImpl(AbstractFAIRMetrics):
     Args:
         AbstractFAIRMetrics (AbstractFAIRMetrics): The parent abstract class
     """
+
     def __init__(self, name, id, desc, api, principle, creator, created_at, updated_at):
         """
         The constructor for the FAIRMetrics implementation

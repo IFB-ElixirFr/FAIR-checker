@@ -139,7 +139,6 @@ class ImportBSProfileTestCase(unittest.TestCase):
         self.assertEqual(len(kg), 35)
         result = dyn_evaluate_profile_with_conformsto(kg)
 
-
         self.assertEqual(len(result), 1)
         self.assertEqual(
             result["https://fair-checker.france-bioinformatique.fr/"]["conforms"], True

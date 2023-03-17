@@ -31,7 +31,7 @@ class Evaluation:
         end_time (datetime): Store the endtime of the evaluation
         score (str): The score of the evaluation, can be 0, 1 or 2
         recommendation (str): The recommendation for the user
-        result_text (str): The whole result of the nanopub returne by FAIRMetrics API 
+        result_text (str): The whole result of the nanopub returne by FAIRMetrics API
         reason (str): The execution log of the FAIRMetrics evaluationr
         web_resource (WebResource): The evaluated WebResource object
         metrics (str): The tag of the metric used to evaluate the WebResource

@@ -106,20 +106,14 @@ class F1B_Impl(AbstractFAIRMetrics):
         eval.set_implem(self.implem)
         eval.set_metrics(self.principle_tag)
 
-        kgs = self.get_web_resource().get_wr_kg_dataset()
         kg = self.get_web_resource().get_rdf()
-
-        # print(kg.serialize(format="trig"))
-
-        # for kg in self.get_web_resource().get_wr_kg_dataset().graphs():
-        #     print(kg.serialize(format="json-ld"))
 
         namespaces = F1B_Impl.get_known_namespaces()
         eval.log_info("Weak evaluation:")
         eval.log_info(
             "Checking that at least one namespace from identifiers.org is in metadata"
         )
-        # for kg in kgs:
+
         for s, p, o in kg:
             for term in [s, o]:
                 if F1B_Impl.is_known_pid_scheme(str(term), namespaces):
@@ -144,21 +138,20 @@ class F1B_Impl(AbstractFAIRMetrics):
 
         query_identifiers = (
             self.COMMON_SPARQL_PREFIX
-            + """ 
-                ASK { 
-                    VALUES ?p {dct:identifier schema:identifier} . 
+            + """
+                ASK {
+                    VALUES ?p {dct:identifier schema:identifier} .
                     ?s ?p ?o .
                 }
             """
         )
-        # eval.log_info(f"Running query:" + f"\n{query_identifiers}")
+
         eval.log_info("Strong evaluation:")
         eval.log_info(
             "Checking if there is either schema:identifier or dct:identifier property in metadata"
         )
 
         kg = self.get_web_resource().get_rdf()
-        # for kg in self.get_web_resource().get_wr_kg_dataset().graphs():
 
         res = kg.query(query_identifiers)
         for bool_res in res:
