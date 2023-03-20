@@ -10,9 +10,10 @@ class Config(object):
     # You have to config your apikey for bioportal in a separate .env file that must not be in git
     # e.g. BIOPORTAL_APIKEY='xxxxxx-xxxxx-xxxx-xxxx-xxxxxxxx'
     BIOPORTAL_APIKEY = environ.get("BIOPORTAL_APIKEY")
+    GITHUB_TOKEN = environ.get("GITHUB_TOKEN")
     DEBUG = False
     TESTING = False
-    SERVER_NAME = "0.0.0.0:5000"
+    # SERVER_NAME = "0.0.0.0:5000"
     # Flask-Caching related configs
     CACHE_TYPE = "SimpleCache"
     CACHE_DEFAULT_TIMEOUT = 60  # timer in seconds for metrics

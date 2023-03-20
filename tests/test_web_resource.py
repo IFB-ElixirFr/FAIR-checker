@@ -37,7 +37,7 @@ class WebResourceTestCase(unittest.TestCase):
             "https://data.inrae.fr/dataset.xhtml?persistentId=doi:10.15454/P27LDX"
         )
         logging.info(f"{len(dataverse.get_rdf())} loaded RDF triples")
-        self.assertEqual(len(dataverse.get_rdf()), 0)
+        self.assertEqual(len(dataverse.get_rdf()), 234)
         print()
 
     def test_workflowhub(self):
@@ -102,6 +102,55 @@ class WebResourceTestCase(unittest.TestCase):
         fc = WebResource("https://fair-checker.france-bioinformatique.fr/")
         logging.info(f"{len(fc.get_rdf())} loaded RDF triples")
         self.assertGreaterEqual(len(fc.get_rdf()), 35)
+
+    def test_elixir(self):
+        elixir = WebResource("https://www.elixir-europe.org/")
+        logging.info(f"{len(elixir.get_rdf())} loaded RDF triples")
+
+    def test_biosamples(self):
+        biosamples = WebResource("https://www.ebi.ac.uk/biosamples/")
+        logging.info(f"{len(biosamples.get_rdf())} loaded RDF triples")
+
+    def test_pscan(self):
+        pscan = WebResource("http://159.149.160.88/pscan/")
+        logging.info(f"{len(pscan.get_rdf())} loaded RDF triples")
+
+    def test_expasy(self):
+        expasy = WebResource("https://prosite.expasy.org")
+        logging.info(f"{len(expasy.get_rdf())} loaded RDF triples")
+
+    def test_UnicodeDecodeError_resources(self):
+        # Workflohub is working correctly, it is a positive control
+        urls = [
+            # "https://workflowhub.eu/workflows/18"
+            # "https://ebisc.org/",
+            "https://www.metanetx.org/",
+            # "https://www.ebi.ac.uk/interpro/",
+            # "https://datacatalog.elixir-luxembourg.org/",
+            # "https://ippidb.pasteur.fr/",
+            # "http://edgar.biocomp.unibo.it/",
+            # "http://phenpath.biocomp.unibo.it/phenpath/",
+            # "https://humanmine.org/",
+            # "https://prosite.expasy.org",
+            # "https://enzyme.expasy.org",
+            # "https://hamap.expasy.org/",
+            # "https://www.ebi.ac.uk/chembl/",
+            # "http://www.ebi.ac.uk/Tools/hmmer/",
+        ]
+
+        for url in urls:
+            wr_kg = WebResource(url).get_rdf()
+            print(len(wr_kg))
+
+    def test_schema_file_context(self):
+        urls = [
+            # "https://www.metanetx.org/",
+            "https://bio.tools/jaspar"
+        ]
+
+        for url in urls:
+            wr_kg = WebResource(url).get_rdf()
+            print(len(wr_kg))
 
 
 if __name__ == "__main__":

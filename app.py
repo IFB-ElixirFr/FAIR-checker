@@ -55,11 +55,20 @@ from metrics.FAIRMetricsFactory import FAIRMetricsFactory
 from metrics.WebResource import WebResource
 from metrics.Evaluation import Result
 from profiles.bioschemas_shape_gen import validate_any_from_KG
-from profiles.bioschemas_shape_gen import validate_any_from_microdata
 from metrics.util import SOURCE
 from metrics.F1B_Impl import F1B_Impl
 from urllib.parse import urlparse
 
+from profiles.Profile import Profile
+from profiles.ProfileFactory import (
+    ProfileFactory,
+    find_conformsto_subkg,
+    load_profiles,
+    update_profiles,
+    evaluate_profile_with_conformsto,
+    evaluate_profile_from_type,
+    dyn_evaluate_profile_with_conformsto,
+)
 
 import time
 import atexit
@@ -126,6 +135,9 @@ if app.config["ENV"] == "production":
 
     # Prevent DEV logger from output
     dev_logger.propagate = False
+
+    # Update bioschemas profile when starting server in production
+    # update_profiles()
 else:
     app.config.from_object("config.DevelopmentConfig")
 
@@ -213,6 +225,8 @@ metrics = [
     {"name": "a2", "category": "A"},
 ]
 
+# Load bs profils dict (from github if not already in local)
+load_profiles()
 
 METRICS = {}
 # json_metrics = test_metric.getMetrics()
@@ -307,6 +321,8 @@ scheduler.add_job(func=update_vocab_status, trigger="interval", seconds=600)
 scheduler.add_job(
     func=F1B_Impl.update_identifiers_org_dump, trigger="interval", seconds=604800
 )
+scheduler.add_job(func=update_profiles, trigger="interval", seconds=604800)
+
 scheduler.start()
 
 # Shut down the scheduler when exiting the app
@@ -471,6 +487,14 @@ class MetricEvalAll(Resource):
 
         web_res = WebResource(url)
 
+        metrics_collection = []
+        for metric_key in METRICS_CUSTOM.keys():
+            metric = METRICS_CUSTOM[metric_key]
+            metric.set_web_resource(web_res)
+            metrics_collection.append(metric)
+
+        # metrics_collection = FAIRMetricsFactory.get_FC_impl(web_res)
+
         results = []
         for key in METRICS_CUSTOM.keys():
             metric = METRICS_CUSTOM[key]
@@ -608,6 +632,75 @@ class InspectOntologies(Resource):
         kg = web_res.get_rdf()
 
         return check_kg(kg, True)
+
+
+# TODO update method
+@fc_inspect_namespace.route("/bioschemas_validation")
+class InspectBioschemas(Resource):
+    @fc_inspect_namespace.expect(reqparse)
+    def get(self):
+        """Validate an RDF JSON-LD graph against Bioschemas profiles"""
+        args = reqparse.parse_args()
+        url = args["url"]
+
+        web_res = WebResource(url)
+        kg = web_res.get_rdf()
+        results = {}
+
+        # Evaluate only profile with conformsTo
+        results_conformsto = dyn_evaluate_profile_with_conformsto(kg)
+
+        # Try to match and evaluate all found corresponding profiles
+        results_type = evaluate_profile_from_type(kg)
+
+        for result_key in results_conformsto.keys():
+            results[result_key] = results_conformsto[result_key]
+
+        for result_key in results_type.keys():
+            if result_key not in results:
+                results[result_key] = results_type[result_key]
+
+        # TODO Try similarity match her for profiles that are not matched
+
+        return results
+
+
+@fc_inspect_namespace.route("/bioschemas_validation_by_conformsto")
+class InspectBioschemasConformsTo(Resource):
+    @fc_inspect_namespace.expect(reqparse)
+    def get(self):
+        """Validate an RDF JSON-LD graph against Bioschemas profiles using dct:conformsTo"""
+        args = reqparse.parse_args()
+        url = args["url"]
+
+        web_res = WebResource(url)
+        kg = web_res.get_rdf()
+
+        # Evaluate only profile with conformsTo
+        results_conformsto = dyn_evaluate_profile_with_conformsto(kg)
+
+        # TODO Try similarity match her for profiles that are not matched
+
+        return results_conformsto
+
+
+@fc_inspect_namespace.route("/bioschemas_validation_by_types")
+class InspectBioschemasTypesMatch(Resource):
+    @fc_inspect_namespace.expect(reqparse)
+    def get(self):
+        """Validate an RDF JSON-LD graph against Bioschemas profiles using types"""
+        args = reqparse.parse_args()
+        url = args["url"]
+
+        web_res = WebResource(url)
+        kg = web_res.get_rdf()
+
+        # Try to match and evaluate all found corresponding profiles
+        results_type = evaluate_profile_from_type(kg)
+
+        # TODO Try similarity match her for profiles that are not matched
+
+        return results_type
 
 
 def list_routes():
@@ -1508,8 +1601,9 @@ def check_kg_shape(data):
     # print(results)
 
 
-@socketio.on("check_kg_shape_2")
-def check_kg_shape_2(data):
+@DeprecationWarning
+@socketio.on("check_kg_shape_old")
+def check_kg_shape_old(data):
     print("shape validation started")
     sid = request.sid
     print(sid)
@@ -1522,6 +1616,95 @@ def check_kg_shape_2(data):
 
     results = validate_any_from_KG(kg)
     emit("done_check_shape", results)
+
+
+def evaluate_bioschemas_profiles(kg):
+    # A instancier au lancement du serveur et actualiser lors d'updates
+    # profiles = ProfileFactory.create_all_profiles_from_specifications()
+
+    results = {}
+
+    # Evaluate only profile with conformsTo
+    results_conformsto = dyn_evaluate_profile_with_conformsto(kg)
+
+    # Try to match and evaluate all found corresponding profiles
+    results_type = evaluate_profile_from_type(kg)
+
+    for result_key in results_conformsto.keys():
+        results[result_key] = results_conformsto[result_key]
+
+    for result_key in results_type.keys():
+        if result_key not in results:
+            results[result_key] = results_type[result_key]
+
+    # TODO Try similarity match her for profiles that are not matched
+
+    print(results.keys())
+
+    return results
+
+
+@socketio.on("check_kg_shape_2")
+def check_kg_shape_2(data):
+    print("shape validation started")
+    sid = request.sid
+    print(sid)
+    kg = KGS[sid]
+
+    if not kg:
+        print("cannot access current knowledge graph")
+    elif len(kg) == 0:
+        print("cannot validate an empty knowledge graph")
+
+    results = evaluate_bioschemas_profiles(kg)
+
+    # results = validate_any_from_KG(kg)
+
+    emit("done_check_shape", results)
+
+
+def update_bioschemas_valid(func):
+    @functools.wraps(func)
+    def wrapper_decorator(*args, **kwargs):
+        # Do something before
+        start_time = time.time()
+
+        value = func(*args, **kwargs)
+
+        # Do something after
+        elapsed_time = round((time.time() - start_time), 2)
+        logging.info(f"Bioschemas validation processed in {elapsed_time} s")
+        # emit("done_check_shape", res, namespace="/validate_bioschemas")
+        # socketio.emit("done_check_shape", res, namespace="/inspect")
+        return value
+
+    return wrapper_decorator
+
+
+@app.route("/bioschemas_validation")
+@update_bioschemas_valid
+def validate_bioschemas():
+    uri = request.args.get("url")
+    logging.info(f"Validating Bioschemas markup for {uri}")
+
+    kg = WebResource(uri).get_rdf()
+    print(len(kg))
+
+    results = evaluate_bioschemas_profiles(kg)
+
+    # res, kg = validate_any_from_microdata(input_url=uri)
+
+    m = []
+    return render_template(
+        "bioschemas.html",
+        results=results,
+        kg=kg,
+        f_metrics=m,
+        sample_data=sample_resources,
+        title="Inspect",
+        subtitle="to enhance metadata quality",
+        jld=buildJSONLD(),
+    )
 
 
 #######################################
@@ -1546,7 +1729,7 @@ def buildJSONLD():
     jld = {
         "@context": [
             {"sc": "https://schema.org/"},
-            {"dct": "https://purl.org/dc/terms/"},
+            {"dct": "http://purl.org/dc/terms/"},
             {"prov": "http://www.w3.org/ns/prov#"},
         ],
         "@type": ["sc:WebApplication", "prov:Entity"],
@@ -1693,45 +1876,6 @@ def base_metrics():
 #   return response
 
 
-def update_bioschemas_valid(func):
-    @functools.wraps(func)
-    def wrapper_decorator(*args, **kwargs):
-        # Do something before
-        start_time = time.time()
-
-        value = func(*args, **kwargs)
-
-        # Do something after
-        elapsed_time = round((time.time() - start_time), 2)
-        logging.info(f"Bioschemas validation processed in {elapsed_time} s")
-        # emit("done_check_shape", res, namespace="/validate_bioschemas")
-        # socketio.emit("done_check_shape", res, namespace="/inspect")
-        return value
-
-    return wrapper_decorator
-
-
-@app.route("/validate_bioschemas")
-@update_bioschemas_valid
-def validate_bioschemas():
-    uri = request.args.get("uri")
-    logging.debug(f"Validating Bioschemas markup fr {uri}")
-
-    res, kg = validate_any_from_microdata(input_url=uri)
-
-    m = []
-    return render_template(
-        "bioschemas.html",
-        results=res,
-        kg=kg,
-        f_metrics=m,
-        sample_data=sample_resources,
-        title="Inspect",
-        subtitle="to enhance metadata quality",
-        jld=buildJSONLD(),
-    )
-
-
 @app.route("/inspect")
 def kg_metrics_2():
     # m = [{  "name": "i1",
@@ -1855,6 +1999,10 @@ if __name__ == "__main__":
         sys.exit(1)
 
     args = parser.parse_args()
+    print(args)
+
+    if args.update:
+        print("UPDATE BS her")
 
     if args.debug:
         logging.basicConfig(
@@ -1889,20 +2037,10 @@ if __name__ == "__main__":
             web_res = WebResource(url)
 
             metrics_collection = []
-            metrics_collection.append(FAIRMetricsFactory.get_F1A(web_res))
-            metrics_collection.append(FAIRMetricsFactory.get_F1B(web_res))
-            metrics_collection.append(FAIRMetricsFactory.get_F2A(web_res))
-            metrics_collection.append(FAIRMetricsFactory.get_F2B(web_res))
-            metrics_collection.append(FAIRMetricsFactory.get_I1(web_res))
-            metrics_collection.append(FAIRMetricsFactory.get_I1A(web_res))
-            metrics_collection.append(FAIRMetricsFactory.get_I1B(web_res))
-            metrics_collection.append(FAIRMetricsFactory.get_I2(web_res))
-            metrics_collection.append(FAIRMetricsFactory.get_I2A(web_res))
-            metrics_collection.append(FAIRMetricsFactory.get_I2B(web_res))
-            metrics_collection.append(FAIRMetricsFactory.get_I3(web_res))
-            metrics_collection.append(FAIRMetricsFactory.get_R11(web_res))
-            metrics_collection.append(FAIRMetricsFactory.get_R12(web_res))
-            metrics_collection.append(FAIRMetricsFactory.get_R13(web_res))
+            for metric_key in METRICS_CUSTOM.keys():
+                metric = METRICS_CUSTOM[metric_key]
+                metric.set_web_resource(web_res)
+                metrics_collection.append(metric)
 
             if args.bioschemas:
                 logging.info("Bioschemas eval")

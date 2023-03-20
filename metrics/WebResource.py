@@ -16,8 +16,11 @@ requests.packages.urllib3.disable_warnings(
 )
 import json
 import os
+from json.decoder import JSONDecodeError
 
 from metrics.util import clean_kg_excluding_ns_prefix
+
+logger = logging.getLogger("DEV")
 
 
 class WebResource:
@@ -28,16 +31,11 @@ class WebResource:
     }
 
     base_path = Path(__file__).parent.parent  # current directory
-    static_file_path = "file://" + str(
-        (base_path / "static/data/jsonldcontext.json").resolve()
-    )
 
     chrome_options = Options()
     chrome_options.add_argument("--headless")
     chrome_options.add_argument("--no-sandbox")
-    # chrome_options.add_experimental_option(
-    #     "prefs", prefs
-    # )
+
     proxy = os.getenv("HTTP_PROXY")
     if proxy:
         chrome_options.add_argument("--proxy-server=" + proxy)
@@ -60,12 +58,12 @@ class WebResource:
         if rdf_graph is None:
             # get static RDF metadata (already available in html sources)
             kg_1 = self.extract_rdf_extruct(self.url)
-
-            if "html" in self.content_type:
-                logging.debug("Resource content_type is HTML")
-                # get dynamic RDF metadata (generated from JS)
-                kg_2 = WebResource.extract_rdf_selenium(self.url)
-                self.rdf = kg_1 + kg_2
+            if self.content_type:
+                if ("html" in self.content_type) or ("ld+json" in self.content_type):
+                    logging.info("Resource content_type is HTML")
+                    # get dynamic RDF metadata (generated from JS)
+                    kg_2 = WebResource.extract_rdf_selenium(self.url)
+                    self.rdf = kg_1 + kg_2
             else:
                 self.rdf = kg_1
         else:
@@ -102,8 +100,10 @@ class WebResource:
         self.browser_selenium = browser
 
     def retrieve_html_request(self):
-        while True:
+        nb_retry = 0
+        while nb_retry < 3:
             try:
+                nb_retry += 1
                 response = requests.get(url=self.url, timeout=10, verify=False)
                 break
             except SSLError:
@@ -121,8 +121,11 @@ class WebResource:
 
     # @staticmethod
     def extract_rdf_extruct(self, url) -> ConjunctiveGraph:
-        while True:
+        nb_retry = 0
+        response = None
+        while nb_retry < 3:
             try:
+                nb_retry += 1
                 response = requests.get(url=url, timeout=10, verify=False)
                 break
             except SSLError:
@@ -135,6 +138,10 @@ class WebResource:
                 print("ConnectionError, retrying...")
                 time.sleep(10)
 
+        if not response:
+            logger.error(f"Could not get HTML doc from {url}")
+            return ConjunctiveGraph()
+
         self.status_code = response.status_code
         self.content_type = response.headers["Content-Type"]
         html_source = response.content
@@ -143,53 +150,78 @@ class WebResource:
             html_source, syntaxes=["microdata", "rdfa", "json-ld"], errors="ignore"
         )
 
-        kg = ConjunctiveGraph()
+        kg_jsonld = ConjunctiveGraph()
+
+        # kg = ConjunctiveGraph()
 
         if "json-ld" in data.keys():
             for md in data["json-ld"]:
-                if "@context" in md.keys():
-                    if ("https://schema.org" in md["@context"]) or (
-                        "http://schema.org" in md["@context"]
-                    ):
-                        md["@context"] = self.static_file_path
-                kg.parse(
-                    data=json.dumps(md, ensure_ascii=False),
-                    format="json-ld",
-                    publicID=url,
-                )
+
+                try:
+                    kg_jsonld.parse(
+                        data=md,
+                        format="json-ld",
+                        publicID=url,
+                    )
+                except UnicodeDecodeError as unicode_error:
+                    logger.error(
+                        f"Cannot parse RDF from {url} due to UnicodeDecodeError"
+                    )
+                    logger.error(unicode_error)
+                except json.JSONDecodeError as json_error:
+                    logger.error(f"Cannot parse RDF from {url} due to JSONDecodeError")
+                    logger.error(json_error)
+
+        kg_rdfa = ConjunctiveGraph()
+
         if "rdfa" in data.keys():
             for md in data["rdfa"]:
-                if "@context" in md.keys():
-                    if ("https://schema.org" in md["@context"]) or (
-                        "http://schema.org" in md["@context"]
-                    ):
-                        md["@context"] = self.static_file_path
-                kg.parse(
-                    data=json.dumps(md, ensure_ascii=False),
-                    format="json-ld",
-                    publicID=url,
-                )
+
+                try:
+                    kg_rdfa.parse(
+                        data=json.dumps(md, ensure_ascii=False),
+                        format="json-ld",
+                        publicID=url,
+                    )
+                except UnicodeDecodeError as unicode_error:
+                    logger.error(
+                        f"Cannot parse RDF from {url} due to UnicodeDecodeError"
+                    )
+                    logger.error(unicode_error)
+                except json.JSONDecodeError as json_error:
+                    logger.error(f"Cannot parse RDF from {url} due to JSONDecodeError")
+                    logger.error(json_error)
+
+        kg_microdata = ConjunctiveGraph()
 
         if "microdata" in data.keys():
             for md in data["microdata"]:
-                if "@context" in md.keys():
-                    if ("https://schema.org" in md["@context"]) or (
-                        "http://schema.org" in md["@context"]
-                    ):
-                        md["@context"] = self.static_file_path
-                kg.parse(
-                    data=json.dumps(md, ensure_ascii=False),
-                    format="json-ld",
-                    publicID=url,
-                )
 
-        logging.debug(kg.serialize(format="turtle"))
+                try:
+                    kg_microdata.parse(
+                        data=json.dumps(md, ensure_ascii=False),
+                        format="json-ld",
+                        publicID=url,
+                    )
+                except UnicodeDecodeError as unicode_error:
+                    logger.error(
+                        f"Cannot parse RDF from {url} due to UnicodeDecodeError"
+                    )
+                    logger.error(unicode_error)
+                except json.JSONDecodeError as json_error:
+                    logger.error(f"Cannot parse RDF from {url} due to JSONDecodeError")
+                    logger.error(json_error)
 
-        kg.namespace_manager.bind("sc", URIRef("http://schema.org/"))
-        kg.namespace_manager.bind("bsc", URIRef("https://bioschemas.org/"))
-        kg.namespace_manager.bind("dct", URIRef("http://purl.org/dc/terms/"))
+        kg_extruct = kg_jsonld + kg_rdfa + kg_microdata
 
-        return kg
+        logging.debug(kg_extruct.serialize(format="turtle"))
+
+        kg_extruct.namespace_manager.bind("sc", URIRef("http://schema.org/"))
+        kg_extruct.namespace_manager.bind("bsc", URIRef("https://bioschemas.org/"))
+        kg_extruct.namespace_manager.bind("dct", URIRef("http://purl.org/dc/terms/"))
+
+        # print(len(kg_extruct))
+        return kg_extruct
 
     @staticmethod
     def extract_rdf_selenium(url) -> ConjunctiveGraph:
@@ -197,7 +229,6 @@ class WebResource:
 
         browser = WebResource.WEB_BROWSER_HEADLESS
         browser.get(url)
-        # self.html_source = browser.page_source
         # browser.quit()
         logging.debug(type(browser.page_source))
         logging.debug(f"size of the parsed web page: {len(browser.page_source)}")
@@ -213,20 +244,33 @@ class WebResource:
             jsonld_string = tree.xpath('//script[@type="application/ld+json"]//text()')
 
             for json_ld_annots in jsonld_string:
-                jsonld = json.loads(json_ld_annots)
+                jsonld = {}
+                try:
+                    jsonld = json.loads(json_ld_annots)
+                except JSONDecodeError as err:
+                    print(err)
+                    continue
 
-                if type(jsonld) == list:
-                    jsonld = jsonld[0]
-                if "@context" in jsonld.keys():
-                    if "//schema.org" in jsonld["@context"]:
-                        jsonld["@context"] = WebResource.static_file_path
-                kg.parse(
-                    data=json.dumps(jsonld, ensure_ascii=False),
-                    format="json-ld",
-                    publicID=url,
-                )
+                if jsonld is None:
+                    continue
+
+                try:
+                    kg.parse(
+                        data=json.dumps(jsonld, ensure_ascii=False),
+                        format="json-ld",
+                        publicID=url,
+                    )
+                except UnicodeDecodeError as unicode_error:
+                    print(f"Cannot parse RDF from {url} due to UnicodeDecodeError")
+                    logger.error(
+                        f"Cannot parse RDF from {url} due to UnicodeDecodeError"
+                    )
+                    logger.error(unicode_error)
+                except json.JSONDecodeError as json_error:
+                    logger.error(f"Cannot parse RDF from {url} due to JSONDecodeError")
+                    logger.error(json_error)
                 logging.debug(f"{len(kg)} retrieved triples in KG")
-                logging.debug(kg.serialize(format="turtle"))
+                # logging.debug(kg.serialize(format="turtle"))
 
         except NoSuchElementException:
             logging.warning('Can\'t find "application/ld+json" content')

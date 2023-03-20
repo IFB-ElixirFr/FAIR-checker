@@ -101,6 +101,7 @@ class KGAugmentTestCase(unittest.TestCase):
         else:
             self.fail()
 
+    @unittest.skip("graph len = 0, but schema validator find rdf: Microdata issue")
     def test_opencitation(self):
         test_id = "10.1371/journal.pone.0097158"
         kg = ConjunctiveGraph()

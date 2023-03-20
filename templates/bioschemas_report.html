@@ -1,0 +1,261 @@
+<script type="text/javascript" charset="utf-8">
+
+$(document).ready(function () {
+
+    // console.log('trying to connect...');
+    // var socket = io.connect({{ config['SERVER_IP'] | tojson }});
+    // console.log('connected');    
+
+    // socket.on('connect', function () {
+    //     socket.emit('hello', { data: 'I\'m connected!' });
+    //     console.log('hello message sent');
+    // });
+
+
+    {% if request.path == '/bioschemas_validation' %}
+        console.log("Static loading");
+        data = {{ results | tojson | safe }};
+        validation_report_gen(data, "static");
+
+    // {% elif request.path == '/inspect' %}
+    //     console.log("Dynamic loading");
+    //     socket.on('done_check_shape', function (data) {
+    //         console.log("DONE !!");
+    //         validation_report_gen(data, "dynamic");
+    //         $("#btn_bioschemas").removeClass("is-loading");
+    //         $("#btn_annot_bioschemas").removeClass("is-hidden");
+    //     });
+    {% endif %}
+
+    
+});
+
+function validation_report_gen(data, generation){
+
+    const valid_container = document.getElementById("block_valid_report");
+
+    const hvalid_template = document.getElementById('head-valid-template').innerHTML;
+    const tvalid_template = document.getElementById("table-valid-template").innerHTML;
+    const tvalids_template = document.getElementById("tables-valid-template").innerHTML;
+    const rvalid_template = document.getElementById("row-valid-template").innerHTML;
+
+    var index = 0;
+    $.each(data, function (key, value) {
+        index++;
+        var str_index = index.toString();
+        var resource = key
+        var type = data[key]['type']
+        var profile = data[key]['ref_profile']
+        var conforms = data[key]['conforms']
+        var method = data[key]['method']
+        var deprecated = data[key]['deprecated']
+        var latest_profile = data[key]['latest_profile']
+        var show_latest_profile = Boolean(latest_profile != true)
+
+        if ((method != "by_conformsto") && (generation == "static")) {
+            return;
+        };
+
+
+        var bs_logo_html = '<img src="{{ url_for("static",filename="images/hexagon_color_bs.png") }}" width="25" height="25" style="vertical-align:middle;">'
+        // Validation report head
+        var hvalid_rendered = Mustache.render(hvalid_template, { 
+            is_method_ct: Boolean(method == "by_conformsto"),
+            resource: resource,
+            type: type,
+            profile: profile,
+            bs_logo_html: bs_logo_html,
+            deprecated: deprecated,
+            show_latest_profile: show_latest_profile,
+            latest_profile: latest_profile,
+        });
+        valid_container.innerHTML += hvalid_rendered;
+
+
+        // Required results tables
+        var trequi_index = index.toString() + "-requi-tbody"
+        var treco_index = index.toString() + "-reco-tbody"
+        var table_rendered = Mustache.render(tvalids_template, { 
+            resource: resource,
+            conforms: conforms,
+            index_requi: trequi_index,
+            index_reco: treco_index,
+
+        });
+        valid_container.innerHTML += table_rendered;
+
+
+        // Required results row
+        var tmiss_body_container = document.getElementById(trequi_index);
+        $.each(data[key]['errors'], function (index, item) {
+            let row_requi_valid_rendered = Mustache.render(rvalid_template, { 
+                item: item,
+                class: "has-text-danger has-text-weight-bold",
+                text: "must be",
+            });
+            tmiss_body_container.innerHTML += row_requi_valid_rendered;
+        });
+
+
+        // Recommended results row
+        var treco_body_container = document.getElementById(treco_index);
+        $.each(data[key]['warnings'], function (index, item) {
+            let row_reco_valid_rendered = Mustache.render(rvalid_template, { 
+                item: item,
+                class: "has-text-warning has-text-weight-bold",
+                text: "should be",
+            });
+            treco_body_container.innerHTML += row_reco_valid_rendered;
+        });
+
+    });
+};
+
+
+</script>
+
+
+<!-- Template validation head -->
+<!-- <script id="head-valid-template" type="text/x-handlebars-template"></script> -->
+<script id="head-valid-template" type="text/html">
+    <hr name="bs_report_sep">
+    <h5 class="subtitle" style="line-height: 1.5;">
+        <p>
+            <span class="tag is-dark is-medium">
+                <a target="_blank" href="{% raw %}{{resource}}{% endraw %}">{% raw %}{{resource}}{% endraw %}</a>
+            </span>
+            has type 
+            <span class="tag is-dark">
+                <a target="_blank" href="{% raw %}{{type}}{% endraw %}">{% raw %}{{type}}{% endraw %}</a>
+            </span>
+        </p>
+        <p>
+            <div>
+                {% raw %}
+                {{ #is_method_ct }}
+
+                {{{ bs_logo_html }}} 
+                &nbsp;Using&nbsp;
+                <span class="tag is-dark">
+                    <a target=_blank href="{{profile}}">{{profile}}</a>
+                </span>
+                {{ #deprecated }}
+                <span class="tag is-info">
+                    Deprecated
+                </span>
+                {{ /deprecated }}
+                &nbsp;for validation, specified from the&nbsp;<b>dct:conformsTo</b>&nbsp;property.
+
+                {{ /is_method_ct }}
+                {{ ^is_method_ct}}
+
+                No&nbsp;<b>dct:conformsTo</b>&nbsp;property found, using&nbsp;
+                <span class="tag is-dark">
+                    <a target=_blank href="{{profile}}">{{profile}}</a>
+                </span>
+                &nbsp;profile for validation.
+
+                {{ /is_method_ct }}
+                {% endraw %}
+            </div>
+        </p>
+        <p>
+            {% raw %}
+            {{ #show_latest_profile }}
+            There is a more recent version of this profile, you may concider to update it: 
+            <span class="tag is-info is-light">
+                <a target=_blank href="{{ latest_profile }}">{{ latest_profile }}</a>
+            </span>
+            {{ /show_latest_profile }}
+            {% endraw %}
+        </p>
+    </h5>
+</script>
+
+
+<!-- Template validation head for conformsTo-->
+<script id="head-ct-valid-template" type="text/html">
+
+</script>
+
+
+<!-- Template validation tables required and recommended -->
+<script id="tables-valid-template" type="text/html">
+    <div class="columns is-multiline is-mobile">
+        <div class="column is-one-half">
+            <table class="table is-striped is-fullwidth">
+                <thead><tr><th>Required missing properties</th></tr></thead>
+                <tbody id="{% raw %}{{index_requi}}{% endraw %}"></tbody>
+            </table>
+            {% raw %}
+            {{ #conforms }}
+            <p>
+                Congratulation, 
+                <span class="tag is-success is-light is-medium">
+                    <a target=_blank href="{{ resource }}">{{ resource }}</a>
+                </span>
+                has a 
+                <span class="has-text-success has-text-weight-bold">valid</span> 
+                Bioschemas profile !
+            </p>
+            {{ /conforms }}
+            {% endraw %}
+        </div>
+        <div class="column is-one-half">
+            <table class="table is-striped is-fullwidth">
+                <thead><tr><th>Improvements</th></tr></thead>
+                <tbody id="{% raw %}{{index_reco}}{% endraw %}"></tbody>
+            </table>
+        </div>
+    </div>
+</script>
+
+
+<!-- Template to generate each row of validations template -->
+<script id="row-valid-template" type="text/html">
+    <tr>
+        <td>
+            <span class="tag is-light">
+                <a target=_blank href="{% raw %}{{item}}{% endraw %}">{% raw %}{{item}}{% endraw %}</a>
+            </span> 
+            <span class="{% raw %}{{class}}{% endraw %}">{% raw %}{{text}}{% endraw %}</span> 
+            provided
+        </td>
+    </tr>
+</script>
+
+
+
+<!-- /!\ Not used ! Template for one table -->
+<script id="table-valid-template" type="text/html">
+        <div class="column is-one-half">
+            <table class="table is-striped is-fullwidth">
+                <thead><tr><th>{% raw %}{{thead}}{% endraw %}</th></tr></thead>
+                <tbody id="{% raw %}{{index}}{% endraw %}"></tbody>
+            </table>
+        </div>
+</script>
+
+
+
+
+
+<div id="block_valid_report" class="block">
+    <!-- <div id="block_test">
+
+    </div>
+    {{ request.path }}
+    <br>
+    {% if request.path == '/bioschemas_validation' %}
+
+        {%  for key, value in results.items() %} 
+            {% if value.method == 'by_conformsto' %}            
+                <h1>Key: {{ key }}</h1>
+                <div class="block">
+                    <h5 class="subtitle"><span class="tag is-info is-light"><a target="_blank" href="{{key}}">{{key}}</a></span></h5>
+                    has type <span class="tag is-dark"><a target="_blank" href="{{value.type}}">{{value.type}}</a></span>
+                </div>
+            {% endif %}
+        {% endfor %}
+    {% endif %} -->
+</div>
