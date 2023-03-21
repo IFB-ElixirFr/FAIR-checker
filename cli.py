@@ -1,169 +1,22 @@
 import sys
-
-# import argparse
-# from argparse import RawTextHelpFormatter
-import logging
-
-# from rdflib import Namespace
-import click
-
-logging.getLogger("WDM").setLevel("CRITICAL")
-
-# parser = argparse.ArgumentParser(
-#     description="""
-# FAIR-Checker, a web and command line tool to assess FAIRness of web accessible resources.
-# Usage examples :
-#     python cli.py --evaluate --urls http://bio.tools/bwa
-#     python cli.py --validate-bioschemas --url http://bio.tools/bwa
-#     python cli.py --extract-metadata --urls http://bio.tools/bwa -o metadata_dump
-#     python cli.py --extract-metadata --url-collection input_urls.txt
-
-# Please report any issue to alban.gaignard@univ-nantes.fr, thomas.rosnet@france-bioinforatique.fr, sahar.frikha@france-bioinformatique.fr,
-# or submit an issue to https://github.com/IFB-ElixirFr/fair-checker/issues.
-# """,
-#     formatter_class=RawTextHelpFormatter,
-# )
-# parser.add_argument(
-#     "-d",
-#     "--debug",
-#     action="store_true",
-#     required=False,
-#     help="enables debugging logs",
-#     dest="debug",
-# )
-# parser.add_argument(
-#     "-w",
-#     "--web",
-#     action="store_true",
-#     required=False,
-#     help="to launch FAIR-Checker as a web server",
-#     dest="web",
-# )
-# parser.add_argument(
-#     "-u",
-#     "--urls",
-#     nargs="+",
-#     required=False,
-#     help="list of URLs",
-#     dest="urls",
-# )
-# parser.add_argument(
-#     "-rf",
-#     "--rdf-files",
-#     nargs="+",
-#     required=False,
-#     help="list of local RDF files",
-#     dest="rdf_files",
-# )
-# parser.add_argument(
-#     "-uc",
-#     "--url-collection",
-#     nargs="+",
-#     required=False,
-#     help="A file listing the URLs to be analysed, one line per URL",
-#     dest="url_collection",
-# )
-# parser.add_argument(
-#     "-o",
-#     "--output-dir",
-#     nargs="+",
-#     required=False,
-#     help="output directory",
-# )
-# parser.add_argument(
-#     "-e",
-#     "--evaluate",
-#     action="store_true",
-#     required=False,
-#     help="to evaluate FAIR metrics",
-# )
-# parser.add_argument(
-#     "-vb",
-#     "--validate-bioschemas",
-#     action="store_true",
-#     required=False,
-#     help="to validate Bioschemas profiles",
-# )
-# parser.add_argument(
-#     "-em",
-#     "--extract-metadata",
-#     action="store_true",
-#     required=False,
-#     help="to extract RDF metadata from lists of URLs, to be used in \nconjunction with --urls or --url-collection arguments",
-# )
-
-# if len(sys.argv) == 1:
-#     parser.print_help(sys.stderr)
-#     sys.exit(1)
-
-# args = parser.parse_args()
-
-import copy
-from asyncio.log import logger
-from unittest import result
 import eventlet
-from numpy import broadcast
-import pandas as pd
-
-# from https://github.com/eventlet/eventlet/issues/670
-# eventlet.monkey_patch(select=False)
-eventlet.monkey_patch()
-
-import sys
-from flask import (
-    Flask,
-    request,
-    render_template,
-    session,
-    send_file,
-    send_from_directory,
-    make_response,
-    Blueprint,
-    url_for,
-)
-from flask_restx import Resource, Api, fields
-from flask_swagger_ui import get_swaggerui_blueprint
-from flask_cors import CORS
-from flask_socketio import SocketIO
-from flask_socketio import emit
-from flask_caching import Cache
-from flask import current_app
-from os import environ, path
-from dotenv import load_dotenv, dotenv_values
-import secrets
-import time
-import os
-import io
-import uuid
-import functools
-from datetime import datetime
-from datetime import timedelta
-import json
-from json import JSONDecodeError
-from pathlib import Path
-import rdflib
-from rdflib import ConjunctiveGraph, URIRef
-import extruct
+from os import path
+from rdflib import ConjunctiveGraph
 import logging
+import click
+import time
+import uuid
+from pathlib import Path
+import itertools
+import pandas as pd
 from rich.console import Console
 from rich.table import Table
 from rich.text import Text
 from rich.progress import track
 
-from urllib.parse import urlparse
+logging.getLogger("WDM").setLevel("CRITICAL")
 
-
-import time
-
-# import atexit
-
-# import requests
-# requests.packages.urllib3.disable_warnings(
-#     requests.packages.urllib3.exceptions.InsecureRequestWarning
-# )
-# from apscheduler.schedulers.background import BackgroundScheduler
-
-import git
+eventlet.monkey_patch()
 
 basedir = path.abspath(path.dirname(__file__))
 
@@ -192,9 +45,59 @@ def get_dataframe_from_query_results(res):
     return pd.DataFrame(res.bindings)
 
 
+def print_valid_report(eval_results, conforms_to):
+    console = Console()
+    for r in eval_results:
+        table = Table(show_header=True, header_style="bold magenta")
+        table.add_column("Required missing properties", justify="right")
+        table.add_column("Improvements", justify="right")
+        # print(r)
+        # print(json.dumps(eval_results[r], indent=True))
+        # print(eval_results[r]["errors"])
+        # print(eval_results[r]["warnings"])
+        rows = itertools.zip_longest(
+            list(set(eval_results[r]["errors"])), list(set(eval_results[r]["warnings"]))
+        )
+        for row in rows:
+            if not row[0]:
+                table.add_row(Text(""), Text(str(row[1]), style="orange"))
+            elif not row[1]:
+                table.add_row(Text(str(row[0]), style="red"), Text(""))
+            else:
+                table.add_row(
+                    Text(str(row[0]), style="red"), Text(str(row[1]), style="orange")
+                )
+
+        console.print()
+        console.print(Text(f"Validating {r} typed {eval_results[r]['type']}"))
+        if conforms_to:
+            console.print(
+                Text(f"against specified profile {eval_results[r]['ref_profile']}")
+            )
+        else:
+            console.print(Text(f"against profile {eval_results[r]['ref_profile']}"))
+        console.print(table)
+
+
 @click.command("validate_bioschemas", short_help="...")
-def cmd_validate_bioschemas():
-    pass
+@click.option("-u", "--url", "urls", multiple=True)
+def cmd_validate_bioschemas(urls):
+    from metrics.WebResource import WebResource
+    from profiles.ProfileFactory import (
+        evaluate_profile_from_type,
+        dyn_evaluate_profile_with_conformsto,
+    )
+
+    for u in urls:
+        res_conforms_to = {}
+        res_type = {}
+        web_resource = WebResource(u)
+        kg = web_resource.get_rdf()
+        res_conforms_to = dyn_evaluate_profile_with_conformsto(kg)
+        print_valid_report(res_conforms_to, conforms_to=True)
+        if len(res_conforms_to) < 1:
+            res_type = evaluate_profile_from_type(kg)
+            print_valid_report(res_type, conforms_to=False)
 
 
 @click.command("evaluate", short_help="...")
@@ -210,18 +113,10 @@ def cmd_validate_bioschemas():
 )
 def cmd_evaluate(rdf_files, urls, debug):
 
-    import metrics.util as util
-    import metrics.statistics as stats
-    from metrics import test_metric
     from metrics.FAIRMetricsFactory import FAIRMetricsFactory
     from metrics.WebResource import WebResource
-    from metrics.Evaluation import Result
-    from profiles.bioschemas_shape_gen import validate_any_from_KG
-    from profiles.bioschemas_shape_gen import validate_any_from_microdata
-    from metrics.util import SOURCE
-    from app import get_result_style, app_logger
+    from app import get_result_style
 
-    logger = app_logger
     if debug:
         # print("DEBUG ACTIVATED")
         logging.basicConfig(
@@ -229,17 +124,16 @@ def cmd_evaluate(rdf_files, urls, debug):
             format="[%(asctime)s] {%(filename)s:%(lineno)d} %(levelname)-8s %(message)s",
             datefmt="%Y-%m-%d %H:%M:%S",
         )
-        logger.debug("DEBUG ACTIVATED")
+        logging.debug("DEBUG ACTIVATED")
     else:
         logging.basicConfig(
             level=logging.INFO,
             format="[%(asctime)s] {%(filename)s:%(lineno)d} %(levelname)-8s %(message)s",
             datefmt="%Y-%m-%d %H:%M:%S",
         )
-        logger.info("DEBUG NOT ACTIVATED")
+        logging.info("DEBUG NOT ACTIVATED")
 
     if rdf_files:
-        start_time = time.time()
 
         console = Console()
         table = Table(show_header=True, header_style="bold magenta")
@@ -249,6 +143,7 @@ def cmd_evaluate(rdf_files, urls, debug):
         table.add_column("Reusable", justify="right")
 
         for file in rdf_files:
+            start_time = time.time()
             logging.debug(f"Testing local file {file}")
             file_KG = ConjunctiveGraph()
             # file_KG.parse(file, format="turtle")
@@ -257,7 +152,7 @@ def cmd_evaluate(rdf_files, urls, debug):
                 "local.file",
                 rdf_graph=file_KG,
             )
-            logging.info(f"Loaded {len(web_res.get_rdf())} triples")
+            console.print(f"Loaded {len(web_res.get_rdf())} triples")
 
             metrics_collection = []
             metrics_collection.append(FAIRMetricsFactory.get_F1A(web_res))
@@ -340,15 +235,13 @@ def cmd_evaluate(rdf_files, urls, debug):
                 )
             )
             elapsed_time = round((time.time() - start_time), 2)
-            logging.info(f"FAIR metrics evaluated in {elapsed_time} s")
+            console.print(f"FAIR metrics evaluated in {elapsed_time} s")
 
     elif urls:
-        start_time = time.time()
         console = Console()
-        print(urls)
 
         for url in urls:
-            print(url)
+            start_time = time.time()
 
             table = Table(show_header=True, header_style="bold magenta")
             table.add_column("Findable", justify="right")
@@ -420,10 +313,10 @@ def cmd_evaluate(rdf_files, urls, debug):
                         ),
                     )
 
-        console.rule(f"[bold red]FAIRness evaluation for URL {url}")
-        console.print(table)
-        elapsed_time = round((time.time() - start_time), 2)
-        logging.info(f"FAIR metrics evaluated in {elapsed_time} s")
+            console.rule(f"[bold red]FAIRness evaluation for URL {url}")
+            console.print(table)
+            elapsed_time = round((time.time() - start_time), 2)
+            console.print(f"FAIR metrics evaluated in {elapsed_time} s")
 
 
 @click.command("extract_metadata", short_help="...")
@@ -432,17 +325,31 @@ def cmd_evaluate(rdf_files, urls, debug):
 @click.option("-o", "--out-dir")
 def cmd_extract_metadata(urls, url_collection, out_dir):
     # FAIR-Checker as a metadata crawler
+
+    # import metrics.util as util
+    # import metrics.statistics as stats
+    # from metrics import test_metric
+    # from metrics.FAIRMetricsFactory import FAIRMetricsFactory
+    from metrics.WebResource import WebResource
+
+    # from metrics.Evaluation import Result
+    # from profiles.bioschemas_shape_gen import validate_any_from_KG
+    # from profiles.bioschemas_shape_gen import validate_any_from_microdata
+    # from metrics.util import SOURCE
+    # from app import get_result_style, app_logger
+
     start_time = time.time()
 
-    if url_collection:
-        file = args.url_collection[0]
-        mydoc = open(file, "r")
-        urls = mydoc.readlines()
-    else:
-        logging.warning(
-            "There is no valid argument after --extract-metadata. Please add --urls or --url-collection."
-        )
-        sys.exit(1)
+    # if url_collection:
+    #     file = args.url_collection[0]
+    #     mydoc = open(file, "r")
+    #     urls = mydoc.readlines()
+    # else:
+    #     logging.warning(
+    #         "There is no valid argument after --extract-metadata. Please add --urls or --url-collection."
+    #     )
+    #     sys.exit(1)
+
     if len(urls) > 0:
         for url in urls:
             console = Console()
@@ -537,40 +444,50 @@ def cmd_extract_metadata(urls, url_collection, out_dir):
             for index, row in props.iterrows():
                 table_props.add_row(Text(row[3]), Text(str(row[1])))
 
-            console.rule(f"[bold red]Classes found in URL {url}")
+            console.rule(f"Metadata found at URL {url}")
             console.print(table_classes)
-
-            console.rule(f"[bold red]Properties found in URL {url}")
             console.print(table_props)
 
-            if args.output_dir:
-                out_dir = args.output_dir[0]
+            if out_dir:
                 if not path.exists(out_dir):
                     Path(out_dir).mkdir(parents=True, exist_ok=True)
 
                 KG2.serialize(
-                    destination=f"{out_dir}/{uuid.uuid4()}.trig",
-                    format="trig",
+                    destination=out_file,
+                    # format="trig",
+                    format="nquads",
                 )
-                logging.info(
-                    f"Loaded {len(KG2)} triples from {url}, and saved in {out_dir}/{uuid.uuid4()}.nquads"
+                console.print(
+                    f"Loaded {len(KG2)} triples from {url}, and saved in {out_file}"
                 )
             else:
                 if not path.exists("dumps"):
                     Path("dumps").mkdir(parents=True, exist_ok=True)
+                out_file = f"dumps/{uuid.uuid4()}.nq"
                 KG2.serialize(
-                    f"dumps/{uuid.uuid4()}.nquads",
+                    out_file,
                     format="nquads",
                 )
-                logging.info(
-                    f"Loaded {len(KG2)} triples from {url}, and saved in dumps/{uuid.uuid4()}.nquads"
+                console.print(
+                    f"Loaded {len(KG2)} triples from {url}, and saved in {out_file}"
                 )
 
-    elapsed_time = round((time.time() - start_time), 2)
+            elapsed_time = round((time.time() - start_time), 2)
+            console.print(f"{url} crawled in {elapsed_time} s")
 
 
 @click.group(
-    help="A python tool to retrieve RDF metadata from web pages and evaluate FAIR-ness."
+    help="""
+    \b
+    A python tool to retrieve RDF metadata from web pages and evaluate FAIR-ness.
+
+    \b
+    Usage examples :
+        python cli.py evaluate --url http://bio.tools/bwa --url http://bio.tools/jaspar
+        python cli.py extract_metadata --url http://bio.tools/bwa -o metadata_dump
+        python cli.py extract_metadata --url-collection input_urls.txt
+        python cli.py validate_bioschemas --url http://bio.tools/bwa
+        python cli.py validate_bioschemas --url https://doi.org/10.57745/B3WUEG"""
 )
 @click.version_option(version="1.0.0")
 def cli():
