@@ -499,9 +499,7 @@ class MetricEvalAll(Resource):
         # metrics_collection = FAIRMetricsFactory.get_FC_impl(web_res)
 
         results = []
-        for key in METRICS_CUSTOM.keys():
-            metric = METRICS_CUSTOM[key]
-            metric.set_web_resource(web_res)
+        for metric in metrics_collection:
             result = metric.evaluate()
             data = {
                 "metric": result.get_metrics(),
