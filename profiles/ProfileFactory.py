@@ -8,6 +8,8 @@ import os
 import yaml
 from tqdm import tqdm
 from rdflib import URIRef, ConjunctiveGraph
+from rdflib.namespace import RDF
+
 
 # from app import dev_logger
 
@@ -342,38 +344,45 @@ def load_profiles():
 
 
 def update_profiles():
+    global PROFILES
     if path.exists("profiles/bs_profiles.json"):
         os.remove("profiles/bs_profiles.json")
-        load_profiles()
+        # load_profiles()
+        PROFILES = ProfileFactory.create_all_profiles_from_specifications()
 
 
 def find_conformsto_subkg(kg):
-    kg.namespace_manager.bind("sc", URIRef("http://schema.org/"))
-    kg.namespace_manager.bind("bsc", URIRef("https://bioschemas.org/"))
-    kg.namespace_manager.bind("dct", URIRef("http://purl.org/dc/terms/"))
+    # kg.namespace_manager.bind("sc", URIRef("https://schema.org/"))
+    # kg.namespace_manager.bind("bsc", URIRef("https://bioschemas.org/"))
+    # kg.namespace_manager.bind("dct", URIRef("http://purl.org/dc/terms/"))
 
     query_conformsto = """
         PREFIX dct: <http://purl.org/dc/terms/>
 
         SELECT ?x ?profile ?type WHERE {
-            ?x dct:conformsTo ?profile .
-            ?x rdf:type ?type .
+            GRAPH ?g {
+                ?x dct:conformsTo ?profile .
+                ?x rdf:type ?type .
+            }
         }
     """
 
     sub_kg_list = []
-
     results = kg.query(query_conformsto)
+
     for r in results:
         conformsto = r["profile"].strip("/")
         identifier = r["x"]
         type = r["type"]
         sub_kg = ConjunctiveGraph()
+        sub_kg.namespace_manager.bind("sc", URIRef("http://schema.org/"))
+        sub_kg.namespace_manager.bind("scs", URIRef("https://schema.org/"))
+        sub_kg.namespace_manager.bind("dct", URIRef("http://purl.org/dc/terms/"))
 
-        for s, p, o in kg.triples((identifier, None, None)):
+        for (s, p, o, g) in kg.quads((identifier, None, None, None)):
+            # print(f"{s} -> {p} -> {o} -> {g.identifier}")
             sub_kg.add((s, p, o))
-        # print(sub_kg.serialize(format="json-ld"))
-
+        # print(sub_kg.serialize(format="trig"))
         # if self.get_ref_profile() == conformsto:
         print(f"Found instance of type {type} that should conforms to {conformsto}")
         sub_kg_list.append(
@@ -434,7 +443,6 @@ def dyn_evaluate_profile_with_conformsto(kg):
                 profile_name, profile_versions
             )
             print(bs_latest_profile)
-            print("TOTO")
             profile = ProfileFactory.create_profile_from_ref_profile(bs_latest_profile)
 
             print(profile)

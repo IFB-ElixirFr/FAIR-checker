@@ -85,17 +85,20 @@ class GenSHACLTestCase(unittest.TestCase):
         query_conformsto = """
             PREFIX dct: <http://purl.org/dc/terms/>
 
-            SELECT ?s ?o WHERE {
-                ?s dct:conformsTo ?o
+            SELECT ?x ?profile ?type WHERE {
+                GRAPH ?g {
+                    ?x dct:conformsTo ?profile .
+                    ?x rdf:type ?type .
+                }
             }
         """
         results = wr_kg.query(query_conformsto)
 
         for r in results:
-            conformsto = r["o"].strip("/")
-            class_id = r["s"]
+            conformsto = r["profile"].strip("/")
+            class_id = r["x"]
             sub_kg = ConjunctiveGraph()
-            for s, p, o in wr_kg.triples((class_id, None, None)):
+            for s, p, o, g in wr_kg.quads((class_id, None, None, None)):
                 sub_kg.add((s, p, o))
             # print(conformsto)
             # print(sub_kg.serialize(format="json-ld"))
