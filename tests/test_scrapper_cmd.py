@@ -37,5 +37,6 @@ class TestScrapperCMDTool(unittest.TestCase):
 
         self.assertGreaterEqual(len(files), 1, "No file is created in the last 1 min")
 
+
 if __name__ == "__main__":
     unittest.main()
