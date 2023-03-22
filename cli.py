@@ -452,6 +452,7 @@ def cmd_extract_metadata(urls, url_collection, out_dir):
                 if not path.exists(out_dir):
                     Path(out_dir).mkdir(parents=True, exist_ok=True)
 
+                out_file = f"{out_dir}/{uuid.uuid4()}.nq"
                 KG2.serialize(
                     destination=out_file,
                     # format="trig",
