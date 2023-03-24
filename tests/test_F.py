@@ -72,7 +72,7 @@ class FindabilityTestCase(unittest.TestCase):
             web_resource=biotools, impl=Implem.FAIR_CHECKER
         ).evaluate()
         logging.info(res2)
-        self.assertEqual(res2.get_score(), str(Result.WEAK.value))
+        self.assertEqual(res2.get_score(), str(Result.STRONG.value))
 
         res3 = FAIRMetricsFactory.get_I2(
             web_resource=biotools, impl=Implem.FAIR_CHECKER
