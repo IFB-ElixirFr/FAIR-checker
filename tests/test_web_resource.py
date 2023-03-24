@@ -23,6 +23,12 @@ class WebResourceTestCase(unittest.TestCase):
         browser = WebResource.WEB_BROWSER_HEADLESS
         browser.quit()
 
+    def test_LOV_access(self):
+        STATUS_LOV = requests.head(
+            "https://lov.linkeddata.es/dataset/lov/sparql"
+        ).status_code
+        self.assertEqual(first=STATUS_LOV, second=200)
+
     def test_biotools(self):
         bwa = WebResource("http://bio.tools/bwa")
         logging.info(f"{len(bwa.get_rdf())} loaded RDF triples")
