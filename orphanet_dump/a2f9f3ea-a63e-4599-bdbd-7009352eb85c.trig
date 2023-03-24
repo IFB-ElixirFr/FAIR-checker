@@ -1,0 +1,40 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=79137> a ns1:MedicalCondition ;
+        ns1:alternateName "GEPD" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:79137" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:79137" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "609446" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C1836173" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "609446" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C1836173" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G40.3" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G40.3" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "Generalized epilepsy-paroxysmal dyskinesia syndrome is characterised by the association of paroxysmal dyskinesia and generalised epilepsy (usually absence or generalised tonic-clonic seizures) in the same individual or family. The prevalence is unknown. Analysis in one of the reported families led to the identification of a causative mutation in the <i>KCNMA1</i> gene (chromosome 10q22), encoding the alpha subunit of the BK channel. Transmission is autosomal dominant." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "79137" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Generalized epilepsy-paroxysmal dyskinesia syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Generalized epilepsy-paroxysmal dyskinesia syndrome" ] .
+}
+

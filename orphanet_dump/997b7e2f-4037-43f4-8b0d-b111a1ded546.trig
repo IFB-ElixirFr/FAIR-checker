@@ -1,0 +1,36 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=31043> a ns1:MedicalCondition ;
+        ns1:alternateName "FHHNC without severe ocular involvement",
+            "HOMG3",
+            "Renal hypomagnesemia type 3" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "E83.4" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "248250" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:31043" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "248250" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E83.4" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:31043" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "Familial primary hypomagnesemia with hypercalciuria and nephrocalcinosis without severe ocular involvement (FHHN) is a form of familial primary hypomagnesemia (FPH; see this term), characterized by recurrent urinary tract infections, nephrolithiasis, bilateral nephrocalcinosis, renal magnesium (Mg) wasting, hypercalciuria and kidney failure." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "31043" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Primary hypomagnesemia with hypercalciuria and nephrocalcinosis without severe ocular involvement" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Primary hypomagnesemia with hypercalciuria and nephrocalcinosis without severe ocular involvement" ] .
+}
+

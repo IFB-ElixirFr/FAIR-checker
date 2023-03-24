@@ -1,0 +1,41 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=137> a ns1:MedicalCondition ;
+        ns1:alternateName "CDG",
+            "Carbohydrate deficient glycoprotein syndrome" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "10307" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0282577" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0282577" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10307" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:137" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:137" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E77.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E77.8" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "A fast growing group of inborn errors of metabolism characterized by defective activity of enzymes that participate in glycosylation (modification of proteins and other macromolecules by adding and processing of oligosaccharide side chains). This group is comprised of phenotypically diverse disorders affecting multiple systems including the central nervous system, muscle function, immunity, endocrine system, and coagulation. The numerous entities in this group are subdivided, based on the synthetic pathway affected, into disorder of protein N-glycosylation, disorder of protein O-glycosylation, disorder of multiple glycosylation, and disorder of glycosphingolipid and glycosylphosphatidylinositol anchor glycosylation." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "137" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Congenital disorder of glycosylation" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Congenital disorder of glycosylation" ] .
+}
+

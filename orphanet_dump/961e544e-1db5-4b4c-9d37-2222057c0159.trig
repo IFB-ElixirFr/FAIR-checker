@@ -1,0 +1,40 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=93606> a ns1:MedicalCondition ;
+        ns1:alternateName "NSIAD" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "E22.2" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "300539" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E22.2" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C1845202" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:93606" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C1845202" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "300539" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:93606" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "Nephrogenic syndrome of inappropriate antidiuresis (NSIAD) is a rare genetic disorder of water balance, closely resembling the far more frequent syndrome of inappropriate antidiuretic secretion (SIAD), and characterized by euvolemic hypotonic hyponatremia due to impaired free water excretion and undetectable or low plasma arginine vasopressin (AVP) levels." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "93606" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Nephrogenic syndrome of inappropriate antidiuresis" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Nephrogenic syndrome of inappropriate antidiuresis" ] .
+}
+

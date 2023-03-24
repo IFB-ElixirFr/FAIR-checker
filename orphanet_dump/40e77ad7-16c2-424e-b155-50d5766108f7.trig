@@ -1,0 +1,53 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=95702> a ns1:MedicalCondition ;
+        ns1:alternateName "X-linked AHC",
+            "X-linked congenital adrenal hypoplasia" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "300200" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0342482" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:95702" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "300200" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "202155" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0342482" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "555" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "202155" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "555" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:95702" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E27.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E27.1" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "A rare genetic adrenal disease characterized by primary adrenal insufficiency (AI) and/or hypogonadotropic hypogonadism (HH). Male patients typically present with AI with acute onset in infancy or insidious onset in childhood. Clinical features of AI include hyperpigmentation, vomiting, poor feeding, failure to thrive, seizures, vascular collapse, and sometimes sudden death. HH manifests later as delayed or arrested puberty. In rare cases, patients become symptomatic in early adulthood with delayed-onset AI, partial HH, and/or infertility. Histologically, the adrenal glands lack the permanent adult cortical zone. The remaining cells are larger than fetal adrenal cells (''cytomegalic'') and contain characteristic nuclear inclusions." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "95702" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "X-linked adrenal hypoplasia congenita" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "X-linked adrenal hypoplasia congenita" ] .
+}
+

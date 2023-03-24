@@ -1,0 +1,33 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=254698> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "C1266159" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C1266159" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:254698" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:254698" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D39.2" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D39.2" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "A rare gestational trophoblastic neoplasmcharacterized histologically by invasion of the myometrium and/or cervix uteri by regular epithelioid cells of chorion laeve type intermediate trophoblasts which clusters in a hyaline stroma. The disease generally occurs several years after pregnancy and indicative signs are irregular metrorrhagia and moderate increases in chorionic gonadotropin levels." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "254698" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Epithelioid trophoblastic tumor" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Epithelioid trophoblastic tumor" ] .
+}
+

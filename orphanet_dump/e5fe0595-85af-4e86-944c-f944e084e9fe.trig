@@ -1,0 +1,39 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=363989> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "228980" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "H35.5" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:363989" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C1856718" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:363989" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "H35.5" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C1856718" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "228980" ;
+                ns1:codingSystem "OMIM" ] ;
+        ns1:description "Familial benign flecked retina is a rare retinal dystrophy characterized by diffuse bilateral white-yellow fleck-like lessions extending to the far periphery of the retina but sparing the foveal region, with asymptomatic clinical phenotype and absence of electrophysiologic deficits." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "363989" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Familial benign flecked retina" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Familial benign flecked retina" ] .
+}
+

@@ -1,0 +1,40 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=276193> a ns1:MedicalCondition ;
+        ns1:alternateName "SCA35" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "613908" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "12366" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G11.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:276193" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "12366" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "613908" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G11.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:276193" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "An autosomal dominant cerebellar ataxia type 1 that is characterized by the adult-onset of progressive gait and limb ataxia, dysarthria, ocular dysmetria, intention tremor of hands, hyperreflexia and spasmodic torticollis." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "276193" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Spinocerebellar ataxia type 35" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Spinocerebellar ataxia type 35" ] .
+}
+

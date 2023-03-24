@@ -1,0 +1,34 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=444072> a ns1:MedicalCondition ;
+        ns1:alternateName "Cerebellofaciodental syndrome" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "616202" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:444072" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "616202" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q87.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q87.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:444072" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare, autosomal recessive, multiple congenital anomalies/dysmorphic syndrome characterized mainly by developmental delay, variable intellectual disability, microcephaly, cerebellar hypoplasia, dysmorphic features (central incisors macrodontia and slender fingers), short stature and variable congenital anomalies." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "444072" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Cerebellar-facial-dental syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Cerebellar-facial-dental syndrome" ] .
+}
+

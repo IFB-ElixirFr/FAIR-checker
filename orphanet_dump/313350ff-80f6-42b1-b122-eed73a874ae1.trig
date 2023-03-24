@@ -1,0 +1,27 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=168947> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:168947" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:168947" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D47.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D47.1" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "A rare, malignant, neoplastic disease characterized by clonal proliferation of myeloid and/or lymphoid precursors harboring rearrangements in the PDGFRA gene, in the blood, bone marrow and often other tissues as well (spleen, lymph nodes, skin, etc.). It usually presents as chronic eosinophilic leukemia or, less commonly, as acute myeloid leukemia or T-lymphoblastic leukemia with eosinophilia. Patients usually present with eosinophilia, anemia, thrombocytopenia, neutrophilia, splenomegaly, lymphadenopathy, fever, sweating and/or weight loss. Tissue infiltration by eosinophils can manifest with skin rash, erythema, cough, neurological alterations, gastrointestinal symptoms or, rarely, endomyocardial fibrosis and restrictive cardiomyopathy." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "168947" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Myeloid/lymphoid neoplasm associated with PDGFRA rearrangement" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Myeloid/lymphoid neoplasm associated with PDGFRA rearrangement" ] .
+}
+

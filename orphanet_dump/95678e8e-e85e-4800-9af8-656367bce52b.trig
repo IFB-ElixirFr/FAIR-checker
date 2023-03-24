@@ -1,0 +1,39 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=79147> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "C1857624" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:79147" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:79147" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "L87.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "216700" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "216700" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "L87.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C1857624" ;
+                ns1:codingSystem "UMLS" ] ;
+        ns1:description "Familial reactive perforating collagenosis is a very rare genetic skin disease characterized by transepidermal elimination of collagen fibers presenting as recurrent spontaneously involuting keratotic papules or nodules." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "79147" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Familial reactive perforating collagenosis" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Familial reactive perforating collagenosis" ] .
+}
+

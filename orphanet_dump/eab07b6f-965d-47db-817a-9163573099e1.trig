@@ -1,0 +1,27 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=35063> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "K72" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:35063" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:35063" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "K72" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "Fulminant viral hepatitis is a rapid and severe impairment of liver functions (acute liver failure) with hepatic encephalopathy developing less than 8 weeks after the onset of jaundice, secondary to viral hepatitis mainly due to HBV, but also to HAV." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "35063" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Fulminant viral hepatitis" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Fulminant viral hepatitis" ] .
+}
+

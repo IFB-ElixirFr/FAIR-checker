@@ -1,0 +1,32 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=2750> a ns1:MedicalCondition ;
+        ns1:alternateName "OFD1",
+            "OFDI",
+            "OFDSI",
+            "Oral-facial-digital syndrome type 1",
+            "Papillon-Léage-Psaume syndrome" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "311200" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "4121" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q87.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C1510460" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:2750" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "Oral-facial-digital syndrome type 1 (OFD1) is a rare neurodevelopmental disorder in the ciliopathy group that is lethal in males and characterized by variable anomalies including external malformations (craniofacial and digital), and possible involvement of the central nervous system (CNS) and of viscera (kidneys, pancreas and ovaries) in females." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "2750" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Orofaciodigital syndrome type 1" ] .
+}
+

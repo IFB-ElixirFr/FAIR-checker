@@ -1,0 +1,62 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=935> a ns1:MedicalCondition ;
+        ns1:alternateName "Achondroplasia-SCID syndrome",
+            "Achondroplasia-Swiss type agammaglobulinemia syndrome",
+            "Achondroplasia-severe combined immunodeficiency syndrome",
+            "Immunodeficiency-short limb dwarfism syndrome",
+            "Short limb skeletal dysplasia with SCID" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "D82.2" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "200900" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "463" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C536020" ;
+                ns1:codingSystem "MeSH" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "2988" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C536020" ;
+                ns1:codingSystem "MeSH" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "463" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "2988" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:935" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:935" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "200900" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C1860168" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C1860168" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D82.2" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "An extremely rare type of severe combined immunodeficiency (SCID) characterized by the classical signs of T-B- SCID (severe and recurrent infections, diarrhea, failure to thrive, absence of T and B lymphocytes), associated with skeletal anomalies like short stature, bowing of the long bones and metaphyseal abnormalities of variable degree of severity." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "935" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Short-limb skeletal dysplasia with severe combined immunodeficiency" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Short-limb skeletal dysplasia with severe combined immunodeficiency" ] .
+}
+

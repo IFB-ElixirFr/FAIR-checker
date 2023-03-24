@@ -1,0 +1,35 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=88660> a ns1:MedicalCondition ;
+        ns1:alternateName "Early-onset hypertension with exacerbation in pregnancy",
+            "Pseudohyperaldosteronism type 2" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "C1854631" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "I15.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:88660" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C1854631" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:88660" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "I15.1" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "Hypertension due to gain-of-function mutations in the mineralocorticoid receptor is a rare genetic hypertension characterized by a familial severe hypertension with an onset before age 20 years, associated with suppressed plasma renin and low aldosterone levels in the presence of low or normal levels of the mineralocorticoid aldosterone, that is highly resistant to antihypertensive medication. During pregnancy, there is a marked exacerbation of hypertension, accompanied by low serum potassium levels and undetectable aldosterone levels, but without signs of preeclampsia, requiring early delivery." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "88660" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Hypertension due to gain-of-function mutations in the mineralocorticoid receptor" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Hypertension due to gain-of-function mutations in the mineralocorticoid receptor" ] .
+}
+

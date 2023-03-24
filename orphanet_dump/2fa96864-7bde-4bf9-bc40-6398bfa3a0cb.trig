@@ -1,0 +1,27 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=141239> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:141239" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:141239" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q18.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q18.8" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "Median cleft of the upper lip and maxilla is a rare, congenital, developmental defect during embryogenesis characterized by a midline vertical cleft through the upper lip and premaxillary bone (can also involve the nasal septum and central nervous system). The phenotypic spectrum is highly variable (ranging from a simple vermillion notch to a wide complete cleft) and hypo/hypertelorism, telecanthus, monophthalmia, flat or cleft nose, wide columella, median alveolar cleft and cranial malformations may be associated." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "141239" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Median cleft of the upper lip and maxilla" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Median cleft of the upper lip and maxilla" ] .
+}
+

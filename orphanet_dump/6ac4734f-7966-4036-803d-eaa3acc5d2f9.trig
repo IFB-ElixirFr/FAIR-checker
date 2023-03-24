@@ -1,0 +1,28 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=56425> a ns1:MedicalCondition ;
+        ns1:alternateName "CAD",
+            "CAS",
+            "Chronic cold agglutinin disease",
+            "Cold agglutinin syndrome" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:56425" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D59.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0175816" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "6130" ;
+                ns1:codingSystem "GARD" ] ;
+        ns1:description "Cold agglutinin disease is a type of autoimmune hemolytic anemia (see this term) defined by the presence of cold autoantibodies (autoantibodies which are active at temperatures below 30°C)." ;
+        ns1:epidemiology "Prevalence : 1-9 / 1 000 000" ;
+        ns1:identifier "56425" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Cold agglutinin disease" ] .
+}
+

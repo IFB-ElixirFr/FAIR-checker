@@ -1,0 +1,40 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=210110> a ns1:MedicalCondition ;
+        ns1:alternateName "Autosomal recessive intermediate osteopetrosis" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "Q78.2" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "4156" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:210110" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "4156" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q78.2" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "611497" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:210110" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "611497" ;
+                ns1:codingSystem "OMIM" ] ;
+        ns1:description "Intermediate osteopetrosis is a rare, genetic primary bone dysplasia with increased bone density characterized by susceptibility to fractures after minor trauma, anemia, and characteristic skeletal radiographic changes, such as sandwich vertebra, bone-within-bone appearance, Erlenmeyer-shaped femoral metaphysis, and mild osteosclerosis of the skull base. Dental anomalies and visual impairment secondary to optic nerve compression have been rarely described." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "210110" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Intermediate osteopetrosis" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Intermediate osteopetrosis" ] .
+}
+

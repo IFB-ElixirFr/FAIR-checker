@@ -1,0 +1,35 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=477857> a ns1:MedicalCondition ;
+        ns1:alternateName "Autosomal recessive MSMD due to complete RORgamma receptor defiency",
+            "Autosomal recessive primary immunodeficiency due to RORC mutation" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "D84.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D84.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "616622" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:477857" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "616622" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:477857" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare primary immunodeficiency characterized by increased susceptibility to infections with <i>candida albicans</i> and weakly pathogenic mycobacteria, such as <i>mycobacterium bovis</i>. Patients present in infancy with chronic mucocutaneous candidiasis of varying severity, disseminated mycobacterial disease, absence of palpable axillary and cervical lymph nodes, reduced thymus size, and variable hepatosplenomegaly. The immunological phenotype comprises mild T-cell lymphopenia, absence of type 1 natural killer T-cells and mucosal-associated invariant T-cells, and low levels of type 3 innate lymphoid cells." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "477857" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Autosomal recessive mendelian susceptibility to mycobacterial diseases due to complete RORgamma receptor deficiency" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Autosomal recessive mendelian susceptibility to mycobacterial diseases due to complete RORgamma receptor deficiency" ] .
+}
+

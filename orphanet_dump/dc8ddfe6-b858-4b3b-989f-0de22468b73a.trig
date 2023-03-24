@@ -1,0 +1,48 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=51208> a ns1:MedicalCondition ;
+        ns1:alternateName "FTCD deficiency",
+            "Formiminotransferase cyclodeaminase deficiency",
+            "Glutamate formiminotransferase deficiency" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "C0268609" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "229100" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:51208" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E70.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "229100" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "9279" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0268609" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:51208" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "9279" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E70.8" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "A rare disorder of folate metabolism and transport characterized, biochemically, by elevated formiminoglutamate in urine and plasma due to glutamate formiminotransferase deficiency, associated with a highly variable clinical phenotype, ranging from developmental delay, intellectual disability and anemia to normal development without anemia. Increased hydantoin-5-propionic acid and/or folate in plasma may also be associated." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "51208" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Formiminoglutamic aciduria" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Formiminoglutamic aciduria" ] .
+}
+

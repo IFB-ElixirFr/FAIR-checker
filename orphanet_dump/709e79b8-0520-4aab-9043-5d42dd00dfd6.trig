@@ -1,0 +1,41 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=99915> a ns1:MedicalCondition ;
+        ns1:alternateName "Granulosa cell cancer",
+            "Granulosa cell malignant tumor" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "D006106" ;
+                ns1:codingSystem "MeSH" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C56" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:99915" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0334401" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:99915" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C56" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0334401" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D006106" ;
+                ns1:codingSystem "MeSH" ] ;
+        ns1:description "A rare malignant sex cord stromal tumor of ovary arising from the granulosa cells of the ovary, which occurs in peri and post menopausal women, and that presents with abnormal vaginal bleeding, abdominal pain and distension. The tumor is frequently unilateral, estrogen secreting, and has a slow natural history and a tendency to relapse long after the initial diagnosis." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "99915" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Maligant granulosa cell tumor of the ovary" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Maligant granulosa cell tumor of the ovary" ] .
+}
+

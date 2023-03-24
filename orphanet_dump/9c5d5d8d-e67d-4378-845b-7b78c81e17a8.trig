@@ -1,0 +1,28 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=213746> a ns1:MedicalCondition ;
+        ns1:alternateName "Endometrial transitional cell carcinoma" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:213746" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C54.9" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:213746" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C54.9" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "A rare uterine cancer characterized by a usually intracavitary, friable, relatively well-circumscribed tumor located in the corpus uteri, with possible infiltration of the myometrium, composed, microscopically, of cells resembling urothelial transition cells, with a papillary or polypoid growth pattern, typically admixed with another type of carcinoma (frequently endometrial adenocarcinoma), generally manifesting with postmenopausal vaginal bleeding." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "213746" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Transitional cell carcinoma of the corpus uteri" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Transitional cell carcinoma of the corpus uteri" ] .
+}
+

@@ -1,0 +1,43 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=2026> a ns1:MedicalCondition ;
+        ns1:alternateName "CGHT",
+            "Congenital generalized hypertrichosis terminalis",
+            "Hirsutism-congenital gingival hyperplasia syndrome",
+            "Hypertrichosis with or without gingival hyperplasia" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "135400" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "L68.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "2324" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:2026" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "L68.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "135400" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "2324" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:2026" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare autosomal dominant disorder characterized by a generalized enlargement of the gingiva occurring at birth or during childhood that is associated with generalized hypertrichosis developing at birth, during the first years of life, or at puberty and predominantly affecting the face, upper limbs, and midback." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "2026" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Gingival fibromatosis-hypertrichosis syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Gingival fibromatosis-hypertrichosis syndrome" ] .
+}
+

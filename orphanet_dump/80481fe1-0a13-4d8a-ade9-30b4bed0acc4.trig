@@ -1,0 +1,27 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=436271> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "G93.4" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:436271" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:436271" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G93.4" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "A rare mitochondrial disease characterized by a distinctive MRI pattern of cavitating leukodystrophy, predominantly in the posterior region of the cerebral hemispheres. The clinical picture varies widely between acute neurometabolic decompensation in infancy with loss of developmental milestones, seizures, and pyramidal signs rapidly evolving into spastic tetraparesis, to subtle neurological symptoms presenting in adolescence. The disease course tends to stabilize over time in most patients, and marked recovery of milestones may be observed." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "436271" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Non-progressive predominantly posterior cavitating leukoencephalopathy with peripheral neuropathy" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Non-progressive predominantly posterior cavitating leukoencephalopathy with peripheral neuropathy" ] .
+}
+

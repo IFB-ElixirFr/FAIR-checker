@@ -1,0 +1,48 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=98806> a ns1:MedicalCondition ;
+        ns1:alternateName "DYT6",
+            "Generalized cervical and upper-limb-onset dystonia",
+            "Idiopathic torsion dystonia of mixed type" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "9630" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G24.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:98806" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "602629" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C1414216" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G24.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C1414216" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "9630" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:98806" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "602629" ;
+                ns1:codingSystem "OMIM" ] ;
+        ns1:description "A rare genetic movement disorder characterized by dystonia affecting at first an upper limb, less frequently beginning in the head and neck region, before slowly spreading to other locations. The clinical spectrum, like age of onset, is variable with focal, segmental, or generalized distribution, but cranial involvement with speech difficulties and cervical involvement are typical, whereas lower limbs are often spared. With progression of the disease, many patients suffer from generalized dystonia while mostly remaining ambulatory." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "98806" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Primary dystonia, DYT6 type" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Primary dystonia, DYT6 type" ] .
+}
+

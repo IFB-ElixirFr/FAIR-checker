@@ -1,0 +1,48 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=2048> a ns1:MedicalCondition ;
+        ns1:alternateName "Bilateral anterior opercular syndrome",
+            "Facio-pharyngo-glossal diplegia with automatic-voluntary movement dissociation",
+            "Facio-pharyngo-glosso-masticatory diplegia" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "G12.2" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:2048" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "2351" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:2048" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C2931412" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C537069" ;
+                ns1:codingSystem "MeSH" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C537069" ;
+                ns1:codingSystem "MeSH" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G12.2" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C2931412" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "2351" ;
+                ns1:codingSystem "GARD" ] ;
+        ns1:description "A rare cortico-subcortical suprabulbar or pseudobulbar palsy of the lower cranial nerves, characterized by severe dysarthria and dysphagia associated with bilateral central facio-pharyngo-glosso-masticatory paralysis, with prominent automatic-voluntary dissociation in which involuntary movements of the affected muscles are preserved." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "2048" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Foix-Chavany-Marie syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Foix-Chavany-Marie syndrome" ] .
+}
+

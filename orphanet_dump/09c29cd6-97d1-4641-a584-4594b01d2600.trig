@@ -1,0 +1,28 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=100078> a ns1:MedicalCondition ;
+        ns1:alternateName "Ileal neuroendocrine neoplasm" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "C17.2" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:100078" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C17.2" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:100078" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "Ileal neuroendocrine tumor is a rare, primary, malignant, epithelial neoplasm of the small intestine arising from enterochromaffin cells in the ileum (usually the terminal ileum). Clinical behavior depends on the histologic grade, but initially it is generally characterized by vague abdominal symptoms (cramping, bloating, diarrhea) with insidious onset, although sometimes it could present with signs of bowel obstruction/perforation or gastrointestinal bleeding. Diagnosis in advanced stages with regional or distant spread is common, but signs of carcinoid syndrome (flushing, sweating, diarrhea) are usually not apparent until hepatic metastasis has occurred." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "100078" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Ileal neuroendocrine tumor" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Ileal neuroendocrine tumor" ] .
+}
+

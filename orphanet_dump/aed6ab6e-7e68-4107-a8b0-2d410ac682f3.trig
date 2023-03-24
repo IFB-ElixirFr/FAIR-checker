@@ -1,0 +1,34 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=443995> a ns1:MedicalCondition ;
+        ns1:alternateName "MFDA" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "Q75.4" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q75.4" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "616367" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:443995" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "616367" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:443995" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare mandibulofacial dysostosis characterized by the association with scalp alopecia and sparse eyebrows and eyelashes. Craniofacial dysmorphic features include zygomatic and mandibular dysplasia or hypoplasia, cleft palate, micrognathia, dental anomalies, auricular dysmorphism, and eyelid anomalies, among others. Patients may experience limited jaw mobility, glossoptosis, upper airway obstruction, and conductive hearing loss." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "443995" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Mandibulofacial dysostosis with alopecia" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Mandibulofacial dysostosis with alopecia" ] .
+}
+

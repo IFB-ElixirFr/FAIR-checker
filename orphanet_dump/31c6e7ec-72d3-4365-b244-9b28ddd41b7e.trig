@@ -1,0 +1,30 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=566231> a ns1:MedicalCondition ;
+        ns1:alternateName "RTHa",
+            "Resistance to thyroid hormone alpha",
+            "Resistance to thyroid hormone due to a mutation in TRa" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "E07.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:566231" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E07.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:566231" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare primary congenital hypothyroidism characterized by a markedly reduced T4/T3 ratio, normal levels of thyroid-stimulating hormone, and a highly variable clinical phenotype, which most commonly includes decreased metabolic rate, bradycardia, chronic constipation, neurodevelopmental delay, and delayed bone age and skeletal abnormalities. Dysmorphic craniofacial features, such as macrocephaly, broad face, flat nose, large tongue, and thick lips, have also been reported. Some patients may show only minimal signs and symptoms." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "566231" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Resistance to thyroid hormone due to a mutation in thyroid hormone receptor alpha" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Resistance to thyroid hormone due to a mutation in thyroid hormone receptor alpha" ] .
+}
+

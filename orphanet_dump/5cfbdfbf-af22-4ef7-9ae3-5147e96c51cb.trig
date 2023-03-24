@@ -1,0 +1,34 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=436174> a ns1:MedicalCondition ;
+        ns1:alternateName "CAGSSS" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "616007" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E88.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:436174" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E88.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:436174" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "616007" ;
+                ns1:codingSystem "OMIM" ] ;
+        ns1:description "A rare mitochondrial disease characterized by a highly variable phenotypic spectrum comprising delayed motor development, peripheral neuropathy, cataract, short stature due to growth hormone deficiency, nystagmus, sensorineural hearing loss, dysmorphic facial features, and skeletal abnormalities consistent with spondyloepimetaphyseal dysplasia. Hyperextensible joints, achalasia, and telangiectasia have also been described. Cognition is normal. Atrophy of the pituitary gland has been observed in brain imaging." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "436174" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Cataract-growth hormone deficiency-sensory neuropathy-sensorineural hearing loss-skeletal dysplasia syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Cataract-growth hormone deficiency-sensory neuropathy-sensorineural hearing loss-skeletal dysplasia syndrome" ] .
+}
+

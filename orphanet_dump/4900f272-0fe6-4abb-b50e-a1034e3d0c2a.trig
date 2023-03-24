@@ -1,0 +1,33 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=391392> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "M79.6" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "615552" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "615552" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "M79.6" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:391392" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:391392" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "Familial episodic pain syndrome with predominantly lower limb involvement is a subtype of familial episodic pain syndrome characterized by intense, episodic and/or cyclic pain mainly localized in the distal lower limbs (occasionally affecting upper limbs as well) which is triggered/exacerbated by fatigue, cold exposure and/or weather changes and alleviated with anti-inflammatory medication, that has a tendancy to diminish in frequency with age. Episodes usually occur late in the day, last 15-30 min and associate sweating and a cold sensation of affected area." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "391392" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Familial episodic pain syndrome with predominantly lower limb involvement" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Familial episodic pain syndrome with predominantly lower limb involvement" ] .
+}
+

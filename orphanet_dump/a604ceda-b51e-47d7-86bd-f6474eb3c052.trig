@@ -1,0 +1,40 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=79254> a ns1:MedicalCondition ;
+        ns1:alternateName "Classic PKU" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "10034875" ;
+                ns1:codingSystem "MedDRA" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10034875" ;
+                ns1:codingSystem "MedDRA" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0751434" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0751434" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E70.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:79254" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:79254" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E70.0" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "A severe form of phenylketonuria (PKU) due to phenylalanine hydroxylase deficiency, an inborn error of amino acid metabolism, characterized in untreated patients by severe intellectual deficit and neuropsychiatric complications." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "79254" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Classic phenylketonuria" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Classic phenylketonuria" ] .
+}
+

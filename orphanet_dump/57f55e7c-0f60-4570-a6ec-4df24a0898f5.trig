@@ -1,0 +1,27 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=720> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "L67.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "L67.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:720" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:720" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "An uncommon transitory hair shaft dysplasia characterized by segmental duplication of the hair shaft: a ramification generates two parallel branches which fuse to form a single shaft again. Each branch is covered by its own cuticle." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "720" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Pili bifurcati" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Pili bifurcati" ] .
+}
+

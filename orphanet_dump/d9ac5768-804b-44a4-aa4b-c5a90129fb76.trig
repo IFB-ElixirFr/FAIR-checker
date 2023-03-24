@@ -1,0 +1,45 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=370927> a ns1:MedicalCondition ;
+        ns1:alternateName "CDG syndrome type Iy",
+            "CDG-Iy",
+            "CDG1Y",
+            "Carbohydrate deficient glycoprotein syndrome type Iy",
+            "Congenital disorder of glycosylation type 1y",
+            "Congenital disorder of glycosylation type Iy" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "E77.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "12405" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:370927" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "300934" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:370927" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "12405" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "300934" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E77.8" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "SSR4-CDG is a form of congenital disorders of N-linked glycosylation characterized by neurologic abnormalities (global developmental delay in language, social skills and fine and gross motor development, intellectual disability, hypotonia, microcephaly, seizures/epilepsy), facial dysmorphism (deep set eyes, large ears, hypoplastic vermillion of upper lip, large mouth with widely spaced teeth), feeding problems often due to chewing difficulties and aversion to food with certain textures, failure to thrive, gastrointestinal abnormalities (reflux or vomiting) and strabismus. The disease is caused by mutations in the gene <i> SSR4</i> (Xq28)." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "370927" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "SSR4-CDG" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "SSR4-CDG" ] .
+}
+

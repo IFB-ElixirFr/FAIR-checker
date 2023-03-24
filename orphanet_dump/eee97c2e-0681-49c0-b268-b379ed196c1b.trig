@@ -1,0 +1,35 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=217340> a ns1:MedicalCondition ;
+        ns1:alternateName "Dup(17)(q21.31)",
+            "Trisomy 17q21.31" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "Q92.3" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q92.3" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "613533" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "613533" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:217340" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:217340" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "The newly described 17q21.31 microduplication syndrome is associated with a broad clinical spectrum, of which behavioral disorders and poor social interaction seem to be the most consistent." ;
+        ns1:epidemiology "Prevalence : 1-9 / 1 000 000" ;
+        ns1:identifier "217340" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "17q21.31 microduplication syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "17q21.31 microduplication syndrome" ] .
+}
+

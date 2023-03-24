@@ -1,0 +1,30 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=280827> a ns1:MedicalCondition ;
+        ns1:alternateName "CPAM type 0",
+            "Congenital cystic adenomatoid malformation of the lung type 0",
+            "Congenital cystic adenomatous malformation of the lung type 0" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:280827" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q33.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:280827" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q33.0" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "A rare subtype of congenital pulmonary airway malformation characterized by global arrest of lung development with small, solid appearing lungs with a diffusely granular surface, histologically featuring bronchus-like structures with smooth muscle, glands, and numerous cartilage plates, embedded in loose, vascular mesenchymal tissue. The condition presents at birth and is incompatible with life." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "280827" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Congenital pulmonary airway malformation type 0" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Congenital pulmonary airway malformation type 0" ] .
+}
+

@@ -1,0 +1,34 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=2130> a ns1:MedicalCondition ;
+        ns1:alternateName "Longitudinal meromelia" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:2130" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10019464" ;
+                ns1:codingSystem "MedDRA" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:2130" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0018987" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0018987" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10019464" ;
+                ns1:codingSystem "MedDRA" ] ;
+        ns1:description "Hemimelia is a limb malformation characterized by the absence or gross shortening of the lower portion of one or more of the limbs. The condition is designated according to which bone of the distal arm or leg is absent or defective and includes fibular, radial, tibial, or ulnar hemimelia (see these terms). Hemimelia ranges in severity." ;
+        ns1:epidemiology "Prevalence : 1-9 / 100 000" ;
+        ns1:identifier "2130" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Hemimelia" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Hemimelia" ] .
+}
+

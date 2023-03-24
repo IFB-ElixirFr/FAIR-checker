@@ -1,0 +1,49 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=2398> a ns1:MedicalCondition ;
+        ns1:alternateName "Cephalothoracic lipodystrophy",
+            "Familial benign cervical lipomatosis",
+            "Launois-Bensaude lipomatosis",
+            "Madelung disease" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "E88.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0023804" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:2398" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "6957" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0023804" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "151800" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E88.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "151800" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:2398" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "6957" ;
+                ns1:codingSystem "GARD" ] ;
+        ns1:description "A rare subcutaneous tissue disease characterized by growth of symmetric non-encapsulated masses of adipose tissue mostly around the face and neck, with variable clinical repercussions (e.g. reduced neck mobility, compression of respiratory structures)." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "2398" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Multiple symmetric lipomatosis" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Multiple symmetric lipomatosis" ] .
+}
+

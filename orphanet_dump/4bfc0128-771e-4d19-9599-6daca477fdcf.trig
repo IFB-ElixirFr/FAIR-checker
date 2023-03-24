@@ -1,0 +1,21 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=211037> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:211037" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:211037" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A group of rare, genetic, motor neuron disease characterized by childhood or adult onset progressive, predominantly proximal, muscular weakness and wasting. Included diseases are Autosomal dominant adult-onset proximal spinal muscular atrophy, Lower motor neuron syndrome with late-adult onset, and Autosomal dominant childhood-onset proximal spinal muscular atrophy." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "211037" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Autosomal dominant proximal spinal muscular atrophy" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Autosomal dominant proximal spinal muscular atrophy" ] .
+}
+

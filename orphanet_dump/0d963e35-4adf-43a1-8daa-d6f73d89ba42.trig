@@ -1,0 +1,30 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=79099> a ns1:MedicalCondition ;
+        ns1:alternateName "Ackerman dermatitis syndrome",
+            "Ackerman syndrome",
+            "IGDA" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:79099" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:79099" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D89.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D89.8" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "Interstitial granulomatous dermatitis with arthritis is a rare rheumatologic disease characterized by the occurrence of inflammatory arthritis in association with large, erythematous, symmetrical cutaneous lesions (ranging from typical, but infrequent, cord-like lesions on the flanks to more common violaceous plaques on the trunk and limbs) featuring a typical histologic infiltrate mainly constituted of histiocytes." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "79099" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Interstitial granulomatous dermatitis with arthritis" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Interstitial granulomatous dermatitis with arthritis" ] .
+}
+

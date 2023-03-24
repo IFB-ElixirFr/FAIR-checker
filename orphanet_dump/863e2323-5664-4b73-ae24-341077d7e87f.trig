@@ -1,0 +1,34 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=2558> a ns1:MedicalCondition ;
+        ns1:alternateName "Microcephaly-hypergonadotropic hypogonadism-short stature syndrome" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "3617" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "3617" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:2558" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E22.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E22.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:2558" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "Mikati-Najjar-Sahli syndrome is characterized by microcephaly, hypergonadotropic hypogonadism, short stature and facial dysmorphism (a narrow forehead, hypertrophy and fusion of the eyebrows, micrognathia and pinnae abnormalities)." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "2558" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Mikati-Najjar-Sahli syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Mikati-Najjar-Sahli syndrome" ] .
+}
+

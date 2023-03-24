@@ -1,0 +1,28 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=251927> a ns1:MedicalCondition ;
+        ns1:alternateName "EVN" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:251927" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:251927" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C72.9" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C72.9" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "Extraventricular neurocytoma (EVN), a variant of central neurocytoma (see this term), is a rare neuronal neoplasm, composed of round cells with neuronal differentiation, which is located outside of the ventricular system, usually within the spinal cord or cerebral hemispheres and that manifests with headache, nausea, vomiting, complex partial seizures or focal neurological deficits. In some cases it may exhibit atypical features consistent with aggressive clinical behavior." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "251927" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Extraventricular neurocytoma" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Extraventricular neurocytoma" ] .
+}
+

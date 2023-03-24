@@ -1,0 +1,41 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=48162> a ns1:MedicalCondition ;
+        ns1:alternateName "MADSAM",
+            "Multifocal acquired demyelinating sensory and motor neuropathy" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "C1695985" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G61.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:48162" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10065580" ;
+                ns1:codingSystem "MedDRA" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C1695985" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10065580" ;
+                ns1:codingSystem "MedDRA" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G61.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:48162" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "Lewis-Sumner syndrome (LSS) is a rare acquired demyelinating polyneuropathy characterized by asymmetrical distal weakness of the upper or lower extremities and motor dysfunction with adult onset. It is considered to be a variant of chronic inflammatory demyelinating polyneuropathy." ;
+        ns1:epidemiology "Prevalence : 1-9 / 1 000 000" ;
+        ns1:identifier "48162" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Lewis-Sumner syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Lewis-Sumner syndrome" ] .
+}
+

@@ -1,0 +1,24 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=99893> a ns1:MedicalCondition ;
+        ns1:alternateName "Adrenal Cushing syndrome",
+            "Adrenocorticotropic hormone-independent Cushing syndrome",
+            "Corticotropin-independent Cushing syndrome" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:99893" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:99893" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A form of endogenous Cushing syndrome (CS) that may result from excess secretion of cortisol by either a unilateral and benign (adrenocortical adenoma: 55-60%) or malignant (adrenocortical carcinoma: 35-40 %) adrenocortical tumor or by bilateral adrenal secretion by macronodular adrenal hyperplasia (AIMAH), as an isolated disease or as part of McCune-Albright syndrome (MAS), or by primary pigmented nodular adrenocortical disease (PPNAD), as an isolated disease or as part of Carney complex (CNC)." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "99893" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "ACTH-independent Cushing syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "ACTH-independent Cushing syndrome" ] .
+}
+

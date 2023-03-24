@@ -1,0 +1,31 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=2764> a ns1:MedicalCondition ;
+        ns1:alternateName "König disease" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "M93.2" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "12703" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0029421" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10031231" ;
+                ns1:codingSystem "MedDRA" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:2764" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D010008" ;
+                ns1:codingSystem "MeSH" ] ;
+        ns1:description "Osteochondritis dissecans (OCD) is a rare bone disease characterized by an acquired idiopathic necrotic lesion of subchondral bone with the formation of a sequestrum, which may detach to form loose bodies in joints. OCD mainly affects the knee, ankle and elbow joints and can lead to pain, functional limitations and secondary osteoarthritis." ;
+        ns1:epidemiology "Prevalence : 1-5 / 10 000" ;
+        ns1:identifier "2764" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Osteochondritis dissecans" ] .
+}
+

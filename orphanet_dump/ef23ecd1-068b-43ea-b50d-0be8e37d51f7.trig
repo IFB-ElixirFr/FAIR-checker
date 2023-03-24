@@ -1,0 +1,34 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=570491> a ns1:MedicalCondition ;
+        ns1:alternateName "QRSL1-related COXPD" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "618835" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E88.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E88.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:570491" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:570491" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "618835" ;
+                ns1:codingSystem "OMIM" ] ;
+        ns1:description "A rare mitochondrial disease characterized by prenatal or early infantile onset of severe cardiomyopathy, failure to thrive and global developmental delay, sensorineural hearing loss, and severe lactic acidosis. Hepatic involvement and adrenal insufficiency, as well as encephalopathy and anomalies of deep gray matter structures on brain MRI have also been reported." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "570491" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "QRSL1-related combined oxidative phosphorylation defect" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "QRSL1-related combined oxidative phosphorylation defect" ] .
+}
+

@@ -1,0 +1,28 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=95491> a ns1:MedicalCondition ;
+        ns1:alternateName "Congenital coronary aneurysm" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:95491" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q24.5" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q24.5" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:95491" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "Congenital coronary artery aneurysm is a rare congenital coronary artery malformation defined as a more than 1.5 fold the normal size dilatation of a coronary artery segment with no identified underlying inflammatory or connective tissue disease. It may be asymptomatic or may present with angina pectoris, myocardial infarction, sudden cardiac death, fistula formation, pericardial tamponade, compression of surrounding structures, or congestive heart failure." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "95491" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Congenital coronary artery aneurysm" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Congenital coronary artery aneurysm" ] .
+}
+

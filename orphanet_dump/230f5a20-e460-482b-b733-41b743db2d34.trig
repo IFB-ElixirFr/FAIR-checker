@@ -1,0 +1,60 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=392> a ns1:MedicalCondition ;
+        ns1:alternateName "Atriodigital dysplasia type 1",
+            "HOS",
+            "Heart-hand syndrome type 1" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "C535326" ;
+                ns1:codingSystem "MeSH" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0265264" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "6666" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C535326" ;
+                ns1:codingSystem "MeSH" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q87.2" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:392" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "142900" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10050469" ;
+                ns1:codingSystem "MedDRA" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:392" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "6666" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0265264" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "142900" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10050469" ;
+                ns1:codingSystem "MedDRA" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q87.2" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "A genetic syndrome with limb reduction defects characterized by skeletal abnormalities of the upper limbs and mild-to-severe congenital cardiac defects." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "392" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Holt-Oram syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Holt-Oram syndrome" ] .
+}
+

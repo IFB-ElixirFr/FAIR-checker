@@ -1,0 +1,45 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=79408> a ns1:MedicalCondition ;
+        ns1:alternateName "Autosomal recessive dystrophic epidermolysis bullosa generalisata gravis",
+            "Autosomal recessive dystrophic epidermolysis bullosa, Hallopeau-Siemens type",
+            "Generalized RDEB, severe form",
+            "RDEB generalisata gravis",
+            "RDEB, Hallopeau-Siemens type",
+            "Severe generalized RDEB" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "Q81.2" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:79408" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "226600" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q81.2" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "6308" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "6308" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "226600" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:79408" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A severe form of dystrophic epidermolysis bullosa (DEB) characterized by generalized cutaneous and mucosal blistering and scarring associated with severe deformities and major extracutaneous involvement." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "79408" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Autosomal recessive generalized dystrophic epidermolysis bullosa, severe form" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Autosomal recessive generalized dystrophic epidermolysis bullosa, severe form" ] .
+}
+

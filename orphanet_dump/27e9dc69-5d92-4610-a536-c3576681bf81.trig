@@ -1,0 +1,53 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=517> a ns1:MedicalCondition ;
+        ns1:alternateName "AML M4",
+            "AMMoL" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "D015479" ;
+                ns1:codingSystem "MeSH" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C92.5" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:517" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:517" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D015479" ;
+                ns1:codingSystem "MeSH" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "529" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10000890" ;
+                ns1:codingSystem "MedDRA" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0023479" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10000890" ;
+                ns1:codingSystem "MedDRA" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C92.5" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "529" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0023479" ;
+                ns1:codingSystem "UMLS" ] ;
+        ns1:description "A rare acute myeloid leukemia disorder characterized by increased blast cells (myeloblasts, monoblast, and/or promonoblasts), representing more than 20% of the total bone marrow (BM) or peripheral blood differential counts, with 20-80% of BM cells being of monocytic lineage. Clinical presentation is the result of bone marrow involvement and extramedullary infiltration by the leukemic cells and includes asthenia, pallor, fever, dizziness, respiratory symptoms, easy bruising, bleeding disorders, and neurological deficits. Gingival hyperplasia, organomegaly, especially hepatosplenomegaly, and lymphadenopathy may also be associated." ;
+        ns1:epidemiology "Prevalence : 1-9 / 1 000 000" ;
+        ns1:identifier "517" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Acute myelomonocytic leukemia" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Acute myelomonocytic leukemia" ] .
+}
+

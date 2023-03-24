@@ -1,0 +1,40 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=300496> a ns1:MedicalCondition ;
+        ns1:alternateName "MCAHS type 2" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "12777" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q87.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "300868" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "12777" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q87.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "300868" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:300496" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:300496" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare, genetic, lethal, neurometabolic malformation syndrome characterized by multiple, variable, congenital cardiac (systolic murmur, atrial septal defect), urinary (duplicated collecting system, vesicoureteral reflux) and central nervous system (thin corpus callosum, cerebellar hypoplasia) malformations associated with neonatal hypotonia, early-onset epileptic encephalopathy, and myoclonic seizures. Craniofacial dysmorphism (prominent occiput, enlarged fontanel, fused metopic suture, upslanted palpebral fissures, overfolded helix, depressed nasal bridge, anteverted nose, malar flattening, microstomy with downturned corners, Pierre-Robin sequence, high arched palate, short neck) and other manifestations (joint contractures, hyperreflexia, dysplastic nails, developmental delay) are also observed." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "300496" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Multiple congenital anomalies-hypotonia-seizures syndrome type 2" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Multiple congenital anomalies-hypotonia-seizures syndrome type 2" ] .
+}
+

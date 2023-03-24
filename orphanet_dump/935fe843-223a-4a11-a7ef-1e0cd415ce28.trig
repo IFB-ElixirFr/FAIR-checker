@@ -1,0 +1,33 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=500478> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:500478" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "275355" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C10.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C10.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "275355" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:500478" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare head and neck tumor characterized by a malignant epithelial neoplasm with evidence of squamous differentiation, which may arise in association with high-risk HPV in a subset of cases. HPV-positive tumors have a strong predilection for the base of tongue and the palatine tonsils and typically present at an advanced clinical stage with cervical lymphadenopathy. They are associated with significantly better prognosis than HPV-negative tumors, which more commonly involve the soft palate, manifest as sore throat and difficulty in swallowing or a neck mass, and occur in older patients. Smoking and alcohol consumption are important risk factors." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "500478" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Squamous cell carcinoma of the oropharynx" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Squamous cell carcinoma of the oropharynx" ] .
+}
+

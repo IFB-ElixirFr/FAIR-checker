@@ -1,0 +1,47 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=168598> a ns1:MedicalCondition ;
+        ns1:alternateName "MAT I/III deficiency",
+            "Mudd's disease" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "8397" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:168598" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0268621" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0268621" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:168598" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "250850" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "8397" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "250850" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E72.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E72.1" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "Hypermethioninemia due to methionine adenosyltransferase deficiency is a very rare metabolic disorder resulting in isolated hepatic hypermethioninemia that is usually benign due to partial inactivation of enzyme activity. Rarely patients have been found to have an odd odor or neurological disorders such as brain demyelination." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "168598" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Methionine adenosyltransferase I/III deficiency" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Methionine adenosyltransferase I/III deficiency" ] .
+}
+

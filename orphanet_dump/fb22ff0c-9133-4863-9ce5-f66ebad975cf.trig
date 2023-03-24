@@ -1,0 +1,36 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=33226> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "C88.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "153600" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10047801" ;
+                ns1:codingSystem "MedDRA" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:33226" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "610430" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D008258" ;
+                ns1:codingSystem "MeSH" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "7872" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0024419" ;
+                ns1:codingSystem "UMLS" ] ;
+        ns1:description "Waldenström macroglobulinemia (WM) is an indolent B-cell lymphoproliferative disorder characterized by the accumulation of monoclonal cells in the bone marrow and peripheral lymphoid tissues, and associated with the production of serum immunoglobulin M (IgM) monoclonal protein." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "33226" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Waldenström macroglobulinemia" ] .
+}
+

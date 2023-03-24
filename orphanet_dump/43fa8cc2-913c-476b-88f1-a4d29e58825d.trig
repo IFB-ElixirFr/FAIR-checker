@@ -1,0 +1,27 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=250932> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "H47.2" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "H47.2" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:250932" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:250932" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare form of autosomal dominant optic atrophy (ADOA) characterized by progressive and isolated visual loss in the first decade of life, decreased reflexes in the lower limbs and a mild cerebellar stance." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "250932" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Autosomal dominant optic atrophy and peripheral neuropathy" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Autosomal dominant optic atrophy and peripheral neuropathy" ] .
+}
+

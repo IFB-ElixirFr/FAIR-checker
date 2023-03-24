@@ -1,0 +1,28 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=84065> a ns1:MedicalCondition ;
+        ns1:alternateName "Idiopathic bile acid malabsorption" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "K90.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:84065" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:84065" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "K90.8" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "A dirsorder that is due to increased acid bile synthesis is an intestinal disease of unknown etiology characterized by an overproduction of bile acids which leads to chronic watery diarrhea." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "84065" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Idiopathic malabsorption due to bile acid synthesis defects" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Idiopathic malabsorption due to bile acid synthesis defects" ] .
+}
+

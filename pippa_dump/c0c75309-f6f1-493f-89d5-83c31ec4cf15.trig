@@ -1,0 +1,99 @@
+@prefix ns1: <https://pippa.psb.ugent.be/pippa_experiments/consult_experiment_basic_info/> .
+@prefix ns2: <http://schema.org/> .
+@prefix ns3: <http://schema.org/@> .
+@prefix ns4: <http://purl.org/ppeo/PPEO.owl#> .
+
+{
+    ns1:59 a ns2:Study ;
+        ns4:hasGrowthFacility [ ns4:hasType "wiwam2" ] ;
+        ns2:endDate "2017/02/18"^^ns2:Date ;
+        ns2:identifier "59" ;
+        ns2:name "20170130-elnju-NUDX" ;
+        ns2:startDate "2017/01/30"^^ns2:Date ;
+        ns2:studyProcess "Phenotyping" ;
+        ns2:studySubject [ a ns2:BioChemEntity ;
+                ns2:identifier "1317" ;
+                ns2:name "AtNUDX7-OE B-3-3" ;
+                ns2:taxonomicRange [ ns3:Type "Taxon" ;
+                        ns2:name "AtNUDX7-OE B-3-3" ;
+                        ns2:parentTaxon "https://www.ebi.ac.uk/ena/taxonomy/rest/scientific-name/Arabidopsis thaliana" ;
+                        ns2:taxonRank "Infraspecific Rank" ] ],
+            [ a ns2:BioChemEntity ;
+                ns2:identifier "1324" ;
+                ns2:name "hpPARP2 427-26-43" ;
+                ns2:taxonomicRange [ ns3:Type "Taxon" ;
+                        ns2:name "hpPARP2 427-26-43" ;
+                        ns2:parentTaxon "https://www.ebi.ac.uk/ena/taxonomy/rest/scientific-name/Arabidopsis thaliana" ;
+                        ns2:taxonRank "Infraspecific Rank" ] ],
+            [ a ns2:BioChemEntity ;
+                ns2:identifier "1322" ;
+                ns2:name "Col-0 (NUDX7)" ;
+                ns2:taxonomicRange [ ns3:Type "Taxon" ;
+                        ns2:name "Col-0 (NUDX7)" ;
+                        ns2:parentTaxon "https://www.ebi.ac.uk/ena/taxonomy/rest/scientific-name/Arabidopsis thaliana" ;
+                        ns2:taxonRank "Infraspecific Rank" ] ],
+            [ a ns2:BioChemEntity ;
+                ns2:identifier "1320" ;
+                ns2:name "AtNUDX7-OE E-7-4" ;
+                ns2:taxonomicRange [ ns3:Type "Taxon" ;
+                        ns2:name "AtNUDX7-OE E-7-4" ;
+                        ns2:parentTaxon "https://www.ebi.ac.uk/ena/taxonomy/rest/scientific-name/Arabidopsis thaliana" ;
+                        ns2:taxonRank "Infraspecific Rank" ] ],
+            [ a ns2:BioChemEntity ;
+                ns2:identifier "1316" ;
+                ns2:name "AtNUDX7-OE A-2-2" ;
+                ns2:taxonomicRange [ ns3:Type "Taxon" ;
+                        ns2:name "AtNUDX7-OE A-2-2" ;
+                        ns2:parentTaxon "https://www.ebi.ac.uk/ena/taxonomy/rest/scientific-name/Arabidopsis thaliana" ;
+                        ns2:taxonRank "Infraspecific Rank" ] ],
+            [ a ns2:BioChemEntity ;
+                ns2:identifier "1318" ;
+                ns2:name "AtNUDX7-OE D-1-2" ;
+                ns2:taxonomicRange [ ns3:Type "Taxon" ;
+                        ns2:name "AtNUDX7-OE D-1-2" ;
+                        ns2:parentTaxon "https://www.ebi.ac.uk/ena/taxonomy/rest/scientific-name/Arabidopsis thaliana" ;
+                        ns2:taxonRank "Infraspecific Rank" ] ],
+            [ a ns2:BioChemEntity ;
+                ns2:identifier "1327" ;
+                ns2:name "ZmNUDX8-OE A-4-2-2" ;
+                ns2:taxonomicRange [ ns3:Type "Taxon" ;
+                        ns2:name "ZmNUDX8-OE A-4-2-2" ;
+                        ns2:parentTaxon "https://www.ebi.ac.uk/ena/taxonomy/rest/scientific-name/Arabidopsis thaliana" ;
+                        ns2:taxonRank "Infraspecific Rank" ] ],
+            [ a ns2:BioChemEntity ;
+                ns2:identifier "1319" ;
+                ns2:name "AtNUDX7-OE E-3-3" ;
+                ns2:taxonomicRange [ ns3:Type "Taxon" ;
+                        ns2:name "AtNUDX7-OE E-3-3" ;
+                        ns2:parentTaxon "https://www.ebi.ac.uk/ena/taxonomy/rest/scientific-name/Arabidopsis thaliana" ;
+                        ns2:taxonRank "Infraspecific Rank" ] ],
+            [ a ns2:BioChemEntity ;
+                ns2:identifier "1321" ;
+                ns2:name "Col-0 (hpPARP2)" ;
+                ns2:taxonomicRange [ ns3:Type "Taxon" ;
+                        ns2:name "Col-0 (hpPARP2)" ;
+                        ns2:parentTaxon "https://www.ebi.ac.uk/ena/taxonomy/rest/scientific-name/Arabidopsis thaliana" ;
+                        ns2:taxonRank "Infraspecific Rank" ] ],
+            [ a ns2:BioChemEntity ;
+                ns2:identifier "1325" ;
+                ns2:name "Salk 046441_1.1" ;
+                ns2:taxonomicRange [ ns3:Type "Taxon" ;
+                        ns2:name "Salk 046441_1.1" ;
+                        ns2:parentTaxon "https://www.ebi.ac.uk/ena/taxonomy/rest/scientific-name/Arabidopsis thaliana" ;
+                        ns2:taxonRank "Infraspecific Rank" ] ],
+            [ a ns2:BioChemEntity ;
+                ns2:identifier "1323" ;
+                ns2:name "Col-0 (ZmNUDX)" ;
+                ns2:taxonomicRange [ ns3:Type "Taxon" ;
+                        ns2:name "Col-0 (ZmNUDX)" ;
+                        ns2:parentTaxon "https://www.ebi.ac.uk/ena/taxonomy/rest/scientific-name/Arabidopsis thaliana" ;
+                        ns2:taxonRank "Infraspecific Rank" ] ],
+            [ a ns2:BioChemEntity ;
+                ns2:identifier "1326" ;
+                ns2:name "ZmNUDX2-OE A-9-1-2" ;
+                ns2:taxonomicRange [ ns3:Type "Taxon" ;
+                        ns2:name "ZmNUDX2-OE A-9-1-2" ;
+                        ns2:parentTaxon "https://www.ebi.ac.uk/ena/taxonomy/rest/scientific-name/Arabidopsis thaliana" ;
+                        ns2:taxonRank "Infraspecific Rank" ] ] .
+}
+

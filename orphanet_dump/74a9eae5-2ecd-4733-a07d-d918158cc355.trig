@@ -1,0 +1,33 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=79118> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:79118" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "610199" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "610199" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q61.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q61.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:79118" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare genetic disease characterized by intrauterine growth retardation, permanent neonatal diabetes mellitus, and congenital hypothyroidism. Additional manifestations include congenital glaucoma, hepatic disease (hepatitis, fibrosis, and cirrhosis), polycystic kidneys, exocrine pancreatic dysfunction, sensorineural hearing impairment, developmental delay, and mild facial dysmorphism (such as flat nasal bridge, epicanthal folds, long philtrum, and low-set ears), among others." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "79118" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Neonatal diabetes-congenital hypothyroidism-congenital glaucoma-hepatic fibrosis-polycystic kidneys syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Neonatal diabetes-congenital hypothyroidism-congenital glaucoma-hepatic fibrosis-polycystic kidneys syndrome" ] .
+}
+

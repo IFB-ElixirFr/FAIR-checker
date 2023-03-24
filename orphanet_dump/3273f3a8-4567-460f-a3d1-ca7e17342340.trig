@@ -1,0 +1,40 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=168486> a ns1:MedicalCondition ;
+        ns1:alternateName "Congenital NCL" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "610127" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0027877" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "610127" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:168486" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:168486" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0027877" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E75.4" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E75.4" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "Congenital neuronal ceroid lipofuscinosis (CNCL) is a severe form of neuronal ceroid lipofuscinosis (NCL; see this term) with onset at birth characterized by primary microcephaly, neonatal epilepsy, and death in early infancy." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "168486" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Congenital neuronal ceroid lipofuscinosis" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Congenital neuronal ceroid lipofuscinosis" ] .
+}
+

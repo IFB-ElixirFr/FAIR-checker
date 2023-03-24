@@ -1,0 +1,33 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=98942> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "Q14.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:98942" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q14.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "120200" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "120200" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:98942" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "Coloboma of choroid and retina is a rare, genetic developmental defect during embryogenesis characterized by the partial absence of retinal pigment epithelium and choroid, most frequently located in the inferonasal quadrant. Patients usually present reduced vision and have an increased risk for retinal detachment. Other ocular anomalies (e.g. coloboma of iris, microcornea, nystagmus, strabismus, microphthalmos) are usually associated, however it may also be isolated." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "98942" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Coloboma of choroid and retina" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Coloboma of choroid and retina" ] .
+}
+

@@ -1,0 +1,48 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=53721> a ns1:MedicalCondition ;
+        ns1:alternateName "Cobb syndrome",
+            "Cutaneomeningospinal angiomatosis",
+            "SAMS 1-31" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "11892" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10068841" ;
+                ns1:codingSystem "MedDRA" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:53721" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:53721" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q27.3" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0346068" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "11892" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0346068" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q27.3" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10068841" ;
+                ns1:codingSystem "MedDRA" ] ;
+        ns1:description "Cobb syndrome is defined by the association of vascular cutaneous (venous or arteriovenous), muscular (arteriovenous), osseous (arteriovenous) and medullary (arteriovenous) lesions at the same metamere or spinal segment. This segmental distribution may involve one or many of the 31 metameres present in humans. Only 16% of the medullary lesions are multiple and have a clearly metameric distribution." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "53721" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Spinal arteriovenous metameric syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Spinal arteriovenous metameric syndrome" ] .
+}
+

@@ -1,0 +1,41 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=247676> a ns1:MedicalCondition ;
+        ns1:alternateName "Adult Rathbun disease",
+            "Adult phosphoethanolaminuria" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "146300" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:247676" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "146300" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E83.3" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0268413" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0268413" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E83.3" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:247676" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A moderate form of hypophosphatasia (HPP) characterized by adult onset osteomalacia, chondrocalcinosis, osteoarthropathy, stress fractures and dental anomalies." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "247676" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Adult hypophosphatasia" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Adult hypophosphatasia" ] .
+}
+

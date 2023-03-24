@@ -1,0 +1,28 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=100082> a ns1:MedicalCondition ;
+        ns1:alternateName "NET of anal canal" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:100082" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C21.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C21.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:100082" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A are epithelial tumor of the anal canal arising from enterochromaffin cells in the colorectal-type epithelium above the dentate line and in the anal transition zone. The tumors are slow growing and the majority of cases are diagnosed in later advanced stages. It may present with symptoms related to the anatomical location of the tumor (rectal mass, rectal bleeding and pain, tenesmus or changes in bowel habits), symptoms of carcinoid syndrome (flushing and increased gut motility) or nonspecific symptoms of advanced disease (hepatomegaly, fever, weight loss, anorexia, malaise)." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "100082" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Neuroendocrine tumor of anal canal" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Neuroendocrine tumor of anal canal" ] .
+}
+

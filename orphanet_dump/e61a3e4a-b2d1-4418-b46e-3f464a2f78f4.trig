@@ -1,0 +1,27 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=141265> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:141265" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q18.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q18.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:141265" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare oblique facial cleft characterized by a defect between the maxilla and the zygomatic bone, opening into the infra-orbital fissure, accompanied by coloboma of the lower eyelid and a vertical furrow on the cheek oriented either laterally to the corner of the mouth or in the direction of the angle of the mandible. The posterior aspect of the maxilla is short with a high palate and choanal atresia. The malformation is typically associated with Treacher-Collins syndrome." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "141265" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Tessier number 6 facial cleft" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Tessier number 6 facial cleft" ] .
+}
+

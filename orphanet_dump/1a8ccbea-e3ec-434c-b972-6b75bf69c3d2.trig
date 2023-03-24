@@ -1,0 +1,52 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=31> a ns1:MedicalCondition ;
+        ns1:alternateName "Alpha-ketoglutarate dehydrogenase deficiency" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "617" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:31" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E88.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C2752074" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "203740" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C536582" ;
+                ns1:codingSystem "MeSH" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:31" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C2752074" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C536582" ;
+                ns1:codingSystem "MeSH" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E88.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "203740" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "617" ;
+                ns1:codingSystem "GARD" ] ;
+        ns1:description "A rare, genetic, inborn error of metabolism disorder characterized by neonatal-onset of developmental delay, hypotonia, hepatomegaly, lactic acidemia, increased creatine kinase levels, elevated alpha-ketoglutaric acid in urine, and a decreased plasma beta-hydroxybutyrate-to-acetoacetate ratio. Pyruvate dehydrogenase deficiency can be associated, leading to hypoglycemia and neurologic anomalies, including seizures." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "31" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Oxoglutaric aciduria" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Oxoglutaric aciduria" ] .
+}
+

@@ -1,0 +1,37 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=440427> a ns1:MedicalCondition ;
+        ns1:alternateName "Hereditary pulmonary alveolar proteinosis with hepatic involvement",
+            "Interstitial lung and liver disease",
+            "PAP, Reunion island type",
+            "Pulmonary alveolar proteinosis, Reunion island type" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:440427" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "J84.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:440427" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "J84.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "615486" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "615486" ;
+                ns1:codingSystem "OMIM" ] ;
+        ns1:description "A rare, genetic interstitial lung disease characterized by accumulation of lipoproteins in the pulmonary alveoli leading to restrictive lung disease and respiratory failure. Patients present with dyspnea, tachypnea, cough, failure to thrive, and digital clubbing. Liver disease have been described in some cases including hepatomegaly, steatosis, fibrosis or cirrhosis." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "440427" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Severe early-onset pulmonary alveolar proteinosis due to MARS deficiency" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Severe early-onset pulmonary alveolar proteinosis due to MARS deficiency" ] .
+}
+

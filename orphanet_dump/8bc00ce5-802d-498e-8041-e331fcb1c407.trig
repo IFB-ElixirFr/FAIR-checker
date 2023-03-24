@@ -1,0 +1,32 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=261584> a ns1:MedicalCondition ;
+        ns1:alternateName "Colorectal adenomatous polyposis due to monosomy 5q22.2",
+            "FAP due to monosomy 5q22.2",
+            "Familial adenomatous polyposis due to del(5)(q22.2)",
+            "Familial adenomatous polyposis due to monosomy 5q22.2",
+            "Familial polyposis coli due to monosomy 5q22.2" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:261584" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:261584" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D12.6" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D12.6" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "" ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "261584" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Familial adenomatous polyposis due to 5q22.2 microdeletion" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Familial adenomatous polyposis due to 5q22.2 microdeletion" ] .
+}
+

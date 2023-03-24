@@ -1,0 +1,34 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=555407> a ns1:MedicalCondition ;
+        ns1:alternateName "Apolipoprotein A-I binding protein deficiency" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "E88.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "617186" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:555407" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E88.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:555407" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "617186" ;
+                ns1:codingSystem "OMIM" ] ;
+        ns1:description "A rare neurometabolic disease characterized by infantile onset of rapidly progressive neurological deterioration, typically precipitated by a febrile illness. Patients present with hypotonia, loss of previously acquired motor milestones and cognitive skills, ataxia, nystagmus, tremor, seizures, tetraparesis, and respiratory failure, eventually resulting in a vegetative state. Imaging of the brain and spinal cord may show white matter abnormalities, cerebral atrophy, cerebellar edema, and spinal myelopathy. Subacute development of extensive bullous skin lesions within weeks of onset of neurological symptoms has also been reported." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "555407" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "NAD(P)HX epimerase deficiency" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "NAD(P)HX epimerase deficiency" ] .
+}
+

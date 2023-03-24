@@ -1,0 +1,33 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=319189> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "614937" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:319189" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:319189" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G25.3" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "614937" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G25.3" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "Familial cortical myoclonus is a rare, genetic movement disorder characterized by autosomal dominant, adult-onset, slowly progressive, multifocal, cortical myoclonus. Patients present somatosensory-evoked, brief, jerky, involuntary movements in the face, arms and legs, associated in most cases with sustained, multiple, sudden falls without loss of consciousness. Seizures or other neurological deficits, aside from mild cerebellar ataxia late in the course of the illness, are absent." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "319189" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Familial cortical myoclonus" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Familial cortical myoclonus" ] .
+}
+

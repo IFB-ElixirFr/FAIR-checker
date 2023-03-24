@@ -1,0 +1,35 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=476113> a ns1:MedicalCondition ;
+        ns1:alternateName "CID due to TFRC deficiency",
+            "TFRC-related combined immunodeficiency" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "616740" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D81.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:476113" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:476113" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D81.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "616740" ;
+                ns1:codingSystem "OMIM" ] ;
+        ns1:description "A rare genetic combined T and B cell immunodeficiency characterized by life-threatening infections due to disrupted transferrin receptor 1 endocytosis, resulting in defective cellular iron transport and impaired T and B cell function. Patients present with early-onset chronic diarrhea, severe recurrent infections, and failure to thrive. Laboratory studies reveal hypo- or agammaglobulinemia, normal lymphocyte counts but decreased numbers of memory B cells, intermittent neutropenia and thrombocytopenia, and mild anemia (resistant to iron supplementation) with low mean corpuscular volume." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "476113" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Combined immunodeficiency due to TFRC deficiency" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Combined immunodeficiency due to TFRC deficiency" ] .
+}
+

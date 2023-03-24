@@ -1,0 +1,46 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=83600> a ns1:MedicalCondition ;
+        ns1:alternateName "Von Economo encephalitis" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:83600" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "6332" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "A85.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0014040" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "A85.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:83600" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10052369" ;
+                ns1:codingSystem "MedDRA" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "6332" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10052369" ;
+                ns1:codingSystem "MedDRA" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0014040" ;
+                ns1:codingSystem "UMLS" ] ;
+        ns1:description "A rare brain inflammatory disease characterized by acute or subacute encephalitis with involvement of the midbrain and basal ganglia occurring in children as well as adults. Initial symptoms are pharyngitis and fever, followed by progressive lethargy, sleep disturbances, extrapyramidal symptoms (parkinsonism, chorea, dystonia), neuropsychiatric manifestations (obsessive-compulsive behavior, mutism, catatonia), and ocular features (oculogyric crises). Autoantibodies against human basal ganglia are often positive. Survivors may develop post-encephalitic syndromes, most prominently parkinsonism." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "83600" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Encephalitis lethargica" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Encephalitis lethargica" ] .
+}
+

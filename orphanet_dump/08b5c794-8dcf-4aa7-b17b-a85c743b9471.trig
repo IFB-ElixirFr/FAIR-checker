@@ -1,0 +1,34 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=352745> a ns1:MedicalCondition ;
+        ns1:alternateName "OCA7" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "E70.3" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "615179" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "615179" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:352745" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:352745" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E70.3" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "A form of oculocutaneous albinism (OCA) characterized by skin and hair hypopigmentation (light blond to dark brown), nystagmus, iris transillumination, visual acuity ranging from 6/9 to 3/60 and hypopigmentation of the peripheral ocular fundus. Photophobia is not a major feature." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "352745" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Oculocutaneous albinism type 7" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Oculocutaneous albinism type 7" ] .
+}
+

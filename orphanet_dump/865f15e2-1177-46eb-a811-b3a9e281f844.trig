@@ -1,0 +1,29 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=50944> a ns1:MedicalCondition ;
+        ns1:alternateName "Eccrine tumors-ectodermal dysplasia",
+            "Keratosis palmoplantaris-cystic eyelids-hypodontia-hypotrichosis syndrome",
+            "Palmoplantar hyperkeratosis-cystic eyelids-hypodontia-hypotrichosis syndrome",
+            "Palmoplantar keratoderma-cystic eyelids-hypodontia-hypotrichosis syndrome",
+            "SSPS" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "C1857069" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q82.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:50944" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "224750" ;
+                ns1:codingSystem "OMIM" ] ;
+        ns1:description "Schöpf-Schulz-Passarge syndrome (SSPS) is a rare autosomal recessive ectodermal dysplasia characterized by multiple eyelid apocrine hidrocystomas, palmoplantar keratoderma, hypotrichosis, hypodontia and nail dystrophy." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "50944" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Schöpf-Schulz-Passarge syndrome" ] .
+}
+

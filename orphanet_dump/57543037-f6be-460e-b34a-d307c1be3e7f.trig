@@ -1,0 +1,28 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=399103> a ns1:MedicalCondition ;
+        ns1:alternateName "Nebulin-related early-onset distal myopathy" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "G71.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:399103" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:399103" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G71.0" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "Distal nebulin myopathy is a rare, slowly progressive, autosomal recessive distal myopathy characterized by early onset of predominantly distal muscle weakness and atrophy affecting lower leg extensor muscles, finger extensors and neck flexors. Muscle histology does not always show nemaline rods." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "399103" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Distal nebulin myopathy" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Distal nebulin myopathy" ] .
+}
+

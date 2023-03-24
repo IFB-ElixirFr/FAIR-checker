@@ -1,0 +1,40 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=103919> a ns1:MedicalCondition ;
+        ns1:alternateName "AIP" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "10069002" ;
+                ns1:codingSystem "MedDRA" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C2609129" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C2609129" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10069002" ;
+                ns1:codingSystem "MedDRA" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10911" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10911" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:103919" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:103919" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare pancreatic disease characterized by chronic non-alcoholic pancreatitis that presents with abdominal pain, steatorrhea, obstructive jaundice and responds well to steroid therapy and is seen in two subforms: type which affects elderly males, involves other organs and has increased immunoglobin G4 (IgG4) levels and type 2 which affects both sexes equally but presents at a younger age and has no other organ involvement or increased IgG4 levels." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "103919" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Autoimmune pancreatitis" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Autoimmune pancreatitis" ] .
+}
+

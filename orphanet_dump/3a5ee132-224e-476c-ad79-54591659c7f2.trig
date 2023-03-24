@@ -1,0 +1,27 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=424016> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "C21.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C21.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:424016" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:424016" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A very rare tumor of the intestine, originating from the epithelium of the anal canal (including the mucosal surface, anal glands, and lining of fistulous tracts), macroscopically appearing as a nodular, often ulcerated, invasive mass located in the anal canal. Patients often present with rectal bleeding, as well as difficulty and pain during defecation. Inguinal lymphadenopathy, if present, usually indicates metastatic spread." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "424016" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Adenocarcinoma of the anal canal" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Adenocarcinoma of the anal canal" ] .
+}
+

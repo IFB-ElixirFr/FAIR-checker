@@ -1,0 +1,30 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=542643> a ns1:MedicalCondition ;
+        ns1:alternateName "Livedo reticularis with summer ulcerations",
+            "Milian atrophie blanche",
+            "Segmental hyalinizing vasculitis" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:542643" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "L95.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "L95.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:542643" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare vascular skin disease characterized by recurrent focal non-inflammatory thrombosis of dermal venulae, predominantly of the lower extremities, resulting in a cutaneous response manifested as pruritus and painful papules and erythematous plaques. The lesions evolve into hemorrhagic vesicles or bullae, which rupture and turn into painful ulcers merging into reticulate, confluent, geometric, and painful ulcerations. During a period of a few months, the ulcerations change to porcelain-white atrophic scars with punctate telangiectasia (so-called atrophie blanche). In active disease, lesions in different stages coexist." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "542643" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Livedoid vasculopathy" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Livedoid vasculopathy" ] .
+}
+

@@ -1,0 +1,28 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=139426> a ns1:MedicalCondition ;
+        ns1:alternateName "POMA" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "G40.4" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G40.4" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:139426" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:139426" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare epilepsy syndrome characterized by absence seizures with perioral myoclonia as the main seizure type, accompanied by generalized tonic-clonic seizures, appearing before or together with absences. Consciousness is usually impaired, although to variable degree. Commonly observed absence status epilepticus, poor response to antiepileptic drugs and persistence of seizures into adulthood, in the presence of normal neurological status and intelligence, are additional clinical features of this syndrome." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "139426" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Perioral myoclonia with absences" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Perioral myoclonia with absences" ] .
+}
+

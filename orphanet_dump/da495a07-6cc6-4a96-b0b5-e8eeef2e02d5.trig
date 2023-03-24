@@ -1,0 +1,28 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=530792> a ns1:MedicalCondition ;
+        ns1:alternateName "Supratentorial C11ORF95-RELA fused ependymoma" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:530792" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:530792" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C71.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C71.0" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "A rare ependymal tumor characterized by the presence of a <i>RELA</i> fusion gene. This supratentorial grade II or III ependymoma most often occurs in children and young adults. Histopathological features are variable, but a distinctive vascular pattern of branching capillaries or clear-cell change are common. Patients may present with focal neurological deficits, seizures, or features of raised intracranial pressure. Prognosis is worse than in other supratentorial ependymomas." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "530792" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "RELA fusion-positive ependymoma" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "RELA fusion-positive ependymoma" ] .
+}
+

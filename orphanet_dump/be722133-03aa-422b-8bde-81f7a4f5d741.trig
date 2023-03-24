@@ -1,0 +1,46 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=86875> a ns1:MedicalCondition ;
+        ns1:alternateName "ATLL" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "C0023493" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D015459" ;
+                ns1:codingSystem "MeSH" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C91.5" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:86875" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:86875" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0023493" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D015459" ;
+                ns1:codingSystem "MeSH" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10001413" ;
+                ns1:codingSystem "MedDRA" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10001413" ;
+                ns1:codingSystem "MedDRA" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C91.5" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "A rare, virus associated tumor due to human T-cell leukemia virus type 1 or human T-cell lymphotropic virus type 1 (HTLV-1) and is characterized by the presence of anti-HTLV-1 antibodies, and malignant, mature, medium-sized T cells with condensed chromatin and polylobated nuclei. The malignant cells exhibit a mature CD4+ T cells phenotype and express CD2, CD5, CD25, CD45RO, HLA-DR, and T-cell receptor &#945;&#946;. Presentation is heterogeneous and is typically of aggressive leukemia or lymphoma, variable skin eruptions, and visceral organ involvement." ;
+        ns1:epidemiology "Prevalence : 1-9 / 100 000" ;
+        ns1:identifier "86875" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Adult T-cell leukemia/lymphoma" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Adult T-cell leukemia/lymphoma" ] .
+}
+

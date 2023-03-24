@@ -1,0 +1,34 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=352654> a ns1:MedicalCondition ;
+        ns1:alternateName "Autosomal recessive spastic paraplegia type 79" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:352654" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G31.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:352654" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "615491" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "615491" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G31.8" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "A rare, genetic, neurodegenerative disease characterized by normal early development followed by childhood onset optic atrophy with progressive vision loss and eventually blindness, followed by progressive neurological decline that typically includes cerebellar ataxia, nystagmus, dorsal column dysfunction (decreased vibration and position sense), spastic paraplegia and finally tetraparesis." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "352654" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Early-onset progressive neurodegeneration-blindness-ataxia-spasticity syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Early-onset progressive neurodegeneration-blindness-ataxia-spasticity syndrome" ] .
+}
+

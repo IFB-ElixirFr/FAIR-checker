@@ -1,0 +1,34 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=293462> a ns1:MedicalCondition ;
+        ns1:alternateName "PDCD" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "H18.5" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "H18.5" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0339282" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0339282" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:293462" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:293462" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "Pre-Descemet corneal dystrophy (PDCD) is a rare form of stromal corneal dystrophy characterized by focal, fine, gray opacities in the deep stroma immediately anterior to the Descemet membrane, with no effect on vision." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "293462" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Pre-Descemet corneal dystrophy" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Pre-Descemet corneal dystrophy" ] .
+}
+

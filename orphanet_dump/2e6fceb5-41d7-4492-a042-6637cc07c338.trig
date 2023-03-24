@@ -1,0 +1,33 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=73256> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "10641" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10641" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:73256" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0206719" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0206719" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:73256" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "Central neurocytoma is a very rare brain tumor of young adults (over 100 cases reported worldwide). It is typically found in the lateral ventricles and occasionally in the third ventricle. Symptoms are those of increased intracranial pressure: headache, nausea and vomiting, drowsiness, vision problems and mental changes. Total removal of the tumor is the therapy of choice. Post-operative prognosis is generally good." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "73256" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Central neurocytoma" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Central neurocytoma" ] .
+}
+

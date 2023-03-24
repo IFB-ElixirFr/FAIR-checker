@@ -1,0 +1,27 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=83619> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "Q87.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:83619" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q87.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:83619" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare developmental defect during embryogenesis characterized by macrostomia or abnormal mouth contour, preauricular tags or pits, and uni- or bilateral ptosis due to external ophthalmoplegia. This syndrome belongs to the oculoauriculovertebral spectrum, a developmental disorder affecting the structures derived from the first and second branchial arches." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "83619" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Macrostomia-preauricular tags-external ophthalmoplegia syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Macrostomia-preauricular tags-external ophthalmoplegia syndrome" ] .
+}
+

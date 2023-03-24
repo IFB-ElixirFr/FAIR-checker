@@ -1,0 +1,39 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=324625> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:324625" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "A92.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:324625" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0008055" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "6038" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "A92.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "6038" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0008055" ;
+                ns1:codingSystem "UMLS" ] ;
+        ns1:description "A rare infectious disease characterized by acute onset of high fever associated with debilitating polyarthralgia and usually accompanied by an erythematous skin rash (that may progress to vesiculobullous lesions in children) caused by the mosquitoe-borne Chikungunya virus. Myalgia, severe headache, and lymphadenopathy are frequently associated. Chronically the disease may cause recurrent, long-term polyarthralgia, arthritis, fatigue, and depression." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "324625" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Chikungunya" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Chikungunya" ] .
+}
+

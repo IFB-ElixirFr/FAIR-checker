@@ -1,0 +1,29 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=313947> a ns1:MedicalCondition ;
+        ns1:alternateName "Dup(2)(q23.1)",
+            "Trisomy 2q23.1" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:313947" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:313947" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q92.3" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q92.3" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "2q23.1 microduplication syndrome is a rare chromosomal anomaly syndrome, resulting from the partial duplication of the long arm of chromosome 2, primarily characterized by global developmental delay, hypotonia, autistic-like features and behavioural problems. Craniofacial dysmorphism (arched eyebrows, hypertelorism, bilateral ptosis, prominent nose, wide mouth, micro/retrognathia) and an affable personality are also commonly associated. Minor digital anomalies (fifth finger clinodactyly and large, broad first toe) have occasionally been reported." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "313947" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "2q23.1 microduplication syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "2q23.1 microduplication syndrome" ] .
+}
+

@@ -1,0 +1,43 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=300878> a ns1:MedicalCondition ;
+        ns1:alternateName "HCL-v",
+            "Leukemic reticuloendotheliosis variant",
+            "Prolymphocytic variant of HCL",
+            "Prolymphocytic variant of hairy cell leukemia" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "C0349633" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C91.4" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C91.4" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10019054" ;
+                ns1:codingSystem "MedDRA" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:300878" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0349633" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10019054" ;
+                ns1:codingSystem "MedDRA" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:300878" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare, malignant splenic B-cell lymphoma/leukemia characterized by circulating abnormal lymphocytes with intermediate morphology between prolymphocytes and hairy cells with positive expression of CD11c and negative expression of CD25, CD123 and the BRAFV600E mutation. Manifestations include splenomegaly, elevated white blood cell (WBC) count, hyper-cellular bone marrow and anemia/thrombocytopenia, but no monocytopenia." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "300878" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Hairy cell leukemia variant" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Hairy cell leukemia variant" ] .
+}
+

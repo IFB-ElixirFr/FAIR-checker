@@ -1,0 +1,29 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=480506> a ns1:MedicalCondition ;
+        ns1:alternateName "PIHL",
+            "Primary hepatolithiasis" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "K80.3" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:480506" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "K80.3" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:480506" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare biliary tract disease characterized by stone formation within the intrahepatic bile ducts without any known cause, leading to bile stasis and repeated cholangitic episodes. The condition is rare in the Western world but frequent in eastern Asia. Patients usually present before the age of forty with right upper quadrant pain, jaundice, and/or fever. Stones are typically calcium bilirubinate (pigment) stones, and bacteria are present in the bile in almost all cases. Complications are biliary strictures, liver abscess, liver fibrosis, and secondary biliary cirrhosis. Association with cholangiocarcinoma has also been reported." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "480506" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Primary intrahepatic lithiasis" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Primary intrahepatic lithiasis" ] .
+}
+

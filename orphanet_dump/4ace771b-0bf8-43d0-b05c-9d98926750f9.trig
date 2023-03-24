@@ -1,0 +1,18 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=228116> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:228116" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "I28.8" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "Hughes-Stovin syndrome (HSS) is a life-threatening disorder, believed to be a cardiovascular clinical variant manifestation of Behçet's disease (BD; see this term). It is characterized by the association of multiple pulmonary artery aneurysms (PAAs) and peripheral venous thrombosis." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "228116" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Hughes-Stovin syndrome" ] .
+}
+

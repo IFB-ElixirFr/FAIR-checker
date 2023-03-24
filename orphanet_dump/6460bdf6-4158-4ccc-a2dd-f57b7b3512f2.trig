@@ -1,0 +1,30 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=79651> a ns1:MedicalCondition ;
+        ns1:alternateName "Mild HPA",
+            "Non-PKU HPA",
+            "mHPA" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:79651" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:79651" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E70.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E70.1" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "A rare form of phenylketonuria, an inborn error of amino acid metabolism, characterized by blood phenylalanine (Phe) concentrations of 120-600 micromol/L with or without clinical manifestations of impaired cognitive function, and behavioral and developmental disorders." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "79651" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Mild hyperphenylalaninemia" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Mild hyperphenylalaninemia" ] .
+}
+

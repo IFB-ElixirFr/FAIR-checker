@@ -1,0 +1,27 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=391316> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:391316" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G40.2" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G40.2" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:391316" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "Infantile-onset mesial temporal lobe epilepsy with severe cognitive regression is a rare monogenic disease with infantile-onset pharmacoresistant focal seizures of mesial temporal lobe onset manifesting with unresponsiveness, hypertonia and automatisms and cognitive regression soon after seizure onset leading to severe intellectual disability with behavioral abnormalities." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "391316" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Infantile-onset mesial temporal lobe epilepsy with severe cognitive regression" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Infantile-onset mesial temporal lobe epilepsy with severe cognitive regression" ] .
+}
+

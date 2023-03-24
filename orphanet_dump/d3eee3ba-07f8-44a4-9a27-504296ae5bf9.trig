@@ -1,0 +1,33 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=2165> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:2165" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "2722" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q04.2" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "2722" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q04.2" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:2165" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "Holoprosencephaly-caudal dysgenesis syndrome is a central nervous system malformation syndrome characterized by holoprosencephaly with microcephaly, abnormal eye morphology (hypotelorism, cyclopia, exophthalmos), nasal anomalies (single nostril or absent nose), and cleft lip/palate, combined with signs of caudal regression (sacral agenesis, sirenomelia with absent external genitalia)." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "2165" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Holoprosencephaly-caudal dysgenesis syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Holoprosencephaly-caudal dysgenesis syndrome" ] .
+}
+

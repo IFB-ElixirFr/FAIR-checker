@@ -1,0 +1,29 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=293948> a ns1:MedicalCondition ;
+        ns1:alternateName "Del(1)(p21.3)",
+            "Monosomy 1p21.3" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:293948" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q93.5" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:293948" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q93.5" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "1p21.3 microdeletion syndrome is an extremely rare chromosomal anomaly characterized by severe speech and language delay, intellectual deficiency, autism spectrum disorder(see this term)." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "293948" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "1p21.3 microdeletion syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "1p21.3 microdeletion syndrome" ] .
+}
+

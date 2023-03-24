@@ -1,0 +1,34 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=1894> a ns1:MedicalCondition ;
+        ns1:alternateName "Kasznica-Carlson-Coppedge syndrome" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "C2931393" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:1894" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:1894" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "3080" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "3080" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C2931393" ;
+                ns1:codingSystem "UMLS" ] ;
+        ns1:description "" ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "1894" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Ectrodactyly-spina bifida-cardiopathy syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Ectrodactyly-spina bifida-cardiopathy syndrome" ] .
+}
+

@@ -1,0 +1,29 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=1708> a ns1:MedicalCondition ;
+        ns1:alternateName "Mosaic trisomy chromosome 16",
+            "Trisomy 16 mosaicism" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:1708" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:1708" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q92.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q92.1" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "Mosaic trisomy 16 is a rare chromosomal anomaly syndrome with a highly variable phenotype ranging from minor anomalies with normal development to intrauterine growth retardation, abnormal skin pigmentation, craniofacial and body asymmetry, cardiac (e.g. ventricular septal defect) and genital (e.g. hypospadias, cryptorchidism) anomalies, scoliosis and hearing loss to neonatal death. Additional features observed include skeletal malformations (e.g. clino/polydactyly, talipes), mild facial dysmorphism, and developmental delay." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "1708" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Mosaic trisomy 16" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Mosaic trisomy 16" ] .
+}
+

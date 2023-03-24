@@ -1,0 +1,32 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=79477> a ns1:MedicalCondition ;
+        ns1:alternateName "Griscelli-Pruniéras syndrome type 2",
+            "Hypopigmentation-immunodeficiency with or without neurologic impairment syndrome" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "C537302" ;
+                ns1:codingSystem "MeSH" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "607624" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:79477" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E70.3" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "4483" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C1868679" ;
+                ns1:codingSystem "UMLS" ] ;
+        ns1:description "A rare subtype of Griscelli syndrome characterized by pigmentary dilution in skin and hair with irregular clumps of pigment in hair shafts resulting in silvery hair, in association with increased susceptibility to recurrent infections and immunological abnormalities, in particular impairment of T-cell and natural killer cytotoxic activity eventually leading to hemophagocytic lymphohistiocytosis. Patients may present neurological manifestations related to infiltration of the central nervous system in the context of the hemophagocytic syndrome. The disease is mostly fatal in the first decade of life." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "79477" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Griscelli syndrome type 2" ] .
+}
+

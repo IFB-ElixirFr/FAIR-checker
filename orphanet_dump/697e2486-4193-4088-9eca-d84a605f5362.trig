@@ -1,0 +1,41 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=295> a ns1:MedicalCondition ;
+        ns1:alternateName "Mother-to-child transmission of parvovirus syndrome",
+            "Parvovirus antenatal infection" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "C2931167" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "P35.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:295" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C2931167" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:295" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "4236" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "4236" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "P35.8" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "Foetal parvovirus syndrome is a foetopathy likely to occur when a pregnant woman is infected by parvovirus B19. In adults, the virus causes a butterfly erythema infectiosum (also called Fifth Disease; 'slapped cheek disease') and flu-like symptoms with symmetric polyarthralgias, which usually do not warrant prenatal diagnosis." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "295" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Fetal parvovirus syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Fetal parvovirus syndrome" ] .
+}
+

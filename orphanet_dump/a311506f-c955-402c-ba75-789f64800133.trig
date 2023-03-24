@@ -1,0 +1,35 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=167> a ns1:MedicalCondition ;
+        ns1:alternateName "Chédiak-Higashi disease",
+            "Chédiak-Higashi-Steinbrink syndrome" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:167" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10008415" ;
+                ns1:codingSystem "MedDRA" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D002609" ;
+                ns1:codingSystem "MeSH" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0007965" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "214500" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "6035" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E70.3" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "Chédiak-Higashi syndrome (CHS) is a rare severe genetic disorder generally characterized by partial oculocutaneous albinism (OCA, see this term), severe immunodeficiency, mild bleeding, neurological dysfunction and lymphoproliferative disorder. A classic, early-onset form and an attenuated, later-onset form (Atypical CHS; see this term) have been described." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "167" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Chédiak-Higashi syndrome" ] .
+}
+

@@ -1,0 +1,29 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=300305> a ns1:MedicalCondition ;
+        ns1:alternateName "Dup(11)p(15.4)",
+            "Trisomy 11p15.4" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:300305" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q92.3" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q92.3" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:300305" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare partial autosomal trisomy/tetrasomy characterized by obesity, global developmental delay and intellectual disability, facial dysmorphism (synophrys, high-arched eyebrows, large posteriorly rotated ears, upturned nose, long smooth philtrum, overbite and high palate), large hands and limb hypotonia. Additional features include seizures and behavioral abnormalities." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "300305" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "11p15.4 microduplication syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "11p15.4 microduplication syndrome" ] .
+}
+

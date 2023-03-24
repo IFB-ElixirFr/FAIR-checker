@@ -1,0 +1,27 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=73245> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "G12.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:73245" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G12.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:73245" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare neurologic disease characterized by bilateral cataract, Dandy-Walker malformation, and childhood onset of distal spinal muscular atrophy. Patients present with progressively deteriorating symmetrical distal muscle weakness and atrophy of the lower limbs (and, to a much lesser degree, also the upper limbs) and decreased tendon reflexes in the lower and upper limbs." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "73245" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Spinal muscular atrophy-Dandy-Walker malformation-cataracts syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Spinal muscular atrophy-Dandy-Walker malformation-cataracts syndrome" ] .
+}
+

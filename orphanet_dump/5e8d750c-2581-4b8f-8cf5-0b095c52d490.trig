@@ -1,0 +1,40 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=52427> a ns1:MedicalCondition ;
+        ns1:alternateName "RPA" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "136880" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:52427" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:52427" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "136880" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C1405854" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C1405854" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "H35.5" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "H35.5" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "A progressive form of familial flecked retinopathy characterized by white punctata throughout the fundus (but sparing the macula in the early stages). Patients present with nightblindness in childhood and may also experience a loss of visual acuity. Significant loss of vision is reported in the 5th and 6th decades of life." ;
+        ns1:epidemiology "Prevalence : 1-9 / 1 000 000" ;
+        ns1:identifier "52427" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Retinitis punctata albescens" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Retinitis punctata albescens" ] .
+}
+

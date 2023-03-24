@@ -1,0 +1,33 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=166105> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "G71.3" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G71.3" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "618855" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:166105" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "618855" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:166105" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "FASTKD2-related infantile mitochondrial encephalomyopathy is a rare, genetic, mitochondrial oxidative phosphorylation disorder characterized by infantile-onset encephalomyopathy presenting with developmental delay, slowly progressive hemiplegia, intractable epileptic seizures and asymmetrical brain atrophy with dilatation of the ipsilateral ventricle system. Additional features include optic atrophy, mildly increased plasma and/or CSF lactate and decreased cytochrome c oxidase activity in skeletal muscle biopsy." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "166105" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "FASTKD2-related infantile mitochondrial encephalomyopathy" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "FASTKD2-related infantile mitochondrial encephalomyopathy" ] .
+}
+

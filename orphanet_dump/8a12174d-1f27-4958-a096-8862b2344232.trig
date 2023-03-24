@@ -1,0 +1,56 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=764> a ns1:MedicalCondition ;
+        ns1:alternateName "Myositis purulenta tropica",
+            "Myositis tropicans",
+            "PM",
+            "Suppurative myositis",
+            "Tropical pyomyositis" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "D052880" ;
+                ns1:codingSystem "MeSH" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "4614" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:764" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "M60.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0041188" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "M60.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10037652" ;
+                ns1:codingSystem "MedDRA" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D052880" ;
+                ns1:codingSystem "MeSH" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:764" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "4614" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0041188" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10037652" ;
+                ns1:codingSystem "MedDRA" ] ;
+        ns1:description "Pyomyositis (PM) is a rare primary bacterial infection of the skeletal muscle, usually resulting from hematogenous spread or due to muscle injury, and characterized by pain and tenderness in the affected muscle, fever and abscess formation." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "764" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Pyomyositis" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Pyomyositis" ] .
+}
+

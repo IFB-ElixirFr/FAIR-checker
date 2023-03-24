@@ -1,0 +1,29 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=576379> a ns1:MedicalCondition ;
+        ns1:alternateName "Iatrogenic MCJ",
+            "iCJD" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:576379" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "A81.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:576379" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "A81.0" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "A rare acquired human prion disease characterized by progressive, invariably fatal neurodegeneration resulting from accidental transmission of CJD prions in the course of medical procedures or treatments (treatment with human pituitary growth hormone or gonadotrophin, human dura mater or corneal graft, exposure to contaminated neurosurgical instruments). Patients present rapidly progressive cognitive impairment, as well as myoclonus, visual or cerebellar problems, pyramidal or extrapyramidal features, and/or akinetic mutism. EEG examination may show characteristic generalized periodic sharp wave complexes. Neuropathologic analysis reveals spongiform change, neuronal loss and gliosis, and deposition of abnormal prion protein." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "576379" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Iatrogenic Creutzfeldt-Jakob disease" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Iatrogenic Creutzfeldt-Jakob disease" ] .
+}
+

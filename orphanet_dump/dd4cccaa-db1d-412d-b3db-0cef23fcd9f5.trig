@@ -1,0 +1,28 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=542657> a ns1:MedicalCondition ;
+        ns1:alternateName "Carbonic anhydrase XII deficiency" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:542657" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "143860" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "143860" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:542657" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare genetic skin disease characterized by excessive salt wasting in sweat, leading to hyponatremic dehydration, hyperkalemia, and poor feeding and slow weight gain in infancy. Laboratory examination shows hyponatremia, hyperkalemia, increased aldosterone, and increased sweat chloride concentrations." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "542657" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Isolated hyperchlorhidrosis" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Isolated hyperchlorhidrosis" ] .
+}
+

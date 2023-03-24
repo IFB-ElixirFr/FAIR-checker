@@ -1,0 +1,27 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=90397> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "L98.5" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "L98.5" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:90397" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:90397" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "Self-healing papular mucinosis is a rare form of localized lichen myxedematosus (see this term) occurring primarily in children and characterized by the development of mucinous papules on various parts of the body (face, neck, trunk, and limbs) that resolve spontaneously within some weeks to months. Systemic symptoms can be observed such as fever, arthralgias and weakness." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "90397" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Self-healing papular mucinosis" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Self-healing papular mucinosis" ] .
+}
+

@@ -1,0 +1,35 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=181393> a ns1:MedicalCondition ;
+        ns1:alternateName "GHIS",
+            "Short stature due to a defect in growth hormone receptor or post-receptor pathway" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:181393" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:181393" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0271568" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "3924" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0271568" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "3924" ;
+                ns1:codingSystem "GARD" ] ;
+        ns1:description "Growth hormone insensitivity syndrome (GHIS) is a group of diseases characterized by marked short stature associated with normal or elevated growth hormone (GH) concentrations, which fail to respond to exogenous GH administration. GHIS comprises growth delay due to IGF-1 deficiency, growth delay due to IGF-1 resistance, Laron syndrome, short stature due to STAT5b deficiency and primary acid-labile subunit (ALS) deficiency (see these terms)." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "181393" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Growth hormone insensitivity syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Growth hormone insensitivity syndrome" ] .
+}
+

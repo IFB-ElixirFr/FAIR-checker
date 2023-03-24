@@ -1,0 +1,27 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=99129> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "Q24.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:99129" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q24.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:99129" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "Congenital complete agenesis of pericardium is a rare, mostly asymptomatic, congenital heart malformation characterized by the complete absence of the entire pericardium, or by the absence of either the right (uncommon) or left pericardium. It is occasionally associated with chest pain (common), dyspnea, dizziness, bradycardia and syncope, while exertional manifestations are rare. The disease is usually incidentally diagnosed during surgery or at autopsy." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "99129" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Congenital complete agenesis of pericardium" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Congenital complete agenesis of pericardium" ] .
+}
+

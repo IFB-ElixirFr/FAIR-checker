@@ -1,0 +1,34 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=70482> a ns1:MedicalCondition ;
+        ns1:alternateName "Esophageal carcinoma" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "10030155" ;
+                ns1:codingSystem "MedDRA" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:70482" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:70482" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0152018" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0152018" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10030155" ;
+                ns1:codingSystem "MedDRA" ] ;
+        ns1:description "Esophageal carcinoma (EC) is a tumor arising in the epithelial cells lining the esophagus and can be divided into two subtypes: esophageal squamous cell carcinoma (ESCC) and esophageal adenocarcinoma (EAC)." ;
+        ns1:epidemiology "Prevalence : 1-9 / 100 000" ;
+        ns1:identifier "70482" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Carcinoma of esophagus" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Carcinoma of esophagus" ] .
+}
+

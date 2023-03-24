@@ -1,0 +1,29 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=562639> a ns1:MedicalCondition ;
+        ns1:alternateName "Overlap syndromes of autoimmune liver diseases",
+            "PBC/PSC and AIH overlap syndrome" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "K75.4" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "K75.4" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:562639" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:562639" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare hepatic disease characterized by the overlap of primary biliary cholangitis and/or primary sclerosing cholangitis with autoimmune hepatitis, defined by the presence of at least two of the three recognized biochemical, serological, and histological criteria of each disease. The onset of the overlapping diseases can be simultaneous or sequential, with a variable interval of up to several years. Age of onset, gender predisposition, and clinical phenotype vary between each of the diseases, and the clinical presentation ranges from asymptomatic disease or unspecific symptoms such as fatigue, arthralgia, and pruritus, to established cirrhosis and decompensation, or also acute, fulminant hepatitis and liver failure. Association with extrahepatic autoimmune diseases is common." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "562639" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Primary biliary cholangitis/primary sclerosing cholangitis and autoimmune hepatitis overlap syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Primary biliary cholangitis/primary sclerosing cholangitis and autoimmune hepatitis overlap syndrome" ] .
+}
+

@@ -1,0 +1,28 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=2427> a ns1:MedicalCondition ;
+        ns1:alternateName "Volcke-Soekarman syndrome" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:2427" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C2931595" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C2931595" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:2427" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare, syndromic intellectual disability characterized by macrocephaly, short stature, intellectual disability, variable degree of spastic paraplegia, central nervous system malformations (hydrocephalus, Dandy-Walker malformation), and dysmorphic features, such as high and broad forehead, midface hypoplasia, and small and broad hands and feet. There have been no further descriptions in the literature since 1993." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "2427" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Macrocephaly-short stature-paraplegia syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Macrocephaly-short stature-paraplegia syndrome" ] .
+}
+

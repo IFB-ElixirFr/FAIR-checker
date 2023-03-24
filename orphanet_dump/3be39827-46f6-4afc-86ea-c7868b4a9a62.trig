@@ -1,0 +1,34 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=97253> a ns1:MedicalCondition ;
+        ns1:alternateName "PNET",
+            "Pancreatic NET",
+            "Pancreatic neuroendocrine tumor",
+            "Well-differentiated NEN of pancreas",
+            "Well-differentiated neuroendocrine neoplasm of pancreas",
+            "Well-differentiated pancreatic NEN",
+            "Well-differentiated pancreatic neuroendocrine neoplasm" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:97253" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:97253" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0242363" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0242363" ;
+                ns1:codingSystem "UMLS" ] ;
+        ns1:description "Pancreatic endocrine tumor, also known as pancreatic neuroendocrine tumor (PNET), describes a group of endocrine tumors originating in the pancreas that are usually indolent and benign, but may have the potential to be malignant. They can be functional, exhibiting a hormonal hypersecretion syndrome, but can be non-functional presenting with non-specific symptoms and include insulinoma, glucagonoma, VIPoma, somatostatinoma (SSoma), PPoma and Zollinger-Ellison syndrome (ZES, or gastrinoma) and other ectopic hormone producing tumors (such as GRFoma) (see these terms)." ;
+        ns1:epidemiology "Prevalence : 1-5 / 10 000" ;
+        ns1:identifier "97253" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Neuroendocrine tumor of pancreas" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Neuroendocrine tumor of pancreas" ] .
+}
+

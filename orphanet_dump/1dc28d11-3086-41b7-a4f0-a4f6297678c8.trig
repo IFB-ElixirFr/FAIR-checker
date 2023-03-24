@@ -1,0 +1,41 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=238569> a ns1:MedicalCondition ;
+        ns1:alternateName "IL10-related early-onset IBD",
+            "IL10-related early-onset inflammatory bowel disease" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "613148" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:238569" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "613148" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "612567" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "K52.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:238569" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "612567" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "K52.8" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "A rare immune dysregulation disease with immunodeficiency characterized by severe, progressive infantile onset inflammatory bowel disease with pancolitis, perianal disease (ulceration, fistulae), recurrent respiratory, genitourinary and cutaneous infections, arthritis and a high risk of B-cell lymphoma." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "238569" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Immune dysregulation-inflammatory bowel disease-arthritis-recurrent infections syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Immune dysregulation-inflammatory bowel disease-arthritis-recurrent infections syndrome" ] .
+}
+

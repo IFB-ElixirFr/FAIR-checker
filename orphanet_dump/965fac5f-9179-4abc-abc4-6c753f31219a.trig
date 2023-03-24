@@ -1,0 +1,40 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=263553> a ns1:MedicalCondition ;
+        ns1:alternateName "Generalized peeling skin disease type B",
+            "Generalized peeling skin syndrome type B",
+            "Inflammatory peeling skin disease",
+            "Inflammatory peeling skin syndrome",
+            "PSS type B",
+            "PSS1",
+            "Peeling skin syndrome 1" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "270300" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q80.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:263553" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "270300" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q80.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:263553" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "Peeling skin syndrome (PSS) type B, also known as peeling skin disease (PSD), is a rare inflammatory form of ichthyosis (see this term) characterized by superficial patchy peeling of the entire skin with underlying erythroderma, pruritus, and atopy." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "263553" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Peeling skin syndrome type B" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Peeling skin syndrome type B" ] .
+}
+

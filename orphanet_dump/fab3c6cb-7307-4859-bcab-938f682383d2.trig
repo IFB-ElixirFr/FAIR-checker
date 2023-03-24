@@ -1,0 +1,30 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=91483> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:91483" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "602482" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q13.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "137600" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "601631" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10059198" ;
+                ns1:codingSystem "MedDRA" ] ;
+        ns1:description "Rieger's anomaly is a congenital ocular defect caused by anterior segment dysgenesis and is characterized by severe anterior chamber deformity with prominent strands and marked atrophy of the iris stroma, with hole or pseudo-hole formation and corectopia. The term covers the association of these iris and pupil anomalies with the features of Axenfeld’s anomaly (see this term)." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "91483" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Rieger anomaly" ] .
+}
+

@@ -1,0 +1,30 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=1717> a ns1:MedicalCondition ;
+        ns1:alternateName "Distal duplication 19q",
+            "Telomeric duplication 19q",
+            "Trisomy 19qter" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:1717" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:1717" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q92.3" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q92.3" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "Distal trisomy 19q is a rare chromosomal anomaly syndrome characterized by low birth weight, developmental delay, intellectual disability, short stature, craniofacial dysmorphism (incl. microcephaly, midface hypoplasia, hypertelorism, flat nasal bridge, ear anomalies, short philtrum, downturned corners of the mouth, micrognathia) and a short neck with redundant skin folds. Additional features may include hypotonia, skeletal anomalies (e.g. clino/camptodactyly), seizures and congenital cardiac, urogenital and gastrointestinal malformations." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "1717" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Distal trisomy 19q" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Distal trisomy 19q" ] .
+}
+

@@ -1,0 +1,42 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=210122> a ns1:MedicalCondition ;
+        ns1:alternateName "ACDMPV",
+            "Alveolar capillary dysplasia with misalignment of pulmonary veins",
+            "Alveolar capillary dysplasia with misalignment of pulmonary vessels" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "8644" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "8644" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C2677362" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C2677362" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "265380" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "265380" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:210122" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:210122" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "Congenital alveolar capillary dysplasia (ACD) is a rare and fatal developmental lung disease characterized by respiratory distress in neonates due to refractory hypoxemia and severe pulmonary arterial hypertension." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "210122" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Congenital alveolar capillary dysplasia" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Congenital alveolar capillary dysplasia" ] .
+}
+

@@ -1,0 +1,41 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=98834> a ns1:MedicalCondition ;
+        ns1:alternateName "AML M2",
+            "Acute myeloblastic leukemia M2" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "C1879321" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C1879321" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "527" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:98834" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:98834" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C92.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C92.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "527" ;
+                ns1:codingSystem "GARD" ] ;
+        ns1:description "A rare, acute myeloid leukemia characterized by evidence of granulocytic maturation and more than 20% of blast cells in the bone marrow and/or peripheral blood. The maturing non-blast granulocytic cells account for greater than or equal to 10% and monocytic cells less than or equal to 20% of the bone marrow cells. Various degrees of anemia, thrombocytopenia, or pancytopenia are present. Frequent clinical manifestations include fatigue, fever, bleeding disorders, and organomegaly, especially hepatosplenomegaly." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "98834" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Acute myeloblastic leukemia with maturation" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Acute myeloblastic leukemia with maturation" ] .
+}
+

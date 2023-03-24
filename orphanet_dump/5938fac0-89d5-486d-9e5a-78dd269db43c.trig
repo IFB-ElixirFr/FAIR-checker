@@ -1,0 +1,27 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=295051> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "Q74.2" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q74.2" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:295051" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:295051" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare, genetic, non-syndromic developmental defect during embryogenesis disorder characterized by uni- or bilateral overgrowth of lower limbs involving bones and/or soft tissues and resulting in an abnormal increase in leg length and/or width. Hypertrophy presents either as a proportionate overgrowth of entire limb or involves only the proximal or distal parts of it. Phenotype ranges from mild hypertrophy without functional disability to massively hypertrophied limb with knee flexion and ankle equinus contractures and macrodystrophia lipomatosa. Patients may also present vascular abnormalities (e.g. cutaneous angiomas, varicose veins) and myalgia." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "295051" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Lower limb hypertrophy" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Lower limb hypertrophy" ] .
+}
+

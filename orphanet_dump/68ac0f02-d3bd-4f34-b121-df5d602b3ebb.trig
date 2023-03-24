@@ -1,0 +1,45 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=3306> a ns1:MedicalCondition ;
+        ns1:alternateName "Duplication/inversion 15q11",
+            "Inv dup (15) syndrome",
+            "Isodicentric chromosome 15 syndrome",
+            "Non-distal tetrasomy 15q",
+            "Non-telomeric tetrasomy 15q",
+            "idic (15) syndrome" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "Q99.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C3711376" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:3306" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C3711376" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q99.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "5153" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:3306" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "5153" ;
+                ns1:codingSystem "GARD" ] ;
+        ns1:description "A rare, complex chromosomal duplication/inversion in the region 15q11.2-q13.1 characterized by early central hypotonia, global developmental delay and intellectual deficit, autistic behavior, and seizures." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "3306" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Inverted duplicated chromosome 15 syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Inverted duplicated chromosome 15 syndrome" ] .
+}
+

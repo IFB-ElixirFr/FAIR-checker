@@ -1,0 +1,33 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=480851> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "D69.4" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:480851" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "616937" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "616937" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:480851" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D69.4" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "A rare syndromic constitutional thrombocytopenia characterized by thrombocytopenia with increased bleeding tendency (leading to epistaxis, menorrhagia, and petechiae), in combination with myelofibrosis and splenomegaly. Platelets may be abnormally large or small and partly hypo- or agranular, plasma thrombopoietin is elevated, and the number of megakaryocytes in the bone marrow increased. Additional non-hematologic manifestations have been described in some patients, including mild bone abnormalities and facial dysmorphism with large forehead, hypertelorism, deep-set eyes, and wide nostrils." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "480851" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Hereditary thrombocytopenia with early-onset myelofibrosis" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Hereditary thrombocytopenia with early-onset myelofibrosis" ] .
+}
+

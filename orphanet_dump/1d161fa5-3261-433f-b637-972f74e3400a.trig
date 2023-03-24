@@ -1,0 +1,34 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=458718> a ns1:MedicalCondition ;
+        ns1:alternateName "Idiopathic SCAD" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "I25.4" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "I25.4" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:458718" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "122455" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "122455" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:458718" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare vascular disease characterized by idiopathic detachment of the layers of the walls of coronary arteries, creating a false lumen which limits the main coronary flow, leading to myocardial ischemia. Clinical manifestations include acute coronary syndromes, especially ST-segment elevation myocardial infarction (STEMI), syncope, cardiogenic shock, or sudden cardiac death. The condition typically affects young women." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "458718" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Idiopathic spontaneous coronary artery dissection" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Idiopathic spontaneous coronary artery dissection" ] .
+}
+

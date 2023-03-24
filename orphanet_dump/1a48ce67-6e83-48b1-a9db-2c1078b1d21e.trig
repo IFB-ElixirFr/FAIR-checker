@@ -1,0 +1,28 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=569164> a ns1:MedicalCondition ;
+        ns1:alternateName "AFH" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "D21.9" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:569164" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D21.9" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:569164" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare soft tissue tumor characterized by a slow-growing, usually painless, subcutaneous nodule, predominantly located in the extremities, less frequently the trunk or head and neck region. Histopathologically, the lesion is well-circumscribed, lobulated, and composed of epitheloid, ovoid, or spindle cells arranged in a nodular and often syncytial pattern, with pseudoangiomatoid spaces and a peripheral fibrous pseudocapsule with a prominent lymphoplasmacytic cuff. The tumor is most common in the first two decades of life and usually follows an indolent course, although local recurrence may occur, while metastasis is rare." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "569164" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Angiomatoid fibrous histiocytoma" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Angiomatoid fibrous histiocytoma" ] .
+}
+

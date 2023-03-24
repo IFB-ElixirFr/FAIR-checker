@@ -1,0 +1,45 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=370924> a ns1:MedicalCondition ;
+        ns1:alternateName "CDG syndrome type Ix",
+            "CDG-Ix",
+            "CDG1X",
+            "Carbohydrate deficient glycoprotein syndrome type Ix",
+            "Congenital disorder of glycosylation type 1x",
+            "Congenital disorder of glycosylation type Ix" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "615597" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E77.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:370924" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:370924" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E77.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C2931007" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "615597" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C2931007" ;
+                ns1:codingSystem "UMLS" ] ;
+        ns1:description "STT3B-CDG is a form of congenital disorders of N-linked glycosylation characterized by intrauterine growth retardation, microcephaly, failure to thrive, developmental delay, intellectual disability, hypotonia, seizures, optic nerve atrophy and respiratory difficulties. Genital abnormalities (micropenis, hypoplastic scrotum, undescended testes) have also been reported. STT3B-CDG is caused by mutations in the gene <i>STT3B</i> (3p24.1)." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "370924" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "STT3B-CDG" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "STT3B-CDG" ] .
+}
+

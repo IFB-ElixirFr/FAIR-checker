@@ -1,0 +1,28 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=1643> a ns1:MedicalCondition ;
+        ns1:alternateName "Del(X)(p23)" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "Q99.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:1643" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:1643" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q99.8" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "Xp22.3 microdeletion syndrome is a microdeletion syndrome resulting from a partial deletion of the chromosome X. Phenotype is highly variable (depending on length of deletion), but is mainly characterized by X linked ichthyosis, mild-moderate intellectual deficit, Kallmann syndrome, short stature, chondrodysplasia punctata and ocular albinism. Epilepsy, attention deficit-hyperactivity disorder, autism and difficulties with social communication can be associated." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "1643" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Xp22.3 microdeletion syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Xp22.3 microdeletion syndrome" ] .
+}
+

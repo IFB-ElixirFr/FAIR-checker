@@ -1,0 +1,42 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=436169> a ns1:MedicalCondition ;
+        ns1:alternateName "THBD-related bleeding disorder",
+            "THBD-related coagulopathy",
+            "Thrombomodulin-related coagulopathy" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "D68.3" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "614486" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "614486" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C3280976" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:436169" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C3280976" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D68.3" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:436169" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare genetic coagulation disorder characterized by marked bleeding tendency and posttraumatic bleeding with easy bruising, soft tissue and muscle bleeding, hemarthroses, and menorrhagia due to an increase of soluble thrombomodulin in plasma with subsequent protein C activation and reduction of thrombin generation within a potential thrombus. Abnormal laboratory findings include markedly elevated plasma thrombomodulin, reduced prothrombin consumption, and decreased thrombin generation." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "436169" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Thrombomodulin-related bleeding disorder" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Thrombomodulin-related bleeding disorder" ] .
+}
+

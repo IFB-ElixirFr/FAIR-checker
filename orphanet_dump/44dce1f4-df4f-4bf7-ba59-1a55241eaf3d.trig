@@ -1,0 +1,27 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=139474> a ns1:MedicalCondition ;
+        ns1:alternateName "Dup(17)(q11.2)",
+            "Grisart-Destrée syndrome",
+            "Trisomy 17q11.2" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "C3150928" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:139474" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q92.3" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "618874" ;
+                ns1:codingSystem "OMIM" ] ;
+        ns1:description "17q11.2 microduplication syndrome is characterized by dysmorphic features and intellectual deficit." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "139474" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "17q11.2 microduplication syndrome" ] .
+}
+

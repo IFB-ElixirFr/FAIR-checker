@@ -1,0 +1,27 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=1677> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "Q20.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:1677" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q20.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:1677" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare congenital heart malformation of unknown etiology that is characterized by an extremely dilated right atrium, and that is usually asymptomatic and fortuitously discovered by echocardiography or chest radiography, and can be sometimes associated with other anomalies such as atrial arrhythmias (e.g. atrial flutter, atrial fibrillation, supraventricular tachycardia), severe tricuspid regurgitation, or atrial thrombus that could lead to potentially life-threatening thromboembolic complications." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "1677" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Familial idiopathic dilatation of the right atrium" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Familial idiopathic dilatation of the right atrium" ] .
+}
+

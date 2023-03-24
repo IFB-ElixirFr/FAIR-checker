@@ -1,0 +1,34 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=505652> a ns1:MedicalCondition ;
+        ns1:alternateName "CDD" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "300672" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G40.4" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "300672" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:505652" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:505652" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G40.4" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "A rare genetic neurodevelopmental disorder characterized by early-onset drug-resistant seizures and severe neurodevelopmental impairment with major motor development delay." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "505652" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "CDKL5-deficiency disorder" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "CDKL5-deficiency disorder" ] .
+}
+

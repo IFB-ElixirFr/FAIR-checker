@@ -1,0 +1,25 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=443079> a ns1:MedicalCondition ;
+        ns1:alternateName "CSCR" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "C0730328" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "200" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:443079" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "H35.7" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "A rare, acquired, choroidal disorder characterized by subretinal detachment in the macular área and leakage of fluid under the retina that accumulates under the central macula. Symptoms tend to include blurred or distorted vision (metamorphopsia), moderate dyschromatopsia, relative central scotoma, hypermetropization, micropsia and reduced contrast sensitivity. A blurred or gray spot in the central visual field is common when the retina is detached." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "443079" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Central serous chorioretinopathy" ] .
+}
+

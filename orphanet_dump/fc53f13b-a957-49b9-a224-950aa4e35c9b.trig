@@ -1,0 +1,30 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=3185> a ns1:MedicalCondition ;
+        ns1:alternateName "PCOS",
+            "Polycystic ovarian syndrome",
+            "Stein-Leventhal syndrome" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "E28.2" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E28.2" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:3185" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:3185" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "" ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "3185" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "NON RARE IN EUROPE: Polycystic ovary syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "NON RARE IN EUROPE: Polycystic ovary syndrome" ] .
+}
+

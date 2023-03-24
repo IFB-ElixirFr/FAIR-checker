@@ -1,0 +1,40 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=99928> a ns1:MedicalCondition ;
+        ns1:alternateName "PSST" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "D39.2" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:99928" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0206666" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:99928" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0206666" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D39.2" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D018245" ;
+                ns1:codingSystem "MeSH" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D018245" ;
+                ns1:codingSystem "MeSH" ] ;
+        ns1:description "A rare gestational trophoblastic neoplasm characterized histologically by invasion of myometrium by intermediate trophoblastic cells without chorionic villi and containing human placental lactogen hormone (hPL). Tissue necrosis is usually absent and hemorrhage is mild. The tumor develops from the placental implantation site and always occurs following pregnancy, voluntary termination of pregnancy (VTP) or miscarriage. Indicative signs are irregular metrorrhagia some time after spontaneous miscarriage or VTP, presence of metastasis or unexplained metrorrhagia in the weeks and months following normal childbirth or ectopic pregnancy." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "99928" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Placental site trophoblastic tumor" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Placental site trophoblastic tumor" ] .
+}
+

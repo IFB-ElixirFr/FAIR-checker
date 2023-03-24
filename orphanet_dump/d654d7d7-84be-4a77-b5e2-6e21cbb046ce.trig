@@ -1,0 +1,40 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=213792> a ns1:MedicalCondition ;
+        ns1:alternateName "Cervical adenosarcoma" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "C53.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C53.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C53.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C53.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C53.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:213792" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C53.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:213792" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare subtype of malignant mixed epithelial and mesenchymal tumor composed of benign or mildly atypical glandular elements and a surrounding low-grade malignant stroma, often containing heterologous elements, such as areas of sex-cord-like or smooth muscle differentiation. It usually presents with vaginal bleeding or discharge, lower abdominal pain and/or a cervical mass or polyp. The tumor may arise from pre-existing endometriosis and patients may have a history of recurrent cervical polyps." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "213792" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Adenosarcoma of the cervix uteri" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Adenosarcoma of the cervix uteri" ] .
+}
+

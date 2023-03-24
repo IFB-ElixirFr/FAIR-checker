@@ -1,0 +1,34 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=329336> a ns1:MedicalCondition ;
+        ns1:alternateName "Adult-onset CPEO with mitochondrial myopathy" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "616479" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G71.3" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:329336" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:329336" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G71.3" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "616479" ;
+                ns1:codingSystem "OMIM" ] ;
+        ns1:description "A rare mitochondrial disease characterized by adult onset of progressive external ophthalmoplegia, exercise intolerance, muscle weakness, manifestations of spinocerebellar ataxia (e.g. impaired gait, dysarthria) and mild motor peripheral neuropathy. Respiratory insufficiency has been reported in some cases." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "329336" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Adult-onset chronic progressive external ophthalmoplegia with mitochondrial myopathy" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Adult-onset chronic progressive external ophthalmoplegia with mitochondrial myopathy" ] .
+}
+

@@ -1,0 +1,35 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=91364> a ns1:MedicalCondition ;
+        ns1:alternateName "NSIP",
+            "Non-specific idiopathic interstitial pneumonia" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "J84.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C1290344" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:91364" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C1290344" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "J84.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:91364" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare idiopathic interstitial pneumonia characterized by temporally uniform alveolar and interstitial mononuclear cell inflammation (cellular type) and/or fibrosis of the alveolar walls (fibrotic type) with preserved alveolar architecture. Other types of interstitial lung disease must be excluded. Symptoms are non-specific and include dyspnea, cough, and often constitutional symptoms such as fever and fatigue. Pulmonary function test reveals a restrictive pattern. Computed tomography shows predominantly lower lobe subpleural reticular changes, traction bronchiectasis, and ground-glass opacities. The cellular type of the disease is less common but carries a better prognosis." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "91364" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Non-specific interstitial pneumonia" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Non-specific interstitial pneumonia" ] .
+}
+

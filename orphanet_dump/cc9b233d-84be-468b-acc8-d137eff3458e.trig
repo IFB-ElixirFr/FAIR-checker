@@ -1,0 +1,22 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=319298> a ns1:MedicalCondition ;
+        ns1:alternateName "Papillary renal cell adenocarcinoma" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "C64" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:319298" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C1306837" ;
+                ns1:codingSystem "UMLS" ] ;
+        ns1:description "Papillary renal cell carcinoma is a rare subtype of renal cell carcinoma, arising from the renal tubular epithelium and showing a papillary growth pattern, which typically manifests with hematuria, flank pain, palpable abdominal mass or nonspecific symptoms, such as fatigue, weight loss or fever. Symptoms related to metastatic spread, such as bone pain or persistent cough, are frequently associated since early diagnosis is not common. It is typically multifocal, bilateral, and in most cases sporadic, although different hereditary syndromes, such as Hereditary leiomyoma renal cell carcinoma, Birt-Hogg-Dubé syndrome and Tuberous sclerosis, may predispose to the development of papillary renal cell carcinoma." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "319298" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Papillary renal cell carcinoma" ] .
+}
+

@@ -1,0 +1,34 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=444458> a ns1:MedicalCondition ;
+        ns1:alternateName "COXPD24" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "E88.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "616239" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:444458" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E88.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:444458" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "616239" ;
+                ns1:codingSystem "OMIM" ] ;
+        ns1:description "Combined oxidative phosphorylation defect type 24 is a rare mitochondrial oxidative phosphorylation disorder characterized by variable phenotype, including developmental delay with psychomotor regression, intellectual disability, epilepsy, Leigh syndrome, non-syndromic hearing loss, visual impairment and severe myopathy. Decreased activity of mitochondrial respiratory complexes and lactic acidosis are common findings, and diffuse cerebral atrophy may be associated." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "444458" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Combined oxidative phosphorylation defect type 24" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Combined oxidative phosphorylation defect type 24" ] .
+}
+

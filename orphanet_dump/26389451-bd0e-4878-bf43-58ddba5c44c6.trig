@@ -1,0 +1,40 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=183663> a ns1:MedicalCondition ;
+        ns1:alternateName "HIGM with susceptibility to opportunistic infections" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "D80.5" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "308230" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D80.5" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "308230" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:183663" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "606843" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:183663" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "606843" ;
+                ns1:codingSystem "OMIM" ] ;
+        ns1:description "Hyper-IgM syndrome with susceptibility to opportunistic infections is a rare, genetic, non-severe combined immunodeficiency disorder characterized by normal or elevated IgM serum levels with low or absent IgG, IgA and IgE serum concentrations, which manifests with recurrent or severe bacterial infections and increased susceptibility to opportunistic infections (in particular, pneumonia due to <i>P. jiroveci</i>, but also chronic cryptosporidial, cryptococcal, cytomegalovirus and toxoplasma infections). Hematologic disorders (neutropenia, anemia, thrombocytopenia) are frequently associated. Immunologic findings reveal decreased numbers of CD27+ memory B cells and lack of germinal center formation." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "183663" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Hyper-IgM syndrome with susceptibility to opportunistic infections" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Hyper-IgM syndrome with susceptibility to opportunistic infections" ] .
+}
+

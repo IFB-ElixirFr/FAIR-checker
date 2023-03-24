@@ -1,0 +1,40 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=36388> a ns1:MedicalCondition ;
+        ns1:alternateName "PNS" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "10072106" ;
+                ns1:codingSystem "MedDRA" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "7326" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0751911" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10072106" ;
+                ns1:codingSystem "MedDRA" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:36388" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "7326" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0751911" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:36388" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "Paraneoplastic neurological syndromes (PNS) can be defined as remote effects of cancer that are not caused by the tumor and its metastasis, or by infection, ischemia or metabolic disruptions." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "36388" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Paraneoplastic neurologic syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Paraneoplastic neurologic syndrome" ] .
+}
+

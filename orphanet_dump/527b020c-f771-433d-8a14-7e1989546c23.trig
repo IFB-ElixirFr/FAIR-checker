@@ -1,0 +1,45 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=141242> a ns1:MedicalCondition ;
+        ns1:alternateName "Alar cleft",
+            "Alar rim cleft",
+            "Cleft nose",
+            "Isolated cleft of the ala nasi",
+            "Isolated coloboma of the nose",
+            "Tessier number 1 cleft" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:141242" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q18.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "614687" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0221363" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q18.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0221363" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "614687" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:141242" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "Paramedian nasal cleft is a rare developmental defect during embryogenesis characterized by a unilateral or bilateral coloboma of the nose, ranging in severity from a small notch, resulting in minor deviation of the nasal septum, to variable-sized clefts of the nasal ala which may be associated with small cysts or sinuses in the nasal midline. Defect may be isolated or may occur in association with cleft lip and/or other craniofacial anomalies (e.g. hypertelorism, broadening of nasal root, midline cleft). Dorsum and apex of nose are usually well preserved." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "141242" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Paramedian nasal cleft" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Paramedian nasal cleft" ] .
+}
+

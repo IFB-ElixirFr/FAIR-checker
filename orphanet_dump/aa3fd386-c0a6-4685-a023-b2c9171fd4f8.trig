@@ -1,0 +1,55 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=91138> a ns1:MedicalCondition ;
+        ns1:alternateName "Essential cryoglobulinemia",
+            "Essential mixed cryoglobulinemia",
+            "Mixed cryoglobulinemia",
+            "Primary cryoglobulinemia" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "C0340992" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "123550" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:91138" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0340992" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D89.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:91138" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10027756" ;
+                ns1:codingSystem "MedDRA" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10027756" ;
+                ns1:codingSystem "MedDRA" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "6386" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "123550" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "6386" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D89.1" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "A rare immune complex-mediated vasculitis characterized by the presence of circulating cryoprecipitable immune complexes in the serum, manifesting clinically with the classical triad of purpura, weakness and arthralgia." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "91138" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Cryoglobulinemic vasculitis" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Cryoglobulinemic vasculitis" ] .
+}
+

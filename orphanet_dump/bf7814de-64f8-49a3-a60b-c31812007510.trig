@@ -1,0 +1,39 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=93325> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:93325" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "83" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "83" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "127000" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "127000" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q87.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q87.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:93325" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare, primary bone dysplasia characterized by severe growth retardation, short stature, cortical thickening and medullary stenosis of long bones, delayed closure of the anterior fontanelle, absent diploic space in the skull bones, prominent forehead, macrocephaly, dental anomalies, eye problems (hypermetropia and pseudopapilledema), and hypocalcemia due to hypoparathyroidism, sometimes resulting in convulsions. Intelligence is normal." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "93325" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Autosomal dominant Kenny-Caffey syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Autosomal dominant Kenny-Caffey syndrome" ] .
+}
+

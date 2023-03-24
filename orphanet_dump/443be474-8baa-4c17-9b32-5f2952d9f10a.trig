@@ -1,0 +1,28 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=289661> a ns1:MedicalCondition ;
+        ns1:alternateName "EBV-positive DLBCL of the elderly" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "C83.3" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:289661" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:289661" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C83.3" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "Epstein-Barr virus-positive diffuse large B-cell lymphoma of the elderly is a rare form of diffuse large B-cell lymphoma occurring most commonly in patients over the age of 50 (usually between 70-75 years of age), without overt immunodeficiency, and presenting with nodal and extranodal involvement (in sites such as the stomach, lung, skin and pancreas) and B symptoms (fever, night sweats, weight loss). The tumor is characterized by an aggressive course and a short survival rate." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "289661" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Epstein-Barr virus-positive diffuse large B-cell lymphoma of the elderly" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Epstein-Barr virus-positive diffuse large B-cell lymphoma of the elderly" ] .
+}
+

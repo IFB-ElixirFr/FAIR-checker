@@ -1,0 +1,41 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=157949> a ns1:MedicalCondition ;
+        ns1:alternateName "CID due to RAG 1/2 deficiency",
+            "Combined immunodeficiency due to RAG 1/2 deficiency" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "D81.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D81.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C2673536" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "233650" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:157949" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C2673536" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "233650" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:157949" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare, genetic, non-severe combined immunodeficiency disease characterized by immunodeficiency (manifested by recurrent and/or severe bacterial and viral infections), destructive noninfectious granulomas involving skin, mucosa and internal organs, and various autoimmune manifestations (including cytopenias, vitiligo, psoriasis, myasthenia gravis, enteropathy). Immunophenotypically, T-cell and B-cell lymphopenia, hypogammaglobulinemia, abnormal specific antibody production and impaired T-cell function are observed." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "157949" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Combined immunodeficiency with granulomatosis" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Combined immunodeficiency with granulomatosis" ] .
+}
+

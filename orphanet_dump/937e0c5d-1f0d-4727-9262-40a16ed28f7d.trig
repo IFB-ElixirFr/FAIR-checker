@@ -1,0 +1,50 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=60039> a ns1:MedicalCondition ;
+        ns1:alternateName "Alcock syndrome",
+            "Pudendal algia",
+            "Pudendal nerve entrapment syndrome",
+            "Pudendal neuralgia by pudendal nerve entrapment",
+            "Pudendalgia" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "G57.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10713" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10713" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D060545" ;
+                ns1:codingSystem "MeSH" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D060545" ;
+                ns1:codingSystem "MeSH" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C1997249" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G57.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C1997249" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:60039" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:60039" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare, acquired peripheral neuropathy disease characterized by chronic neuropathic pain involving the sensory territory of the pudendal nerve (from clitoris to anus or from penis to anus), aggravated by sitting and for which no organic cause can be found by imaging studies or laboratory tests. It is often associated with pelvic dysfunction." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "60039" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Pudendal neuralgia" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Pudendal neuralgia" ] .
+}
+

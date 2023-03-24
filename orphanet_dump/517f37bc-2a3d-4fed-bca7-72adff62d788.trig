@@ -1,0 +1,26 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=98972> a ns1:MedicalCondition ;
+        ns1:alternateName "CCDF",
+            "Central cloudy corneal dystrophy of François" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "217600" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:98972" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "H18.5" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C1622427" ;
+                ns1:codingSystem "UMLS" ] ;
+        ns1:description "Central cloudy dystrophy of François is a very rare form of stromal corneal dystrophy (see this term) characterized by polygonal or rounded stromal opacities surrounded by clear tissue, and generally no effect on vision." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "98972" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Central cloudy dystrophy of François" ] .
+}
+

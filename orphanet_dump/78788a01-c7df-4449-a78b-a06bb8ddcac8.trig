@@ -1,0 +1,39 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=98731> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "10003226" ;
+                ns1:codingSystem "MedDRA" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:98731" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D001164" ;
+                ns1:codingSystem "MeSH" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10003226" ;
+                ns1:codingSystem "MedDRA" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:98731" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0003855" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0003855" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D001164" ;
+                ns1:codingSystem "MeSH" ] ;
+        ns1:description "A rare simple vascular malformation characterized by a congenital abnormal connection between an artery and a vein, appearing as varicose veins with port wine discoloration, leading to a bypass of the capillary bed. Signs and symptoms include palpable continuous thrill in the dilated vessels, continuous machinery murmur with systolic accentuation, collapsing arterial pulse, Nicoladoni Branham sign, as well as local gigantism and hot ulcers due to hypoxia, among others." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "98731" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Congenital arteriovenous fistula" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Congenital arteriovenous fistula" ] .
+}
+

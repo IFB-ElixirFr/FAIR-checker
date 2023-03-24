@@ -1,0 +1,40 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=425120> a ns1:MedicalCondition ;
+        ns1:alternateName "SAVI" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "12357" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "615934" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "615934" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "M35.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:425120" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "M35.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "12357" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:425120" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "STING-associated vasculopathy with onset in infancy (SAVI) is a rare, genetic autoinflammatory disorder, type I interferonopathy due to constitutive STING (STimulator of INterferon Genes) activation, characterized by neonatal or infantile onset systemic inflammation and small vessel vasculopathy resulting in severe skin, pulmonary and joint lesions. Patients present with intermittent low-grade fever, recurrent cough and failure to thrive, in association with progressive interstitial lung disease, polyarthritis and violaceous scaling lesions on fingers, toes, nose, cheeks, and ears (which are exacerbated by cold exposure) that often progress to chronic acral ulceration, necrosis and autoamputation." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "425120" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "STING-associated vasculopathy with onset in infancy" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "STING-associated vasculopathy with onset in infancy" ] .
+}
+

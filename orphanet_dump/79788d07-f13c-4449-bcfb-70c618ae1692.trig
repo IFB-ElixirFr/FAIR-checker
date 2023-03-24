@@ -1,0 +1,30 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=1788> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "201170" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "496" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:1788" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C1860119" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q75.4" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C538183" ;
+                ns1:codingSystem "MeSH" ] ;
+        ns1:description "A rare, severe, multiple congenital anomalies syndrome characterized by severe mandibular hypoplasia, upper limb phocomelia with olygodactyly, absent fibula, and a number of additional skeletal (hypoplastic scapula and ischii, 11 ribs, clubfeet), facial (hypertelorism, hypoplastic supraorbital ridges, wide nasal bridge, microtia with low-set ears) and variable internal organ abnormalities (including arhinencephaly, hypolobulated lungs, and congenital cardiac defects), which usually lead to perinatal death. Surviving patients show features similar to Nagel syndrome." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "1788" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Acrofacial dysostosis, Rodríguez type" ] .
+}
+

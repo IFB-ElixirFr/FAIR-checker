@@ -1,0 +1,46 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=2126> a ns1:MedicalCondition ;
+        ns1:alternateName "SFT" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "234820" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D006393" ;
+                ns1:codingSystem "MeSH" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D21.9" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "234820" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D21.9" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:2126" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:2126" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10018825" ;
+                ns1:codingSystem "MedDRA" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D006393" ;
+                ns1:codingSystem "MeSH" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10018825" ;
+                ns1:codingSystem "MedDRA" ] ;
+        ns1:description "A rare spindle cell neoplasm that may be benign or malignant and that most frequently arises from the pleura and peritoneum and rarely from other sites such as head and neck, liver and skeletal muscle. SFT may be clinically asymptomatic or may present with enlarging mass, compressive effects depending on the site involved and rarely with paraneoplastic manifestations (osteoarthropathy or hypoglycemia)." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "2126" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Solitary fibrous tumor" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Solitary fibrous tumor" ] .
+}
+

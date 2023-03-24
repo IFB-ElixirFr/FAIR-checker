@@ -1,0 +1,27 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=247522> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "300455" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "300455" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:247522" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:247522" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "Primary ciliary dyskinesia - retinitis pigmentosa is an X-linked ciliary dysfunction of both respiratory epithelium and photoreceptors of the retina leading to ocular disorders (mild night blindness, constriction of the visual field, and scotopic and photopic ERG responses reduced to 30-60%) associated with primary ciliary dyskinesia (see this term) manifestations (chronic bronchorrhea with bronchoectasis and chronic sinusitis) and sensorineural hearing loss." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "247522" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Primary ciliary dyskinesia-retinitis pigmentosa syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Primary ciliary dyskinesia-retinitis pigmentosa syndrome" ] .
+}
+

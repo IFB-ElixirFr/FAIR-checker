@@ -1,0 +1,33 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=1943> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "G40.4" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:1943" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G40.4" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "2995" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "2995" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:1943" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare disorder characterized by early-onset progressive encephalopathy with migrant, continuous myoclonus. Three cases have been reported. The focal continuous myoclonus appeared during the first months of life. Prolonged bilateral myoclonic seizures and generalized tonic-clonic seizures occurred later. Subsequently, a progressive encephalopathy with hypotonia and ataxia appeared. Cortical atrophy was revealed by computed tomography (CT) scan and magnetic resonance imaging (MRI). The aetiology is unknown." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "1943" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Early-onset progressive encephalopathy with migrant continuous myoclonus" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Early-onset progressive encephalopathy with migrant continuous myoclonus" ] .
+}
+

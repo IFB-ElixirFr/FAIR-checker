@@ -1,0 +1,54 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=727> a ns1:MedicalCondition ;
+        ns1:alternateName "MPA",
+            "Micropolyangiitis",
+            "Microscopic polyarteritis" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "10063344" ;
+                ns1:codingSystem "MedDRA" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D055953" ;
+                ns1:codingSystem "MeSH" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:727" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "M31.7" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10063344" ;
+                ns1:codingSystem "MedDRA" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0343192" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "M31.7" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "3652" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D055953" ;
+                ns1:codingSystem "MeSH" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:727" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0343192" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "3652" ;
+                ns1:codingSystem "GARD" ] ;
+        ns1:description "A rare inflammatory, necrotizing, systemic vasculitis that affects predominantly small vessels (i.e. small arteries, arterioles, capillaries, venules) in multiple organs, including the kidney, the lungs, the skin and the peripheral nerves." ;
+        ns1:epidemiology "Prevalence : 1-9 / 100 000" ;
+        ns1:identifier "727" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Microscopic polyangiitis" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Microscopic polyangiitis" ] .
+}
+

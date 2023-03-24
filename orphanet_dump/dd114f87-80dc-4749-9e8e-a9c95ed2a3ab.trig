@@ -1,0 +1,32 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=678> a ns1:MedicalCondition ;
+        ns1:alternateName "Keratosis palmoplantar-periodontopathy syndrome",
+            "PLS" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "3100" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "245000" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D010214" ;
+                ns1:codingSystem "MeSH" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q82.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:678" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0030360" ;
+                ns1:codingSystem "UMLS" ] ;
+        ns1:description "Papillon-Lefèvre syndrome (PLS) is a rare ectodermal dysplasia characterized by palmoplantar keratoderma associated with early-onset periodontitis." ;
+        ns1:epidemiology "Prevalence : 1-9 / 1 000 000" ;
+        ns1:identifier "678" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Papillon-Lefèvre syndrome" ] .
+}
+

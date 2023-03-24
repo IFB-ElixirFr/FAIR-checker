@@ -1,0 +1,29 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=206572> a ns1:MedicalCondition ;
+        ns1:alternateName "Adult-onset overlap myositis",
+            "Non-specific myositis" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "M33.2" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:206572" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "M33.2" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:206572" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare idiopathic inflammatory myopathy (IIM) with a heterogeneous phenotype characterized by myositis with at least one clinical and/or autoantibody overlap feature. Possible clinical overlap features include polyarthritis, Raynaud's phenomenon, sclerodactyly, scleroderma (proximal to metacarpophalangeal joints), lung interstitial pneumonia, and/or clinical signs of systemic lupus erythematosus (SLE)." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "206572" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Overlap myositis" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Overlap myositis" ] .
+}
+

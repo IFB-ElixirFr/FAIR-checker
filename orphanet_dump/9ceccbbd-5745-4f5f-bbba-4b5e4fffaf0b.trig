@@ -1,0 +1,27 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=459070> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:459070" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:459070" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "300998" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "300998" ;
+                ns1:codingSystem "OMIM" ] ;
+        ns1:description "A rare genetic multiple congenital anomalies/dysmorphic syndrome characterized by global developmental delay, intellectual disability, growth retardation, hypotonia, cerebellar symptoms such as ataxia, spondyloepiphyseal dysplasia, and dysmorphic craniofacial features (including microcephaly, dolichocephaly, prominent ears, epicanthus, broad nasal bridge, long and flat philtrum, or small mouth). Additional reported manifestations are epilepsy, retinitis pigmentosa, and urogenital abnormalities, among others. Brain imaging may show cerebellar hypoplasia." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "459070" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "X-linked intellectual disability-cerebellar hypoplasia-spondylo-epiphyseal dysplasia syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "X-linked intellectual disability-cerebellar hypoplasia-spondylo-epiphyseal dysplasia syndrome" ] .
+}
+

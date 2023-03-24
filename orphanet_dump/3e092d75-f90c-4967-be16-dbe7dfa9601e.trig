@@ -1,0 +1,34 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=486811> a ns1:MedicalCondition ;
+        ns1:alternateName "SMABF" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "616866" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "616867" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "616866" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:486811" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "616867" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:486811" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare genetic motor neuron disease characterized by decreased or absent fetal movements, congenital proximal and distal joint contractures (consistent with arthrogryposis multiplex congenita), and multiple congenital fractures of the long bones. Further manifestations are neonatal respiratory distress, severe muscular hypotonia, areflexia, dysphagia, congenital heart defects, and dysmorphic facial features. Muscle biopsy shows increased fiber-size variation and grouping of larger type I fibers. The disease is usually fatal in infancy due to respiratory failure." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "486811" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Prenatal-onset spinal muscular atrophy with congenital bone fractures" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Prenatal-onset spinal muscular atrophy with congenital bone fractures" ] .
+}
+

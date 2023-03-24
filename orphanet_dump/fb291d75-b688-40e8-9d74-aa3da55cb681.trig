@@ -1,0 +1,60 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=633> a ns1:MedicalCondition ;
+        ns1:alternateName "Complete growth hormone insensitivity",
+            "GH receptor deficiency",
+            "Growth hormone receptor deficiency",
+            "Laron-type dwarfism",
+            "Primary GH insensitivity",
+            "Primary GH resistance",
+            "Primary growth hormone insensitivity",
+            "Primary growth hormone resistance",
+            "Short stature due to growth hormone resistance" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "E34.3" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:633" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:633" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0271568" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0271568" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "6859" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "262500" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "6859" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D046150" ;
+                ns1:codingSystem "MeSH" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E34.3" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D046150" ;
+                ns1:codingSystem "MeSH" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "262500" ;
+                ns1:codingSystem "OMIM" ] ;
+        ns1:description "Laron syndrome is a congenital disorder characterized by marked short stature associated with normal or high serum growth hormone (GH) and low serum insulin-like growth factor-1 (IGF-I) levels which fail to rise after exogenous GH administration." ;
+        ns1:epidemiology "Prevalence : 1-9 / 1 000 000" ;
+        ns1:identifier "633" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Laron syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Laron syndrome" ] .
+}
+

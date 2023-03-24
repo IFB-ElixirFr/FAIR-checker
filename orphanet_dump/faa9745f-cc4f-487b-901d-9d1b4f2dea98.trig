@@ -1,0 +1,34 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=178512> a ns1:MedicalCondition ;
+        ns1:alternateName "Mycosis fungoides-associated follicular mucinosis" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "C84.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C1627767" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:178512" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C84.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C1627767" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:178512" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare variant of mycosis fungoides (MF), a form of cutaneous T-cell lymphoma, characterized by the presence of folliculotropic infiltrates in patch-plaque lesions usually involving the head and neck area." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "178512" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Folliculotropic mycosis fungoides" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Folliculotropic mycosis fungoides" ] .
+}
+

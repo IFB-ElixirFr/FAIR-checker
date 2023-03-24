@@ -1,0 +1,30 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=353356> a ns1:MedicalCondition ;
+        ns1:alternateName "Retinal vasoproliferative tumor",
+            "VPTR",
+            "Vasoproliferative tumor of the ocular fundus" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:353356" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D31.2" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D31.2" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:353356" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "Vasoproliferative tumor of the retina is a rare, benign, retinal vascular disease characterized by solitary or multiple, unilateral or bilateral, intra-retinal tumor(s), usually located in the peripheral infero-temporal quadrant, and often associated with sub- and intraretinal exudates, epiretinal membranes, exudative retinal detachment and cystoid macular edema, as well as, occasionally, retinal and vitreous hemorrhage. Patients may present with visual loss, floaters, and/or photopsia. Association with various conditions, such as retinitis pigmentosa, congenital retinal toxoplasmosis, retinopathy of prematurity, or coloboma, has been reported." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "353356" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Vasoproliferative tumor of the retina" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Vasoproliferative tumor of the retina" ] .
+}
+

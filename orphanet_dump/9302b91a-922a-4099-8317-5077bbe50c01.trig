@@ -1,0 +1,29 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=576370> a ns1:MedicalCondition ;
+        ns1:alternateName "Variant MCJ",
+            "vCJD" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:576370" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "A81.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "A81.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:576370" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare acquired human prion disease characterized by a progressive, invariably fatal neuropsychiatric disorder resulting from transmission via consumption of products from prion-diseased cows or via blood transfusion from an affected individual. Patients typically present early psychiatric symptoms (such as depression, anxiety, apathy, withdrawal, and delusions), as well as persistent painful sensory symptoms, ataxia, myoclonus, chorea, or dystonia, and dementia. Brain MRI often shows bilateral FLAIR hyperintensities involving the pulvinar thalamic nuclei. Neuropathological examination reveals spongiform change and extensive deposition of abnormal prion protein with florid plaques throughout the cerebrum and cerebellum." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "576370" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Variant Creutzfeldt-Jakob disease" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Variant Creutzfeldt-Jakob disease" ] .
+}
+

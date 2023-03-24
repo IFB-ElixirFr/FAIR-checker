@@ -1,0 +1,33 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=69063> a ns1:MedicalCondition ;
+        ns1:alternateName "Alloimmune neonatal renal disease",
+            "FMAIG",
+            "Fetomaternal alloimmunization with antenatal glomerulopathies",
+            "Neonatal glomerulopathy due to neprilysin alloimmunization",
+            "Neonatal membranous glomerulopathy with maternal NEP deficiency",
+            "Neonatal membranous glomerulopathy with maternal neutral endopeptidase deficiency" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "P96.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:69063" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:69063" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "P96.0" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "A rare, congenital glomerular disease due to maternal anti-neutral endopeptidase (NEP) alloimmunization characterized by severe renal failure and nephrotic syndrome at birth, which rapidly improves in the first weeks of life." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "69063" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Congenital membranous nephropathy due to fetomaternal anti-neutral endopeptidase alloimmunization" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Congenital membranous nephropathy due to fetomaternal anti-neutral endopeptidase alloimmunization" ] .
+}
+

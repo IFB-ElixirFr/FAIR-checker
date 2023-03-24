@@ -1,0 +1,29 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=137810> a ns1:MedicalCondition ;
+        ns1:alternateName "PLCNA",
+            "Primary localized cutaneous nodular amyloidosis" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "L99.0*" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E85.4+" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0546394" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:137810" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10056953" ;
+                ns1:codingSystem "MedDRA" ] ;
+        ns1:description "Primary localized cutaneous nodular amyloidosis (PLCNA) is the most rare form of primary cutaneous amyloidosis (see this term), a skin disease characterized by the accumulation of amyloid deposits in the dermis, characterized clinically by yellowish waxy crusted nodules and papules on the face, lower extremities, trunk, scalp, and genitalia and histologically by the localized deposition of immunoglobulin-derived amyloid in the papillary dermis and subcutis. PLCNA can be associated with connective tissue disorders such as Sjögren’s syndrome and CREST syndrome (see these terms)." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "137810" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Nodular cutaneous amyloidosis" ] .
+}
+

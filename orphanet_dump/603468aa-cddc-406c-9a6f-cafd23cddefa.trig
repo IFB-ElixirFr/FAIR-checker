@@ -1,0 +1,21 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=228264> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:228264" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:228264" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare, acquired, dermis elastic tissue disorder characterized by multiple, asymptomatic, firm, well-demarcated, nonfollicular, hypopigmented or skin-colored papules, with a diameter of less than 1 cm, distributed symmetrically over trunk and/or proximal limbs (rarely, head, neck, shoulders, armpits, thighs), with no extracutaneous manifestations. Histopathology typically reveals decreased and fragmented elastic fibers, thickened and/or homogenized collagen bundles and, in some, a mild, perivascular, lymphocytic infiltrate in the dermis." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "228264" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Papular elastorrhexis" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Papular elastorrhexis" ] .
+}
+

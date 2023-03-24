@@ -1,0 +1,43 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=79091> a ns1:MedicalCondition ;
+        ns1:alternateName "HIBM3",
+            "Hereditary inclusion body myopathy type 3",
+            "IBM3",
+            "Inclusion body myopathy type 3" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "605637" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G71.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:79091" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "9494" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "9494" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:79091" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G71.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "605637" ;
+                ns1:codingSystem "OMIM" ] ;
+        ns1:description "A rare genetic neuromuscular disease characterized by early onset of proximal or generalized muscle weakness, external ophthalmoplegia with or without ptosis, and joint contractures. Hypotonia, neonatal respiratory distress necessitating ventilation, and severe dysphagia have also been reported. The disease is of variable severity and non- or slowly progressive. Patients typically remain ambulatory. Muscle biopsy may show predominance of type 1 fibers, marked variability in fiber size, increased internal nuclei, and proliferation of perimysial and endomysial connective tissue." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "79091" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Hereditary inclusion body myopathy-joint contractures-ophthalmoplegia syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Hereditary inclusion body myopathy-joint contractures-ophthalmoplegia syndrome" ] .
+}
+

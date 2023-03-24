@@ -1,0 +1,28 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=566192> a ns1:MedicalCondition ;
+        ns1:alternateName "CARST" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "D69.4" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:566192" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D69.4" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:566192" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare isolated constitutional thrombocytopenia characterized by neonatal onset of small-platelet thrombocytopenia with significantly increased bleeding tendency. Bleeding symptoms include petechial rash, mucosal bleeding, and heavy menstrual bleeding. Growth and development are normal, and there is no increased susceptibility to infections." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "566192" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Congenital autosomal recessive small-platelet thrombocytopenia" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Congenital autosomal recessive small-platelet thrombocytopenia" ] .
+}
+

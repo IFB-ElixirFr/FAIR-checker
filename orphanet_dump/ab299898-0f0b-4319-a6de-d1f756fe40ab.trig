@@ -1,0 +1,35 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=488635> a ns1:MedicalCondition ;
+        ns1:alternateName "Congenital disorder of glycosylation due to PIGG deficiency",
+            "PIGG-CDG" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "616917" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:488635" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E77.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E77.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:488635" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "616917" ;
+                ns1:codingSystem "OMIM" ] ;
+        ns1:description "A rare congenital disorder of glycosylation characterized by early onset of hypotonia, severe global developmental delay, intellectual disability, and seizures. Ataxia, mild facial dysmorphism, and autistic behavior have also been reported. Brain MRI findings are variable and include cerebral atrophy, cerebellar hypoplasia/atrophy, and thin corpus callosum." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "488635" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Early-onset epilepsy-intellectual disability-brain anomalies syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Early-onset epilepsy-intellectual disability-brain anomalies syndrome" ] .
+}
+

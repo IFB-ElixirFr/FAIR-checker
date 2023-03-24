@@ -1,0 +1,52 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=79320> a ns1:MedicalCondition ;
+        ns1:alternateName "CDG syndrome type Ic",
+            "CDG-Ic",
+            "CDG1C",
+            "Carbohydrate deficient glycoprotein syndrome type Ic",
+            "Congenital disorder of glycosylation type 1c",
+            "Congenital disorder of glycosylation type Ic",
+            "Glucosyltransferase 1 deficiency" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "E77.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C2930997" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "9829" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "9829" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:79320" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C2930997" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "603147" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E77.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:79320" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "603147" ;
+                ns1:codingSystem "OMIM" ] ;
+        ns1:description "A form of congenital disorders of N-linked glycosylation characterized by feeding problems, mild-to-moderate neurologic involvement with hypotonia, poor head control, developmental delay, ataxia, strabismus, and seizures, ranging from febrile convulsions to epilepsy. Retinal degeneration has also been reported. A minority of patients show other manifestations, particularly intestinal (such as protein-losing enteropathy) and liver involvement. The disease is caused by loss of function mutations of the gene <i>ALG6</i> (1p31.3)." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "79320" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "ALG6-CDG" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "ALG6-CDG" ] .
+}
+

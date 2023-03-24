@@ -1,0 +1,32 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=217253> a ns1:MedicalCondition ;
+        ns1:alternateName "Limbic encephalitis with N-methyl-D-aspartate receptor antibodies",
+            "Limbic encephalitis with NMDA receptor antibodies",
+            "N-methyl-D-aspartate receptor encephalitis",
+            "NMDARE",
+            "anti-NMDA receptor encephalitis" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "G13.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G13.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:217253" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:217253" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare limbic encephalitis characterized by the presence of autoantibodies against NMDA receptors in serum and cerebrospinal fluid. It may be of paraneoplastic (most commonly associated with ovarian teratoma) or non-paraneoplastic origin and is life-threatening but potentially treatable. Patients present with acute behavioral change, psychosis, and catatonia, rapidly progressing to seizures, memory deficit, dyskinesias, speech problems, and autonomic and breathing dysregulation." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "217253" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "NMDA receptor encephalitis" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "NMDA receptor encephalitis" ] .
+}
+

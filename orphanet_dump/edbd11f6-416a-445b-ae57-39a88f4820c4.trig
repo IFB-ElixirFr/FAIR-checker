@@ -1,0 +1,40 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=1911> a ns1:MedicalCondition ;
+        ns1:alternateName "Fetal cocaine syndrome" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:1911" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "1413" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:1911" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q86.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0432371" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "1413" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q86.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0432371" ;
+                ns1:codingSystem "UMLS" ] ;
+        ns1:description "Cocaine embryofetopathy is a group of clinical signs observed in newborns exposed <i>in utero</i> to cocaine, a short-acting central nervous system stimulant used as a recreational drug through inhalation of the powder or intravenous injection. Cocaine use during pregnancy is associated with intrauterine growth restriction, low birth weight, seizures, respiratory distress (decreased apnea density and periodic breathing), feeding difficulties, irritability and lability of state, decreased behavioral and autonomic regulation, poor alertness and orientation and cognitive impairment (impaired auditory information processing , visual-spatial delay and subtle language delay) in the offspring." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "1911" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Cocaine embryofetopathy" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Cocaine embryofetopathy" ] .
+}
+

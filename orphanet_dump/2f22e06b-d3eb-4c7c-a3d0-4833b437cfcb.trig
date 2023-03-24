@@ -1,0 +1,46 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=2587> a ns1:MedicalCondition ;
+        ns1:alternateName "MPO deficiency" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "E80.3" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "3868" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "254600" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E80.3" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "3868" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:2587" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0398595" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:2587" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0398595" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "254600" ;
+                ns1:codingSystem "OMIM" ] ;
+        ns1:description "A rare primary immunodeficiency due to a defect in innate immunity characterized by a marked decrease or absence of myeloperoxidase activity in neutrophils and monocytes. Clinically, most patients are asymptomatic. Occasionally, severe infectious complications may occur, particularly recurrent candida infections, being especially severe in the setting of comorbid diabetes mellitus." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "2587" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Myeloperoxidase deficiency" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Myeloperoxidase deficiency" ] .
+}
+

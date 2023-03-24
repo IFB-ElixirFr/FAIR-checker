@@ -1,0 +1,28 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=555437> a ns1:MedicalCondition ;
+        ns1:alternateName "IgG4-related inflammatory pseudotumor of the liver" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:555437" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "K75.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:555437" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "K75.8" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "A subtype of inflammatory pseudotumor of the liver characterized by a benign, well-circumscribed tumor with diffuse lymphoplasmacytic infiltration with histological features of IgG4-related disease (numerous IgG4-positive plasma cells, prominent eosinophils, stromal fibrosis, fibroblastic proliferations and, frequently, obliterative phlebitis), and that is likely located around the hepatic hilum. Most often it is discovered as an incidental finding." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "555437" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Lymphoplasmacytic inflammatory pseudotumor of the liver" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Lymphoplasmacytic inflammatory pseudotumor of the liver" ] .
+}
+

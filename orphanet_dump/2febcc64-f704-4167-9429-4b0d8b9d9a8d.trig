@@ -1,0 +1,31 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=100075> a ns1:MedicalCondition ;
+        ns1:alternateName "GNET",
+            "Gastric NET",
+            "Gastric neuroendocrine tumor",
+            "NET of stomach" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:100075" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:100075" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C16.9" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C16.9" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "A rare subtype of neuroendocrine neoplasm, arising from enterochromaffin-like cells in the stomach, with a variable clinical presentation, disease course and prognosis, depending on the disease type and histological grade. Most patients are asymptomatic, with diagnosis usually occurring incidentally during gastroscopy, however, symptoms of dyspepsia, anemia, pain, weight loss and gastrointestinal bleeding can be observed. Association with Zollinger-Ellison syndrome and multiple endocrine neoplasia type I has been reported." ;
+        ns1:epidemiology "Prevalence : 1-9 / 100 000" ;
+        ns1:identifier "100075" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Neuroendocrine tumor of stomach" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Neuroendocrine tumor of stomach" ] .
+}
+

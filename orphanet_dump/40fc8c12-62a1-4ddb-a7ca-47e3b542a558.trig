@@ -1,0 +1,29 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=228157> a ns1:MedicalCondition ;
+        ns1:alternateName "Acute multiple sclerosis, Marburg type",
+            "Acute multiple sclerosis, Marburg variant" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "G35" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:228157" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:228157" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G35" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "Marburg acute multiple sclerosis is a rare variant of multiple sclerosis characterized by a rapidly progressive, aggressive form of multiple sclerosis with numerous large multifocal demyelinating lesions in deep white matter on cerebral MRI that usually leads to severe disability or death within weeks to months without remission. A relapsing form of multiple sclerosis is observed in surviving patients." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "228157" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Marburg acute multiple sclerosis" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Marburg acute multiple sclerosis" ] .
+}
+

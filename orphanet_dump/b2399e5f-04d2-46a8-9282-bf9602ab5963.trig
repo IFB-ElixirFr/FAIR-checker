@@ -1,0 +1,22 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=505395> a ns1:MedicalCondition ;
+        ns1:alternateName "VIDD" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:505395" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:505395" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare respiratory disorder characterized by major reduction of diaphragmatic contractile force together with fiber atrophy in the diaphragm and other respiratory muscles as a consequence of invasive mechanical ventilation. Reduction of diaphragmatic contractile force may be observed even within hours after intubation. The condition can increase weaning time and affects weaning outcome, mortality, and long-term clinical outcomes." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "505395" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Ventilator-induced diaphragmatic dysfunction" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Ventilator-induced diaphragmatic dysfunction" ] .
+}
+

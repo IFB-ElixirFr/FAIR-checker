@@ -1,0 +1,45 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=391397> a ns1:MedicalCondition ;
+        ns1:alternateName "CIP with hyperhidrosis and gastrointestinal dysfunction",
+            "Congenital insensitivity to pain with hyperhidrosis and gastrointestinal dysfunction",
+            "HSAN with hyperhidrosis and gastrointestinal dysfunction",
+            "HSAN7",
+            "Hereditary sensory and autonomic neuropathy type VII",
+            "Hereditary sensory and autonomic neuropathy with hyperhidrosis and gastrointestinal dysfunction" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "12732" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G60.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "615548" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "12732" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:391397" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "615548" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G60.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:391397" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare, genetic, periphery neuropathy characterized by a congenital insensitivity to pain, muscular hypotonia and gastrointestinal disturbances. Patients present with delayed motor milestones achievement, self-mutilations, skin ulcers, poor wound healing, painless fractures, hyperhidrosis, abdominal discomfort, diarrhea and/or constipation. Cognitive development is normal." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "391397" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Hereditary sensory and autonomic neuropathy type 7" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Hereditary sensory and autonomic neuropathy type 7" ] .
+}
+

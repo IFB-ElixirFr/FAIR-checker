@@ -1,0 +1,33 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=959> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "Q87.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:959" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "607323" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q87.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "607323" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:959" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare syndrome of multiple congenital anomalies characterized by radial ray malformations, renal abnormalities (mild malrotation, ectopia, horseshoe kidney, renal hypoplasia, vesico-ureteral reflux, bladder diverticula), and ophthalmological abnormalities (mainly colobomas, but also microphthalmia, ptosis, and Duane anomaly). The phenotype overlaps with other <i>SALL4</i>-related disorders including Okihiro syndrome and Holt-Oram syndrome." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "959" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Acro-renal-ocular syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Acro-renal-ocular syndrome" ] .
+}
+

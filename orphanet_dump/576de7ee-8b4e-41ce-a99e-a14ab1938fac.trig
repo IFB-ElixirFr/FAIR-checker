@@ -1,0 +1,27 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=178396> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:178396" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:178396" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D68.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D68.8" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "A rare, genetic, constitutional coagulation factor defect disorder characterized by a bleeding tendancy of variable severity due to methionine 358 to arginine replacement (Pittsburgh mutation) in the alpha-1-antitrypsin protein. Patients present with spontaneous hematomas, hematomas following minor trauma or surgery and, in female patients, ovarian hematomas after ovulation." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "178396" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Hemorrhagic disease due to alpha-1-antitrypsin Pittsburgh mutation" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Hemorrhagic disease due to alpha-1-antitrypsin Pittsburgh mutation" ] .
+}
+

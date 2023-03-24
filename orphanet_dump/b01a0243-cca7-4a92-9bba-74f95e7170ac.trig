@@ -1,0 +1,42 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=391428> a ns1:MedicalCondition ;
+        ns1:alternateName "2-methyl-3-hydroxybutyric aciduria, classic type",
+            "2-methyl-3-hydroxybutyric aciduria, infantile type",
+            "2-methyl-3-hydroxybutyryl-CoA dehydrogenase deficiency, classic type",
+            "2-methyl-3-hydroxybutyryl-CoA dehydrogenase deficiency, infantile type",
+            "HSD10 deficiency, classic type",
+            "HSD10 deficiency, infantile type",
+            "HSD10 disease, classic type",
+            "MHBD deficiency, classic type",
+            "MHBD deficiency, infantile type" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "E72.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:391428" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E72.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "300438" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "300438" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:391428" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "HSD10 disease, infantile type is a clinical subtype of HSD10 disease, a rare neurometabolic disorder. Affected boys may show lethargy, poor feeding and evidence of mitochondrial dysfunction in the newborn period, with subsequent mild developmental delay and abnormal muscle tone. Hallmark of the disease is progressive neurodegeneration and cardiomyopathy, which usually manifests between ages 6 months and 2 years with developmental regression, progressive visual and hearing loss, epilepsy and other neurological symptoms, and severe cardiomyopathy. Laboratory investigations show signs of mitochondrial dysfunction, and increased urinary excretion of specific isoleucine metabolites. The disease is often fatal around 2-4 years of age." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "391428" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "HSD10 disease, infantile type" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "HSD10 disease, infantile type" ] .
+}
+

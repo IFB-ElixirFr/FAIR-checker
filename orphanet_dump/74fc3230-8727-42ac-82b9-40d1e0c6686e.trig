@@ -1,0 +1,33 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=86822> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:86822" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "601160" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:86822" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q04.3" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "601160" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q04.3" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "A rare syndromic form of lissencephaly characterized by severe microcephaly, agyria, agenesis of the corpus callosum, cerebellar hypoplasia, facial dysmorphology and epiphyseal stippling of the metacarpal bones. The syndrome may be an allelic variant of Neu-Laxova syndrome and Lissencephaly type III with cystic dilations of the cerebellum and foetal akinesia sequence." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "86822" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Lissencephaly type 3-metacarpal bone dysplasia syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Lissencephaly type 3-metacarpal bone dysplasia syndrome" ] .
+}
+

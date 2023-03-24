@@ -1,0 +1,36 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=431149> a ns1:MedicalCondition ;
+        ns1:alternateName "Combined immunodeficiency with childhood-onset Kaposi sarcoma",
+            "Combined immunodeficiency with impaired immunity to HHV-8",
+            "Combined immunodeficiency with impaired immunity to human herpes virus 8" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "D81.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D81.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:431149" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "615593" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "615593" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:431149" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "Combined immunodeficiency due to OX40 deficiency is a rare combined T and B cell immunodeficiency characterized by susceptibility to develop an aggressive, childhood-onset, disseminated, cutaneous and systemic Kaposi sarcoma." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "431149" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Combined immunodeficiency due to OX40 deficiency" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Combined immunodeficiency due to OX40 deficiency" ] .
+}
+

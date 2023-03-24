@@ -1,0 +1,37 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=99861> a ns1:MedicalCondition ;
+        ns1:alternateName "Precursor T-cell acute lymphoblastic leukemia/lymphoma",
+            "Precursor T-cell acute lymphocytic leukemia",
+            "Precursor T-cell acute lymphocytic leukemia/lymphoma",
+            "T-ALL" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:99861" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C1961099" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C91.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C1961099" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:99861" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C91.0" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "A rare acute lymphoblastic leukemia characterized by a neoplasm of lymphoblasts committed to the T-cell lineage, involving bone marrow and blood. A value of >25% bone marrow blasts may be used to define leukemia (as opposed to lymphoma) in cases with the presence of a mass lesion in addition to bone marrow involvement. Patients typically present with leukocytosis, and frequently with a large mediastinal or other tissue mass. Lymphadenopathy and hepatosplenomegaly are common." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "99861" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Precursor T-cell acute lymphoblastic leukemia" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Precursor T-cell acute lymphoblastic leukemia" ] .
+}
+

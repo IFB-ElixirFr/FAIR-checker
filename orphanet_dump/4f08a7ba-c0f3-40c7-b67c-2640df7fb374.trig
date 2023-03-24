@@ -1,0 +1,46 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=83594> a ns1:MedicalCondition ;
+        ns1:alternateName "Eastern equine encephalomyelitis" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "10821" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0153065" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10014587" ;
+                ns1:codingSystem "MedDRA" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:83594" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "A83.2" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10821" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10014587" ;
+                ns1:codingSystem "MedDRA" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "A83.2" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0153065" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:83594" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "An acute arboviral infection caused by an <i>alphavirus</i> of the <i>Togaviridae</i> family transmitted by an infected mosquito, that is characterized by the onset of flulike symptoms including fever, chills, weakness, headache, vomiting, abdominal pain with diarrhea, myalgia, leucocytosis, and hematuria, rapidly progressing to diffuse central nervous system (CNS) involvement with confusion, somnolence, or even coma. Seizures, which may progress to status epilepticus and neurologic sequelae, cranial nerve palsies, and photophobia may occur. EEE is associated with a high rate of morbidity and mortality." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "83594" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Eastern equine encephalitis" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Eastern equine encephalitis" ] .
+}
+

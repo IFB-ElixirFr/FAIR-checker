@@ -1,0 +1,27 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=357220> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "Q82.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q82.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:357220" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:357220" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "Primary essential cutis verticis gyrata is a rare, progressive dermis disorder characterized by thickening of the scalp resulting in redundancy of the skin which gives rise to folds and grooves that give the scalp a cerebriform appearance. Folds cannot be corrected by pressure or traction and typically are symmetric and extend anteroposteriorly from vertex to occiput and/or transversely in occipital region. Additional features may include mild subungual hyperkeratosis and distal onycholysis of the nail plates of the great toes. It is not associated with neurological and ophthalmological changes, nor with secondary causes." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "357220" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Primary essential cutis verticis gyrata" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Primary essential cutis verticis gyrata" ] .
+}
+

@@ -1,0 +1,33 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=411501> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "C0340231" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q33.4" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q33.4" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:411501" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:411501" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0340231" ;
+                ns1:codingSystem "UMLS" ] ;
+        ns1:description "A rare, respiratory malformation characterized by defective or completely absent bronchial wall cartilage in subsegmental bronchi, leading to distal airway collapse and contributing to the formation of bronchiectasis. The defect is mostly present between the fourth and sixth order bronchial divisions. Clinical manifestation includes recurrent pneumonia, coughing and wheezing." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "411501" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Williams-Campbell syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Williams-Campbell syndrome" ] .
+}
+

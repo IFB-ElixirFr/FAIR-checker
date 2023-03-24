@@ -1,0 +1,42 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=221145> a ns1:MedicalCondition ;
+        ns1:alternateName "ARCL1C",
+            "Autosomal recessive cutis laxa type 1C",
+            "Urban-Rifkin-Davis syndrome" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "Q82.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C2750804" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C2750804" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "613177" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:221145" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "613177" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q82.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:221145" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare, genetic, dermis elastic tissue disorder characterized by generalized cutis laxa associated with severe, usually early-onset, pulmonary emphysema, frequent and severe gastrointestinal and genitourinary involvement (i.e. bladder/intestine diverticula and/or tortuosity, gastrointestinal fragility, hydronephrosis), and mild cardiovascular involvement (typically limited to peripheral pulmonary artery stenosis only)." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "221145" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Cutis laxa with severe pulmonary, gastrointestinal and urinary anomalies" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Cutis laxa with severe pulmonary, gastrointestinal and urinary anomalies" ] .
+}
+

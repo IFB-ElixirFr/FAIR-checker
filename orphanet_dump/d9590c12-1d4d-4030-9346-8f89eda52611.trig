@@ -1,0 +1,39 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=300179> a ns1:MedicalCondition ;
+        ns1:alternateName "Ehlers-Danlos syndrome with kyphoscoliosis, myopathy, and deafness",
+            "Ehlers-Danlos syndrome with kyphoscoliosis, myopathy, and hearing loss",
+            "FKBP14-related EDS",
+            "FKBP22-deficient EDS",
+            "Kyphoscoliotic EDS due to FKBP22 deficiency",
+            "kEDS-FKBP14" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "Q79.6" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q79.6" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:300179" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:300179" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "614557" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "614557" ;
+                ns1:codingSystem "OMIM" ] ;
+        ns1:description "A rare subtype of kyphoscoliotic Ehlers-Danlos syndrome characterized by congenital muscle hypotonia, congenital or early-onset kyphoscoliosis (progressive or non-progressive), and generalized joint hypermobility with dislocations/subluxations (in particular of the shoulders, hips, and knees). Additional common features are skin hyperextensibility, easy bruising of the skin, rupture/aneurysm of a medium-sized artery, osteopenia/osteoporosis, blue sclerae, umbilical or inguinal hernia, chest deformity, marfanoid habitus, talipes equinovarus, and refractive errors. Subtype-specific manifestations include congenital hearing impairment (sensorineural, conductive, or mixed), follicular hyperkeratosis, muscle atrophy, and bladder diverticula. Molecular testing is obligatory to confirm the diagnosis." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "300179" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Kyphoscoliotic Ehlers-Danlos syndrome due to FKBP22 deficiency" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Kyphoscoliotic Ehlers-Danlos syndrome due to FKBP22 deficiency" ] .
+}
+

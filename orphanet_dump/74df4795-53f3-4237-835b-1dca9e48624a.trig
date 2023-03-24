@@ -1,0 +1,35 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=238505> a ns1:MedicalCondition ;
+        ns1:alternateName "Autosomal recessive lymphoproliferative disease due to CD27 deficiency",
+            "CD27 deficiency" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "D47.9" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "615122" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "615122" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:238505" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D47.9" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:238505" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare autosomal recessive primary immunodeficiency characterized by Epstein-Barr virus (EBV)-triggered lymphoprolipherative disorders such as malignant B-cell proliferation, Hodgkin lymphoma, B-cell lymphoma and EBV-driven hemophagocytic lymphohistiocytosis (HLH). Aplastic anemia and inflammatory disorders such as uveitis and oral ulcers are also observed." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "238505" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Combined immunodeficiency due to CD27 deficiency" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Combined immunodeficiency due to CD27 deficiency" ] .
+}
+

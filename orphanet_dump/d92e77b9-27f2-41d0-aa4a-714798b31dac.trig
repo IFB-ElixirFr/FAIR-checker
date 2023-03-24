@@ -1,0 +1,36 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=141083> a ns1:MedicalCondition ;
+        ns1:alternateName "Dacryocele",
+            "Dacryocystocele",
+            "Nasolacrimal mucocele" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "C0155241" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:141083" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:141083" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0155241" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "H04.6" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "H04.6" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "Nasolacrimal duct cyst describes a unilateral or bilateral congenital cyst of the nasolacrimal duct, which is almost always associated with dacryocystocele, presenting most commonly at birth or a few weeks of age (but rarely presenting in adulthood) as a benign, grayish blue mass in the inferomedial canthus or in the nasal cavity, that can cause epiphora, dacryocystitis (inflammation of the lacrimal sac) and nasal obstruction. It is more commonly reported in females." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "141083" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Nasolacrimal duct cyst" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Nasolacrimal duct cyst" ] .
+}
+

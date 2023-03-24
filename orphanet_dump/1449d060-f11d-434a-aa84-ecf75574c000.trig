@@ -1,0 +1,37 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=369837> a ns1:MedicalCondition ;
+        ns1:alternateName "Congenital disorder of glycosylation due to PIGT deficiency",
+            "MCAHS type 3",
+            "Multiple congenital anomalies-hypotonia-seizures syndrome type 3",
+            "PIGT-CDG" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "Q87.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:369837" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q87.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "615398" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "615398" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:369837" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare congenital disorder of glycosylation characterized by neonatal hypotonia, global development delay, developmental regress and severe to profound intellectual disability, infantile onset seizures that are initially associated with febrile episodes with subsequent transition to unprovoked seizures, impaired vision with esotropia and nystagmus, progressive cerebral and cerebellar atrophy, skeletal abnormalities (including brachycephaly, scoliosis, slender long bones, delayed bone age, pectus excavatum and osteopenia), inverted nipples and dysmorphic features including high and narrow forehead, frontal bossing, short nose, depressed nasal bridge, anteverted nares, high palate and wide open mouth consistent with facial hypotonia. Other features may include cardiac abnormalities (such as patent ductus arteriosus, atrial septal defects), urogenital abnormalities (such as nephrocalcinosis, urolithiasis), and low plasma concentration of alkaline phosphatase." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "369837" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Intellectual disability-seizures-hypophosphatasia-ophthalmic-skeletal anomalies syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Intellectual disability-seizures-hypophosphatasia-ophthalmic-skeletal anomalies syndrome" ] .
+}
+

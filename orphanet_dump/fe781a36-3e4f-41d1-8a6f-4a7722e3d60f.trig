@@ -1,0 +1,29 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=329977> a ns1:MedicalCondition ;
+        ns1:alternateName "Classic appendiceal neuroendocrine tumor",
+            "Classic appendix neuroendocrine tumor" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "D37.3" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:329977" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D37.3" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:329977" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare endocrine tumor of the appendix, seen twice as frequently in females than in males, and usually presenting before the fifth decade of life. It is usually asymptomatic when located in the tip of the appendix (without obstruction), but acute appendicitis is often associated." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "329977" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Classic neuroendocrine tumor of appendix" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Classic neuroendocrine tumor of appendix" ] .
+}
+

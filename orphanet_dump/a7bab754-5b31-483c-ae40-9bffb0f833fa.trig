@@ -1,0 +1,27 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=464370> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:464370" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:464370" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "P61.5" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "P61.5" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "A rare acquired neutropenia characterized by isolated neutropenia in a newborn due to maternal alloimmunization against human neutrophil antigens (HNA) inherited from the father and present on fetal neutrophils, and subsequent increased breakdown of the latter. The condition is self-limiting and resolves after several weeks. It usually presents with only mild bacterial infections or may even be asymptomatic, although severe forms with sepsis and fatal outcome have also been reported." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "464370" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Neonatal alloimmune neutropenia" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Neonatal alloimmune neutropenia" ] .
+}
+

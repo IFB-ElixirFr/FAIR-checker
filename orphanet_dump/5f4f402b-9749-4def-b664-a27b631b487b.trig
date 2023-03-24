@@ -1,0 +1,34 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=83620> a ns1:MedicalCondition ;
+        ns1:alternateName "Congenital malabsorptive diarrhea due to paucity of enteroendocrine cells" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:83620" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "610370" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "P78.3" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:83620" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "P78.3" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "610370" ;
+                ns1:codingSystem "OMIM" ] ;
+        ns1:description "A very rare genetic gastroenterological disease characterized by severe malabsorptive diarrhea (requiring parenteral nutrition and disappearing at fasting) due to a lack of intestinal enteroendocrine cells. It is associated with early-onset (within the first weeks of life) dehydration, metabolic acidosis and diabetes mellitus (that can develop until late childhood). Patient may display various degrees of pancreatic insufficiency that does not explain diarrhea, as it is not reduced with pancreatic enzyme supplementation. Central hypogonadism (developing in the second decade), as well as an association with celiac disease have been reported." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "83620" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Enteric anendocrinosis" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Enteric anendocrinosis" ] .
+}
+

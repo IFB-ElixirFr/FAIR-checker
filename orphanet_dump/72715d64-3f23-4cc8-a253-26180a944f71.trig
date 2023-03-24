@@ -1,0 +1,28 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=93556> a ns1:MedicalCondition ;
+        ns1:alternateName "HCDD" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "D89.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:93556" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:93556" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D89.8" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "A rare non-amyloid monoclonal immunoglobulin deposition disease characterized by production of monoclonal immunoglobulins with truncated heavy chains and no detectable light chains, which are deposited in tissues and cause organ dysfunction, but do not form amyloid beta-pleated sheets or contain an amyloid P component. The condition frequently occurs in association with multiple myeloma. Patients most commonly present with renal involvement (manifesting as hypertension, progressive renal dysfunction, anemia, and nephrotic syndrome with microhematuria), but other organs (such as the liver or skin) may also be affected. Production of IgG1 or IgG3 isotypes results in hypercomplementemia." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "93556" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Heavy chain deposition disease" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Heavy chain deposition disease" ] .
+}
+

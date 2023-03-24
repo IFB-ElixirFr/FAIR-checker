@@ -1,0 +1,42 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=1933> a ns1:MedicalCondition ;
+        ns1:alternateName "Booth-Haworth-Dilling syndrome",
+            "Mitochondrial encephalomyopathy-aminoacidopathy syndrome",
+            "mtDNA depletion syndrome, encephalomyopathic form with methylmalonic aciduria" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:1933" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "3681" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:1933" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "612073" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G71.3" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G71.3" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "612073" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "3681" ;
+                ns1:codingSystem "GARD" ] ;
+        ns1:description "A rare mitochondrial DNA depletion syndrome characterized by neonatal or infantile onset of global developmental delay, hypotonia, failure to thrive, progressive neurologic decline, sensorineural deafness, and movement disorder. Seizures, external ophthalmoplegia, polyneuropathy, cardiomyopathy, and renal tubular dysfunction have also been reported. Brain imaging may show T2-weighted hyperintensities in the basal ganglia, and laboratory examination may reveal lactic acidosis and mild methylmalonic aciduria." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "1933" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Mitochondrial DNA depletion syndrome, encephalomyopathic form with methylmalonic aciduria" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Mitochondrial DNA depletion syndrome, encephalomyopathic form with methylmalonic aciduria" ] .
+}
+

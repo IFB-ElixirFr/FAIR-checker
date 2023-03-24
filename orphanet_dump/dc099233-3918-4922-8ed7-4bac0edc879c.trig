@@ -1,0 +1,27 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=488632> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "616900" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "616900" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:488632" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:488632" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "TBCK-related intellectual disability syndrome is a rare, genetic, syndromic intellectual disability characterized by usually profound intellectual disability with absent speech, severe infantile hypotonia with decreased or absent reflexes, markedly slow motor development (with no progress beyond the ability to sit independently), early-onset epilepsy, strabismus and post-natal onset of progressive brain atrophy (incl. loss of brain volume, ex vacuo ventriculomegaly, dysgenesis of corpus callosum, white matter abnormalities ranging from non-specific changes to leukodystrophy). Swallowing difficulties, respiratory insufficiency, osteoporosis and variable craniofacial dysmorphisms (incl. plagio/brachicephaly, bitemporal narrowing, high-arched eyebrows, high nasal bridge, anteverted nares, high palate, tented upper lip) may constitute additional clinical features." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "488632" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "TBCK-related intellectual disability syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "TBCK-related intellectual disability syndrome" ] .
+}
+

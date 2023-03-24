@@ -1,0 +1,27 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=314822> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "7552" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "7552" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:314822" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:314822" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A group of rare renal tubular diseases characterized by primary defects in bicarbonate reabsorption from urine (proximal renal tubular acidosis) and/or hydrogen excretion into the lumen (distal renal tubular acidosis), resulting in metabolic acidosis with hyperchloremia and a normal plasma anion gap. The glomerular filtration rate is relatively normal." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "314822" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Primary renal tubular acidosis" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Primary renal tubular acidosis" ] .
+}
+

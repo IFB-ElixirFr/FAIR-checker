@@ -1,0 +1,30 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=280794> a ns1:MedicalCondition ;
+        ns1:alternateName "Infiltrative small vesicular DCM",
+            "Infiltrative small vesicular diffuse cutaneous mastocytosis",
+            "Pseudoxanthomatous DCM" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:280794" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:280794" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q82.2" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q82.2" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "Pseudoxanthomatous diffuse cutaneous mastocytosis (PDCM) is a rare form of diffuse cutaneous mastocytosis (DCM; see this term) characterized by yellow-orange infiltrated and xanthogranuloma-like lesions with only limited blistering." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "280794" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Pseudoxanthomatous diffuse cutaneous mastocytosis" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Pseudoxanthomatous diffuse cutaneous mastocytosis" ] .
+}
+

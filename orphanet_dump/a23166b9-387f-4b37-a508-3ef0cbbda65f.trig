@@ -1,0 +1,43 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=43115> a ns1:MedicalCondition ;
+        ns1:alternateName "Aconitase deficiency",
+            "ISCU myopathy",
+            "Iron-sulfur cluster deficiency myopathy",
+            "Myopathy with exercise intolerance, Swedish type" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "G71.3" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:43115" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C1850718" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G71.3" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "255125" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:43115" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "255125" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C1850718" ;
+                ns1:codingSystem "UMLS" ] ;
+        ns1:description "A rare disease characterised by myopathy with severe exercise intolerance and deficiencies of skeletal muscle succinate dehydrogenase and aconitase." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "43115" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Hereditary myopathy with lactic acidosis due to ISCU deficiency" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Hereditary myopathy with lactic acidosis due to ISCU deficiency" ] .
+}
+

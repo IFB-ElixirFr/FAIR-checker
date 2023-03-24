@@ -1,0 +1,27 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=480556> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:480556" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:480556" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "K83.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "K83.0" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "Isolated neonatal sclerosing cholangitis is a rare, genetic, biliary tract disease characterized by severe neonatal-onset cholangiopathy with patent bile ducts and absence of ichthyosiform skin lesions. Patients present with jaundice, acholic stools, hepatosplenomegaly and high serum gamma-glutamyltransferase activity. Liver histology shows portal fibrosis, ductular proliferation, hepatocellular metallothionein deposits, and intralobular bile-pigment accumulations. Some patients may also have renal disease." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "480556" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Isolated neonatal sclerosing cholangitis" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Isolated neonatal sclerosing cholangitis" ] .
+}
+

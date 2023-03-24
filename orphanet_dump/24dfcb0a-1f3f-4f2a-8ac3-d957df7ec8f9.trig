@@ -1,0 +1,28 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=498602> a ns1:MedicalCondition ;
+        ns1:alternateName "Sugarman-Hager-Kulik syndrome" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:498602" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "272150" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:498602" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "272150" ;
+                ns1:codingSystem "OMIM" ] ;
+        ns1:description "Sugarman brachydactyly is a rare, genetic, congenital limb malformation characterized by brachydactyly of fingers, with major proximal phalangeal shortening and immobile proximal interphalangeal joints, as well as dorsally and proximally placed, non-articulating great toes (with or without angulation). Radiographic findings of hands include bilateral double first metacarpals and biphalangeal fifth fingers. There have been no further descriptions in the literature since 1982." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "498602" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Sugarman brachydactyly" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Sugarman brachydactyly" ] .
+}
+

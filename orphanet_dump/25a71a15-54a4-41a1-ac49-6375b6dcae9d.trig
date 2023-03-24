@@ -1,0 +1,36 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=352682> a ns1:MedicalCondition ;
+        ns1:alternateName "Cobblestone lissencephaly without muscular or eye involvement",
+            "Lissencephaly type 2 without muscular or eye involvement",
+            "Lissencephaly type 2 without muscular or ocular involvement" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "Q04.3" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "615191" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "615191" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:352682" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:352682" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q04.3" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "A rare, genetic, cobblestone lissencephaly disease characterized by the presence of a constellation of brain malformations, including cortical gyral and sulcus anomalies, white matter signal abnormalities, cerebellar dysplasia and brainstem hypoplasia, existing alone or in conjunction with minimal muscular and ocular abnormalities, typically manifesting with severe developmental delay, increased head circumference, hydrocephalus and seizures." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "352682" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Cobblestone lissencephaly without muscular or ocular involvement" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Cobblestone lissencephaly without muscular or ocular involvement" ] .
+}
+

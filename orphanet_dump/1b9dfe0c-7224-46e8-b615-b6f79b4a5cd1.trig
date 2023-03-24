@@ -1,0 +1,28 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=542592> a ns1:MedicalCondition ;
+        ns1:alternateName "Oppenheim-Urbach disease" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "L92.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "L92.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:542592" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:542592" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare skin disease characterized by enlarging, annular plaques with red-brown edges and atrophic, yellow-brown, telangiectatic centers. The lesions are commonly asymptomatic, but affected skin areas may be fragile, and painful ulcerations develop in many cases. In rare cases, development of squamous cell carcinoma within longstanding lesions has been reported. The lower legs, especially the shins, are the most frequently involved site. The condition is often associated with diabetes mellitus." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "542592" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Necrobiosis lipoidica" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Necrobiosis lipoidica" ] .
+}
+

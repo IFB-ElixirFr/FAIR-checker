@@ -1,0 +1,36 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=35664> a ns1:MedicalCondition ;
+        ns1:alternateName "Delta-1-pyrroline 5-carboxylate synthetase deficiency",
+            "Neurocutaneous syndrome, Bicknell type",
+            "P5CS deficiency" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "Q87.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q87.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "219150" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:35664" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "219150" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:35664" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare, genetic, neurometabolic disease characterized by prenatal and postnatal growth retardation, hypotonia, failure to thrive, large and late-closing fontanel, development delay, cutis laxa, joint laxity, progeroid appearance, and dysmorphic facial features. In addition, corneal opacities, cataracts, myopia, seizures, hyperreflexia and athetoid movements have also been associated." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "35664" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "ALDH18A1-related De Barsy syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "ALDH18A1-related De Barsy syndrome" ] .
+}
+

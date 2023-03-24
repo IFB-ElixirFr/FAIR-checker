@@ -1,0 +1,56 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=2905> a ns1:MedicalCondition ;
+        ns1:alternateName "Crow-Fukase syndrome",
+            "Osteosclerotic myeloma",
+            "PEP syndrome",
+            "Polyneuropathy-endocrinopathy-plasma cell dyscrasia syndrome",
+            "Takatsuki syndrome" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "10053869" ;
+                ns1:codingSystem "MedDRA" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10053869" ;
+                ns1:codingSystem "MedDRA" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "7411" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D47.7" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0085404" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:2905" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "7411" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D016878" ;
+                ns1:codingSystem "MeSH" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0085404" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D016878" ;
+                ns1:codingSystem "MeSH" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D47.7" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:2905" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "POEMS syndrome is a paraneoplastic syndrome characterized by polyradiculoneuropathy (P), organomegaly (O), endocrinopathy (E), clonal plasma cell disorder (M), and skin changes (S). Other features include papilledema, extravascular volume overload, sclerotic bone lesions, thrombocytosis/erythrocytosis, and elevated VEGF levels." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "2905" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "POEMS syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "POEMS syndrome" ] .
+}
+

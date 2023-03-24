@@ -1,0 +1,34 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=314721> a ns1:MedicalCondition ;
+        ns1:alternateName "Dentin dysplasia type 1 with microdontia and shape anomalies" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "125400" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:314721" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "125400" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "K00.5" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "K00.5" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:314721" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare, genetic, dentin dysplasia disease characterized by extreme microdontia, oligodontia, and abnormal tooth shape (including globular teeth, incisal notches and double tooth formation). Short roots with a variable pulp phenotype (including taurodontia and flame-shaped pulp), enamel hypoplasia and anterior open bite may also be associated." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "314721" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Atypical dentin dysplasia due to SMOC2 deficiency" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Atypical dentin dysplasia due to SMOC2 deficiency" ] .
+}
+

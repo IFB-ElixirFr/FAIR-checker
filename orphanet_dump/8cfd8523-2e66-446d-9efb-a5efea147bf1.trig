@@ -1,0 +1,28 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=84087> a ns1:MedicalCondition ;
+        ns1:alternateName "Collagenofibrotic glomerulopathy" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "N07.6" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "N07.6" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:84087" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:84087" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare non-immune-mediated glomerular disease characterized by abnormal accumulation of type III collagen within the mesangium and subendothelial space of the glomerulus. Clinically it usually manifests with proteinuria (often in the nephrotic range), microscopic hematuria, peripheral edema and/or hypertension. Progression to end-stage kidney failure is possible." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "84087" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Collagen type III glomerulopathy" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Collagen type III glomerulopathy" ] .
+}
+

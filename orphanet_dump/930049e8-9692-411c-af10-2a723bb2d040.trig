@@ -1,0 +1,28 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=444316> a ns1:MedicalCondition ;
+        ns1:alternateName "Idiopathic phalangeal acroosteolysis" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "M89.5" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:444316" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:444316" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "M89.5" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "A rare bone disease characterized by bone resorption affecting the distal phalanx, most commonly the terminal tuft, in the absence of a known cause. Patients present with shortening of the affected fingers or toes, associated with nail abnormalities (dystrophic or hypertrophic nails) and skin changes (such as ulceration or pigment anomalies)." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "444316" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Idiopathic phalangeal acro-osteolysis" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Idiopathic phalangeal acro-osteolysis" ] .
+}
+

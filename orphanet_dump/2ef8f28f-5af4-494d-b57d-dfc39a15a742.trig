@@ -1,0 +1,35 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=874> a ns1:MedicalCondition ;
+        ns1:alternateName "Adult cardiac tumor",
+            "Adult heart tumor" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "D15.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:874" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C38.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:874" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C38.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D15.1" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "A rare disorder that manifest in adults and generally present with a variety of non-specific manifestations (depending on tumor site and infiltration) such as weight loss, exhaustion, hemorrhagic pericardial effusion, heart failure, arrhythmias, and embolisms, or that can also be asymptomatic. In adults 75% of heart tumors are benign, with myxoma being the most common benign tumor (accounting for 50-70% of all primary heart tumors) and rhabdomyosarcoma comprising 75% of malignant heart tumors. Other malignant tumors of the heart include fibrosarcoma and leiomyosarcoma." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "874" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Primary adult heart tumor" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Primary adult heart tumor" ] .
+}
+

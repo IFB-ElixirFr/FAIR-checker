@@ -1,0 +1,40 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=171863> a ns1:MedicalCondition ;
+        ns1:alternateName "SPG42" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "612539" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G11.4" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:171863" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:171863" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C2675528" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G11.4" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "612539" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C2675528" ;
+                ns1:codingSystem "UMLS" ] ;
+        ns1:description "A pure form of hereditary spastic paraplegia characterized by slowly progressive spastic paraplegia of lower extremities with an age of onset ranging from childhood to adulthood and patients presenting with spastic gait, increased tendon reflexes in lower limbs, extensor plantar response, weakness and atrophy of lower limb muscles and, in rare cases, pes cavus. No abnormalities are noted on magnetic resonance imaging." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "171863" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Autosomal dominant spastic paraplegia type 42" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Autosomal dominant spastic paraplegia type 42" ] .
+}
+

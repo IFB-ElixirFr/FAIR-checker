@@ -1,0 +1,34 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=3231> a ns1:MedicalCondition ;
+        ns1:alternateName "Hearing loss-onychodystrophy syndrome" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "220500" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "124480" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:3231" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "124480" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "220500" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:3231" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "Deafness-onychodystrophy syndrome is a group of rare, genetic, developmental defect during embryogenesis disorders characterized by the association of sensorineural deafness and onychodystrophy (e.g. absent/hypoplastic finger and toenails), as well as brachydactyly and finger-like thumbs. Additional features present in one of the diseases comprising this group include osteodystrophy, intellectual disability, seizures, developmental delay, and distinctive facies." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "3231" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Deafness-onychodystrophy syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Deafness-onychodystrophy syndrome" ] .
+}
+

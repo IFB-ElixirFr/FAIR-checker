@@ -1,0 +1,28 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=457246> a ns1:MedicalCondition ;
+        ns1:alternateName "CCSK" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "C64" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:457246" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C64" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:457246" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "Clear cell sarcoma of kidney is a rare, primary, genetic renal tumor usually characterized by a unilateral, unicentric, morphologically diverse tumor that arises from the renal medulla and has a tendency for vascular invasion. Clinically it presents with a palpable abdominal mass, abdominal or flank pain, hematuria, anemia and/or fatigue. Metastatic spread to lymph nodes, bones, lungs, retroperitoneum, brain and liver is common at time of diagnosis and therefore bone pain, cough or neurological compromise may be associated. Metastasis to unusual sites, such as the scalp, neck, nasopharynx, axilla, orbits and epidural space, have been reported." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "457246" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Clear cell sarcoma of kidney" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Clear cell sarcoma of kidney" ] .
+}
+

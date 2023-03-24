@@ -1,0 +1,41 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=99745> a ns1:MedicalCondition ;
+        ns1:alternateName "Typhoid fever",
+            "Typhoidal salmonellosis" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "C0041466" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "9564" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "9564" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:99745" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "A01.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:99745" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0041466" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "A01.0" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "Typhoid or typhoid fever is a reportable, fecal-oral, potentially fatal infectious disease, caused by the bacteria <i>Salmonella typhi</i> and characterized by a non-focal fever." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "99745" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Typhoid" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Typhoid" ] .
+}
+

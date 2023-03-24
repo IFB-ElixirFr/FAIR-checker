@@ -1,0 +1,29 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=96150> a ns1:MedicalCondition ;
+        ns1:alternateName "Distal deletion 14q",
+            "Telomeric deletion 14q" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "Q93.5" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q93.5" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:96150" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:96150" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "Distal monosomy 14q is a rare chromosomal anomaly associated with various phenotypic features depending on the size of the deletion. The clinical features may include global developmental delay, hypotonia, congenital heart defects, dysmorphic features (high forehead, small palpebral fissures, epicanthi, blepharophimosis, broad and flat nasal bridge, broad philtrum, thin upper lip, high arched palate, pointed chin, malformed ears). High-pitched, weak cry, seizures and various dental and oftalmological anomalies were also reported." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "96150" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Distal monosomy 14q" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Distal monosomy 14q" ] .
+}
+

@@ -1,0 +1,33 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=99139> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "C0272006" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:99139" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:99139" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0272006" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D58.2" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D58.2" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "A rare hemoglobinopathy characterized by variable degrees of hemolytic anemia, depending on the nature of the hemoglobin variant. In symptomatic patients, clinical manifestations are jaundice, splenomegaly, and, in patients with severe anemia, pallor. Additional features include reticulocytosis, presence of Heinz bodies, and pigmenturia." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "99139" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Unstable hemoglobin disease" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Unstable hemoglobin disease" ] .
+}
+

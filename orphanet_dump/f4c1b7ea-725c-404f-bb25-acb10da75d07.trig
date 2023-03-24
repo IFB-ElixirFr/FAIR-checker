@@ -1,0 +1,27 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=99171> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "Q10.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q10.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:99171" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:99171" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "Isolated congenital ectropion is a rare ocular disease characterized by congenital, unilateral or bilateral, lower or upper eyelid malposition with eversion of the margin due to a vertical shortage of skin, leading to exposure of the conjunctiva and sometimes the cornea. Chronic epiphora and exposure keratitis may be observed in severe cases." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "99171" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Isolated congenital ectropion" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Isolated congenital ectropion" ] .
+}
+

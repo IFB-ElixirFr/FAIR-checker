@@ -1,0 +1,34 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=97355> a ns1:MedicalCondition ;
+        ns1:alternateName "Atypical parkinsonism in the Caribbean" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:97355" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "F02.3*" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G20+" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:97355" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G20+" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "F02.3*" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "Parkinsonism with dementia of Guadeloupe is characterised by symmetrical bradykinesia, predominantly axial rigidity, postural instability with early falls and cognitive decline with prominent features of frontal lobe dysfunction." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "97355" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Caribbean parkinsonism" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Caribbean parkinsonism" ] .
+}
+

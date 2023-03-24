@@ -1,0 +1,42 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=423470> a ns1:MedicalCondition ;
+        ns1:alternateName "ML 3 gamma",
+            "ML III gamma",
+            "Mucolipidosis type 3 gamma" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "252605" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E77.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C1854896" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E77.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "252605" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C1854896" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:423470" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:423470" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "Mucolipidosis type III gamma (ML 3 gamma) is a very rare lysosomal disease, that has most often been observed in the Middle East, characterized by a progressive slowing of the growth rate in early childhood; stiffness and pain in shoulders, hips, and finger joints; a gradual, mild coarsening of facial features; and by a slower progression, milder clinical course and longer life expectancy than that seen in mucolipidosis type II and mucolipidosis type III alpha/beta. Cognitive function is normal or only slightly impaired and retinitis pigmentosa has been reported in a few patients. Many survive into early adulthood, but ultimately succumb to cardiorespiratory insufficiency." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "423470" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Mucolipidosis type III gamma" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Mucolipidosis type III gamma" ] .
+}
+

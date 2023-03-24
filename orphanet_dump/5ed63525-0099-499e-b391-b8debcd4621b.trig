@@ -1,0 +1,29 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=101959> a ns1:MedicalCondition ;
+        ns1:alternateName "CPAI",
+            "Chronic adrenocorticoid insufficiency" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:101959" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0001403" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:101959" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0001403" ;
+                ns1:codingSystem "UMLS" ] ;
+        ns1:description "Chronic primary adrenal insufficiency (CPAI) is a chronic disorder of the adrenal cortex resulting in the inadequate production of glucocorticoid and mineralocorticoid hormones." ;
+        ns1:epidemiology "Prevalence : 1-5 / 10 000" ;
+        ns1:identifier "101959" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Chronic primary adrenal insufficiency" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Chronic primary adrenal insufficiency" ] .
+}
+

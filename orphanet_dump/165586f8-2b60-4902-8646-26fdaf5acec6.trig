@@ -1,0 +1,33 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=171886> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "11906" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "11906" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G71.2" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:171886" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:171886" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G71.2" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "Cylindrical spirals myopathy is a rare form of congenital myopathy characterized by global muscle weakness, hypotonia, myotonia and cramps in the presence of cylindrical, spiral-shaped inclusions (located in the central and/or subsacrolemmal areas of muscle fibers) in skeletal muscle biopsy. Abnormal gait, scoliosis, epileptic encephalopathy and psychomotor delay may be associated." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "171886" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Cylindrical spirals myopathy" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Cylindrical spirals myopathy" ] .
+}
+

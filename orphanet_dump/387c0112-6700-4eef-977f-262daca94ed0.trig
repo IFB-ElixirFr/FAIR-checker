@@ -1,0 +1,44 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=1329> a ns1:MedicalCondition ;
+        ns1:alternateName "CAVC",
+            "Complete AVSD",
+            "Complete atrioventricular canal",
+            "Complete atrioventricular canal defect",
+            "Complete atrioventricular septal defect with atrial and ventricular components" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "Q21.2" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0344787" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:1329" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0344787" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q21.2" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "1454" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "1454" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:1329" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare, congenital cardiac anomaly characterized by a common atrioventricular junction with a common AV valve, an interatrial communication just above the common AV valve (ostium primum defect), a posterior interventricular communication (inlet VSD), that results in shunting at both the atrial and ventricular level. Morphologically, the common atrioventricular valve has 4 or 5 leaflets including superior and inferior bridging leaflets with a single annulus." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "1329" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Complete atrioventricular septal defect" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Complete atrioventricular septal defect" ] .
+}
+

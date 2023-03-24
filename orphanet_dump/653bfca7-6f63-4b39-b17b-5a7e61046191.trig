@@ -1,0 +1,28 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=217008> a ns1:MedicalCondition ;
+        ns1:alternateName "Genuine diffuse phlebectasia" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "Q27.4" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:217008" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:217008" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q27.4" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "A rare vascular anomaly characterized by congenital, progressive, circumscribed venous malformations (phlebectasias) primarily involving the upper and/or lower extremities, either on one side or bilaterally. The malformed vessels are visible beneath the skin. Veins of all sizes are affected. Pain, swelling, muscle wasting, and ulceration may occur." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "217008" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Bockenheimer syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Bockenheimer syndrome" ] .
+}
+

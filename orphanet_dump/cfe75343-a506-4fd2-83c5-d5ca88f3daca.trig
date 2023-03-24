@@ -1,0 +1,36 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=252212> a ns1:MedicalCondition ;
+        ns1:alternateName "MPNST with rhabdomyosarcomatous differentiation",
+            "MTT",
+            "Malignant peripheral nerve sheath tumor with rhabdomyosarcomatous differenciation" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "C47.9" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0334616" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:252212" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:252212" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C47.9" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0334616" ;
+                ns1:codingSystem "UMLS" ] ;
+        ns1:description "Malignant triton tumor (MTT) is a rare aggressive subtype of malignant peripheral nerve sheath tumor (MPNST; see this term) characterized histopathologically by focal rhabdomyoblastic differentiation." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "252212" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Malignant triton tumor" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Malignant triton tumor" ] .
+}
+

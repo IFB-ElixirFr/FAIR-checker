@@ -1,0 +1,26 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=1809> a ns1:MedicalCondition ;
+        ns1:alternateName "Halal-Setton-Wang syndrome",
+            "Trichodysplasia-abnormal dermatoglyphics-intellectual disability syndrome" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "Q82.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:1809" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "280" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C2930953" ;
+                ns1:codingSystem "UMLS" ] ;
+        ns1:description "Hidrotic ectodermal dysplasia, Halal type is a form of ectodermal dysplasia syndrome (see this term) characterized by trichodysplasia, with absent eyebrows and eyelashes, onychodysplasia, mild retrognathia, abnormal dermatoglyphics (excess of whorls on fingertips, radial loop on finger, hypothenar pattern), intellectual disability and normal teeth and sweating. Additional variable manifestations include high implanted or prominent ears, mild hearing loss, supernumerary nipple, café-au-lait spots, keratosis pilaris, and irregular menses. To date, four individuals from 2 generations of a consanguineous family of Portuguese descent have been described in the literature. Males and females were equally affected. Hidrotic ectodermal dysplasia, Halal type is inherited in an autosomal recessive manner." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "1809" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Hidrotic ectodermal dysplasia, Halal type" ] .
+}
+

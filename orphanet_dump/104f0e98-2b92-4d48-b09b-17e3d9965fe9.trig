@@ -1,0 +1,34 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=443173> a ns1:MedicalCondition ;
+        ns1:alternateName "Puerperal psychosis" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "C0520678" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:443173" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "F53.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "F53.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0520678" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:443173" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare gynecologic or obstetric disease characterized by an abrupt onset of psychiatric symptoms during the first weeks after childbirth. Clinical features include mood changes, depression, anxiety, delusions, and hallucinations, among others. The disease is associated with a risk of suicide or infanticide, as well as an increased risk for recurrence after the next pregnancy and future non-pregnancy related psychotic episodes." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "443173" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Postpartum psychosis" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Postpartum psychosis" ] .
+}
+

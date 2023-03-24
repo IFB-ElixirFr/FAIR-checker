@@ -1,0 +1,30 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=439175> a ns1:MedicalCondition ;
+        ns1:alternateName "Childhood AIS",
+            "Childhood arterial ischemic stroke",
+            "Pediatric AIS" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:439175" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:439175" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "I63.5" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "I63.5" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "A rare neurologic condition characterized by focal cerebral ischemia and infarction due to blockage of a brain artery with subsequent impairment of blood supply and oxygenation of brain tissue. Most children present with hemiparesis with or without facial palsy at stroke onset. In addition, compared to adults, children more often suffer strokes in the posterior circulation, leading to ataxia or oculomotor disturbance. Likewise, aphasia is more frequent in pediatric patients. Other signs and symptoms include seizures, headache, vomiting, and alterations in the level of consciousness. Children under one year of age are more likely to present with seizures and altered level of consciousness, while older children more often show focal neurological deficits." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "439175" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Pediatric arterial ischemic stroke" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Pediatric arterial ischemic stroke" ] .
+}
+

@@ -1,0 +1,28 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=442582> a ns1:MedicalCondition ;
+        ns1:alternateName "Heavy chain amyloidosis" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:442582" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E85.9" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:442582" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E85.9" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "A rare, systemic amyloidosis characterized by the aggregation and deposition of amyloid fibrils composed of monoclonal immunoglobulin heavy-chain fragments, usually produced by a plasma cell neoplasm. Amyloid fibrils deposit in various organs, most commonly in the kidneys. It typically affects older patients and clinical presentation includes signs and symptoms of renal dysfunction, sometimes leading to nephrotic syndrome and end stage renal disease. Cardiac, liver and nerves involvement has also been described." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "442582" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "AH amyloidosis" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "AH amyloidosis" ] .
+}
+

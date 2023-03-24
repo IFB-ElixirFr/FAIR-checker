@@ -1,0 +1,27 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=95427> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:95427" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "K91.2" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "K91.2" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:95427" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "Secondary short bowel syndrome is an intestinal failure caused by any condition that results in a functional small intestine of less than 200 cm in length and is characterized by diarrhea, nutrient malabsoption, bowel dilation and dysmobility." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "95427" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Secondary short bowel syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Secondary short bowel syndrome" ] .
+}
+

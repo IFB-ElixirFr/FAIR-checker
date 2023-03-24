@@ -1,0 +1,33 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=289685> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "D21.9" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:289685" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C1302808" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:289685" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D21.9" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C1302808" ;
+                ns1:codingSystem "UMLS" ] ;
+        ns1:description "A rare soft tissue tumor characterized by a benign subcutaneous lesion composed of oval-to-spindle shaped myoid appearing cells with a tendency for concentric perivascular growth. The tumor usually presents as a painless, slowly growing nodule, which may be solitary or appear as multiple lesions, which then arise metachronously and usually involve a particular anatomic region. Recurrence after surgical excision may occur in poorly circumscribed tumors. Malignancy is very rare." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "289685" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Myopericytoma" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Myopericytoma" ] .
+}
+

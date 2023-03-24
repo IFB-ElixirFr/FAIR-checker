@@ -1,0 +1,40 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=1129> a ns1:MedicalCondition ;
+        ns1:alternateName "Kosztolanyi syndrome" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "Q87.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q87.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:1129" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C2931398" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "381" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C2931398" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "381" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:1129" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A multiple congenital developmental anomalies syndrome characterized by arachnodactyly of fingers and toes associated with craniofacial dysmorphism (including abnormal cranial ossification, frontal bossing, flat calvaria, shallow deformed orbits resulting in exophtalmos, midface hypoplasia and micrognathia), feeding difficulties in infancy, infantile muscular hypotonia, and developmental delay leading to intellectual disability." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "1129" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Arachnodactyly-abnormal ossification-intellectual disability syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Arachnodactyly-abnormal ossification-intellectual disability syndrome" ] .
+}
+

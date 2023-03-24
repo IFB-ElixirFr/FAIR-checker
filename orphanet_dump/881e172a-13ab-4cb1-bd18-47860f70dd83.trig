@@ -1,0 +1,28 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=102724> a ns1:MedicalCondition ;
+        ns1:alternateName "AML with t(8;21)(q22;q22) translocation" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "C92.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:102724" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:102724" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C92.0" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "A rare acute myeloid leukemia with recurrent genetic anomaly disorder characterized by a t(8;21)(q22;q22) balanced translocation cytogenetic abnormality, forming a RUNX1-RUNX1T1 fusion gene, presenting with morphological characteristics which include myeloblasts with indented nuclei, basophilic cytoplasm with a prominent paranuclear hof that may contain a few azurophilic granules, prominent and possibly large promyelocytes, myelocytes and metamyelocytes, easily identifiable Auer rods and, more variably, bone marrow eosinophilia. Myeloid sarcoma is frequently present at diagnosis. Detection of the t(8;21)(q22;22) translocation is sufficient for diagnosis irrespective of blast count." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "102724" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Acute myeloid leukemia with t(8;21)(q22;q22) translocation" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Acute myeloid leukemia with t(8;21)(q22;q22) translocation" ] .
+}
+

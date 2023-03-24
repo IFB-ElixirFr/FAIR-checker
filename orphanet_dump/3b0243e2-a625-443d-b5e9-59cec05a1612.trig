@@ -1,0 +1,27 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=95715> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:95715" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "P72.2" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:95715" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "P72.2" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "Congenital hypothyroidism due to transplacental passage of maternal thyroid-stimulating hormone (TSH)-binding inhibitory antibodies is a type of transient congenital hypothyroidism (see this term), a thyroid hormone deficiency that is not permanent." ;
+        ns1:epidemiology "Prevalence : 1-9 / 100 000" ;
+        ns1:identifier "95715" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Congenital hypothyroidism due to transplacental passage of TSH-binding inhibitory antibodies" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Congenital hypothyroidism due to transplacental passage of TSH-binding inhibitory antibodies" ] .
+}
+

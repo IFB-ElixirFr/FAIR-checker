@@ -1,0 +1,28 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=64542> a ns1:MedicalCondition ;
+        ns1:alternateName "Kennedy-Teebi syndrome" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:64542" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:64542" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q75.4" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q75.4" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "A rare acrofacial dysostosis due to the presence of manifestations not usually seen in Nager syndrome (NS) such as microcephaly, blepharophimosis, microtia, a peculiar beakednose, cleft lip and palate, symmetrical involvement of the thumbs and great toes and developmental delay. It has since been suggested that these features can also be a part of the NS phenotype." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "64542" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Acrofacial dysostosis, Kennedy-Teebi type" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Acrofacial dysostosis, Kennedy-Teebi type" ] .
+}
+

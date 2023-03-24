@@ -1,0 +1,21 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=98627> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:98627" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:98627" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "Posterior corneal dystrophies refers to a group of rare genetically determined corneal dystrophies (CDs) characterized by lesions affecting the corneal endothelium and Descemet membrane, and variable effects on vision depending on the type of dystrophy." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "98627" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Posterior corneal dystrophy" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Posterior corneal dystrophy" ] .
+}
+

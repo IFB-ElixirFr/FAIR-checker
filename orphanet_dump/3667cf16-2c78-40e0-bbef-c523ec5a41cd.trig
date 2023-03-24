@@ -1,0 +1,21 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=300493> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:300493" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:300493" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare bone disease characterized by secondary hyperparathyroidism in patients with chronic renal failure, caused by improper treatment in the early stages of the disease with retention of phosphorus, vitamin D deficiency, and disturbed calcium-phosphorus metabolism, which result in increased parathyroid hormone levels. Patients present with short stature, severe changes of the skull and jaws as well as other skeletal deformities, dental anomalies, ''brown tumors'' in the mouth, hearing loss, and neuropsychiatric disorders." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "300493" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Sagliker syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Sagliker syndrome" ] .
+}
+

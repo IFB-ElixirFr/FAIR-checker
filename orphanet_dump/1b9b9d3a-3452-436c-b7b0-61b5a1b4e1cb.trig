@@ -1,0 +1,30 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=280854> a ns1:MedicalCondition ;
+        ns1:alternateName "CPAM type 4",
+            "Congenital cystic adenomatoid malformation of the lung type 4",
+            "Congenital cystic adenomatous malformation of the lung type 4" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:280854" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q33.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q33.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:280854" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare subtype of congenital pulmonary airway malformation characterized by a multicystic mass of non-functioning lung tissue, with peripheral, large, thin-walled, often multiloculated cysts, which may be 8 cm in diameter. The lesions have intracystic communications, can be connected to the tracheobronchial tree, and are usually unilateral, involving a single lobe. Patients present with respiratory distress or respiratory infections in the neonatal period or in infancy. The condition is often associated with tension pneumothorax, signs of mediastinal shift, and malignant transformation to pleuropulmonary blastoma type 1." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "280854" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Congenital pulmonary airway malformation type 4" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Congenital pulmonary airway malformation type 4" ] .
+}
+

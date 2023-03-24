@@ -1,0 +1,35 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=289860> a ns1:MedicalCondition ;
+        ns1:alternateName "Infantile NKH",
+            "Infantile non-ketotic hyperglycinemia" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "E72.5" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "605899" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:289860" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "605899" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E72.5" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:289860" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "Infantile glycine encephalopathy is a mild to severe form of glycine encephalopathy (GE; see this term), characterized by early hypotonia, developmental delay and seizures." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "289860" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Infantile glycine encephalopathy" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Infantile glycine encephalopathy" ] .
+}
+

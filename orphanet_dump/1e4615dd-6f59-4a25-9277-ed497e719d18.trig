@@ -1,0 +1,35 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=99084> a ns1:MedicalCondition ;
+        ns1:alternateName "Branch pulmonary artery stenosis",
+            "Pulmonary branch stenosis" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "Q25.6" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "4589" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q25.6" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:99084" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "4589" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:99084" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "Peripheral pulmonary stenosis is a rare congenital anomaly of the great arteries that may occur at single or multiple sites, in isolation or in association with other congenital heart defects (valvular pulmonary stenosis, atrial, or ventricular septal defects or tetralogy of Fallot) and genetic syndromes (Williams, Alagile syndrome). Clinical presentation is variable and includes heart murmurs, dyspnea, syncope, chest pain and pulmonary hypertension-associated symptoms." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "99084" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Peripheral pulmonary stenosis" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Peripheral pulmonary stenosis" ] .
+}
+

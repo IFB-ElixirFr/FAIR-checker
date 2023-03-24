@@ -1,0 +1,39 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=158000> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "D76.3" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:158000" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:158000" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D014972" ;
+                ns1:codingSystem "MeSH" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0043324" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D76.3" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0043324" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D014972" ;
+                ns1:codingSystem "MeSH" ] ;
+        ns1:description "Juvenile xanthogranuloma is the most common type of non-Langerhans cell histiocytosis (see this term) characterized by the occurrence of one or more reddish or yellowish self-limiting and benign papules or nodules of several millimeters in diameter, usually appearing on the head and neck (but sometimes on the extremities and trunk) during the first year of life (or rarely in adulthood) and usually regressing spontaneously. Extracutaneous involvement has also been reported, involving most commonly the eye (uveal tract) but with other locations including the central nervous system, lung, liver, bones and endocrine glands, and may be associated with considerable morbidity." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "158000" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Juvenile xanthogranuloma" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Juvenile xanthogranuloma" ] .
+}
+

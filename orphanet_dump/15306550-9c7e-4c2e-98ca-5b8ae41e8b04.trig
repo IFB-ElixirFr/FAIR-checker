@@ -1,0 +1,34 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=363558> a ns1:MedicalCondition ;
+        ns1:alternateName "NORSE" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:363558" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "12244" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G41.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G41.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:363558" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "12244" ;
+                ns1:codingSystem "GARD" ] ;
+        ns1:description "New-onset refractory status epilepticus is an acute encephalopathy with inflammation-mediated status epilepticus characterized by an acute refractory status epilepticus, typically of the tonic-clonic type, following prodromal symptoms of confusion, fever, fatigue, headache, symptoms of gastrointestinal or upper respiratory tract infection, behavioral changes or hallucinations. Brain MRI abnormalities and abnormal findings in CSF, including pleocytosis and/or elevated protein levels, are frequently found during acute episode. Treatment-resistant epilepsy, cognitive and psychiatric impairments are usual consequences." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "363558" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "New-onset refractory status epilepticus" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "New-onset refractory status epilepticus" ] .
+}
+

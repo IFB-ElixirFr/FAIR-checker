@@ -1,0 +1,33 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=877> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "C0206754" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "9316" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:877" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:877" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "9316" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0206754" ;
+                ns1:codingSystem "UMLS" ] ;
+        ns1:description "A group of rare tumors characterized by predominantly neuroendocrine differentiation, potentially arising in most organs of the body, including the central nervous system, respiratory tract, larynx, gastrointestinal tract, thyroid, skin, breast, and urogenital system. The gastrointestinal tract and lungs are the most common primary tumor sites. Based on clinical behavior, histology, and proliferation rate, the tumors may be categorized as well differentiated (low grade to intermediate grade) neuroendocrine tumors and poorly differentiated (high grade) neuroendocrine carcinomas. They may or may not be associated with clinical hormone hypersecretion syndromes." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "877" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Neuroendocrine neoplasm" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Neuroendocrine neoplasm" ] .
+}
+

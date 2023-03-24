@@ -1,0 +1,48 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=86843> a ns1:MedicalCondition ;
+        ns1:alternateName "Acute myelodysplasia with myelofibrosis",
+            "Acute myelofibrosis",
+            "Acute myelosclerosis" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "C94.4" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10000879" ;
+                ns1:codingSystem "MedDRA" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:86843" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0334674" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "11907" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0334674" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:86843" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C94.4" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10000879" ;
+                ns1:codingSystem "MedDRA" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "11907" ;
+                ns1:codingSystem "GARD" ] ;
+        ns1:description "A rare unclassified acute myeloid leukemia characterized by an acute panmyeloid proliferation with blasts constituting more than 20% of cells in the bone marrow or peripheral blood, accompanied by fibrosis of the bone marrow. Patients typically present with acute onset of severe constitutional symptoms, bone pain, and pancytopenia. Splenomegaly is minimal or absent. The disease is rapidly progressive with poor therapy response." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "86843" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Acute panmyelosis with myelofibrosis" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Acute panmyelosis with myelofibrosis" ] .
+}
+

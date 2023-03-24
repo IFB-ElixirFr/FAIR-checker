@@ -1,0 +1,28 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=99048> a ns1:MedicalCondition ;
+        ns1:alternateName "APV/PDA, non-Fallot type" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "Q22.2" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:99048" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q22.2" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:99048" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare, life-threatening, congenital, non-syndromic, conotruncal heart malformation disease characterized by absent or severely undeveloped pulmonary valve leaflets (with a restrictive ring of thickened tissue at the place of the pulmonary valve annulus), associated with an intact ventricular septum and a patent ductus arteriosus, manifesting with marked respiratory insufficiency. Additional features include dilated main pulmonary artery (with or without dilatation of pulmonary artery branches), to-and-fro flow at site of the dysplastic pulmonary valve, and systolic pressure gradient across narrowed pulmonary valve. Tricuspid atresia and variable extra-cardiac anomalies (e.g. diaphragmatic hernia or cleft lip/palate), may be present." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "99048" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Pulmonary valve agenesis-intact ventricular septum-persistent ductus arteriosus syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Pulmonary valve agenesis-intact ventricular septum-persistent ductus arteriosus syndrome" ] .
+}
+

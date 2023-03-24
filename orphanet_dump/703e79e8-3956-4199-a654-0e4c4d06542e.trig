@@ -1,0 +1,28 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=280558> a ns1:MedicalCondition ;
+        ns1:alternateName "WABS" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "613398" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:280558" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "613398" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:280558" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare genetic multiple congenital anomalies/dysmorphic syndrome characterized by pre- and postnatal growth restriction, microcephaly, mild to severe intellectual disability, sensorineural hearing loss with cochlear abnormalities, and facial dysmorphism (with small and elongated face, bifrontal narrowing, epicanthus, short nose, small nares, dysplastic ears, and short neck). Additional variable features include limb malformations, cardiac anomalies, abnormal skin pigmentation, and recurrent infections, among others." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "280558" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Warsaw breakage syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Warsaw breakage syndrome" ] .
+}
+

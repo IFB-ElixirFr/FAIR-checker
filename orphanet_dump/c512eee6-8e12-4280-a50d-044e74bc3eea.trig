@@ -1,0 +1,40 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=251295> a ns1:MedicalCondition ;
+        ns1:alternateName "PPRCA" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "H35.5" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C1868310" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:251295" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "172870" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C1868310" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:251295" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "172870" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "H35.5" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "Pigmented paravenous retinochoroidal atrophy (PPRCA) is a rare, commonly bilateral and symmetric retinal disease characterized by non-progressive or slowly progressive chorioretinal atrophy, peripapillary pigmentary changes and accumulation of ''bone-corpuscle'' pigmentation along the retinal veins and which is usually asymptomatic or can present with mild blurred vision." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "251295" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Pigmented paravenous retinochoroidal atrophy" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Pigmented paravenous retinochoroidal atrophy" ] .
+}
+

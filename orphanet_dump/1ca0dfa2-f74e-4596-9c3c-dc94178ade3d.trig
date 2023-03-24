@@ -1,0 +1,35 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=3109> a ns1:MedicalCondition ;
+        ns1:alternateName "MRKH syndrome",
+            "Rokitansky syndrome" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:3109" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10065148" ;
+                ns1:codingSystem "MedDRA" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C1698581" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q51.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "5445" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "277000" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "601076" ;
+                ns1:codingSystem "OMIM" ] ;
+        ns1:description "A rare spectrum of Mullerian duct anomalies characterized by congenital aplasia of the uterus and upper two-thirds of the vagina in otherwise phenotypically normal females. It can be classified as either Mayer-Rokitansky-Küster-Hauser (MRKH) syndrome type 1 (corresponding to isolated utero-vaginal aplasia) or MRKH syndrome type 2 (utero-vaginal aplasia associated with other malformations)." ;
+        ns1:epidemiology "Prevalence : 1-5 / 10 000" ;
+        ns1:identifier "3109" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Mayer-Rokitansky-Küster-Hauser syndrome" ] .
+}
+

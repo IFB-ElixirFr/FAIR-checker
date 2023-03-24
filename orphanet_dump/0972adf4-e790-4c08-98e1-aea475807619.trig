@@ -1,0 +1,28 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=566067> a ns1:MedicalCondition ;
+        ns1:alternateName "CAIN" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:566067" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D89.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:566067" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D89.8" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "A rare genetic autoinflammatory syndrome with immune deficiency characterized by a combination of autoinflammation, immunodeficiency, and neutrophil dysfunction, as well as mild bleeding diathesis. Patients present recurrent attacks of abdominal pain, high fever, and systemic inflammation lasting four to five days and occurring every few weeks. Attacks may be accompanied by nailbed, tongue, submandibular, and gluteal abscesses, intra-abdominal granulomas, pyoderma gangrenosum, and buccal ulcerations. Frequent episodes of purulent paronychia, superficial skin and mucosal infections, and purulent upper respiratory tract infections have also been reported." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "566067" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "CEBPE-associated autoinflammation-immunodeficiency-neutrophil dysfunction syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "CEBPE-associated autoinflammation-immunodeficiency-neutrophil dysfunction syndrome" ] .
+}
+

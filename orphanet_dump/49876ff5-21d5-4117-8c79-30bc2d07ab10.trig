@@ -1,0 +1,40 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=438266> a ns1:MedicalCondition ;
+        ns1:alternateName "PERM" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:438266" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G04.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:438266" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "184850" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G04.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C1861457" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "184850" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C1861457" ;
+                ns1:codingSystem "UMLS" ] ;
+        ns1:description "A rare stiff person syndrome spectrum disorder characterized by limb and truncal rigidity, stimulus-sensitive spasms, myoclonus, hyperekplexia, autonomic disturbance, and brainstem involvement or other neurological defects. The condition is progressive and potentially life-threatening, especially due to respiratory failure. It may be associated with the presence of glycine receptor or glutamic acid decarboxylase antibodies, as well as thymomas or lymphomas." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "438266" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Progressive encephalomyelitis with rigidity and myoclonus" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Progressive encephalomyelitis with rigidity and myoclonus" ] .
+}
+

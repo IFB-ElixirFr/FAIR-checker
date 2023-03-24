@@ -1,0 +1,41 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=305> a ns1:MedicalCondition ;
+        ns1:alternateName "Epidermolysis bullosa atrophicans",
+            "JEB" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "2152" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0079301" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D016109" ;
+                ns1:codingSystem "MeSH" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0079301" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D016109" ;
+                ns1:codingSystem "MeSH" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:305" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:305" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "2152" ;
+                ns1:codingSystem "GARD" ] ;
+        ns1:description "A group of inherited epidermolysis bullosa characterized by involvement of the skin and mucous membranes, and is defined by the formation of blistering lesions between the epidermis and the dermis at the lamina lucida level of the cutaneous basement membrane zone and by healing of lesions with atrophy and/or exuberant granulation tissue formation." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "305" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Junctional epidermolysis bullosa" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Junctional epidermolysis bullosa" ] .
+}
+

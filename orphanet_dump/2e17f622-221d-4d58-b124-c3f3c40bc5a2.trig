@@ -1,0 +1,53 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=79242> a ns1:MedicalCondition ;
+        ns1:alternateName "Early-onset multiple carboxylase deficiency",
+            "Neonatal multiple carboxylase deficiency" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "E53.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E53.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0268581" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0268581" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:79242" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "253270" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "2721" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D028922" ;
+                ns1:codingSystem "MeSH" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "253270" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D028922" ;
+                ns1:codingSystem "MeSH" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "2721" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:79242" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare, early-onset and life-threatening, multiple carboxylase deficiency that when left untreated, is characterized by vomiting, tachypnea, irritability, lethargy, exfoliative dermatitis, and seizures that can worsen to coma and death." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "79242" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Holocarboxylase synthetase deficiency" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Holocarboxylase synthetase deficiency" ] .
+}
+

@@ -1,0 +1,28 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=468672> a ns1:MedicalCondition ;
+        ns1:alternateName "MACOM syndrome" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "602499" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "602499" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:468672" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:468672" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare genetic eye disease characterized by microcornea, coloboma of the iris and the optic disc, axial enlargement of the globe, staphyloma, and severe myopia. Additional manifestations are mild cornea plana, iridocorneal angle abnormalities with elevation of intraocular pressure, and shallow anterior chamber depth. Variable expressivity of the phenotype has been described, including unilateral or bilateral involvement, or variable extent of coloboma, among other features." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "468672" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Colobomatous macrophthalmia-microcornea syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Colobomatous macrophthalmia-microcornea syndrome" ] .
+}
+

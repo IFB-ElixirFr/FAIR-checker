@@ -1,0 +1,34 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=444099> a ns1:MedicalCondition ;
+        ns1:alternateName "SPG73" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "G11.4" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "616282" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G11.4" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "616282" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:444099" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:444099" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A pure form of hereditary spastic paraplegia characterized by adult onset of crural spastic paraparesis, hyperreflexia, extensor plantar responses, proximal muscle weakness, mild muscle atrophy, decreased vibration sensation at ankles, and mild urinary dysfunction. Foot deformities have been reported to eventually occur in some patients. No abnormalities are noted on brain magnetic resonance imaging and peripheral nerve conduction velocity studies." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "444099" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Autosomal dominant spastic paraplegia type 73" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Autosomal dominant spastic paraplegia type 73" ] .
+}
+

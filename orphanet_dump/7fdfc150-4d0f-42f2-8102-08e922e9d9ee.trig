@@ -1,0 +1,29 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=93323> a ns1:MedicalCondition ;
+        ns1:alternateName "Congenital longitudinal deficiency of the fibula",
+            "Fibular longitudinal meromelia" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "Q72.6" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:93323" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:93323" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q72.6" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "A rare congenital limb malformation characterized by complete or partial absence of the fibula bone combined with dysplasia and hypoplasia of the tibia and dysplasia, hypoplasia or aplasia of parts of the foot." ;
+        ns1:epidemiology "Prevalence : 1-9 / 100 000" ;
+        ns1:identifier "93323" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Fibular hemimelia" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Fibular hemimelia" ] .
+}
+

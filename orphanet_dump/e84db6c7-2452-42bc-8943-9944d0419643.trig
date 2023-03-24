@@ -1,0 +1,33 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=217566> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:217566" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "610913" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "610913" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "J84.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "J84.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:217566" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "Chronic respiratory distress with surfactant metabolism deficiency is a rare, genetic, primary interstitial lung disease with a highly variable clinical presentation, ranging from neonatal respiratory distress syndrome to mild to severe interstitial lung disease (typical symptoms include cough, tachypnea, hypoxia, clubbing, crackles, failure to thrive). Lung biopsy reveals diffuse alveolar damage, interstitial thickening with inflammatory infiltrates, fibroblast proliferation, collagen deposition, and multiple foci of fibrosis, alveolar type II cell hyperplasia, abundant foamy alveolar macrophages and granular lipoproteic material in the alveolar lumen. Imaging shows cystic spaces and ground-glass opacities that are typically homogenously diffuse." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "217566" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Chronic respiratory distress with surfactant metabolism deficiency" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Chronic respiratory distress with surfactant metabolism deficiency" ] .
+}
+

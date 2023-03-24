@@ -1,0 +1,29 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=502499> a ns1:MedicalCondition ;
+        ns1:alternateName "Erythema exsudativum multiforme majus",
+            "Erythema multiforme majus" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:502499" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "L51.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "L51.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:502499" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare skin disease characterized most typically by targetoid papules with 3-rings of concentric color variation (dark center, surrounded by lighter pink ring and an outer red ring) symmetrically distributed on the extensor surfaces of the extremities, or more diffuse, accompanied by 2 or more mucosal involvements (erosions of the oral, genital, anal mucosa, conjunctivitis, pseudomembranes). The condition is commonly proceeded by prodromal symptoms of malaise, fever, and myalgias, and is usually self-limiting, resolving within a few weeks; although, there is a risk of recurrence. The disease is mostly triggered by infectious agents (herpes virus, <i>mycoplasma pneumoniae</i>) but a subset of patients have auto-antibodies targeting plakins. Rare cases of severe mucosal sequelae have been described." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "502499" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Erythema multiforme major" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Erythema multiforme major" ] .
+}
+

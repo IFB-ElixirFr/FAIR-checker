@@ -1,0 +1,30 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=100081> a ns1:MedicalCondition ;
+        ns1:alternateName "NET of the rectum",
+            "Rectal NET",
+            "Rectal neuroendocrine tumor" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "C20" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C20" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:100081" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:100081" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "Neuroendocrine tumor of the rectum is a rare epithelial tumor of rectum arising from enterochromaffin cells, most often in the mid-rectum. The tumors are slow growing, in early stages majority are asymptomatic and are diagnosed incidentally. Later in the course, the tumor may present with rectal bleeding, abdominal or rectal pain, tenesmus, changes in bowel habits, or weight loss. In some cases it may present with carcinoid symptoms of flushing and increased gut motility." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "100081" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Neuroendocrine tumor of the rectum" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Neuroendocrine tumor of the rectum" ] .
+}
+

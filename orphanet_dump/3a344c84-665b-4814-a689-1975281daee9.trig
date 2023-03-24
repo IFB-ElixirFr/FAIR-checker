@@ -1,0 +1,28 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=596941> a ns1:MedicalCondition ;
+        ns1:alternateName "Incomplete septal fibrosis" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:596941" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "K74.6" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:596941" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "K74.6" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "A histopathological form of portosinusoidal vascular disease characterized by the presence of incomplete, thin, perforated, or blind-ended septa, which intermittently delimit rudimentary nodules, although complete cirrhotic-type regenerative nodules are not seen. Isolated collagen bundles can also be observed within the parenchyma." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "596941" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Incomplete septal cirrhosis" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Incomplete septal cirrhosis" ] .
+}
+

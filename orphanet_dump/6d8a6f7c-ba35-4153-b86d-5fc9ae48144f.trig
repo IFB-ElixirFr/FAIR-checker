@@ -1,0 +1,37 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=391351> a ns1:MedicalCondition ;
+        ns1:alternateName "CMT4K",
+            "Charcot-Marie-Tooth disease type 4K",
+            "SURF1-related CMT4",
+            "SURF1-related severe demyelinating Charcot-Marie-Tooth disease" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "G60.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "616684" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:391351" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "616684" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G60.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:391351" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A subtype of Charcot-Marie-Tooth disease type 4 characterized by childhood onset of severe, progressive, demyelinating sensorimotor neuropathy manifesting with distal muscle weakness and atrophy of hands and feet, distal sensory impairment (vibration and pinprick) of lower limbs, lactic acidosis, areflexia and severely reduced motor nerve conduction velocities (25 m/s or less). Patients may also present kyphoscoliosis, nystagmus, hearing loss, cerebellar ataxia and/or brain MRI abnormalities (putaminal and periaqueductal lesions)." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "391351" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "SURF1-related Charcot-Marie-Tooth disease type 4" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "SURF1-related Charcot-Marie-Tooth disease type 4" ] .
+}
+

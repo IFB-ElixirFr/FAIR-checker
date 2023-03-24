@@ -1,0 +1,35 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=527497> a ns1:MedicalCondition ;
+        ns1:alternateName "Autosomal recessive hypomyelinating leukodystrophy-progressive spastic ataxia",
+            "SPAX8" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:527497" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E75.2" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E75.2" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:527497" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "617560" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "617560" ;
+                ns1:codingSystem "OMIM" ] ;
+        ns1:description "A rare leukodystrophy characterized by a spectrum of progressive neurologic manifestations comprising rapidly progressive early-onset nystagmus, spastic tetraplegia, and visual and hearing impairment, resulting in death in early childhood, as well as later onset of slowly progressive complex spastic ataxia with pyramidal and cerebellar symptoms and loss of developmental milestones. Brain imaging shows diffuse hypomyelination of the subcortical and deep white matter, cerebellar atrophy, and diffuse spinal cord volume loss." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "527497" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "NKX6-2-related autosomal recessive hypomyelinating leukodystrophy" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "NKX6-2-related autosomal recessive hypomyelinating leukodystrophy" ] .
+}
+

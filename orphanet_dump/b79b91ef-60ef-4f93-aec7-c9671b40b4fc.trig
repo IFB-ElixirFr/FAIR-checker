@@ -1,0 +1,28 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=603684> a ns1:MedicalCondition ;
+        ns1:alternateName "PERCHING syndrome" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "Q87.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:603684" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q87.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:603684" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare genetic, multiple congenital anomalies syndrome characterized by the overlap of several typical clinical features of Bohring-Opitz syndrome and of Crisponi Syndrome/cold-induced sweating syndrome." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "603684" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "KLHL7-related Bohring-Opitz-like and Crisponi/Cold-induced sweating-like overlap syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "KLHL7-related Bohring-Opitz-like and Crisponi/Cold-induced sweating-like overlap syndrome" ] .
+}
+

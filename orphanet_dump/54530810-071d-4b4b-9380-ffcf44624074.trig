@@ -1,0 +1,29 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=292> a ns1:MedicalCondition ;
+        ns1:alternateName "Antenatal enterovirus infection",
+            "Mother-to-child transmission of enterovirus infection" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "P35.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "P35.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:292" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:292" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "An infectious embryofetopathy including coxsackie viruses and ECHO viruses that have been reported to cause spontaneous abortion, stillbirth, acute systemic illness in the newborn, and possibly fetal malformations." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "292" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Congenital enterovirus infection" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Congenital enterovirus infection" ] .
+}
+

@@ -1,0 +1,42 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=88639> a ns1:MedicalCondition ;
+        ns1:alternateName "HIBCH deficiency",
+            "Methacrylic aciduria",
+            "Valine metabolic defect" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "C0342738" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0342738" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E71.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "250620" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "250620" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:88639" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:88639" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E71.1" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "Neurodegeneration due to 3-hydroxyisobutyryl-CoA hydrolase deficiency is characterised by delayed motor development, hypotonia and progressive neurodegeneration. To date, it has been described in four boys. The syndrome is caused by mutations affecting the two alleles of the <i> HIBCH</i> gene, encoding 3-hydroxyisobutyryl-CoA hydrolase. The mode of transmission has not yet been established." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "88639" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Neurodegeneration due to 3-hydroxyisobutyryl-CoA hydrolase deficiency" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Neurodegeneration due to 3-hydroxyisobutyryl-CoA hydrolase deficiency" ] .
+}
+

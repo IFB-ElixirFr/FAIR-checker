@@ -1,0 +1,39 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=100003> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "C1370658" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10921" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10921" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D36.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:100003" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C1370658" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D36.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:100003" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "Intraneural perineurioma is a rare tumor of cranial and spinal nerves arising from peripheral nerve sheath and composed exclusively or predominantly of cells showing perineurial differentiation. It presents as a localized, tubular or fusiform enlargement of a nerve or nerve segment, usually in the extremities or the trunk, associated with a motor-predominant mononeuropathy including slow, painless, gradual loss of motor function in the involved nerve trunk with muscle weakness and atrophy and, rarely, sensory dysfunction. Cranial nerve involvement is rare." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "100003" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Intraneural perineurioma" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Intraneural perineurioma" ] .
+}
+

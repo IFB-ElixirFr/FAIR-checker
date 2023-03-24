@@ -1,0 +1,29 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=457205> a ns1:MedicalCondition ;
+        ns1:alternateName "ANOAC",
+            "Axonal neuropathy-optic atrophy-cognitive deficit syndrome" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:457205" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G60.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:457205" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G60.8" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "A rare neurologic disease characterized by axonal sensorimotor neuropathy, progressive optic atrophy, cognitive deficit, bulbar dysfunction, seizures, and early hypotonia and feeding difficulties. Additional possible features include dystonia, scoliosis, joint contractures, ocular anomalies, and urogenital anomalies. Brain MRI reveals variable degrees of cerebral atrophy. The disease is fatal in childhood due to respiratory failure." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "457205" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Infantile-onset axonal motor and sensory neuropathy-optic atrophy-neurodegenerative syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Infantile-onset axonal motor and sensory neuropathy-optic atrophy-neurodegenerative syndrome" ] .
+}
+

@@ -1,0 +1,34 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=247165> a ns1:MedicalCondition ;
+        ns1:alternateName "Erythroedema polyneuritis",
+            "Feer disease",
+            "Infantile acrodynia",
+            "Infantile mercury intoxication",
+            "Pink disease",
+            "Swift disease",
+            "Swift-Feer disease" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "T56.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "T56.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:247165" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:247165" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "Infantile mercury poisoning is a rare intoxication affecting children, most commonly characterized by erythema of the hands, feet and nose, edematous, painful, pink to red, desquamating fingers and toes, bluish, cold and wet extremities, excessive sweating, irritability, photophobia, muscle weakness, diffuse hypotonia, paresthesia, hypertension and tachycardia, due to elemental, organic or inorganic mercury exposure. Additional manifestations include alopecia, loss of appetite, excessive salivation with red and swollen gums, tooth and nail loss and insomnia." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "247165" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Infantile mercury poisoning" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Infantile mercury poisoning" ] .
+}
+

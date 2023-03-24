@@ -1,0 +1,53 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=941> a ns1:MedicalCondition ;
+        ns1:alternateName "D-glycerate kinase deficiency",
+            "D-glyceric acidemia" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "E74.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:941" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C1291386" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C535767" ;
+                ns1:codingSystem "MeSH" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "234" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C535767" ;
+                ns1:codingSystem "MeSH" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "220120" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C1291386" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:941" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "234" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E74.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "220120" ;
+                ns1:codingSystem "OMIM" ] ;
+        ns1:description "A rare inborn error of metabolism characterized by abnormal urinary excretion of D-glyceric acid due to D-glycerate kinase deficiency. Reported manifestations are highly variable and include a severe encephalopathic picture, chronic metabolic acidosis, developmental delay, intellectual disability, microcephaly, seizures, behavioral abnormalities, as well as only mild speech delay and apparently normal development." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "941" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "D-glyceric aciduria" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "D-glyceric aciduria" ] .
+}
+

@@ -1,0 +1,30 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=391497> a ns1:MedicalCondition ;
+        ns1:alternateName "Childhood myasthenia gravis",
+            "Juvenile acquired myasthenia",
+            "Juvenile autoimmune myasthenia gravis" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:391497" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G70.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G70.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:391497" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "Juvenile myasthenia gravis (MG; see this term) is a rare form of MG, an autoimmune disorder of the neuromuscular junction resulting in ocular manifestations or generalized weakness, with onset before 18 years of age." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "391497" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Juvenile myasthenia gravis" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Juvenile myasthenia gravis" ] .
+}
+

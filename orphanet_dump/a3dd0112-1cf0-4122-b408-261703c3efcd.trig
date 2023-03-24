@@ -1,0 +1,28 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=3309> a ns1:MedicalCondition ;
+        ns1:alternateName "Isochromosome 5p" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:3309" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q99.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:3309" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q99.8" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "Tetrasomy 5p is a rare chromosomal anomaly syndrome with variable phenotype principally characterized by developmental delay, growth retardation/short stature, hypotonia, seizures, ventriculomegaly, hand and foot anomalies (e.g. clinodactyly, overlapping toes) and mosaic pigmentary skin changes. Patients may also present minor dysmorphic craniofacial features (incl. macrocephaly, upslanting palpebral fissures, hypertelorism, abnormal auricles, anteverted nasal tip, midface hypoplasia)." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "3309" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Tetrasomy 5p" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Tetrasomy 5p" ] .
+}
+

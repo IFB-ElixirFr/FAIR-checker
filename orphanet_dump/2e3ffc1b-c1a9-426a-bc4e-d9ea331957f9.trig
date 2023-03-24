@@ -1,0 +1,33 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=1055> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:1055" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q24.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:1055" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q24.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "2305" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "2305" ;
+                ns1:codingSystem "GARD" ] ;
+        ns1:description "A rare congenital non-syndromic heart malformation characterized by a bulging of the left ventricular wall, connected to the left ventricle by a wide neck (with a ratio of the connection to the body of the anomaly >1). The dimensions of aneurysms have been described as small as 0.5 cm in diameter and as big as 8x9 cm in size. Most frequent locations are the left ventricular apex and the perivalvular area. Aneurysms can be a- or dyskinetic or show almost normal contractility. Patients may remain asymptomatic or present with systemic embolization, congestive heart failure, valvular regurgitation, ventricular wall rupture, ventricular tachycardia, or sudden cardiac death." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "1055" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Congenital left ventricular aneurysm" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Congenital left ventricular aneurysm" ] .
+}
+

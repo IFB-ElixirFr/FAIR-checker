@@ -1,0 +1,23 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=363424> a ns1:MedicalCondition ;
+        ns1:alternateName "IBA57 deficiency",
+            "MMDS3" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:363424" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E88.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "615330" ;
+                ns1:codingSystem "OMIM" ] ;
+        ns1:description "A rare neurometabolic disease, due to a lipoic acid biosynthesis defect, with a highly variable phenotype, typically characterized by early-onset acute or subacute developmental delay or regression frequently associated with feeding difficulties. Clinical severity is variable and may range from mild cases which present a later onset with slow neurological deterioration and general improvement over time to severe cases with clinical signs since birth and leading to early death. Associated manifestations include hypotonia, vision loss, respiratory failure, seizures, and intellectual disability. Brain magnetic resonance imaging frequently shows cavitating leukoencephalopathy with lesions in the periventricular/central white matter and parieto-occiîtal lobes." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "363424" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Multiple mitochondrial dysfunctions syndrome type 3" ] .
+}
+

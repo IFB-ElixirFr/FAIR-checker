@@ -1,0 +1,39 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=251612> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:251612" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "9808" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "9808" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C71.9" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:251612" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0334583" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C71.9" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0334583" ;
+                ns1:codingSystem "UMLS" ] ;
+        ns1:description "Pilocytic astrocytoma is a rare subtype of low-grade glioma of the central nervous system characterized by a well circumscribed, often cystic, brain tumor with a discrete mural nodule and long, hair-like projections that extend from the neoplastic astrocytes. Depending on the primary localization and the size of the tumor, patients can present with signs of raised intracranial pressure (headache, vomiting, papilledema), blurred vision, decreased visual acuity, ataxia and/or nystagmus, among others. It is most commonly located in the cerebellum, but ocurrence in the hypothalamus, brain stem, optic chiasma, and hemispheres has also been reported." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "251612" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Pilocytic astrocytoma" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Pilocytic astrocytoma" ] .
+}
+

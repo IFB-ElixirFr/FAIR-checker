@@ -1,0 +1,39 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=231013> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:231013" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10034" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:231013" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G50.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10034" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "122450" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "122450" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G50.8" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "Congenital trigeminal anesthesia is a rare neuro-ophtalmological disorder characterized by a congenital sensory deficit involving all or some of the sensory components of the trigeminal nerve. Due to corneal anesthesia, it usually presents with recurrent, painless eye infections, painless corneal opacities and/or poorly healing, ulcerated wounds on the facial skin and mucosa (typically the buccal mucosa and/or nasal septum)." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "231013" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Congenital trigeminal anesthesia" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Congenital trigeminal anesthesia" ] .
+}
+

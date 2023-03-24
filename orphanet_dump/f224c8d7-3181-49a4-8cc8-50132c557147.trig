@@ -1,0 +1,28 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=443167> a ns1:MedicalCondition ;
+        ns1:alternateName "NMC" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "C80.9" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C80.9" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:443167" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:443167" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare tumor characterized by a rapidly growing mass usually arising along the midline, defined by the presence of <i>NUTM1</i> rearrangements. Histopathological examination shows a poorly differentiated carcinoma, often with evidence of squamous differentiation. Patients present with unspecific signs and symptoms due to mass effect, depending on the location. Extensive local invasion of adjacent structures, lymph node involvement, and distant metastatic disease are often present at the time of diagnosis. Prognosis is generally poor." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "443167" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "NUT midline carcinoma" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "NUT midline carcinoma" ] .
+}
+

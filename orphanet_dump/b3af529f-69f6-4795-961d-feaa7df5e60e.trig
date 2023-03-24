@@ -1,0 +1,46 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=55881> a ns1:MedicalCondition ;
+        ns1:alternateName "Adamantinoma of long bones" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "D050398" ;
+                ns1:codingSystem "MeSH" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C40.2" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:55881" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D050398" ;
+                ns1:codingSystem "MeSH" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:55881" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "102660" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C1367554" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C1367554" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C40.2" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "102660" ;
+                ns1:codingSystem "OMIM" ] ;
+        ns1:description "A rare, primary low-grade malignant bone tumor that occurs in more than 80% of cases on the anterior surface of the tibia (tibial dyaphysis). Most cases are symptomatic or present with pain, swelling, bowing deformity or pathological fracture. Metastases especially in the lungs may be observed." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "55881" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Adamantinoma" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Adamantinoma" ] .
+}
+

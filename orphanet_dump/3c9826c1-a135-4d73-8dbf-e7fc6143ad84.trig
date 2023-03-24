@@ -1,0 +1,28 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=268249> a ns1:MedicalCondition ;
+        ns1:alternateName "MMF embryopathy" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:268249" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:268249" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q86.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q86.8" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "Mycophenolate mofetil (MMF) embryopathy is a malformative syndrome due to the teratogenic effect of MMF, an effective immunosuppressive agent widely used for the prevention of organ rejection after organ transplantation." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "268249" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Mycophenolate mofetil embryopathy" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Mycophenolate mofetil embryopathy" ] .
+}
+

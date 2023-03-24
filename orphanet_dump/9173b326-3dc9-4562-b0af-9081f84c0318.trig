@@ -1,0 +1,28 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=295022> a ns1:MedicalCondition ;
+        ns1:alternateName "Congenital pseudarthrosis of the fibula" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "Q74.2" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:295022" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:295022" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q74.2" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "A rare bone development disorder characterized by abnormal bowing of the fibula with subsequent non-healing fractures and formation of a false joint (pseudoarthrosis), and instability and angulation at the pseudoarthrosis site. The defect is typically unilateral and often associated with pseudoarthrosis of the tibia and neurofibromatosis type 1." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "295022" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Congenital pseudoarthrosis of the fibula" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Congenital pseudoarthrosis of the fibula" ] .
+}
+

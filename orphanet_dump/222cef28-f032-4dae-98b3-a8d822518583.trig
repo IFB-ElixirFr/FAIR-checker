@@ -1,0 +1,33 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=538096> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:538096" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "604431" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G60.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G60.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:538096" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "604431" ;
+                ns1:codingSystem "OMIM" ] ;
+        ns1:description "A rare, genetic, autosomal recessive axonal hereditary motor and sensory neuropathy disease characterized by prenatal onset of a severe sensorimotor axonal polyneuropathy (reflected by reduced fetal movement and polyhydramnios), manifesting, at birth, with respiratory failure requiring mechanical ventilation, profound muscular hypotonia, rapidly progressing distal muscle weakness, and absent deep tendon reflexes, in the absence of contractures, leading to death before 8 months of age. Neuropathological findings show severe loss of large- and medium-sized myelinated fibers without signs of demyelination." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "538096" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Autosomal recessive lethal neonatal axonal sensorimotor polyneuropathy" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Autosomal recessive lethal neonatal axonal sensorimotor polyneuropathy" ] .
+}
+

@@ -1,0 +1,57 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=70472> a ns1:MedicalCondition ;
+        ns1:alternateName "COX deficiency, French-Canadian type",
+            "Cytochrome C oxidase deficiency, French-Canadian type",
+            "Cytochrome oxidase deficiency, Saguenay-Lac-Saint-Jean type",
+            "Leigh syndrome, French-Canadian type",
+            "Leigh syndrome, Saguenay-Lac-Saint-Jean type",
+            "SLSJ-COX deficiency" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "8370" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "8370" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "220111" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C1857355" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "619065" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G31.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C1857355" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G31.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "619065" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:70472" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "220111" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:70472" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "Saguenay-Lac-St. Jean (SLSJ) type congenital lactic acidosis, a French Canadian form of Leigh syndrome (see this term), is a mitochondrial disease characterized by chronic metabolic acidosis, hypotonia, facial dysmorphism and delayed development." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "70472" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Congenital lactic acidosis, Saguenay-Lac-Saint-Jean type" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Congenital lactic acidosis, Saguenay-Lac-Saint-Jean type" ] .
+}
+

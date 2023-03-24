@@ -1,0 +1,30 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=398987> a ns1:MedicalCondition ;
+        ns1:alternateName "Immature teratoma of ovary",
+            "Ovarian immature teratoma",
+            "Ovarian malignant teratoma" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "C56" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C56" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:398987" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:398987" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare ovarian germ cell tumor characterized by a unilateral large adnexal mass containing variable amounts of immature embryonal-type tissues (mostly in the form of neuroectodermal tubules and rosettes, sometimes with a component of cellular mitotically active glia), admixed with ectodermal and endodermal elements with varying degrees of maturation. Patients typically present in their first three decades of life with signs and symptoms related to mass effect. The tumor is often associated with the occurrence of innumerable miliary nodules of mature glia in the peritoneum (gliomatosis peritonei) and abdominal lymph nodes." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "398987" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Malignant teratoma of ovary" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Malignant teratoma of ovary" ] .
+}
+

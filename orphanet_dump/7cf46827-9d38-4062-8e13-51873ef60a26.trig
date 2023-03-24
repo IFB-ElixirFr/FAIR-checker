@@ -1,0 +1,33 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=98946> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "Q10.3" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0521573" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:98946" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:98946" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q10.3" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0521573" ;
+                ns1:codingSystem "UMLS" ] ;
+        ns1:description "A rare, genetic, developmental defect of the eye characterized by a uni- or bilateral, symmetrical or asymmetrical, partial or full thickness defect of the superior or inferior eyelid margin, ranging in size from a small notch to complete absence of the entire lid, typically located on the medial to lateral third of the eyelid, resulting in an unprotected cornea and thus possibly leading to exposure keratopathy and vision impairment. It may occur isolated, be associated with other ocular defects or be part of a craniofacial syndrome, such as Treacher-Collins or Goldenhar syndrome." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "98946" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Coloboma of eyelid" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Coloboma of eyelid" ] .
+}
+

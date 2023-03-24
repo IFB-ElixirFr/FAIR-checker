@@ -1,0 +1,33 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=99930> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "E83.1+" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:99930" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "J99.8*" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E83.1+" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "J99.8*" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:99930" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "Secondary pulmonary hemosiderosis is a respiratory disease due to the deposition of hemosiderin-laden macrophages in lungs as a result of repeated alveolar hemorrhage secondary to another disease, especially dysimmunitary disorders (i.e. Heiner syndrome (see this term), autoimmune diseases), thrombotic disorders and cardiovascular disorders such as mitral stenosis. It manifests as a triad of hemoptysis, anemia and diffuse parenchymal infiltrates on chest radiography" ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "99930" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Secondary pulmonary hemosiderosis" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Secondary pulmonary hemosiderosis" ] .
+}
+

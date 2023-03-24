@@ -1,0 +1,24 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=319600> a ns1:MedicalCondition ;
+        ns1:alternateName "MSMD due to partial IRF8 deficiency",
+            "MSMD due to partial interferon regulatory factor 8 deficiency",
+            "Mendelian susceptibility to mycobacterial diseases due to partial interferon regulatory factor 8 deficiency" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "D84.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "614893" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:319600" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "Mendelian susceptibility to mycobacterial diseases (MSMD) due to partial IRF8 (interferon regulatory factor 8) deficiency is a rare genetic variant of MSMD (see this term) characterized by a selective susceptibility to relatively mild infections with bacillus Calmette-Guérin (BCG).." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "319600" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Mendelian susceptibility to mycobacterial diseases due to partial IRF8 deficiency" ] .
+}
+

@@ -1,0 +1,28 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=466962> a ns1:MedicalCondition ;
+        ns1:alternateName "SMARCA4-deficient thoracic sarcoma" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "C49.3" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C49.3" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:466962" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:466962" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare soft tissue tumor characterized by a compressive mass located in the mediastinum and/or pleura and lung, including prominent lymph node involvement, histologically poorly differentiated and frequently showing rhabdoid features. Loss of SMARCA4 is typically accompanied by SMARCA2-deficiency. Presenting symptoms include dyspnea, cough, chest pain, or dysphagia, among others. The tumors are aggressive with limited response to chemotherapies, rapid local progression, high recurrence rate after surgical resection, and short median survival times. There is a strong association with smoking." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "466962" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "SMARCA4-deficient sarcoma of thorax" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "SMARCA4-deficient sarcoma of thorax" ] .
+}
+

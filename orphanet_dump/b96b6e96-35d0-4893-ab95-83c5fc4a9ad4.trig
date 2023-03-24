@@ -1,0 +1,46 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=83484> a ns1:MedicalCondition ;
+        ns1:alternateName "Saint Louis encephalitis" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "A83.3" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D004674" ;
+                ns1:codingSystem "MeSH" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0014060" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:83484" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "A83.3" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0014060" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10041896" ;
+                ns1:codingSystem "MedDRA" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10041896" ;
+                ns1:codingSystem "MedDRA" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D004674" ;
+                ns1:codingSystem "MeSH" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:83484" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "An acute arboviral infection caused by a virus of the <i>Flaviviridae</i> family transmitted by an infected mosquito, and characterized by the onset of flulike symptoms such as fever, malaise, headache, cough, and sore throat that can progress to meningitis or encephalitis with symptoms like nausea, vomiting, confusion, stiff neck, disorientation, irritability, tremors, and convulsions. Photophobia, cranial nerve palsies, and even coma may occur." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "83484" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "St. Louis encephalitis" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "St. Louis encephalitis" ] .
+}
+

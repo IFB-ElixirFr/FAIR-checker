@@ -1,0 +1,30 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=284180> a ns1:MedicalCondition ;
+        ns1:alternateName "Dup(X)(p22)",
+            "Dup(X)(p22.13p22.2)",
+            "Duplication Xp22" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "Q99.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:284180" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q99.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:284180" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "Xp22.13p22.2 duplication syndrome is a rare syndromic intellectual disability characterized by developmental delay and intellectual disability, learning and behavioral problems, short stature, thin and sparse hair, mild dysmorphic features, tapering fingers and later onset of scoliosis, obesity and cardiovascular problems (cardiomegaly and cardiomyopathy). Females have normal intelligence." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "284180" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Xp22.13p22.2 duplication syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Xp22.13p22.2 duplication syndrome" ] .
+}
+

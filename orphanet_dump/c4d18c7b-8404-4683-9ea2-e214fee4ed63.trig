@@ -1,0 +1,28 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=306741> a ns1:MedicalCondition ;
+        ns1:alternateName "HD-HA syndrome" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:306741" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:306741" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G24.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G24.8" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "Hemidystonia-hemiatrophy (HD-HA) is a rare dystonia, usually caused by a static cerebral injury occurring at birth or during infancy, that is characterized by a combination of hemidystonia (HD), involving one half of the body, and hemiatrophy (HA) on the same side as the HD." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "306741" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Hemidystonia-hemiatrophy syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Hemidystonia-hemiatrophy syndrome" ] .
+}
+

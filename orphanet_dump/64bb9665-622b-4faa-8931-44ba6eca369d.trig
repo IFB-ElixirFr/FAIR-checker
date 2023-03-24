@@ -1,0 +1,43 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=329918> a ns1:MedicalCondition ;
+        ns1:alternateName "Non-Ig-mediated MPGN",
+            "Non-Ig-mediated membranoproliferative glomerulonephritis",
+            "Non-immunoglobulin-mediated MPGN",
+            "Non-immunoglobulin-mediated membranoproliferative glomerulonephritis" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "N03.5" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "609814" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "N03.5" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "609814" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:329918" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "614809" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:329918" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "614809" ;
+                ns1:codingSystem "OMIM" ] ;
+        ns1:description "A form of primary membranoproliferative glomerulonephritis characterized by the presence in renal biopsy samples of a glomerulonephritis with sole (or at least dominant) glomerular immunofluorescence staining for C3. Non-specific alterations or proliferative patterns with C3-dominant glomerular staining are also possible. Based upon electron microscopic findings, C3 glomerulopathy (C3G) may be further classified as C3 glomerulonephritis (C3GN) or Dense deposit disease (DDD)." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "329918" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "C3 glomerulopathy" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "C3 glomerulopathy" ] .
+}
+

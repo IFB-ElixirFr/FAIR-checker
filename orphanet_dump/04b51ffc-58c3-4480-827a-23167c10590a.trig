@@ -1,0 +1,18 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=231742> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:231742" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C5680927" ;
+                ns1:codingSystem "UMLS" ] ;
+        ns1:description "Epibulbar lipodermoid – preauricular appendages – polythelia is a branchial arch syndrome described in seven sibs of one Danish family and characterized by supernumerary nipples (polythelia), preauricular appendages and often binocular epibulbar lipodermoids or unilateral subconjunctival lipodermoids." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "231742" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Epibulbar lipodermoid-preauricular appendage-polythelia syndrome" ] .
+}
+

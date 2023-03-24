@@ -1,0 +1,18 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=103920> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "K52.3" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:103920" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "Underterminate colitis designates a rare inflammatory bowel disease that clinically resembles Crohn’s disease and ulcerative colitis (see these terms) but that cannot be diagnosed as one of them after examination of an intestinal resection specimen." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "103920" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Undetermined colitis" ] .
+}
+

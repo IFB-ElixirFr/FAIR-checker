@@ -1,0 +1,28 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=308573> a ns1:MedicalCondition ;
+        ns1:alternateName "Alpha-1,4-glucosidase acid deficiency, juvenile onset",
+            "GSD due to acid maltase deficiency, juvenile onset",
+            "GSD type 2, juvenile onset",
+            "Glycogen storage disease type 2, juvenile onset",
+            "Glycogenosis due to acid maltase deficiency, juvenile onset",
+            "Glycogenosis type 2, juvenile onset",
+            "Pompe disease, juvenile onset" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:308573" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:308573" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "" ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "308573" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "OBSOLETE: Glycogen storage disease due to acid maltase deficiency, juvenile onset" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "OBSOLETE: Glycogen storage disease due to acid maltase deficiency, juvenile onset" ] .
+}
+

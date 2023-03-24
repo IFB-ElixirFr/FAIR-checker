@@ -1,0 +1,28 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=329883> a ns1:MedicalCondition ;
+        ns1:alternateName "Hypertrophic gastropathy without hypoproteinemia" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "K29.6" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "K29.6" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:329883" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:329883" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "Non-hypoproteinemic hypertrophic gastropathy is a rare gastroesophageal disease characterized by diffusely enlarged gastric folds, excessive mucus secretion, normal serum protein and gastric TGF-alpha levels. Patients typically present anemia, abdominal pain not related to eating or bowel habits and absence of peripheral edema." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "329883" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Non-hypoproteinemic hypertrophic gastropathy" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Non-hypoproteinemic hypertrophic gastropathy" ] .
+}
+

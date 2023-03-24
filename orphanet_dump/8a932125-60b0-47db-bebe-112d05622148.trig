@@ -1,0 +1,27 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=247582> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:247582" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C1997910" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:247582" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C1997910" ;
+                ns1:codingSystem "UMLS" ] ;
+        ns1:description "A rare autosomal recessive urea cycle defect characterized clinically by recurring episodes of hyperammonemia and associated neuropsychiatric symptoms in the adult-onset form (citrullinemia type II), and by transient cholestasis and variable hepatic dysfunction in the neonatal form (neonatal intrahepatic cholestasis due to citrin deficiency)." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "247582" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Citrin deficiency" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Citrin deficiency" ] .
+}
+

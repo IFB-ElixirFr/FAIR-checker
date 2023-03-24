@@ -1,0 +1,31 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=83628> a ns1:MedicalCondition ;
+        ns1:alternateName "Lower body hemangioma-urogenital anomalies-myelopathy-bony deformities-anorectal and arterial malformations-renal anomalies syndrome",
+            "PELVIS syndrome",
+            "Perineal hemangioma-external genitalia malformations-lipomyelomeningocele-vesicorenal abnormalities-imperforate anus-skin tag syndrome",
+            "SACRAL syndrome" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:83628" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q87.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:83628" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q87.8" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "A disorder defining by the association of Perineal hemangioma, External genitalia malformations, Lipomyelomeningocele, Vesicorenal abnormalities, Imperforate anus, and Skin tag. Eleven cases have been reported." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "83628" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "LUMBAR syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "LUMBAR syndrome" ] .
+}
+

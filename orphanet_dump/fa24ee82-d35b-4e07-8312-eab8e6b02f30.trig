@@ -1,0 +1,39 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=168569> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "D76.3" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D76.3" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10239" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:168569" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:168569" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "602782" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10239" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "602782" ;
+                ns1:codingSystem "OMIM" ] ;
+        ns1:description "A rare cutaneous disease and a systemic inherited histiocytosis mainly characterized by hyperpigmentation, hypertrichosis, hepatosplenomegaly, heart anomalies, hearing loss, hypogonadism, low height, and occasionally, hyperglycemia/diabetes mellitus. Due to overlapping clinical features, it is now considered to include pigmented hypertrichosis with insulin dependent diabetes mellitus syndrome (PHID), Faisalabad histiocytosis (FHC) and familial sinus histiocytosis with massive lymphadenopathy (FSHML). Some cases of dysosteosclerosis may also represent the syndrome." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "168569" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "H syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "H syndrome" ] .
+}
+

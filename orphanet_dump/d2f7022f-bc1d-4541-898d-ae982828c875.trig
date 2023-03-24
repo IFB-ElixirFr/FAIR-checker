@@ -1,0 +1,27 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=3004> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:3004" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q87.2" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:3004" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q87.2" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "A rare disorder characterized by mirror polydactyly, vertebral hypersegmentation and severe congenital limb deficiencies. Duodenal atresia and absent thymus were also reported. So far, it has been described in four unrelated infants identified through a congenital malformation screening program carried out in Spain. The prevalence was estimated at around 1 in 330,000. The etiology is unknown but it was suggested that the syndrome is caused by defective expression of a developmental control gene." ;
+        ns1:epidemiology "Prevalence : 1-9 / 1 000 000" ;
+        ns1:identifier "3004" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Mirror polydactyly-vertebral segmentation-limbs defects syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Mirror polydactyly-vertebral segmentation-limbs defects syndrome" ] .
+}
+

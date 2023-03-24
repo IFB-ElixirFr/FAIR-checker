@@ -1,0 +1,48 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=1302> a ns1:MedicalCondition ;
+        ns1:alternateName "BOOP",
+            "Bronchiolitis obliterans organizing pneumonia",
+            "COP" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "D018549" ;
+                ns1:codingSystem "MeSH" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "J84.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "J84.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0242770" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0242770" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "1620" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:1302" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D018549" ;
+                ns1:codingSystem "MeSH" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:1302" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "1620" ;
+                ns1:codingSystem "GARD" ] ;
+        ns1:description "A rare form of idiopathic interstitial pneumonia characterized pathologically by organizing pneumonia (OP) that presents with nonspecific flu-like symptoms, as well as cough and dyspnea, and where no etiological agent is found." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "1302" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Cryptogenic organizing pneumonia" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Cryptogenic organizing pneumonia" ] .
+}
+

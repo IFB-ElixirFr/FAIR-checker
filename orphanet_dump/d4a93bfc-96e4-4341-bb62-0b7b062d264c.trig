@@ -1,0 +1,22 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=529980> a ns1:MedicalCondition ;
+        ns1:alternateName "NFAT5 haploinsufficiency" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:529980" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:529980" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare genetic immune disease characterized by recurrent sinopulmonary infections and autoimmune enterocolopathy, manifesting as frequent episodes of intractable diarrhea with abdominal pain and fever, accompanied by eczematous rashes, due to deficits in components of innate and adaptive immunity. Immunologic abnormalities include IgG subclass deficiency, impaired antigen-induced lymphocyte proliferation, reduced cytokine production by CD8+ T lymphocytes, and decreased numbers of natural killer cells." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "529980" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Inflammatory bowel disease-recurrent sinopulmonary infections syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Inflammatory bowel disease-recurrent sinopulmonary infections syndrome" ] .
+}
+

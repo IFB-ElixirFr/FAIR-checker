@@ -1,0 +1,27 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=91127> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "B34.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "B34.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:91127" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:91127" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare viral disease characterized by invasive and/or disseminated adenovirus infection in immunocompromised patients, either acquired <i>de novo</i> or arising from reactivation of persistent latent infection. The clinical picture comprises a wide range of manifestations including pneumonia, colitis, hepatitis, hemorrhagic cystitis, tubulointerstitial nephritis, encephalitis, and disseminated disease, among others. Severity varies with age and immune status, and life-threatening courses may occur." ;
+        ns1:epidemiology "Prevalence : 1-5 / 10 000" ;
+        ns1:identifier "91127" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Adenovirus infection in immunocompromised patients" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Adenovirus infection in immunocompromised patients" ] .
+}
+

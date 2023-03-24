@@ -1,0 +1,33 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=306550> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "613759" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:306550" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D89.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:306550" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "613759" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D89.8" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "FADD-related immunodeficiency is a rare genetic immunological disease reported in a single consanguineous Pakistani family with several affected members presenting with severe bacterial and viral infections, recurrent hepatopathy (portal inflammation, fibrosis), and recurrent, stereotypical febrile episodes, sometimes lasting several days, with encephalopathy and difficult-to-control seizures. Variable cardiac malformations were also reported. Although there were autoimmune lymphoproliferative syndrome (ALPS)-like biological features, clinical ALPS was not present. A homozygous missense mutation in the <i>FADD</i> gene (11q13.3) was found in the family and the disease is thought to follow an autosomal recessive pattern of inheritance." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "306550" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "FADD-related immunodeficiency" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "FADD-related immunodeficiency" ] .
+}
+

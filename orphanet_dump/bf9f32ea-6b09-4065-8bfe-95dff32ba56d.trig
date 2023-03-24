@@ -1,0 +1,42 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=324442> a ns1:MedicalCondition ;
+        ns1:alternateName "ARAN-NM",
+            "ARCMT2-NM",
+            "Autosomal recessive Charcot-Marie-Tooth disease type 2 with neuromyotonia" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "G60.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "137200" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "12353" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "137200" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:324442" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:324442" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G60.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "12353" ;
+                ns1:codingSystem "GARD" ] ;
+        ns1:description "A rare peripheral neuropathy characterized by slowly progressive axonal, motor greater than sensory, polyneuropathy combined with neuromytonia (including spontaneous muscular activity at rest (myokymia), impaired muscle relaxation (pseudomyotonia), and contractures of hands and feet) and neuromyotonic or myokymic discharges on needle EMG. It presents with distal lower limb weakness with gait impairment, muscle stiffness, fasciculations and cramps in hands and legs worsened by cold, decreased to absent tendon reflexes, intrinsic hand muscle atrophy and, variably, mild distal sensory impairment." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "324442" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Autosomal recessive axonal neuropathy with neuromyotonia" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Autosomal recessive axonal neuropathy with neuromyotonia" ] .
+}
+

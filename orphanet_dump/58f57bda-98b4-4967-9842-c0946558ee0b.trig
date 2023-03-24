@@ -1,0 +1,32 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=2199> a ns1:MedicalCondition ;
+        ns1:alternateName "Diffuse erythrodermic palmoplantar keratoderma, Voerner type",
+            "Diffuse erythrodermic palmoplantar keratoderma, Vörner type",
+            "EPPK",
+            "Epidermolytic palmoplantar keratoderma of Voerner",
+            "Epidermolytic palmoplantar keratoderma of Vörner" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "Q82.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "2826" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "144200" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C1721006" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:2199" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare, non-syndromic, hereditary palmoplantar keratoderma characterized by diffuse, yellowish, thick hyperkeratosis of the palms and soles with a sharp demarcation at the volar border and an erythematous margin, and the epidermolytic pattern of changes on the skin biopsy, including perinuclear vacuolization, granular degeneration of keratinocytes in the spinous and granular layer, and tonofilament aggregates. Painful fissures and hyperhidrosis are frequently associated." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "2199" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Epidermolytic palmoplantar keratoderma" ] .
+}
+

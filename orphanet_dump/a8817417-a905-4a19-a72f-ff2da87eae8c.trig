@@ -1,0 +1,27 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=90400> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:90400" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:90400" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "L98.5" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "L98.5" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "Scleromyxedema without monoclonal gammopathy is a form of atypical lichen myxedematosus (see this term), characterized by a generalized sclerodermoid infiltration of skin studded with multiple, firm papules of 1-3 mm in diameter involving face (leonine appearance), trunk, and limbs, without monoclonal gammopathy. The involvement of the face can be missing and pruritus may be prominent." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "90400" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Scleromyxedema without monoclonal gammopathy" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Scleromyxedema without monoclonal gammopathy" ] .
+}
+

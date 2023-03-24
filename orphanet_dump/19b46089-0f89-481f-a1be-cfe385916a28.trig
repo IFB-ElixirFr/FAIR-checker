@@ -1,0 +1,29 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=352629> a ns1:MedicalCondition ;
+        ns1:alternateName "Del(16)(q24.1)",
+            "Monosomy 16q24.1" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "Q93.5" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:352629" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:352629" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q93.5" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "A partial autosomal monosomy characterized clinically by lethal pulmonary disease that presents as severe respiratory distress and refractory pulmonary hypertension within a few hours after birth and typically results in death from respiratory failure within the first months of life. Characteristic histological features of lung tissue include paucity of alveolar wall capillaries, alveolar wall thickening, muscular hypertrophy of the pulmonary arteries, and malposition of the small pulmonary veins. Various additional congenital malformations may be associated, mostly gastrointestinal (intestinal malrotation and atresias, anular pancreas), genitourinary (dilatation of urinary tracts, duplicated uterus) and cardiovascular anomalies (hypoplastic left heart and other congenital heart defects)." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "352629" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "16q24.1 microdeletion syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "16q24.1 microdeletion syndrome" ] .
+}
+

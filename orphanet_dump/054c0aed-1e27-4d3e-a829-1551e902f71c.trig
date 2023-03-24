@@ -1,0 +1,46 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=319646> a ns1:MedicalCondition ;
+        ns1:alternateName "CDG syndrome type It",
+            "CDG-It",
+            "CDG1T",
+            "Congenital disorder of glycosylation type 1t",
+            "Congenital disorder of glycosylation type It",
+            "PGM1-related congenital disorder of glycosylation",
+            "Phosphoglucomutase-1 deficiency" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "E77.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C2752015" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C2752015" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:319646" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E77.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "614921" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "614921" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:319646" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare, genetic, congenital disorder of glycosylation and glycogen storage disease characterized by a wide range of clinical manifestations, most commonly presenting with bifid uvula with or without cleft palate at birth, associated with growth delay, hepatopathy with elevated aminotransferase serum levels, myopathy (including exercise-related fatigue, exercise intolerance, muscle weakness), intermittent hypoglycemia, and dilated cardiomyopathy and/or cardiac arrest, due to decreased phosphoglucomutase 1 enzyme activity. Less common manifestations include malignant hyperthermia, rhabdomyolysis, and hypogonadotropic hypogonadism with delayed puberty." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "319646" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "PGM1-CDG" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "PGM1-CDG" ] .
+}
+

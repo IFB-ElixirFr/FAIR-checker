@@ -1,0 +1,33 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=158025> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "D76.3" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "142630" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D76.3" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:158025" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:158025" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "142630" ;
+                ns1:codingSystem "OMIM" ] ;
+        ns1:description "Hereditary progressive mucinous histiocytosis is a rare, benign, non-Langerhans cell histiocytosis characterized by childhood or adolescence onset of multiple, small, asymptomatic, slowly progressing, skin-colored to red-brown papules with predilection for the face, dorsal hands, forearms and legs, without associated mucosal or visceral involvement. Histologically, papules are well-circumscribed, unencapsulated, nodular aggregates of histiocytes with abundant mucin in the upper and middermis." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "158025" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Hereditary progressive mucinous histiocytosis" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Hereditary progressive mucinous histiocytosis" ] .
+}
+

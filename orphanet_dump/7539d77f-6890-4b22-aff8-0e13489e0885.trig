@@ -1,0 +1,43 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=329984> a ns1:MedicalCondition ;
+        ns1:alternateName "GCC",
+            "Goblet cell adenocarcinoid",
+            "Goblet cell carcinoid",
+            "Goblet cell tumor" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "C18.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:329984" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10414" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0205695" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C18.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10414" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0205695" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:329984" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "Goblet cell carcinoma (GCC) is an aggressive type of endocrine tumor of the appendix (see this term) presenting equally in males and females in the fifth decade of life and manifesting with a palpable mass and abdominal pain or acute appendicitis. Metastasis to the ovaries, peritoneum or right colon has usually already occurred in half of patients at the time of diagnosis." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "329984" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Goblet cell carcinoma" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Goblet cell carcinoma" ] .
+}
+

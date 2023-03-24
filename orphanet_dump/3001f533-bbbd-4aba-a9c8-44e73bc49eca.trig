@@ -1,0 +1,29 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=398097> a ns1:MedicalCondition ;
+        ns1:alternateName "Neonatal Hughes syndrome",
+            "Neonatal antiphospholipid antibody syndrome" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:398097" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D68.6" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D68.6" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:398097" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "Neonatal antiphospholipid syndrome is a rare, secondary, neonatal autoimmune disease characterized by single or recurrent episodes of venous, arterial or mixed thrombosis in a neonate whose mother does not have antiphospholipid syndrome manifestations. Patients present positive antiphospholipid antibodies and may have additional abnormalities associated (e.g. cardiac valve disease, livedo reticularis, thrombocytopenia, nephropathy, neurological manifestations)." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "398097" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Neonatal antiphospholipid syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Neonatal antiphospholipid syndrome" ] .
+}
+

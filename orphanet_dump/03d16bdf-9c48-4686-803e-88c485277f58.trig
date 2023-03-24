@@ -1,0 +1,29 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=228277> a ns1:MedicalCondition ;
+        ns1:alternateName "Hereditary anetoderma",
+            "Hereditary macular atrophy" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:228277" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:228277" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "L90.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "L90.8" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "Familial anetoderma is an extremely rare genetic skin disease characterized by loss of elastin tissue leading to localized areas of flaccid skin and a family history of the disorder." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "228277" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Familial anetoderma" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Familial anetoderma" ] .
+}
+

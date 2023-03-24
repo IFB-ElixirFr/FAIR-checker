@@ -1,0 +1,27 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=319192> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:319192" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q04.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:319192" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q04.8" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "Diencephalic-mesencephalic junction dysplasia is a rare, genetic, non-syndromic cerebral malformation characterized by severe intellectual disability, progressive postnatal microcephaly, axial hypotonia, spastic quadriparesis, seizures and facial dysmorphism (bushy eyebrows, hairy forehead, broad nasal root, long flat philtrum, V-shaped upper lip). Additionaly, talipes equinovarus, non-obstructive cardiomyopathy, persistent hyperplastic primary vitreous, obstructive hydrocephalus and autistic features may also be associated. On brain magnetic resonance imaging, the 'butterfly sign' is characterisitcally observed and cortical calcifications, agenesis of the corpus callosum, ventriculomegaly, brainstem dysplasia and cerebellar vermis hypoplasia have also been described." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "319192" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Diencephalic-mesencephalic junction dysplasia" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Diencephalic-mesencephalic junction dysplasia" ] .
+}
+

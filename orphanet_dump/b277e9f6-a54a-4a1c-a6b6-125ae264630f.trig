@@ -1,0 +1,53 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=746> a ns1:MedicalCondition ;
+        ns1:alternateName "TFP deficiency",
+            "TFPD" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "3684" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D024741" ;
+                ns1:codingSystem "MeSH" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C1969443" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G71.3" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:746" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "3684" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "609015" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G71.3" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:746" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D024741" ;
+                ns1:codingSystem "MeSH" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C1969443" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "609015" ;
+                ns1:codingSystem "OMIM" ] ;
+        ns1:description "A rare disorder of fatty acid oxidation characterized by a wide clinical spectrum ranging from severe neonatal manifestations including cardiomyopathy, hypoglycemia, metabolic acidosis, skeletal myopathy and neuropathy, liver disease and death to a mild phenotype with peripheral polyneuropathy, episodic rhabdomyolysis and pigmentary retinopathy.." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "746" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Mitochondrial trifunctional protein deficiency" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Mitochondrial trifunctional protein deficiency" ] .
+}
+

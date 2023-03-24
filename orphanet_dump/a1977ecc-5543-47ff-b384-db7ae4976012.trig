@@ -1,0 +1,28 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=567544> a ns1:MedicalCondition ;
+        ns1:alternateName "Idiopathic non-lupus FHN" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "N05" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "N05" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:567544" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:567544" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare idiopathic glomerular clinical syndrome characterized by diffuse renal lesions that are indistinguishable from the lesions observed in systemic lupus erythematosus (SLE) in the absence of circulating autoantibodies and other systemic features necessary to meet the classification criteria for SLE. Patients may present with nephrotic syndrome, abnormal urinary sediment, acute renal insufficiency, progressive glomerulonephritis, and hypertension. Some patients have been reported to develop a progression to SLE over time." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "567544" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Idiopathic non-lupus full-house nephropathy" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Idiopathic non-lupus full-house nephropathy" ] .
+}
+

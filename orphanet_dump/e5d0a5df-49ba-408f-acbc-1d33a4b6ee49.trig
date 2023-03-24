@@ -1,0 +1,43 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=168577> a ns1:MedicalCondition ;
+        ns1:alternateName "CHC type 2",
+            "Hereditary cryohydrocytosis type 2",
+            "Stomatin-deficient cryohydrocytosis",
+            "sdCHC" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "D58.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "608885" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "608885" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D58.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:168577" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:168577" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C1837206" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C1837206" ;
+                ns1:codingSystem "UMLS" ] ;
+        ns1:description "Hereditary cryohydrocytosis with reduced stomatin is a rare hemolytic anemia characterized by combination of neurologic features, such as psychomotor delay, seizures, variable movement disorders, and hemolytic anemia with stomatocytosis, resulting in cation-leaky erythrocytes, pseudohyperkalemia, hemolytic crises and hepatosplenomegaly. Cataracts are also a presenting feature." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "168577" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Hereditary cryohydrocytosis with reduced stomatin" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Hereditary cryohydrocytosis with reduced stomatin" ] .
+}
+

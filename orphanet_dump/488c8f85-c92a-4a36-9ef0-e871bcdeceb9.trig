@@ -1,0 +1,67 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=365> a ns1:MedicalCondition ;
+        ns1:alternateName "Alpha-1,4-glucosidase acid deficiency",
+            "GSD due to acid maltase deficiency",
+            "GSD type 2",
+            "GSD type II",
+            "Glycogen storage disease type 2",
+            "Glycogen storage disease type II",
+            "Glycogenosis due to acid maltase deficiency",
+            "Glycogenosis type 2",
+            "Glycogenosis type II",
+            "Pompe disease" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:365" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:365" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "232300" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10053185" ;
+                ns1:codingSystem "MedDRA" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "5714" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "232300" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D006009" ;
+                ns1:codingSystem "MeSH" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0017921" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0017921" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "5714" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10053185" ;
+                ns1:codingSystem "MedDRA" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E74.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D006009" ;
+                ns1:codingSystem "MeSH" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E74.0" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "A rare lysosomal storage disease characterized by lysosomal accumulation of glycogen particularly in skeletal, cardiac, and respiratory muscles, as well as the liver and nervous system, due to acid maltase deficiency. The clinical spectrum comprises infantile-onset disease with severe hypertrophic cardiomyopathy, generalized muscle weakness, poor feeding and failure to thrive, and respiratory insufficiency, and late-onset disease manifesting before or after twelve months of age without cardiomyopathy, with proximal muscle weakness and respiratory insufficiency." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "365" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Glycogen storage disease due to acid maltase deficiency" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Glycogen storage disease due to acid maltase deficiency" ] .
+}
+

@@ -1,0 +1,38 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=529574> a ns1:MedicalCondition ;
+        ns1:alternateName "DRS with deafness",
+            "DRS with hearing loss",
+            "DURS with deafness",
+            "DURS with hearing loss",
+            "Duane retraction syndrome with congenital hearing loss" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "H50.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "H50.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:529574" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "617041" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:529574" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "617041" ;
+                ns1:codingSystem "OMIM" ] ;
+        ns1:description "A rare neurologic disease characterized by the presence of Duane retraction syndrome (i. e. a congenital cranial dysinnervation disorder with unilateral or bilateral limitation of abduction and/or adduction of the eye, as well as globe retraction and palpebral fissure narrowing on attempted adduction) in combination with congenital unilateral or bilateral hearing loss. The sidedness of hearing loss corresponds to the sidedness of the retraction syndrome." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "529574" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Duane retraction syndrome with congenital deafness" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Duane retraction syndrome with congenital deafness" ] .
+}
+

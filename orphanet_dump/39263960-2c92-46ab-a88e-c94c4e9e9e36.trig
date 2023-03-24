@@ -1,0 +1,27 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=431341> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "Q64.4" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:431341" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:431341" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q64.4" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "Patent urachus is a type of congenital urachal anomaly (see this term) characterized by a persistent communication between the bladder and the umbilicus, secondary to non occlusion of the urachal lumen, manifesting as clear drainage from the umbilicus." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "431341" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Patent urachus" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Patent urachus" ] .
+}
+

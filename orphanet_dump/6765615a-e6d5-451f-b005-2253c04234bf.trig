@@ -1,0 +1,39 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=254864> a ns1:MedicalCondition ;
+        ns1:alternateName "Benign COX deficiency",
+            "Infantile reversible cytochrome C oxidase deficiency myopathy",
+            "Mitochondrial myopathy with reversible COX deficiency",
+            "Mitochondrial myopathy with reversible complex IV deficiency",
+            "Reversible infantile cytochrome C oxidase deficiency",
+            "Reversible infantile respiratory chain deficiency" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:254864" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G71.3" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:254864" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "500009" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "500009" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G71.3" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "A rare, genetic, mitochondrial oxidative phosphorylation disorder characterized by a potentially life-threatening, severe myopathy manifesting in the neonatal to early infantile period, followed by marked, spontaneous improvement of muscular function by early childhood. Associated biochemical findings include lactic acidosis and a transient, marked decrease in respiratory chain activity." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "254864" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Mitochondrial myopathy with reversible cytochrome C oxidase deficiency" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Mitochondrial myopathy with reversible cytochrome C oxidase deficiency" ] .
+}
+

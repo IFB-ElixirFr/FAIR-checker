@@ -1,0 +1,27 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=314613> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:314613" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D48.7" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:314613" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D48.7" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "A rare neoplastic disorder characterized by benign metastatic masses increasing in size and number after chemotherapy for non-seminomatous germ cell tumors of testis or ovary. It may present at any time after chemotherapy, with a median occurrence within 24 months after treatment completion. Per definition, the resected specimen exclusively contains mature teratoma components, and serum tumor markers have normalized. The retroperitoneum is the most common site, although almost any other localization has been reported. Increased tumor size may cause mechanical compression of vital organs, with renal dysfunction, bowel ischemia, and biliary obstruction as major complications." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "314613" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Growing teratoma syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Growing teratoma syndrome" ] .
+}
+

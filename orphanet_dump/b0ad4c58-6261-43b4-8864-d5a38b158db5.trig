@@ -1,0 +1,41 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=300557> a ns1:MedicalCondition ;
+        ns1:alternateName "Ampullary carcinoma",
+            "Ampulloma" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "C24.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10048853" ;
+                ns1:codingSystem "MedDRA" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0262401" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10048853" ;
+                ns1:codingSystem "MedDRA" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C24.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0262401" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:300557" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:300557" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "Carcinoma of the ampulla of Vater is a rare malignant tumor originating from the ampulla of Vater that can present with symptoms of general fatigue, loss of appetite, weight loss, nausea, vomiting, abdominal pain and, most commonly, painless obstructive jaundice. The tumor is believed to arise from duodenal, biliary or pancreatic epilthelium, resulting in the respective histological types. In general, carcinoma of the ampulla of Vater has a better prognosis (5-year survival rate of 45%) than cancers of the distal bile duct and pancreas." ;
+        ns1:epidemiology "Prevalence : 1-9 / 100 000" ;
+        ns1:identifier "300557" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Carcinoma of the ampulla of Vater" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Carcinoma of the ampulla of Vater" ] .
+}
+

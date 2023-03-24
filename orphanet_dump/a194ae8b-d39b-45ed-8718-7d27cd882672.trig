@@ -1,0 +1,34 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=86893> a ns1:MedicalCondition ;
+        ns1:alternateName "NLPHL" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "C1334968" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:86893" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:86893" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C81.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C81.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C1334968" ;
+                ns1:codingSystem "UMLS" ] ;
+        ns1:description "Nodular lymphocyte predominant Hodgkin lymphoma (NLPHL) is a rare subtype of Hodgkin lymphoma (HL; see this term) characterized histologically by malignant lymphocyte predominant (LP) cells and the absence of typical Hodgkin and Reed-Sternberg (HRS) cells." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "86893" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Nodular lymphocyte predominant Hodgkin lymphoma" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Nodular lymphocyte predominant Hodgkin lymphoma" ] .
+}
+

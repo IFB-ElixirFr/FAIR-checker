@@ -1,0 +1,35 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=443988> a ns1:MedicalCondition ;
+        ns1:alternateName "Congenital nephrosis-cerebral ventriculomegaly syndrome",
+            "VMCKD" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:443988" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C1857423" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "219730" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "219730" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C1857423" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:443988" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare genetic syndrome with a central nervous system malformation as a major feature, characterized by a triad of high alpha-fetoprotein levels in both maternal serum and amniotic fluid, cerebral ventriculomegaly, and renal macro- and microcysts. Variable findings include congenital nephrotic syndrome, aqueductal stenosis, gray matter heterotopias, and cardiac malformations, among others." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "443988" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Ventriculomegaly-cystic kidney disease" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Ventriculomegaly-cystic kidney disease" ] .
+}
+

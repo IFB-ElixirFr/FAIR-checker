@@ -1,0 +1,42 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=231154> a ns1:MedicalCondition ;
+        ns1:alternateName "CID due to partial RAG1 deficiency",
+            "CID with expansion of gamma delta T cells",
+            "Combined immunodeficiency with expansion of gamma delta T cells" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "D81.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D81.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C1835931" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "609889" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:231154" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C1835931" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "609889" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:231154" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "Combined immunodeficiency due to partial RAG1 deficiency is a form of combined T and B cell immunodeficiency (CID; see this term) characterized by severe and persistent cytomegalovirus (CMV) infection and autoimmune cytopenia." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "231154" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Combined immunodeficiency due to partial RAG1 deficiency" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Combined immunodeficiency due to partial RAG1 deficiency" ] .
+}
+

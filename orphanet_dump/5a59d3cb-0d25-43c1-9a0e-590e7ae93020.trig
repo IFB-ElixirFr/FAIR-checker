@@ -1,0 +1,27 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=1121> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:1121" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:1121" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q73.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q73.8" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "Radial deficiency-tibial hypoplasia syndrome is a rare, genetic dysostosis syndrome with combined reduction defects of upper and lower limbs characterized by bilateral radial aplasia, absent thumbs and bilateral tibial hypo/aplasia. Additional bone anomalies (including partial toe hypo/aplasia, short fibula and clubhand) may be associated. There have been no further descriptions in the literature since 1996." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "1121" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Radial deficiency-tibial hypoplasia syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Radial deficiency-tibial hypoplasia syndrome" ] .
+}
+

@@ -1,0 +1,38 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=137577> a ns1:MedicalCondition ;
+        ns1:alternateName "HIE",
+            "Hypoxic and ischemic brain injury in the newborn",
+            "Hypoxic-ischemic encephalopathy",
+            "Perinatal asphyxia",
+            "Perinatal hypoxia" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "C0752304" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "P91.6" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:137577" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "P91.6" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0752304" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:137577" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare neonatal encephalopathy characterized by alterations in mental status ranging from irritability and decreased responsiveness to coma, as well as abnormal primitive reflexes, hypotonia, seizures, and abnormalities in feeding and respiration, with an onset within the first hours of life. The condition is associated with high mortality. Long-term sequelae include a spectrum of signs and symptoms including behavioral deficits, developmental delay, learning disabilities, cognitive impairment, seizures, visual and auditory dysfunction, and cerebral palsy." ;
+        ns1:epidemiology "Prevalence : 1-9 / 100 000" ;
+        ns1:identifier "137577" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Neonatal hypoxic and ischemic brain injury" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Neonatal hypoxic and ischemic brain injury" ] .
+}
+

@@ -1,0 +1,29 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=64545> a ns1:MedicalCondition ;
+        ns1:alternateName "BINS",
+            "Benign nonfamilial neonatal seizures" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:64545" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G40.3" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:64545" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G40.3" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "A rare neonatal epilepsy syndrome characterized by seizures without specific underlying etiology, occurring during the first days of life in infants with an otherwise normal neurological state and no family history of neonatal convulsions. The most commonly partial and clonic seizures usually last for one to three minutes. Repeated seizures may lead to status epilepticus lasting up to 20 hours. Overall, remission rates are high and neurological outcome is favorable." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "64545" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Benign idiopathic neonatal seizures" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Benign idiopathic neonatal seizures" ] .
+}
+

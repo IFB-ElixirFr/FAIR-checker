@@ -1,0 +1,28 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=314002> a ns1:MedicalCondition ;
+        ns1:alternateName "Dinno syndrome" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "C4751075" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:314002" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:314002" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C4751075" ;
+                ns1:codingSystem "UMLS" ] ;
+        ns1:description "Contractures-webbed neck-micrognathia-hypoplastic nipples syndrome is an extremely rare, multiple congenital anomalies/dysmorphic syndrome characterized by micrognathia, a short, webbed neck, hypoplastic nipples and joint contractures (which improve over time) of the knees and elbows. In addition, sloping shoulders, mild to moderate hearing loss, mild speech impairment and facies with hypertelorism, short philtrum and tented upper lip may be associated." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "314002" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Contractures-webbed neck-micrognathia-hypoplastic nipples syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Contractures-webbed neck-micrognathia-hypoplastic nipples syndrome" ] .
+}
+

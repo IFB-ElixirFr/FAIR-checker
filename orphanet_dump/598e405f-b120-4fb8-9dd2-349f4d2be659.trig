@@ -1,0 +1,30 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=464321> a ns1:MedicalCondition ;
+        ns1:alternateName "Cutaneovisceral angiomatosis-thrombocytopenia syndrome",
+            "MLT",
+            "Multifocal lymphangioendotheliomatosis with thrombocytopenia" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "D18.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:464321" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D18.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:464321" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare lymphatic system anomaly characterized by multifocal congenital and progressive vascular lesions of the skin, gastrointestinal tract, and occasionally other anatomic sites, causing potentially life-threatening thrombocytopenic coagulopathy. Macroscopically, the lesions appear as round to oval, red-brown plaques, as large as a few centimeters in diameter. Histopathologically, they consist of dilated, thin-walled vessels with variable endothelial hyperplasia, positive for lymphatic endothelial cell markers, and resembling benign lymphangioendothelioma." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "464321" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Multifocal lymphangioendotheliomatosis-thrombocytopenia syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Multifocal lymphangioendotheliomatosis-thrombocytopenia syndrome" ] .
+}
+

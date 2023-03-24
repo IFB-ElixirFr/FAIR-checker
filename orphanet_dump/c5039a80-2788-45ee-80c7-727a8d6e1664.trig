@@ -1,0 +1,34 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=300298> a ns1:MedicalCondition ;
+        ns1:alternateName "Severe congenital hypochromic sideroblastic anemia" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "615234" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D64.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:300298" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:300298" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "615234" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D64.0" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "STEAP3/TSAP6-related sideroblastic anemia is a very rare severe non-syndromic hypochromic anemia, which is characterized by transfusion-dependent hypochromic, poorly regenerative anemia, iron overload, resembling non-syndromic sideroblastic anemia (see this term) except for increased erythrocyte protoporphyrin levels." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "300298" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Severe congenital hypochromic anemia with ringed sideroblasts" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Severe congenital hypochromic anemia with ringed sideroblasts" ] .
+}
+

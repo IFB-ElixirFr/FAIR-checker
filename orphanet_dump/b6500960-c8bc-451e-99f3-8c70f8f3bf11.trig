@@ -1,0 +1,27 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=480520> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "Q44.6" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:480520" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q44.6" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:480520" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare genetic hepatic disease characterized by multiple segmental cystic dilatations of both central and smaller peripheral bile ducts associated with congenital hepatic fibrosis. Age of symptom onset is variable, as is disease progression. Patients present recurrent cholangitis, hepatolithiasis, and cholecystolithiasis. Portal hypertension may appear later in the disease course, and the risk of developing cholangiocarcinoma is increased significantly. The syndrome is often associated with autosomal recessive polycystic kidney disease." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "480520" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Caroli syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Caroli syndrome" ] .
+}
+

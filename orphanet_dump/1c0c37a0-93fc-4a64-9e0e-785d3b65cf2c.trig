@@ -1,0 +1,27 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=90052> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:90052" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "B18.2" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "B18.2" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:90052" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare hepatic disease characterized by recurrence of hepatitis C virus infection after liver transplantation, leading to liver injury with features resembling those observed in the non-transplant graft, and typically developing after three months post-transplantation. The clinical course is highly variable, although patients most commonly develop progressive chronic liver disease with higher viral loads and more rapid fibrosis progression than in the immunocompetent population." ;
+        ns1:epidemiology "Prevalence : 1-9 / 100 000" ;
+        ns1:identifier "90052" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Recurrent hepatitis C virus induced liver disease in liver transplant recipients" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Recurrent hepatitis C virus induced liver disease in liver transplant recipients" ] .
+}
+

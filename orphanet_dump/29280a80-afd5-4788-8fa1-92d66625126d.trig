@@ -1,0 +1,30 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=96145> a ns1:MedicalCondition ;
+        ns1:alternateName "Distal deletion 4q",
+            "Monosomy 4qter",
+            "Telomeric deletion 4q" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "Q93.5" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q93.5" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:96145" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:96145" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "Distal monosomy 4q is a partial autosomal monosomy characterized by variable combination of craniofacial, developmental, digital, skeletal, and cardiac features: hypotonia, developmental delay, growth deficiency, cleft palate, cardiovascular malformations, abnormalities of the hands and feet and typical dysmorphic features, such as microcephaly, rounded facies, small eyes, broad nasal bridge, upturned nose, full cheeks, small mouth and chin." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "96145" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Distal monosomy 4q" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Distal monosomy 4q" ] .
+}
+

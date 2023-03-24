@@ -1,0 +1,42 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=420429> a ns1:MedicalCondition ;
+        ns1:alternateName "Alpha-1,4-glucosidase acid deficiency, late-onset",
+            "GSD due to acid maltase deficiency, late-onset",
+            "GSD type 2, late-onset",
+            "GSD type II, late-onset",
+            "Glycogen storage disease type 2, late-onset",
+            "Glycogen storage disease type II, late-onset",
+            "Glycogenosis type 2, late-onset",
+            "Glycogenosis type II, late-onset",
+            "Pompe disease, late-onset" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "C3888925" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:420429" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E74.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:420429" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C3888925" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E74.0" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "A form of glycogen storage disease due to acid maltase deficiency, a degenerative metabolic myopathy particularly affecting respiratory and skeletal muscles, that is characterized by an accumulation of glycogen in lysosomes." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "420429" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Glycogen storage disease due to acid maltase deficiency, late-onset" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Glycogen storage disease due to acid maltase deficiency, late-onset" ] .
+}
+

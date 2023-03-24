@@ -1,0 +1,22 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=2787> a ns1:MedicalCondition ;
+        ns1:alternateName "Heide syndrome" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:2787" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:2787" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare genetic disease characterized by mild intellectual disability, osteoporosis, delayed bone age, macrocephaly with wormian bones and frontal bossing, anomalies of fingers, nails, and teeth, thoracic deformities, hyperextensibility of joints, as well as congenital amaurosis and paraplegia. There have been no further descriptions in the literature since 1981." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "2787" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Osteoporosis-macrocephaly-blindness-joint hyperlaxity syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Osteoporosis-macrocephaly-blindness-joint hyperlaxity syndrome" ] .
+}
+

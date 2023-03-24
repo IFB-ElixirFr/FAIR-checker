@@ -1,0 +1,28 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=98825> a ns1:MedicalCondition ;
+        ns1:alternateName "Unclassified mixed myelodysplastic/myeloproliferatic syndrome" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:98825" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C94.6" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:98825" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C94.6" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "A rare myelodysplastic/myeloproliferative neoplasm characterized by clinical, laboratory, and morphological features of both myelodysplastic syndrome and myeloproliferative neoplasm at onset, in the absence of recent cytotoxic or growth factor therapy, and without Philadelphia chromosome, BCR-ABL1 or PCM1-JAK2 fusion, or rearrangement of PDGFRA, PDGFRB, or FGFR1. Cases of a previously well-defined myeloproliferative neoplasm developing dysplastic features are excluded, and the criteria for any other myelodysplastic/myeloproliferative neoplasm, myelodysplastic syndrome, or myeloproliferative neoplasm are not met." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "98825" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Unclassified myelodysplastic/myeloproliferative disease" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Unclassified myelodysplastic/myeloproliferative disease" ] .
+}
+

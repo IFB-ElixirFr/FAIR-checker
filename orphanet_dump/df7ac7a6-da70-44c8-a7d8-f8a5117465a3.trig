@@ -1,0 +1,43 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=1916> a ns1:MedicalCondition ;
+        ns1:alternateName "DES embryofetopathy",
+            "DES syndrome",
+            "Diethylstilbestrol embryofetopathy",
+            "Distilbene embryofetopathy" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "10012780" ;
+                ns1:codingSystem "MedDRA" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0853695" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q86.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0853695" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10012780" ;
+                ns1:codingSystem "MedDRA" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:1916" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:1916" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q86.8" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "A malformation syndrome reported in offspring (children and grandchildren) of women exposed to diethylstilbestrol (DES) during pregnancy and is characterized by reproductive tract malformations, decreased fertility and increased risk of developing clear cell carcinoma of the vagina and cervix in young women. Reproductive malformations reported in DES syndrome include small, T-shaped uteri and other uterotubal anomalies that increase the risk of miscarriages in women and epididymal cysts, microphallus, cryptorchidism, or testicular hypoplasia in men. DES, a synthetic nonsteroidal estrogen was widely prescribed from 1940-1970 to prevent miscarriage." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "1916" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Diethylstilbestrol syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Diethylstilbestrol syndrome" ] .
+}
+

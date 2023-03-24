@@ -1,0 +1,34 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=70593> a ns1:MedicalCondition ;
+        ns1:alternateName "Specific anti-polysaccharide antibody deficiency" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "D80.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "11903" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:70593" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:70593" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D80.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "11903" ;
+                ns1:codingSystem "GARD" ] ;
+        ns1:description "Immunodeficiency due to selective anti-polysaccharide antibody deficiency is characterized by normal immunoglobulin levels (including IgG sub-classes) but impaired polysaccharide responsiveness (IPR)." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "70593" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Immunodeficiency due to selective anti-polysaccharide antibody deficiency" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Immunodeficiency due to selective anti-polysaccharide antibody deficiency" ] .
+}
+

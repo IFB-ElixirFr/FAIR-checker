@@ -1,0 +1,21 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=295229> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "C0152235" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:295229" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q68.2" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "A rare congenital knee dislocation characterized by hyperextension of the knee greater than 0° associated with limited flexion, with prominence of the femoral condyles in the popliteal fossa and increased transverse skin folds over the anterior surface of the knee. It can be unilateral or bilateral and may occur as an isolated malformation, be associated with other orthopedic abnormalities (like developmental dysplasia of the hip or clubfoot) or be part of a syndrome (e. g. Larsen's syndrome)." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "295229" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Congenital genu recurvatum" ] .
+}
+

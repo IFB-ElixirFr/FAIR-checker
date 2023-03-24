@@ -1,0 +1,42 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=90038> a ns1:MedicalCondition ;
+        ns1:alternateName "D+ HUS",
+            "EHEC-HUS",
+            "Hemolytic uremic syndrome associated with Shiga toxin-producing Escherichia coli",
+            "Hemolytic uremic syndrome with diarrhea",
+            "STEC-HUS",
+            "Shiga-like toxin-associated HUS",
+            "Stx-HUS",
+            "Typical HUS",
+            "Typical hemolytic uremic syndrome" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "235400" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "235400" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:90038" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D58.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D58.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:90038" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare thrombotic microangiopathy characterized by mechanical hemolytic anemia, thrombocytopenia, and renal dysfunction that is usually associated with prodromal enteritis caused by <i>Shigella dysentriae</i> type 1 or <i>E. Coli</i>." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "90038" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Shiga toxin-associated hemolytic uremic syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Shiga toxin-associated hemolytic uremic syndrome" ] .
+}
+

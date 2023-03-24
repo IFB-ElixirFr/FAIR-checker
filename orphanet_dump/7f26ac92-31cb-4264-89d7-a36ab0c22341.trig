@@ -1,0 +1,47 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=251656> a ns1:MedicalCondition ;
+        ns1:alternateName "MOA",
+            "Mixed oligoastrocytoma" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "C0280793" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:251656" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C71.9" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0280793" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "9769" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "9769" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C71.9" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10027744" ;
+                ns1:codingSystem "MedDRA" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:251656" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10027744" ;
+                ns1:codingSystem "MedDRA" ] ;
+        ns1:description "Oligoastrocytoma is a type of low-grade glioma with a mixed astrocytoma and oligodendroglioma histology, manifesting with headaches, speech and motor problems, seizures and, in some, subarachnoid haemorrhage." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "251656" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Oligoastrocytoma" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Oligoastrocytoma" ] .
+}
+

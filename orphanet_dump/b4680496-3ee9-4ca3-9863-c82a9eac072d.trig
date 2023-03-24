@@ -1,0 +1,28 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=352403> a ns1:MedicalCondition ;
+        ns1:alternateName "Ataxie spinocérébelleuse à début infantile avec retard psychomoteur",
+            "Autosomal recessive spinocerebellar ataxia type 14",
+            "Infantile-onset spinocerebellar ataxia-psychomotor delay syndrome",
+            "SCAR14",
+            "SPARCA",
+            "SPARCA1",
+            "Spectrin-associated autosomal recessive cerebellar ataxia type 1" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "G11.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:352403" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "615386" ;
+                ns1:codingSystem "OMIM" ] ;
+        ns1:description "Spectrin-associated autosomal recessive cerebellar ataxia is a rare, genetic neurological disease, due to <i>SPTBN2</i> mutations, characterized by global development delay in infancy, followed by childhood-onset gait ataxia with limb dysmetria and dysdiadochokinesia, mild to severe intellectual disability, development of cerebellar atrophy, and abnormal eye movements (including a convergent squint, hypometric saccades, jerky pursuit movements and incomplete range of movement)." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "352403" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Spectrin-associated autosomal recessive cerebellar ataxia" ] .
+}
+

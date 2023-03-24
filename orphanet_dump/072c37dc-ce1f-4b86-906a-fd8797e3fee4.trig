@@ -1,0 +1,31 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=100984> a ns1:MedicalCondition ;
+        ns1:alternateName "Strümpell disease" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "182600" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:100984" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C2931355" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "5041" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G11.4" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C536864" ;
+                ns1:codingSystem "MeSH" ] ;
+        ns1:description "A rare, pure or complex form of hereditary spastic paraplegia, with variable phenotype, typically characterized by childhood-onset of minimally progressive, bilateral, mainly symmetric lower limb spasticity and weakness, associated with <i>pes cavus</i>, scoliosis, sphincter disturbances and/or urinary bladder hyperactivity. Rare additional associated manifestations may include mild intellectual disability, axonal motor neuropathy, and seizures." ;
+        ns1:epidemiology "Prevalence : 1-9 / 1 000 000" ;
+        ns1:identifier "100984" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Autosomal dominant spastic paraplegia type 3" ] .
+}
+

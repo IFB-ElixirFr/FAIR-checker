@@ -1,0 +1,27 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=493348> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:493348" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "125630" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "125630" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:493348" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "Vibratory angioedema is a rare, inherited or sporadic, urticaria characterized by localized, typically long-lasting (hours to days), initially pruritic, painful, normocutaneous or erythematous, mucosal and/or cutaneous edema which is triggered by vibration. Laryngeal snoring-induced swelling may be life-threatening." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "493348" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Vibratory angioedema" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Vibratory angioedema" ] .
+}
+

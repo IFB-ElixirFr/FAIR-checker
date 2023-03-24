@@ -1,0 +1,35 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=445062> a ns1:MedicalCondition ;
+        ns1:alternateName "Combined cerebellar and peripheral ataxia-deafness-diabetes mellitus syndrome",
+            "Combined cerebellar and peripheral ataxia-hearing loss-diabetes mellitus syndrome" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:445062" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "616192" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "616192" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G31.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G31.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:445062" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare genetic disease characterized by juvenile-onset insulin-dependent diabetes mellitus associated with central and peripheral nervous system abnormalities with variable onset between infancy and adolescence. Neurological manifestations include combined cerebellar and afferent ataxia, sensorineural hearing loss, pyramidal tract signs, and demyelinating sensorimotor peripheral neuropathy. Hypothyroidism has been reported in some patients. Brain imaging may show generalized cerebral atrophy." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "445062" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Juvenile-onset diabetes mellitus-central and peripheral neurodegeneration syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Juvenile-onset diabetes mellitus-central and peripheral neurodegeneration syndrome" ] .
+}
+

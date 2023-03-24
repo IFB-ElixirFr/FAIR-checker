@@ -1,0 +1,34 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=397744> a ns1:MedicalCondition ;
+        ns1:alternateName "Peripheral neuropathy-myopathy-hoarseness-deafness syndrome" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "614369" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G60.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:397744" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G60.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:397744" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "614369" ;
+                ns1:codingSystem "OMIM" ] ;
+        ns1:description "Peripheral neuropathy-myopathy-hoarseness-hearing loss syndrome is a rare, syndromic genetic deafness characterized by a combination of muscle weakness, chronic neuropathic and myopathic features, hoarseness and sensorineural hearing loss. A wide range of disease onset and severity has been reported even within the same family." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "397744" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Peripheral neuropathy-myopathy-hoarseness-hearing loss syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Peripheral neuropathy-myopathy-hoarseness-hearing loss syndrome" ] .
+}
+

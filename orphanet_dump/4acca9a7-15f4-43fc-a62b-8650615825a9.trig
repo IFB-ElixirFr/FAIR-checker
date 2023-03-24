@@ -1,0 +1,28 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=95486> a ns1:MedicalCondition ;
+        ns1:alternateName "Premature closure of the patent ductus arteriosus" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "Q25.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q25.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:95486" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:95486" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "Premature closure of the arterial duct is a rare arterial duct anomaly, defined as a significant constriction or closure of the fetal arterial duct in the absence of structural heart defects with pathognomonic features of increased right ventricular afterload, tricuspid regurgitation and, consequently, right atrial dilation and right ventricular hypertrophy. The severity of symptoms is related to the degree and rate of ductal constriction and ranges from mild postnatal respiratory distress to development of ventricular failure with fetal hydrops and intrauterine death or severe cardiopulmonary compromise in the postnatal period. It may be associated with a prenatal exposure to cyclooxygenase inhibitors or corticosteroids." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "95486" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Premature closure of the arterial duct" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Premature closure of the arterial duct" ] .
+}
+

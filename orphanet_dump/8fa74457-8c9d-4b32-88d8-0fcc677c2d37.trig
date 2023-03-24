@@ -1,0 +1,28 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=98267> a ns1:MedicalCondition ;
+        ns1:alternateName "Monogenic obesity due to a leptin-melanocortin pathway anomaly" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:98267" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:98267" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E66.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E66.8" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "A rare genetic disease characterized by early-onset severe obesity due to mutations in single genes acting on the development and function of the hypothalamus or the leptin-melanocortin pathway, leading to disruption of energy homeostasis and endocrine dysfunction. Patients present with a body mass index over three standard deviations above normal at less than five years of age, accompanied by a variety of signs and symptoms according to the mutated gene, including hyperphagia, insulin resistance, reduced basal metabolic rate, or hypogonadism, among others." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "98267" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Genetic non-syndromic obesity" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Genetic non-syndromic obesity" ] .
+}
+

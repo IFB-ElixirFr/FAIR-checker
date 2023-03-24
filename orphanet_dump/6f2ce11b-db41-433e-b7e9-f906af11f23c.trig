@@ -1,0 +1,29 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=261501> a ns1:MedicalCondition ;
+        ns1:alternateName "Atypical Norrie disease due to del(X)(p11.3)",
+            "Atypical Norrie disease due to nullisomy Xp11.3" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "H35.5" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:261501" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "H35.5" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:261501" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare chromosomal anomaly syndrome, resulting from the partial deletion of the short arm of chromosome X, principally characterized by classical Norrie disease (bilateral, severe retinal malformations and opacity of the lens leading to congenital blindness, on occasion associated with progressive sensorineural deafness and intellectual disability), microcephaly, hypotonia, psychomotor and growth delay, moderate to severe mental handicap and disruptive behaviour. Clinical phenotype is highly variable and immunodeficiency, epilepsy and hypogonadism have also been reported." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "261501" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Atypical Norrie disease due to Xp11.3 microdeletion" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Atypical Norrie disease due to Xp11.3 microdeletion" ] .
+}
+

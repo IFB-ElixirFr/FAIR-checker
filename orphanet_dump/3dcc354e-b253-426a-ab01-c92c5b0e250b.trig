@@ -1,0 +1,30 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=293208> a ns1:MedicalCondition ;
+        ns1:alternateName "Dunbar syndrome",
+            "MALS",
+            "Median arcuate ligament syndrome" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:293208" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "I77.4" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:293208" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "I77.4" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "A rare disease caused by compression of the celiac axis by an abnormally shaped arcuate ligament (the part of the diaphragm in which both pillars join in the midline around the aorta). Patients have recurrent abdominal pain, anorexia and weight loss. The pain is epigastric, and diarrhea or constipation may be present as well. Onset of pain will usually, although not always, be after food intake, and may be associated with nausea and emesis. Other symptoms may include lassitude, exercise intolerance and vomiting. Occasionally, a patient may show an abdominal murmur upon auscultation." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "293208" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Celiac artery compression syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Celiac artery compression syndrome" ] .
+}
+

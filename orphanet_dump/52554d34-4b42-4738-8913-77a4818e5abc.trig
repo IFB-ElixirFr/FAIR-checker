@@ -1,0 +1,26 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=476102> a ns1:MedicalCondition ;
+        ns1:alternateName "Behçet-like disease due to HA20",
+            "Behçet-like disease due to haploinsufficiency of A20" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:476102" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "616744" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "301074" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D89.8" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "A rare autosomal dominant autoinflammatory syndrome characterized by early onset systemic inflammation with autoimmune manifestations and more rarely, humoral immune deficiency and increased production of circulating proinflammatory cytokines, variably manifesting with recurrent oral aphthous ulcers, genital ulcers, arthralgia or arthritis, periodic fever, uveitis, and severe gastrointestinal involvement (pain, diarrhea, vomiting, rectal bleeding)." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "476102" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Hereditary pediatric Behçet-like disease" ] .
+}
+

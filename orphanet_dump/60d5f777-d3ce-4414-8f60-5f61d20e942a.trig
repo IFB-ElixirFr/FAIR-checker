@@ -1,0 +1,21 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=99909> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:99909" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:99909" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "Occupational allergic alveolitis designates a hypersensitivity pneumonitis (see this term) resulting from the inhalation of an antigen to which an individual has been previously sensitized in his/her occupational environment. Symptoms vary depending on the antigen and the form (acute, subacute, chronic) of the disease. They may be cough, dyspnea, chills, fever, weight loss, loss of appetite and general malaise" ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "99909" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Occupational allergic alveolitis" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Occupational allergic alveolitis" ] .
+}
+

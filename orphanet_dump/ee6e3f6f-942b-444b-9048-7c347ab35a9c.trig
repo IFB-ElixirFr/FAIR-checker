@@ -1,0 +1,33 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=447784> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:447784" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "614741" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E74.4" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:447784" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "614741" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E74.4" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "A rare pyruvate metabolism disorder characterized by neonatal onset of a mitochondrial encephalopathy with global developmental delay and the biochemical characteristics of lactic acidosis and increased serum pyruvate with normal lactate/pyruvate ratio. Additional reported manifestations include epilepsy, peripheral neuropathy, hypotonia, nystagmus, extensor plantar responses, hepatomegaly, and craniofacial dysmorphism (such as progressive microcephaly, epicanthus, long philtrum, and thin upper lip)." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "447784" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Mitochondrial pyruvate carrier deficiency" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Mitochondrial pyruvate carrier deficiency" ] .
+}
+

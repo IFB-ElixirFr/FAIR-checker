@@ -1,0 +1,46 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=100045> a ns1:MedicalCondition ;
+        ns1:alternateName "CMTDIC" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "12439" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:100045" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G60.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:100045" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "608323" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G60.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "12439" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "608323" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C1842237" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C1842237" ;
+                ns1:codingSystem "UMLS" ] ;
+        ns1:description "A rare hereditary motor and sensory neuropathy characterized by intermediate motor median nerve conduction velocities (usually between 25 and 60 m/s). It presents with moderately severe, slowly progressive usual clinical features of Charcot-Marie-Tooth disease (muscle weakness and atrophy of the distal extremities, distal sensory loss, reduced or absent deep tendon reflexes, feet deformities, extensor digitorum brevis atrophy). Findings in nerve biopsies include age-dependent axonal degeneration, reduced number of large myelinated fibres, segmental remyelination, and no onion bulbs." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "100045" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Autosomal dominant intermediate Charcot-Marie-Tooth disease type C" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Autosomal dominant intermediate Charcot-Marie-Tooth disease type C" ] .
+}
+

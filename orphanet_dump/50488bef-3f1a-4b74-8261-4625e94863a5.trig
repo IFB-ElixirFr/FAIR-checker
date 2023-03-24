@@ -1,0 +1,34 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=444138> a ns1:MedicalCondition ;
+        ns1:alternateName "PLACK syndrome" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:444138" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "616295" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q82.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "616295" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:444138" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q82.8" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "A rare genetic skin disease characterized by generalized skin peeling, leukonychia, acral punctate keratoses coalescing into focal keratoderma on the weight-bearing areas, angular cheilitis, and knuckle pads with multiple hyperkeratotic micropapules. The skin appears dry and scaly with superficial exfoliation and underlying erythema. Histopathologic examination of affected skin areas shows hyperkeratosis, acanthosis, and intraepidermal clefting with irregular acantholysis. Additional systemic abnormalities are absent." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "444138" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Peeling skin-leukonychia-acral punctate keratoses-cheilitis-knuckle pads syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Peeling skin-leukonychia-acral punctate keratoses-cheilitis-knuckle pads syndrome" ] .
+}
+

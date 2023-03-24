@@ -1,0 +1,34 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=53697> a ns1:MedicalCondition ;
+        ns1:alternateName "GDD" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "8698" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:53697" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "8698" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "166260" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "166260" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:53697" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "Gnathodiaphyseal dysplasia (GDD) is a bone dysplasia characterized by bone fragility, frequent bone fractures at a young age, cemento-osseous lesions of the jaw bones, bowing of tubular bones (tibia and fibula) and diaphyseal sclerosis of long bones associated with generalized osteopenia. GD follows an autosomal dominant mode of transmission." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "53697" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Gnathodiaphyseal dysplasia" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Gnathodiaphyseal dysplasia" ] .
+}
+

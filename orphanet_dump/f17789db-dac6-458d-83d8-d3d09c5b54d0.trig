@@ -1,0 +1,33 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=99169> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "C0344503" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q10.3" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:99169" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0344503" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q10.3" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:99169" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare eyelid malposition disorder characterized by a horizontal fold consisting of redundant skin and underlying pretarsal orbicularis muscle overriding the eyelid margin and causing inward rotation of the eyelashes with potential irritation of the ocular surface. Patients may be asymptomatic or experience foreign body sensation, constant watering, itching, and redness of the eyes. Complications include repeated infections and corneal erosion. The condition is usually bilateral and more commonly affects the lower eyelids." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "99169" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Epiblepharon" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Epiblepharon" ] .
+}
+

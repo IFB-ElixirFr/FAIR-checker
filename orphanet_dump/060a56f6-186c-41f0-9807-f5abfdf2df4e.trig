@@ -1,0 +1,28 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=538869> a ns1:MedicalCondition ;
+        ns1:alternateName "Phemphigoid pyoderma gangrenosum" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "L88" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "L88" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:538869" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:538869" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare subtype of pyoderma gangrenosum disease characterized by grouped vesicles that rapidly spread and coalesce to form large bullae, which evolve into ulcerations that have an erythematous peripheral halo and central necrosis, mainly affecting the upper limbs and face. Lymphoproliferative diseases are frequently associated, thus prognosis is often compromised." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "538869" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Bullous pyoderma gangrenosum" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Bullous pyoderma gangrenosum" ] .
+}
+

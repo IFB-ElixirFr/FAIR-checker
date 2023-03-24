@@ -1,0 +1,48 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=37553> a ns1:MedicalCondition ;
+        ns1:alternateName "Andersen syndrome",
+            "LQT7",
+            "Long QT syndrome type 7" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "C1563715" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "9453" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G72.3" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "170390" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "170390" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:37553" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "9453" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C1563715" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:37553" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G72.3" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "A rare disorder characterized by periodic muscle paralysis, prolongation of the QT interval with a variety of ventricular arrhythmias (leading to predisposition to sudden cardiac death) and characteristic physical features: short stature, scoliosis, low-set ears, hypertelorism, broad nasal root, micrognathia, clinodactyly, brachydactyly and syndactyly." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "37553" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Andersen-Tawil syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Andersen-Tawil syndrome" ] .
+}
+

@@ -1,0 +1,27 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=329967> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:329967" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:329967" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "M12.4" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "M12.4" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "A rare rheumatologic disease characterized by recurrent self-remitting episodes of acute monoarticular arthritis, often with a fixed periodicity, typically affecting the knee or another large joint, which develops an effusion over 12 to 24 hours with only mild to moderate pain and minimal signs of inflammation. Attacks last three to five days and may parallel menses in females. Systemic symptoms are absent, and no joint damage occurs." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "329967" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Intermittent hydrarthrosis" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Intermittent hydrarthrosis" ] .
+}
+

@@ -1,0 +1,30 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=96094> a ns1:MedicalCondition ;
+        ns1:alternateName "Distal duplication 2q",
+            "Telomeric duplication 2q",
+            "Trisomy 2qter" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:96094" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q92.3" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:96094" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q92.3" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "Distal trisomy 2q is a rare chromosomal anomaly, resulting from the partial duplication of the long arm of chromosome 2, characterized by moderate psychomotor delay, mild intellectual disability, facial dysmorphism (high hairline, prominent forehead, hypertelorism, upslanting palpebral fissures, large, low-set and/or posteriorly rotated ears, depressed/broad nasal bridge, prominent nasal tip, thin upper lip vermillion), clino-/camptodactyly and normal or increased body measurements. On occasion genital anomalies (hypospadias, cryptorchidism, shawl scrotum) and short stature may be observed." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "96094" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Distal trisomy 2q" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Distal trisomy 2q" ] .
+}
+

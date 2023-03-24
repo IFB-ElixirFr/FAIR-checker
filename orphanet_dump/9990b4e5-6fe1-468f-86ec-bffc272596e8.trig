@@ -1,0 +1,28 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=158014> a ns1:MedicalCondition ;
+        ns1:alternateName "Destombes-Rosaï-Dorfman disease",
+            "Rosaï-Dorfman-Destombes disease",
+            "SHML",
+            "Sinus histiocytosis with massive lymphadenopathy" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:158014" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "7588" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D76.3" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10063397" ;
+                ns1:codingSystem "MedDRA" ] ;
+        ns1:description "A rare non-Langerhans cell histiocytosis characterized by infiltration of lymph nodes or extranodal tissues by non-malignant histiocytes displaying emperipolesis, a non-destructive phagocytosis of lymphocytes or erythrocytes. Most typical presentation is as a massive cervical lymphadenopathy in adolescents and young adults. Most frequent sites of extranodal disease are skin, soft tissue, bones, paranasal sinuses, orbit, salivary glands, and central nervous system. Symptoms are related to mass effect in the affected organs." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "158014" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Rosaï-Dorfman disease" ] .
+}
+

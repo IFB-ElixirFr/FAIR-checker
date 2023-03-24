@@ -1,0 +1,28 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=488642> a ns1:MedicalCondition ;
+        ns1:alternateName "You-Hoover-Fong syndrome" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:488642" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "616954" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:488642" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "616954" ;
+                ns1:codingSystem "OMIM" ] ;
+        ns1:description "A rare genetic multiple congenital anomalies/dysmorphic syndrome characterized by global developmental delay and intellectual disability, infantile hypotonia, microcephaly, movement disorder, and impaired balance. More variable manifestations are hearing loss, cortical visual impairment, abnormalities of fingers and/or toes, congenital cardiac anomalies, kyphoscoliosis, dysmorphic facial features, abnormal sleep pattern, and seizures, among others." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "488642" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "TELO2-related intellectual disability-neurodevelopmental disorder" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "TELO2-related intellectual disability-neurodevelopmental disorder" ] .
+}
+

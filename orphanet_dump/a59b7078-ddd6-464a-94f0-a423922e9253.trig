@@ -1,0 +1,40 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=247511> a ns1:MedicalCondition ;
+        ns1:alternateName "Autosomal dominant secondary erythrocytosis" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "609820" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "611783" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:247511" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:247511" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D75.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "609820" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D75.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "611783" ;
+                ns1:codingSystem "OMIM" ] ;
+        ns1:description "A rare, genetic, hematologic disease characterized by increased levels of serum hemoglobin, hematocrit and erythrocyte mass, associated with elevated or inappropriately normal erythropoietin serum levels, occurring in various members of a family and with autosomal dominant inheritance." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "247511" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Autosomal dominant secondary polycythemia" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Autosomal dominant secondary polycythemia" ] .
+}
+

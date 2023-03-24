@@ -1,0 +1,27 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=139444> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:139444" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E75.2" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:139444" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E75.2" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "A rare, nonprogressive, neurological disorder marked by intellectual deficit, spasticity and motor retardation associated with characteristic MRI findings of anterior bilateral temporal lobe cysts and multilobar leukoencephalopathy. So far, around 30 cases have been reported in the literature. Onset occurs in the first few months of life. Sensorineural deafness and microcephaly have also been reported. The etiology is unknown but an autosomal recessive mode of inheritance has been suggested." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "139444" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Leukoencephalopathy with bilateral anterior temporal lobe cysts" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Leukoencephalopathy with bilateral anterior temporal lobe cysts" ] .
+}
+

@@ -1,0 +1,34 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=217371> a ns1:MedicalCondition ;
+        ns1:alternateName "Acute infantile liver failure due to synthesis defect of mitochondrial DNA-encoded proteins" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "E88.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E88.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "613070" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:217371" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "613070" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:217371" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare mitochondrial respiratory chain deficiency due to TRMU deficiency leading to mitochondrial tRNA synthesis defect and characterized clinically by transient, but life-threatening acute liver failure episodes." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "217371" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Acute infantile liver failure due to synthesis defect of mtDNA-encoded proteins" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Acute infantile liver failure due to synthesis defect of mtDNA-encoded proteins" ] .
+}
+

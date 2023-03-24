@@ -1,0 +1,28 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=317419> a ns1:MedicalCondition ;
+        ns1:alternateName "T-B- SCID" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:317419" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D81.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:317419" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D81.1" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "T-B- severe combined immunodeficiency (SCID; see this term) is a group of rare monogenic primary immunodeficiency disorders characterized by a lack of functional peripheral T and B lymphocytes, resulting in recurrent early-onset severe respiratory viral, bacterial or fungal infections, diarrhea and failure to thrive. Hypersensitivity to ionizing radiation is a characteristic feature of some of its sub-types." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "317419" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "T-B- severe combined immunodeficiency" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "T-B- severe combined immunodeficiency" ] .
+}
+

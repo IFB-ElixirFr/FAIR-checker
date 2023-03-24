@@ -1,0 +1,38 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=100073> a ns1:MedicalCondition ;
+        ns1:alternateName "NTOS",
+            "Neurogenic TOS",
+            "Neurogenic cervical rib syndrome",
+            "Neurogenic costoclavicular syndrome",
+            "Neurogenic thoracic outlet compression syndrome" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "G54.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:100073" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0751549" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0751549" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G54.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:100073" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "Neurogenic thoracic outlet syndrome (NTOS) is a form of thoracic outlet syndrome (TOS; see this term) that presents with pain, paresthesias and weakness in an upper extremity and is divided into true NTOS and disputed NTOS." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "100073" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Neurogenic thoracic outlet syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Neurogenic thoracic outlet syndrome" ] .
+}
+

@@ -1,0 +1,29 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=97339> a ns1:MedicalCondition ;
+        ns1:alternateName "Cranial dural arteriovenous fistula",
+            "Cranial dural arteriovenous malformations" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "Q28.3" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q28.3" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:97339" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:97339" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare neurovascular malformation characterized by massive dilation of one or more dural sinuses typically associated with arteriovenous shunts. Anatomic types are the lateral type involving the jugular bulb, which presents with minimal symptoms, and the usually symptomatic midline type involving the confluens sinuum (torcular Herophili) and adjacent posterior sinuses. Complications include sinus thrombosis, venous infarction, and cerebral hemorrhage, as well as cardiac failure, macrocrania, and hydrocephalus. Spontaneous regression of the malformation may occur." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "97339" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Dural sinus malformation" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Dural sinus malformation" ] .
+}
+

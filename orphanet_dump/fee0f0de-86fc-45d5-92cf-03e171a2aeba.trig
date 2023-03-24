@@ -1,0 +1,32 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=280832> a ns1:MedicalCondition ;
+        ns1:alternateName "CCAM type 1",
+            "CPAM type 1",
+            "Congenital cystic adenomatoid malformation of the lung type 1",
+            "Congenital cystic adenomatous malformation of the lung type 1",
+            "Congenital cystic disease of the lung type 1" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "Q33.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:280832" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:280832" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q33.0" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "A rare subtype of congenital pulmonary airway malformation characterized by a multicystic mass of non-functioning lung tissue with one or more dominant cysts of 2 to 10 cm in diameter, which may be surrounded by smaller cysts. The lesions have intracystic communications, can be connected to the tracheobronchial tree, and are usually unilateral, involving a single lobe. Small lesions may remain asymptomatic, while most cases present with respiratory distress in the neonatal period or in infancy, or with recurrent respiratory infections later in life. Pulmonary hypoplasia and severe fetal hydrops are rare complications. The condition is associated with an increased risk of pulmonary malignancy, such as bronchoalveolar carcinoma." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "280832" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Congenital pulmonary airway malformation type 1" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Congenital pulmonary airway malformation type 1" ] .
+}
+

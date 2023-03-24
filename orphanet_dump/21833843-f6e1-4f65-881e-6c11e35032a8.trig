@@ -1,0 +1,49 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=90020> a ns1:MedicalCondition ;
+        ns1:alternateName "G-PDC",
+            "Guam disease",
+            "Guam parkinsonism-dementia complex",
+            "Lytico-Bodig disease" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "C0543859" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "9239" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G12.2" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "105500" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0543859" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:90020" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G12.2" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "9239" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "105500" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:90020" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare neurodegenerative disease characterized by extrapyramidal symptoms (rigidity, tremor, bradykinesia) and dementia, typically beginning in the fifth or sixth decade of life and progressing to a vegetative state with pelvicrural flexion contractures within few years. Oculomotor signs, olfactory dysfunction, and autonomic disturbances may also be observed. Neuropathological hallmarks are frontotemporally accentuated cerebral atrophy, as well as neurofibrillary tangles and neuronal loss in a characteristic distribution in cortical and subcortical regions. The disease is endemic to the Pacific island of Guam." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "90020" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Parkinson-dementia complex of Guam" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Parkinson-dementia complex of Guam" ] .
+}
+

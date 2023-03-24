@@ -1,0 +1,24 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=497737> a ns1:MedicalCondition ;
+        ns1:alternateName "Epidermal nevus with epidermolytic hyperkeratosis",
+            "Epidermolytic epidermal nevus",
+            "Epidermolytic verrucous epidermal nevus" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:497737" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:497737" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare nevus characterized by single or multiple non-inflammatory verrucous skin lesions composed of keratinocytes, often present from birth, and distributed along the lines of Blaschko. Histologically, the lesions show features of epidermolytic hyperkeratosis with perinuclear vacuolization of keratinocytes of the upper epidermis with coarse keratohyaline granules. There is no extra-cutaneous involvement. Affected individuals are at risk of parenting a child with bullous ichthyosiform erythroderma." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "497737" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Epidermolytic nevus" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Epidermolytic nevus" ] .
+}
+

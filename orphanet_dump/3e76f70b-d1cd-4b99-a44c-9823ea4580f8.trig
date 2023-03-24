@@ -1,0 +1,47 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=79233> a ns1:MedicalCondition ;
+        ns1:alternateName "HPRT deficiency, grade I",
+            "HPRT partial deficiency",
+            "HPRT-related gout",
+            "HPRT-related hyperuricemia",
+            "HPRT1 partial deficiency",
+            "Hypoxanthine guanine phosphoribosyltransferase 1 partial deficiency",
+            "Hypoxanthine guanine phosphoribosyltransferase deficiency, grade I",
+            "Kelley-Seegmiller syndrome" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "E79.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E79.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:79233" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "300323" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "300323" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:79233" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0268117" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0268117" ;
+                ns1:codingSystem "UMLS" ] ;
+        ns1:description "Kelley-Seegmiller syndrome (KSS) is the mildest form of hypoxanthine-guanine phosphoribosyltransferase (HPRT) deficiency (see this term), a hereditary disorder of purine metabolism, and is associated with uric acid overproduction (UAO) leading to urolithiasis, and early-onset gout." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "79233" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Hypoxanthine guanine phosphoribosyltransferase partial deficiency" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Hypoxanthine guanine phosphoribosyltransferase partial deficiency" ] .
+}
+

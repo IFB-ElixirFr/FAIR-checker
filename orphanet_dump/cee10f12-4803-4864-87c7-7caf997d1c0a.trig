@@ -1,0 +1,40 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=99994> a ns1:MedicalCondition ;
+        ns1:alternateName "Causalgia" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "10064335" ;
+                ns1:codingSystem "MedDRA" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:99994" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0007462" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0007462" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10064335" ;
+                ns1:codingSystem "MedDRA" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G90.6" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:99994" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G90.6" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "Complex regional pain syndrome type 2 (CRPS2), or causalgia is a form of complex regional pain syndrome that develops after damage to a peripheral nerve and is characterized by spontaneous pain, allodynia and hyperalgesia , not necessarily limited to the territory of the injured nerve, as well as at some point, edema, changes in skin blood flow or sudomotor dysfunction in the pain area." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "99994" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Complex regional pain syndrome type 2" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Complex regional pain syndrome type 2" ] .
+}
+

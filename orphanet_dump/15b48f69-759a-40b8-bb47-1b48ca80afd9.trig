@@ -1,0 +1,35 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=465508> a ns1:MedicalCondition ;
+        ns1:alternateName "Symptomatic form of HFE-related hereditary hemochromatosis",
+            "Symptomatic form of classic hemochromatosis" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "235200" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "235200" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E83.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:465508" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:465508" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E83.1" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "Symptomatic form of hemochromatosis type 1 is a rare, hereditary hemochromatosis characterized by inappropriately regulated intestinal iron absorption which leads to excessive iron storage in various organs and manifests with a wide range of signs and symptoms, including abdominal pain, weakness, lethargy, weight loss, elevated serum aminotransferase levels, increase in skin pigmentation, and/or arthropathy in the metacarpophalangeal joints. Other commonly associated manifestations include hepatomegaly, cirrhosis, liver fibrosis, hepatocellular carcinoma, restrictive cardiomyopathy and/or diabetes mellitus." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "465508" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Symptomatic form of hemochromatosis type 1" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Symptomatic form of hemochromatosis type 1" ] .
+}
+

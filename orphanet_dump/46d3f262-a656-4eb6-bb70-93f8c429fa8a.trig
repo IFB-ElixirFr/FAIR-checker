@@ -1,0 +1,36 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=504530> a ns1:MedicalCondition ;
+        ns1:alternateName "CID due to Moesin deficiency",
+            "MSN-related combined immunodeficiency",
+            "X-linked Moesin-associated immunodeficiency" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:504530" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "300988" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "300988" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D81.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:504530" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D81.8" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "A rare combined T and B cell immunodeficiency characterized by childhood onset of recurrent bacterial and varicella zoster virus infections. Eczema and recurrent molluscum have also been reported. Laboratory studies reveal profound and persistent lymphopenia, hypogammaglobulinemia, poor immune response to vaccine antigens, and fluctuating neutropenia." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "504530" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Combined immunodeficiency due to Moesin deficiency" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Combined immunodeficiency due to Moesin deficiency" ] .
+}
+

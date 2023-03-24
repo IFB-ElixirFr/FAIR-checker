@@ -1,0 +1,41 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=98893> a ns1:MedicalCondition ;
+        ns1:alternateName "CMD1B",
+            "MDC1B" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "604801" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "604801" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C1858118" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G71.2" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G71.2" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C1858118" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:98893" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:98893" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "Congenital muscular dystrophy type 1B is a rare, genetic neuromuscular disorder characterized by proximal and symmetrical muscle weakness (particularly of neck, sternomastoid, facial and diaphragm muscles), spinal rigidity, joint contractures (Achilles tendon, elbows, hands), generalized muscle hypertrophy and early respiratory failure (usually in the first decade of life). Patients typically present delayed motor milestones and grossly elevated serum creatine kinase levels, and with disease progression, forced expiratory abdominal squeeze and nocturnal hypoventilation." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "98893" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Congenital muscular dystrophy type 1B" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Congenital muscular dystrophy type 1B" ] .
+}
+

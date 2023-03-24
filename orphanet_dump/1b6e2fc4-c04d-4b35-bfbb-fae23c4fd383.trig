@@ -1,0 +1,40 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=209959> a ns1:MedicalCondition ;
+        ns1:alternateName "Endophthalmitis phacoanaphylactica",
+            "Lens-induced endophthalmitis",
+            "Lens-induced iridocyclitis",
+            "Lens-induced uveitis",
+            "Phacoallergic endophthalmitis",
+            "Phacoantigenic endophthalmitis",
+            "Phako-anaphylactic endophthalmitis" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "H20.2" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:209959" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "H20.2" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0339320" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:209959" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0339320" ;
+                ns1:codingSystem "UMLS" ] ;
+        ns1:description "A rare ophthalmic disorder characterized by a zonal granulomatous inflammatory reaction centered around the lens secondary to its traumatic rupture. Signs and symptoms include photophobia, ocular irritation or pain, blurred vision, redness, mutton-fat keratic precipitates, posterior synechiae, and sometimes hypopyon. Intraocular pressure may be elevated due to blockage of the trabecular meshwork by inflammatory cells or lens material." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "209959" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Phacoanaphylactic uveitis" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Phacoanaphylactic uveitis" ] .
+}
+

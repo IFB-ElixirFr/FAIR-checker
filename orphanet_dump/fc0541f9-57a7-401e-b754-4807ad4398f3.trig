@@ -1,0 +1,28 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=247718> a ns1:MedicalCondition ;
+        ns1:alternateName "IMAM" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "G72.4" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G72.4" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:247718" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:247718" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare idiopathic inflammatory myopathy characterized by diffuse destructive infiltration of CD68+ macrophages into the fascia rather than muscle fibers in muscle biopsies, proximal muscle weakness and myalgia with or without scaly dermatomyositis-like or atypical non-dermatomyositis-like skin lesions, elevation of creatine kinase levels and thickening of muscle fascia in muscle MRI." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "247718" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Inflammatory myopathy with abundant macrophages" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Inflammatory myopathy with abundant macrophages" ] .
+}
+

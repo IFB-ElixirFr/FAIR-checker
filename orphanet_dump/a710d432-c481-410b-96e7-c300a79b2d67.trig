@@ -1,0 +1,27 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=289573> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "12632" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:289573" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "12632" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:289573" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "Multiple mitochondrial dysfunctions syndrome describes a group of rare inborn errors of energy metabolism due to defects in mitochondrial [4Fe-4S] protein assembly. Patients present with a neonatal/infancy onset of metabolic lactic acidosis (that may be associated with hyperglycinemia and other abnormal metabolic testing results), muscular hypotonia, absence of psychomotor development or developmental regression, as well as abnormal neuroimaging findings (including leukodystrophy, brain developmental defects, white matter abnormalities, cerebral atrophy), and other variable clinical features (e.g., optic atrophy, cardiomyopathy, pulmonary hypertension, seizures, and dysmorphic features). Early fatal outcome is usual." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "289573" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Multiple mitochondrial dysfunctions syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Multiple mitochondrial dysfunctions syndrome" ] .
+}
+

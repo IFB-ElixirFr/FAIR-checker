@@ -1,0 +1,35 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=352596> a ns1:MedicalCondition ;
+        ns1:alternateName "PMED",
+            "Progressive myoclonus epilepsy with dystonia" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "G40.3" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "615338" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G40.3" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "615338" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:352596" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:352596" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "Progressive myoclonic epilepsy with dystonia is a rare, genetic epilepsy syndrome characterized by neonatal or early infantile onset of severe, progressive, typically frequent and prolonged myoclonic seizures that are refractory to treatment, associated with localized and/or generalized paroxysmal dystonia (which later becomes persistent). Other features include severe hypotonia, hemiplegia, psychomotor regression (or lack of psychomotor development) and progressive cerebral and cerebellar atrophy, with affected individuals becoming progressively non-reactive to environmental stimuli." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "352596" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Progressive myoclonic epilepsy with dystonia" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Progressive myoclonic epilepsy with dystonia" ] .
+}
+

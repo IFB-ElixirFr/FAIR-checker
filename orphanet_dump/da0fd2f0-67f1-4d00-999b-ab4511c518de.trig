@@ -1,0 +1,32 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=1532> a ns1:MedicalCondition ;
+        ns1:alternateName "Cerebellotrigeminal-dermal dysplasia syndrome",
+            "Craniosynostosis-alopecia-brain defect syndrome" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "C0795959" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "601853" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "229" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:1532" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q07.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "1586" ;
+                ns1:codingSystem "GARD" ] ;
+        ns1:description "A rare neurocutaneous syndrome characterized by the association of cerebellum (rhombencephalosynapsis), cranial nerves (trigeminal anesthesia), and scalp (alopecia) abnormalities. Other features observed in patients were craniosynostosis, midfacial hypoplasia, bilateral corneal opacities, low-set ears, short stature, moderate intellectual impairment and ataxia. Hyperactivity, depression, self-injurious behaviour and bipolar disorder have also been reported." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "1532" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Gómez-López-Hernández syndrome" ] .
+}
+

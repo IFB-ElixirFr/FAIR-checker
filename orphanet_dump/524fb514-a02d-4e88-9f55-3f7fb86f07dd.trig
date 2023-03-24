@@ -1,0 +1,22 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=398073> a ns1:MedicalCondition ;
+        ns1:alternateName "PWS-like" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:398073" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:398073" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "Prader-Willi-like syndrome is a rare, genetic, endocrine disease characterized by manifestations of a Prader-Willi syndrome phenotype (including obesity, hyperphagia, hypotonia, psychomotor delay, intellectual disability, small hands/feet, hypogonadism, growth hormone deficiency and characteristic facial features) ocurring in the absence of 15q11-q13 genomic abnormalities." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "398073" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Prader-Willi-like syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Prader-Willi-like syndrome" ] .
+}
+

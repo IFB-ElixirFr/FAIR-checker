@@ -1,0 +1,28 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=370039> a ns1:MedicalCondition ;
+        ns1:alternateName "Schauder syndrome" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:370039" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q82.5" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:370039" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q82.5" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "A rare nevus disorder characterized by the presence of epidermal nevi consisting of depigmented hypertrichosis manifesting with long, soft, white hair which grows from dilated follicles and follows Blaschko's lines, typically located on the scalp, neck, face, trunk and/or limbs. Association with hyperpigmented, hyperkeratotic linear epidermal nevi, macrocephaly, body asymmetry, sacral pit and koilonychia, as well as skeletal, ocular, and neurological abnormalities, has also been reported." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "370039" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Angora hair nevus" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Angora hair nevus" ] .
+}
+

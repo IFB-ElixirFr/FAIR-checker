@@ -1,0 +1,52 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=93926> a ns1:MedicalCondition ;
+        ns1:alternateName "MIH",
+            "MIH type HPE",
+            "MIHF",
+            "MIHV",
+            "Middle interhemispheric fusion variant",
+            "Middle interhemispheric variant of holoprosencephaly",
+            "Syntelencephaly" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "Q04.2" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:93926" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q04.2" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "157170" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "610829" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "609637" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "610829" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "609637" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "157170" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:93926" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "Midline interhemispheric variant of holoprosencephaly (MIH) or syntelencephaly is a form of holoprosencephaly (HPE; see this term) characterized by non-separation of the posterior frontal and parietal lobes, normally-formed callosal genu and splenium, absence of the callosal body, normally-separated hypothalamus and lentiform nucleus, and frequent heterotopic gray matter." ;
+        ns1:epidemiology "Prevalence : 1-9 / 100 000" ;
+        ns1:identifier "93926" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Midline interhemispheric variant of holoprosencephaly" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Midline interhemispheric variant of holoprosencephaly" ] .
+}
+

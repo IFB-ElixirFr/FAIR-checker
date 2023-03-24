@@ -1,0 +1,34 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=102012> a ns1:MedicalCondition ;
+        ns1:alternateName "Pure HSP",
+            "Pure SPG",
+            "Pure familial spastic paraplegia",
+            "Uncomplicated HSP",
+            "Uncomplicated SPG",
+            "Uncomplicated familial spastic paraplegia",
+            "Uncomplicated hereditary spastic paraplegia" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "C0393555" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:102012" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0393555" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:102012" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "" ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "102012" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Pure hereditary spastic paraplegia" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Pure hereditary spastic paraplegia" ] .
+}
+

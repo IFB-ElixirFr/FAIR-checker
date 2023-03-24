@@ -1,0 +1,54 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=47045> a ns1:MedicalCondition ;
+        ns1:alternateName "FCAS",
+            "FCU",
+            "Familial cold autoinflammatory syndrome" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "10064570" ;
+                ns1:codingSystem "MedDRA" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:47045" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10064570" ;
+                ns1:codingSystem "MedDRA" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0343068" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "120100" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "9535" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0343068" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "L50.2" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "9535" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:47045" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "L50.2" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "120100" ;
+                ns1:codingSystem "OMIM" ] ;
+        ns1:description "Familial cold urticaria (FCAS) is the mildest form of cryopyrin-associated periodic syndrome (CAPS; see this term) and is characterized by recurrent episodes of urticaria-like skin rash triggered by exposure to cold associated with low-grade fever, general malaise, eye redness and arthralgia/myalgia." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "47045" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Familial cold urticaria" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Familial cold urticaria" ] .
+}
+

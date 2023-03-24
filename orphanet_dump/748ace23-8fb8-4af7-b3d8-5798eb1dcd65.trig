@@ -1,0 +1,39 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=199279> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:199279" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "206550" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D17.9" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C1859784" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:199279" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C1859784" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "206550" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D17.9" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "Familial angiolipomatosis is a rare, genetic, subcutaneous tissue disorder characterized by the presence of benign, usually multiple, subcutaneous tumors composed of adipose tissue and blood vessels, typically manifesting as yellow, firm, circumscribed, 1-4 cm in diameter tumors located in the arms, legs and trunk, with deep extension of the lesions between muscles, tendons and joint capsules (without infiltration of these structures), in several members of a single family. Tumors may be tender or mildly painful when palpated and do not regress spontaneously." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "199279" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Familial angiolipomatosis" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Familial angiolipomatosis" ] .
+}
+

@@ -1,0 +1,51 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=2182> a ns1:MedicalCondition ;
+        ns1:alternateName "Bickers-Adams syndrome",
+            "HSAS",
+            "X-linked HSAS",
+            "X-linked acqueductal stenosis",
+            "X-linked hydrocephalus",
+            "X-linked hydrocephalus with stenosis of aqueduct of Sylvius" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "307000" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0265216" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:2182" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "434" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0265216" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "434" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q03.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q03.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:2182" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "307000" ;
+                ns1:codingSystem "OMIM" ] ;
+        ns1:description "A congenital, X-linked, clinical subtype of L1 syndrome characterized by severe hydrocephalus often of prenatal onset, adducted thumbs, spasticity (mostly evidenced by brisk tendon reflexes and extensor plantar responses) and moderate to severe intellectual disability. This subtype represents the severe end of the L1 syndrome spectrum and is associated with poor prognosis." ;
+        ns1:epidemiology "Prevalence : 1-9 / 100 000" ;
+        ns1:identifier "2182" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Hydrocephalus with stenosis of the aqueduct of Sylvius" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Hydrocephalus with stenosis of the aqueduct of Sylvius" ] .
+}
+

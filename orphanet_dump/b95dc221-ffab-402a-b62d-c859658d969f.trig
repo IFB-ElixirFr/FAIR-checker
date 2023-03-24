@@ -1,0 +1,28 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=575553> a ns1:MedicalCondition ;
+        ns1:alternateName "CARASAL" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:575553" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "I67.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "I67.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:575553" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare genetic cerebral small vessel disease characterized by an adult-onset primary microangiopathy with severe atherosclerosis of arterioles and secondary leukoencephalopathy. Patients may present with migraine, transient ischemic attacks, stroke with central facial palsy, cognitive dysfunction with impaired concentration, dementia, depression, movement disorder, vertigo, dysphagia, dysarthria, sicca syndrome, impaired REM sleep, and therapy-resistant hypertension, among others. Brain MRI typically shows a leukoencephalopathy that is disproportionately severe and extensive compared to the clinical disease." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "575553" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Cathepsin A-related arteriopathy-strokes-leukoencephalopathy" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Cathepsin A-related arteriopathy-strokes-leukoencephalopathy" ] .
+}
+

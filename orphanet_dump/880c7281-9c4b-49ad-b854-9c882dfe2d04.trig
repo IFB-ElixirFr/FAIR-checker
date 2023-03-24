@@ -1,0 +1,27 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=139414> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:139414" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:139414" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C4476799" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C4476799" ;
+                ns1:codingSystem "UMLS" ] ;
+        ns1:description "Congenital panfollicular nevus is a rare, benign, skin tumor disorder characterized by the presence of congenital, large (few centimeters), elevated, well-circumscribed, pink-tan, multinodular, non-ulcerative, bosselated-surface skin lesions located on the neck, scalp or hand and which enlarge with time. Histologically, hamartomatous proliferation containing irregularly arranged, malformed hair follicles in various stages of development, surrounded by fibrous tissue and densely distributed within the dermis is observed." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "139414" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Congenital panfollicular nevus" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Congenital panfollicular nevus" ] .
+}
+

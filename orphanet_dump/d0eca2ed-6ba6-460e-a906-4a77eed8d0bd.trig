@@ -1,0 +1,45 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=723> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "J17.3*" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "J17.3*" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "4386" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "4386" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:723" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "B59+" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C1535939" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C1535939" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:723" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "B59+" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "Human pneumocystosis is caused by an infectious agent, which (after recent nomenclature and taxonomy revisions) is now classed as the fungus <i>Pneumocystis jiroveci</i>. The prevalence is unknown. <i>Pneumocystis jiroveci</i> is an opportunistic infectious agent, developing in immunosuppressed patients. It is an air-borne infection, localised to the lungs. However, extrapulmonary involvement is seen in AIDS patients. The disease manifests progressively with coughing, respiratory problems (dyspnea) and fever, followed by acute respiratory insufficiency and death within a few weeks in untreated cases. The most reliable diagnostic method is bronchoalveolar lavage. The treatment of choice is cotrimoxazole." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "723" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Pneumocystosis" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Pneumocystosis" ] .
+}
+

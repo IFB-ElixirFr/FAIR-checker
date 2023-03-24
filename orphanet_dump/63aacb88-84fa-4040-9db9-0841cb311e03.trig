@@ -1,0 +1,31 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=178487> a ns1:MedicalCondition ;
+        ns1:alternateName "Adult intestinal colonization botulism",
+            "Adult intestinal toxemia botulism",
+            "Adult intestinal toxin-mediated botulism",
+            "Infant-like botulism" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "A05.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:178487" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "A05.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:178487" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A very rare form of botulism, a rare acquired neuromuscular junction disease with descending flaccid paralysis caused by botulinum neurotoxins (BoNTs), and is due to intestinal colonization by <i>Clostridium botulinum</i> leading to toxin-mediated infection with toxemia." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "178487" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Adult intestinal botulism" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Adult intestinal botulism" ] .
+}
+

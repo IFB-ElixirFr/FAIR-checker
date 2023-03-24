@@ -1,0 +1,29 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=459074> a ns1:MedicalCondition ;
+        ns1:alternateName "7q36.3 microduplication syndrome",
+            "Dup(7)(q36.3)" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:459074" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q04.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q04.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:459074" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare genetic multiple congenital anomalies/dysmorphic syndrome characterized by agenesis of the corpus callosum, borderline or mild intellectual disability, macrocephaly, and dysmorphic facial features (broad forehead, widely spaced eyes). Chiari type I malformation has also been reported in association." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "459074" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Corpus callosum agenesis-macrocephaly-hypertelorism syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Corpus callosum agenesis-macrocephaly-hypertelorism syndrome" ] .
+}
+

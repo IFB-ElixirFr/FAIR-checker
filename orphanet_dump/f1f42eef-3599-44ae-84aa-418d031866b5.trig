@@ -1,0 +1,47 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=1959> a ns1:MedicalCondition ;
+        ns1:alternateName "Autoimmune hemolytic anemia and autoimmune thrombocytopenia",
+            "Immune pancytopenia" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "D69.3" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "6389" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0272126" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:1959" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D69.3" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "6389" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0272126" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10053873" ;
+                ns1:codingSystem "MedDRA" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10053873" ;
+                ns1:codingSystem "MedDRA" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:1959" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare chronic hematologic disorder characterized by the simultaneous or sequential association of autoimmune hemolytic anemia (AIHA; a disorder in which auto-antibodies are directed against red blood cells causing anemia of varying degrees of severity) with immune thrombocytopenic purpura (ITP; a coagulation disorder in which auto-antibodies are directed against platelets causing hemorrhagic episodes) and occasionally autoimmune neutropenia, in the absence of a known underlying etiology." ;
+        ns1:epidemiology "Prevalence : 1-9 / 1 000 000" ;
+        ns1:identifier "1959" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Evans syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Evans syndrome" ] .
+}
+

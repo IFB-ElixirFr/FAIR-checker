@@ -1,0 +1,33 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=544469> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "617481" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:544469" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:544469" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q07.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "617481" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q07.8" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "A rare genetic syndromic intellectual disability characterized by infantile onset of global developmental delay and profound intellectual disability in association with a heterogeneous spectrum of manifestations, such as features of lower motor neuron disease, hypotonia, spasticity, contractures, seizures, respiratory insufficiency, and optic atrophy, among others. Dysmorphic craniofacial features include microcephaly, tall forehead, bitemporal narrowing, flat nasal bridge, low-set ears, and high-arched palate. Brain imaging may show cerebral and cerebellar atrophy, delayed myelination, and thin corpus callosum." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "544469" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "PRUNE1-related neurological syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "PRUNE1-related neurological syndrome" ] .
+}
+

@@ -1,0 +1,33 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=247820> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:247820" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "613573" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q82.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "613573" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q82.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:247820" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "Ectodermal dysplasia-syndactyly syndrome is a rare, genetic ectodermal dysplasia syndrome characterized by sparse to absent scalp hair, eyebrows, and eyelashes (with pili torti when present), widely spaced, conical-shaped teeth with peg-shaped, conical crowns and enamel hypoplasia and palmoplantar hyperkeratosis, associated with partial cutaneous syndactyly in hands and feet." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "247820" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Ectodermal dysplasia-pili torti-cutaneous syndactyly syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Ectodermal dysplasia-pili torti-cutaneous syndactyly syndrome" ] .
+}
+

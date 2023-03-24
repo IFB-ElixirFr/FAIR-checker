@@ -1,0 +1,28 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=102381> a ns1:MedicalCondition ;
+        ns1:alternateName "AML and myelodysplastic syndromes related to topoisomerase type 2 inhibitor" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "C92.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:102381" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:102381" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C92.0" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "A subgroup of therapy-related myeloid neoplasms (t-MN), associated with treatment of an unrelated neoplastic disease with cytotoxic agents, like etoposid, doxorubicin, daunorubicin and others. The neoplastic cells often show rearrangements involving the mixed lineage leukemia gene at 11q23. This subgroup of t-MN is typically associated with overt leukemia, without preceding myelodysplastic syndrome, developing 2-3 years after exposure, presenting with non-specific symptoms related to ineffective hematopoesis (fatigue, bleeding and bruising, recurrent infections, bone pain) and/or extramedullary site involvement." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "102381" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Acute myeloid leukemia and myelodysplastic syndromes related to topoisomerase type 2 inhibitor" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Acute myeloid leukemia and myelodysplastic syndromes related to topoisomerase type 2 inhibitor" ] .
+}
+

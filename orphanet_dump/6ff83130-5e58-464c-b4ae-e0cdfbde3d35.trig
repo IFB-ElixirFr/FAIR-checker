@@ -1,0 +1,35 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=875> a ns1:MedicalCondition ;
+        ns1:alternateName "Cardiac tumor of child",
+            "Heart tumor of child" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "C38.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C38.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:875" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D15.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D15.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:875" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "Cardiac tumours are benign or malignant neoplasms arising primarily in the inner lining, muscle layer, or the surrounding pericardium of the heart. They can be primary or metastatic." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "875" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Primary pediatric heart tumor" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Primary pediatric heart tumor" ] .
+}
+

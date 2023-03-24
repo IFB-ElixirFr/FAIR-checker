@@ -1,0 +1,24 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=231457> a ns1:MedicalCondition ;
+        ns1:alternateName "Acute panautonomic GBS",
+            "Acute panautonomic Guillain-Barré syndrome",
+            "Acute panautonomic neuropathy" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "C2315246" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G61.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:231457" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare variant of Guillain-Barré syndrome characterized by acute post-ganglionic sympathetic and parasympathetic failure presenting several weeks after acute infection with gastrointestinal symptoms (abdominal pain, vomiting, constipation, diarrhea, gastroparesis, ileus), orthostatic hypotension, erectile dysfunction, urinary frequency, urgency or retention, vasomotor instability with acrocyanosis and reduced salivation, lacrimation and sweating." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "231457" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Acute pandysautonomia" ] .
+}
+

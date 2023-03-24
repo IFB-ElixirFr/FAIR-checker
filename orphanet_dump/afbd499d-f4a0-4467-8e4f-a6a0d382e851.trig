@@ -1,0 +1,28 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=93952> a ns1:MedicalCondition ;
+        ns1:alternateName "MRXSH" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "300423" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:93952" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:93952" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "300423" ;
+                ns1:codingSystem "OMIM" ] ;
+        ns1:description "X-linked intellectual disability, Hedera type is a rare X-linked intellectual disability syndrome characterized by an onset in infancy of delayed motor and speech milestones, generalized tonic-clonic seizures and drop attacks, and mild to moderate intellectual disability. Additional, less common manifestations include scoliosis, ataxia (resulting in progressive gait disturbance), and bilateral pes planovalgus. Physical appearance is normal with no dysmorphic features reported." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "93952" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "X-linked intellectual disability, Hedera type" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "X-linked intellectual disability, Hedera type" ] .
+}
+

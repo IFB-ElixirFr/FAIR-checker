@@ -1,0 +1,34 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=35078> a ns1:MedicalCondition ;
+        ns1:alternateName "T-B+ SCID due to JAK3 deficiency" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "D81.2" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "600802" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:35078" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "600802" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D81.2" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:35078" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "Severe combined immunodeficiency (SCID) T-B+ due to JAK3 deficiency is a form of SCID (see this term) characterized by severe and recurrent infections, associated with diarrhea and failure to thrive." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "35078" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "T-B+ severe combined immunodeficiency due to JAK3 deficiency" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "T-B+ severe combined immunodeficiency due to JAK3 deficiency" ] .
+}
+

@@ -1,0 +1,22 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=210584> a ns1:MedicalCondition ;
+        ns1:alternateName "Spindle cell hemangioendothelioma" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:210584" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D18.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C1304508" ;
+                ns1:codingSystem "UMLS" ] ;
+        ns1:description "Spindle cell hemangioma (SCH), also known as spindle cell hemangioendothelioma, is a rare benign vascular tumor either solitary or multiple, characterized by cavernous blood vessels separated by spindle cells reminiscent of those in Kaposi’s sarcoma and located in the dermis and subcutis." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "210584" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Spindle cell hemangioma" ] .
+}
+

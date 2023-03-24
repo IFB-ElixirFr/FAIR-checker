@@ -1,0 +1,66 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=602> a ns1:MedicalCondition ;
+        ns1:alternateName "DMRV",
+            "Distal myopathy with rimmed vacuoles",
+            "Distal myopathy, Nonaka type",
+            "HIBM2",
+            "Hereditary inclusion body myopathy type 2",
+            "IBM2",
+            "Inclusion body myopathy type 2",
+            "Nonaka myopathy",
+            "Quadriceps-sparing myopathy" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:602" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "9493" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "605820" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G71.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C1853926" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:602" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C536816" ;
+                ns1:codingSystem "MeSH" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "605820" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C536816" ;
+                ns1:codingSystem "MeSH" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C1853926" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G71.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "617158" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "617158" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "9493" ;
+                ns1:codingSystem "GARD" ] ;
+        ns1:description "GNE myopathy is a rare autosomal recessive distal myopathy characterized by early adult-onset, slowly to moderately progressive distal muscle weakness that preferentially affects the tibialis anterior muscle and that usually spares the quadriceps femoris. Muscle biopsy reveals presence of rimmed vacuoles." ;
+        ns1:epidemiology "Prevalence : 1-9 / 100 000" ;
+        ns1:identifier "602" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "GNE myopathy" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "GNE myopathy" ] .
+}
+

@@ -1,0 +1,31 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=52759> a ns1:MedicalCondition ;
+        ns1:alternateName "Systemic vasculitis" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "D056647" ;
+                ns1:codingSystem "MeSH" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0042384" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:52759" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10036023" ;
+                ns1:codingSystem "MedDRA" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10047115" ;
+                ns1:codingSystem "MedDRA" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D014657" ;
+                ns1:codingSystem "MeSH" ] ;
+        ns1:description "Vasculitis represents a clinically heterogenous group of diseases of multifactorial etiology characterized by inflammation of either large-sized vessels (large-vessel vasculitis, e.g. Giant-cell arteritis and Takayasu arteritis; see these terms), medium-sized vessels (medium-vessel vasculitis e.g. polyarteritis nodosa and Kawasaki disease; see these terms), or small-sized vessels (small-vessel vasculitis, e.g. granulomatosis with polyangiitis, microscopic polyangiitis, immunoglobulin A vasculitis, and cutaneous leukocytoclastic angiitis; see these terms). Vasculitis occurs at any age, may be acute or chronic, and manifests with general symptoms such as fever, weight loss and fatigue, as well as more specific clinical signs depending on the type of vessels and organs affected. The degree of severity is variable, ranging from life or sight threatening disease (e.g. Behçet disease, see this term) to relatively minor skin disease." ;
+        ns1:epidemiology "Prevalence : 1-9 / 100 000" ;
+        ns1:identifier "52759" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Vasculitis" ] .
+}
+

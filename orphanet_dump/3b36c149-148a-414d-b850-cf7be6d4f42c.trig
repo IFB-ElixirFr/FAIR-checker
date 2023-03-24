@@ -1,0 +1,28 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=251940> a ns1:MedicalCondition ;
+        ns1:alternateName "DIA/DIG" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "D33.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:251940" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:251940" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D33.0" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "Desmoplastic infantile astrocytoma/ganglioglioma are mixed neuronal-glial tumors representing a histological spectrum of the same tumor. They are usually supratentorially located, large, cystic masses with a peripheral solid component, characterized by prominent desmoplastic stroma and pleomorphic populations of neoplastic cells with either astrocytic or ganglionic differentiation and poorly differentiated cells in variable proportions. They usually present in the first 18 months of age with rapid head growth, bulging anterior fontanel and bone structures over the tumor, signs of raised intracranial pressure (headache, vomiting, papilledema), focal neurological signs and sometimes seizures." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "251940" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Desmoplastic infantile astrocytoma/ganglioglioma" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Desmoplastic infantile astrocytoma/ganglioglioma" ] .
+}
+

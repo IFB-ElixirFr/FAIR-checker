@@ -1,0 +1,29 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=1702> a ns1:MedicalCondition ;
+        ns1:alternateName "Non-distal duplication 13q",
+            "Non-telomeric trisomy 13q" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:1702" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q92.3" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:1702" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q92.3" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "Non-distal trisomy 13q is a rare chromosomal anomaly disorder, resulting from the partial duplication of the proximal long arm of chromosome 13, with a highly variable phenotype principally characterized by increased polymorphonuclear leucocyte projections and persistence of fetal hemoglobin, as well as growth and developmental delay and craniofacial dysmorphism (incl. microcephaly, depressed nasal bridge, stubby nose, low-set, malformed ears, cleft lip/palate, micrognathia). Strabismus, clinodactyly and undescended testes in males may also be associated." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "1702" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Non-distal trisomy 13q" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Non-distal trisomy 13q" ] .
+}
+

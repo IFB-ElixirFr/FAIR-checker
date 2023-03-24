@@ -1,0 +1,35 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=3337> a ns1:MedicalCondition ;
+        ns1:alternateName "DeToni-Debré-Fanconi syndrome",
+            "Primary Fanconi renal syndrome" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:3337" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "613388" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "615605" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E72.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "9118" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "134600" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "618913" ;
+                ns1:codingSystem "OMIM" ] ;
+        ns1:description "A rare generalized, genetic disorder of proximal tubular transport characterized by excessive urine output with loss of low molecular weight solutes (amino acids, glucose, low-molecular weight proteins, organic acids, carnitine, calcium, phosphate, potassium, bicarbonate) and water, and which can be life threatening." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "3337" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Primary Fanconi renotubular syndrome" ] .
+}
+

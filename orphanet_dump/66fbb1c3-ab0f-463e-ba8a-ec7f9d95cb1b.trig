@@ -1,0 +1,27 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=85317> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "Q87.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:85317" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:85317" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q87.8" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "A rare genetic multiple congenital anomalies/dysmorphic syndrome characterized by moderate intellectual disability, dysmorphic facial features (such as prominent glabella, synophrys, and prognathism), generalized hirsutism, bilateral single palmar creases, and seizures. Additional reported manifestations include slowly progressive neurological deterioration with muscular weakness and impaired gait and balance, as well as hypogammaglobulinemia with specific absence of plasma and/or secretory IgA, among others. Brain imaging may show mild cerebellar atrophy and thin corpus callosum." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "85317" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "X-linked intellectual disability-hypogammaglobulinemia-progressive neurological deterioration syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "X-linked intellectual disability-hypogammaglobulinemia-progressive neurological deterioration syndrome" ] .
+}
+

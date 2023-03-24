@@ -1,0 +1,35 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=488333> a ns1:MedicalCondition ;
+        ns1:alternateName "Autosomal dominant Charcot-Marie-Tooth disease type 2 due to HARS mutation",
+            "CMT2W" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "616625" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "616625" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:488333" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G60.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G60.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:488333" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare predominantly axonal hereditary motor and sensory neuropathy characterized by a broad phenotypic spectrum of slowly progressive signs and symptoms mainly affecting the lower limbs. Most patients present with gait difficulties and distal sensory impairment, while some may lack sensory symptoms altogether. Pes cavus is frequently reported. Age of onset is also highly variable, ranging from childhood to late adulthood." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "488333" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Autosomal dominant Charcot-Marie-Tooth disease type 2W" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Autosomal dominant Charcot-Marie-Tooth disease type 2W" ] .
+}
+

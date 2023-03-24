@@ -1,0 +1,27 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=488627> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "617051" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "617051" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:488627" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:488627" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare multiple congenital anomalies/dysmorphic syndrome with intellectual disability characterized by infantile onset of global developmental delay, severe intellectual disability, growth deficiency, microcephaly, strabismus, blue-gray sclerae, and extensive Mongolian spots. Some patients also present with epilepsy. Brain imaging may demonstrate variable abnormalities including cerebral atrophy, thin corpus callosum, ventriculomegaly, or arachnoid cysts." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "488627" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Severe growth deficiency-strabismus-extensive dermal melanocytosis-intellectual disability syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Severe growth deficiency-strabismus-extensive dermal melanocytosis-intellectual disability syndrome" ] .
+}
+

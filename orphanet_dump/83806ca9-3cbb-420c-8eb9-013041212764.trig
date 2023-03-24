@@ -1,0 +1,28 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=50810> a ns1:MedicalCondition ;
+        ns1:alternateName "Basel-Vanagaite-Sirota syndrome" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:50810" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q04.3" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q04.3" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:50810" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "Microlissencephaly-micromelia syndrome is a syndrome of abnormal cortical development, characterized by severe prenatal polyhydramnios, postnatal microcephaly, lissencephaly, upper limb micromelia, dysmorphic facies (coarse face, hypertrichosis, and short nose with long philtrum), intractable seizures, and early death. Hypoparathyroidism was noted in one case." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "50810" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Microlissencephaly-micromelia syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Microlissencephaly-micromelia syndrome" ] .
+}
+

@@ -1,0 +1,35 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=79431> a ns1:MedicalCondition ;
+        ns1:alternateName "OCA1A",
+            "Tyrosinase-negative oculocutaneous albinism" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:79431" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "203100" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E70.3" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "203100" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E70.3" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:79431" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A severe form of oculocutaneous albinism type 1 (OCA1) characterized by complete absence of melanin and manifesting as white hair and skin, blue, fully translucent irises, nystagmus and misrouting of the optic nerves." ;
+        ns1:epidemiology "Prevalence : 1-9 / 100 000" ;
+        ns1:identifier "79431" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Oculocutaneous albinism type 1A" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Oculocutaneous albinism type 1A" ] .
+}
+

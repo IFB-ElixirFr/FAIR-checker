@@ -1,0 +1,28 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=280785> a ns1:MedicalCondition ;
+        ns1:alternateName "Bullous DCM" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:280785" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q82.2" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:280785" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q82.2" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "Bullous diffuse cutaneous mastocytosis (BDCM) is a form of diffuse cutaneous mastocytosis (DCM; see this term) characterized by generalized erythroderma and severe blistering associated with the accumulation of mast cells in the skin." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "280785" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Bullous diffuse cutaneous mastocytosis" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Bullous diffuse cutaneous mastocytosis" ] .
+}
+

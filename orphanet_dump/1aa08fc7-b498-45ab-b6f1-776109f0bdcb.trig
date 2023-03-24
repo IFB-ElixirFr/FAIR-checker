@@ -1,0 +1,33 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=210163> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:210163" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:210163" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "612540" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "612540" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G71.2" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G71.2" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "Congenital lethal myopathy, Compton-North type is a rare, genetic, lethal, non-dystrophic congenital myopathy disorder characterized, antenatally, by fetal akinesia, intrauterine growth restriction and polyhydramnios, and, following birth, by severe neonatal hypotonia, severe generalized skeletal, bulbar and respiratory muscle weakness, multiple flexion contractures, and normal creatine kinase serum levels. Ultrastructurally, loss of integrin alpha7, beta2-syntrophin and alpha-dystrobrevin from the muscle sarcolemma and disruption of sarcomeres with disorganization of the Z band are observed." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "210163" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Congenital lethal myopathy, Compton-North type" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Congenital lethal myopathy, Compton-North type" ] .
+}
+

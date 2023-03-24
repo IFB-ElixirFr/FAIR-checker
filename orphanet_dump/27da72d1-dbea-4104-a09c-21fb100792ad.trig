@@ -1,0 +1,47 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=85436> a ns1:MedicalCondition ;
+        ns1:alternateName "Juvenile psoriatic arthritis",
+            "Psoriasis-related JIA" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:85436" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:85436" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "M09.0*" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "L40.5+" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "L40.5+" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "M09.0*" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10970" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0409672" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10970" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0409672" ;
+                ns1:codingSystem "UMLS" ] ;
+        ns1:description "A rare pediatric inflammatory rheumatic disease characterized by the presence of arthritis accompanied by either psoriasis or at least two of the following supporting features; presence of nail pitting, onycholysis, dactylitis, or a family history of psoriasis in a first degree relative. Patients are younger than 16 years of age and the disease lasts longer than 6 weeks." ;
+        ns1:epidemiology "Prevalence : 1-9 / 100 000" ;
+        ns1:identifier "85436" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Psoriasis-related juvenile idiopathic arthritis" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Psoriasis-related juvenile idiopathic arthritis" ] .
+}
+

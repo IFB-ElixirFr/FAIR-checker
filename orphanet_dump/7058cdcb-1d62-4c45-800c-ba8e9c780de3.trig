@@ -1,0 +1,43 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=443909> a ns1:MedicalCondition ;
+        ns1:alternateName "Familial nonpolyposis colon cancer",
+            "Familial nonpolyposis colorectal cancer",
+            "HNPCC",
+            "Hereditary nonpolyposis colorectal cancer" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:443909" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C1333990" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:443909" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "8533" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C1333990" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "8533" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C1112155" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C1112155" ;
+                ns1:codingSystem "UMLS" ] ;
+        ns1:description "A cancer-predisposing condition characterized by the development of colorectal cancer not associated with colorectal polyposis, endometrial cancer, and various other cancers (such as malignant epithelial tumor of ovary, gastric, biliary tract, small bowel, and urinary tract cancer) that are frequently diagnosed at an early age." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "443909" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Hereditary nonpolyposis colon cancer" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Hereditary nonpolyposis colon cancer" ] .
+}
+

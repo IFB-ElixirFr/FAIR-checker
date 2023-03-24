@@ -1,0 +1,38 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=99916> a ns1:MedicalCondition ;
+        ns1:alternateName "Androblastoma",
+            "Arrhenoblastoma",
+            "Ovarian Sertoli-Leydig cell cancer",
+            "Ovarian malignant Sertoli-Leydig cell tumor",
+            "Virilizing ovarian tumor" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:99916" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:99916" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "5495" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C56" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C56" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "5495" ;
+                ns1:codingSystem "GARD" ] ;
+        ns1:description "A rare malignant sex cord stromal tumor of ovary occuring typically in young women and characterized by manifestations of androgen excess (hirsutism, hair loss, amenorrhea, or oligomenorrhea), when functional." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "99916" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Malignant Sertoli-Leydig cell tumor of the ovary" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Malignant Sertoli-Leydig cell tumor of the ovary" ] .
+}
+

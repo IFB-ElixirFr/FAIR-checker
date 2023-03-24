@@ -1,0 +1,53 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=100069> a ns1:MedicalCondition ;
+        ns1:alternateName "Semantic primary progressive aphasia",
+            "Semantic variant PPA" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "C0338462" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "600274" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "600274" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0338462" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:100069" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10792" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "172700" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10792" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G31.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "172700" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G31.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:100069" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "Semantic dementia (SD) is a form of frontotemporal dementia (FTD; see this term), characterized by the progressive, amodal and profound loss of semantic knowledge (combination of visual associative agnosia, anomia, surface dyslexia or dysgraphia and disrupted comprehension of word meaning) and behavioral abnormalities, attributable to the degeneration of the anterior temporal lobes." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "100069" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Semantic dementia" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Semantic dementia" ] .
+}
+

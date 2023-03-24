@@ -1,0 +1,21 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=99170> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:99170" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:99170" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "Tarsal kink syndrome is a rare congenital malformation of the tarsus that causes entropion characterized by blepharospasm and absence of an upper eyelid fold that may lead to corneal ulceration caused by the folded edge of the upper tarsus or the inturned eyelashes if not corrected by surgery." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "99170" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Tarsal kink syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Tarsal kink syndrome" ] .
+}
+

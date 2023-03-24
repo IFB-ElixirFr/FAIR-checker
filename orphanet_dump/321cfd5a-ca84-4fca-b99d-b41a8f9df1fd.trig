@@ -1,0 +1,53 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=247525> a ns1:MedicalCondition ;
+        ns1:alternateName "ASS deficiency",
+            "Argininosuccinate synthase deficiency",
+            "Argininosuccinate synthetase deficiency",
+            "Argininosuccinic acid synthase deficiency",
+            "Argininosuccinic acid synthetase deficiency",
+            "CTLN1",
+            "Citrullinemia type 1",
+            "Classic citrullinemia" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:247525" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0751751" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E72.2" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "215700" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0751751" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:247525" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10058298" ;
+                ns1:codingSystem "MedDRA" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10058298" ;
+                ns1:codingSystem "MedDRA" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "215700" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E72.2" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "Citrullinemia type I is a rare autosomal recessive urea cycle defect characterized biologically by hyperammonemia and clinically by progressive lethargy, poor feeding and vomiting in the neonatal form (Acute neonatal citrullinemia type I, see this term) and by variable hyperammonemia in the later-onset form (Adult-onset citrullinemia type I, see this term)." ;
+        ns1:epidemiology "Prevalence : 1-9 / 100 000" ;
+        ns1:identifier "247525" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Citrullinemia type I" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Citrullinemia type I" ] .
+}
+

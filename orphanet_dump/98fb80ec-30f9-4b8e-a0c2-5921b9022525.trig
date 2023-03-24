@@ -1,0 +1,35 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=261272> a ns1:MedicalCondition ;
+        ns1:alternateName "Dup(17)(q12)",
+            "Trisomy 17q12" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "Q92.3" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "614526" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:261272" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q92.3" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:261272" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "614526" ;
+                ns1:codingSystem "OMIM" ] ;
+        ns1:description "17q12 microduplication syndrome is a rare chromosomal anomaly with variable phenotypic expression and reduced penetrance associated with developmental delay, mild to severe intellectual disability, speech delay, seizures, microcephaly, behavioral abnormalities, autism spectrum disorder, eye or vision defects (such as strabismus, astigmatism, amblyopia, cataract, coloboma, and microphthalmia), non-specific dysmorphic features, hypotonia, cardiac and renal anomalies, schizophrenia." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "261272" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "17q12 microduplication syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "17q12 microduplication syndrome" ] .
+}
+

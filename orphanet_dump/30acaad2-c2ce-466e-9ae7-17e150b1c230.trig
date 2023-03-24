@@ -1,0 +1,29 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=289356> a ns1:MedicalCondition ;
+        ns1:alternateName "NGCO",
+            "Primary non-gestational ovarian choriocarcinoma" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "C56" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:289356" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:289356" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C56" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "Primary non-gestational choriocarcinoma of ovary is a rare ovarian germ cell malignant tumor (see this term), arising from primordial germ cells, usually presenting with nausea, vomiting, abdominal pain, menstrual irregularities, and characterized by fast growth pattern, metastasis to lung, liver and brain and production of human chorionic gonadotrophin (hCG). It is apparently chemoresistant and has a worse prognosis than gestational choriocarcinoma (see this term) and hence should be distinguished from the latter by DNA polymorphism." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "289356" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Primary non-gestational choriocarcinoma of ovary" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Primary non-gestational choriocarcinoma of ovary" ] .
+}
+

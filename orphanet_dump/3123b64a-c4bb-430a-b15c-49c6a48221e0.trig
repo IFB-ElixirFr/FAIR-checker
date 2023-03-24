@@ -1,0 +1,35 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=71505> a ns1:MedicalCondition ;
+        ns1:alternateName "CAR syndrome",
+            "Paraneoplastic retinopathy" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "C0730307" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "H35.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "H35.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0730307" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:71505" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:71505" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "Cancer associated retinopathy (CAR) is a paraneoplastic disease of the eye associated with the presence of extraocular malignancy and circulating autoantibodies against retinal proteins." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "71505" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Cancer-associated retinopathy" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Cancer-associated retinopathy" ] .
+}
+

@@ -1,0 +1,22 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=220489> a ns1:MedicalCondition ;
+        ns1:alternateName "Iron overload disease" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:220489" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:220489" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "Rare hereditary hemochromatosis comprises the rare forms of hereditary hemochromatosis (HH), a group of diseases characterized by excessive tissue iron deposition. These rare forms are hemochromatosis type 2 (juvenile), type 3 (TFR2-related), and type 4 (ferroportin disease) (see these terms). Hemochromatosis type 1 (also called classic hemochromatosis; see this term) is not a rare disease." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "220489" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Rare hereditary hemochromatosis" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Rare hereditary hemochromatosis" ] .
+}
+

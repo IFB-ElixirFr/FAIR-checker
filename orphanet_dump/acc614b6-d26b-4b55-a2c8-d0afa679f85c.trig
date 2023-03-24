@@ -1,0 +1,41 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=435988> a ns1:MedicalCondition ;
+        ns1:alternateName "CAID syndrome",
+            "Chronic atrial dysrhythmia-intestinal motility disorder" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "616201" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:435988" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "616201" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "K59.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "K59.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "12281" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:435988" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "12281" ;
+                ns1:codingSystem "GARD" ] ;
+        ns1:description "A rare genetic disease characterized by co-occurrence of sick sinus syndrome (manifesting as sinus bradycardia, often requiring pacemaker implantation) and chronic intestinal pseudo-obstruction (which may be of myogenic or neurogenic origin and usually requires total parenteral nutrition), with an age of onset within the first four decades of life. Other cardiac features, such as atrial flutter or fibrillation and valve anomalies, may also be present." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "435988" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Chronic atrial and intestinal dysrhythmia syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Chronic atrial and intestinal dysrhythmia syndrome" ] .
+}
+

@@ -1,0 +1,49 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=85332> a ns1:MedicalCondition ;
+        ns1:alternateName "Aldred syndrome",
+            "Retinitis pigmentosa and intellectual disability due to Xp11.3 microdeletion",
+            "Retinitis pigmentosa and intellectual disability due to del(X)(p11.3)",
+            "Retinitis pigmentosa and intellectual disability due to monosomy Xp11.3" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "H35.5" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0795873" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "H35.5" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0795873" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "8360" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "300578" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "8360" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:85332" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:85332" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "300578" ;
+                ns1:codingSystem "OMIM" ] ;
+        ns1:description "X-linked intellectual disability-retinitis pigmentosa syndrome is characterized by moderate intellectual deficit and severe, early-onset retinitis pigmentosa. It has been described in five males spanning three generations of one family. Some patients also had microcephaly. It is transmitted as an X-linked recessive trait." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "85332" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "X-linked intellectual disability-retinitis pigmentosa syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "X-linked intellectual disability-retinitis pigmentosa syndrome" ] .
+}
+

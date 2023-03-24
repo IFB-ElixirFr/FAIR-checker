@@ -1,0 +1,40 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=300857> a ns1:MedicalCondition ;
+        ns1:alternateName "THRLBCL" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "C83.3" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C83.3" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:300857" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "12257" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C1321547" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C1321547" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:300857" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "12257" ;
+                ns1:codingSystem "GARD" ] ;
+        ns1:description "T-cell/histiocyte rich large B cell lymphoma (THRLBCL) is a rare variant of diffuse large B-cell lymphoma (DLBCL; see this term), mainly affecting middle-aged men and often not being discovered until an advanced disease stage, with involvement of the spleen, liver and bone marrow occurring at a greater frequency than in DLBCL. It is often difficult to diagnose due to its similarity with other lymphoid diseases such as classic Hodgkin lymphoma and nodular lymphocyte-predominant Hodgkin lymphoma (see these terms) and has an aggressive clinical course." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "300857" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "T-cell/histiocyte rich large B cell lymphoma" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "T-cell/histiocyte rich large B cell lymphoma" ] .
+}
+

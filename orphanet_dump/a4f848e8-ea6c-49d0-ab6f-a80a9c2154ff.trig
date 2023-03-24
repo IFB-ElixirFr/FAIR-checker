@@ -1,0 +1,33 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=411712> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:411712" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "615026" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "P00.4" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "615026" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:411712" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "P00.4" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "Maternal riboflavin deficiency is a rare, genetic disorder of metabolite absorption or transport characterized by persistently decreased riboflavin serum levels due to a primary genetic defect in the mother and which leads to clinical and biochemical findings consistent with a secondary, life-threatening, transient multiple acyl-CoA dehydrogenase deficiency (MADD) in the newborn. The mother usually presents hyperemesis gravidarum in the absence of other features of riboflavin deficiency, such as skin lesions, jaundice, pruritus, sore mucous membranes, visual disturbances." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "411712" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Maternal riboflavin deficiency" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Maternal riboflavin deficiency" ] .
+}
+

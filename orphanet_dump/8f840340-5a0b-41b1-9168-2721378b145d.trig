@@ -1,0 +1,33 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=91352> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "C72.9" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C1333813" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:91352" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C72.9" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:91352" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C1333813" ;
+                ns1:codingSystem "UMLS" ] ;
+        ns1:description "A rare primary germ cell tumor of central nervous system characterized by a space-occupying lesion usually arising in structures around the third ventricle, most commonly the region of the pineal gland and the suprasellar compartment. It is composed of uniform cells resembling primitive germ cells. Clinical manifestations depend on the tumor site and include hydrocephalus, visual disturbances, and endocrine abnormalities. Prognosis is favorable in pure germinomas due to high radiosensitivity." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "91352" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Germinoma of the central nervous system" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Germinoma of the central nervous system" ] .
+}
+

@@ -1,0 +1,40 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=254334> a ns1:MedicalCondition ;
+        ns1:alternateName "RI-CMT type B" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "613641" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:254334" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G60.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "12454" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "613641" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G60.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "12454" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:254334" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "An extremely rare subtype of autosomal recessive intermediate Charcot-Marie-Tooth (CMT) disease characterized by a CMT neuropathy associated with developmental delay, self-abusive behavior, dysmorphic features and vestibular Schwannoma. Motor nerve conduction velocities demonstrate features of both demyelinating and axonal pathology." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "254334" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Autosomal recessive intermediate Charcot-Marie-Tooth disease type B" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Autosomal recessive intermediate Charcot-Marie-Tooth disease type B" ] .
+}
+

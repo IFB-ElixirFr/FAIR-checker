@@ -1,0 +1,33 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=440987> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "C0266251" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q44.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:440987" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0266251" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q44.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:440987" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare biliary tract disease characterized by congenital absence of the gallbladder and cystic duct. The majority of patients are asymptomatic. Possible clinical manifestations include abdominal pain and tenderness in the right upper quadrant, nausea, vomiting, fatty food intolerance, and jaundice. Frequency of choledocholithiasis is increased significantly." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "440987" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Isolated agenesis of gallbladder" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Isolated agenesis of gallbladder" ] .
+}
+

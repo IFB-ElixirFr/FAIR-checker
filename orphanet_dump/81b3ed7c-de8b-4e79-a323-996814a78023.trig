@@ -1,0 +1,28 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=53> a ns1:MedicalCondition ;
+        ns1:alternateName "Osteopetrosis autosomal dominant type 2" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "166600" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C3179239" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "383" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:53" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q78.2" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "A sclerosing disorder of the skeleton characterized by increased bone density that classically displays the radiographic sign of ''sandwich vertebrae'' (dense bands of sclerosis parallel to the vertebral endplates)." ;
+        ns1:epidemiology "Prevalence : 1-9 / 100 000" ;
+        ns1:identifier "53" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Albers-Schönberg osteopetrosis" ] .
+}
+

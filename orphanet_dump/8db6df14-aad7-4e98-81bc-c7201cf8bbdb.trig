@@ -1,0 +1,21 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=573163> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:573163" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:573163" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare neuroendocrine tumor arising from chromaffin cells of the adrenal medulla (pheochromocytoma) or from sympathetic and parasympathetic ganglia (paraganglioma). These tumors are most often benign and may produce catecholamines in excess causing hypertension and sometimes severe acute cardiovascular complications." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "573163" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Pheochromocytoma-paraganglioma" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Pheochromocytoma-paraganglioma" ] .
+}
+

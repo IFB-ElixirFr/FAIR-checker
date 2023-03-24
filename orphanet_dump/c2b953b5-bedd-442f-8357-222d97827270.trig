@@ -1,0 +1,27 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=279919> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "H32.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "H32.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:279919" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:279919" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare ophthalmic disorder characterized by inflammation of the posterior uveal tract (retina and choroid), due to an infectious etiology. Presenting symptoms are decreased visual acuity, visual field defects, floaters, photopsia, photophobia, and occasionally pain. Signs on examination include conjunctival injection, keratic precipitates, retrolental cells, inflammatory infiltrates on the retina, macular edema, and peripheral retinal neovascularization, among others. Complications (such as cataracts, band keratopathy, glaucoma, cystoid macula edema, and retinal detachment) may lead to permanent vision loss." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "279919" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Infectious posterior uveitis" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Infectious posterior uveitis" ] .
+}
+

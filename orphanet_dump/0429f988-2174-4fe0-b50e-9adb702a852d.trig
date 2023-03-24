@@ -1,0 +1,33 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=529> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "E88.2" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:529" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E88.2" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:529" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "4733" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "4733" ;
+                ns1:codingSystem "GARD" ] ;
+        ns1:description "Roch-Leri mesosomatous lipomatosis is a rare benign autosomal dominant disorder of fat tissue proliferation characterized by the presence of multiple small lipomas of 2 to 5 cm in diameter in the middle third of the body (i.e. the forearms, trunk, and upper thighs), and which are generally painless and can be easily removed by local anesthesia, provided that they are not too numerous or confluent. There have been no further descriptions in the literature since 1984." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "529" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Roch-Leri mesosomatous lipomatosis" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Roch-Leri mesosomatous lipomatosis" ] .
+}
+

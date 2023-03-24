@@ -1,0 +1,34 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=295018> a ns1:MedicalCondition ;
+        ns1:alternateName "Congenital pseudarthrosis of the tibia" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:295018" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0265661" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q74.2" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q74.2" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0265661" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:295018" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare bone development disorder characterized by mostly anterolateral bowing of the tibia usually evident at birth, with subsequent non-healing fractures and formation of a false joint (pseudoarthrosis), and instability and angulation at the pseudoarthrosis site. In the vast majority of patients the defect is unilateral, and more than half of the cases are associated with neurofibromatosis type 1." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "295018" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Congenital pseudoarthrosis of the tibia" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Congenital pseudoarthrosis of the tibia" ] .
+}
+

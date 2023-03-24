@@ -1,0 +1,48 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=612> a ns1:MedicalCondition ;
+        ns1:alternateName "K+-aggravated myotonia",
+            "K-aggravated myotonia",
+            "PAM" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "4459" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:612" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "4459" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:612" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C2931826" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C2931826" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C538353" ;
+                ns1:codingSystem "MeSH" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "608390" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "608390" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C538353" ;
+                ns1:codingSystem "MeSH" ] ;
+        ns1:description "A muscular channelopathy presenting with a pure myotonia dramatically aggravated by potassium ingestion, with variable cold sensitivity and no episodic weakness. This group includes three forms: myotonia fluctuans, myotonia permanens, and acetazolamide-responsive myotonia." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "612" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Potassium-aggravated myotonia" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Potassium-aggravated myotonia" ] .
+}
+

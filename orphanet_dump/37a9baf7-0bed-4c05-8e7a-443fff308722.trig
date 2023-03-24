@@ -1,0 +1,33 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=141118> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "Q01.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0014066" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:141118" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q01.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0014066" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:141118" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "Nasal encephalocele is an extracranial herniation of intracranial contents (that maintain a connection to the subarachnoid space) into the fonticulus frontalis, presenting with nasal broadening and/or as a compressible, blue, pulsatile mass near the nasal bridge (that enlarges on crying or with jugular vein compression) or as an intranasal mass originating in the cribiform plate and that can cause nasal obstruction or respiratory distress. Hydrocephalus and increased intracranial pressure are also reported in some cases." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "141118" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Nasal encephalocele" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Nasal encephalocele" ] .
+}
+

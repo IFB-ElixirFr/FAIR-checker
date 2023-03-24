@@ -1,0 +1,27 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=1084> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:1084" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:1084" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q04.3" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q04.3" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "Isolated lissencephaly type 1 without known genetic defects belongs to the genetically heterogeneous group, classic lissencephaly (see this term). It is a diagnosis of exclusion, when neither associated malformations nor family history are present, and in the absence of mutations of genes known to be involved in classic lissencephaly. Clinically patients present with the common features of classic lissencephaly such as developmental delay, intellectual disability, and seizures." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "1084" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Isolated lissencephaly type 1 without known genetic defects" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Isolated lissencephaly type 1 without known genetic defects" ] .
+}
+

@@ -1,0 +1,48 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=90650> a ns1:MedicalCondition ;
+        ns1:alternateName "OPD I syndrome",
+            "OPD syndrome 1",
+            "Taybi syndrome" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "Q87.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "311300" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:90650" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0265251" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "5121" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:90650" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q87.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "5121" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0265251" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "311300" ;
+                ns1:codingSystem "OMIM" ] ;
+        ns1:description "A disorder that is the mildest form of otopalatodigital syndrome spectrum disorder, and is characterized by a generalized skeletal dysplasia, mild intellectual disability, conductive hearing loss, and typical facial anomalies." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "90650" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Otopalatodigital syndrome type 1" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Otopalatodigital syndrome type 1" ] .
+}
+

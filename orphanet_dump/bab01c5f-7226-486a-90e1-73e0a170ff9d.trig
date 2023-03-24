@@ -1,0 +1,54 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=69665> a ns1:MedicalCondition ;
+        ns1:alternateName "Gravidic intrahepatic cholestasis",
+            "Pregnancy-related cholestasis",
+            "Recurrent intrahepatic cholestasis of pregnancy" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "C535932" ;
+                ns1:codingSystem "MeSH" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "614972" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "147480" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "9804" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "O26.6" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "9804" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "614972" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:69665" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "O26.6" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:69665" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C535932" ;
+                ns1:codingSystem "MeSH" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "147480" ;
+                ns1:codingSystem "OMIM" ] ;
+        ns1:description "Intrahepatic cholestasis of pregnancy (ICP) is a cholestatic disorder characterized by (i) pruritus with onset in the second or third trimester of pregnancy, (ii) elevated serum aminotransferases and bile acid levels, and (iii) spontaneous relief of signs and symptoms within two to three weeks after delivery." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "69665" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Intrahepatic cholestasis of pregnancy" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Intrahepatic cholestasis of pregnancy" ] .
+}
+

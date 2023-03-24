@@ -1,0 +1,27 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=99075> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:99075" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q25.4" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q25.4" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:99075" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "Encircling double aortic arch is a very rare congenital anomaly of the great arteries characterized by the presence of two aortic arches (right and left) which encircle and compress the trachea and esophagus, resulting in various respiratory and gastrointestinal symptoms (e.g. harsh breathing, stridor, dyspnea, cyanotic and choking episodes, chronic cough, recurrent respiratory tract infections, dysphagia and reflux). Esophageal atresia and tracheoesophageal fistula have also been reported. It usually occurs isolated, but, on occasion, may be associated with other congenital heart anomalies and chromosomal aberations." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "99075" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Encircling double aortic arch" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Encircling double aortic arch" ] .
+}
+

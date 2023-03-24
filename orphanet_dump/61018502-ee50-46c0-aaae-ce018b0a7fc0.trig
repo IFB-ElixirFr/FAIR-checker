@@ -1,0 +1,27 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=88643> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:88643" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E03.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E03.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:88643" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "Obesity-colitis-hypothyroidism-cardiac hypertrophy-developmental delay syndrome is characterised by precocious obesity, congenital hypothyroidism, neonatal colitis, cardiac hypertrophy, craniosynostosis and developmental delay. It has been described in two brothers, one of whom died within the first month of life. The parents of the two children were nonconsanguineous and in good health, however, the pregnancies were complicated by a maternal HELLP syndrome (Haemolysis, Elevated Liver enzymes and Low Platelets). The mode of inheritance has not yet been clearly established." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "88643" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Obesity-colitis-hypothyroidism-cardiac hypertrophy-developmental delay syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Obesity-colitis-hypothyroidism-cardiac hypertrophy-developmental delay syndrome" ] .
+}
+

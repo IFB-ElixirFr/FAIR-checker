@@ -1,0 +1,28 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=289522> a ns1:MedicalCondition ;
+        ns1:alternateName "Tetrasomy 11q24.1" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:289522" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q99.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:289522" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q99.8" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "Microtriplication 11q24.1 is an extremely rare partial autosomal tetrasomy, resulting from a partial triplication of the long arm of chromosome 11, characterized by intellectual disability (with severe verbal impairment), short stature with small extremities, keratoconus and distinctive facial features (round, course face, upward slanting palpebral fissures, mild synophris, large nose with thick ala nasi and triangular tip, large mouth with broad lips, short and smooth philtrum, large protruded chin, ears with adherent lobules). Additionally, patients are overweight and present hypercholesterolemia." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "289522" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Microtriplication 11q24.1" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Microtriplication 11q24.1" ] .
+}
+

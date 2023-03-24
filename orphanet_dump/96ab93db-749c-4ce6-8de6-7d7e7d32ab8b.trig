@@ -1,0 +1,36 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=280142> a ns1:MedicalCondition ;
+        ns1:alternateName "SCID due to LCK deficiency",
+            "SCID due to lymphocyte-specific protein tyrosine kinase deficiency",
+            "Severe combined immunodeficiency due to lymphocyte-specific protein tyrosine kinase deficiency" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "D81.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D81.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "615758" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:280142" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "615758" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:280142" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare, combined T- and B-cell immunodeficiency characterized by failure to thrive, severe diarrhea, opportunistic infections, and abnormal T-cell differentiation and function due to LCK deficiency, leading to an important risk factor for inflammation and autoimmunity." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "280142" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Severe combined immunodeficiency due to LCK deficiency" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Severe combined immunodeficiency due to LCK deficiency" ] .
+}
+

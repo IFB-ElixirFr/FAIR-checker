@@ -1,0 +1,32 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=113> a ns1:MedicalCondition ;
+        ns1:alternateName "BDCS",
+            "Follicular atrophoderma and basal cell carcinomas" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "838" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "301845" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "L98.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C537663" ;
+                ns1:codingSystem "MeSH" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0346104" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:113" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "Bazex-Dupré-Christol syndrome is a rare genodermatosis with a predisposition to early-onset basal cell carcinomas." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "113" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Bazex-Dupré-Christol syndrome" ] .
+}
+

@@ -1,0 +1,29 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=180129> a ns1:MedicalCondition ;
+        ns1:alternateName "Subtotal septate uterus",
+            "Uterus subseptus" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "Q51.2" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:180129" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:180129" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q51.2" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "Partial septate uterus is a rare, non-syndromic uterovaginal malformation characterized by a uterus that has a longitudinal septum which extends from the uterine fundus and does not reach the internal cervical os (variable lengths and widths may be observed). Although frequently asymptomatic, an increased risk of poor reproductive outcome has been observed. Urinary tract abnormalities are very rarely associated." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "180129" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Partial septate uterus" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Partial septate uterus" ] .
+}
+

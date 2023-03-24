@@ -1,0 +1,42 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=59135> a ns1:MedicalCondition ;
+        ns1:alternateName "Distal myopathy type 1",
+            "Gowers disease",
+            "MPD1" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "G71.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G71.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "160500" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10769" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10769" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:59135" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:59135" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "160500" ;
+                ns1:codingSystem "OMIM" ] ;
+        ns1:description "Laing distal myopathy, also called myopathy distal, type 1 (MPD1), is characterized by early-onset selective weakness of the great toe and ankle dorsiflexors, and a very slowly progressive course." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "59135" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Laing early-onset distal myopathy" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Laing early-onset distal myopathy" ] .
+}
+

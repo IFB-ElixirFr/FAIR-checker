@@ -1,0 +1,34 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=435998> a ns1:MedicalCondition ;
+        ns1:alternateName "RI-CMT type D" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "G60.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:435998" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "616039" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "616039" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:435998" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G60.0" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "Autosomal recessive intermediate Charcot-Marie-Tooth disease type D is a rare hereditary motor and sensory neuropathy characterized by childhood onset of unsteady gait, pes cavus, frequent falls and foot dorsiflexor weakness slowly progressing to distal upper and lower limb muscle weakness and atrophy, distal sensory impairment and reduced tendon reflexes. Additional symptoms may include bilateral sensorineural hearing impairment and neuropathic pain." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "435998" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Autosomal recessive intermediate Charcot-Marie-Tooth disease type D" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Autosomal recessive intermediate Charcot-Marie-Tooth disease type D" ] .
+}
+

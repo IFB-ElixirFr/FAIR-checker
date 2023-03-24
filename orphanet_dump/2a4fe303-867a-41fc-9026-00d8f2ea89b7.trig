@@ -1,0 +1,29 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=499009> a ns1:MedicalCondition ;
+        ns1:alternateName "MTCT of syphilis",
+            "Mother-to-child transmission of syphilis" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "C0039131" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:499009" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0039131" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:499009" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare teratologic disease caused by vertical transmission of the spirochete <i>Treponema pallidum</i> from an infected mother to the fetus, characterized by early congenital syphilis during the first two years of life (maculopapular rash progressing to desquamation, hepatosplenomegaly, osteochondritis, snuffles, and iritis), followed by late congenital syphilis with the classic Hutchinson's triad of Hutchinson's teeth, interstitial keratitis, and eighth nerve deafness. Additional signs may include saddle nose, saber shins, seizures, and mental retardation. Congenital syphilis can also result in stillbirth, neonatal death, and nonimmune hydrops." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "499009" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Congenital syphilis" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Congenital syphilis" ] .
+}
+

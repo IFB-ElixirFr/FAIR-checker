@@ -1,0 +1,27 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=324307> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "Q68.4" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q68.4" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:324307" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:324307" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "Severe lateral tibial bowing with short stature is a rare, genetic, primary bent bone dysplasia characterized by significant, uni-/bilateral, lateral tibial bowing localized to the distal two-thirds of the tibia, with respective cortical thickening and thinning of the inner and outer tibial curve, loss of normal trabecular bone, bilateral abnormalities of the tibial epiphyses and growth plates, as well as foot abnormalities, including abnormally high arches. Affected individuals have short stature with absence of other skeletal abnormalities." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "324307" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Severe lateral tibial bowing-short stature-mild winged scapula-mild facial dysmorphism syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Severe lateral tibial bowing-short stature-mild winged scapula-mild facial dysmorphism syndrome" ] .
+}
+

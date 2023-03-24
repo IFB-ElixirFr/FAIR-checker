@@ -1,0 +1,21 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=568051> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:568051" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:568051" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare genetic primary lymphedema characterized by lymphedema of all four limbs with age of onset ranging from birth to adulthood. Manifestations are of variable severity, and upper limb involvement may develop only later in the disease course. Recurrent episodes of cellulitis and skin infections are observed in severe cases. Varicose veins and venous incompetence have been reported in association." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "568051" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "GJC2-related late-onset primary lymphedema" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "GJC2-related late-onset primary lymphedema" ] .
+}
+

@@ -1,0 +1,30 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=178315> a ns1:MedicalCondition ;
+        ns1:alternateName "Embryonal sarcoma of the liver",
+            "UES",
+            "Undifferentiated sarcoma of the liver" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "C49.9" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C49.9" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:178315" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:178315" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "Embryonal sarcoma of the liver is a rare primary malignant hepatic neoplasm of childhood of mesenchymal origin. It can rarely occur in adults. It is characterized by abdominal mass, right upper quadrant or epigastric pain, nausea, anorexia, intermittent fever or headache." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "178315" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Undifferentiated embryonal sarcoma of the liver" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Undifferentiated embryonal sarcoma of the liver" ] .
+}
+

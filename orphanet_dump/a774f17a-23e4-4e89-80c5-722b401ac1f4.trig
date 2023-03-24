@@ -1,0 +1,29 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=99119> a ns1:MedicalCondition ;
+        ns1:alternateName "Right IVC connecting to left-sided atrium",
+            "Right inferior caval vein connecting to left-sided atrium" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:99119" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q26.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q26.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:99119" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare vascular anomaly characterized by a congenital anomalous connection between the inferior vena cava and the left atrium. Clinical manifestations depend on the presence and nature of additional cardiac defects and include cyanosis, dyspnea, failure to thrive, clubbing of fingers and toes, and potentially heart failure." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "99119" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Right inferior vena cava connecting to left-sided atrium" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Right inferior vena cava connecting to left-sided atrium" ] .
+}
+

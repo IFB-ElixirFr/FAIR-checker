@@ -1,0 +1,27 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=508498> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "615583" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:508498" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "615583" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:508498" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare genetic multiple congenital anomalies/dysmorphic syndrome characterized by intrauterine and postnatal growth restriction, global developmental delay, intellectual disability, and dysmorphic facial features (such as broad nasal root, anteverted nares, long philtrum, low-set and posteriorly rotated ears, and short neck). Additional reported manifestations are microcephaly, short stature, vertebral abnormalities, joint laxity, ocular, cardiac, and renal defects, and minor limb anomalies. Brain imaging may show hypoplastic corpus callosum, delayed myelination, and cerebral atrophy." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "508498" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Intellectual disability-cardiac anomalies-short stature-joint laxity syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Intellectual disability-cardiac anomalies-short stature-joint laxity syndrome" ] .
+}
+

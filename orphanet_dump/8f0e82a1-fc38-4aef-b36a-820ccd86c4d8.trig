@@ -1,0 +1,59 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=33577> a ns1:MedicalCondition ;
+        ns1:alternateName "Idiopathic lobular panniculitis",
+            "Idiopathic nodular panniculitis",
+            "Pfeiffer-Weber-Christian syndrome",
+            "Relapsing febrile nodular nonsuppurative panniculitis",
+            "Relapsing febrile nodular panniculitis",
+            "WCD",
+            "Weber-Christian disease",
+            "Weber-Christian panniculitis" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "7879" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "7879" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0030328" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "M35.6" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:33577" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:33577" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "M35.6" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0030328" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D010201" ;
+                ns1:codingSystem "MeSH" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D010201" ;
+                ns1:codingSystem "MeSH" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10047883" ;
+                ns1:codingSystem "MedDRA" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10047883" ;
+                ns1:codingSystem "MedDRA" ] ;
+        ns1:description "A rare skin disorder characterized by recurring inflammation in the subcutaneous layer of fat." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "33577" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Nodular non-suppurative panniculitis" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Nodular non-suppurative panniculitis" ] .
+}
+

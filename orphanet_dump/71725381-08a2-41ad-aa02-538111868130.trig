@@ -1,0 +1,28 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=494448> a ns1:MedicalCondition ;
+        ns1:alternateName "Squamous cell carcinoma of the vulva" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "C51.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C51.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:494448" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:494448" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare vulvar carcinoma characterized by an ulcer, nodule, macule, or pedunculated mass which is histologically composed of infiltrating islands of malignant squamous cells. Histological subtypes include keratinizing, non-keratinizing, basaloid, warty, and verrucous carcinomas. Some tumors are associated with human papilloma virus, smoking, high grade squamous intraepithelial lesion, chronic vulvar inflammatory disorders, or differentiated vulvar intraepithelial neoplasia. Patients may present with discharge, bleeding, or pain. Most important prognostic features are tumor depth and lymph node status." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "494448" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Vulvar squamous cell carcinoma" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Vulvar squamous cell carcinoma" ] .
+}
+

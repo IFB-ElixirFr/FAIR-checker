@@ -1,0 +1,48 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=1035> a ns1:MedicalCondition ;
+        ns1:alternateName "3-mercaptopyruvate sulfurtransferase deficiency",
+            "Ampola syndrome",
+            "MCDU" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "C0796055" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E72.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "249650" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "654" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E72.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "654" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:1035" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "249650" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0796055" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:1035" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "An extremely rare disorder of methionine cycle and sulfur amino acid metabolism characterized by increased urine excretion of beta-mercaptolactate-cysteine disulfide (due to deficiency of mercaptopyruvate sulfurtransferase activity in erythrocytes), leading to a positive cyanide nitroprusside test. Association with intellectual disability, congenital lens dislocation, and behavioral abnormalities has been reported, however the causal link remains to be established. There have been no further descriptions in the literature since 1981." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "1035" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Beta-mercaptolactate cysteine disulfiduria" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Beta-mercaptolactate cysteine disulfiduria" ] .
+}
+

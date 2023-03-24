@@ -1,0 +1,19 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=443159> a ns1:MedicalCondition ;
+        ns1:alternateName "Lymphoplasmacytic lymphoma without Immunoglobulin M production" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:443159" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C83.0" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "A rare B-cell non-Hodgkin lymphoma characterized by the presence of small B-lymphocytes, plasmacytoid lymphocytes, and plasma cells, and either non-secreting or secreting IgG or IgA paraproteins. The disease usually involves the bone marrow, sometimes also the spleen or lymph nodes. Patients typically present with symptoms related to anemia. Hyperviscosity, autoimmune phenomena, and B symptoms may also be observed. Mortality is higher as compared to Waldenström macroglobulinemia." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "443159" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Lymphoplasmacytic lymphoma without IgM production" ] .
+}
+

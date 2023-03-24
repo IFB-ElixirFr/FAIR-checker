@@ -1,0 +1,33 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=671> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:671" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0263417" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:671" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "1643" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0263417" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "1643" ;
+                ns1:codingSystem "GARD" ] ;
+        ns1:description "A progressive cutaneous disorder predominantly affecting males, characterized by hypertrophy and thickening of the skin of the scalp, forming convoluted furrows with deep, tender, and cerebriform cutaneous folds. Hair is usually normal in the furrows and sparse on the folds. It can be isolated or associated with other abnormalities, such as intellectual deficit, epilepsy, cataract, blindness, and deafness." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "671" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Primary cutis verticis gyrata" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Primary cutis verticis gyrata" ] .
+}
+

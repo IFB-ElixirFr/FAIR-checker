@@ -1,0 +1,27 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=329478> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:329478" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G71.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:329478" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G71.0" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "A rare, genetic distal myopathy disorder characterized by middle age-onset of distal leg muscle weakness, atrophy in the anterior compartment resulting in foot drop, without proximal or scapular skeletal muscle weakness. Rapidly progressive dementia, Paget disease of bone and hand weakness have been reported. Muscle biopsy shows pronounced myopathic changes with rimmed vacuoles." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "329478" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Adult-onset distal myopathy due to VCP mutation" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Adult-onset distal myopathy due to VCP mutation" ] .
+}
+

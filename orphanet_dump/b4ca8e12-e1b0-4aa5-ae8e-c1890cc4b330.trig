@@ -1,0 +1,27 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=99858> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:99858" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:99858" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G95.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G95.0" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "Idiopathic syringomyelia is a rare, non-syndromic central nervous system malformation characterized by a longitudinally oriented fluid-filled cavity inside the spinal cord parenchyma or the central canal, without any readily identifiable cause. It is usually associated with pain, sensory and/or musculoskeletal disturbances, but it can also be an incidental and asymptomatic finding." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "99858" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Idiopathic syringomyelia" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Idiopathic syringomyelia" ] .
+}
+

@@ -1,0 +1,23 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=467> a ns1:MedicalCondition ;
+        ns1:alternateName "Congenital combined pituitary hormone deficiency",
+            "Congenital hypopituitarism" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:467" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:467" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "Congenital hypopituitarism is characterized by multiple pituitary hormone deficiency, including somatotroph, thyrotroph, lactotroph, corticotroph or gonadotroph deficiencies, due to mutations of pituitary transcription factors involved in pituitary ontogenesis." ;
+        ns1:epidemiology "Prevalence : 1-5 / 10 000" ;
+        ns1:identifier "467" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Non-acquired combined pituitary hormone deficiency" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Non-acquired combined pituitary hormone deficiency" ] .
+}
+

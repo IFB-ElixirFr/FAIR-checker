@@ -1,0 +1,29 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=447777> a ns1:MedicalCondition ;
+        ns1:alternateName "KTOC",
+            "Odontogenic keratocystoma" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "D16.4" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:447777" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:447777" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D16.4" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "A rare odontogenic tumor characterized by an unilocular or multilocular cyst most commonly located in the posterior body and lower ramus of the mandible, often surrounding the crown of the third molar. Histopathologically, the lesion shows a lining of parakeratinized stratified squamous epithelium with palisading hyperchromatic basal cells. Patients may be asymptomatic or present with local infection and/or signs and symptoms of mass effect. Recurrence is rare after complete surgical removal. Some patients have multiple cysts (metachronous or synchronous), especially in the context of nevoid basal cell carcinoma syndrome (Gorlin syndrome)." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "447777" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Keratocystic odontogenic tumor" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Keratocystic odontogenic tumor" ] .
+}
+

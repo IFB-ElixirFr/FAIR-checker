@@ -1,0 +1,27 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=43117> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "T43.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:43117" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:43117" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "T43.0" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "A rare, potentially lethal intoxication characterized by life-threatening arrhythmias (sinus tachycardias, premature ventricular contractions, ventricular arrhythmias), anticholinergic toxidrome (mydriasis, dry mucous membrane, tachycardia, hypertension), central nervous system toxicity (lethargy, coma, myoclonic jerks), refractory hypotension and sudden death." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "43117" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Acute tricyclic antidepressant poisoning" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Acute tricyclic antidepressant poisoning" ] .
+}
+

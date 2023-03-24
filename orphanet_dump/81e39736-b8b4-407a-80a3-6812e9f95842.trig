@@ -1,0 +1,34 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=444092> a ns1:MedicalCondition ;
+        ns1:alternateName "COPA syndrome" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:444092" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:444092" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "616414" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "J84.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "616414" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "J84.8" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "A rare genetic systemic or rheumatologic disease characterized by interstitial lung disease (often with pulmonary hemorrhage) and inflammatory arthritis, associated with high-titer autoantibodies (including anti-nuclear and anti-neutrophil cytoplasmic antibodies, and rheumatoid factor). Patients present from infancy to adolescence with tachypnea, cough, hemoptysis, and/or joint pain. Some patients may also develop glomerular disease." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "444092" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Autoimmune interstitial lung disease-arthritis syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Autoimmune interstitial lung disease-arthritis syndrome" ] .
+}
+

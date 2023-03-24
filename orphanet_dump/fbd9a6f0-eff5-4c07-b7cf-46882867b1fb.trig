@@ -1,0 +1,36 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=319595> a ns1:MedicalCondition ;
+        ns1:alternateName "MSMD due to partial STAT1 deficiency",
+            "MSMD due to partial signal transducer and activator of transcription 1 deficiency",
+            "Mendelian susceptibility to mycobacterial diseases due to partial signal transducer and activator of transcription 1 deficiency" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "D84.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:319595" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "614892" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "614892" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:319595" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D84.8" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "Mendelian susceptibility to mycobacterial diseases (MSMD) due to partial STAT1 (signal transducer and activator of transcription 1) deficiency is a genetic variant of MSMD (see this term) characterized by a partial defect in the interferon (IFN)-gamma pathway, leading to mild mycobacterial infections." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "319595" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Mendelian susceptibility to mycobacterial diseases due to partial STAT1 deficiency" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Mendelian susceptibility to mycobacterial diseases due to partial STAT1 deficiency" ] .
+}
+

@@ -1,0 +1,33 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=319462> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:319462" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:319462" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D61.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D61.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "605724" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "605724" ;
+                ns1:codingSystem "OMIM" ] ;
+        ns1:description "Inherited cancer-predisposing syndrome due to biallelic BRCA2 mutations is a rare cancer-predisposing syndrome, associated with the D1 subgroup of Fanconi anemia (FA), characterized by progressive bone marrow failure, cardiac, brain, intestinal or skeletal abnormalities and predisposition to various malignancies. Bone marrow suppression and the incidence of developmental abnormalities are less frequent than in other FA, but cancer risk is very high with the spectrum of childhood cancers including Wilms tumor, brain tumor (often medulloblastoma) and ALL/AML." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "319462" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Inherited cancer-predisposing syndrome due to biallelic BRCA2 mutations" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Inherited cancer-predisposing syndrome due to biallelic BRCA2 mutations" ] .
+}
+

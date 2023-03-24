@@ -1,0 +1,27 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=99857> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:99857" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G95.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:99857" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G95.0" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "Secondary syringomyelia is a rare medullar disease defined as a development of a fluid-filled cavity or syrinx within the spinal cord due to blockage of CSF circulation (e.g., due to basal archnoiditis, meningeal carcinomatosis, various mass lesions), spinal cord injury (e.g., due to trauma, radiation necrosis, hemorrhage, spinal abscess), spinal dysraphism or intramedullary tumours. It presents with neuropathic pain, numbness, muscular weakness, changes in tone or spasticity or autonomic changes (hyperhidrosis, heart rate or blood pressure instability). Selective loss of pain and temperature with relative preservation of dorsal column function (touch and pressure) are classic findings." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "99857" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Secondary syringomyelia" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Secondary syringomyelia" ] .
+}
+

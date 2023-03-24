@@ -1,0 +1,29 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=364033> a ns1:MedicalCondition ;
+        ns1:alternateName "Systemic EBV+ T-cell LPD of childhood",
+            "Systemic EBV-positive T-cell lymphoproliferative disease of childhood" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "D47.9" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:364033" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:364033" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D47.9" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "A rare and very aggressive neoplastic disease emerging after a primary acute or chronic active EBV infection. It presents with persisting fever and malaise, hepatosplenomegaly with or without lymphadenopathy, liver failure, severe pancytopenia and a rapid progression towards multi-organ failure and hemophagocytic syndrome with a fatal issue. It is characterized by clonal proliferation of EBV-infected T cells with an activated cytotoxic phenotype." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "364033" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Systemic Epstein-Barr virus-positive T-cell lymphoproliferative disease of childhood" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Systemic Epstein-Barr virus-positive T-cell lymphoproliferative disease of childhood" ] .
+}
+

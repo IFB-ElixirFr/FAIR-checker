@@ -1,0 +1,49 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=64753> a ns1:MedicalCondition ;
+        ns1:alternateName "AOA2",
+            "Ataxia-oculomotor apraxia type 2",
+            "SCAN 2",
+            "SCAR1" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:64753" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "12860" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G60.2" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "12860" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "606002" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "606002" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G60.2" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "615217" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "615217" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:64753" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare autosomal recessive cerebellar ataxia (ARCA), characterized by progressive cerebellar ataxia associated with frequent oculomotor apraxia, severe neuropathy and an elevated serum alpha-fetoprotein (AFP) level." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "64753" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Spinocerebellar ataxia with axonal neuropathy type 2" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Spinocerebellar ataxia with axonal neuropathy type 2" ] .
+}
+

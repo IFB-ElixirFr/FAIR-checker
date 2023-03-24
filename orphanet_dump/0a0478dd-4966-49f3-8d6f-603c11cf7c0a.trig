@@ -1,0 +1,48 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=71279> a ns1:MedicalCondition ;
+        ns1:alternateName "CANDA syndrome",
+            "Chronic ataxic neuropathy-ophthalmoplegia-IgM paraprotein-cold agglutinins-disialosyl antibodies syndrome",
+            "Chronic sensory ataxic neuropathy with anti-disialosyl IgM antibodies" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:71279" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G61.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "9778" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C2931684" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "9778" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:71279" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C537980" ;
+                ns1:codingSystem "MeSH" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C2931684" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G61.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C537980" ;
+                ns1:codingSystem "MeSH" ] ;
+        ns1:description "A rare chronic immune-mediated polyneuropathy characterized by a progressive disabling neuropathy with marked gait disturbance primarily due to sensory ataxia with concurrent cranial neuropathies (internal or external ophthalmoplegia, dysphagia, dysarthria, or facial weakness) and anti-disialosyl IgM antibodies." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "71279" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "CANOMAD syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "CANOMAD syndrome" ] .
+}
+

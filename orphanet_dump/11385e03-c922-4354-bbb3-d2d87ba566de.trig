@@ -1,0 +1,35 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=238557> a ns1:MedicalCondition ;
+        ns1:alternateName "Chuvash polycythemia",
+            "Von Hippel-Lindau-dependent polycythemia" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "D75.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "263400" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:238557" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:238557" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D75.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "263400" ;
+                ns1:codingSystem "OMIM" ] ;
+        ns1:description "Chuvash erythrocytosis is a rare, genetic, congenital secondary polycythemia disorder characterized by increased hemoglobin, hematocrit and erythropoietin serum levels and normal oxygen affinity, which usually manifests with headache, dizziness, dyspnea and/or plethora. Patients present an increased risk of hemorrhage, thrombosis and early death." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "238557" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Chuvash erythrocytosis" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Chuvash erythrocytosis" ] .
+}
+

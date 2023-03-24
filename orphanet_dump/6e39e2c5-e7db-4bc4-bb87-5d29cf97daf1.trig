@@ -1,0 +1,21 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=603699> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:603699" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:603699" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A group of multiple congenital anomalies syndromes associated to <i>KLHL7</i> biallelic variants, ranging from a phenotype partially overlapping the Bohring-Opitz syndrome (BOS) to a phenotype overlapping the Crisponi/Cold-Induced Sweating syndrome (CS/CISS), with some patients presenting features of both conditions." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "603699" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Recessive KLHL7-related disorder" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Recessive KLHL7-related disorder" ] .
+}
+

@@ -1,0 +1,35 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=168953> a ns1:MedicalCondition ;
+        ns1:alternateName "8p11 myeloproliferative syndrome",
+            "Stem cell leukemia/lymphoma" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "D47.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D47.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "613523" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:168953" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "613523" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:168953" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare, malignant, neoplastic disease characterized by clonal proliferation of myeloid and/or lymphoid precursors harboring translocations or insertions involving the chromosome band 8p11 and the FGFR1 gene, in the blood, bone marrow and often other tissues as well (spleen, liver, lymph nodes, breast, etc.). It usually presents as myeloproliferative neoplasm with eosinophilia, T lymphoblastic lymphoma with eosinophilia or, less frequently, acute myeloid leukemia. The presenting signs and symptoms include eosinophilia, leukocytosis with leukemoid reaction, monocytosis, fatigue, sweating, weight loss, lymphadenopathy, splenomegaly and/or hepatomegaly. Extranodal involvement may include the tonsils, lungs and breasts." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "168953" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Myeloid/lymphoid neoplasm associated with FGFR1 rearrangement" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Myeloid/lymphoid neoplasm associated with FGFR1 rearrangement" ] .
+}
+

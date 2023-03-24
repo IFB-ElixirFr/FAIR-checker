@@ -1,0 +1,29 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=96059> a ns1:MedicalCondition ;
+        ns1:alternateName "Mosaic trisomy chromosome 4",
+            "Trisomy 4 mosaicism" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:96059" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q92.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q92.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:96059" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "Mosaic Trisomy 4 is a rare autosomal anomaly, due to the presence of an extra copy of chromosome 4 in a fraction of all cells, with a variable phenotype characterized by intrauterine growth retardation, low birth weight/length/OFC, mild intellectual deficit, congenital heart defects, hypertrophic cardiomyopathy, dysmorphic features (asymmetry of the face, eyebrow anomalies, low-set, posteriorally rotated, dysplastic ears, micro-/retrognathia), characteristic thumb abnormalities (aplasia, hypoplasia) and skin abnormalities (hypo/hyperpigmentation). Delayed puberty may be associated." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "96059" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Mosaic trisomy 4" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Mosaic trisomy 4" ] .
+}
+

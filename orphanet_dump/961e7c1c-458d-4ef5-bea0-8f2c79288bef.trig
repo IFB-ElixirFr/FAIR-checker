@@ -1,0 +1,29 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=261304> a ns1:MedicalCondition ;
+        ns1:alternateName "Paternal del(20)(q13.2q13.3)",
+            "Paternal monosomy 20q13.2q13.3" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "Q93.5" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:261304" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:261304" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q93.5" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "Paternal 20q13.2q13.3 microdeletion syndrome is a recently described syndrome characterized by severe pre- and post-natal growth retardation, microcephaly, intractable feeding difficulties, mild psychomotor retardation, hypotonia and facial dysmorphism." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "261304" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Paternal 20q13.2q13.3 microdeletion syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Paternal 20q13.2q13.3 microdeletion syndrome" ] .
+}
+

@@ -1,0 +1,40 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=70573> a ns1:MedicalCondition ;
+        ns1:alternateName "SCLC" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:70573" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C34.9" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C34.9" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "182280" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0149925" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:70573" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0149925" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "182280" ;
+                ns1:codingSystem "OMIM" ] ;
+        ns1:description "Small cell lung cancer (SCLC) is a highly aggressive malignant neoplasm, accounting for 10-15% of lung cancer cases, characterized by rapid growth, and early metastasis. SCLC usually manifests as a large hilar mass with bulky mediastinal lymphadenopathy presenting clinically with chest pain, persistent cough, dyspnea, wheezing, hoarseness, hemoptysis, loss of appetite, weight loss, and neurological and endocrine paraneoplastic syndromes. SCLC is primarily reported in elderly people with a history of long-term tobacco exposure." ;
+        ns1:epidemiology "Prevalence : 1-5 / 10 000" ;
+        ns1:identifier "70573" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Small cell lung cancer" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Small cell lung cancer" ] .
+}
+

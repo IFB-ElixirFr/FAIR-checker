@@ -1,0 +1,41 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=412206> a ns1:MedicalCondition ;
+        ns1:alternateName "PFE",
+            "Primary retention of teeth" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "C1852222" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:412206" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "125350" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "K00.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "125350" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C1852222" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:412206" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "K00.8" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "A rare genetic odontologic disease characterized by failure of eruption of non-ankylosed permanent teeth without evidence of obvious mechanical obstruction. Posterior teeth are preferentially affected (typically with involvement of all teeth distal to the most mesial non-erupted tooth), resulting in a posterior open bite. Non-ankylosed teeth tend to become ankylosed, and orthodontic treatment of affected teeth is generally unsuccessful." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "412206" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Primary failure of tooth eruption" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Primary failure of tooth eruption" ] .
+}
+

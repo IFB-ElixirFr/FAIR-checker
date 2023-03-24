@@ -1,0 +1,42 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=600> a ns1:MedicalCondition ;
+        ns1:alternateName "Distal myopathy with vocal cord weakness",
+            "MATR3-related distal myopathy",
+            "VCPDM" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:600" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "1887" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G71.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "606070" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:600" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "606070" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "1887" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G71.0" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "Vocal cord and pharyngeal distal myopathy (VCPDM) is a rare autosomal dominant distal myopathy characterized by adult onset of muscle weakness in the feet and hands (slowly progressing to involve proximal limb muscles) combined with vocal or swallowing dysfunction and frequent respiratory muscle involvement in later stages. Normal to mildly elevated creatine kinase (CK) serum levels and rimmed-vacuolated dystrophic muscle fiber changes are associated laboratory and pathologic findings." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "600" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Vocal cord and pharyngeal distal myopathy" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Vocal cord and pharyngeal distal myopathy" ] .
+}
+

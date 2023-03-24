@@ -1,0 +1,52 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=79327> a ns1:MedicalCondition ;
+        ns1:alternateName "CDG syndrome type Ik",
+            "CDG-Ik",
+            "CDG1K",
+            "Carbohydrate deficient glycoprotein syndrome type Ik",
+            "Congenital disorder of glycosylation type 1k",
+            "Congenital disorder of glycosylation type Ik",
+            "Mannosyltransferase 1 deficiency" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "C2931005" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C2931005" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:79327" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "608540" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "9838" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E77.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:79327" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E77.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "9838" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "608540" ;
+                ns1:codingSystem "OMIM" ] ;
+        ns1:description "A severe form of congenital disorders of N-linked glycosylation characterized by severe developmental and psychomotor delay, muscular hypotonia, intractable early-onset seizures, and microcephaly. Additional features include altered blood coagulation with a high probability of hemorrhages or thromboses, nephrotic syndrome, ascites, hepatomegaly, cardiomyopathy, ocular manifestations (strabismus, nystagmus), and immunodeficiency. The disease is caused by loss-of-function mutations in the gene <i>ALG1</i> (16p13.3)." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "79327" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "ALG1-CDG" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "ALG1-CDG" ] .
+}
+

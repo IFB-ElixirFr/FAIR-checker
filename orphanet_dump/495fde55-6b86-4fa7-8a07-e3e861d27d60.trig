@@ -1,0 +1,36 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=36382> a ns1:MedicalCondition ;
+        ns1:alternateName "Familial CAD",
+            "Hereditary CAD",
+            "Hereditary cervical artery dissection" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "I72.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:36382" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:36382" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "I72.5" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "I72.5" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "I72.0" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "Familial cervical artery dissection is a rare, genetic, neurological disorder characterized by dissection of the cervical artery in various members of a single family, presenting with variable manifestations which range from asymptomatic to the triad of ipsilateral pain in the head, neck, and face, Horner syndrome, and cerebral or retinal ischemic symptoms. Headache and cerebral ischemic features are most frequently observed." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "36382" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Familial cervical artery dissection" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Familial cervical artery dissection" ] .
+}
+

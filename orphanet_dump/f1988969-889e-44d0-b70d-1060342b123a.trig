@@ -1,0 +1,30 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=541454> a ns1:MedicalCondition ;
+        ns1:alternateName "AORCA",
+            "R-ACAOS",
+            "Right coronary artery from left aortic sinus" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:541454" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q24.5" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:541454" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q24.5" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "A rare coronary artery congenital malformation characterized by an anomalous origin and course of the right coronary artery, which originates from the left aortic sinus of Valsalva and has an abnormal proximal course, which may be intramural, prepulmonic, subpulmonic, retroaortic, retrocardiac or wrapped around the apex. Patients are frequently asymptomatic, although chest pain, dyspnea, palpitations, dizziness, syncope, and sudden cardiac arrest/death (typically following intense physical exertion) may be observed. This malformation is associated with a lower risk of sudden cardiac death therefore surgical revascularization is recommended only when signs and/or symptoms of ischemia are present." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "541454" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Anomalous aortic origin of the right coronary artery" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Anomalous aortic origin of the right coronary artery" ] .
+}
+

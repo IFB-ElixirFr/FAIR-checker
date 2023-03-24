@@ -1,0 +1,28 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=480501> a ns1:MedicalCondition ;
+        ns1:alternateName "Congenital cystic dilatation of the biliary tract" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "Q44.4" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:480501" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:480501" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q44.4" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "A rare biliary tract disease characterized by congenital fusiform or cystic dilatation of intra- and/or extrahepatic bile ducts. Females are much more often affected than males. Clinical signs and symptoms include abdominal pain, jaundice, presence of a palpable abdominal mass, nausea, vomiting, or fever. Depending on the age of the patient, the condition may be complicated by stone formation, hepatomegaly, rupture with subsequent bile peritonitis, cholangitis, cholecystitis, biliary strictures, pancreatitis, or secondary biliary cirrhosis. The risk of malignancy, particularly cholangiocarcinoma, is significantly increased." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "480501" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Choledochal cyst" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Choledochal cyst" ] .
+}
+

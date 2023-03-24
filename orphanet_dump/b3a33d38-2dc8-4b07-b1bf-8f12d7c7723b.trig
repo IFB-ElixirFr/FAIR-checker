@@ -1,0 +1,52 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=79325> a ns1:MedicalCondition ;
+        ns1:alternateName "CDG syndrome type Ih",
+            "CDG-Ih",
+            "CDG1H",
+            "Carbohydrate deficient glycoprotein syndrome type Ih",
+            "Congenital disorder of glycosylation type 1h",
+            "Congenital disorder of glycosylation type Ih",
+            "Glucosyltransferase 2 deficiency" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:79325" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "608104" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:79325" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "9834" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "9834" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "608104" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C2931002" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C2931002" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E77.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E77.8" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "A form of congenital disorders of N-linked glycosylation that is characterized by gastrointestinal symptoms (diarrhea, vomiting, feeding problems with failure to thrive, protein-losing enteropathy), edema and ascites (including hydrops fetalis), hepatomegaly, renal tubulopathy, coagulation anomalies due to thrombocytopenia, brain involvement (psychomotor delay, seizures, ataxia), facial dysmorphism (low-set ears and retrognathia), pes equinovarus, and muscular hypotonia. Cataracts may also be observed. Prognosis is usually poor. The disease is caused by loss-of-function mutations in the gene <i>ALG8</i> (11q14.1), resulting in a block in the initial step of protein glycosylation." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "79325" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "ALG8-CDG" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "ALG8-CDG" ] .
+}
+

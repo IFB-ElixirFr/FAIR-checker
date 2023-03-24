@@ -1,0 +1,41 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=276198> a ns1:MedicalCondition ;
+        ns1:alternateName "Asidan",
+            "SCA36" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:276198" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "12367" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "12367" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G11.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "614153" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:276198" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "614153" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G11.8" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "An autosomal dominant cerebellar ataxia type 1 that characterized by gait and limb ataxia, lower limb spasticity, dysarthria, muscle fasiculations, tongue atrophy and hyperreflexia." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "276198" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Spinocerebellar ataxia type 36" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Spinocerebellar ataxia type 36" ] .
+}
+

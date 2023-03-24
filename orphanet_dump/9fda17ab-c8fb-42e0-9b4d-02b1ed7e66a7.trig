@@ -1,0 +1,56 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=34217> a ns1:MedicalCondition ;
+        ns1:alternateName "KWWH type I",
+            "Keratoderma with woolly hair type I",
+            "Keratosis palmoplantaris with arrythmogenic cardiomyopathy",
+            "Palmoplantar hyperkeratosis with arrythmogenic cardiomyopathy",
+            "Palmoplantar keratoderma with arrythmogenic cardiomyopathy" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "9795" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q87.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "601214" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C538346" ;
+                ns1:codingSystem "MeSH" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:34217" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "601214" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:34217" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C1832600" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q87.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "9795" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C1832600" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C538346" ;
+                ns1:codingSystem "MeSH" ] ;
+        ns1:description "A recessively inherited condition with arrhythmogenic right ventricular dysplasia/cardiomyopathy (ARVD/C) and a cutaneous phenotype, characterised by peculiar woolly hair and palmoplantar keratoderma." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "34217" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Naxos disease" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Naxos disease" ] .
+}
+

@@ -1,0 +1,51 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=2034> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "B74" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "B74" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:2034" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "B74.9" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0016085" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "B74.9" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D005368" ;
+                ns1:codingSystem "MeSH" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10016674" ;
+                ns1:codingSystem "MedDRA" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0016085" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D005368" ;
+                ns1:codingSystem "MeSH" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:2034" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10016674" ;
+                ns1:codingSystem "MedDRA" ] ;
+        ns1:description "A parasitic disease caused by tissue-invasive, vector-borne nematodes which can be found anywhere in the human body and that are transmitted to humans through the bite of an infected mosquito or fly or by consumption of unsafe drinking water and which, depending on the subtype can manifest with lymphedema, dermatitis, subcutaneous edema and eye involvement. The disorder is a major public health problem in many tropical and subtropical countries. Six subtypes have been described in the literature: lymphatic filariasis, onchocerciasis, loiasis, mansonelliasis, dirofilariasis and dracunculiasis caused by <i>Wuchereria bancrofti</i> and filarioidea of the genus <i>Brugia</i>; <i>Onchocerca volvulus</i>; <i>Loa loa</i>; <i>Mansonella</i>; <i>Dirofilaria</i>; and <i>Dracunculus medinensis</i>, respectively. Tropical eosinophilia is considered a frequent manifestation." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "2034" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Filariasis" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Filariasis" ] .
+}
+

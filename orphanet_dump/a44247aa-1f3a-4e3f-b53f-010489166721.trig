@@ -1,0 +1,35 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=91348> a ns1:MedicalCondition ;
+        ns1:alternateName "Functioning pituitary gonadotropic adenoma",
+            "Gonadotroph adenoma" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "D35.2" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0346304" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:91348" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0346304" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D35.2" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:91348" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "Functioning gonadotropic adenoma is a very rare pituitary tumor, macroscopically characterized by a soft, well vascularized, variable sized adenoma, with occasional areas of hemorrage or necrosis, that secretes biologically active gonadotropins. In addition to common neurological signs due to mass effect (headache and/or visual field deterioration), additional clinical manifestations include menstrual irregularities (secondary amenorrhea, oligomenorhea or severe menorrhagia), galactorrhea, infertility or ovarian hyperstimulation syndrome (in premenopausal women), testicular enlargement and, occasionally, hypogonadism (in men) and isosexual precocious puberty (in children)." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "91348" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Functioning gonadotropic adenoma" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Functioning gonadotropic adenoma" ] .
+}
+

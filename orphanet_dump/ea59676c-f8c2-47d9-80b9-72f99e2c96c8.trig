@@ -1,0 +1,30 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=96071> a ns1:MedicalCondition ;
+        ns1:alternateName "Distal duplication 3p",
+            "Telomeric duplication 3p",
+            "Trisomy 3pter" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "Q92.3" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:96071" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q92.3" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:96071" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "Distal trisomy 3p is a rare chromosomal anomaly syndrome, resulting from the partial duplication of the short arm of chromosome 3, with highly variable phenotype principally characterized by craniofacial dysmorphism (incl. brachy-/microcephaly, square facies, frontal bossing, bitemporal indentation, hypertelorism/telecanthus, low-set and/or dysmorphic ears, short nose with broad, flat nasal bridge, prominent cheeks and philtrum, downturned corners of mouth, micrognathia/retrognathia, short neck) associated with psychomotor delay, moderate to severe intellectual disability, cardiac (e.g. patent ductus arteriosus) and urogenital (e.g. renal hypoplasia, hypogenitalism) abnormalities, as well as seizures and presence of whorls on fingers." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "96071" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Distal trisomy 3p" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Distal trisomy 3p" ] .
+}
+

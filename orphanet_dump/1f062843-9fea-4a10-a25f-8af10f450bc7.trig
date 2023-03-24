@@ -1,0 +1,29 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=158019> a ns1:MedicalCondition ;
+        ns1:alternateName "Indeterminate dendritic cell neoplasm",
+            "Indeterminate dendritic cell tumor" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "D76.3" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D76.3" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:158019" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:158019" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare neoplastic disease characterized by multiple, and on occasion single, asymptomatic, smooth, red-brown papulonodules located on the face, neck, trunk and/or extremities which present a nonepidermotrophic histiocytic infiltrate with immunohistochemical features of both Langerhans and non-Langerhans cells (i.e. immunopositive for S100 protein and CD1a in the absence of Birbeck granules and langerin expression)." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "158019" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Indeterminate cell histiocytosis" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Indeterminate cell histiocytosis" ] .
+}
+

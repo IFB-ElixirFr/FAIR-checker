@@ -1,0 +1,36 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=228003> a ns1:MedicalCondition ;
+        ns1:alternateName "SCID due to CORO1A deficiency",
+            "SCID due to coronin-1A deficiency",
+            "Severe combined immunodeficiency due to coronin-1A deficiency" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:228003" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "615401" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:228003" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "615401" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D81.2" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D81.2" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "A rare T-B+ severe combined immunodeficiency characterized by profoundly decreased levels of T-cells, normal B-cells, and low immunoglobulin levels. The thymus is present. Patients typically become symptomatic in infancy or early childhood with recurrent infections. Epstein-Barr virus (EBV)-associated B-cell lymphoproliferative syndrome/lymphoma and mucocutaneous-immunodeficiency syndrome have been reported in association. Some patients may show developmental delay, neurocognitive impairment, and behavioral dysfunction (in particular attention deficit-hyperactivity disorder)." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "228003" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Severe combined immunodeficiency due to CORO1A deficiency" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Severe combined immunodeficiency due to CORO1A deficiency" ] .
+}
+

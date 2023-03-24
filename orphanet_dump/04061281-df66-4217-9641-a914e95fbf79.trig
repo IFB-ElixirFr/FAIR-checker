@@ -1,0 +1,28 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=300564> a ns1:MedicalCondition ;
+        ns1:alternateName "CPFE" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "J84.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "J84.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:300564" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:300564" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare interstitial lung disease characterized by the coexistence of emphysema and usual interstitial pneumonia, typically occurring in male smokers. Emphysema is usually encountered in the upper lobes, preceding fibrosis of the lower lobes. Patients present with severe dyspnea and markedly reduced diffusion capacity on functional testing, while spirometric values are relatively preserved. The syndrome is frequently complicated by pulmonary hypertension and acute lung injury." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "300564" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Combined pulmonary fibrosis-emphysema syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Combined pulmonary fibrosis-emphysema syndrome" ] .
+}
+

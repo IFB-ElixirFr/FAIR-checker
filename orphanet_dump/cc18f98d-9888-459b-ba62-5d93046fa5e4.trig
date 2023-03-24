@@ -1,0 +1,27 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=100048> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "Q39.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:100048" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:100048" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q39.8" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "A rare, non-syndromic, congenital esophageal malformation characterized by a second structure with individual lumen and stratified squamous mucosa and muscularis mucosa lying within or adjacent to the true esophagus causing dysphagia, nausea, vomiting, retrosternal pain and respiratory problems (stridor and recurrent pneumonia) and usually presenting in childhood." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "100048" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Tubular duplication of the esophagus" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Tubular duplication of the esophagus" ] .
+}
+

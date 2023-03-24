@@ -1,0 +1,34 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=314399> a ns1:MedicalCondition ;
+        ns1:alternateName "Autosomal dominant aplastic anemia and myelodysplasia" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:314399" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "614675" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:314399" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "614675" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D61.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D61.0" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "A rare, genetic, hematologic disorder characterized by bone marrow failure which manifests with aplastic anemia and/or myelodysplasia, associated with hearing/ear abnormalities (such as deafness, labyrinthitis), inherited in an autosomal dominant manner." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "314399" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Autosomal dominant aplasia and myelodysplasia" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Autosomal dominant aplasia and myelodysplasia" ] .
+}
+

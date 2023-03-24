@@ -1,0 +1,27 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=436144> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "Q87.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:436144" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q87.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:436144" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare genetic endocrine disease characterized by intrauterine growth restriction, failure of an adolescent growth spurt with proportional adult short stature, insulin resistance, and early adulthood-onset diabetes. Minimal subluxation of the fifth metacarpal-phalangeal joint has been reported, while metaphyseal dysplasia is absent. Testicular volume is low, but fertility is normal. There is no evidence of primary adrenal insufficiency." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "436144" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Intrauterine growth restriction-short stature-early adult-onset diabetes syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Intrauterine growth restriction-short stature-early adult-onset diabetes syndrome" ] .
+}
+

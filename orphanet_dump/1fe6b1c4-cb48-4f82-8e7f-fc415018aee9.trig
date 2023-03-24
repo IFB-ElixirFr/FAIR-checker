@@ -1,0 +1,29 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=247638> a ns1:MedicalCondition ;
+        ns1:alternateName "Prenatal benign Rathbun disease",
+            "Prenatal benign phosphoethanolaminuria" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:247638" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E83.3" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E83.3" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:247638" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A very rare form of hypophosphatasia characterized by prenatal skeletal manifestations (limb shortening and bowing) that slowly resolve spontaneously and later may develop into the moderate childhood or adult forms of the disease." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "247638" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Prenatal benign hypophosphatasia" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Prenatal benign hypophosphatasia" ] .
+}
+

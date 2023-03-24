@@ -1,0 +1,31 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=3162> a ns1:MedicalCondition ;
+        ns1:alternateName "Sézary lymphoma" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "C84.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:3162" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10040493" ;
+                ns1:codingSystem "MedDRA" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D012751" ;
+                ns1:codingSystem "MeSH" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "7629" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0036920" ;
+                ns1:codingSystem "UMLS" ] ;
+        ns1:description "Sézary syndrome (SS) is an aggressive form of cutaneous T-cell lymphoma characterized by a triad of erythroderma, lymphadenopathy and circulating atypical lymphocytes (Sézary cells)." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "3162" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Sézary syndrome" ] .
+}
+

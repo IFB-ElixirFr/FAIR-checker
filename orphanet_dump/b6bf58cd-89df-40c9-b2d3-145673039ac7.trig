@@ -1,0 +1,33 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=454723> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "C0346163" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C56" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:454723" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:454723" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C56" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0346163" ;
+                ns1:codingSystem "UMLS" ] ;
+        ns1:description "A rare malignant epithelial tumor of ovary characterized by confluent or cribriform proliferations of round, oval, or tubular glands, typically lined by stratified non-mucin-containing epithelium with well-defined luminal margins. Squamous differentiation, secretory changes, oxyphilic variants, sex cord-stromal type patterns, or sertoliform endometrioid carcinomas may occur. Patients most commonly present in the sixth decade of life, either with a pelvic mass with or without pain, or without any symptoms. The tumor may be bilateral and is frequently associated with endometriosis and/or endometrial carcinoma." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "454723" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Endometrioid carcinoma of ovary" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Endometrioid carcinoma of ovary" ] .
+}
+

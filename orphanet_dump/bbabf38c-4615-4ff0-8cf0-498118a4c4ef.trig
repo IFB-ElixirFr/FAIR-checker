@@ -1,0 +1,27 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=519398> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "H35.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:519398" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "H35.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:519398" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare macular disorder characterized mostly by a variable degree of decreased visual acuity, jerk or pendular nystagmus, and typical ocular findings at imaging. The disease is usually bilateral. Rarely, nystagmus can be absent. Locally, the disease is characterized by underdeveloped foveal pit, absence of foveal pigmentation and/or foveal avascular zone, and persistence of inner retinal layers at the fovea, in absence of concomitant ocular or systemic pathology." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "519398" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Isolated foveal hypoplasia" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Isolated foveal hypoplasia" ] .
+}
+

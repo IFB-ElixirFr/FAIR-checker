@@ -1,0 +1,26 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=275729> a ns1:MedicalCondition ;
+        ns1:alternateName "Rare bleeding disorder due to a constitutional thrombocytopenia",
+            "Rare bleeding disorder due to a quantitative platelet defect",
+            "Rare coagulopathy due to a constitutional thrombocytopenia",
+            "Rare coagulopathy due to a quantitative platelet defect",
+            "Rare hemorrhagic disorder due to a quantitative platelet defect" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:275729" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:275729" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "" ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "275729" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Rare hemorrhagic disorder due to a constitutional thrombocytopenia" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Rare hemorrhagic disorder due to a constitutional thrombocytopenia" ] .
+}
+

@@ -1,0 +1,33 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=447974> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "Q76.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q76.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "616549" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:447974" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "616549" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:447974" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare genetic disease characterized by the association of Klippel-Feil anomaly (fusion of the cervical spine), myopathy, hypotonia, short stature, microcephaly, and facial dysmorphism (including low-set ears, bulbous nose, long philtrum, high-arched palate, and low posterior hairline, among others). Cardiac abnormalities and various skeletal anomalies (such as pectus excavatum or clinodactyly) have also been reported." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "447974" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Klippel-Feil anomaly-myopathy-facial dysmorphism syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Klippel-Feil anomaly-myopathy-facial dysmorphism syndrome" ] .
+}
+

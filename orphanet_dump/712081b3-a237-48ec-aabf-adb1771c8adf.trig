@@ -1,0 +1,29 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=420789> a ns1:MedicalCondition ;
+        ns1:alternateName "Anti-IgLON5 disease",
+            "Anti-IgLON5 syndrome" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:420789" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:420789" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G04.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G04.8" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "A rare neurologic disorder characterized by a unique non-REM and REM parasomnia with sleep breathing dysfunction, gait instability and repetitive episodes of respiratory insufficiency, as well as autoantibodies against IgLON5. Patients may present stridor, chorea, limb ataxia, abnormal ocular movements, and bulbar symptoms (i.e. dysphagia, dysarthria, episodic central hypoventilation) with normal brain MRI. Excessive day sleepiness and cognitive deterioration have also been reported." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "420789" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Autoimmune encephalopathy with parasomnia and obstructive sleep apnea" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Autoimmune encephalopathy with parasomnia and obstructive sleep apnea" ] .
+}
+

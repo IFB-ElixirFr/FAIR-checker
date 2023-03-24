@@ -1,0 +1,54 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=2500> a ns1:MedicalCondition ;
+        ns1:alternateName "Acrogeria, Gottron type",
+            "Acrometageria",
+            "Gottron syndrome" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "L90.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C538187" ;
+                ns1:codingSystem "MeSH" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "L90.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "6543" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:2500" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "201200" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C538187" ;
+                ns1:codingSystem "MeSH" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0238590" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0238590" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:2500" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "6543" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "201200" ;
+                ns1:codingSystem "OMIM" ] ;
+        ns1:description "A rare premature aging syndrome characterized by atrophy of the skin and subcutaneous tissue involving predominantly the distal parts of the extremities, resulting in prematurely aged appearance of the hand and feet. Another prominent feature is the characteristic facies with hollow cheeks, beaked nose, and owl-like eyes. Additional, non-dermatological manifestations, like bone anomalies have been described in some patients. Mode of inheritance has not been definitively established." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "2500" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Acrogeria" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Acrogeria" ] .
+}
+

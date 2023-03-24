@@ -1,0 +1,27 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=477738> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "G35" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G35" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:477738" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:477738" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "Pediatric multiple sclerosis (MS) is a rare multiple sclerosis variant characterized by the onset of multiple sclerosis (i.e. one or multiple episodes of clinical CNS symptoms consistent with acquired CNS demyelination, with radiologically proven dissemination of inflammatory lesions in space and time, following exclusion of other disorders) before the age of 18 years old. Pediatric MS patients present a predominantly relapsing-remitting course with first attack usually consisting of optic neuritis, transverse myelitis, acute disseminated encephalomyelitis and monofocal or polyfocal neurological deficits. A high burden of T2-hyperintense lesions on intial MRI, primarily of the supratentorial region and/or of the cervical spinal cord, has been reported." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "477738" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Pediatric multiple sclerosis" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Pediatric multiple sclerosis" ] .
+}
+

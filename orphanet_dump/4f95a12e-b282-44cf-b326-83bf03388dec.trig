@@ -1,0 +1,34 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=306498> a ns1:MedicalCondition ;
+        ns1:alternateName "PHTS" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "12800" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:306498" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C1959582" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "12800" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C1959582" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:306498" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A group rare skin tumor or hamartoma diseases characterized by a germline PTEN mutation and clinical manifestations of hamartomas, overgrowth, and increased risk of neoplasia, notably breast carcinomas, epithelial thyroid carcinomas, endometrial carcinomas, renal cell carcinomas, and colorectal carcinoma. Non-malignant manifestations include macrocephaly, benign thyroid pathology (especially Hashimoto thyroiditis), mucocutaneous hamartomas, colonic polyps, and vascular malformations. Diseases in this group include Cowden syndrome, Bannayan-Riley-Ruvalcaba syndrome, Proteus-like syndrome, Lhermitte-Duclos disease, and Segmental outgrowth-lipomatosis-arteriovenous malformation-epidermal nevus syndrome." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "306498" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "PTEN hamartoma tumor syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "PTEN hamartoma tumor syndrome" ] .
+}
+

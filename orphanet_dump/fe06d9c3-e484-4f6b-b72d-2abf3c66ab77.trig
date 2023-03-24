@@ -1,0 +1,21 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=498474> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:498474" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:498474" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare genetic disease characterized by infantile or childhood onset of abnormal growth of hyalinized fibrous tissue, giving rise to multiple cutaneous nodules and/or pearly papules predominantly affecting the scalp, ears, neck, face, hands, and feet. Involvement of other organs results in gingival hyperplasia, osteolytic bone lesions, and joint contractures. Some patients exhibit visceral involvement with intractable diarrhea, increased susceptibility to infections, and severe failure to thrive." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "498474" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Hyaline fibromatosis syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Hyaline fibromatosis syndrome" ] .
+}
+

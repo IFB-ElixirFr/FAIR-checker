@@ -1,0 +1,35 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=248095> a ns1:MedicalCondition ;
+        ns1:alternateName "Idiopathic hypertrophic osteoarthropathy",
+            "PHO" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "C0029411" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:248095" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D010004" ;
+                ns1:codingSystem "MeSH" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D010004" ;
+                ns1:codingSystem "MeSH" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:248095" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0029411" ;
+                ns1:codingSystem "UMLS" ] ;
+        ns1:description "Primary hypertrophic osteoarthropathy (PHO) is a genetically and clinically heterogeneous inherited disorder characterized by digital clubbing and osteoarthropathy, with variable features of pachydermia, delayed closure of the fontanels, and congenital heart disease. There are two types of PHO: pachydermoperiostosis and cranio-osteoarthropathy (see these terms)." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "248095" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Primary hypertrophic osteoarthropathy" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Primary hypertrophic osteoarthropathy" ] .
+}
+

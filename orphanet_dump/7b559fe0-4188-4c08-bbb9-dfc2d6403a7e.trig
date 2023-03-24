@@ -1,0 +1,34 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=562559> a ns1:MedicalCondition ;
+        ns1:alternateName "MRAMS syndrome" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "613671" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "613671" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "F72.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:562559" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "F72.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:562559" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare genetic multiple congenital anomalies/dysmorphic syndrome characterized by the association of severe intellectual disability, strabismus, and anterior maxillary protrusion with vertical maxillary excess, open bite, and prominent crowded teeth. Mild cochlear hearing loss has been reported in addition." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "562559" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Anterior maxillary protrusion-strabismus-intellectual disability syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Anterior maxillary protrusion-strabismus-intellectual disability syndrome" ] .
+}
+

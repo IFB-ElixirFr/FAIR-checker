@@ -1,0 +1,33 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=370002> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "148700" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "148700" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q82.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:370002" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:370002" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q82.8" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "Focal palmoplantar keratoderma with joint keratoses is a rare, genetic, isolated palmoplantar keratoderma disorder characterized by focal hyperkeratotic lesions affecting the pressure- and mechanical trauma-bearing areas of the palms and soles, as well as hyperkeratotic plaques involving joints, including knees, elbows, ankles and dorsa of interphalangeal joints." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "370002" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Focal palmoplantar keratoderma with joint keratoses" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Focal palmoplantar keratoderma with joint keratoses" ] .
+}
+

@@ -1,0 +1,28 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=289596> a ns1:MedicalCondition ;
+        ns1:alternateName "JNA" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:289596" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D10.6" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:289596" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D10.6" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "Juvenile nasopharyngeal angiofibroma (JNA) is a rare and benign but locally aggressive fibrovascular tumor arising from the posterolateral wall of the nasopharynx, which affects mainly young and adolescent males (onset usually occurring between 7-19 years of age) and that presents as a mass in the nasopharynx and nasal cavity, leading to manifestations such as nasal obstruction, epistaxis, profound facial swelling, proptosis or diplopia. Although slowly progressive, it has a high rate of recurrence and sometimes invades adjacent structures." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "289596" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Juvenile nasopharyngeal angiofibroma" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Juvenile nasopharyngeal angiofibroma" ] .
+}
+

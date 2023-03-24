@@ -1,0 +1,30 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=506136> a ns1:MedicalCondition ;
+        ns1:alternateName "Esophageal NEN",
+            "Esophageal neuroendocrine neoplasm",
+            "NEN of esophagus" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "C15.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:506136" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C15.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:506136" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A group of esophageal epithelial neoplasms characterized by neuroendocrine differentiation, comprising well-differentiated neuroendocrine tumors (NETs), poorly differentiated neuroendocrine carcinomas (NECs), and mixed neuroendocrine-non-neuroendocrine neoplasms, an umbrella category including mixed adenoneuroendocrine carcinoma. The tumors typically occur in the lower esophagus, often in association with Barrett mucosa. NECs may also arise in other parts of the esophagus. On endoscopy, NETs usually appear as small polypoid or nodular submucosal masses, while NECs are large, infiltrative, and ulcerated. Patients most commonly present with dysphagia, pain, weight loss, and sometimes melena. Metastatic NETs may be associated with carcinoid syndrome." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "506136" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Neuroendocrine neoplasm of esophagus" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Neuroendocrine neoplasm of esophagus" ] .
+}
+

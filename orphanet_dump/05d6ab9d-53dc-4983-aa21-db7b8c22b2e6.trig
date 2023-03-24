@@ -1,0 +1,47 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=79240> a ns1:MedicalCondition ;
+        ns1:alternateName "GSD due to liver and muscle phosphorylase kinase deficiency",
+            "GSD type 9B",
+            "GSD type IXb",
+            "Glycogen storage disease type 9B",
+            "Glycogen storage disease type IXb",
+            "Glycogenosis due to liver and muscle phosphorylase kinase deficiency",
+            "Glycogenosis type 9B",
+            "Glycogenosis type IXb" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "E74.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "261750" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:79240" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0543514" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E74.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "261750" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:79240" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0543514" ;
+                ns1:codingSystem "UMLS" ] ;
+        ns1:description "A benign inborn error of glycogen metabolism. It is the mildest form of GSD due to PhK deficiency." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "79240" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Glycogen storage disease due to liver and muscle phosphorylase kinase deficiency" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Glycogen storage disease due to liver and muscle phosphorylase kinase deficiency" ] .
+}
+

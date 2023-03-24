@@ -1,0 +1,41 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=263297> a ns1:MedicalCondition ;
+        ns1:alternateName "GSD type 15",
+            "GSD type XV",
+            "GSD with severe cardiomyopathy due to glycogenin deficiency",
+            "Glycogen storage disease type 15",
+            "Glycogen storage disease type XV",
+            "Glycogenosis type 15",
+            "Glycogenosis type XV",
+            "Glycogenosis with severe cardiomyopathy due to glycogenin deficiency" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "E74.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:263297" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "613507" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E74.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:263297" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "613507" ;
+                ns1:codingSystem "OMIM" ] ;
+        ns1:description "Glycogen storage disease type 15 is an extremely rare genetic glycogen storage disease reported in one patient to date. Clinical signs included muscle weakness, cardiac arrhythmia associated with accumulation of abnormal storage material in the heart and glycogen depletion in skeletal muscle." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "263297" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Glycogen storage disease with severe cardiomyopathy due to glycogenin deficiency" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Glycogen storage disease with severe cardiomyopathy due to glycogenin deficiency" ] .
+}
+

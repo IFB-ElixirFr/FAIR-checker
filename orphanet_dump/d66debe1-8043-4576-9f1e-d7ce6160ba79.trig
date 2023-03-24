@@ -1,0 +1,56 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=75392> a ns1:MedicalCondition ;
+        ns1:alternateName "EDS VIII",
+            "Ehlers-Danlos syndrome type 8",
+            "Ehlers-Danlos syndrome, periodontitis type",
+            "Periodontal EDS",
+            "pEDS" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "617174" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "12474" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "130080" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q79.6" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0268347" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:75392" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0268347" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "12474" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "617174" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q79.6" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:75392" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "130080" ;
+                ns1:codingSystem "OMIM" ] ;
+        ns1:description "A rare type of Ehlers-Danlos syndrome characterized by childhood or adolescence onset of severe, intractable periodontitis, lack of attached gingiva, and presence of pretibial plaques. Additional manifestations are easy bruising, hypermobility mainly of the distal joints, skin hyperextensibility and fragility, abnormal scarring, recurrent infections, hernias, marfanoid facial features, acrogeria, and prominent vasculature." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "75392" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Periodontal Ehlers-Danlos syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Periodontal Ehlers-Danlos syndrome" ] .
+}
+

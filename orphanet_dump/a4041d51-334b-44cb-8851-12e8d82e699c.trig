@@ -1,0 +1,28 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=449566> a ns1:MedicalCondition ;
+        ns1:alternateName "IgG4-related eosinophilic angiocentric fibrosis" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "J39.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:449566" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "J39.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:449566" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare otorhinolaryngologic disease characterized by an indolent submucosal mass of variable size and extent, most commonly arising in the anterior nasal cavity, involving the nasal septum and lateral nasal wall, and potentially extending into the adjacent sinuses. Occurrence in the larynx and lower respiratory tract or the orbit is rare. Histological examination shows concentric angiocentric stromal fibrosis (onionskin fibrosis) and prominent eosinophils. Increased numbers of IgG4-positive plasma cells in the lesion may also be observed, in addition to elevated serum IgG4. Patients typically present with long-standing obstructive symptoms." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "449566" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Eosinophilic angiocentric fibrosis" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Eosinophilic angiocentric fibrosis" ] .
+}
+

@@ -1,0 +1,35 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=309271> a ns1:MedicalCondition ;
+        ns1:alternateName "Arylsulfatase A deficiency, adult form",
+            "MLD, adult form" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "C0751279" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E75.2" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0751279" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:309271" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:309271" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E75.2" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "A subtype of Metachromatic leukodystrophy characterized by progressive psychomotor regression with an insidious onset after the age of 16 years, most often beginning with intellectual and behavioral changes, such as memory deficits or emotional instability. The clinical picture is dominated by gradual cognitive, later also motor, decline, taking a protracted course with periods of waxing and waning. Decerebration and death occur within decades after disease onset." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "309271" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Metachromatic leukodystrophy, adult form" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Metachromatic leukodystrophy, adult form" ] .
+}
+

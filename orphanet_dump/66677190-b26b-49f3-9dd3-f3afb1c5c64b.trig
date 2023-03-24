@@ -1,0 +1,37 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=163596> a ns1:MedicalCondition ;
+        ns1:alternateName "Alpha-thalassemia hydrops fetalis",
+            "Alpha-thalassemia major",
+            "Hemoglobin Bart's hydrops fetalis",
+            "Homozygous alpha0-thalassemia" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:163596" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D56.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D56.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:163596" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "236750" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "236750" ;
+                ns1:codingSystem "OMIM" ] ;
+        ns1:description "A severe form of alpha-thalassemia that is mostly lethal, and associated with severe long-term outcome and lifelong transfusions in survivors. It is characterized by fetal onset of generalized edema, pleural and pericardial effusions, and severe hypochromic anemia." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "163596" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Hb Bart's hydrops fetalis" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Hb Bart's hydrops fetalis" ] .
+}
+

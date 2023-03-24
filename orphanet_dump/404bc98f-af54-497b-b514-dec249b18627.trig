@@ -1,0 +1,27 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=99172> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:99172" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q10.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q10.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:99172" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "Euryblepharon is a rare congenital eyelid anomaly of unknown etiology characterized by the bilateral horizontal enlargement of the palpebral fissure with vertically shortened eyelids, lateral canthus malpositioning and lateral ectropion. It may be isolated or associated with other ocular anomalies (e.g. strabismus or telecanthus; see this term) or systemic anomalies (e.g. blepharo-cheilo-odontic syndrome, see this term). In severe cases, it may result in lagophthalmos and exposure keratopathy, requiring surgical treatment." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "99172" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Euryblepharon" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Euryblepharon" ] .
+}
+

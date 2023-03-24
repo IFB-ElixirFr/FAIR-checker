@@ -1,0 +1,29 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=589905> a ns1:MedicalCondition ;
+        ns1:alternateName "Chung-Jansen syndrome",
+            "DIDOD" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:589905" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "617991" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:589905" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "617991" ;
+                ns1:codingSystem "OMIM" ] ;
+        ns1:description "A rare genetic multiple congenital anomalies/dysmorphic syndrome characterized by variable developmental delay and intellectual disability, overweight or obesity, behavioral abnormalities (including hyperactivity, aggressive behavior, anxiety, mood disorder, or autistic features), and facial dysmorphism (such as high forehead, full eyebrows and/or synophrys, upturned nose, and fleshy ears, among others). Additional reported manifestations are hypotonia, ocular anomalies, anomalies of the fingers and toes, joint hypermobility, or abnormal pigmentation. Brain imaging may show mild nonspecific abnormalities." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "589905" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "PHIP-related behavioral problems-intellectual disability-obesity-dysmorphic features syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "PHIP-related behavioral problems-intellectual disability-obesity-dysmorphic features syndrome" ] .
+}
+

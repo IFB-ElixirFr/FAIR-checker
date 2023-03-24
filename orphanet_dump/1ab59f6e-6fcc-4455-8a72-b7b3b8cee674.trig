@@ -1,0 +1,27 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=280397> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "A81.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:280397" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:280397" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "A81.8" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "Familial Alzheimer-like prion disease is an exceedingly rare form of prion disease (see this term) characterized by the neuropathological features of Alzheimer disease including memory impairment and depression, related to abnormal prion protein (PrP) caused by a gene mutation in <i>PRNP</i>. Patients present with a prolonged, atypical course (absence of myoclonus or ataxia) unlike other forms of prion disease with severe neurofibrillary tangle pathology and high levels of cerebral amyloidosis." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "280397" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Familial Alzheimer-like prion disease" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Familial Alzheimer-like prion disease" ] .
+}
+

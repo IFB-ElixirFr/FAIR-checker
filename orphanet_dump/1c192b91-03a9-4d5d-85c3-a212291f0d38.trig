@@ -1,0 +1,22 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=275828> a ns1:MedicalCondition ;
+        ns1:alternateName "PAH associated with chronic hemolytic anemia" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:275828" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:275828" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "Pulmonary arterial hypertension associated with chronic hemolytic anemia (PAH-CHA) is a form of PAH (see this term) characterized by an elevated pulmonary arterial resistance leading to right heart failure observed as a complication of chronic hemolytic anemia." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "275828" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Pulmonary arterial hypertension associated with chronic hemolytic anemia" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Pulmonary arterial hypertension associated with chronic hemolytic anemia" ] .
+}
+

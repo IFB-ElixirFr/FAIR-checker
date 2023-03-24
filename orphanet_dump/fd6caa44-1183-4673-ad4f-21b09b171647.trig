@@ -1,0 +1,29 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=97564> a ns1:MedicalCondition ;
+        ns1:alternateName "Antineutrophil cytoplasmic antibody-negative pauci-immune glomerulonephritis",
+            "Pauci-immune glomerulonephritis without antineutrophil cytoplasmic antibody" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:97564" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "N05.7" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "N05.7" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:97564" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A form of pauci-immune glomerulonephritis characterized by rapidly progressive glomerulonephritis and the absence of antineutrophilic cytoplasmic antibodies (ANCA). In comparison with pauci-immune GN with ANCA, patients lacking ANCA may be younger at onset of the disease, have fewer extra renal manifestations (e.g. involvement of lung, eye, ear, nose and throat), fewer constitutional symptoms (e.g. fever, weight loss, muscle pain and arthralgia) and a high prevalence of nephrotic syndrome and chronic renal lesions. The prognosis is generally poorer." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "97564" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Pauci-immune glomerulonephritis without ANCA" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Pauci-immune glomerulonephritis without ANCA" ] .
+}
+

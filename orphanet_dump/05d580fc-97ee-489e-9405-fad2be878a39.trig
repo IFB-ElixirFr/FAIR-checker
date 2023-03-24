@@ -1,0 +1,36 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=99892> a ns1:MedicalCondition ;
+        ns1:alternateName "ACTH-dependent CS",
+            "Adrenocorticotropic hormone-dependent Cushing syndrome",
+            "Corticotropin-dependent Cushing syndrome" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "C0342442" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E24.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0342442" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:99892" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:99892" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E24.0" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "A form of endogenous Cushing syndrome (CS) caused by abnormal production of ACTH due, in 80% of cases, to adrenocorticotropic hormone (ACTH) oversecretion by a pituitary adenoma (Cushing disease, CD) and in 20% of cases to ectopic ACTH secretion (CS due to EAS) by an extrapituitary tumor (in 50% of cases originating in the lungs or less commonly in the thymus, pancreas, adrenal gland or thyroid) or very rarely due to a tumor secreting both ACTH and corticotrophin-releasing hormone (CRH)." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "99892" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "ACTH-dependent Cushing syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "ACTH-dependent Cushing syndrome" ] .
+}
+

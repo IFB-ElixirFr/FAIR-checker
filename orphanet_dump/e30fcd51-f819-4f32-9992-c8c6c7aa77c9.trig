@@ -1,0 +1,36 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=93940> a ns1:MedicalCondition ;
+        ns1:alternateName "LTEC III",
+            "LTEC3",
+            "Laryngo-tracheo-esophageal cleft type 3" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "Q32.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "215800" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q32.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:93940" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:93940" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "215800" ;
+                ns1:codingSystem "OMIM" ] ;
+        ns1:description "A congenital respiratory tract anomaly characterized by a cleft extending through the cricoid cartilage, sometimes into the cervical trachea, with severe swallowing disorders, lung infections and pulmonary damage." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "93940" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Laryngotracheoesophageal cleft type 3" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Laryngotracheoesophageal cleft type 3" ] .
+}
+

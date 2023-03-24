@@ -1,0 +1,42 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=101063> a ns1:MedicalCondition ;
+        ns1:alternateName "Complete situs inversus",
+            "Complete situs inversus viscerum",
+            "Situs inversus" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "C0037221" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q89.3" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:101063" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "4883" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q89.3" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0037221" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:101063" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "4883" ;
+                ns1:codingSystem "GARD" ] ;
+        ns1:description "A rare, genetic, developmental defect during embryogenesis characterized by total mirror-image transposition of both thoracic and abdominal viscera across the left-right axis of the body. Congenital abnormalities, such as primary ciliary dyskinesia, Kartagener type, polysplenia syndrome, biliary atresia, congenital heart disease, and midgut malrotation, as well as vascular anomalies (e.g. absence of retrohepatic inferior vena cava, preduodenal portal vein, aberrant hepatic arterial anatomy) and malignancy, are frequently associated." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "101063" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Situs inversus totalis" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Situs inversus totalis" ] .
+}
+

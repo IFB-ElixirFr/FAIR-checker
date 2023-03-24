@@ -1,0 +1,27 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=166299> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:166299" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:166299" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G40.2" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G40.2" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "Benign partial epilepsy of infancy with complex partial seizures is a rare infantile epilepsy syndrome characterized by complex partial seizures presenting with motion arrest, decreased responsiveness, staring, automatisms and mild clonic movements, with or without apneas, normal interictal EEG and focal, mostly temporal discharges in ictal EEG. Most often, seizures occur in clusters and have a good response to treatment. Psychomotor development is normal." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "166299" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Benign partial epilepsy of infancy with complex partial seizures" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Benign partial epilepsy of infancy with complex partial seizures" ] .
+}
+

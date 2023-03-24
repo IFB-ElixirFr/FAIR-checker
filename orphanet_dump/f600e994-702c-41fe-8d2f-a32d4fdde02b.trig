@@ -1,0 +1,40 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=314> a ns1:MedicalCondition ;
+        ns1:alternateName "Leiner disease" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:314" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "L21.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "609536" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "L21.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "6878" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "609536" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "6878" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:314" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare immune deficiency with skin involvement characterized by early infantile onset of a clinical tetrad comprising generalized severe seborrheic-like erythroderma, recurrent secondary bacterial or fungal infections (most commonly <i>Staphylococcus aureus</i>, Candida, and gram-negative bacteria), persistent, profuse malabsorptive diarrhea, and failure to thrive or marked wasting. Associated systemic symptoms include fever, anemia, and weight loss. Further critical complications are impaired thermoregulation and severe fluid loss due to extensive exfoliation." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "314" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Erythroderma desquamativum" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Erythroderma desquamativum" ] .
+}
+

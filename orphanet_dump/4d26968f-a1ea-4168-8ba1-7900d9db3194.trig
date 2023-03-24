@@ -1,0 +1,35 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=391311> a ns1:MedicalCondition ;
+        ns1:alternateName "Predisposition to severe viral infection due to STAT1 deficiency",
+            "STAT1 deficiency" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "613796" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:391311" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D84.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "613796" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D84.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:391311" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare, genetic, primary immunodeficiency due to a defect in innate immunity disorder characterized by impaired intracellular signaling from both type I and type II interferons, leading to early-onset, severe, life-threatening intracellular bacterial (typically mycobacteria) and viral (mainly herpes viruses) infections." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "391311" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Susceptibility to viral and mycobacterial infections due to STAT1 deficiency" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Susceptibility to viral and mycobacterial infections due to STAT1 deficiency" ] .
+}
+

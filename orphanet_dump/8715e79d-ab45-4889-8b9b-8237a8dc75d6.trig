@@ -1,0 +1,33 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=404437> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "G98" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "615760" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:404437" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:404437" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "615760" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G98" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "Diffuse cerebral and cerebellar atrophy-intractable seizures-progressive microcephaly syndrome is a rare, genetic, central nervous system malformation syndrome characterized by congenital, progressive microcephaly, neonatal to infancy-onset of severe, intractable seizures, and diffuse cerebral cortex and cerebellar vermis atrophy with mild cerebellar hemisphere atrophy, associated with profound global developmental delay. Hypotonia or hypertonia with brisk reflexes, variable dysmorphic facial features, ophthalmological signs (cortical visual impairment, nystagmus, eye deviation) and episodes of sudden extreme agitation caused by severe illness may also be associated." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "404437" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Diffuse cerebral and cerebellar atrophy-intractable seizures-progressive microcephaly syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Diffuse cerebral and cerebellar atrophy-intractable seizures-progressive microcephaly syndrome" ] .
+}
+

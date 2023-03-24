@@ -1,0 +1,46 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=275> a ns1:MedicalCondition ;
+        ns1:alternateName "SCID due to ARTEMIS deficiency",
+            "SCID due to DCLRE1C deficiency",
+            "SCID, Athabascan type",
+            "SCID, Athabaskan type",
+            "Severe combined immunodeficiency due to ARTEMIS deficiency",
+            "Severe combined immunodeficiency, Athabascan type",
+            "Severe combined immunodeficiency, Athabaskan type" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "602450" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "602450" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:275" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D81.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C1865372" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D81.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C1865372" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:275" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "Severe combined immunodeficiency (SCID) due to DCLRE1C deficiency is a type of SCID (see this term) characterized by severe and recurrent infections, diarrhea, failure to thrive, and cell sensitivity to ionizing radiation." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "275" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Severe combined immunodeficiency due to DCLRE1C deficiency" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Severe combined immunodeficiency due to DCLRE1C deficiency" ] .
+}
+

@@ -1,0 +1,33 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=301> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:301" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "137800" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "137800" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0014474" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:301" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0014474" ;
+                ns1:codingSystem "UMLS" ] ;
+        ns1:description "A tumor of neurectodermal origin arising from ependymal cells that line the ventricles and central canal of the spinal cord, that can occur in both children and adults, and that is characterized by wide a range of clinical manifestations depending on the location of the tumor, such as intracranial hypertension for tumors originating in the posterior fossa, behavioural changes and pyramidal signs for supratentorial tumors, and dysesthesia for tumors of the spinal cord. They can be classified as myxopapillary ependymoma, subependymoma, ependymoma (low grade tumors) or anaplastic ependymoma (grade III tumors)." ;
+        ns1:epidemiology "Prevalence : 1-9 / 100 000" ;
+        ns1:identifier "301" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Ependymal tumor" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Ependymal tumor" ] .
+}
+

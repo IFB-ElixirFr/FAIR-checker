@@ -1,0 +1,34 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=100978> a ns1:MedicalCondition ;
+        ns1:alternateName "Benallegue-Lacete syndrome" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:100978" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q87.5" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:100978" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q87.5" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "853" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "853" ;
+                ns1:codingSystem "GARD" ] ;
+        ns1:description "A rare syndromic craniosynostosis characterized by prenatal presentation with cloverleaf skull, micromelia and asphyxiating thoracic dysplasia. Radiologic features include short ribs, horizontal roof of the acetabulum with a rounded median prominence and lateral spurs, deformed long bones with broad metaphyses, and absent ossification of the terminal phalanges. There have been no further descriptions in the literature since 1987." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "100978" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Cloverleaf skull-asphyxiating thoracic dysplasia syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Cloverleaf skull-asphyxiating thoracic dysplasia syndrome" ] .
+}
+

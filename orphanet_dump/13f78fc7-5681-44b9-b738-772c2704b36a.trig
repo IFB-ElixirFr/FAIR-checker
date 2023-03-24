@@ -1,0 +1,32 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=93609> a ns1:MedicalCondition ;
+        ns1:alternateName "AR dRTA without deafness",
+            "AR dRTA without hearing loss",
+            "Autosomal recessive distal renal tubular acidosis without hearing loss",
+            "Distal renal tubular acidosis type 1c",
+            "dRTA type 1c" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:93609" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:93609" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "N25.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "N25.8" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "" ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "93609" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Autosomal recessive distal renal tubular acidosis without deafness" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Autosomal recessive distal renal tubular acidosis without deafness" ] .
+}
+

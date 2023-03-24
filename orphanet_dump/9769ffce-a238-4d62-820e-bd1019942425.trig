@@ -1,0 +1,33 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=466688> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "616819" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q87.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:466688" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q87.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "616819" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:466688" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare genetic neurological disorder characterized by congenital microcephaly, severe intellectual disability, hypertonia at birth lessening with age, ataxia, and specific dysmorphic facial features including hirsutism, low anterior hairline and bitemporal narrowing, arched, thick, and medially sparse eyebrows, long eyelashes, lateral upper eyelids swelling and a skin fold partially covering the inferior eyelids, low-set posteriorly rotated protruding ears, anteverted nares, and a full lower lip. Brain imaging shows partial to almost complete agenesis of the corpus callosum and variable degrees of cerebellar hypoplasia." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "466688" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Severe intellectual disability-corpus callosum agenesis-facial dysmorphism-cerebellar ataxia syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Severe intellectual disability-corpus callosum agenesis-facial dysmorphism-cerebellar ataxia syndrome" ] .
+}
+

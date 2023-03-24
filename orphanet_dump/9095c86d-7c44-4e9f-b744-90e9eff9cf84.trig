@@ -1,0 +1,28 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=324381> a ns1:MedicalCondition ;
+        ns1:alternateName "HIBM4" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "G71.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G71.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:324381" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:324381" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "Hereditary inclusion body myopathy type 4 is a rare non-dystrophic myopathy characterized by slowly progressive muscular weakness and atrophy initially involving proximal lower limbs and hip girdle and later on shoulder girdle, proximal upper limbs and axial muscles. Ambulation is usually preserved. Congophilic inclusions with cytoplasmic inclusions of 15-21 nm filaments on electron microscopy are revealed in muscle biopsy." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "324381" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Hereditary inclusion body myopathy type 4" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Hereditary inclusion body myopathy type 4" ] .
+}
+

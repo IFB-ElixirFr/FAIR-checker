@@ -1,0 +1,34 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=314689> a ns1:MedicalCondition ;
+        ns1:alternateName "CID due to STK4 deficiency" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "D81.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "614868" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:314689" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "614868" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D81.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:314689" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare, genetic, combined T and B cell immunodeficiency characterized by T- and B-cell lymphopenia, hypergammaglobulinemia and intermittent neutropenia. It presents with recurrent opportunistic viral, bacterial and fungal infections involving skin (cutaneous papillomatosis, molluscum contagiosum, skin abscesses, mucocutaneous candidiasis), upper and lower respiratory tract or septicemia. Other clinical features include autoimmune manifestations (autoimmune hemolytic anemia) and congenital heart defects (atrial septal defects, patent foramen ovale, mitral, triscupid and pulmonary valve insufficiency)." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "314689" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Combined immunodeficiency due to STK4 deficiency" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Combined immunodeficiency due to STK4 deficiency" ] .
+}
+

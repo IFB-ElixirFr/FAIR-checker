@@ -1,0 +1,59 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=75327> a ns1:MedicalCondition ;
+        ns1:alternateName "CAPE dystrophy",
+            "CAPED",
+            "Central areolar pigment epithelial dystrophy",
+            "Central retinal pigment epithelial dystrophy",
+            "MCDR1",
+            "NCMD",
+            "North Carolina macular dystrophy, retinal 1",
+            "Progressive foveal dystrophy" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "C0730294" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C537835" ;
+                ns1:codingSystem "MeSH" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "136550" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:75327" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "136550" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C537835" ;
+                ns1:codingSystem "MeSH" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "H35.5" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "9179" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "9179" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "H35.5" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:75327" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0730294" ;
+                ns1:codingSystem "UMLS" ] ;
+        ns1:description "A non-progressive autosomal dominant macular disorder of congenital or infantile onset characterized by loss of central vision, the accumulation of drusen in the macula and atrophy of photoreceptor cells with a variable phenotype at macular examination." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "75327" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "North Carolina macular dystrophy" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "North Carolina macular dystrophy" ] .
+}
+

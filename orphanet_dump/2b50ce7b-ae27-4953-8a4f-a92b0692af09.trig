@@ -1,0 +1,29 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=99083> a ns1:MedicalCondition ;
+        ns1:alternateName "PAH",
+            "Unilateral Pulmonary Artery Hypoplasia" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:99083" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q25.7" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q25.7" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:99083" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare, congenital anomaly of the great arteries characterized by various clinical signs and symptoms, shortness of breath, including recurrent lower respiratory tract infections, lung hypoplasia, pulmonary hypertension, and haemoptysis. The anomaly can be isolated or associated with congenital heart disease, such as tetralogy of Fallot, atrial septal defect, coarctation of the aorta, right aortic arch, truncus arteriosus, patent ductus arteriosus and pulmonary atresia." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "99083" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Pulmonary artery hypoplasia" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Pulmonary artery hypoplasia" ] .
+}
+

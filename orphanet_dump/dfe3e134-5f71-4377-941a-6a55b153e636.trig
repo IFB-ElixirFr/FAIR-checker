@@ -1,0 +1,28 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=447731> a ns1:MedicalCondition ;
+        ns1:alternateName "Primary immunodeficiency with multifaceted aberrant lymphoid immunity" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:447731" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:447731" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D81.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D81.8" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "A rare, genetic, primary combined T and B cell immunodeficiency characterized by recurrent, severe viral and bacterial infections. Immunologic findings include decreased immunoglobulin levels, decreased numbers of B and NK cells, reduced relative CD19+ B cells in peripheral blood, impaired memory responses to viral infections and defective antigen-specific T-cell proliferation." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "447731" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "NIK deficiency" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "NIK deficiency" ] .
+}
+

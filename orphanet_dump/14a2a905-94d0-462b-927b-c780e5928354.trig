@@ -1,0 +1,40 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=148> a ns1:MedicalCondition ;
+        ns1:alternateName "MCD" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "10028176" ;
+                ns1:codingSystem "MedDRA" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:148" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0026755" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:148" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D009100" ;
+                ns1:codingSystem "MeSH" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10028176" ;
+                ns1:codingSystem "MedDRA" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0026755" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D009100" ;
+                ns1:codingSystem "MeSH" ] ;
+        ns1:description "A group of inborn errors of biotin metabolism characterized by reduced activities of biotin-dependent enzymes resulting in a wide spectrum of symptoms, including feeding difficulty, breathing difficulties, lethargy, seizures, skin rash, alopecia, and developmental delay. This group includes biotinidase deficiency and biotin holocarboxylase synthetase deficiency." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "148" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Multiple carboxylase deficiency" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Multiple carboxylase deficiency" ] .
+}
+

@@ -1,0 +1,53 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=244242> a ns1:MedicalCondition ;
+        ns1:alternateName "Hemolysis, elevated liver enzymes, low platelets in pregnancy",
+            "Hemolysis-elevated liver enzymes-low platelets syndrome" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "D017359" ;
+                ns1:codingSystem "MeSH" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "O14.2" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D017359" ;
+                ns1:codingSystem "MeSH" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "8528" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "8528" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:244242" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10049058" ;
+                ns1:codingSystem "MedDRA" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:244242" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0162739" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0162739" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10049058" ;
+                ns1:codingSystem "MedDRA" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "O14.2" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "A rare hemorrhagic disorder due to an acquired platelet anomaly characterized by hemolysis, elevated liver enzymes and thrombocytopenia that affects pregnant or post-partum women, and is frequently associated with severe preeclampsia. Symptoms are variable, typically including right upper quadrant or epigastric abdominal pain, nausea, vomiting, excessive weight gain, generalized edema, hypertension, general malaise, right shoulder pain, backache, and/or headache. Hepatic hemorrhage and rupture, renal failure, and pulmonary edema can result in maternal and/or fetal death." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "244242" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "HELLP syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "HELLP syndrome" ] .
+}
+

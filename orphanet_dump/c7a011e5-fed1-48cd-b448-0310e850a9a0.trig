@@ -1,0 +1,21 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=77240> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:77240" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:77240" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "Primary lymphedema is a lymphatic system malformation characterized by swelling of an extremity that can be associated with other lymphatic effusions, due to an underlying developmental anomaly of the lymphatic system (abnormal lymphoangiogenesis). It can be hereditary or not and be congenital or late onset." ;
+        ns1:epidemiology "Prevalence : 1-5 / 10 000" ;
+        ns1:identifier "77240" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Primary lymphedema" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Primary lymphedema" ] .
+}
+

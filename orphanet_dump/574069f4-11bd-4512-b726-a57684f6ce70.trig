@@ -1,0 +1,31 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=565899> a ns1:MedicalCondition ;
+        ns1:alternateName "LGMD type R24",
+            "Limb-girdle muscular dystrophy type R24",
+            "POMGNT2-related LGMD R24",
+            "POMGNT2-related muscular dystrophy" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "G71.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:565899" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:565899" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G71.0" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "" ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "565899" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "POMGNT2-related limb-girdle muscular dystrophy R24" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "POMGNT2-related limb-girdle muscular dystrophy R24" ] .
+}
+

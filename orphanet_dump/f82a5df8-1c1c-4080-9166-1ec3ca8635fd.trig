@@ -1,0 +1,36 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=79406> a ns1:MedicalCondition ;
+        ns1:alternateName "Epidermolysis bullosa progressiva",
+            "JEB-lo",
+            "Late-onset JEB" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:79406" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:79406" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "12921" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "12921" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q81.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q81.8" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "A form of junctional epidermolysis bullosa characterized by onset in childhood or young adulthood of blistering that first occurs around nails, accompanied by nail dystrophy and shedding, and then affects the hands and feet and, to a lesser extent, the elbows, and knees. Lesions heal with atrophic scarring. Other manifestations include disappearance of dermatoglyphs and palmoplantar hyperhidrosis. Extracutaneous involvement is restricted to soft tissue abnormalities of the oral cavity and enamel defects with development of caries." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "79406" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Late-onset junctional epidermolysis bullosa" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Late-onset junctional epidermolysis bullosa" ] .
+}
+

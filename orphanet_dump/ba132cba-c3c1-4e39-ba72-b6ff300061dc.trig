@@ -1,0 +1,32 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=280847> a ns1:MedicalCondition ;
+        ns1:alternateName "CCAM type 3",
+            "CPAM type 3",
+            "Congenital cystic adenomatoid malformation of the lung type 3",
+            "Congenital cystic adenomatous malformation of the lung type 3",
+            "Congenital cystic disease of the lung type 3" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:280847" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:280847" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q33.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q33.0" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "A rare subtype of congenital pulmonary airway malformation characterized by a multicystic mass of non-functioning lung tissue consisting of numerous microcysts of less than 0.5 cm in diameter. The lesions have intracystic communications, can be connected to the tracheobronchial tree, and are usually unilateral, involving an entire lobe. The condition may be associated with polyhydramnios, fetal hydrops, and stillbirth, or present with severe respiratory distress in the neonatal period." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "280847" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Congenital pulmonary airway malformation type 3" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Congenital pulmonary airway malformation type 3" ] .
+}
+

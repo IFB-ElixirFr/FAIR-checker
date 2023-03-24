@@ -1,0 +1,33 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=341> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "5494" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "5494" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:341" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0019104" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:341" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0019104" ;
+                ns1:codingSystem "UMLS" ] ;
+        ns1:description "Viral hemorrhagic fever is a group of recently discovered contagious viral infections characterized by severe, multiple, and often fatal hemorrhages. African fevers include Lassa fever discovered in 1969, Marburg's disease that first occurred in 1967, and Ebola fever that appeared in 1976. Other viruses may also cause hemorrhagic fevers (for example, arbovirus fever)." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "341" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Viral hemorrhagic fever" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Viral hemorrhagic fever" ] .
+}
+

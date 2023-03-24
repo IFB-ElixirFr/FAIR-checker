@@ -1,0 +1,25 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=319303> a ns1:MedicalCondition ;
+        ns1:alternateName "Chromophobe renal cell adenocarcinoma" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "C1266042" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:319303" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C64" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "6064" ;
+                ns1:codingSystem "GARD" ] ;
+        ns1:description "Chromophobe renal cell carcinoma is a rare subtype of renal cell carcinoma, originating from the intercalating cells of the collecting ducts and macroscopically manifesting as a well-circumscribed, highly lobulated, solid tumor that is usually diagnosed at an early stage. It is frequently asymptomatic, or may present with nonspecific symptoms, such as weight loss, fever or fatigue. The classic presentation observed in renal tumors (hematuria, flank pain and palpable mass) is occasionally observed and usually indicates an advanced stage of the disease. It is most frequently sporadic however, several familial cases, associated with Birt-Hogg Dubé syndrome, have been described." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "319303" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Chromophobe renal cell carcinoma" ] .
+}
+

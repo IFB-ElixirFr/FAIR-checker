@@ -23,6 +23,12 @@ class WebResourceTestCase(unittest.TestCase):
         browser = WebResource.WEB_BROWSER_HEADLESS
         browser.quit()
 
+    def test_LOV_access(self):
+        STATUS_LOV = requests.head(
+            "https://lov.linkeddata.es/dataset/lov/sparql"
+        ).status_code
+        self.assertEqual(first=STATUS_LOV, second=200)
+
     def test_biotools(self):
         bwa = WebResource("http://bio.tools/bwa")
         logging.info(f"{len(bwa.get_rdf())} loaded RDF triples")
@@ -64,7 +70,7 @@ class WebResourceTestCase(unittest.TestCase):
         EDAM_KG = ConjunctiveGraph()
         # EDAM_KG.parse("https://edamontology.org/EDAM.owl")
         EDAM_KG.parse("/Users/gaignard-a/Documents/Dev/edamverify/src/EDAM.owl")
-        print(f"Loaded {len(EDAM_KG)} triples.")
+        # print(f"Loaded {len(EDAM_KG)} triples.")
         edam = WebResource(
             "file:///Users/gaignard-a/Documents/Dev/edamverify/src/EDAM.owl",
             rdf_graph=EDAM_KG,
@@ -74,7 +80,7 @@ class WebResourceTestCase(unittest.TestCase):
 
         web_res = edam
         metrics_collection = []
-        metrics_collection.append(FAIRMetricsFactory.get_2(web_res))
+        metrics_collection.append(FAIRMetricsFactory.get_F1A(web_res))
         metrics_collection.append(FAIRMetricsFactory.get_F1B(web_res))
         metrics_collection.append(FAIRMetricsFactory.get_F2A(web_res))
         metrics_collection.append(FAIRMetricsFactory.get_F2B(web_res))

@@ -1,0 +1,41 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=2566> a ns1:MedicalCondition ;
+        ns1:alternateName "CAEBV syndrome",
+            "Chronic EBV infection syndrome" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "226990" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "226990" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "B27.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "9534" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "B27.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:2566" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:2566" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "9534" ;
+                ns1:codingSystem "GARD" ] ;
+        ns1:description "Chronic Epstein-Barr virus infection syndrome is a rare infectious disease characterized by familial, primary, chronic Epstein-Barr virus infection which typically manifests with persistent mononucleosis-like signs and symptoms, in the absence of secondary immunodeficiency." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "2566" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Chronic Epstein-Barr virus infection syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Chronic Epstein-Barr virus infection syndrome" ] .
+}
+

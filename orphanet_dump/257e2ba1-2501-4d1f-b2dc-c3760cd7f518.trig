@@ -1,0 +1,28 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=453499> a ns1:MedicalCondition ;
+        ns1:alternateName "Au-Kline syndrome" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:453499" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "616580" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:453499" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "616580" ;
+                ns1:codingSystem "OMIM" ] ;
+        ns1:description "A rare genetic multiple congenital anomalies/dysmorphic syndrome characterized by global developmental delay, intellectual disability, hypotonia, craniofacial dysmorphism (such as ridged metopic sutures, long palpebral fissures, broad nasal bridge, hypoplastic alae nasi, low-set, prominent ears, prominent midline tongue groove, and downturned mouth), congenital heart defects, and variable skeletal abnormalities including hip dysplasia, vertebral anomalies, and scoliosis. Additional reported manifestations include high pain tolerance and genitourinary anomalies. Brain imaging may show a thin corpus callosum or white matter abnormalities." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "453499" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Neurodevelopmental disorder-craniofacial dysmorphism-cardiac defect-skeletal anomalies syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Neurodevelopmental disorder-craniofacial dysmorphism-cardiac defect-skeletal anomalies syndrome" ] .
+}
+

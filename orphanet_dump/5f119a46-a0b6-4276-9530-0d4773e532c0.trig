@@ -1,0 +1,34 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=293978> a ns1:MedicalCondition ;
+        ns1:alternateName "DAVID syndrome" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "E23.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "615577" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E23.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:293978" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "615577" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:293978" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "Deficiency in anterior pituitary function-variable immunodeficiency syndrome is a rare, genetic endocrine disease characterized by the association of common variable immunodeficiency, manifesting with hypogammaglobulinemia and recurrent or severe childhood-onset sinopulmonary infections, followed, possibly many years later, by symptomatic adrenocorticotropic hormone (ACTH) deficiency resulting from anterior pituitary hormone deficiency." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "293978" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Deficiency in anterior pituitary function-variable immunodeficiency syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Deficiency in anterior pituitary function-variable immunodeficiency syndrome" ] .
+}
+

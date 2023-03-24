@@ -1,0 +1,34 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=420728> a ns1:MedicalCondition ;
+        ns1:alternateName "COXPD20" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "E88.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:420728" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "615917" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "615917" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E88.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:420728" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "Combined oxidative phosphorylation defect type 20 is a rare mitochondrial oxidative phosphorylation disorder characterized by variable combination of psychomotor delay, hypotonia, muscle weakness, seizures, microcephaly, cardiomyopathy and mild dysmorphic facial features. Variable types of structural brain anomalies have also been reported. Biochemical studies typically show decreased activity of mitochondrial complexes (mainly complex I)." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "420728" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Combined oxidative phosphorylation defect type 20" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Combined oxidative phosphorylation defect type 20" ] .
+}
+

@@ -1,0 +1,48 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=252175> a ns1:MedicalCondition ;
+        ns1:alternateName "Acoustic neurilemoma",
+            "Acoustic neurinoma",
+            "Acoustic neuroma" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "223" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0027859" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D33.3" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0027859" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10000523" ;
+                ns1:codingSystem "MedDRA" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:252175" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "223" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10000523" ;
+                ns1:codingSystem "MedDRA" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:252175" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D33.3" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "Vestibular schwannoma is a rare tumor of the posterior fossa originating in the Schwann cells of the vestibular transitional zone of the vestibulocochlear nerve that can be benign, small, slow growing and asymptomatic or large, faster growing and aggressive and potentially fatal, presenting with symptoms of hearing and balance impairment, vertigo, ataxia, headache and fifth, sixth or seventh cranial nerve dysfunction and facial numbness." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "252175" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Vestibular schwannoma" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Vestibular schwannoma" ] .
+}
+

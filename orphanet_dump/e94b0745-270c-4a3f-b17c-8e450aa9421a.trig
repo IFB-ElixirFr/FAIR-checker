@@ -1,0 +1,22 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=499107> a ns1:MedicalCondition ;
+        ns1:alternateName "Idiopathic OPN" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:499107" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:499107" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare ophthalmic disorder characterized by idiopathic orbital inflammation in which the specific target tissue is the optic nerve sheath. Patients typically present with ocular pain, pain on eye movement, visual symptoms with loss of vision progressing over several weeks, dyschromatopsia, and variable visual field defects. Orbital signs and symptoms may be present and include ptosis, ophthalmoplegia, and exophthalmos. Optic disc edema is observed in most cases. The condition is usually unilateral." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "499107" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Idiopathic optic perineuritis" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Idiopathic optic perineuritis" ] .
+}
+

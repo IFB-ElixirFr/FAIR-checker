@@ -1,0 +1,28 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=93554> a ns1:MedicalCondition ;
+        ns1:alternateName "MC type II" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "D89.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:93554" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D89.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:93554" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A clinico-serological subtype of mixed cryoglobulinemia syndrome, an immune complex disorder, characterized by purpura, weakness and arthralgia and defined immunochemically by cryoglobulins composed of polyclonal IgGs (autoantigens) and monoclonal IgM (autoantibody)." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "93554" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Mixed cryoglobulinemia type II" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Mixed cryoglobulinemia type II" ] .
+}
+

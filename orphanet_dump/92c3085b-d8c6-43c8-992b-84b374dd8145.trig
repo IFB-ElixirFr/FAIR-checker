@@ -1,0 +1,28 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=567983> a ns1:MedicalCondition ;
+        ns1:alternateName "PNAC" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "K76.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:567983" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:567983" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "K76.8" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "A rare hepatic disease characterized by intrahepatic cholestasis and deterioration of liver function in patients receiving parenteral nutrition for extended periods of time (signs may appear as early as within the first two weeks of initiation of parenteral nutrition). The condition commonly occurs in neonates and usually resolves with transition to enteral feeding, although severe cases may progress to liver fibrosis, cirrhosis, and portal hypertension." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "567983" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Parenteral nutrition-associated cholestasis" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Parenteral nutrition-associated cholestasis" ] .
+}
+

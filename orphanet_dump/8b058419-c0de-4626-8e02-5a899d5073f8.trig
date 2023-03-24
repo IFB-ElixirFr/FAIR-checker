@@ -1,0 +1,27 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=98922> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "Q03.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q03.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:98922" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:98922" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "Blake pouch cyst is a non-syndromic, usually benign, cystic malformation of the posterior fossa characterized by a midline outpouching of the superior medullary velum into the cisterna magna that results from failure of the rudimental fourth ventricular tela choroidea to regress during embryogenesis. Patients can be asymptomatic or present in childhood or adulthood with clinical manifestations of hydrocephalus, such as headache, hypotonia, vertigo, syncope, vomiting, blurred or double vision, nystagmus, papilledema, and delayed gait development." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "98922" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Blake pouch cyst" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Blake pouch cyst" ] .
+}
+

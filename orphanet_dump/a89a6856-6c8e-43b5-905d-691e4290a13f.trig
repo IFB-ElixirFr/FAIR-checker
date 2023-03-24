@@ -1,0 +1,45 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=238593> a ns1:MedicalCondition ;
+        ns1:alternateName "Isolated mesenteric lipodystrophy",
+            "Lipomatous mesenteritis",
+            "Liposclerotic mesenteritis",
+            "Mesenteric lipogranuloma",
+            "Mesenteric panniculitis",
+            "Sclerosing mesenteritis" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "K65.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:238593" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "8169" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0267770" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "8169" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:238593" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "K65.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0267770" ;
+                ns1:codingSystem "UMLS" ] ;
+        ns1:description "Sclerosing mesenteritis (SM) is a rare pathological disease causing inflammation of the adipose tissue of the small bowel mesentery and is commonly associated with abdominal pain, diarrhea, nausea, weight loss, bloating and loss of appetite. The two subforms include mesenteric panniculitis (where inflammation and fatty necrosis are dominant features) and retractile mesenteritis (where fibrosis and retraction dominate)." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "238593" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "IgG4-related mesenteritis" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "IgG4-related mesenteritis" ] .
+}
+

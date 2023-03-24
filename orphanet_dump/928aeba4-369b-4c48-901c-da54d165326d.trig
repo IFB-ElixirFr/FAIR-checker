@@ -1,0 +1,27 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=264691> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "C3854530" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C3854530" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:264691" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:264691" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "Isolated pauciimmune pulmonary capillaritis is a small vessel vasculitis restricted to the lungs that may induce diffuse alveolar hemorrhage with dyspnea, anemia, chest pain, hemoptysis, bilateral and diffuse alveolar infiltrates at chest X-rays, without any underlying systemic disease. ANCA are frequently positive but could be negative." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "264691" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Isolated pulmonary capillaritis" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Isolated pulmonary capillaritis" ] .
+}
+

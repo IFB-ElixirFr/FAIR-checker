@@ -1,0 +1,40 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=93558> a ns1:MedicalCondition ;
+        ns1:alternateName "LCDD" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "6906" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D89.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:93558" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0238239" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D89.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:93558" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0238239" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "6906" ;
+                ns1:codingSystem "GARD" ] ;
+        ns1:description "A rare non-amyloid monoclonal immunoglobulin deposition disease characterized by deposition of abnormal immunoglobulin light chains in the kidneys, resulting in nephrotic syndrome and renal failure. Symptomatic extrarenal deposition is uncommon, although hepatic, cardiac, and neural deposits have been reported. The condition frequently occurs in association with multiple myeloma or in patients with M protein and marrow plasma cells at monoclonal gammopathy of undetermined significance levels." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "93558" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Light chain deposition disease" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Light chain deposition disease" ] .
+}
+

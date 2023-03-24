@@ -1,0 +1,37 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=364013> a ns1:MedicalCondition ;
+        ns1:alternateName "IHF",
+            "Immune HF",
+            "Immune fetal edema",
+            "Immune fetal hydrops" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "P56.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:364013" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0455990" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0455990" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:364013" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "P56.0" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "Immune hydrops fetalis (IHF), a form of HF, describes the excessive accumulation of fetal fluid within the fetal extravascular compartments and body cavities due to maternal rhesus (Rh) incompatibility." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "364013" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Immune hydrops fetalis" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Immune hydrops fetalis" ] .
+}
+

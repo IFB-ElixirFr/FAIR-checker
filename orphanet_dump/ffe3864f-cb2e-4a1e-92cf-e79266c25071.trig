@@ -1,0 +1,56 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=2901> a ns1:MedicalCondition ;
+        ns1:alternateName "Acute brachial plexus neuritis",
+            "Brachial plexus neuritis",
+            "Immune brachial plexus neuropathy",
+            "Mononeuritis multiplex with brachial predilection",
+            "Neuralgic shoulder amyotrophy" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "10063020" ;
+                ns1:codingSystem "MedDRA" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "162100" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "4228" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C1510479" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "4228" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G54.5" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "162100" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:2901" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G54.5" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C1510479" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:2901" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10063020" ;
+                ns1:codingSystem "MedDRA" ] ;
+        ns1:description "A rare disorder of the peripheral nervous system characterized by the sudden onset of extreme pain in the upper extremity followed by rapid multifocal motor weakness and atrophy and a slow recovery in months to years. NA includes both an idiopathic (INA, also known as Parsonage-Turner syndrome) and hereditary (HNA) form." ;
+        ns1:epidemiology "Prevalence : 1-5 / 10 000" ;
+        ns1:identifier "2901" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Neuralgic amyotrophy" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Neuralgic amyotrophy" ] .
+}
+

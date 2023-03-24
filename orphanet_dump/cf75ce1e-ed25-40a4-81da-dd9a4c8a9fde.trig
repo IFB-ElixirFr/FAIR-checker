@@ -1,0 +1,36 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=217622> a ns1:MedicalCondition ;
+        ns1:alternateName "Neurosensory deafness with dilated cardiomyopathy",
+            "Neurosensory hearing loss with dilated cardiomyopathy",
+            "Sensorineural hearing loss with dilated cardiomyopathy" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "I42.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "605362" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "I42.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "605362" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:217622" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:217622" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "Sensorineural deafness with dilated cardiomyopathy is an extremely rare autosomal dominant syndrome described in two families to date and characterized by moderate to severe sensorineural hearing loss manifesting during childhood, and associated with late-onset dilated cardiomyopathy that generally progresses to heart failure." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "217622" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Sensorineural deafness with dilated cardiomyopathy" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Sensorineural deafness with dilated cardiomyopathy" ] .
+}
+

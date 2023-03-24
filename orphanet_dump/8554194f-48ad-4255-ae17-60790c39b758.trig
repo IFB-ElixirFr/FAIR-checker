@@ -1,0 +1,29 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=293> a ns1:MedicalCondition ;
+        ns1:alternateName "Antenatal herpes simplex virus infection",
+            "Mother-to-child transmission of herpes simplex virus infection" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "P35.2" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "P35.2" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:293" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:293" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "Congenital herpes virus infection is a group of anomalies that an infant may present as a result of maternal infection and subsequent foetal infection with herpes virus. This virus causes recurrent cutaneous infections in adults, often involving the lips or the genitalia. Herpes infections in other organs, such as the liver or central nervous system, are less frequent." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "293" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Congenital herpes simplex virus infection" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Congenital herpes simplex virus infection" ] .
+}
+

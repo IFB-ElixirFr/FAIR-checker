@@ -1,0 +1,33 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=206586> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:206586" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:206586" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C96.7" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C96.7" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G63.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G63.1" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "Neurolymphomatosis is a rare syndrome of peripheral and cranial nerve dysfunction in patients with hematologic malignancies, mostly non-Hodgkin's lymphoma or acute leukemia, characterized by painful or painless involvement of peripheral or cranial nerves or nerve roots. The clinical presentation is diverse depending on the site involved and includes plexopathy, mononeuritis multiplex, peripheral neuropathy, radiculopathy and cranial nerve palsies." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "206586" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Neurolymphomatosis" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Neurolymphomatosis" ] .
+}
+

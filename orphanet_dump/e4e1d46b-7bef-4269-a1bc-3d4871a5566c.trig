@@ -1,0 +1,26 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=98970> a ns1:MedicalCondition ;
+        ns1:alternateName "FCD",
+            "François-Neetens speckled corneal dystrophy" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "C1562113" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:98970" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "H18.5" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "121850" ;
+                ns1:codingSystem "OMIM" ] ;
+        ns1:description "Fleck corneal dystrophy (FCD) is a rare generally asymptomatic form of stromal corneal dystrophy (see this term) characterized by multiple asymptomatic, non-progressive opacities disseminated throughout the corneal stroma with no effect on visual acuity." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "98970" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Fleck corneal dystrophy" ] .
+}
+

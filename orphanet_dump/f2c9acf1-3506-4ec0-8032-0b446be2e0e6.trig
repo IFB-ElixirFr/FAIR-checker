@@ -1,0 +1,33 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=263662> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:263662" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D32.9" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:263662" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "607174" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D32.9" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "607174" ;
+                ns1:codingSystem "OMIM" ] ;
+        ns1:description "Familial multiple meningioma is a rare, benign neoplasm of the central nervous system characterized by the development of multiple or, rarely, solitary meningiomas in two or more blood relatives, without other apparent syndromic manifestations. Depending on the localization, growth rate and size of the tumors, patients can present with subtle, gradually worsening or abrupt and severe neurological compromise or can be completely asymptomatic." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "263662" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Familial multiple meningioma" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Familial multiple meningioma" ] .
+}
+

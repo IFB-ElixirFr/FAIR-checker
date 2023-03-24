@@ -1,0 +1,34 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=300504> a ns1:MedicalCondition ;
+        ns1:alternateName "Acanthoma of the nail matrix" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "D23.9" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "11007" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:300504" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "11007" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:300504" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D23.9" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "Onychocytic matricoma is a rare, benign, nail tumor originating in the nail matrix characterized by localized pachyonychia and variable degrees of pigmentation: pigmented, melanocytic (common, longitudinal melanonychia that may simulate a foreign body) or hypopigmented. Histopathology demonstrates a purely epithelial tumor with endokeratinization in the deep portion and concentrically arranged nests of prekeratogenous and keratogenous cells." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "300504" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Onychocytic matricoma" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Onychocytic matricoma" ] .
+}
+

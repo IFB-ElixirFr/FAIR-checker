@@ -1,0 +1,31 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=404521> a ns1:MedicalCondition ;
+        ns1:alternateName "Diaphragmatic spinal muscular atrophy type 2",
+            "SMARD2",
+            "Severe infantile axonal neuropathy with respiratory failure type 2",
+            "X-linked spinal muscular atrophy with respiratory distress" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "G12.2" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G12.2" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:404521" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:404521" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "Spinal muscular atrophy with respiratory distress type 2 is a rare, genetic, motor neuron disease characterized by progressive early respiratory failure associated with diaphragm paralysis, distal muscular weakness, joint contractures, and axial hypotonia with preserved antigravity limb movements. Phenotype overlaps considerably with SMARD type 1 but is differentiated by a mutation in a different gene." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "404521" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Spinal muscular atrophy with respiratory distress type 2" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Spinal muscular atrophy with respiratory distress type 2" ] .
+}
+

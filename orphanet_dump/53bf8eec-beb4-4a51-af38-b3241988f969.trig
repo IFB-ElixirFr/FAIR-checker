@@ -1,0 +1,34 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=319287> a ns1:MedicalCondition ;
+        ns1:alternateName "MCRCC",
+            "Multilocular clear cell adenocarcinoma",
+            "Multilocular clear cell carcinoma",
+            "Multilocular clear cell renal cell adenocarcinoma",
+            "Multilocular clear cell renal cell carcinoma",
+            "Multilocular cystic renal cell adenocarcinoma",
+            "Multilocular cystic renal cell carcinoma" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "C64" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:319287" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:319287" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C64" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "Multilocular cystic renal neoplasm of low malignant potential is a rare subtype of clear cell renal cell carcinoma with distinct pathological features of cysts lined by occasionally flattened cuboidal clear cells and septa containing aggregates of epithelial cells with clear cytoplasm, and excellent prognosis. The tumor usually presents as an asymptomatic, unilateral, solitary lesion, macroscopically consisting of numerous, fluid-filled, septated cysts of variable size. Rarely, the symptoms typically associated with renal tumors (flank pain, hematuria, palpable mass) may be present." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "319287" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Multilocular cystic renal neoplasm of low malignant potential" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Multilocular cystic renal neoplasm of low malignant potential" ] .
+}
+

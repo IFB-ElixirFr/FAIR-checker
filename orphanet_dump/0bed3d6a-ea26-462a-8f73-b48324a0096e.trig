@@ -1,0 +1,41 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=329802> a ns1:MedicalCondition ;
+        ns1:alternateName "Dup(5)(p13)",
+            "Trisomy 5p13" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "C2750805" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "613174" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C2750805" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q92.3" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "613174" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q92.3" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:329802" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:329802" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare partial autosomal trisomy/tetrasomy characterized by global developmental delay, intellectual disability, autistic behavior, muscular hypotonia, macrocephaly and facial dysmorphism (frontal bossing, short palpebral fissures, low set, dysplastic ears, short or shallow philtrum, high arched or narrow palate, micrognathia). Other associated clinical features include sleep disturbances, seizures, aplasia/hypoplasia of the corpus callosum, skeletal abnormalities (large hands and feet, long fingers and toes, talipes)." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "329802" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "5p13 microduplication syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "5p13 microduplication syndrome" ] .
+}
+

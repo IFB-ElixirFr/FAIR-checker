@@ -1,0 +1,29 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=313800> a ns1:MedicalCondition ;
+        ns1:alternateName "Optic nerve edema-splenomegaly syndrome",
+            "ROSAH syndrome" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:313800" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "614979" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "614979" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:313800" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare presumably genetic disorder characterized by idiopathic massive splenomegaly with pancytopenia and childhood-onset chronic optic nerve edema with slowly progressive vision loss. Additional reported features include anhidrosis, urticaria and headaches." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "313800" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Retinal dystrophy-optic nerve edema-splenomegaly-anhidrosis-migraine headache syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Retinal dystrophy-optic nerve edema-splenomegaly-anhidrosis-migraine headache syndrome" ] .
+}
+

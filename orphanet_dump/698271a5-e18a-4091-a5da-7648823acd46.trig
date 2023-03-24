@@ -1,0 +1,29 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=585867> a ns1:MedicalCondition ;
+        ns1:alternateName "AML with BCR-ABL1",
+            "AML with t(9;22)(q34.1;q11.2)" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "C92.7" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C92.7" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:585867" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:585867" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare acute myeloid leukemia (AML) with recurrent genetic anomaly characterized by the presence of bone marrow and peripheral blood myeloblasts with features ranging from those of minimal differentiation to granulocytic maturation, demonstrating t(9;22)(q34.1;q11.2) or molecular genetic evidence of BCR-ABL1 fusion. Evidence of chronic myeloid leukemia (CML) is absent. Patients most commonly present with leukocytosis with blast predominance and variable anemia and thrombocytopenia. Splenomegaly is less frequent and peripheral blood basophilia lower than in patients with myeloid blast transformation of CML. The disease occurs primarily in adults, and response to traditional AML therapy or tyrosine kinase inhibitor therapy alone is typically poor." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "585867" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Acute myeloid leukemia with t(9;22)(q34.1;q11.2)" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Acute myeloid leukemia with t(9;22)(q34.1;q11.2)" ] .
+}
+

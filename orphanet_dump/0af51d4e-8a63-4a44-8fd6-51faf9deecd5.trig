@@ -1,0 +1,56 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=3008> a ns1:MedicalCondition ;
+        ns1:alternateName "Ataxia with lactic acidosis type 2",
+            "Ataxia with lactic acidosis type II",
+            "Leigh necrotizing encephalopathy due to pyruvate carboxylase deficiency",
+            "Leigh syndrome due to PC deficiency",
+            "Leigh syndrome due to pyruvate carboxylase deficiency" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "266150" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "266150" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E74.4" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0034341" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:3008" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:3008" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E74.4" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0034341" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "7512" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "7512" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D015324" ;
+                ns1:codingSystem "MeSH" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D015324" ;
+                ns1:codingSystem "MeSH" ] ;
+        ns1:description "Pyruvate carboxylase (PC) deficiency is a rare neurometabolic disorder characterized by metabolic acidosis, failure to thrive, developmental delay, and recurrent seizures at an early age in severely affected patients." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "3008" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Pyruvate carboxylase deficiency" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Pyruvate carboxylase deficiency" ] .
+}
+

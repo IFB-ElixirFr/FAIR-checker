@@ -1,0 +1,43 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=67041> a ns1:MedicalCondition ;
+        ns1:alternateName "MPS9",
+            "MPSIX",
+            "Mucopolysaccharidosis type 9",
+            "Mucopolysaccharidosis type IX" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "601492" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:67041" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C1291490" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:67041" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E76.2" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "601492" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C1291490" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E76.2" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "A rare form of mucopolysaccharidosis characterized by abnormal storage of hyaluronan in lysosomes due to deficiency of hyaluronidase 1. Clinical manifestations include knee and/or hip pain associated with swelling, diffuse joint involvement with proliferative synovitis and occurrence of multiple periarticular soft-tissue masses, short stature, and dysmorphic craniofacial features (such as flattened nasal bridge, bifid uvula, and cleft palate)." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "67041" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Hyaluronidase deficiency" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Hyaluronidase deficiency" ] .
+}
+

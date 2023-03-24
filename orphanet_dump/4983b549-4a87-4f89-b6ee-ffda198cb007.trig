@@ -1,0 +1,46 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=60014> a ns1:MedicalCondition ;
+        ns1:alternateName "Silver staining" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:60014" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:60014" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0003782" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0003782" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D001129" ;
+                ns1:codingSystem "MeSH" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D001129" ;
+                ns1:codingSystem "MeSH" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10003094" ;
+                ns1:codingSystem "MedDRA" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10003094" ;
+                ns1:codingSystem "MedDRA" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "T56.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "T56.8" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "A rare dermatosis, which can be either localized or generalized, that occurs after prolonged contact and absorption of silver containing compounds over a period of years and that is characterized by irreversible blue-gray to gray-black staining of skin, fingernails and/or mucous membranes, most evident on sun exposed areas of the skin. Silver exposure is usually occupational but may also occur through dental amalgams, the ingestion of colloidal silver, acupuncture needles, orthopedic implants and topical medications (such as silver sulfadiazine)." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "60014" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Argyria" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Argyria" ] .
+}
+

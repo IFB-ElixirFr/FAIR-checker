@@ -1,0 +1,37 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=99971> a ns1:MedicalCondition ;
+        ns1:alternateName "ALT",
+            "Atypical lipoma",
+            "Atypical lipomatous tumor",
+            "WDLS" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "C49.9" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C1370889" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:99971" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:99971" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C1370889" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C49.9" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "Well-differentiated liposarcoma (WDLS), the most common type of liposarcoma (LS; see this term), is a slow growing, painless tumor usually located in the retroperitoneum or the limbs. It is composed of proliferating mature adipocytes." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "99971" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Well-differentiated liposarcoma" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Well-differentiated liposarcoma" ] .
+}
+

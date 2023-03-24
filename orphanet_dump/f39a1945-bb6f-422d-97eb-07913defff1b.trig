@@ -1,0 +1,29 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=364043> a ns1:MedicalCondition ;
+        ns1:alternateName "ALK+ LBCL",
+            "ALK+ large B-cell lymphoma" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:364043" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:364043" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C83.3" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C83.3" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "A very rare variant of diffuse large B-cell lymphoma (DLBCL) mainly affecting middle-aged immunocompetent men and characterized by a consistent primary involvement of lymph nodes (mainly in the cervical and mediastinum lymph nodes) and with infrequent extra nodal involvement of the bone marrow and other extra-nodal sites (head and neck region, liver, spleen, and gastrointestinal tract). It has an aggressive disease course, and is associated with a poor prognosis." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "364043" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "ALK-positive large B-cell lymphoma" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "ALK-positive large B-cell lymphoma" ] .
+}
+

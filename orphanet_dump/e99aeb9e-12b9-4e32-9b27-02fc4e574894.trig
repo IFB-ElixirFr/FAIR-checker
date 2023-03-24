@@ -1,0 +1,47 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=348> a ns1:MedicalCondition ;
+        ns1:alternateName "FBPase deficiency",
+            "Fructose-1,6-diphosphatase deficiency" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "E74.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "229700" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0016756" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:348" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0016756" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "229700" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "2400" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:348" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "2400" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E74.1" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "Fructose-1,6-biphosphatase (FBP) deficiency is a disorder of fructose metabolism (see this term) characterized by recurrent episodes of fasting hypoglycemia with lactic acidosis, that may be life-threatening in neonates and infants." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "348" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Fructose-1,6-bisphosphatase deficiency" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Fructose-1,6-bisphosphatase deficiency" ] .
+}
+

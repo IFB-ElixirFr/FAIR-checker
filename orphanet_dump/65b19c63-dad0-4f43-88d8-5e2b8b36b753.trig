@@ -1,0 +1,34 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=570> a ns1:MedicalCondition ;
+        ns1:alternateName "Möbius syndrome" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "Q87.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0221060" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D020331" ;
+                ns1:codingSystem "MeSH" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "157900" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "8549" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:570" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10030069" ;
+                ns1:codingSystem "MedDRA" ] ;
+        ns1:description "A very rare congenital cranial dysinnervation disorder characterized by unilateral or bilateral non progressive congenital facial palsy (VII cranial nerve) with impairments of ocular abduction (VI cranial nerve). It can also be associated with other cranial nerves palsies, orofacial anomalies and limb defects." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "570" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Moebius syndrome" ] .
+}
+

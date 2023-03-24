@@ -1,0 +1,15 @@
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix edam: <http://edamontology.org/> .
+@prefix ns1: <http://ogp.me/ns#> .
+@prefix sc: <http://schema.org/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://bio.tools/FAIR_Search_Engine> ns1:description "{{ngMeta['og:description']}}" ;
+    ns1:image "{{ngMeta['og:image']}}" ;
+    ns1:title "{{ngMeta['og:title']}}" .
+
+<https://bio.tools/fair_search_engine> a sc:SoftwareApplication ;
+    dcterms:conformsTo "https://bioschemas.org/profiles/ComputationalTool/1.0-RELEASE" ;
+    sc:applicationSubCategory edam:topic_3077 ;
+    sc:isAccessibleForFree true .
+

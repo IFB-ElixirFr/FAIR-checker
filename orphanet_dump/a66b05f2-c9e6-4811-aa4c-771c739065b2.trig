@@ -1,0 +1,41 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=139402> a ns1:MedicalCondition ;
+        ns1:alternateName "DRESS syndrome",
+            "Drug rash with eosinophilia and systemic symptoms" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "10058919" ;
+                ns1:codingSystem "MedDRA" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10058919" ;
+                ns1:codingSystem "MedDRA" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "T78.4" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "T78.4" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:139402" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C3541994" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:139402" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C3541994" ;
+                ns1:codingSystem "UMLS" ] ;
+        ns1:description "A rare hypersensitivity reaction characterized by a generalized infiltrated skin rash with face edema, fever, enlarged lymph nodes, eosinophilia, lymphocytosis and more or less severe visceral involvement (e.g. hepatitis, nephritis, pneumonitis, myocarditis ect.) and, in some patients, reactivation of human herpes virus 6, Epstein-Barr virus and/or cytomegalovirus. Onset usually occurs 2-8 weeks after administration of the causal medication and is most frequently associated with anticonvulsants, antibacterial sulfonamides and allopurinol but many other medications have also been implicated. Histology is characterized by interface dermatitis, sometimes mixed with eczematous and an acute generalized exanthematous pustulosis-like pattern. Auto-immune sequelae may occur." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "139402" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Drug reaction with eosinophilia and systemic symptoms" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Drug reaction with eosinophilia and systemic symptoms" ] .
+}
+

@@ -1,0 +1,31 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=227510> a ns1:MedicalCondition ;
+        ns1:alternateName "MSA, cerebellar type",
+            "MSA-c",
+            "Sporadic OPCA type 1",
+            "Sporadic olivopontocerebellar atrophy type 1" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:227510" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G90.3" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G90.3" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:227510" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "Multiple system atrophy, cerebellar type (MSA-c) is a form of multiple system atrophy (MSA; see this term) with predominant cerebellar features (gait and limb ataxia, oculomotor dysfunction, and dysarthria)." ;
+        ns1:epidemiology "Prevalence : 1-9 / 100 000" ;
+        ns1:identifier "227510" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Multiple system atrophy, cerebellar type" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Multiple system atrophy, cerebellar type" ] .
+}
+

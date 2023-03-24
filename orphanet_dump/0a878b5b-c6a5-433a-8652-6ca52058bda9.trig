@@ -1,0 +1,39 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=65681> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "Q52.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:65681" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q52.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C1321884" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C1321884" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10046879" ;
+                ns1:codingSystem "MedDRA" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:65681" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10046879" ;
+                ns1:codingSystem "MedDRA" ] ;
+        ns1:description "A rare vaginal malformation characterized by congenital uterovaginal outflow tract obstruction due to failure of the urogenital sinus to form the caudal aspect of the vagina, which is then replaced by fibrous tissue. The malformation may occur as an isolated developmental defect or in association with other anomalies, such as cervical agenesis, imperforate hymen, and bicornuate bicervical uterus. Presenting signs and symptoms include primary amenorrhea, cyclic pelvic pain, abdominal pain, dyspareunia, pelvic mass, menstrual disorder, and periodic fever." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "65681" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Vaginal atresia" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Vaginal atresia" ] .
+}
+

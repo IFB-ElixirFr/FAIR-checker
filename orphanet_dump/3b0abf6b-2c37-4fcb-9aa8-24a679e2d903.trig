@@ -1,0 +1,39 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=263413> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "C0018923" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10002476" ;
+                ns1:codingSystem "MedDRA" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C49.9" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:263413" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C49.9" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10002476" ;
+                ns1:codingSystem "MedDRA" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0018923" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:263413" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare vascular tumor characterized by a malignant space-occupying lesion composed of cells variably recapitulating features of normal endothelium. It mostly develops as a cutaneous tumor and is much less frequently located in the deep soft tissue. Clinical presentation is an enlarging mass, sometimes with symptoms like coagulopathy, anemia, persistent hematoma, or bruisability. Some tumors are associated with pre-existing conditions, e. g. Klippel-Trenaunay syndrome, Maffucci syndrome, or following radiation, among others. Older age, retroperitoneal location, large size, and high mitotic activity are predictors for poor outcome." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "263413" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Angiosarcoma" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Angiosarcoma" ] .
+}
+

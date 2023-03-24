@@ -1,0 +1,29 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=519930> a ns1:MedicalCondition ;
+        ns1:alternateName "Keratomycosis",
+            "Mycotic keratitis" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "H16.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:519930" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:519930" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "H16.8" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "A rare disorder of the anterior segment of the eye characterized by ocular infection by human-pathogenic fungi, most commonly <i>Aspergillus</i>, <i>Candida</i>, or <i>Fusarium</i> species, which gain access into the corneal stroma through a defect in the corneal epithelium. Risk factors include trauma, ocular surface disease, contact lenses, or immunocompromised state. Patients present with pain, foreign body sensation, redness, photophobia, tearing, secretion, or blurred vision. The condition may be complicated by corneal destruction and perforation, endophthalmitis, scleritis, and panophthalmitis." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "519930" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Fungal keratitis" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Fungal keratitis" ] .
+}
+

@@ -1,0 +1,34 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=401805> a ns1:MedicalCondition ;
+        ns1:alternateName "SPG63" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:401805" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "615686" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G11.4" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G11.4" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "615686" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:401805" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "Autosomal recessive spastic paraplegia type 63 (SPG63) is an extremely rare and complex form of hereditary spastic paraplegia characterized by an onset in infancy of spastic paraplegia (presenting with delayed walking and a scissors gait) associated with short stature, and normal cognition. Periventricular deep white matter changes in the corpus callosum are noted on brain imaging. SPG63 is caused by a homozygous mutation in the <i>AMPD2</i> gene (1p13.3) encoding AMP deaminase 2." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "401805" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Autosomal recessive spastic paraplegia type 63" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Autosomal recessive spastic paraplegia type 63" ] .
+}
+

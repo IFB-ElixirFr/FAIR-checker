@@ -1,0 +1,33 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=492> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:492" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:492" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "4509" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "L72.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "4509" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "L72.1" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "A rare large, multinodular, usually benign, tumor that is generally located in the posterior part of the scalp in aged women (over 50 years). It first appears as a painless nodule that later grows into a solid or partially cystic tumor that is mobile over the underlying subcutaneous tissues. It can present ulceration, inflammation or even bleeding and can cause necrosis of the adjacent tissues." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "492" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Proliferating trichilemmal cyst" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Proliferating trichilemmal cyst" ] .
+}
+

@@ -1,0 +1,27 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=166302> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "G40.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:166302" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:166302" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G40.1" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "Benign partial epilepsy with secondarily generalized seizures in infancy is a rare infantile epilepsy syndrome characterized by seizures presenting with motion arrest and staring. They are followed by generalized tonic-clonic convulsions with normal interictal EEG and focal paroxysmal discharges, followed by generalization in ictal EEG. Seizures usually occur in clusters and are responsive to treatment. Psychomotor development is normal." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "166302" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Benign partial epilepsy with secondarily generalized seizures in infancy" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Benign partial epilepsy with secondarily generalized seizures in infancy" ] .
+}
+

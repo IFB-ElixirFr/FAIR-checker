@@ -1,0 +1,28 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=541507> a ns1:MedicalCondition ;
+        ns1:alternateName "ACAPA" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:541507" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q24.5" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q24.5" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:541507" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare coronary artery congenital malformation characterized by an anomalous origin of the left (ALCAPA) or right (ARCAPA) coronary artery from the pulmonary artery, with variable clinical presentation, ranging from asymptomatic to early heart failure and death depending on the degree of development of collateral circulation between the left and right coronary artery systems, as well as the pressure level of the pulmonary artery. Infants typically present with feeding difficulties, failure to thrive, dyspnea, irritability, hyperhidrosis, heart murmurs, tachypnea, tachycardia and/or chest pain while adults usually associate dyspnea, chest pain, syncope, and intolerance to physical exercise. Sudden death may occur due to congestive heart failure, myocardial infarction, valvular insufficiencies or ventricular arrhythmias. The majority of cases reported are of an ALCAPA, while ARCAPA is rarely observed." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "541507" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Anomalous origin of coronary artery from the pulmonary artery" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Anomalous origin of coronary artery from the pulmonary artery" ] .
+}
+

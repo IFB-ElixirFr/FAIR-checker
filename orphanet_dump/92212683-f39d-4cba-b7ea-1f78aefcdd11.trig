@@ -1,0 +1,28 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=525731> a ns1:MedicalCondition ;
+        ns1:alternateName "Pediatric-onset Basedow disease" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:525731" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E05.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E05.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:525731" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare endocrine disease characterized by the presence of serum autoantibodies against thyroid-stimulating hormone receptors, leading to increased thyroid hormone production and secretion, causing diffuse toxic goiter. Patients present in childhood with signs of thyrotoxicosis (such as tachycardia, weight loss, hand tremor, and sweating), diffuse enlargement of the thyroid gland, and orbitopathy. Additional signs and symptoms include decreased academic and athletic performance, accelerated growth, restlessness, fatigue, sensitivity to heat, and amenorrhea, among others." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "525731" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Pediatric-onset Graves disease" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Pediatric-onset Graves disease" ] .
+}
+

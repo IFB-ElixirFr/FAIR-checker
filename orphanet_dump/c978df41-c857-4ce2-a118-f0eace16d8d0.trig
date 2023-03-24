@@ -1,0 +1,27 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=519390> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:519390" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "H02.3" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "H02.3" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:519390" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare palpebral disorder characterized by recurrent episodes of painless eyelid edema. It usually occurs bilaterally, typically affects the upper eyelids, and may manifest as a hypertrophic form resulting in orbital fat herniation through a weakened orbital septum, or an atrophic form with atrophy of redundant eyelid skin and superior nasal fat pads. Additional findings are formation of pseudoepicanthal folds, lacrimal gland prolapse, or ptosis." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "519390" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Isolated blepharochalasis" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Isolated blepharochalasis" ] .
+}
+

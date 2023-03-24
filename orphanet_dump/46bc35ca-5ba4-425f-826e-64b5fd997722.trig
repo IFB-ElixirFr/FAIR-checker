@@ -1,0 +1,35 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=99099> a ns1:MedicalCondition ;
+        ns1:alternateName "Cor triatriatum sinistrum",
+            "Divided left atrium" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "12484" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "12484" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:99099" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:99099" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q24.2" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q24.2" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "A rare, congenital, non-syndromic, heart malformation characterized by the presence of a thin, fibromuscular membrane subdividing the left atrium into an upper and lower chamber. The upper chamber receives blood from the pulmonary veins and the lower chamber is attached to the left atrial appendage. Therefore, the membrane blocks the orifice of the mitral valve and leads to obstruction of the left ventricular inflow. It may be asymptomatic or present in infancy with tachypnea, dyspnea, hemoptysis, chest pain, syncope, pulmonary edema, pulmonary hypertension, or heart failure, depending on the degree of obstruction. The anomaly may be isolated or associated with other congenital heart anomalies." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "99099" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Cor triatriatum sinister" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Cor triatriatum sinister" ] .
+}
+

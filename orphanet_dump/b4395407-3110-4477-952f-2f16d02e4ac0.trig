@@ -1,0 +1,43 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=293381> a ns1:MedicalCondition ;
+        ns1:alternateName "Dystrophia Helsinglandica",
+            "Dystrophia Smolandiensis",
+            "ERED",
+            "Recurrent hereditary corneal erosions" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "122400" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "H18.5" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:293381" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C1852551" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C1852551" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "H18.5" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "122400" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:293381" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "Epithelial recurrent erosion dystrophy (ERED) is a rare form of superficial corneal dystrophy (see this term) characterized by recurrent episodes of epithelial erosions from childhood in the absence of associated diseases, with occasional impairment of vision." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "293381" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Epithelial recurrent erosion dystrophy" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Epithelial recurrent erosion dystrophy" ] .
+}
+

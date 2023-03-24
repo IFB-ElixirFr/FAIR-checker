@@ -1,0 +1,43 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=98838> a ns1:MedicalCondition ;
+        ns1:alternateName "Large cell lymphoma of the mediastinum",
+            "Med-DLBCL",
+            "Mediastinal diffuse large-cell lymphoma with sclerosis",
+            "Primary mediastinal clear cell lymphoma of B-cell type" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "C83.3" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C83.3" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:98838" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C1292754" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C1292754" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10036710" ;
+                ns1:codingSystem "MedDRA" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10036710" ;
+                ns1:codingSystem "MedDRA" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:98838" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare subtype of diffuse large B-cell lymphoma (DLBCL), arising from B cells of thymic origin, predominantly affecting women between the ages of 20-30, and that usually presents with a bulky and rapidly expanding anterior mediastinal mass, often with pleural and pericardial effusions, and that can invade the lungs, superior vena cava, pleura, pericardium, and chest wall, leading to manifestations of cough, dyspnea, and superior vena cava syndrome." ;
+        ns1:epidemiology "Prevalence : 1-9 / 100 000" ;
+        ns1:identifier "98838" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Primary mediastinal large B-cell lymphoma" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Primary mediastinal large B-cell lymphoma" ] .
+}
+

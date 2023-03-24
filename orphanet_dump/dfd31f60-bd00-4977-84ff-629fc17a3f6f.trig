@@ -1,0 +1,28 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=529468> a ns1:MedicalCondition ;
+        ns1:alternateName "Monoclonal MCAD" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:529468" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C94.3" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:529468" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C94.3" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "A rare hematologic disease characterized by symptoms of mast cell activation in the absence of cutaneous findings, as well as absence of diagnostic criteria of systemic mastocytosis with tryptase levels of less than 20 ng/ml and normal to low burden of mast cells. Bone marrow biopsy reveals the presence of monoclonal mast cells carrying the <i>KIT</i> D816V mutation and/or expressing CD25. Patients present with recurrent episodes of flushing, headache, hypotension, abdominal cramping, nausea, diarrhea, cardiac arrhythmias, bronchoconstriction, and bleeding diathesis, among others." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "529468" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Monoclonal mast cell activation syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Monoclonal mast cell activation syndrome" ] .
+}
+

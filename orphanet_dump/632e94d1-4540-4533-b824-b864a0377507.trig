@@ -1,0 +1,42 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=157769> a ns1:MedicalCondition ;
+        ns1:alternateName "Incomplete situs inversus",
+            "Partial situs inversus",
+            "Situs ambiguous" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:157769" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q89.3" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q89.3" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10059119" ;
+                ns1:codingSystem "MedDRA" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:157769" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0266642" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10059119" ;
+                ns1:codingSystem "MedDRA" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0266642" ;
+                ns1:codingSystem "UMLS" ] ;
+        ns1:description "A rare, genetic, developmental defect during embryogenesis characterized by a partial mirror-image transposition of intra-thoracic and/or intra-abdominal organs across the left-right axis of the body. Intra-organ variations and other malformations, such as ciliary motricity anomalies (e.g. Kartagener syndrome), biliary atresia and cardiac defects, are frequently associated. Left (polysplenia syndrome) or right (asplenia syndrome) isomerism are usually observed." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "157769" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Situs ambiguus" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Situs ambiguus" ] .
+}
+

@@ -1,0 +1,28 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=99003> a ns1:MedicalCondition ;
+        ns1:alternateName "Multifocal pattern dystrophy simulating Stargardt disease" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:99003" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:99003" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "H35.5" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "H35.5" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "A rare, patterned dystrophy of the retinal pigment epithelium characterized by multiple yellowish irregular flecks scattered or interconnected around the macula, simulating what is observed in Stargardt disease, and usually asymptomatic until adulthood when patients present with a slowly progressive loss of vision that often only becomes apparent in old age." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "99003" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Multifocal pattern dystrophy simulating fundus flavimaculatus" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Multifocal pattern dystrophy simulating fundus flavimaculatus" ] .
+}
+

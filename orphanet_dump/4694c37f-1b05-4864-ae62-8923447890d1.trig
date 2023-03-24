@@ -1,0 +1,40 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=95431> a ns1:MedicalCondition ;
+        ns1:alternateName "Feto-fetal transfusion syndrome" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:95431" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "O43.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "O43.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "325" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10058328" ;
+                ns1:codingSystem "MedDRA" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10058328" ;
+                ns1:codingSystem "MedDRA" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:95431" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "325" ;
+                ns1:codingSystem "GARD" ] ;
+        ns1:description "Twin twin transfusion syndrome (TTTS) is a rare condition seen in twin monochorionic pregnancies, typically developing during the 15-26 week gestation period and usually due to unbalanced intertwin placental anastomoses, where an unequal exchange of blood between twins causes oligohydramnios in one sac and polyhydramnios in the other which can lead to a high perinatal mortality rate and a high rate of disability in survivors if left untreated" ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "95431" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Twin to twin transfusion syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Twin to twin transfusion syndrome" ] .
+}
+

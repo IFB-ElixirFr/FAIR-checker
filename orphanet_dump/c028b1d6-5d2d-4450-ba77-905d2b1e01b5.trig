@@ -1,0 +1,44 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=2612> a ns1:MedicalCondition ;
+        ns1:alternateName "Nevus sebaceus of Jadassohn",
+            "Nevus sebaceus syndrome",
+            "Organoid nevus syndrome",
+            "Schimmelpenning syndrome",
+            "Solomon syndrome" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "10291" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "163200" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q85.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "163200" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10291" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:2612" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:2612" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q85.8" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "A rare nevus syndrome characterized by the association of an nevus sebaceous with a broad spectrum of abnormalities that affect many organ systems, most commonly the eye, skeletal and central nervous system." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "2612" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Linear nevus sebaceus syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Linear nevus sebaceus syndrome" ] .
+}
+

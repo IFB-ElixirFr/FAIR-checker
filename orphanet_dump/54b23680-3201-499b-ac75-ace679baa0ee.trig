@@ -1,0 +1,48 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=87503> a ns1:MedicalCondition ;
+        ns1:alternateName "Keratosis palmoplantaris transgrediens of Siemens",
+            "Meleda disease",
+            "Transgrediens palmoplantar keratoderma of Siemens" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "C0025221" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:87503" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q82.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "92" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "92" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q82.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "248300" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0025221" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:87503" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "248300" ;
+                ns1:codingSystem "OMIM" ] ;
+        ns1:description "Mal de Meleda (MdM) is a diffuse palmoplantar keratoderma, initially reported in the Island of Meleda, characterized by symmetric palmoplantar hyperkeratosis that progressively extends to the dorsal surfaces of hands and feet (transgrediens). The disease can be associated to hyperhidrosis, lichenoid plaques and perioral erythema." ;
+        ns1:epidemiology "Prevalence : 1-9 / 100 000" ;
+        ns1:identifier "87503" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Mal de Meleda" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Mal de Meleda" ] .
+}
+

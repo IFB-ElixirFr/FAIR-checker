@@ -1,0 +1,45 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=300536> a ns1:MedicalCondition ;
+        ns1:alternateName "CDG syndrome type Ir",
+            "CDG-Ir",
+            "CDG1R",
+            "Carbohydrate deficient glycoprotein syndrome type Ir",
+            "Congenital disorder of glycosylation type 1r",
+            "Congenital disorder of glycosylation type Ir" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "E77.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "12398" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "12398" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "614507" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:300536" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:300536" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E77.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "614507" ;
+                ns1:codingSystem "OMIM" ] ;
+        ns1:description "DDOST-CDG is a form of congenital disorders of N-linked glycosylation characterized by failure to thrive, developmental delay, hypotonia, strabismus and hepatic dysfunction. The disease is caused by mutations in the gene <i> DDOST </i> (1p36.1)." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "300536" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "DDOST-CDG" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "DDOST-CDG" ] .
+}
+

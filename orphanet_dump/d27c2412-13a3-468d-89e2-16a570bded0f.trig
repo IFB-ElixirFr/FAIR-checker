@@ -1,0 +1,27 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=37559> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:37559" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:37559" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "L67.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "L67.8" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "A rare hair disorder characterized by the appearance of lustreless, curly, frizzy, and coarse hair generally during adolescence predominantly in the frontal, temporal, and vertex regions of the scalp. Eyelashes, as well as growth and pigmentation of the hair, may also be affected." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "37559" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Acquired kinky hair syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Acquired kinky hair syndrome" ] .
+}
+

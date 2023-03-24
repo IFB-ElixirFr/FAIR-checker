@@ -1,0 +1,40 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=97338> a ns1:MedicalCondition ;
+        ns1:alternateName "Clear cell sarcoma of the tendons and aponeuroses" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "C43.7" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C43.6" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C43.6" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0206651" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0206651" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:97338" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C43.7" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:97338" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare soft tissue tumor characterized by a slowly growing mass typically involving tendons and aponeuroses of the extremities, composed of polygonal or spindle-shaped cells with melanocytic differentiation. The tumor typically affects young adults, who often present with pain or tenderness at the tumor site. Prognosis is poor with high recurrence rates and frequent metastasis, especially to lymph nodes, lung, and bones." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "97338" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Melanoma of soft tissue" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Melanoma of soft tissue" ] .
+}
+

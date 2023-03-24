@@ -1,0 +1,34 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=210272> a ns1:MedicalCondition ;
+        ns1:alternateName "Disembarkment syndrome",
+            "MdD",
+            "MdDS",
+            "Sickness of disembarkment" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "10064924" ;
+                ns1:codingSystem "MedDRA" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C537840" ;
+                ns1:codingSystem "MeSH" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C1608983" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:210272" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "6959" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "H81.8" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "Mal de débarquement (MdD) is a rare otorhinolaryngological disease characterized by a persistent sensation of motion such as rocking, swaying, tumbling and/or bobbing following a period of exposure to passive movement, usually an ocean cruise or other types of water, train, automobile or air travel and less commonly other movements (like sleeping on a waterbed). Onset may be spontaneous in some patients. Manifestations begin shortly after the stimulus, persist for 6 months to years and may be associated with anxiety, fatigue and impaired cognition. Symptoms are often accentuated when in an enclosed space or when attempting to be motionless (sitting, lying down or standing in a stationary position) and are relieved when in passive motion such as in a moving car, airplane or train." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "210272" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Mal de débarquement" ] .
+}
+

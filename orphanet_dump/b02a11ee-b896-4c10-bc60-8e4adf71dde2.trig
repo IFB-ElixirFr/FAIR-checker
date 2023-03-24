@@ -1,0 +1,33 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=91397> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:91397" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:91397" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C1302999" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C1302999" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q10.3" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q10.3" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "Isolated ankyloblepharon filiforme adnatum (AFA) is characterised by the presence of single or multiple thin bands of connective tissue between the upper and lower eyelids, preventing full opening of the eye. Several cases have been reported. It can occur sporadically or following an autosomal dominant transmission pattern. In some cases, AFA can be associated with other disorders, such as trisomy 18. The bands should be removed to avoid amblyopia and this can easily be performed in the neonatal period by cutting with tissue scissors." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "91397" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Isolated ankyloblepharon filiforme adnatum" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Isolated ankyloblepharon filiforme adnatum" ] .
+}
+

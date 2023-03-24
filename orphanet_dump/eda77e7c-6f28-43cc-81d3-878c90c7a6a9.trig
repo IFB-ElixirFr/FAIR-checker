@@ -1,0 +1,43 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=518> a ns1:MedicalCondition ;
+        ns1:alternateName "AMKL",
+            "AML M7",
+            "Acute megakaryocytic leukemia",
+            "Acute myeloid leukemia M7" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "C94.2" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "524" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "524" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0023462" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:518" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C94.2" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:518" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0023462" ;
+                ns1:codingSystem "UMLS" ] ;
+        ns1:description "A rare acute myeloid leukemia that occurs predominantly in childhood and particularly in children with Down syndrome (DS-AMKL). Nonspecific symptoms may be irritability, weakness, and dizziness while specific symptoms include pallor, fever, mucocutaneous bleeding, hepatosplenomegaly, neurological manifestations and rarely lymphadenopathy. Acute panmyelosis with myelofibrosis may also be associated with AMKL. In contrast to DS-AMKL (around 80 % survival), non-DS-AMKL is an AML subgroup associated with poor prognosis." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "518" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Acute megakaryoblastic leukemia" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Acute megakaryoblastic leukemia" ] .
+}
+

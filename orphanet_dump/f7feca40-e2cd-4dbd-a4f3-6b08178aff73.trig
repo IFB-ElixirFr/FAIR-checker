@@ -1,0 +1,22 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=275798> a ns1:MedicalCondition ;
+        ns1:alternateName "PAH associated with connective tissue disease" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:275798" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:275798" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A form of pulmonary arterial hypertension (PAH) characterized by an elevated pulmonary arterial resistance leading to right heart failure observed as a complication of a connective tissue disease." ;
+        ns1:epidemiology "Prevalence : 1-9 / 1 000 000" ;
+        ns1:identifier "275798" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Pulmonary arterial hypertension associated with connective tissue disease" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Pulmonary arterial hypertension associated with connective tissue disease" ] .
+}
+

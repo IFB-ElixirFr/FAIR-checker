@@ -1,0 +1,21 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=592574> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:592574" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:592574" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare genetic multiple congenital anomalies/dysmorphic syndrome characterized by variable intellectual disability, developmental delay, autistic behavior, short stature, and microcephaly. Additional variable manifestations include feeding problems, vision and hearing impairments, recurrent upper airway infections, and epilepsy. Reported malformations are cryptorchidism and cerebral anomalies. Dysmorphic facial features include short and upslanted palpebral fissures, ptosis, telecanthus, depressed nasal ridge, short nose, anteverted nares, short columella, and long philtrum." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "592574" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Menke-Hennekam syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Menke-Hennekam syndrome" ] .
+}
+

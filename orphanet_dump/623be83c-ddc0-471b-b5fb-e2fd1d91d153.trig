@@ -1,0 +1,29 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=570762> a ns1:MedicalCondition ;
+        ns1:alternateName "Bacterial endocarditis",
+            "Infectious endocarditis" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:570762" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "I33.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:570762" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "I33.0" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "A rare bacterial infectious disease characterized by infection of a native or prosthetic heart valve, the endocardial surface, or an indwelling cardiac device. Main causative agents are Gram-positive bacteria, most commonly <i>Staphylococcus</i> and <i>Streptococcus</i> species. Signs and symptoms include high fever or prolonged subfebrile state, excessive sweating, malaise, asthenia, arthralgia, myalgia, weight loss, headache, nausea, dyspnea, cough, heart murmurs, and petechiae of the skin. The most common complications are embolism in different organs and ischemic stroke, sepsis, heart failure, and renal failure." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "570762" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Infective endocarditis" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Infective endocarditis" ] .
+}
+

@@ -1,0 +1,35 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=97261> a ns1:MedicalCondition ;
+        ns1:alternateName "GRF tumor",
+            "Growth hormone releasing factor tumor" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "E16.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C25.9" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C25.9" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:97261" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:97261" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E16.8" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "GRFoma is a type of pancreatic endocrine tumor (see this term) that hypersecretes growth hormone-releasing factor (GRF or GHRH) and that clinically resembles a pituitary adenoma (see this term) as patients present with acromegaly. In addition to the pancreas, this tumor can also occur in the lungs or small intestine, are usually large > 6cm and approximately 1/3 have metastasized at the time of diagnosis. It often co-occurs with Zollinger-Ellison syndrome or multiple endocrine neoplasia type 1 (MEN 1; see these terms)." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "97261" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "GRFoma" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "GRFoma" ] .
+}
+

@@ -1,0 +1,36 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=364055> a ns1:MedicalCondition ;
+        ns1:alternateName "EOSRD",
+            "Early-onset severe retinal dystrophy",
+            "SECORD" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "H35.5" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "H35.5" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C1858080" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C1858080" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:364055" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:364055" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "Severe early childhood onset retinal dystrophy (SECORD) is an inherited retinal dystrophy characterized by a severe congenital night blindness, progressive retinal dystrophy and nystagmus. Best corrected visual acuity can reach 0.3 in the first decade of life and can pertain well into the second decade of life. Blindness is often complete by the age of 30 years." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "364055" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Severe early-childhood-onset retinal dystrophy" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Severe early-childhood-onset retinal dystrophy" ] .
+}
+

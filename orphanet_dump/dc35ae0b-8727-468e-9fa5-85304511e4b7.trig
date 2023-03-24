@@ -1,0 +1,34 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=401973> a ns1:MedicalCondition ;
+        ns1:alternateName "Male EBP disorder with neurological defects" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "Q87.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:401973" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "300960" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "300960" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q87.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:401973" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "MEND syndrome is a rare, genetic, syndromic, sterol biosynthesis disorder affecting males characterized by skin manifestations, including collodion membrane, ichthyosis, and patchy hypopigmentary lesions, associated with severe neurological involvement (e.g. intellectual disability, delayed psychomotor development, seizures, hydrocephalus, cerebellar/corpus callosum hypoplasia, Dandy-Walker malformation, hypotonia) and craniofacial dysmorphism (large anterior fontanelle, telecanthus, hypertelorism, microphthalmia, prominent nasal bridge, low-set ears, micrognathia, cleft palate). 2,3 toe syndactyly, polydactyly, and kyphosis, as well as ophthalmic, cardiac and urogenital anomalies may also be associated." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "401973" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "MEND syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "MEND syndrome" ] .
+}
+

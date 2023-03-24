@@ -1,0 +1,27 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=420699> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "D70" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:420699" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:420699" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D70" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "Autosomal recessive severe congenital neutropenia due to CXCR2 deficiency is a rare, genetic, primary immunodeficiency disorder characterized by recurrent bacterial infections (including septic thrombophlebitis and subacute bacterial endocarditis) and neutropenia without lymphopenia or warts, resulting from recessively inherited mutations in <i>CXCR2<i/>." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "420699" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Autosomal recessive severe congenital neutropenia due to CXCR2 deficiency" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Autosomal recessive severe congenital neutropenia due to CXCR2 deficiency" ] .
+}
+

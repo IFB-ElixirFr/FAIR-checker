@@ -1,0 +1,34 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=324321> a ns1:MedicalCondition ;
+        ns1:alternateName "Sinoatrial node dysfunction and hearing loss" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "614896" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "H91.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:324321" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "H91.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:324321" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "614896" ;
+                ns1:codingSystem "OMIM" ] ;
+        ns1:description "Sinoatrial node dysfunction and deafness is a rare genetic disease characterized by congenital severe to profound deafness with no evidence of vestibular dysfunction, associated with sinoatrial node dysfunction with pronounced bradycardia and increased variability of heart rate at rest and episodic syncopes that may be triggered by enhanced physical activity and stress." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "324321" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Sinoatrial node dysfunction and deafness" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Sinoatrial node dysfunction and deafness" ] .
+}
+

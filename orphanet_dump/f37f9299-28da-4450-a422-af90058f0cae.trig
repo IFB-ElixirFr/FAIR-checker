@@ -1,0 +1,34 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=448237> a ns1:MedicalCondition ;
+        ns1:alternateName "Zika virus infection" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:448237" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:448237" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "A92.5" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "12894" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "A92.5" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "12894" ;
+                ns1:codingSystem "GARD" ] ;
+        ns1:description "Zika virus disease is an emerging <i>Aedes</i> mosquito-born virus disease characterized by a clinical course that may be asymptomatic or mild with fever, conjunctivitis, muscle and joint pain, headache, exanthema, but may also be associated with severe neurological (meningitis, meningoencephalitis and myelitis) and auto-immune (Guillain-Barre syndrome) complications, as well as a potential increase of birth defects (microcephaly) if the infection occurs during pregnancy." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "448237" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Zika virus disease" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Zika virus disease" ] .
+}
+

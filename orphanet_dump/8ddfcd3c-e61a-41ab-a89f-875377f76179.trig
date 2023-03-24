@@ -1,0 +1,28 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=566393> a ns1:MedicalCondition ;
+        ns1:alternateName "Acute MCL" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "C94.3" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:566393" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:566393" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C94.3" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "A rare systemic mastocytosis characterized by the presence of at least 20% usually immature and atypical mast cells in bone marrow aspirate smears. In classic mast cell leukemia, mast cells account for at least 10% of peripheral white blood cells, although the aleukemic variant with less than 10% mast cells is more common. C-findings (cytopenias, hepatomegaly, ascites, portal hypertension, splenomegaly, skeletal lesions, malabsorption), indicative of organ damage due to mast cell infiltration, are usually present at diagnosis, while skin lesions are absent in most cases. Prognosis is generally poor." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "566393" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Acute mast cell leukemia" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Acute mast cell leukemia" ] .
+}
+

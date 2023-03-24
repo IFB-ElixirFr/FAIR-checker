@@ -1,0 +1,59 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=93111> a ns1:MedicalCondition ;
+        ns1:alternateName "ADTKD-HNF1B",
+            "HNF1B-MODY",
+            "HNF1B-related nephropathy",
+            "MODY5",
+            "Maturity-onset diabetes of the young type 5",
+            "RCAD syndrome",
+            "Renal cysts and diabetes syndrome",
+            "Renal dysfunction-early-onset diabetes syndrome" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "N11.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0431693" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "137920" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0431693" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C535520" ;
+                ns1:codingSystem "MeSH" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:93111" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "N11.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10221" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10221" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:93111" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "137920" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C535520" ;
+                ns1:codingSystem "MeSH" ] ;
+        ns1:description "A form of autosomal dominant tubulointerstitial kidney disease (ADTKD) due to variants in or whole gene deletions of <i>HNF1B</i>, which is characterized by chronic tubulo-interstitial nephritis, that manifests with nonsignificant urinalysis and slowly progressive renal failure. It can be associated with cystic kidney dysplasia, early onset diabetes and extrarenal manifestations." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "93111" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "HNF1B-related autosomal dominant tubulointerstitial kidney disease" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "HNF1B-related autosomal dominant tubulointerstitial kidney disease" ] .
+}
+

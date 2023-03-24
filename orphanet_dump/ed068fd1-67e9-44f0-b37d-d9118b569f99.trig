@@ -1,0 +1,33 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=141121> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "C0396051" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q31.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:141121" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:141121" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q31.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0396051" ;
+                ns1:codingSystem "UMLS" ] ;
+        ns1:description "A rare larynx anomaly characterized by a partial or complete narrowing of the upper airway extending from just below the vocal folds to the lower border of the cricoid cartilage. Clinical presentation is variable and includes recurrent, croup-like, upper respiratory infections, stridor, dyspnea, barking cough, and in most severe cases acute airway compromise at delivery. It may be an isolated finding, or associated with other congenital anomalies and syndromes." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "141121" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Congenital subglottic stenosis" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Congenital subglottic stenosis" ] .
+}
+

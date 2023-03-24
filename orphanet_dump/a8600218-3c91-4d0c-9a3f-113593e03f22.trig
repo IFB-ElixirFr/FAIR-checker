@@ -1,0 +1,27 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=238> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:238" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q45.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q45.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:238" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "Digestive duplication is a rare developmental defect during embryogenesis characterized by cystic, spherical or tubular structures (communicating or not with the lumen), located on a segment of the digestive tract (from the mouth cavity to anus), and constituted of a wall with a double smooth muscle layer and a digestive mucosa. The malformation may be asymptomatic or manifest with various signs including abdominal mass, abdominal pain, transit troubles or subocclusive syndrome. Mild digestive hemorrhage, perforation, pancreatitis and neonatal respiratory distress are possible complications." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "238" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Digestive duplication" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Digestive duplication" ] .
+}
+

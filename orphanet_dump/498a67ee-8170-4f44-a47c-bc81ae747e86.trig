@@ -1,0 +1,35 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=401920> a ns1:MedicalCondition ;
+        ns1:alternateName "FHCC",
+            "Fibrolamellar hepatocarcinoma" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "C0334287" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C22.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0334287" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:401920" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:401920" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C22.0" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "A rare variant of hepatocellular carcinoma (HCC) presenting in adolescents or young adults with no underlying liver disease. Clinical presentation is non specific, with abdominal mass, abdominal discomfort or pain, fatigue and weight loss. Patients can also be asymptomatic. HCC markers (alpha fetoprotein) are normal. Fibrolamellar HCC presents as a unique, well-delimited mass at imagery and a biopsy confirms the diagnosis, showing well-differentiated tumor cells surrounded by thick collagen bands." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "401920" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Fibrolamellar hepatocellular carcinoma" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Fibrolamellar hepatocellular carcinoma" ] .
+}
+

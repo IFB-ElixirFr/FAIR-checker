@@ -1,0 +1,40 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=98909> a ns1:MedicalCondition ;
+        ns1:alternateName "Desmin-related myofibrillar myopathy" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:98909" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "601419" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "601419" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C1832370" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G71.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G71.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:98909" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C1832370" ;
+                ns1:codingSystem "UMLS" ] ;
+        ns1:description "A rare genetic skeletal muscle disease characterized by abnormal chimeric aggregates of desmin and other cytoskeletal proteins and granulofilamentous material at the ultrastructural level in muscle biopsies and variable clinical myopathological features, age of disease onset and rate of disease progression. Patients present with bilateral skeletal muscle weakness that starts in distal leg muscles and spreads proximally, sometimes involving trunk, neck flexors and facial muscles and often cardiomyopathy manifested by conduction blocks, arrhythmias, chronic heart failure, and sometimes tachyarrhythmia. Weakness eventually leads to wheelchair dependence. Respiratory insufficiency can be a major cause of disability and death, beginning with nocturnal hypoventilation with oxygen desaturation and progressing to daytime respiratory failure." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "98909" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Desminopathy" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Desminopathy" ] .
+}
+

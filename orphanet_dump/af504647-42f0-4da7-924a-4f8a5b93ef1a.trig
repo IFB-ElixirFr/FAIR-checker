@@ -1,0 +1,28 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=69736> a ns1:MedicalCondition ;
+        ns1:alternateName "BADI" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:69736" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q13.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q13.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:69736" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "Bilateral acute depigmentation of the iris (BADI) is characterized by acute onset of bilateral iris depigmentation, pigment dispersion in the anterior chamber, and heavy pigment deposition in the anterior chamber angle. Patients typically present with acute and usually severe photophobia, blurred vision, red eye, and ocular discomfort or pain with a usually self-limiting clinical course. Cases often occur after a flu-like illness, upper respiratory tract infection, and after the use of oral moxifloxacin. When associated with iris epithelial depigmentation, iris transillumination defects and atonic/mydriatic pupil, the condition is referred to as bilateral acute iris transillumination (BAIT) which has an increased risk of severe intractable rise in intraocular pressure." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "69736" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Bilateral acute depigmentation of the iris" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Bilateral acute depigmentation of the iris" ] .
+}
+

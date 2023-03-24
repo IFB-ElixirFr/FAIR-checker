@@ -1,0 +1,27 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=2846> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "C0685699" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:2846" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0685699" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:2846" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "Congenital pericardium anomaly comprises a group of rare congenital cardiac malformations characterized by the complete (Congenital complete agenesis of pericardium) or partial absence of the pericardium (Congenital partial agenesis of pericardium), or by the presence of pericardial cysts (Pleuropericardial cyst) (see these terms)." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "2846" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Congenital pericardium anomaly" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Congenital pericardium anomaly" ] .
+}
+

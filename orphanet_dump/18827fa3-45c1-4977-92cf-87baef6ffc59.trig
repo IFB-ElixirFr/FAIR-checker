@@ -1,0 +1,28 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=141163> a ns1:MedicalCondition ;
+        ns1:alternateName "Cosack syndrome" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "Q38.3" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:141163" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:141163" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q38.3" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "Glossopalatine ankylosis is a disorder belonging to the group of oromandibular-limb hypogenesis syndromes (OLHS) and is characterised by the presence of an intraoral band of variable thickness attaching the tongue to the hard palate or maxillary alveolar ridge." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "141163" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Glossopalatine ankylosis" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Glossopalatine ankylosis" ] .
+}
+

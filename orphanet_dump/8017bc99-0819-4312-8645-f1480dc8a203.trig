@@ -1,0 +1,42 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=324561> a ns1:MedicalCondition ;
+        ns1:alternateName "Cole disease",
+            "Guttate hypopigmentation and punctate palmoplantar keratoderma",
+            "Hypopigmentation and punctate keratosis of the palms and soles" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:324561" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q82.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "12384" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "12384" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:324561" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "615522" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q82.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "615522" ;
+                ns1:codingSystem "OMIM" ] ;
+        ns1:description "A rare, genetic, epidermal disease characterized by punctate keratoderma on palms and soles associated with irregularly shaped hypopigmented macules (typically localized on the extremities). Ectopic calcification (e.g. early-onset calcific tendinopathy, calcinosis cutis) and pachyonychia may be occasionally associated." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "324561" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Hypopigmentation-punctate palmoplantar keratoderma syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Hypopigmentation-punctate palmoplantar keratoderma syndrome" ] .
+}
+

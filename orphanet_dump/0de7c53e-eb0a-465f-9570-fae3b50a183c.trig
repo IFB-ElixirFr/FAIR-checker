@@ -1,0 +1,55 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=231> a ns1:MedicalCondition ;
+        ns1:alternateName "Dracunculosis",
+            "Guinea worm disease",
+            "Medina worm disease",
+            "Medinensis" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "D004320" ;
+                ns1:codingSystem "MeSH" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "6286" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "B72" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D004320" ;
+                ns1:codingSystem "MeSH" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0013100" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:231" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10013618" ;
+                ns1:codingSystem "MedDRA" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "6286" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10013618" ;
+                ns1:codingSystem "MedDRA" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "B72" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0013100" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:231" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "Dracunculiasis (Guinea worm disease) is a neglected tropical disease (NTD) characterized by a painful burning skin lesion from which the <i>Dracunculus medinensis</i> parasite emerges approximately 1 year after infection resulting from consumption of unsafe drinking water containing parasite-infected copepods (<i>Cyclops spp.</i>, microcrustacea also called water fleas)." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "231" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Dracunculiasis" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Dracunculiasis" ] .
+}
+

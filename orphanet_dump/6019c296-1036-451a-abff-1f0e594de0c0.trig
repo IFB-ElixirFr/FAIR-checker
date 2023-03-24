@@ -1,0 +1,28 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=458768> a ns1:MedicalCondition ;
+        ns1:alternateName "Dabska tumor" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:458768" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:458768" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D48.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D48.1" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "A rare vascular tumor characterized by an ill-defined, slowly growing, asymptomatic cutaneous plaque or nodule mostly involving the limbs, in fewer cases the trunk. The tumor is composed of lymphatic-like channels with prominent intraluminal papillary tufts with hyaline cores lined by hobnail endothelial cells. It is locally aggressive, while metastasis is rare. Infants and children are much more often affected than adults." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "458768" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Primary intralymphatic angioendothelioma" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Primary intralymphatic angioendothelioma" ] .
+}
+

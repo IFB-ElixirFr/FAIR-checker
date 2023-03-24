@@ -1,0 +1,35 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=352490> a ns1:MedicalCondition ;
+        ns1:alternateName "ASD due to AUTS2 deficiency",
+            "AUTS2 syndrome" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:352490" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "615834" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "F84.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "F84.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:352490" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "615834" ;
+                ns1:codingSystem "OMIM" ] ;
+        ns1:description "A rare genetic syndromic intellectual disability characterized by global developmental delay and borderline to severe intellectual disability, autism spectrum disorder with obsessive behavior, stereotypies, hyperactivity but frequently friendly and affable personality, feeding difficulties, short stature, muscular hypotonia, microcephaly, characteristic dysmorphic features (hypertelorism, high arched eyebrows, ptosis, deep and/or broad nasal bridge, broad/prominent nasal tip, short and/or upturned philtrum, narrow mouth, and micrognathia), and skeletal anomalies (kyphosis and/or scoliosis, arthrogryposis, slender habitus and extremities). Other clinical features may include hernias, congenital heart defects, cryptorchidism and seizures." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "352490" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Autism spectrum disorder due to AUTS2 deficiency" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Autism spectrum disorder due to AUTS2 deficiency" ] .
+}
+

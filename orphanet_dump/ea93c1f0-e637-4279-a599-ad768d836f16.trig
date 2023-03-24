@@ -1,0 +1,34 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=36234> a ns1:MedicalCondition ;
+        ns1:alternateName "Bacterial TSS" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "9560" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:36234" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "9560" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "A48.3" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:36234" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "A48.3" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "Bacterial toxic shock syndrome (TSS) is a potentially fatal, acute disease characterized by a sudden onset of high fever along with nausea, myalgia, vomiting and multisystem organ involvement, potentially leading to shock and death. TSS is mediated by superantigenic toxins, usually caused by an infection with <i>Staphylococcus aureus</i> in staphylococcal TSS (see this term) or <i>Streptococcus pyogenes</i> in streptococcal TSS (see this term)." ;
+        ns1:epidemiology "Prevalence : 1-9 / 100 000" ;
+        ns1:identifier "36234" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Bacterial toxic-shock syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Bacterial toxic-shock syndrome" ] .
+}
+

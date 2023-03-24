@@ -1,0 +1,27 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=289483> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "300858" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:289483" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:289483" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "300858" ;
+                ns1:codingSystem "OMIM" ] ;
+        ns1:description "Intellectual disability-alacrima-achalasia syndrome is a rare, genetic intellectual disability syndrome characterized by delayed motor and cognitive development, absence or severe delay in speech development, intellectual disability, and alacrima. Achalasia/dysphagia and mild autonomic dysfunction (i.e. anisocoria) have also been reported in some patients. The phenotype is similar to the one observed in autosomal recessive Triple A syndrome, but differs by the presence of intellectual disability in all affected individuals." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "289483" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Intellectual disability-alacrima-achalasia syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Intellectual disability-alacrima-achalasia syndrome" ] .
+}
+

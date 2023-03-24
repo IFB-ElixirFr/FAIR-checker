@@ -1,0 +1,31 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=980> a ns1:MedicalCondition ;
+        ns1:alternateName "Aplasia of pulmonary artery",
+            "UAPA",
+            "Unilateral Pulmonary Artery Absence",
+            "Unilateral pulmonary artery agenesis" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:980" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q25.7" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:980" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q25.7" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "A rare congenital great vessels anomaly that commonly presents with dyspnea, frequent respiratory infections, hemoptysis and high-altitude pulmonary edema. It is often associated with congenital heart malformation (CHM ). In the absence of associated cardiac malformation the condition may be asymptomatic until adult age." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "980" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Absence of the pulmonary artery" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Absence of the pulmonary artery" ] .
+}
+

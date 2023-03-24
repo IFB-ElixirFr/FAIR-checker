@@ -1,0 +1,33 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=141124> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "Q31.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0339880" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:141124" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q31.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0339880" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:141124" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "Congenital laryngeal cyst is a rare larynx anomaly characterized by a cyst involving the larynx or supraglottis locations, such as the epiglottis and vallecula. Timing and severity of presentation depend on the size of the cyst and its proximity to the glottis and range from severe prenatal airway obstruction leading to polyhydramnios and pulmonary hypoplasia to postnatal inspiratory stridor associated with muffled cry, hoarseness and cyanotic episodes, and to feeding difficulties and failure to thrive. It can be associated with laryngomalacia." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "141124" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Congenital laryngeal cyst" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Congenital laryngeal cyst" ] .
+}
+

@@ -1,0 +1,25 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=2139> a ns1:MedicalCondition ;
+        ns1:alternateName "Intellectual disability-epilepsy-bulbous nose syndrome" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "C2931736" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q87.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C538112" ;
+                ns1:codingSystem "MeSH" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:2139" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare multiple congenital anomalies/dysmorphic syndrome characterized by global developmental delay, mild intellectual disability, seizures, obesity, and dysmorphic facial features (including large, bulbous nose, prominent philtrum, wide mouth). Additional reported features are bilateral pes planus, scoliosis, and spina bifida occulta. Brain MRI may show mild ventricular dilatation." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "2139" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Hernández-Aguirre Negrete syndrome" ] .
+}
+

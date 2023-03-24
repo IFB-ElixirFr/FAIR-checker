@@ -1,0 +1,34 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=353308> a ns1:MedicalCondition ;
+        ns1:alternateName "Pyruvate carboxylase deficiency type A" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "E74.4" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E74.4" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:353308" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "266150" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:353308" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "266150" ;
+                ns1:codingSystem "OMIM" ] ;
+        ns1:description "Infantile pyruvate carboxylase (PC) deficiency (Type A) is a rare, severe form of PC deficiency characterized by infantile-onset, mild to moderate lactic acidemia, and a generally severe course." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "353308" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Pyruvate carboxylase deficiency, infantile type" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Pyruvate carboxylase deficiency, infantile type" ] .
+}
+

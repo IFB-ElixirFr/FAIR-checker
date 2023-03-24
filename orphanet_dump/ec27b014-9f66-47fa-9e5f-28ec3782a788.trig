@@ -1,0 +1,27 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=466695> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:466695" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "J34.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "J34.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:466695" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "Supratip dysplasia is a rare, congenital, non-syndromic, nose and cavum malformation characterized by the presence of a bulbous, soft tissue hypertrophy located in the middle-to-distal third of the nasal dorsum, in association with deformed, slightly laterally- and caudally-placed nasal alae and a scar-like atrophic skin lesion located at the nasal tip. Respiratory function is not affected." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "466695" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Supratip dysplasia" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Supratip dysplasia" ] .
+}
+

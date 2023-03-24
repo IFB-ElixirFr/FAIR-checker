@@ -1,0 +1,51 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=158> a ns1:MedicalCondition ;
+        ns1:alternateName "CDSP",
+            "CUD",
+            "Carnitine transporter defect",
+            "Carnitine uptake deficiency",
+            "Deficiency of plasma-membrane carnitine transporter",
+            "SPCD" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "C0342788" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:158" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E71.3" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "5104" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0342788" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E71.3" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "212140" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "5104" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "212140" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:158" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A disorder of carnitine cycle and carnitine transport that is characterized classically by early childhood onset cardiomyopathy often with weakness and hypotonia, failure to thrive and recurrent hypoglycemic hypoketotic seizures and/or coma." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "158" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Systemic primary carnitine deficiency" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Systemic primary carnitine deficiency" ] .
+}
+

@@ -1,0 +1,34 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=226298> a ns1:MedicalCondition ;
+        ns1:alternateName "Secondary hypothyroidism" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:226298" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C3665349" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "12280" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "12280" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C3665349" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:226298" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "Central or secondary congenital hypothyroidism is a type of permanent congenital hypothyroidism (see this term) characterized by permanent thyroid hormone deficiency that is present from birth and secondary to a disorder in the thyroid-stimulating hormone (TSH) - thyrotropin-releasing hormone (TRH) system." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "226298" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Central congenital hypothyroidism" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Central congenital hypothyroidism" ] .
+}
+

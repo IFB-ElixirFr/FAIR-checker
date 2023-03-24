@@ -1,0 +1,28 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=99112> a ns1:MedicalCondition ;
+        ns1:alternateName "Absence of brachiocephalic vein" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:99112" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q26.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:99112" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q26.8" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "A rare congenital anomaly of the great veins characterized by absence of the left brachiocephalic vein (or innominate vein), resulting in an anomalous venous vasculature. Patients are usually asymptomatic and the anomaly is typically discovered intraoperatively. An association with persistence of left superior vena cava, permanent levoatrial cardinal vein or anomaly of the inferior vena cava has been reported in some cases." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "99112" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Absence of innominate vein" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Absence of innominate vein" ] .
+}
+

@@ -1,0 +1,41 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=424> a ns1:MedicalCondition ;
+        ns1:alternateName "Familial non-immune hyperthyroidism",
+            "Resistance to thyroid stimulating hormone" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "E05.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:424" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E05.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:424" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "2858" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "609152" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "2858" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "609152" ;
+                ns1:codingSystem "OMIM" ] ;
+        ns1:description "A rare hyperthyroidism characterized by mild to severe hyperthyroidism, presence of goiter, absence of features of autoimmunity, frequent relapses while on treatment and a positive family history." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "424" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Familial hyperthyroidism due to mutations in TSH receptor" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Familial hyperthyroidism due to mutations in TSH receptor" ] .
+}
+

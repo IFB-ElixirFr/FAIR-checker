@@ -1,0 +1,27 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=1676> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:1676" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:1676" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E25.7" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E25.7" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "Idiopathic pulmonary artery dilatation is a rare developmental defect during embryogenesis characterized by the dilatation of the main pulmonary artery, with or without dilatation of the right and left pulmonary artery branches, and not attributed to any other cardiac, pulmonary and/or arterial wall disease. It may present with exertional dyspnea, fatigue, cough, hemoptysis, palpitation and chest pain, but may also be asymptomatic. In serious cases, trachea constriction due to postural changes may lead to attacks of cyanosis with severe dyspnea. Sudden cardiac death has been reported in some cases." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "1676" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Idiopathic pulmonary artery dilatation" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Idiopathic pulmonary artery dilatation" ] .
+}
+

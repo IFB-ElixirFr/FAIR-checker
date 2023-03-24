@@ -1,0 +1,27 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=100047> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:100047" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q39.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:100047" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q39.8" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "A rare, congenital, non-syndromic esophageal malformation characterized by tubular or spherical cystic masses that have a double layer of surrounding smooth muscle lined with squamous or enteric epithelium, and are continuous or contiguous to the esophagus. The cyst is typically distally located and may or may not communicate with the esophageal lumen. Most become symptomatic presenting with a wide range of symptoms including dysphagia, non-productive cough, chest pain or failure to thrive. Others like palpitations due cardiac arrhythmia, thoracic back pain, and fever due to mediastinitis, have also been reported." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "100047" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Esophageal duplication cyst" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Esophageal duplication cyst" ] .
+}
+

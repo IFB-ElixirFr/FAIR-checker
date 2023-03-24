@@ -1,0 +1,35 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=86830> a ns1:MedicalCondition ;
+        ns1:alternateName "CMPD-U",
+            "Undifferentiated myeloproliferative disease" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "D47.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:86830" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D47.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "131440" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "131440" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:86830" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "Chronic myeloproliferative disease, unclassifiable is a hematological neoplasm characterized by clonal proliferation of myeloid precursors in the bone marrow, blood and other tissues (spleen, liver), with clinical, morphological and molecular features of myeloproliferative neoplasms (MPN), failing to meet criteria of a specific MPN. The presentation is nonspecific and variable and often includes leukocytosis, thrombocytosis and anemia. Splenomegaly, hepatomegaly as well as fatigue, malaise or weight loss may appear in advanced stages." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "86830" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Chronic myeloproliferative disease, unclassifiable" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Chronic myeloproliferative disease, unclassifiable" ] .
+}
+

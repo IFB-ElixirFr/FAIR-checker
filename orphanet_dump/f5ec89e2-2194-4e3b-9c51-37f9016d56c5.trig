@@ -1,0 +1,31 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=2578> a ns1:MedicalCondition ;
+        ns1:alternateName "Atypical MRKH syndrome",
+            "MRKH syndrome type 2",
+            "MURCS association",
+            "Müllerian duct aplasia-renal dysplasia-cervical somite anomalies syndrome" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:2578" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "601076" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "5513" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C1832817" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q87.8" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "A form of Mayer-Rokitansky-Küster-Hauser syndrome, characterized by congenital aplasia of the uterus and upper two-thirds of the vagina that is associated with at least one other malformation such as renal, vertebral, or, less commonly, auditory and cardiac defects." ;
+        ns1:epidemiology "Prevalence : 1-9 / 100 000" ;
+        ns1:identifier "2578" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Mayer-Rokitansky-Küster-Hauser syndrome type 2" ] .
+}
+

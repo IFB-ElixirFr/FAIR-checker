@@ -1,0 +1,30 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=96106> a ns1:MedicalCondition ;
+        ns1:alternateName "Distal duplication 16q",
+            "Telomeric duplication 16q",
+            "Trisomy 16qter" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "Q92.3" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:96106" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:96106" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q92.3" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "Distal trisomy 16q is a rare chromosomal anomaly syndrome, resulting from the partial trisomy of the long arm of chromosome 16, with variable phenotype principally characterized by developmental delay, severe intellectual disability, hypotonia, facial dysmorphism (incl. high, prominent forehead, epicanthic folds, dysplastic ears, broad/depressed nasal bridge, malar hypoplasia, narrow and arched palate, thin upper lip vermilion, micrognathia) and hand/feet anomalies (e.g. arachnodactyly, talipes equinovarus). Cardiac defects, genitourinary malformations and vertebral anomalies are also associated. Thrombocytopenia and recurrent infections have also been reported." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "96106" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Distal trisomy 16q" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Distal trisomy 16q" ] .
+}
+

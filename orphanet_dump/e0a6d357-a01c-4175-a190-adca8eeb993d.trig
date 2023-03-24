@@ -1,0 +1,35 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=314811> a ns1:MedicalCondition ;
+        ns1:alternateName "Ghrelin receptor deficiency",
+            "Short stature due to growth hormone secretagogue receptor deficiency" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "E34.3" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:314811" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:314811" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "615925" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "615925" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E34.3" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "Short stature due to GHSR deficiency is a rare, genetic, endocrine growth disease, resulting from growth hormone secretagogue receptor (GHSR) deficiency, characterized by postnatal growth delay that results in short stature (less than -2 SD). The pituitary gland is typically without morphological changes, although anterior pituitary gland hypoplasia has been reported." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "314811" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Short stature due to GHSR deficiency" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Short stature due to GHSR deficiency" ] .
+}
+

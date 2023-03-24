@@ -1,0 +1,34 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=555402> a ns1:MedicalCondition ;
+        ns1:alternateName "CARKD deficiency" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "E88.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:555402" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E88.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:555402" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "618321" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "618321" ;
+                ns1:codingSystem "OMIM" ] ;
+        ns1:description "A rare neurometabolic disease characterized by infantile onset of repeated episodes of developmental regression and neurodegeneration, often triggered by febrile illnesses. Patients present with lethargy, hypotonia, irritability, gait ataxia, loss of speech, movement disorder, seizures, ophthalmoplegia, and hearing loss. Brain imaging shows generalized cerebral atrophy and bilateral basal ganglia abnormalities. Extensive skin lesions, cardiomyopathy, and pancytopenia have been reported in association. The condition is fatal in the first years of life." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "555402" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "NAD(P)HX dehydratase deficiency" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "NAD(P)HX dehydratase deficiency" ] .
+}
+

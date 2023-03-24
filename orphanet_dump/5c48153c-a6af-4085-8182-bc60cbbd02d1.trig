@@ -1,0 +1,27 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=158008> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "D76.3" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:158008" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D76.3" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:158008" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "Papular xanthoma is a form of non-Langerhans cell histiocytosis characterized by cutaneous presentation of solitary or disseminated yellow to orange-brown papular or papulonodular, noncoalescent, asymptomatic skin lesions located predominantly on the head, neck, trunk and extremities (rarely on oral mucosa), in the presence of normolipidemia. Microscopically, the lesions consist of monomorphous infiltrate of xanthomatized macrophages and numerous Touton giant cells, with scant or absent inflammatory infiltrate. It is usually not associated with systemic disease." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "158008" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Papular xanthoma" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Papular xanthoma" ] .
+}
+

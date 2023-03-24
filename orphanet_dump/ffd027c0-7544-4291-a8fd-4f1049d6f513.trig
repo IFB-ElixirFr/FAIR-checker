@@ -1,0 +1,39 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=36237> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:36237" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "L01.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10006563" ;
+                ns1:codingSystem "MedDRA" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:36237" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "L01.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0021100" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0021100" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10006563" ;
+                ns1:codingSystem "MedDRA" ] ;
+        ns1:description "A rare, acquired, typically benign, bacterial infectious disease caused by <i>Staphylococcus aureus</i> characterized by large, fragile vesicles and flaccid bullae on an erythematous base, which evolve into moistened erosions with a thin, varnish-like crust, usually localized in intertriginous areas of the trunk and extremities (armpits, groins, between the fingers or toes, beneath the breasts). Although uncommon, systemic symptoms, such as fever, diarrhea, and weakness, may be associated." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "36237" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Bullous impetigo" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Bullous impetigo" ] .
+}
+

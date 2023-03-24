@@ -1,0 +1,40 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=99918> a ns1:MedicalCondition ;
+        ns1:alternateName "Streptococcal TSS" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "10044251" ;
+                ns1:codingSystem "MedDRA" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "A48.3" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:99918" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0343532" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0343532" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:99918" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "A48.3" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10044251" ;
+                ns1:codingSystem "MedDRA" ] ;
+        ns1:description "Streptococcal toxic-shock syndrome (streptococcal TSS) is an acute disease mediated by the production of superantigenic toxins characterized by the sudden onset of fever and other febrile symptoms, pain, multisystem organ involvement and potentially leading to coma, shock and death due to a <i>Streptococcus pyogenes</i> infection." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "99918" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Streptococcal toxic-shock syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Streptococcal toxic-shock syndrome" ] .
+}
+

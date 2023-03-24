@@ -1,0 +1,34 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=3090> a ns1:MedicalCondition ;
+        ns1:alternateName "Congenital pulmonary venous connection anomaly" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "C0265916" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:3090" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "4599" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:3090" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0265916" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "4599" ;
+                ns1:codingSystem "GARD" ] ;
+        ns1:description "A rare developmental defect during embryogenesis where some or all of the pulmonary veins drain into the right atrium or the systemic veins, with or without the presence of pulmonary venous obstruction, leading to various manifestations such as fatigue, exertional dyspnea, pulmonary arterial hypertension, cyanosis and progressive congestive heart failure. The two main subtypes are congenital partial pulmonary venous return anomaly (PAPVC; see this term), where one or a few of the pulmonary veins are anomalous, and congenital total pulmonary venous return anomaly (TAPVC, see this term), where all of the pulmonary veins are anomalous." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "3090" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Congenital pulmonary venous return anomaly" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Congenital pulmonary venous return anomaly" ] .
+}
+

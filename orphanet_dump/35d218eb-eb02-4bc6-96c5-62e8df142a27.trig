@@ -1,0 +1,37 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=261483> a ns1:MedicalCondition ;
+        ns1:alternateName "Dup(X)(q27.3q28)",
+            "Trisomy Xq27.3-q28",
+            "Trisomy Xq27.3q28",
+            "Xq27.3-q28 microduplication syndrome" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "Q99.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q99.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:261483" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "300869" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "300869" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:261483" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "Xq27.3q28 duplication syndrome is a recently described syndrome characterized by short stature, hypogonadism, developmental delay and facial dysmorphism." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "261483" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Xq27.3q28 duplication syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Xq27.3q28 duplication syndrome" ] .
+}
+

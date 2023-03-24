@@ -1,0 +1,38 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=98868> a ns1:MedicalCondition ;
+        ns1:alternateName "Hereditary ovalocytosis",
+            "Melanesian elliptocytosis",
+            "Melanesian ovalocytosis",
+            "SAO",
+            "Stomatocytic elliptocytosis" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:98868" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D58.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D58.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:98868" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "166900" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "166900" ;
+                ns1:codingSystem "OMIM" ] ;
+        ns1:description "Southeast Asian ovalocytosis (SAO) is a rare hereditary red cell membrane defect characterized by the presence of oval-shaped erythrocytes and with most patients being asymptomatic or occasionally manifesting with mild symptoms such as pallor, jaundice, anemia and gallstones." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "98868" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Southeast Asian ovalocytosis" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Southeast Asian ovalocytosis" ] .
+}
+

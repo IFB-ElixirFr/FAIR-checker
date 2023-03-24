@@ -1,0 +1,35 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=1303> a ns1:MedicalCondition ;
+        ns1:alternateName "Constrictive bronchiolitis",
+            "Obliterative bronchiolitis" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "J44.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "5961" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "J44.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "5961" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:1303" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:1303" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare lung disorder that is mainly associated with chronic allograft dysfunction after lung transplantation and that is characterized by inflammation and fibrosis of bronchiolar walls that reduce the diameter of the bronchioles and result in progressive and irreversible airflow obstruction." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "1303" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Bronchiolitis obliterans with obstructive pulmonary disease" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Bronchiolitis obliterans with obstructive pulmonary disease" ] .
+}
+

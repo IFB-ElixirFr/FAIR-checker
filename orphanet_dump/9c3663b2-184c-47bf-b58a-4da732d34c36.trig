@@ -1,0 +1,37 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=424027> a ns1:MedicalCondition ;
+        ns1:alternateName "EPM8",
+            "PME type 8",
+            "Progressive myoclonic epilepsy due to CERS1 deficiency",
+            "Progressive myoclonus epilepsy type 8" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "616230" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "616230" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:424027" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:424027" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G40.3" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G40.3" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "A rare, genetic, neurological disorder characterized by childhood to adolescent-onset of action myoclonus, generalized tonic-clonic seizures, and slowly progressive, moderate to severe cognitive impairment that may lead to dementia. EEG reveals progressive slowing of background activity and epileptic abnormalities and brain MRI shows cerebellar and brainstem atrophy." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "424027" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Progressive myoclonic epilepsy type 8" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Progressive myoclonic epilepsy type 8" ] .
+}
+

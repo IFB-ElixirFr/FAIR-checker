@@ -21,6 +21,13 @@ class I2A_Impl(AbstractFAIRMetrics):
         """
 
     def weak_evaluate(self):
+        """ """
+        eval = self.get_evaluation()
+        eval.set_implem(self.implem)
+        eval.set_metrics(self.principle_tag)
+        return eval
+
+    def strong_evaluate(self):
         """
         at least one predicate from {dct:title, rdfs:comment, rdfs:description, rdfs:title, etc.}
         """
@@ -30,21 +37,21 @@ class I2A_Impl(AbstractFAIRMetrics):
 
         # List of properties to check
         checked_properties = """
-        dct:title 
-        dct:abstract 
-        dct:creator 
-        dct:license 
-        dct:language 
-        rdfs:label 
-        rdfs:comment 
-        rdfs:seeAlso 
-        skos:prefLabel 
-        skos:altLabel 
-        skos:definition 
-        skos:example 
-        skos:related 
-        skos:broader 
-        skos:narrower 
+        dct:title
+        dct:abstract
+        dct:creator
+        dct:license
+        dct:language
+        rdfs:label
+        rdfs:comment
+        rdfs:seeAlso
+        skos:prefLabel
+        skos:altLabel
+        skos:definition
+        skos:example
+        skos:related
+        skos:broader
+        skos:narrower
         skos:note
         """
 
@@ -82,7 +89,7 @@ class I2A_Impl(AbstractFAIRMetrics):
                     eval.log_info(
                         "At least one of the property was found in the RDF metadata"
                     )
-                    eval.set_score(1)
+                    eval.set_score(2)
                 else:
                     eval.log_info(
                         "None of the properties were found in the RDF metadata"
@@ -95,10 +102,3 @@ class I2A_Impl(AbstractFAIRMetrics):
                     """
                     )
                 return eval
-
-    def strong_evaluate(self):
-        """ """
-        eval = self.get_evaluation()
-        eval.set_implem(self.implem)
-        eval.set_metrics(self.principle_tag)
-        return eval

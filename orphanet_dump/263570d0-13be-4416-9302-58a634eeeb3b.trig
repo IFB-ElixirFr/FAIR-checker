@@ -1,0 +1,40 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=70476> a ns1:MedicalCondition ;
+        ns1:alternateName "Spring catarrh" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "H16.2" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0022577" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "7854" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0022577" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "H16.2" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "7854" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:70476" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:70476" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare disorder of the anterior segment of the eye, characterized by a severe recurrent allergic reaction affecting the cornea and the conjunctiva. It presents with red eyes, ocular itching, photophobia, foreign body sensation, mucous discharge, blepharospasm, and blurring of vision. The symptoms are typically bilateral but may be asymmetric. Characteristic signs include conjunctival injection, giant papillae mostly on the upper tarsal conjunctiva (cobblestone appearance), limbal gelatinous infiltrates (Horner-Trantas dots), and variable corneal signs. The condition is more prevalent in hot climates and most commonly affects young boys." ;
+        ns1:epidemiology "Prevalence : 1-5 / 10 000" ;
+        ns1:identifier "70476" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Vernal keratoconjunctivitis" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Vernal keratoconjunctivitis" ] .
+}
+

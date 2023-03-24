@@ -1,0 +1,33 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=369999> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "148700" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:369999" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:369999" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q82.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "148700" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q82.8" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "Diffuse palmoplantar keratoderma with painful fissures is a rare, genetic, isolated palmoplantar keratoderma disorder characterized by non-epidermolytic, diffuse hyperkeratotic lesions affecting both the palms and the soles, associated with a tendency of painful fissuring. Contrary to the clinical findings, histologic examination reveals findings suggestive of keratosis palmoplantaris striata, with orthohyperkeratosis featuring widening of the intercellular spaces and disadhesion of keratocytes in the upper epidermal layers." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "369999" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Diffuse palmoplantar keratoderma with painful fissures" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Diffuse palmoplantar keratoderma with painful fissures" ] .
+}
+

@@ -1,0 +1,27 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=254516> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "616222" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "616222" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:254516" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:254516" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "Temple syndrome is a rare, genetic disease characterized by pre-and postnatal growth delay, feeding difficulties, muscular hypotonia, motor developmental delay (with or without mild intellectual disability) and mild facial dysmorphism, such as broad, prominent forehead, short nose with flat nasal root and wide tip, downturned corners of mouth, high-arched palate and micrognathia. Additonal features include childhood-onset central obesity, premature puberty and variable bone abnormalities (e.g. small hands and feet, dolichospondyly, slender long bones and craniofacial disproportion)." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "254516" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Temple syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Temple syndrome" ] .
+}
+

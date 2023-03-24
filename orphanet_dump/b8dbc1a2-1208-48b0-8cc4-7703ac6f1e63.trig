@@ -1,0 +1,34 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=238523> a ns1:MedicalCondition ;
+        ns1:alternateName "Atypical HCS" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:238523" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:238523" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "606407" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "606407" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E72.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E72.0" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "A form of hypotonia-cystinuria type 1 syndrome characterized by mild to moderate intellectual disability in addition to classic hypotonia-cystinuria syndrome phenotype (cystinuria type 1, generalised hypotonia, poor feeding, growth retardation, and minor facial dysmorphism)." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "238523" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Atypical hypotonia-cystinuria syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Atypical hypotonia-cystinuria syndrome" ] .
+}
+

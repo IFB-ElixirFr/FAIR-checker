@@ -1,0 +1,33 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=496756> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:496756" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "617207" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G31.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G31.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:496756" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "617207" ;
+                ns1:codingSystem "OMIM" ] ;
+        ns1:description "A rare genetic neurodegenerative disease characterized by neonatal to infantile onset of hypotonia, developmental delay, regression of motor skills with distal amyotrophy, ataxia, and spasticity, absent speech or dysarthria, and moderate to severe cognitive impairment. Optic atrophy may also be associated. Brain imaging shows cerebellar atrophy and thin corpus callosum, as well as brain iron accumulation in the pallidum and substantia nigra beginning during the second decade of life." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "496756" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Early-onset progressive encephalopathy-spastic ataxia-distal spinal muscular atrophy syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Early-onset progressive encephalopathy-spastic ataxia-distal spinal muscular atrophy syndrome" ] .
+}
+

@@ -1,0 +1,36 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=251962> a ns1:MedicalCondition ;
+        ns1:alternateName "PGNT",
+            "Pseudopapillary ganglioglioneurocytoma",
+            "Pseudopapillary neurocytoma with glial differentiation" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "D33.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D33.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C2985174" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:251962" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:251962" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C2985174" ;
+                ns1:codingSystem "UMLS" ] ;
+        ns1:description "A rare mixed neuronal-glial tumor characterized by a supratentorial space-occupying lesion in periventricular location, often with prominent cystic change. The histological hallmark of this low-grade neoplasm is its pseudopapillary appearance with a single layer of cuboidal cells around hyalinized blood vessels, associated with sheets or focal collections of neuronal cells. Clinical presentation is variable and non-specific, most frequently with headache and seizures. Prognosis is favorable after complete resection." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "251962" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Papillary glioneuronal tumor" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Papillary glioneuronal tumor" ] .
+}
+

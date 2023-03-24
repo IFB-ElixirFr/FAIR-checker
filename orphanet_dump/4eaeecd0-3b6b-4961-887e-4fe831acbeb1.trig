@@ -1,0 +1,39 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=35889> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:35889" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "T40.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "T40.2" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:35889" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "T40.2" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "T40.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "T40.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "T40.0" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "A rare intoxication with opioids, a large group of alkaloid analgesics, mainly characterized by miosis (pinpoint pupil), respiratory depression (bradypnea/apnea) and central nervous system depression (sedation or coma). Other manifestations include hypotension, reduced bowel motility, hypothermia and hypoglycemia. Naloxone, a competitive inhibitor of the mu-opioid receptor, is a potent antagonist and is used as the antidote for opioid intoxication." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "35889" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Acute opioid poisoning" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Acute opioid poisoning" ] .
+}
+

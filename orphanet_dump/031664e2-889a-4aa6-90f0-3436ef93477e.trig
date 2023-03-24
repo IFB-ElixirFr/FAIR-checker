@@ -1,0 +1,29 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=261229> a ns1:MedicalCondition ;
+        ns1:alternateName "Dup(14)(q11.2)",
+            "Trisomy 14q11.2" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "Q92.3" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q92.3" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:261229" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:261229" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "14q11.2 microduplication syndrome is a rare chromosomal anomaly characterized by developmental delay, mild to severe intellectual disability with speech impairment and epilepsy. Additionally, it may include dysmorphic features (such as hypo- or hypertelorism, dysplastic ears, short palpebral fissures), microcephaly or macrocephaly, behavioral abnormalities, stereotyped hand movements, ataxia, hypotonia, cleft palate." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "261229" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "14q11.2 microduplication syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "14q11.2 microduplication syndrome" ] .
+}
+

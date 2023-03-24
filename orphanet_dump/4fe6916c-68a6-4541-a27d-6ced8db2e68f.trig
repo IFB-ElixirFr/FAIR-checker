@@ -1,0 +1,28 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=95457> a ns1:MedicalCondition ;
+        ns1:alternateName "Congenital unguarded tricuspid orifice" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "Q22.4" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:95457" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q22.4" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:95457" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare, congenital, non-syndromic heart malformation characterized by partial or complete absence of tricuspid valve tissue and its apparatus, with an existing orifice. It can be isolated or associated with other heart anomalies. Clinical presentation is variable and may include syncope, arrhythmias, cyanosis, right heart dilatation and failure." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "95457" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Tricuspid valve agenesis" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Tricuspid valve agenesis" ] .
+}
+

@@ -1,0 +1,46 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=629> a ns1:MedicalCondition ;
+        ns1:alternateName "Kowarski syndrome" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "E23.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C1849779" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E23.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C1849779" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:629" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "262650" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "408" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:629" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "408" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "262650" ;
+                ns1:codingSystem "OMIM" ] ;
+        ns1:description "Short stature due to growth hormone qualitative anomaly is characterised by growth retardation and short stature (despite the presence of normal or slightly elevated levels of immunoreactive growth hormone, GH), low concentrations of insulin-like growth factor-I (IGF-I) and a significant increase in growth rate following recombinant GH therapy. Prevalence is unknown but only a few cases have been reported in the literature. The syndrome is caused by various mutations in the <i>GH1</i> gene (17q22-q24) that result in structural GH anomalies and a biologically inactive molecule. Transmission is autosomal recessive." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "629" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Short stature due to growth hormone qualitative anomaly" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Short stature due to growth hormone qualitative anomaly" ] .
+}
+

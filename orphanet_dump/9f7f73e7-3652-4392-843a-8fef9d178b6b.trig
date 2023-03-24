@@ -1,0 +1,28 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=210576> a ns1:MedicalCondition ;
+        ns1:alternateName "Congenital trismus" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:210576" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "K07.6" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "K07.6" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:210576" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "Congenital temporomandibular joint ankylosis is a rare maxillofacial disorder characterized by significant reduction in mouth opening (i.e. from a few millimeters to a few centimeters) in the absence of acquired factors (e.g. trauma, infection) contributing to the ankylosis. It is associated with variable degrees of facial dysmorphism (i.e. lateral deviation of the mandible and chin, lower facial asymmetry, retrognathia, micrognathia, dental malocclusion) and patients typically present with feeding and breathing difficulties. Developmental delay, hypotonia, seizures, and additional dysmorphic features (e.g. pectus excavatum, low-set ears, hypoplastic alae nasi) have also been reported." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "210576" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Congenital temporomandibular joint ankylosis" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Congenital temporomandibular joint ankylosis" ] .
+}
+

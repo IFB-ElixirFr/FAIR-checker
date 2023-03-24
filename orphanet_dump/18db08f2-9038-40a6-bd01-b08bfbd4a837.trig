@@ -1,0 +1,46 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=86852> a ns1:MedicalCondition ;
+        ns1:alternateName "B-PLL" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "C91.3" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D054403" ;
+                ns1:codingSystem "MeSH" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "8223" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0475801" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "8223" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C91.3" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D054403" ;
+                ns1:codingSystem "MeSH" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:86852" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:86852" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0475801" ;
+                ns1:codingSystem "UMLS" ] ;
+        ns1:description "A rare mature B-cell neoplasm characterized by clonal proliferation of B-cell prolymphocytes, with prolymphocytes constituting more than 55% of lymphoid cells in peripheral blood. IG genes are clonally rearranged. Neoplastic cells are present in the bone marrow, peripheral blood, and spleen. Patients usually present with B symptoms, massive splenomegaly but absent or minimal lymphadenopathy, rapidly increasing lymphocyte count, anemia, and thrombocytopenia. Therapy response is poor." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "86852" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "B-cell prolymphocytic leukemia" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "B-cell prolymphocytic leukemia" ] .
+}
+

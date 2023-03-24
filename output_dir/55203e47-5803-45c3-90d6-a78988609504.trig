@@ -1,0 +1,17 @@
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix ns1: <https://bio.tools/> .
+@prefix ns2: <http://ogp.me/ns#> .
+@prefix ns3: <http://schema.org/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+{
+    ns1:FAIR_Search_Engine ns2:description "{{ngMeta['og:description']}}" ;
+        ns2:image "{{ngMeta['og:image']}}" ;
+        ns2:title "{{ngMeta['og:title']}}" .
+
+    ns1:fair_search_engine a ns3:SoftwareApplication ;
+        dcterms:conformsTo "https://bioschemas.org/profiles/ComputationalTool/1.0-RELEASE" ;
+        ns3:applicationSubCategory <http://edamontology.org/topic_3077> ;
+        ns3:isAccessibleForFree true .
+}
+

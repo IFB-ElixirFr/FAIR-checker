@@ -1,0 +1,28 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=35062> a ns1:MedicalCondition ;
+        ns1:alternateName "Severe disseminated CMV infection in immunocompetent patients" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:35062" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "B25.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "B25.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:35062" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare viral disease characterized by fulminant cytomegalovirus infection with multiple organ involvement including the brain, lung, liver, and/or heart, among others, and marked constitutional symptoms in immunocompetent patients. The condition is associated with a high case fatality rate." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "35062" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Severe disseminated cytomegalovirus infection in immunocompetent patients" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Severe disseminated cytomegalovirus infection in immunocompetent patients" ] .
+}
+

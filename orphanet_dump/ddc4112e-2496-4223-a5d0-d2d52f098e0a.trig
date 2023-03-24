@@ -1,0 +1,27 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=458758> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:458758" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D48.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:458758" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D48.1" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "A rare vascular tumor characterized by a poorly circumscribed, infiltrative nodular lesion with vascular differentiation, centered in the dermis and subcutis. The tumor is composed of histologically benign, intermediate, and malignant components. Typical is an admixture of different components which include epithelioid and retiform hemangioendothelioma, spindle cell hemangioma, angiosarcoma-like areas, and benign vascular lesions. Predilection sites are the distal extremities. Many patients have a history of lymphedema. Local recurrence is frequent, while metastasis is rare." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "458758" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Composite hemangioendothelioma" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Composite hemangioendothelioma" ] .
+}
+

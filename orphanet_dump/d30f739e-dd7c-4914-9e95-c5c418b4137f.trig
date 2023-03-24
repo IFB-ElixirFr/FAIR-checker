@@ -1,0 +1,29 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=252031> a ns1:MedicalCondition ;
+        ns1:alternateName "DLM",
+            "Leptomeningeal melanomatosis" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:252031" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C70.9" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:252031" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C70.9" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "Diffuse leptomeningeal melanocytosis is a rare tumor of meninges arising from leptomeningeal melanocytes, characterized by diffuse infiltration of the leptomeninges (pia mater and arachnoidea) anywhere in the central nervous system. Clinical features may include stillbirth, intracranial hypertension and hydrocephalus, seizure, ataxia, syringomyelia, cranial nerve palsy, intracranial haemorrhage, sphincter dysfunction and neuropsychiatric symptoms. Transformation into malignant melanoma of the central nervous system was reported. It may be associated with congenital nevi, as a part of neurocutaneous melanosis." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "252031" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Diffuse leptomeningeal melanocytosis" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Diffuse leptomeningeal melanocytosis" ] .
+}
+

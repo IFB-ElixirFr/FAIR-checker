@@ -1,0 +1,33 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=447977> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "G71.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G71.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:447977" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:447977" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "616852" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "616852" ;
+                ns1:codingSystem "OMIM" ] ;
+        ns1:description "A rare genetic muscular dystrophy characterized by progressive muscle weakness in a scapulo-humero-peroneal and distal distribution, featuring wrist extensor weakness, finger and foot drop, scapular winging, mild facial weakness, contractures of the Achilles tendon, elbow, and shoulder, and diminished or absent deep tendon reflexes. A predilection for the upper extremities has been reported in some patients. Respiratory muscles are spared until late in the disease course. Age of onset, progression, and severity of the disease vary significantly between individuals. Muscle biopsy shows groups of atrophic type I fibers and increased internal nuclei." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "447977" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Progressive scapulohumeroperoneal distal myopathy" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Progressive scapulohumeroperoneal distal myopathy" ] .
+}
+

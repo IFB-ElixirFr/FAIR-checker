@@ -1,0 +1,34 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=79490> a ns1:MedicalCondition ;
+        ns1:alternateName "Capillary lymphangioma",
+            "Capillary lymphatic malformation",
+            "Cutaneous lymphangioma circumscriptum",
+            "Microcystic infiltrating lymphatic malformation",
+            "Microcystic lymphangioma",
+            "Superficial lymphangioma",
+            "Superficial lymphatic malformation" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:79490" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D18.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:79490" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D18.1" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "A rare common cystic lymphatic malformation characterized by a benign cystic lesion composed of dilated lymphatic channels. Microcystic lesions consist of cysts smaller than 1 cm in diameter. They usually present at birth or during the first years of life and most often occur in the head and neck region but may affect any site. Symptoms depend on the location and extent of the lesion. Infection, trauma, or intracystic hemorrhage can lead to lesional expansion. Malignant transformation does not occur." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "79490" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Microcystic lymphatic malformation" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Microcystic lymphatic malformation" ] .
+}
+

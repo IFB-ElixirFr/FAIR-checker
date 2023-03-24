@@ -1,0 +1,28 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=521426> a ns1:MedicalCondition ;
+        ns1:alternateName "PLAAND" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:521426" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "617527" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:521426" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "617527" ;
+                ns1:codingSystem "OMIM" ] ;
+        ns1:description "A rare genetic neurological disorder characterized by infantile onset of progressive leukoencephalopathy, microcephaly, severe global developmental delay, and spasticity resulting in quadriparesis and posture deformation. Additional features include an abnormally exaggerated startle reflex, seizures, dystonia, and hypomimia or amimia, as well as progressive chest deformities and contractures of large and hyperextensibility of small joints, among others. Thin corpus callosum is a prominent feature in brain imaging, in addition to white matter abnormalities consistent with leukoencephalopathy." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "521426" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "PLAA-associated neurodevelopmental disorder" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "PLAA-associated neurodevelopmental disorder" ] .
+}
+

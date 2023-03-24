@@ -1,0 +1,40 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=99919> a ns1:MedicalCondition ;
+        ns1:alternateName "Staphylococcal TSS" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:99919" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10044250" ;
+                ns1:codingSystem "MedDRA" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "A48.3" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10044250" ;
+                ns1:codingSystem "MedDRA" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C3714602" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "A48.3" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:99919" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C3714602" ;
+                ns1:codingSystem "UMLS" ] ;
+        ns1:description "Staphylococcal toxic shock syndrome (staphylococcal TSS) is an acute disease mediated by the production of superantigenic toxins, characterized by high fever, skin rash followed by skin peeling, hypotension, vomiting, diarrhea and potentially leading to multisystem organ failure and caused by a <i>Staphylococcus aureus</i> bacterial infection." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "99919" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Staphylococcal toxic-shock syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Staphylococcal toxic-shock syndrome" ] .
+}
+

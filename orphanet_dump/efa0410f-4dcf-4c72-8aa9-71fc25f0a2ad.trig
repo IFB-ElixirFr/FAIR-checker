@@ -1,0 +1,34 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=402020> a ns1:MedicalCondition ;
+        ns1:alternateName "AML with inv(3)(q21q26.2) or t(3;3)(q21;q26.2)" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:402020" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C92.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C92.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "12759" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "12759" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:402020" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A subtype of acute myeloid leukemia with recurrent genetic abnormalities characterized by clonal proliferation of myeloid blasts in the bone marrow, blood and, rarely, other tissues. Bone marrow typically shows small, hypolobated megakaryocytes and multilineage dyslplasia. Patients typically present with leukocytosis, anemia, variable platelet counts and a variety of nonspecific symptoms related to ineffective hematopoesis (fatigue, bleeding, bruising, recurrent infections, bone pain) and/or extramedullary site involvement (gingivitis, splenomegaly). High resistance to conventional chemotherapy is reported." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "402020" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Acute myeloid leukemia with inv(3)(q21q26.2) or t(3;3)(q21;q26.2)" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Acute myeloid leukemia with inv(3)(q21q26.2) or t(3;3)(q21;q26.2)" ] .
+}
+

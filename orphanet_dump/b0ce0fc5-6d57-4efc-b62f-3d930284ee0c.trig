@@ -1,0 +1,41 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=3314> a ns1:MedicalCondition ;
+        ns1:alternateName "Aseptic necrosis of phalangeal epiphyses",
+            "Osteochondrosis of phalangeal epiphyses" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:3314" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "165700" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "165700" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "M93.2" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "M93.2" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "4131" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:3314" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "4131" ;
+                ns1:codingSystem "GARD" ] ;
+        ns1:description "A very rare genetic necrotic bone disorder characterized clinically by painless swelling of the proximal interphalangeal joints associated with osteonecrosis of epiphyses followed by osteoarthritic changes, with onset before 25 years of age and often a benign course." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "3314" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Thiemann disease, familial form" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Thiemann disease, familial form" ] .
+}
+

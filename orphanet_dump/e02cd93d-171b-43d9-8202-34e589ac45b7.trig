@@ -1,0 +1,29 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=439755> a ns1:MedicalCondition ;
+        ns1:alternateName "Single-organ PAN",
+            "Single-organ periarteritis nodosa" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "M30.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:439755" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "M30.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:439755" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "Single-organ polyarteritis nodosa (PAN) is a rare, often mild form of PAN characterized by limited disease without generalized manifestations, most often affecting the skin (cutaneous PAN; see this term), the brain, eyes, pancreas, testicles, ureter, breasts, or ovaries. Affected patients are often younger than those with systemic PAN (see this term) and relapses appear to be more common." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "439755" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Single-organ polyarteritis nodosa" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Single-organ polyarteritis nodosa" ] .
+}
+

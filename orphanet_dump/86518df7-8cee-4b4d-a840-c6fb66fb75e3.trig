@@ -1,0 +1,27 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=217407> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:217407" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "613102" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:217407" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "613102" ;
+                ns1:codingSystem "OMIM" ] ;
+        ns1:description "Hereditary hypotrichosis with recurrent skin vesicles is a very rare inherited hair loss disorder described in a family and characterized by sparse, fragile or absent hair on the scalp, eyebrows, eyelashes, axillae and rest of the body, associated with vesicle formation on various parts of the scalp and body which regularly burst and release watery fluid." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "217407" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Hereditary hypotrichosis with recurrent skin vesicles" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Hereditary hypotrichosis with recurrent skin vesicles" ] .
+}
+

@@ -1,0 +1,27 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=519404> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:519404" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q14.2" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:519404" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q14.2" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "A rare ophthalmic disorder characterized by a usually congenital and unilateral round or oval, gray, white, or yellowish depression in the optic disc. There may be more than one pit present in one eye, and the anomaly is most commonly found in the inferotemporal region of the optic disc, although any sector may be involved. Patients are often asymptomatic, or may present with visual field defects, in particular paracentral arcuate scotoma connected to an enlarged blind spot. A number of patients develop serous macular detachment, with loss of vision typically becoming apparent in the third or fourth decade of life." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "519404" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Optic disc pit" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Optic disc pit" ] .
+}
+

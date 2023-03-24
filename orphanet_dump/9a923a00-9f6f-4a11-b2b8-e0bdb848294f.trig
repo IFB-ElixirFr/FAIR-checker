@@ -1,0 +1,40 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=224> a ns1:MedicalCondition ;
+        ns1:alternateName "NDM" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "C0158981" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "P70.2" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10028933" ;
+                ns1:codingSystem "MedDRA" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:224" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "P70.2" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:224" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10028933" ;
+                ns1:codingSystem "MedDRA" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0158981" ;
+                ns1:codingSystem "UMLS" ] ;
+        ns1:description "Neonatal diabetes mellitus presents as hyperglycemia, failure to thrive and, in some cases, dehydration and ketoacidosis which may be severe with coma, in a child within the first months of life." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "224" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Neonatal diabetes mellitus" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Neonatal diabetes mellitus" ] .
+}
+

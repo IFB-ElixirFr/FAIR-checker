@@ -1,0 +1,28 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=97563> a ns1:MedicalCondition ;
+        ns1:alternateName "Pauci-immune glomerulonephritis with antineutrophil cytoplasmic antibody" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "N05.7" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:97563" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:97563" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "N05.7" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "A form of pauci-immune glomerulonephritis characterized by a rapidly progressive glomerulonephritis in association with the presence of circulating antineutrophilic cytoplasmic antibodies (ANCA), mostly directed against proteinase-3 (PR3) and myeloperoxidase (MPO). Patients usually present with urinary abnormalities and rapidly declining renal function, often leading to dialysis within weeks without treatment. Cutaneous, pulmonary, musculoskeletal and nervous involvement may be observed in case of systemic disease, and the correlation between ANCA titer and disease activity has been demonstrated." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "97563" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Pauci-immune glomerulonephritis with ANCA" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Pauci-immune glomerulonephritis with ANCA" ] .
+}
+

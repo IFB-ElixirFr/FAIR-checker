@@ -1,0 +1,30 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=97353> a ns1:MedicalCondition ;
+        ns1:alternateName "Boxer's dementia",
+            "Chronic traumatic encephalopathy",
+            "Punch-drunk syndrome" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:97353" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:97353" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "F01.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "F01.8" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "A rare neurologic disease characterized by progressive neurodegeneration secondary to repetitive mild traumatic brain injuries. The clinical picture is highly variable and includes behavioral or psychiatric symptoms (such as aggression, depression, delusions, and suicidality), cognitive impairment (including diminished attention, memory deficits, executive functioning deficits, and dementia), and motor deficits (including parkinsonism, ataxia, and dysarthria). Neuropathological hallmark is the accumulation of phosphorylated tau-protein in sulci and perivascular regions." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "97353" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Dementia pugilistica" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Dementia pugilistica" ] .
+}
+

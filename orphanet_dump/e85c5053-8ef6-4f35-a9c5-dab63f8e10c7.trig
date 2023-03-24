@@ -1,0 +1,29 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=79084> a ns1:MedicalCondition ;
+        ns1:alternateName "FPLD1",
+            "Familial partial lipodystrophy type 1" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:79084" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "12598" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C1720859" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E88.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "608600" ;
+                ns1:codingSystem "OMIM" ] ;
+        ns1:description "Familial partial lipodystrophy, Köbberling type, is a very rare form of familial partial lipodystrophy (FPLD; see this term) of unknown etiology characterized by lipoatrophy that is confined to the limbs and a normal or increased fat distribution of the face, neck, and trunk. Arterial hypertension and diabetes have also been associated. Inheritance is thought to be autosomal dominant." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "79084" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Familial partial lipodystrophy, Köbberling type" ] .
+}
+

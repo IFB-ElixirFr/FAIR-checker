@@ -1,0 +1,33 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=512017> a ns1:MedicalCondition ;
+        ns1:alternateName "CLPD-NK",
+            "CNKL",
+            "Chronic NK lymphocytosis",
+            "Chronic NK-cell lymphocytosis",
+            "Chronic lymphoproliferative disorder of NK-cells",
+            "NK-cell lineage granular lymphocyte proliferative disorder" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:512017" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C91.7" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:512017" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C91.7" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "A rare large granular lymphocyte leukemia characterized by persistent (> 6 months) natural killer cell lymphocytosis in the absence of clinical diagnosis of leukemia/lymphoma, autoimmune disease, or chronic viral infections. The clinical course is variable, but generally indolent. Patients often remain asymptomatic, or may present with clinical manifestations including vasculitic skin lesions, neutropenic infections, musculoskeletal symptoms, peripheral neuropathy, or splenomegaly." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "512017" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Chronic lymphoproliferative disorder of natural killer cells" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Chronic lymphoproliferative disorder of natural killer cells" ] .
+}
+

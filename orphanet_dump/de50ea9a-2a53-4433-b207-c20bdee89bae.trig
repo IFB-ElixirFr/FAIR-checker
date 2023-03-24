@@ -1,0 +1,23 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=254788> a ns1:MedicalCondition ;
+        ns1:alternateName "Maternally-inherited mitochondrial myopathy",
+            "mtDNA-related mitochondrial myopathy" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:254788" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:254788" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A group of rare mitochondrial oxidative phosphorylation disorders due to mitochondrial DNA anomalies characterized by progressive, most commonly proximal, myopathy with variable degrees of weakness, exercise-induced muscle pain, and fatigue. Progressive external ophthalmoplegia is often observed. Additional features include neurological signs and symptoms (such as seizures, stroke-like episodes, or developmental delay), cardiomyopathy, involvement of liver, kidneys, and gastrointestinal tract, and diabetes. Lactic acidosis is frequently present, while recurrent rhabdomyolysis and myoglobinuria are rare. Muscle biopsy may reveal the presence of ragged-red fibers and a mosaic pattern of cytochrome c oxidase-negative fibers." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "254788" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Mitochondrial DNA-related mitochondrial myopathy" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Mitochondrial DNA-related mitochondrial myopathy" ] .
+}
+

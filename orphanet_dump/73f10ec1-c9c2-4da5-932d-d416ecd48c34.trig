@@ -1,0 +1,33 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=2257> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "Q33.6" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:2257" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:2257" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q33.6" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "265430" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "265430" ;
+                ns1:codingSystem "OMIM" ] ;
+        ns1:description "Primary pulmonary hypoplasia is a rare, isolated, genetic developmental defect during embryogenesis characterized by congenital malformation of pulmonary parenchyma with absence of other anomalies. Neonatally patients present with decreased breath sounds, small lung volume and severe respiratory distress that is not responsive to aggressive treatment (including surfactant instillation/ mechanical respiratory support). It is usually not compatible with life." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "2257" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Primary pulmonary hypoplasia" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Primary pulmonary hypoplasia" ] .
+}
+

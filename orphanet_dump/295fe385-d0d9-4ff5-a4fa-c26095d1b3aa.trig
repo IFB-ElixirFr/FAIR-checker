@@ -1,0 +1,27 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=158022> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "D76.3" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:158022" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D76.3" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:158022" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "Progressive nodular histiocytosis is a rare, normolipemic, non-Langerhans cell histiocytosis characterized by progressive growth of multiple to disseminated, asymptomatic skin lesions that range in appearance from yellow plaques to coalescence-prone red-brown papules, nodules and pedunculated tumors up to 5 cm in size, located typically on the face, trunk and extremities (and rarely on conjuctiva and mucous membranes). Characteristic microscopic findings include a storiform spindle cell infiltrate in the deep dermis with xanthomatized macrophages and some Touton cells in the upper dermis. It is usually not associated with systemic disease." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "158022" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Progressive nodular histiocytosis" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Progressive nodular histiocytosis" ] .
+}
+

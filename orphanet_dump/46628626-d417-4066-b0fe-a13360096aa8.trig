@@ -1,0 +1,35 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=284289> a ns1:MedicalCondition ;
+        ns1:alternateName "Autosomal recessive spinocerebellar ataxia type 10",
+            "SCAR10" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:284289" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G11.2" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "613728" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G11.2" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "613728" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:284289" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare, genetic, autosomal recessive cerebellar ataxia disease characterized by adulthood-onset of slowly progressive spinocerebellar ataxia, manifesting with gait and appendicular ataxia, dysarthria, ocular movement anomalies (e.g. horizontal, vertical, and/or downbeat nystagmus, hypermetric saccades), increased deep tendon reflexes and progressive cognitive decline. Additional variable features may include proximal leg muscle wasting and fasciculations, pes cavus, inspiratory stridor, epilepsy, retinal degeneration and cataracts. Brain imaging reveals marked cerebellar atrophy and electromyography shows evidence of lower motor neuron involvement." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "284289" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Adult-onset autosomal recessive cerebellar ataxia" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Adult-onset autosomal recessive cerebellar ataxia" ] .
+}
+

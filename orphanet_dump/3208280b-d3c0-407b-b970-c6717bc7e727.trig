@@ -1,0 +1,33 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=319678> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "614654" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E88.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "614654" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:319678" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E88.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:319678" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "Encephalopathy-hypertrophic cardiomyopathy-renal tubular disease syndrome is a rare mitochondrial disease due to a defect in coenzyme Q10 biosynthesis that manifests with a broad spectrum of signs and symptoms which may include: neonatal lactic acidosis, global developmental delay, tonus disorder, seizures, reduced spontaneous movements, ventricular hypertrophy, bradycardia, renal tubular dysfunction with massive lactic acid excretion in urine, severe biochemical defect of respiratory chain complexes II/III when assayed together and deficiency of coenzyme Q10 in skeletal muscle. Cerebral and cerebellar atrophy can be seen on magnetic resonance imaging and multiple choroid plexus cysts and symmetrical hyperechoic signal alterations in basal ganglia have been observed on ultrasound." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "319678" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Encephalopathy-hypertrophic cardiomyopathy-renal tubular disease syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Encephalopathy-hypertrophic cardiomyopathy-renal tubular disease syndrome" ] .
+}
+

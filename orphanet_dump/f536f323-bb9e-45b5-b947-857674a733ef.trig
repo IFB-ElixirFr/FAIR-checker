@@ -1,0 +1,33 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=500180> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "G31.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:500180" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:500180" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "617672" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "617672" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G31.8" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "A rare genetic neurodegenerative disease characterized by childhood onset of slowly progressive motor and cognitive regression, resulting in intellectual disability and loss of language and ambulation, associated with the appearance of dystonia, parkinsonism, chorea, or rigidity. Ataxia, dysarthria, and seizures have also been reported. Head circumference percentiles may decline over time. Brain imaging shows progressive cerebral and cerebellar atrophy, in some patients also thinning of the corpus callosum." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "500180" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Childhood-onset motor and cognitive regression syndrome with extrapyramidal movement disorder" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Childhood-onset motor and cognitive regression syndrome with extrapyramidal movement disorder" ] .
+}
+

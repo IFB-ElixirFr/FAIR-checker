@@ -1,0 +1,37 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=2004> a ns1:MedicalCondition ;
+        ns1:alternateName "LC",
+            "LTEC",
+            "Laryngo-tracheo-esophageal cleft",
+            "Laryngo-tracheo-esophageal diastema" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:2004" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "215800" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q32.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:2004" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "215800" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q32.1" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "A laryngo-tracheo-esophageal cleft (LC) is a congenital malformation characterized by an abnormal, posterior, sagittal communication between the larynx and the pharynx, possibly extending downward between the trachea and the esophagus." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "2004" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Laryngotracheoesophageal cleft" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Laryngotracheoesophageal cleft" ] .
+}
+

@@ -1,0 +1,33 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=169082> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "615607" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D81.2" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "615607" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:169082" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:169082" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D81.2" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "A rare autosomal recessive primary immunodeficiency characterized by partial T lymphopenia (in particular cytotoxic CD8+ cells) and decreased expression of the T cell receptor (TCR)/CD3 complex with impaired proliferative response to TCR-dependent stimuli, while the mature memory T cell pool is comparatively well preserved, and B cells, natural killer cells, and immunoglobulins are typically normal. The clinical phenotype is highly heterogeneous, ranging from asymptomatic to infancy-onset of severe recurrent infections, as well as occurrence of autoimmune disease or enteropathy." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "169082" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Combined immunodeficiency due to CD3gamma deficiency" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Combined immunodeficiency due to CD3gamma deficiency" ] .
+}
+

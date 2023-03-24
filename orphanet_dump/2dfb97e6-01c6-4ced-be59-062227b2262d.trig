@@ -1,0 +1,39 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=140908> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:140908" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C1969652" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q73.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q73.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "611377" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C1969652" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "611377" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:140908" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A clinical subtype of brachydactyly type B characterized by hypoplasia/aplasia of distal and/or middle phalanges in fingers and toes II-V (frequently severe in fingers/toes IV-V, milder in fingers/toes II-III) in association with proximal, and occasionally distal, symphalangism, fusion of carpal/tarsal bones and partial cutaneous syndactyly. Additional reported features include proximal placement of thumbs, sensorineural hearing loss and farsightedness." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "140908" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Brachydactyly type B2" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Brachydactyly type B2" ] .
+}
+

@@ -1,0 +1,28 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=96180> a ns1:MedicalCondition ;
+        ns1:alternateName "UPD(4)mat" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "Q99.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q99.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:96180" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:96180" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "Maternal uniparental disomy of chromosome 4 is an uniparental disomy of maternal origin that most likely does not have any phenotypic expression except from cases of homozygosity for a recessive disease mutation for which only mother is a carrier." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "96180" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Maternal uniparental disomy of chromosome 4" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Maternal uniparental disomy of chromosome 4" ] .
+}
+

@@ -1,0 +1,34 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=252128> a ns1:MedicalCondition ;
+        ns1:alternateName "Malignant perineurioma" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "C47.9" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C47.9" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:252128" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C1266188" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C1266188" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:252128" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "Malignant peripheral nerve sheath tumor with perineurial differentiation is a rare soft tissue sarcoma composed predominantly of spindle-shaped neoplastic cells showing perineurial differentiation and displaying abundant cellular pleomorphism or anaplasia, frequent mitoses, tumor necrosis and high metastatic potential. It often presents as a soft, painless, solid mass in subcutaneous tissues of the trunk or limbs, but tumors have also been described in the facial area, mediastinum, retroperitoneum, pancreas, paravertebral column and the pelvic soft tissues. Frequent local recurrence and distant metastatic spread has been reported." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "252128" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Malignant peripheral nerve sheath tumor with perineurial differentiation" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Malignant peripheral nerve sheath tumor with perineurial differentiation" ] .
+}
+

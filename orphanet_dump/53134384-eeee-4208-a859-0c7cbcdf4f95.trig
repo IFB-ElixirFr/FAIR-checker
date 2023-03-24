@@ -1,0 +1,36 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=100051> a ns1:MedicalCondition ;
+        ns1:alternateName "HAE 2",
+            "HAE-II",
+            "Hereditary angioneurotic edema type 2" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "D84.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D84.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "106100" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:100051" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "106100" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:100051" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "Hereditary angioedema type 2 (HAE 2) is a form of hereditary angioedema (see this term) characterized by acute edema in subcutaneous tissues, viscera and/or the upper airway." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "100051" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Hereditary angioedema type 2" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Hereditary angioedema type 2" ] .
+}
+

@@ -1,0 +1,27 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=99062> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "Q23.3" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:99062" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q23.3" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:99062" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "Mitral valve agenesis is a rare congenital heart malformation defined as an agenesis or severe hypoplasia of both mitral valve leaflets (complete agenesis) or one of the leaflets (partial agenesis). Complete mitral valve agenesis presents in the neonatal period with symptoms of severe mitral regurgitation and is rapidly fatal unless surgically treated. It is frequently associated with other heart malformations. Partial mitral valve agenesis may present at various ages, usually with symptoms of mitral regurgitation." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "99062" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Mitral valve agenesis" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Mitral valve agenesis" ] .
+}
+

@@ -1,0 +1,41 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=30925> a ns1:MedicalCondition ;
+        ns1:alternateName "Hereditary CDI",
+            "Hereditary neurogenic diabetes insipidus" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "304900" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:30925" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "304900" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "125700" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:30925" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E23.2" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "125700" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E23.2" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "Hereditary central diabetes insipidus is a rare genetic subtype of central diabetes insipidus (CDI, see this term) characterized by polyuria and polydipsia due to a deficiency in vasopressin (AVP) synthesis." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "30925" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Hereditary central diabetes insipidus" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Hereditary central diabetes insipidus" ] .
+}
+

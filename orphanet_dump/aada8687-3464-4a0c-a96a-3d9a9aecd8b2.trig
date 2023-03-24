@@ -1,0 +1,27 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=370010> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:370010" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q87.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:370010" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q87.0" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "Intellectual disability-facial dysmorphism-hand anomalies syndrome is a rare syndromic intellectual disability disorder characterized by moderate intellectual disability, variable hand abnormalities (including brachydactyly, cutaneous and osseous syndactyly), and facial dysmorphism that includes short palpebral fissures, bulbous nasal tip, thin upper and lower vermilion and broad, pointed chin. Other features, including obesity, microcephaly, short stature and a grimacing smile may be observed." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "370010" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Intellectual disability-facial dysmorphism-hand anomalies syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Intellectual disability-facial dysmorphism-hand anomalies syndrome" ] .
+}
+

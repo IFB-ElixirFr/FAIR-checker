@@ -1,0 +1,33 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=500188> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "H91.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "301018" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:500188" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "301018" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:500188" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "H91.8" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "A rare syndromic genetic deafness characterized by congenital hearing loss, atresia or stenosis of the external auditory canal, dilated internal auditory canal, malformation of the inner ear (incomplete separation of the cochlea basal turn from the fundus of the internal auditory canal), in combination with abnormal auricular shape and facial dysmorphism (including thick eyebrows, ptosis, broad nasal root, and telecanthus). Intelligence is normal and developmental delay is absent." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "500188" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "X-linked external auditory canal atresia-dilated internal auditory canal-facial dysmorphism syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "X-linked external auditory canal atresia-dilated internal auditory canal-facial dysmorphism syndrome" ] .
+}
+

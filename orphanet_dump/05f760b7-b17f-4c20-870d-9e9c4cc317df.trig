@@ -1,0 +1,27 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=500548> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "615198" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:500548" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:500548" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "615198" ;
+                ns1:codingSystem "OMIM" ] ;
+        ns1:description "A rare primary bone dysplasia characterized by osteosclerosis localized predominantly to the metaphyses and epiphyseal margins of the appendicular bones and metaphyseal equivalents of the axial bones, as well as the vertebral endplates, costal ends, and margins of the flat bones. The skull is usually unaffected. The condition is associated with developmental delay and hypotonia. Seizures and spastic paraplegia have also been reported. Serum alkaline phosphatase and urinary pyridinoline and deoxypyridinoline levels may be elevated." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "500548" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Osteosclerotic metaphyseal dysplasia" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Osteosclerotic metaphyseal dysplasia" ] .
+}
+

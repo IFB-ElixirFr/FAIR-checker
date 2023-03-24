@@ -1,0 +1,27 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=137917> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "Q30.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q30.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:137917" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:137917" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare, usually, sporadic congenital anomaly that is more commonly seen in females than in males (2:1), where the nose is blocked by bony or soft tissue formed during embryologic development on only one side (more commonly on the right side) and which is characterized by nasal obstruction and rhinorrhea, usually presenting at birth but that may go undetected until a respiratory infection aggravates the condition." ;
+        ns1:epidemiology "Prevalence : 1-9 / 100 000" ;
+        ns1:identifier "137917" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Choanal atresia, unilateral" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Choanal atresia, unilateral" ] .
+}
+

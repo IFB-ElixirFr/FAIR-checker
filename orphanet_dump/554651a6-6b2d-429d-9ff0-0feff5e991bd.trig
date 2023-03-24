@@ -1,0 +1,27 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=306692> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "G21.2" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:306692" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:306692" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G21.2" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "A rare parkinsonian syndrome due to intoxication which develops in individuals surviving an acute cyanide intoxication episode or due to chronic exposure to small cyanide doses. It presents several weeks after acute exposure with progressive typical clinical features of parkinsonism including bradykinesia, rigidity, dystonia, hypomimia, hypokinetic dysarthria, postural instability and retropulsion but no resting or postural tremor. Brain MRI reveals bilateral lesions in the pallidum, posterior putamen, substantia nigra, subthalamic nucleus, temporal and occipital cortex, and cerebellum." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "306692" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Cyanide-induced parkinsonism-dystonia" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Cyanide-induced parkinsonism-dystonia" ] .
+}
+

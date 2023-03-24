@@ -1,0 +1,28 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=506060> a ns1:MedicalCondition ;
+        ns1:alternateName "Functioning PNET",
+            "Functioning pancreatic NET",
+            "Functioning pancreatic neuroendocrine tumor",
+            "Functioning well-differentiated NEN of pancreas",
+            "Functioning well-differentiated neuroendocrine neoplasm of pancreas",
+            "Functioning well-differentiated pancreatic NEN",
+            "Functioning well-differentiated pancreatic neuroendocrine neoplasm" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:506060" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:506060" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "" ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "506060" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Functioning neuroendocrine tumor of pancreas" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Functioning neuroendocrine tumor of pancreas" ] .
+}
+

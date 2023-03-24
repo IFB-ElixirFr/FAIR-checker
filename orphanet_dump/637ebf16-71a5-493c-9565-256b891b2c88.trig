@@ -1,0 +1,27 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=96201> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:96201" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q99.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:96201" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q99.8" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "X small rings is a rare chromosome X structural anomaly, with highly variable phenotype, principally characterized by developmental delay, intellectual disability, short stature, craniofacial dysmorphism (incl. microcephaly, facial asymmetry, hypertelorism, long palpebral fissures, epicanthus, low-set or malrotated ears, broad nose with a flat nasal bridge, anteverted nares, long philtrum, thin upper lip, high arched palate, micrognathia) and skeletal anomalies (e.g. cubitus valgus, talipes equinovarus). Patients may also present heart malformations (e.g. ventricular septal defects, mitral valve stenosis), sacral dimple, soft tissue syndactyly, pigmented nevi, and seizures." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "96201" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "X small rings" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "X small rings" ] .
+}
+

@@ -1,0 +1,29 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=141013> a ns1:MedicalCondition ;
+        ns1:alternateName "First branchial cleft cyst",
+            "First branchial cleft fistula" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "Q18.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:141013" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:141013" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q18.0" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "A rare otorhinolaryngological malformation characterized by recurrent infections, swelling, pain, discharge and abscess formation in the defect area. The anomaly results from incomplete fusion of the ventral part of the first and second branchial arch, presenting as either a fistula, sinus or cyst occurring anywhere between the external auditory canal and the mandibular angle, including parotid gland." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "141013" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "First branchial cleft anomaly" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "First branchial cleft anomaly" ] .
+}
+

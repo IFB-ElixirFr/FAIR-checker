@@ -1,0 +1,34 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=282166> a ns1:MedicalCondition ;
+        ns1:alternateName "Inherited CJD" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "A81.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "123400" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "123400" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "A81.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:282166" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:282166" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare form of genetic prion disease characterized by typical CJD features (rapidly progressive dementia, personality/behavioral changes, psychiatric disorders, myoclonus, and ataxia) with a genetic cause and sometimes a family history of dementia." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "282166" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Inherited Creutzfeldt-Jakob disease" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Inherited Creutzfeldt-Jakob disease" ] .
+}
+

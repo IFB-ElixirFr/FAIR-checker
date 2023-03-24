@@ -1,0 +1,32 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=1627> a ns1:MedicalCondition ;
+        ns1:alternateName "Del (5)(q35)",
+            "Del (5)(qter)",
+            "Distal 5q deletion",
+            "Monosomy 5q35",
+            "Telomeric deletion 5q" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "Q93.5" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:1627" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q93.5" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:1627" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "Deletion 5q35 refers to the different congenital malformation syndromes resulting from deletions of variable extent of the terminal part of the long arm of chromosome 5 (5q), spanning the region from 5q35.1 to 5q35.3 . The most significant anomaly is a recurring deletion in 5q35.2 comprising the <i>NSD1</i> gene that causes Sotos syndrome that is characterized by cardinal features including excessive growth during childhood, macrocephaly, distinctive facial gestalt and various degrees of learning difficulty. Subtelomeric deletions of the terminal 3.5 Mb region on 5q35.3 are very rare, characterized by prenatal lymphedema with increased nuchal translucency, pronounced muscular hypotonia in infancy, borderline intelligence, postnatal short stature due to growth hormone deficiency, and a variety of minor anomalies such as mildly bell-shaped chest, minor congenital heart defects and a distinct facial gestalt. Larger deletions including bands 5q35.1, 5q35.2 and 5q35.3 cause a more severe phenotype that associates severe developmental delay with microcephaly, and significant cardiac defects (e.g. atrial septal defect with/without atrioventricular conduction defects, Ebstein anomaly, tetralogy of Fallot) linked to haploinsufficiency of <i>NKX2.5</i> (5q35.1). Various combinations of signs may result from deletions of variable extent depending on the genes comprised in the deleted segment." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "1627" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Deletion 5q35" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Deletion 5q35" ] .
+}
+

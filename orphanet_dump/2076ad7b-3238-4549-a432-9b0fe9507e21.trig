@@ -1,0 +1,35 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=313906> a ns1:MedicalCondition ;
+        ns1:alternateName "Neonatal congenital pancreatic cyst",
+            "True congenital pancreatic cyst" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "Q45.2" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:313906" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q45.2" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0341480" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:313906" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0341480" ;
+                ns1:codingSystem "UMLS" ] ;
+        ns1:description "A rare pancreatic disease characterized by a most commonly single, unilocular, thin-walled cystic lesion which may be located anywhere within the pancreas (but is more frequently found in the body and tail) and does not communicate with the pancreatic ductal system. Patients may be asymptomatic or present with signs and symptoms of gastrointestinal or biliary obstruction, or pancreatitis. The condition can be isolated or occur in association with other anomalies (such as von Hippel-Lindau disease or polycystic kidney disease)." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "313906" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Congenital pancreatic cyst" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Congenital pancreatic cyst" ] .
+}
+

@@ -1,0 +1,30 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=100080> a ns1:MedicalCondition ;
+        ns1:alternateName "Colonic NET",
+            "NET of the colon",
+            "Neuroendocrine neoplasm of the colon" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:100080" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C18.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C18.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:100080" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare epithelial tumor of the large intestine, arising from enterochromaffin cells, most commonly in the cecum or ascending colon. The tumor is usually slow-growing and can be diagnosed as an incidental finding in an asymptomatic patient, while in the later stages patients can present with abdominal pain, palpable abdominal mass, changes in bowel habits, signs of bowel obstruction, gastrointestinal bleeding, anorexia, weight loss or, rarely, carcinoid syndrome (facial flushing, diarrhea, tachycardia, hypo- and hypertension, cardiac abnormalities)." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "100080" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Neuroendocrine tumor of the colon" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Neuroendocrine tumor of the colon" ] .
+}
+

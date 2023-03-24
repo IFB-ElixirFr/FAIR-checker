@@ -1,0 +1,33 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=295030> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "Q68.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0265562" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:295030" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:295030" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q68.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0265562" ;
+                ns1:codingSystem "UMLS" ] ;
+        ns1:description "A rare congenital limb malformation characterized by true congenital dislocation of the shoulder, developing in utero. It can be unilateral or bilateral and is usually associated with other abnormalities of the shoulder girdle, such as in the glenoid, the humeral head, the joint capsule, and the scapula. In addition, it may be accompanied by other malformations, like developmental hip dysplasia or cardiac malformation." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "295030" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "True congenital shoulder dislocation" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "True congenital shoulder dislocation" ] .
+}
+

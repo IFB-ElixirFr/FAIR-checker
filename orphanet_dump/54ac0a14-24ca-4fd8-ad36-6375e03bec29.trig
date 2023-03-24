@@ -1,0 +1,35 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=49804> a ns1:MedicalCondition ;
+        ns1:alternateName "Amyloid lichen",
+            "Lichen amyloidosus" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "E85.4+" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "L99.0*" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "L99.0*" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:49804" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E85.4+" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:49804" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "Lichen amyloidosis is a rare chronic form of cutaneous amyloidosis (see this term), a skin disease characterized by the accumulation of amyloid deposits in the dermis, clinically characterized by the development of pruritic, often pigmented, hyperkeratotic papules on trunk and extremities, especially on the shins, and histologically by the deposition of amyloid or amyloid-like proteins in the papillary dermis." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "49804" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Lichen amyloidosis" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Lichen amyloidosis" ] .
+}
+

@@ -1,0 +1,57 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=983> a ns1:MedicalCondition ;
+        ns1:alternateName "ETRS",
+            "Embryonic testicular regression syndrome",
+            "TRS",
+            "Vanishing testes syndrome",
+            "Vanishing testis syndrome",
+            "XY gonadal agenesis syndrome" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "273250" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q55.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0266427" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "273250" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C537770" ;
+                ns1:codingSystem "MeSH" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:983" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10002641" ;
+                ns1:codingSystem "MedDRA" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q55.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10002641" ;
+                ns1:codingSystem "MedDRA" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0266427" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:983" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C537770" ;
+                ns1:codingSystem "MeSH" ] ;
+        ns1:description "Testicular regression syndrome (TRS) is a developmental anomaly characterized by the absence of one or both testicles with partial or complete absence of testicular tissue. TRS may vary from normal male with unilateral no-palpable testis through phenotypic male with micropenis, to phenotypic female. The phenotype depends on the extent and timing of the intrauterine accident in relation to sexual development." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "983" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Testicular regression syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Testicular regression syndrome" ] .
+}
+

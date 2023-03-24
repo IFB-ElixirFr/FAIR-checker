@@ -1,0 +1,39 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=1175> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:1175" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "302500" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "302500" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "302800" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G11.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G11.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "302800" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:1175" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare X-linked cerebellar ataxia, characterized by a combination of upper and lower motor neuron signs, with an age of onset in the first or second decade, slow progression, and normal intelligence. Typical features of cerebellar dysfunction include gait and limb ataxia, intention tremor, dysmetria, dysdiadochokinesia, dysarthria, nystagmus, and hyperreflexia. Further phenotypic features are pes cavus, scoliosis, muscle atrophy, and peripheral sensory and motor nerve abnormalities." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "1175" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "X-linked progressive cerebellar ataxia" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "X-linked progressive cerebellar ataxia" ] .
+}
+

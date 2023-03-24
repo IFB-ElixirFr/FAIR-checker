@@ -1,0 +1,36 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=157826> a ns1:MedicalCondition ;
+        ns1:alternateName "Congenital gingival cell tumor",
+            "Congenital granular cell tumor",
+            "Neumann tumor" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "C0376319" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "K06.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:157826" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:157826" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0376319" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "K06.8" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "A rare soft tissue tumor characterized by a benign space occupying lesion in neonates, most typically located on the gingival mucosa overlying the anterior alveolar ridge of the maxilla near the canine, although the mandibular region may also be involved. Females are much more frequently affected than males. The tumor mostly presents as a single lesion, potentially interfering with feeding and respiration. Metastasis, malignant transformation, or recurrence after excision have not been reported." ;
+        ns1:epidemiology "Prevalence : 1-9 / 1 000 000" ;
+        ns1:identifier "157826" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Congenital epulis" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Congenital epulis" ] .
+}
+

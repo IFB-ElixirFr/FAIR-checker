@@ -1,0 +1,40 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=98961> a ns1:MedicalCondition ;
+        ns1:alternateName "Anterior limiting membrane dystrophy type 1",
+            "Anterior limiting membrane dystrophy type I",
+            "Atypical granular corneal dystrophy",
+            "Corneal dystrophy of Bowman layer type 1",
+            "Corneal dystrophy of Bowman layer type I",
+            "Geographic corneal dystrophy",
+            "Granular corneal dystrophy type 3",
+            "Granular corneal dystrophy type III",
+            "RBCD",
+            "Superficial granular corneal dystrophy" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "H18.5" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "608470" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C535476" ;
+                ns1:codingSystem "MeSH" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:98961" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0339278" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "9276" ;
+                ns1:codingSystem "GARD" ] ;
+        ns1:description "Reis-Bücklers corneal dystrophy (RBCD), also known as granular corneal dystrophy type III, is a rare form of superficial corneal dystrophy characterized by bilateral symmetrical reticular opacities in the superficial central cornea, with progressive visual impairment." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "98961" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Reis-Bücklers corneal dystrophy" ] .
+}
+

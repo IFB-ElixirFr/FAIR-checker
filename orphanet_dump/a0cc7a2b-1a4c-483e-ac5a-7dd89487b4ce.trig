@@ -1,0 +1,21 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=43119> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:43119" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:43119" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare clinical situation characterized by acute, potentially life-threatening toxic effects of drugs acting on voltage-gated sodium or calcium channels, such as tricyclic antidepressants, anticonvulsants, local anesthetics and antiarrhythmics, some beta-blockers, and chloroquine. Clinical manifestations include abnormal ECG findings (intraventricular conduction block with widening of the QRS complex, T wave flattening, prolongation of the QT interval) and variable signs and symptoms depending on the drug, typically involving the cardiovascular and central nervous system, among others." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "43119" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Acute poisoning by drugs with membrane-stabilizing effect" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Acute poisoning by drugs with membrane-stabilizing effect" ] .
+}
+

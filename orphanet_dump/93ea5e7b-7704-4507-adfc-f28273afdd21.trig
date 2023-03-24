@@ -1,0 +1,29 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=398063> a ns1:MedicalCondition ;
+        ns1:alternateName "Refractory CD",
+            "Refractory sprue" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "K90.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:398063" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "K90.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:398063" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "Refractory celiac disease is a rare intestinal disease characterized by persistent or recurrent symptoms and signs of confirmed celiac disease despite a long-term, strict, gluten-free diet, in the absence of other causes of villous atrophy or malignant complications and with or without presence of increased abnormal intraepitelial lymphocytes." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "398063" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Refractory celiac disease" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Refractory celiac disease" ] .
+}
+

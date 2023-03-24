@@ -1,0 +1,27 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=1920> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:1920" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q86.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q86.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:1920" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A neurodevelopmental teratologic syndrome due to prenatal exposure to toluene. The disease is characterized by prematurity, low birth weight, dysmorphic features (short palpebral fissures, deep set eyes, low set ears, mid-facial hypoplasia, flat nasal bridge, thin upper lip, micrognathia, spatulate fingertips and small fingernails), central nervous system dysfunctions (intellectual disability, microcephaly, language impairment, hyperactivity, visual dysfunction) and postnatal growth delay. Prenatal exposure to toluene occurs as a result of incidental occupational exposure or solvent abuse during pregnancy. The features of toluene embryopathy often overlap with those seen in fetal alcohol syndrome." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "1920" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Toluene embryopathy" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Toluene embryopathy" ] .
+}
+

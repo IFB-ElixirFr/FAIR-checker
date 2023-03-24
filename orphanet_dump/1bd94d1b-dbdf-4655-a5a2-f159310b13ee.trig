@@ -1,0 +1,34 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=401764> a ns1:MedicalCondition ;
+        ns1:alternateName "Trilineage bone marrow failure-developmental delay syndrome" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "D61.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D61.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "615715" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:401764" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:401764" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "615715" ;
+                ns1:codingSystem "OMIM" ] ;
+        ns1:description "Pancytopenia-developmental delay syndrome is a rare, genetic, hematologic disorder characterized by progressive trilineage bone marrow failure (with hypocellularity), developmental delay with learning disabilities, and microcephaly. Mild facial dysmorphism and hypotonia have also been reported." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "401764" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Pancytopenia-developmental delay syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Pancytopenia-developmental delay syndrome" ] .
+}
+

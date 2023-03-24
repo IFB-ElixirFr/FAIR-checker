@@ -1,0 +1,34 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=280586> a ns1:MedicalCondition ;
+        ns1:alternateName "gPAPP deficiency" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:280586" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "614078" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:280586" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "11009" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "614078" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "11009" ;
+                ns1:codingSystem "GARD" ] ;
+        ns1:description "Chondrodysplasia with joint dislocations, gPAPP type is a rare, genetic, primary bone dysplasia characterized by prenatal onset of disproportionate short stature, shortening of the limbs, congenital joint dislocations, micrognathia, posterior cleft palate, brachydactyly, short metacarpals and irregular size of the metacarpal epiphyses, supernumerary carpal ossification centers and dysmorphic facial features. In addition, hearing impairment and mild psychomotor delay have also been reported." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "280586" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Chondrodysplasia with joint dislocations, gPAPP type" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Chondrodysplasia with joint dislocations, gPAPP type" ] .
+}
+

@@ -1,0 +1,29 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=275944> a ns1:MedicalCondition ;
+        ns1:alternateName "Anti-K HDN",
+            "Maternal anti-Kell alloimmunization" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "P55.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:275944" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "P55.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:275944" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare hematologic disease characterized by the transfer of maternal alloantibodies against red blood cell antigens of the Kell family to a fetus positive for this antigen across the placental barrier, causing suppression of erythropoiesis with reticulocytopenia and anemia, as well as alloimmune hemolysis. Severe anemia may lead to hydrops fetalis. Significant hyperbilirubinemia is rare in this condition." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "275944" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Hemolytic disease of the newborn with Kell alloimmunization" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Hemolytic disease of the newborn with Kell alloimmunization" ] .
+}
+

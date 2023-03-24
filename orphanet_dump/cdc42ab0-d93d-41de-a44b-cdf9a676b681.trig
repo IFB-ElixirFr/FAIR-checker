@@ -1,0 +1,34 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=324294> a ns1:MedicalCondition ;
+        ns1:alternateName "T-cell immunodeficiency due to RHOH deficiency" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "618307" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:324294" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:324294" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D84.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D84.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "618307" ;
+                ns1:codingSystem "OMIM" ] ;
+        ns1:description "A rare primary immunodeficiency characterized by increased susceptibility to infection by human papillomavirus, presenting in childhood with disseminated flat wart-like cutaneous lesions. Burkitt lymphoma has also been reported. Whilst total T-cell counts are normal, there is impaired TCR signaling, profound peripheral naive T-cell lymphopenia with memory T-cells displaying an exhaustion phenotype." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "324294" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "T-cell immunodeficiency with epidermodysplasia verruciformis" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "T-cell immunodeficiency with epidermodysplasia verruciformis" ] .
+}
+

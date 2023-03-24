@@ -1,0 +1,38 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=436166> a ns1:MedicalCondition ;
+        ns1:alternateName "NLRC4-related MAS",
+            "NLRC4-related autoinflammatory syndrome with MAS",
+            "NLRC4-related autoinflammatory syndrome with macrophage activation syndrome",
+            "NLRC4-related infantile enterocolitis-autoinflammatory syndrome",
+            "NLRC4-related macrophage activation syndrome" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "616050" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E85.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E85.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "616050" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:436166" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:436166" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare genetic systemic or rheumatologic disease characterized by neonatal or infantile onset of enterocolitis (which resolves with age), periodic fever, and episodes of severe systemic inflammation, which may be precipitated by infections, stress, or fatigue. Signs and symptoms include splenomegaly, urticaria-like rashes, arthralgia, and myalgia. Associated laboratory findings are elevated inflammatory markers (such as ferritin, C-reactive protein), pancytopenia, and elevated transaminases. If left untreated, flares can progress to coagulopathy, organ failure, and death." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "436166" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Periodic fever-infantile enterocolitis-autoinflammatory syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Periodic fever-infantile enterocolitis-autoinflammatory syndrome" ] .
+}
+

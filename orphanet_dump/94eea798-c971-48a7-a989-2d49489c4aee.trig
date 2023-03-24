@@ -1,0 +1,38 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=476084> a ns1:MedicalCondition ;
+        ns1:alternateName "Autosomal recessive limb-girdle muscular dystrophy-cardiac arrhythmia syndrome",
+            "BVES-related LGMD",
+            "LGMD type 2X",
+            "LGMD2X",
+            "Limb-girdle muscular dystrophy 2X" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "616812" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G71.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:476084" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "616812" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:476084" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G71.0" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "A rare subtype of autosomal recessive limb-girdle muscular dystrophy characterized by atrioventricular block resulting in repeated syncope episodes, elevated creatine kinase serum levels and adult-onset of slowly progressive proximal limb skeletal muscle weakness and atrophy. Muscular dystrophic changes observed in muscle biopsy include diameter variability, increased central nuclei, and presence of necrotic and regenerating fibers." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "476084" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "BVES-related limb-girdle muscular dystrophy" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "BVES-related limb-girdle muscular dystrophy" ] .
+}
+

@@ -1,0 +1,35 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=83315> a ns1:MedicalCondition ;
+        ns1:alternateName "Endemic typhus",
+            "Flea-borne typhus" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "10028282" ;
+                ns1:codingSystem "MedDRA" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:83315" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "A75.2" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:83315" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "A75.2" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10028282" ;
+                ns1:codingSystem "MedDRA" ] ;
+        ns1:description "A Rickettsial disease characterized by headache, fever and macular or maculopapular rash, with only one-third of patients manifesting all three symptoms. Other common symptoms are chills, malaise, stomach pain, myalgia, loss of appetite, and in some cases confusion and altered level of consciousness. Classical laboratory abnormalities include elevated liver enzymes, lactate dehydrogenase, erythrocyte sedimentation rate and hypoalbuminemia. In children, typical symptoms occur in only half of patients, and abdominal pain, diarrhea, sore throat and anemia are more common." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "83315" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Murine typhus" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Murine typhus" ] .
+}
+

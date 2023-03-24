@@ -1,0 +1,40 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=251946> a ns1:MedicalCondition ;
+        ns1:alternateName "DNET" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "10640" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10640" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:251946" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C1266177" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:251946" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D33.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C1266177" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D33.0" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "A rare mixed neuronal-glial tumor characterized by a benign, usually supratentorial lesion with predominantly cortical location and multinodular architecture. The tumor typically becomes symptomatic in the second or third decade of life with drug-resistant partial seizures. Histological hallmark is the specific glioneuronal element, columns oriented perpendicularly to the cortical surface, formed by bundles of axons attached to oligodendroglia-like cells, while neurons appear to float in an abundant eosinophilic matrix." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "251946" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Dysembryoplastic neuroepithelial tumor" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Dysembryoplastic neuroepithelial tumor" ] .
+}
+

@@ -1,0 +1,36 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=538934> a ns1:MedicalCondition ;
+        ns1:alternateName "X-linked lymphoproliferative syndrome type 2",
+            "XIAP deficiency syndrome",
+            "XLP2" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:538934" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D82.3" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D82.3" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "300635" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:538934" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "300635" ;
+                ns1:codingSystem "OMIM" ] ;
+        ns1:description "A rare, genetic, primary immunodeficiency disorder characterized by an abnormal immune response to Epstein-Barr virus (EBV) infection, caused by hemizygous mutations in the X-linked <i>XIAP</i> gene, resulting in B cell lymphoproliferation and manifestating with various phenotypes which include EBV-driven hemophagocytic lymphohistiocytosis, hypogammaglobulinemia, recurrent splenomegaly, hepatitis, colitis, and intestinal bowel disease with features of Crohn's disease. Additional manifestations include variable auto-inflammatory symptoms such as uveitis, arthritis, skin abscesses, erythema nodosum, and nephritis. Neurological involvement is rare and lymphoma is never observed. Laboratory findings include normal or increased activated T cells, low or normal iNKT cells, and normal or reduced memory B cells." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "538934" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "X-linked lymphoproliferative disease due to XIAP deficiency" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "X-linked lymphoproliferative disease due to XIAP deficiency" ] .
+}
+

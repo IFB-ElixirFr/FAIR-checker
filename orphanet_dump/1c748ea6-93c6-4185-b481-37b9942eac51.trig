@@ -1,0 +1,33 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=99082> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "Q25.4" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:99082" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:99082" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q25.4" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0267073" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0267073" ;
+                ns1:codingSystem "UMLS" ] ;
+        ns1:description "A rare aortic arch defect characterized by variable degrees of dysphagia due to compression of the esophagus from an aberrant right subclavian artery (arteria lusoria), which arises as the fourth branch, distal to the left subclavian artery, from the aortic arch. In most cases, the aberrant vessel then passes posterior to the esophagus, less frequently between the trachea and esophagus, or anterior to the trachea. Children may also present with stridor and recurrent chest infections." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "99082" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Dysphagia lusoria" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Dysphagia lusoria" ] .
+}
+

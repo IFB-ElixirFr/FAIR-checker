@@ -1,0 +1,34 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=506075> a ns1:MedicalCondition ;
+        ns1:alternateName "Non-functioning PNET",
+            "Non-functioning pancreatic NET",
+            "Non-functioning pancreatic neuroendocrine tumor",
+            "Non-functioning well-differentiated NEN of pancreas",
+            "Non-functioning well-differentiated neuroendocrine neoplasm of pancreas",
+            "Non-functioning well-differentiated pancreatic NEN",
+            "Non-functioning well-differentiated pancreatic neuroendocrine neoplasm" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:506075" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C25.9" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:506075" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C25.9" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "A rare neuroendocrine tumor of pancreas characterized by a well-differentiated epithelial pancreatic neuroendocrine neoplasm measuring at least 0.5 cm, without distinct hormonal syndrome. Tumors <0.5 cm are called microadenomas. Microadenomatosis is the multifocal occurrence of microadenomas. Histopathologic examination shows an organoid growth pattern and expression of synaptophysin and chromogranin A on immunohistochemistry. Tumors are often discovered incidentally, or patients may present with symptoms related to local or metastatic tumor spread. Microadenomas are considered benign, while larger tumors may behave in a malignant manner with extrapancreatic spread, metastasis, or recurrence." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "506075" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Non-functioning neuroendocrine tumor of pancreas" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Non-functioning neuroendocrine tumor of pancreas" ] .
+}
+

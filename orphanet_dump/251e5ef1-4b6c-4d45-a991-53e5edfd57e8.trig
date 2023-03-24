@@ -1,0 +1,32 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=397596> a ns1:MedicalCondition ;
+        ns1:alternateName "APDS",
+            "Senescent T-cells-lymphadenopathy-immunodeficiency syndrome due to p110delta-activating mutation" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "11983" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D81.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:397596" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C3714976" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "616005" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "615513" ;
+                ns1:codingSystem "OMIM" ] ;
+        ns1:description "A rare, genetic, primary immunodeficiency disease characterized by increased susceptibility to recurrent and/or severe bacterial and viral infections (in particular, sinopulmonary bacterial and herpesvirus infections), chronic benign lymphoproliferation (manifesting as lymphadenopathy, hepatosplenomegaly and focal nodular lymphoid hyperplasia), and/or autoimmune disease (including immune cytopenias, juvenile arthritis, glomerulonephritis and sclerosing cholangitis). Immunophenotypically, variable degrees of agammaglobulinemia with increased IgM levels, increased circulating transitional B cells, decreased naïve CD4 and CD8 T-cells with increased CD8 effector/memory T cells are observed." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "397596" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Activated PI3K-delta syndrome" ] .
+}
+

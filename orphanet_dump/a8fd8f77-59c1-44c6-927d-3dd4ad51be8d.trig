@@ -1,0 +1,21 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=99710> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:99710" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:99710" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare epidermal disease characterized by the association of punctate acrokeratoderma with a pigmentary disorder. Patients present skin-colored keratotic papules on the hands and feet and pronounced hyperkeratosis of the palms and soles. Freckle-like pigmentation on the dorsal surfaces of the hands and feet is also reported. Histological examination reveals no fragmentation of dermal elastic tissue. There have been no further descriptions in the literature since 1993." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "99710" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Punctate acrokeratoderma freckle-like pigmentation" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Punctate acrokeratoderma freckle-like pigmentation" ] .
+}
+

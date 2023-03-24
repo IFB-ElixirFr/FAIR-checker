@@ -1,0 +1,22 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=294422> a ns1:MedicalCondition ;
+        ns1:alternateName "CIF" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:294422" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:294422" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "Chronic intestinal failure (CIF) is a chronic type of intestinal failure characterized by a nonfunctioning small bowel (that may be reversible or irreversal) where the body is unable to maintain energy and nutritional needs through absorption of food or nutrients via the intestinal tract (despite being metabolically stable) and which therefore necessitates long-term parenteral feeding. CIF may be the result of congenital digestive diseases (such as gastroschisis, atresia of small intestine), short bowel syndrome, intra-abdominal or pelvic cancer, or progressive and devastating gastrointestinal or systemic benign diseases (such as Crohn disease)." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "294422" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Chronic intestinal failure" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Chronic intestinal failure" ] .
+}
+

@@ -1,0 +1,44 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=91132> a ns1:MedicalCondition ;
+        ns1:alternateName "Hypotrichosis-congenital ichthyosis syndrome",
+            "IFAH syndrome",
+            "IHS",
+            "Ichthyosis-follicular atrophoderma-hypotrichosis syndrome",
+            "Ichthyosis-follicular atrophoderma-hypotrichosis-hypohidrosis syndrome" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "602400" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q80.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C1835851" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "602400" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q80.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:91132" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C1835851" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:91132" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "Ichthyosis-hypotrichosis syndrome is characterised by congenital ichthyosis and hypotrichosis. It has been described in three members of a consanguineous Arab Israeli family. The syndrome is transmitted as an autosomal recessive trait and is caused by a missense mutation in the <i>ST14</i> gene, encoding the recently identified protease, matriptase. Analysis of skin samples from the patients suggests that this enzyme plays a role in epidermal desquamation." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "91132" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Ichthyosis-hypotrichosis syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Ichthyosis-hypotrichosis syndrome" ] .
+}
+

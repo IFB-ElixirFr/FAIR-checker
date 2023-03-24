@@ -1,0 +1,35 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=439729> a ns1:MedicalCondition ;
+        ns1:alternateName "Cutaneous PAN",
+            "Cutaneous periarteritis nodosa" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "7415" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "M30.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:439729" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "7415" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:439729" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "M30.0" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "Cutaneous polyarteritis nodosa (CPAN) is a rare limited form of polyarteritis nodosa (PAN, see this term), characterized by cutaneous vasculitis and mild and transient extracutaneous manifestations such as mild arthralgia, arthritis,myalgia, and rarely peripheral neuropathy." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "439729" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Cutaneous polyarteritis nodosa" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Cutaneous polyarteritis nodosa" ] .
+}
+

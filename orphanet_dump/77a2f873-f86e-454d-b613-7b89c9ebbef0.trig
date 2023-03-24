@@ -1,0 +1,49 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=165991> a ns1:MedicalCondition ;
+        ns1:alternateName "EIHI",
+            "Exercise-induced hyperinsulinemic hypoglycemia",
+            "Hyperinsulinism due to SLC16A1 deficiency",
+            "Hyperinsulinism due to monocarboxylate transporter 1 deficiency" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "9932" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "610021" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C1864902" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:165991" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E16.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "610021" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C1864902" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E16.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "9932" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:165991" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare form of congenital diazoxide-sensitive diffuse hyperinsulinism characterized by episodes of hypoglycemia induced by exercise due to an inappropriate lactate and pyruvate sensitivity in pancreatic beta-cells. Presentation is of recurring episodes of hypoglycemia associated with elevated insulin levels, within 30 minutes of a short period of anaerobic exercise. The degree of hypoglycemia associated with exercise is variable and is only partially responsive to diazoxide." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "165991" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Exercise-induced hyperinsulinism" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Exercise-induced hyperinsulinism" ] .
+}
+

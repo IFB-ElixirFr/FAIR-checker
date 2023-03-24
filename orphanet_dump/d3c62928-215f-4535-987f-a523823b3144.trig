@@ -1,0 +1,42 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=363649> a ns1:MedicalCondition ;
+        ns1:alternateName "MDP syndrome",
+            "MDPL syndrome",
+            "Mandibular hypoplasia-hearing loss-progeroid syndrome" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "10989" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E34.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "615381" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E34.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "615381" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:363649" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:363649" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10989" ;
+                ns1:codingSystem "GARD" ] ;
+        ns1:description "A rare, genetic, premature aging disease characterized by sensorineural deafness, generalized lack of subcutaneous fatty tissue (although with increased truncal deposition) noted from childhood, scleroderma, and facial dysmorphism which includes prominent eyes, a beaked nose, small mouth, crowded teeth and mandibular hypoplasia. Other associated features include growth delay, joint contractures, telangiectasia, hypogonadism (with lack of breast development in females), cryptorchidism, skeletal muscle atrophy, hypertriglycemia and diabetes mellitus/insulin resistance." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "363649" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Mandibular hypoplasia-deafness-progeroid features-lipodystrophy syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Mandibular hypoplasia-deafness-progeroid features-lipodystrophy syndrome" ] .
+}
+

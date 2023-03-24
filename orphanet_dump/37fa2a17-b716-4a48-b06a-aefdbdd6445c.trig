@@ -1,0 +1,32 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=477817> a ns1:MedicalCondition ;
+        ns1:alternateName "17p11.2p12 microduplication syndrome",
+            "Dup(17)(p11.2p12)",
+            "Trisomy 17p11.2-p12",
+            "Trisomy 17p11.2p12",
+            "Yuan-Harel-Lupski syndrome" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:477817" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:477817" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "616652" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "616652" ;
+                ns1:codingSystem "OMIM" ] ;
+        ns1:description "A rare partial duplication of the long arm of chromosome 17 characterized by a combination of features of 17p11.2 microduplication syndrome and Charcot-Marie-Tooth disease type 1A. Patients present with infantile onset of global developmental delay, hypotonia, feeding difficulties, and failure to thrive, as well as childhood onset of peripheral neuropathy with distal extremity weakness or atrophy, gait impairment, sensory loss, reduced or absent deep tendon reflexes of the ankles, and foot deformities. Facial dysmorphism, cardiac and renal anomalies, and syringomyelia may also be observed." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "477817" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "PMP22-RAI1 contiguous gene duplication syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "PMP22-RAI1 contiguous gene duplication syndrome" ] .
+}
+

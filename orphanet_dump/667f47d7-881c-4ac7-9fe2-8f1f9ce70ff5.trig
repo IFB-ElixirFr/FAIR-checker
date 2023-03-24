@@ -1,0 +1,45 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=263501> a ns1:MedicalCondition ;
+        ns1:alternateName "CDG syndrome type IIj",
+            "CDG-IIj",
+            "CDG2J",
+            "Carbohydrate deficient glycoprotein syndrome type IIj",
+            "Congenital disorder of glycosylation type 2j",
+            "Congenital disorder of glycosylation type IIj" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "12412" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "613489" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:263501" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:263501" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "613489" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "12412" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E77.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E77.8" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "COG4-CDG is an extremely rare form of CDG syndrome (see this term) characterized clinically in the single reported case to date by seizures, some dysmorphic features, axial hyponia, slight peripheral hypertonia and hyperreflexia." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "263501" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "COG4-CDG" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "COG4-CDG" ] .
+}
+

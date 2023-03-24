@@ -1,0 +1,28 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=363618> a ns1:MedicalCondition ;
+        ns1:alternateName "LCPS" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "E34.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:363618" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E34.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:363618" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "LMNA-related cardiocutaneous progeria syndrome is a rare, genetic, premature aging syndrome characterized by adulthood-onset cutaneous manifestations that result in a prematurely aged appearance (i.e. premature thinning and graying of scalp hair, loss of subcutaneous fat, tightening of skin) associated with prominent cardiovascular manifestations, such as accelerated atherosclerosis, calcific valve disease, and cardiomyopathy. Patients present loss of eyebrows and eyelashes in childhood and have a predisposition to develop malignancies." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "363618" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "LMNA-related cardiocutaneous progeria syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "LMNA-related cardiocutaneous progeria syndrome" ] .
+}
+

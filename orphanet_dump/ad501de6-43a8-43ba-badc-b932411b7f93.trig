@@ -1,0 +1,21 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=522037> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:522037" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:522037" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare intestinal disease characterized by immune-mediated injury of the intestinal mucosa, leading to severe, chronic, intractable diarrhea, malabsorption, and severe weight loss or failure to thrive. Characteristic histologic findings in the small intestine include partial or complete blunting of the villi, deep crypt lymphocytosis, increased crypt apoptosis, and minimal surface intraepithelial lymphocytosis. In addition, the stomach, colon, and esophagus may also be involved. Circulating autoantibodies against enterocytes and/or goblet cells are found in many, but not all, patients. The diagnosis requires exclusion of other causes of villous atrophy." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "522037" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Primary autoimmune enteropathy" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Primary autoimmune enteropathy" ] .
+}
+

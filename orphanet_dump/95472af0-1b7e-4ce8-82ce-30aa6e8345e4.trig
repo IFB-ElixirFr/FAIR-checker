@@ -1,0 +1,28 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=538872> a ns1:MedicalCondition ;
+        ns1:alternateName "Granulomatous pyoderma gangrenosum" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:538872" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "L88" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:538872" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "L88" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "A rare subtype of pyoderma gangrenosum disease characterized by a solitary, erythematous, ulcerated plaque, which lacks the violaceous border typically present in classic pyoderma gangrenosum, usually affecting individuals who are otherwise healthy. Histologically, the lesion presents a central layer containing neutrophilic inflamation, surrounded by a palisade of histiocytes, which are rimmed by a lymphocytic infiltrate. In comparison with the other variants of pyoderma gangrenosum, this subtype usually shows a good response to less aggressive treatments and underlying systemic disorders are less frequently associated. It is considered the most benign and uncommon clinical variant of pyoderma gangrenosum." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "538872" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Vegetative pyoderma gangrenosum" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Vegetative pyoderma gangrenosum" ] .
+}
+

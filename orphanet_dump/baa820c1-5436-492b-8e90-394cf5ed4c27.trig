@@ -1,0 +1,30 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=498251> a ns1:MedicalCondition ;
+        ns1:alternateName "Luteal-phase-dependent febrile episode",
+            "Luteal-phase-dependent periodic fever",
+            "Menstrual cycle-dependent febrile episode" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "N94.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:498251" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "N94.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:498251" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare anomaly of puberty or/and menstrual cycle characterized by recurrent fevers (higher than 38 degrees Celsius) associated with the luteal phase of the menstrual cycle in women." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "498251" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Menstrual cycle-dependent periodic fever" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Menstrual cycle-dependent periodic fever" ] .
+}
+

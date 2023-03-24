@@ -1,0 +1,40 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=217085> a ns1:MedicalCondition ;
+        ns1:alternateName "Hunter syndrome type A",
+            "Iduronate 2-sulfatase deficiency type A",
+            "MPS2A",
+            "MPSIIA",
+            "Mucopolysaccharidosis type 2A",
+            "Mucopolysaccharidosis type II, severe form",
+            "Mucopolysaccharidosis type IIA" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "309900" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E76.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:217085" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "309900" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:217085" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E76.1" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "Mucopolysaccharidosis type 2 (MPS2, see this term), severe form (MPS2S), is associated with a massive accumulation of glycosaminoglycans and a wide variety of symptoms including a rapidly progressive cognitive decline; it is most often fatal in the second or third decade." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "217085" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Mucopolysaccharidosis type 2, severe form" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Mucopolysaccharidosis type 2, severe form" ] .
+}
+

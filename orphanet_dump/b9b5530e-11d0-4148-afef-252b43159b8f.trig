@@ -1,0 +1,41 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=280356> a ns1:MedicalCondition ;
+        ns1:alternateName "FPLD4",
+            "PLIN1-related FPLD" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "E88.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "12601" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E88.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:280356" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "613877" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "12601" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:280356" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "613877" ;
+                ns1:codingSystem "OMIM" ] ;
+        ns1:description "A rare genetic lipodystrophy characterized by loss of subcutaneous adipose tissue primarily affecting the lower limbs and gluteal region due to a defect in the PLIN1 gene. Associated features of insulin resistance, hepatic steatosis, dyslipidemia, hypertension, axillary acanthosis nigricans and muscular hypertrophy of the lower limbs are typical." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "280356" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "PLIN1-related familial partial lipodystrophy" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "PLIN1-related familial partial lipodystrophy" ] .
+}
+

@@ -1,0 +1,30 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=99101> a ns1:MedicalCondition ;
+        ns1:alternateName "Dilatation of the right atrial appendage",
+            "Dilatation of the right atrial auricle",
+            "Ectasia of the right atrial auricle" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:99101" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q20.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q20.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:99101" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "Ectasia of the right atrial appendage is a rare cardiac malformation characterized by the enlargement of the right auricle without any other associated cardiac lesions. It can be asymptomatic and diagnosed fortuitously, prenatally or during routine clinical examinations or it can present with heart murmur, palpitation, atrial arrhythmia, fatigue, dyspnea or respiratory distress." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "99101" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Ectasia of the right atrial appendage" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Ectasia of the right atrial appendage" ] .
+}
+

@@ -1,0 +1,49 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=86886> a ns1:MedicalCondition ;
+        ns1:alternateName "AILT",
+            "Immunoblastic lymphadenopathy",
+            "Lymphogranulomatosis X",
+            "T-cell lymphoma, AILD type" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "C0020981" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10002449" ;
+                ns1:codingSystem "MedDRA" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C86.5" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:86886" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "11973" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:86886" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C86.5" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0020981" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "11973" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10002449" ;
+                ns1:codingSystem "MedDRA" ] ;
+        ns1:description "A rare T-cell non-Hodgkin lymphoma characterized by infiltration of lymph nodes by neoplastic cells of T follicular helper cell origin with a polymorphous inflammatory background including markedly increased follicular dendritic cells and EBV-positive B-cells, as well as prominent proliferation of high endothelial venules. The spleen, liver, skin, and bone marrow are also frequently involved. Patients typically present with generalized lymphadenopathy, hepatosplenomegaly, systemic symptoms, and polyclonal hypergammaglobulinemia. Pruritic skin rash, arthritis, pleural effusion, and ascites may also be observed. The condition is aggressive with generally poor prognosis." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "86886" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Angioimmunoblastic T-cell lymphoma" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Angioimmunoblastic T-cell lymphoma" ] .
+}
+

@@ -1,0 +1,47 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=62> a ns1:MedicalCondition ;
+        ns1:alternateName "Alpha-sarcoglycan-related LGMD R3",
+            "Alpha-sarcoglycanopathy",
+            "Autosomal recessive limb-girdle muscular dystrophy type 2D",
+            "LGMD due to alpha-sarcoglycan deficiency",
+            "LGMD type 2D",
+            "LGMD2D",
+            "Limb-girdle muscular dystrophy due to alpha-sarcoglycan deficiency",
+            "Limb-girdle muscular dystrophy type 2D" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "608099" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G71.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "438" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:62" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G71.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:62" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "608099" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "438" ;
+                ns1:codingSystem "GARD" ] ;
+        ns1:description "A subtype of autosomal recessive limb-girdle muscular dystrophy characterized by childhood onset of progressive proximal weakness of the shoulder and pelvic girdle muscles, resulting in difficulty walking, scapular winging, calf hypertrophy and contractures of the Achilles tendon, which lead to a tiptoe gait pattern. Cardiac and respiratory involvement is rare." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "62" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Alpha-sarcoglycan-related limb-girdle muscular dystrophy R3" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Alpha-sarcoglycan-related limb-girdle muscular dystrophy R3" ] .
+}
+

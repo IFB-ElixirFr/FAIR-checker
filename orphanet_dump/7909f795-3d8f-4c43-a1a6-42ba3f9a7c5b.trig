@@ -1,0 +1,33 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=168606> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "610227" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "610227" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:168606" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C1853258" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:168606" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C1853258" ;
+                ns1:codingSystem "UMLS" ] ;
+        ns1:description "Seborrhea-like dermatitis with psoriasiform elements is a rare, genetic, epidermal disorder characterized by a chronic, diffuse, fine, scaly erythematous rash on the face (predominantly the chin, nasolabial folds, eyebrows), around the earlobes and over the scalp, associated with hyperkeratosis over elbows, knees, palms, soles and metacarpophalangeal joints, in the absence of associated rheumatological or neurological disorders. Cold weather, emotional stress and strenuous physical activity may exacerbate symptoms." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "168606" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Seborrhea-like dermatitis with psoriasiform elements" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Seborrhea-like dermatitis with psoriasiform elements" ] .
+}
+

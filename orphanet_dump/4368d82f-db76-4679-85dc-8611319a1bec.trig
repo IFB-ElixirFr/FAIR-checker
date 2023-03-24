@@ -1,0 +1,29 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=56970> a ns1:MedicalCondition ;
+        ns1:alternateName "TSE",
+            "Transmissible spongiform encephalopathy" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:56970" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:56970" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0162534" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0162534" ;
+                ns1:codingSystem "UMLS" ] ;
+        ns1:description "A group of rare neurodegenerative diseases characterized by the accumulation of prions, abnormal variants of the cellular prion protein, primarily in brain tissue of affected individuals, as well as massive, rapid neuronal death, and an invariably fatal course. Human prion diseases most often occur sporadically but may also be of genetic origin or infectiously acquired. Irrespective of etiology, they are transmissible to other individuals." ;
+        ns1:epidemiology "Prevalence : 1-9 / 1 000 000" ;
+        ns1:identifier "56970" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Human prion disease" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Human prion disease" ] .
+}
+

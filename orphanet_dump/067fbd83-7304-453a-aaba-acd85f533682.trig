@@ -1,0 +1,36 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=254693> a ns1:MedicalCondition ;
+        ns1:alternateName "Incomplete hydatidiform mole",
+            "Incomplete molar pregnancy",
+            "Partial molar pregnancy" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "C0334529" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:254693" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:254693" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "O01.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "O01.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0334529" ;
+                ns1:codingSystem "UMLS" ] ;
+        ns1:description "A form of hydatiform mole characterized by abnormal hyperplastic trophoblasts and hydropic villi due to fertilization of a normal ovocyte by two spermatozoa or one abnormal spermatozoon (allowing for some fetal development), and that manifests with vaginal bleeding accompanied by nausea and frequent vomiting, hyperemesis gravidarum, hyperthyroidism and risk of spontaneous miscarriage." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "254693" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Partial hydatidiform mole" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Partial hydatidiform mole" ] .
+}
+

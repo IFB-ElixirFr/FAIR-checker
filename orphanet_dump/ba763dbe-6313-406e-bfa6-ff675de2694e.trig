@@ -1,0 +1,35 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=329235> a ns1:MedicalCondition ;
+        ns1:alternateName "IGSF1 deficiency syndrome",
+            "X-linked central congenital hypothyroidism with late-onset macroorchidism" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "E03.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "300888" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "300888" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E03.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:329235" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:329235" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "X-linked central congenital hypothyroidism with late-onset testicular enlargement is a rare, genetic, endocrine disease characterized by central hypothyroidism, testis enlargement in adolescence resulting in adult macroorchidism, delayed pubertal testosterone rise with a subsequent delayed pubertal growth spurt, small thyroid gland, and variable prolactin and growth hormone deficiency." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "329235" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "X-linked central congenital hypothyroidism with late-onset testicular enlargement" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "X-linked central congenital hypothyroidism with late-onset testicular enlargement" ] .
+}
+

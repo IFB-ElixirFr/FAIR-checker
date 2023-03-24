@@ -1,0 +1,27 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=226307> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "E03.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:226307" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:226307" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E03.1" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "Hypothyroidism due to mutations in transcription factors involved in pituitary development or function is a type of central congenital hypothyroidism (see this term), a permanent thyroid deficiency that is present from birth, characterized by low levels of thyroid hormones caused by disorders in the development or function of the pituitary." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "226307" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Hypothyroidism due to deficient transcription factors involved in pituitary development or function" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Hypothyroidism due to deficient transcription factors involved in pituitary development or function" ] .
+}
+

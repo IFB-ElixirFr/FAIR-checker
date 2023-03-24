@@ -1,0 +1,23 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=207094> a ns1:MedicalCondition ;
+        ns1:alternateName "LAMA2-related muscular dystrophy",
+            "Qualitative or quantitative defects of merosin" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:207094" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:207094" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "" ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "207094" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Laminin subunit alpha 2-related muscular dystrophy" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Laminin subunit alpha 2-related muscular dystrophy" ] .
+}
+

@@ -1,0 +1,27 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=268947> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:268947" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q04.3" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q04.3" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:268947" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "Unilateral focal polymicrogyria (BFPP) is the mildest sub-type of polymicrogyria (PMG; see this term), a cerebral cortical malformation characterized by excessive cortical folding and abnormal cortical layering, that affects only one small region of the brain and that may show no neurologic involvement." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "268947" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Unilateral focal polymicrogyria" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Unilateral focal polymicrogyria" ] .
+}
+

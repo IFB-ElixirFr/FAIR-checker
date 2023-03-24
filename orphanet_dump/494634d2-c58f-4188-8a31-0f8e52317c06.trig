@@ -1,0 +1,19 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=466650> a ns1:MedicalCondition ;
+        ns1:alternateName "Exertional heat stroke" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:466650" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "T88.3" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "A rare disease with malignant hyperthermia characterized by exercise-induced life-threatening hyperthermia with a body temperature over 40°C and signs of encephalopathy ranging from confusion to convulsions or coma. Incidence increases with rising ambient temperature and relative humidity. Manifestations may include rhabdomyolysis (presenting with myalgia, muscle weakness, and myoglobinuria), tachycardia, and in severe cases multiorgan failure." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "466650" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Exercise-induced malignant hyperthermia" ] .
+}
+

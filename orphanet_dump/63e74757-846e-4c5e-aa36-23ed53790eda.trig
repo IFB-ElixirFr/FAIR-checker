@@ -1,0 +1,35 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=99832> a ns1:MedicalCondition ;
+        ns1:alternateName "Central hypothyroidism due to TRH receptor deficiency",
+            "TRH resistance syndrome" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "E03.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:99832" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E03.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "618573" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:99832" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "618573" ;
+                ns1:codingSystem "OMIM" ] ;
+        ns1:description "Resistance to thyrotropin-releasing hormone (TRH) syndrome is a type of central congenital hypothyroidism (see this term) characterized by low levels of thyroid hormones due to insufficient release of thyroid-stimulating hormone (TSH) caused by pituitary resistance to TRH. It may or may not be observed from birth." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "99832" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Resistance to thyrotropin-releasing hormone syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Resistance to thyrotropin-releasing hormone syndrome" ] .
+}
+

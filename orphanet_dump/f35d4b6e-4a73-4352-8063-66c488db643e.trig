@@ -1,0 +1,28 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=79149> a ns1:MedicalCondition ;
+        ns1:alternateName "François syndrome" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:79149" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0432288" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "1815" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "L98.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "221800" ;
+                ns1:codingSystem "OMIM" ] ;
+        ns1:description "Dermochondrocorneal dystrophy is characterised by osteochondrodystrophy of the hands and feet, corneal dystrophy and the presence of skin nodules clustered around the metacarpophalangeal and interphalangeal joints, around the nose and ears and on the posterior surface of the elbow. Gingival lesions may also be present. It has been described in less than 20 patients. Transmission is autosomal recessive." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "79149" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Dermochondrocorneal dystrophy" ] .
+}
+

@@ -1,0 +1,34 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=1184> a ns1:MedicalCondition ;
+        ns1:alternateName "Fenton-Wilkinson-Toselano syndrome" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "Q87.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q87.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:1184" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:1184" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "2287" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "2287" ;
+                ns1:codingSystem "GARD" ] ;
+        ns1:description "A rare, genetic, multiple congenital anomalies/dysmorphic syndrome characterized by cerebellar-like ataxia, photosensitivity (mainly of the face and trunk), short stature and intellectual disability. Additonal features include clinodactyly, single palmar transverse crease, high-arched palate, pseudohypertrophy of the calves and aortic valve lesions. There have been no further descriptions in the literature since 1983." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "1184" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Ataxia-photosensitivity-short stature syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Ataxia-photosensitivity-short stature syndrome" ] .
+}
+

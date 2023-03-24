@@ -1,0 +1,48 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=318> a ns1:MedicalCondition ;
+        ns1:alternateName "AML M6",
+            "Acute myeloid leukemia M6",
+            "Erythroleukemia" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "9620" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "133180" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "133180" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "9620" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C94.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:318" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0023440" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C94.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0023440" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:318" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare unclassified acute myeloid leukemia characterized by a proliferation of immature cells exclusively of the erythroid lineage without a significant myeloblastic component. Microscopically, the cells may be undifferentiated or proerythroblastic in appearance. Patients may present with pancytopenia with fatigue, infections, and mucocutaneous bleedings, as well as weight loss, fever, and night sweats. Prognosis is poor." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "318" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Acute erythroid leukemia" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Acute erythroid leukemia" ] .
+}
+

@@ -1,0 +1,44 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=289560> a ns1:MedicalCondition ;
+        ns1:alternateName "MPAN",
+            "NBIA due to C19orf12 mutation",
+            "NBIA4",
+            "Neurodegeneration with brain iron accumulation due to C19orf12 mutation",
+            "Neurodegeneration with brain iron accumulation type 4" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:289560" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "12569" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "12569" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "614298" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:289560" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "614298" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G23.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G23.0" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "A rare neurodegenerative disorder characterized by iron accumulation in specific regions of the brain, usually the basal ganglia, and associated with slowly progressive pyramidal (spasticity) and extrapyramidal (dystonia) signs, motor axonal neuropathy, optic atrophy, cognitive decline, and neuropsychiatric abnormalities." ;
+        ns1:epidemiology "Prevalence : 1-9 / 1 000 000" ;
+        ns1:identifier "289560" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Mitochondrial membrane protein-associated neurodegeneration" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Mitochondrial membrane protein-associated neurodegeneration" ] .
+}
+

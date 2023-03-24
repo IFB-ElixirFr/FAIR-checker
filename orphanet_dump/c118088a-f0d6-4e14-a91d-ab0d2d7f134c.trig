@@ -1,0 +1,29 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=440221> a ns1:MedicalCondition ;
+        ns1:alternateName "Congenital CNIII lesion",
+            "Congenital third cranial nerve palsy" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "Q07.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:440221" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:440221" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q07.8" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "A rare ophthalmic disorder with cranial nerve involvement characterized by partial or complete ptosis and ophthalmoplegia with impaired ability to elevate, depress, or adduct the eyeball, causing strabismus and amblyopia. The pupils can also be dilated. The condition is typically unilateral and may present with or without aberrant regeneration." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "440221" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Congenital oculomotor nerve palsy" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Congenital oculomotor nerve palsy" ] .
+}
+

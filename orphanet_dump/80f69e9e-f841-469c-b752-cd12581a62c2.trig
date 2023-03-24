@@ -1,0 +1,27 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=137929> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "G93.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:137929" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G93.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:137929" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "Neonatal brainstem dysfunction is a rare neurologic disease characterized by the association of suction-swallowing dysfunction, abnormal laryngeal sensitivity and motility (manifesting with dyspnea or obstructive apnea-hypopnea), gastroesophageal reflux (generally resistant to medication) and cardiac vagal overactivity (e.g. brachycardia, vasovagal episodes) of varying degrees of severity. Impaired social interaction has also been reported." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "137929" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Neonatal brainstem dysfunction" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Neonatal brainstem dysfunction" ] .
+}
+

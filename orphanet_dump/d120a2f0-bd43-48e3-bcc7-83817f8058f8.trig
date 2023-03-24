@@ -1,0 +1,19 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=96182> a ns1:MedicalCondition ;
+        ns1:alternateName "UPD(7)mat" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "Q87.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:96182" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "Silver-Russell syndrome due to maternal uniparental disomy of chromosome 7 is a genetic malformation syndrome with short stature characterized by severe prenatal and postnatal growth retardation, feeding difficulties, body asymmetry, dysmorphic craniofacial features (triangular-shaped face, relative macrocephaly, frontal bossing, micrognathia, down-turned corners of the mouth) and other anomalies (fifth finger clinodactyly, café au lait macules, male genital anomalies, mild developmental delay and/or speech delay with movement disorders)." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "96182" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Silver-Russell syndrome due to maternal uniparental disomy of chromosome 7" ] .
+}
+

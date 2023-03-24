@@ -1,0 +1,27 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=412066> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:412066" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G31.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G31.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:412066" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "PRKAR1B-related neurodegenerative dementia with intermediate filaments is a rare, genetic neurodegenerative disease characterized by dementia and mild parkinsonism with poor levodopa response. Presenting clinical manifestations are memory problems, short attention span, disorientation, language impairment, rigidity, bradykinesia, postural instability and behavioral changes, including apathy, anxiety and delusions." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "412066" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "PRKAR1B-related neurodegenerative dementia with intermediate filaments" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "PRKAR1B-related neurodegenerative dementia with intermediate filaments" ] .
+}
+

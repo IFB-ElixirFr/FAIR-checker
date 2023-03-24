@@ -1,0 +1,29 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=500055> a ns1:MedicalCondition ;
+        ns1:alternateName "Del(16)(p13.2)",
+            "Monosomy 16p13.2" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:500055" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "616863" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:500055" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "616863" ;
+                ns1:codingSystem "OMIM" ] ;
+        ns1:description "A partial deletion of the short arm of chromosome 16 characterized by developmental delay, intellectual disability, speech delay, autism spectrum disorder, epilepsy, hypogonadism, and hypotonia. The behavioral profile includes impulsivity, compulsivity, stubbornness, manipulative behaviors, temper tantrums, and aggressive behaviors." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "500055" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "16p13.2 microdeletion syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "16p13.2 microdeletion syndrome" ] .
+}
+

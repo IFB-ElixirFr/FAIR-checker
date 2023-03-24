@@ -1,0 +1,28 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=401815> a ns1:MedicalCondition ;
+        ns1:alternateName "SPG66" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "G11.4" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G11.4" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:401815" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:401815" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "Autosomal recessive spastic paraplegia type 66 is a rare, complex hereditary spastic paraplegia disorder characterized by infantile onset of progressive lower limb spasticity, severe gait disturbances leading to a non-ambulatory state, absent deep tendon reflexes and amyotrophy. Additional signs include severe sensorimotor neuropathy, pes equinovarus and mild intellectual disability. Cerebellar and corpus callosum hypoplasia, as well as colpocephaly, are observed on neuroimaging." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "401815" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Autosomal recessive spastic paraplegia type 66" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Autosomal recessive spastic paraplegia type 66" ] .
+}
+

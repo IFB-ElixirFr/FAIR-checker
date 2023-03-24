@@ -1,0 +1,42 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=268173> a ns1:MedicalCondition ;
+        ns1:alternateName "Intermittent BCKD deficiency",
+            "Intermittent MSUD",
+            "Intermittent branched-chain alpha-ketoacid dehydrogenase deficiency" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "E71.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:268173" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "248600" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "248600" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0268569" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E71.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0268569" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:268173" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "Intermittent maple syrup urine disease (intermittent MSUD) is a mild form of MSUD (see this term) where patients (when well) are asymptomatic with normal levels of branched-chain amino acids (BCAAs) but with catabolic stress are at risk of acute decompensation with ketoacidosis, which can lead to cerebral edema and coma if untreated." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "268173" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Intermittent maple syrup urine disease" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Intermittent maple syrup urine disease" ] .
+}
+

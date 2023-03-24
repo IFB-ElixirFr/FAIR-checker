@@ -1,0 +1,48 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=2967> a ns1:MedicalCondition ;
+        ns1:alternateName "Haptocorrin deficiency",
+            "TCI deficiency",
+            "Transcobalamin-1 deficiency" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "E53.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:2967" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "4522" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:2967" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0342700" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "193090" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E53.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "4522" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0342700" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "193090" ;
+                ns1:codingSystem "OMIM" ] ;
+        ns1:description "A rare, genetic, benign disorder of cobalamin transport, due to variable degrees of transcobalamin I deficiency, characterized by mildly low to almost undetectable plasma transcobalamin I levels and slighly low to absent serum cobalamin levels. Normal methylmalonic acid and homocysteine serum values and absence of megaloblastic anemia are reported. No specific clinical manifestations are associated and patients are typically asymptomatic." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "2967" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Transcobalamin I deficiency" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Transcobalamin I deficiency" ] .
+}
+

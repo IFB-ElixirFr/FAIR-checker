@@ -1,0 +1,53 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=1243> a ns1:MedicalCondition ;
+        ns1:alternateName "BMD",
+            "BVMD",
+            "Best disease",
+            "Best macular dystrophy",
+            "Early-onset vitelliform macular dystrophy",
+            "Juvenile-onset vitelliform macular dystrophy",
+            "Polymorphic vitelline macular degeneration",
+            "Vitelliform macular dystrophy type 2" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "C0339510" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "182" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:1243" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "H35.5" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0339510" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "182" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "H35.5" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:1243" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "153700" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "153700" ;
+                ns1:codingSystem "OMIM" ] ;
+        ns1:description "Best vitelliform macular dystrophy (BVMD) is a genetic macular dystrophy characterized by loss of central visual acuity, metamorphopsia and a decrease in the Arden ratio secondary to an egg yolk-like lesion located in the foveal or parafoveal region." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "1243" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Best vitelliform macular dystrophy" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Best vitelliform macular dystrophy" ] .
+}
+

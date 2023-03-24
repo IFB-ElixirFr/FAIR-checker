@@ -1,0 +1,22 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=141189> a ns1:MedicalCondition ;
+        ns1:alternateName "CAMS" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:141189" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:141189" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A group of rare arteriovenous malformations characterized by unilateral vascular malformations in a metameric distribution involving the craniofacial region. Subtypes differ according to the distribution of lesions, with cerebrofacial arteriovenous metameric syndrome (CAMS) 1 (medial prosencephalic group) involving the hypothalamus and nasal region, Wyburn-Mason syndrome (lateral prosencephalic group) involving the occipital lobe, thalamus, and maxilla, and CAMS 3 (lateral rhombencephalic group) involving the cerebellum, pons, and mandible." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "141189" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Cerebrofacial arteriovenous metameric syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Cerebrofacial arteriovenous metameric syndrome" ] .
+}
+

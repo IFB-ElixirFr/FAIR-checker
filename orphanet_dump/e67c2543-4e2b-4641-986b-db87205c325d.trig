@@ -1,0 +1,27 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=319195> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:319195" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q77.6" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q77.6" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:319195" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "Chondroectodermal dysplasia with night blindness is a rare genetic bone development disorder characterized by proportionate short stature, nail dysplasia (enlarged, convex, hypertrophic nails), hypodontia and night blindness. Osteopenia, a tendency to present fractures, talipes varus with abnormal gait, ear infections, and watering eyes due to narrow tear ducts are frequently associated. Radiologically patients present delayed bone age on wrist X-rays, platyspondyly, and broad metaphyses of humeri with dense and thickened growth plates." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "319195" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Chondroectodermal dysplasia with night blindness" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Chondroectodermal dysplasia with night blindness" ] .
+}
+

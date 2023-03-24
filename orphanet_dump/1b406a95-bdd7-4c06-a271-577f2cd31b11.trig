@@ -1,0 +1,35 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=314632> a ns1:MedicalCondition ;
+        ns1:alternateName "CLN12 disease",
+            "Juvenile parkinsonism-neuronal ceroid lipofuscinosis" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "606693" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:314632" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E75.4" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "606693" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:314632" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E75.4" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "A rare neuronal ceroid lipofiscinosis disorder characterized by juvenile-onset of progressive spinocerebellar ataxia, bulbar syndrome (manifesting with dysarthria, dysphagia and dysphonia), pyramidal and extrapyramidal involvement (including myoclonus, amyotrophy, unsteady gait, akinesia, rigidity, dysarthric speech) and intellectual deterioration. Muscle biopsy displays autofluorescent bodies and lipofuscin deposits in brain and, occasionally the retina, upon post mortem." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "314632" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "ATP13A2-related juvenile neuronal ceroid lipofuscinosis" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "ATP13A2-related juvenile neuronal ceroid lipofuscinosis" ] .
+}
+

@@ -1,0 +1,39 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=85442> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:85442" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10604" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "262700" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10604" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:85442" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E23.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "262700" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E23.0" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "Short stature-pituitary and cerebellar defects-small sella turcica syndrome is characterised by short stature, anterior pituitary hormone deficiency, small sella turcica, and a hypoplastic anterior hypophysis associated with pointed cerebellar tonsils. It has been described in three generations of a large French kindred. Ectopia of the posterior hypophysis was observed in some patients. The syndrome is transmitted as a dominantly inherited trait and is caused by a germline mutation within the LIM-homeobox transcription factor <i>LHX4</i> gene (1q25)." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "85442" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Short stature-pituitary and cerebellar defects-small sella turcica syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Short stature-pituitary and cerebellar defects-small sella turcica syndrome" ] .
+}
+

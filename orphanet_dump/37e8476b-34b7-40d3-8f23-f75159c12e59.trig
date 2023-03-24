@@ -1,0 +1,28 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=306669> a ns1:MedicalCondition ;
+        ns1:alternateName "HP-HA syndrome" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "G20" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:306669" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:306669" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G20" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "Hemiparkinsonism-hemiatrophy syndrome is a rare parkinsonian disorder characterized by unilateral body atrophy and slowly progressive, ipsilateral, hemiparkinsonian signs (bradykinesia, rigidity, and tremor). Patients typically present with unilateral, action-induced dystonia, in upper or lower limbs, that progresses and becomes bilateral or with tremor which occurs predominantly at rest and progresses to hemiparkinsonism. Scoliosis, scapular winging, raised shoulders, brisk reflexes and extensor plantar responses are frequently associated." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "306669" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Hemiparkinsonism-hemiatrophy syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Hemiparkinsonism-hemiatrophy syndrome" ] .
+}
+

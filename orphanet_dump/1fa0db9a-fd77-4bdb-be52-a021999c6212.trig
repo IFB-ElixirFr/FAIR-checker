@@ -1,0 +1,41 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=79105> a ns1:MedicalCondition ;
+        ns1:alternateName "Fibromyxosarcoma",
+            "Myxoid malignant fibrous histiocytoma" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "10066948" ;
+                ns1:codingSystem "MedDRA" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:79105" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10066948" ;
+                ns1:codingSystem "MedDRA" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C49.9" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C49.9" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C3714524" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C3714524" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:79105" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare soft tissue sarcoma characterized by a malignant, fibroblastic lesion with variably myxoid stroma, pleomorphism, and a distinctively curvilinear vascular pattern. The majority of tumors arise in the limbs including the limb girdles, more often in dermal/subcutaneous tissues than in the underlying fascia and skeletal muscle, and usually present as a slowly growing, painless mass. Depth of the lesion and tumor grade do not influence the high rate of local recurrence, while the percentage of metastasis and tumor-associated mortality are much higher in deep-seated and high-grade neoplasms." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "79105" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Myxofibrosarcoma" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Myxofibrosarcoma" ] .
+}
+

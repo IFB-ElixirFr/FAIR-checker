@@ -1,0 +1,34 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=79474> a ns1:MedicalCondition ;
+        ns1:alternateName "Atypical progeroid syndrome" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:79474" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "11910" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E34.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:79474" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "11910" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E34.8" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "An heterogeneous group of cases that are clinically diagnosed as Werner syndrome (WS) but do not carry <i>WRN</i> gene mutations. Similar to classical WS caused by <i>WRN</i> mutations, patients generally exhibit an aged appearance and common age-related disorders at earlier ages compared to the general population." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "79474" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Atypical Werner syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Atypical Werner syndrome" ] .
+}
+

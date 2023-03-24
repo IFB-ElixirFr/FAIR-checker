@@ -1,0 +1,28 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=370127> a ns1:MedicalCondition ;
+        ns1:alternateName "Medich macrothrombocytopenia" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "D69.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D69.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:370127" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:370127" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "Medich giant platelet syndrome (MGPS) is a platelet granule disorder characterized by thrombocytopenia with giant platelets resulting in easy bleeding." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "370127" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Medich giant platelet syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Medich giant platelet syndrome" ] .
+}
+

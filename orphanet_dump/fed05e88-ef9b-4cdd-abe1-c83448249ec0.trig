@@ -1,0 +1,43 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=443197> a ns1:MedicalCondition ;
+        ns1:alternateName "X-linked dominant erythropoietic protoporphyria",
+            "X-linked dominant protoporphyria",
+            "XLDPP",
+            "XLPP" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "300752" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "300752" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E80.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:443197" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C2677889" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:443197" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E80.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C2677889" ;
+                ns1:codingSystem "UMLS" ] ;
+        ns1:description "A rare disorder of porphyrin and heme metabolism characterized by infantile or childhood onset of severe cutaneous photosensitivity in affected males, presenting as tingling, burning, and itching within minutes of light exposure, often accompanied by swelling and redness of the skin. Pain may persist for hours or days after the initial reaction. Some patients show hepatic involvement and gallstone formation. Laboratory examination reveals increased levels of zinc- and metal-free protoporphyrin. The phenotype in heterozygous females ranges from asymptomatic to severe." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "443197" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "X-linked erythropoietic protoporphyria" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "X-linked erythropoietic protoporphyria" ] .
+}
+

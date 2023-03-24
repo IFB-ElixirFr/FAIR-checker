@@ -1,0 +1,59 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=375> a ns1:MedicalCondition ;
+        ns1:alternateName "Anti-GBM syndrome",
+            "Goodpasture syndrome" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "M31.0+" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "2551" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:375" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10018620" ;
+                ns1:codingSystem "MedDRA" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "233450" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0403529" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:375" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10018620" ;
+                ns1:codingSystem "MedDRA" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "2551" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "N08.5*" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0403529" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "M31.0+" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "N08.5*" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "233450" ;
+                ns1:codingSystem "OMIM" ] ;
+        ns1:description "A rare, fulminant small vessel vasculitis that affects the capillary beds of the kidneys and lungs and characterized by the presence of anti-glomerular basement membrane (GBM) and, in its full-blown form, anti-alveolar basement membrane (ABM) antibodies. Consequently, it may manifest as a rapidly progressive, isolated glomerulonephritis (anti-GBM nephritis) or as a pulmonary-renal syndrome with severe lung hemorrhage." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "375" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Anti-glomerular basement membrane disease" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Anti-glomerular basement membrane disease" ] .
+}
+

@@ -1,0 +1,40 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=319229> a ns1:MedicalCondition ;
+        ns1:alternateName "Machupo hemorrhagic fever" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "C0282192" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10005932" ;
+                ns1:codingSystem "MedDRA" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10005932" ;
+                ns1:codingSystem "MedDRA" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:319229" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:319229" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "A96.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0282192" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "A96.1" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "Bolivian hemorrhagic fever (BHF), caused by the Machupo virus (MACV), is a severe acute viral hemorrhagic fever characterized by fever, myalgia, and arthralgia followed by hemorrhagic and neurological manifestations." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "319229" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Bolivian hemorrhagic fever" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Bolivian hemorrhagic fever" ] .
+}
+

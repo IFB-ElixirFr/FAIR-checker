@@ -1,0 +1,34 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=319199> a ns1:MedicalCondition ;
+        ns1:alternateName "SPG53" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "G11.4" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:319199" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:319199" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "614898" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "614898" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G11.4" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "Autosomal recessive spastic paraplegia type 53 (SPG53) is a very rare, complex type of hereditary spastic paraplegia characterized by early-onset spastic paraplegia (with spasticity in the lower extremities that progresses to the upper extremities) associated with developmental and motor delay, mild to moderate cognitive and speech delay, skeletal dysmorphism (e.g. kyphosis and pectus), hypertrichosis and mildly impaired vibration sense. SPG53 is due to mutations in the <i>VPS37A</i> gene (8p22) encoding vacuolar protein sorting-associated protein 37A." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "319199" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Autosomal recessive spastic paraplegia type 53" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Autosomal recessive spastic paraplegia type 53" ] .
+}
+

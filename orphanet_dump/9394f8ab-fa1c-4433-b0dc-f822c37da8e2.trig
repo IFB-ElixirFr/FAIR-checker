@@ -1,0 +1,30 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=506784> a ns1:MedicalCondition ;
+        ns1:alternateName "SJS/TEN overlap syndrome",
+            "Stevens-Johnson/TEN overlap syndrome",
+            "Stevens-Johnson/toxic epidermal necrolysis overlap syndrome" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "L51.2" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:506784" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "L51.2" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:506784" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "An intermediate form of Stevens-Johnson syndrome/toxic epidermal necrolysis spectrum characterized by destruction and detachment of the skin epithelium, involving between 10 to 29% of the body surface area, and mucous membranes. Onset usually occurs 4-28 days after administration of the causal medication and is most frequently associated with anticonvulsants, antibacterial sulfonamides, allopurinol, nevirapine, and oxicams (non-steroidal anti-inflammatory drugs), but many other medications have also been implicated. The disease is not induced by medication in 15% of cases. Histology is characterized by an epidermal necrolysis. Multiple disabling long-term sequelae (especially cutaneous, ocular and psychological) are frequent." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "506784" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Stevens-Johnson syndrome/toxic epidermal necrolysis overlap syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Stevens-Johnson syndrome/toxic epidermal necrolysis overlap syndrome" ] .
+}
+

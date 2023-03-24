@@ -1,0 +1,27 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=90080> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "H59.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:90080" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:90080" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "H59.8" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "A rare ophthalmic condition characterized by formation of excessive scar tissue between the conjunctiva/Tenon capsule and the sclera at the surgical site following glaucoma filtration surgery. Scarring can occur months or years after surgery, resulting in treatment failure with poor postoperative control of intraocular pressure and, potentially, loss of vision." ;
+        ns1:epidemiology "Prevalence : 1-5 / 10 000" ;
+        ns1:identifier "90080" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Scarring in glaucoma filtration surgical procedures" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Scarring in glaucoma filtration surgical procedures" ] .
+}
+

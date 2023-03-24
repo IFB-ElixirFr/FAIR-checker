@@ -1,0 +1,35 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=282196> a ns1:MedicalCondition ;
+        ns1:alternateName "APS",
+            "Autoimmune polyglandular syndrome" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "E31.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E31.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:282196" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0085409" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0085409" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:282196" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A group of rare endocrine diseases characterized by autoimmune activity against more than one endocrine organ, with possible additional involvement of non-endocrine organs. Autoimmunity is typically directed against different target antigens in different tissues. The two more common autoimmune polyendocrine syndromes (APS), APS type 1 and type 2, have a strong genetic background and have Addison's disease as a major feature. The group furthermore includes APS type 3 and type 4." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "282196" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Autoimmune polyendocrinopathy" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Autoimmune polyendocrinopathy" ] .
+}
+

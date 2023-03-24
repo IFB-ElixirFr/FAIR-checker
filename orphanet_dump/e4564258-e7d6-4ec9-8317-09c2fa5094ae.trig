@@ -1,0 +1,27 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=97285> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "C85.7" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:97285" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:97285" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C85.7" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "A rare primary organ-specific lymphoma characterized by primary origin in the thyroid gland, sometimes involving cervical lymph nodes, and infrequently more distant sites. Diffuse large B-cell lymphoma is most common, followed by MALT lymphoma, and follicular lymphoma. More rare types include T-cell lymphomas, Burkitt lymphoma, or classic Hodgkin lymphoma. The condition is usually associated with Hashimoto thyroiditis. Patients typically present with a mass in the thyroid, with or without cervical lymphadenopathy. Hoarseness and dyspnea may occur, while constitutional symptoms are rare. Prognosis is favorable for patients with localized tumors." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "97285" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Thyroid lymphoma" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Thyroid lymphoma" ] .
+}
+

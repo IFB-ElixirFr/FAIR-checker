@@ -1,0 +1,22 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=508542> a ns1:MedicalCondition ;
+        ns1:alternateName "MYSM1 deficiency" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:508542" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:508542" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare multiple congenital anomalies/dysmorphic syndrome characterized by early-onset progressive bone marrow failure with anemia, leukopenia, mild thrombopenia, and myelodysplastic features, as well as non-hematologic manifestations, such as developmental delay, cataracts, facial dysmorphism, short stature, and skeletal anomalies. Immunodeficiency primarily affects B-cells and may lead to increased susceptibility to infections. Additional reported features include dry skin and eczema, cardiac anomalies, hearing loss, and reduction of cerebral volume on brain imaging." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "508542" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Congenital progressive bone marrow failure-B-cell immunodeficiency-skeletal dysplasia syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Congenital progressive bone marrow failure-B-cell immunodeficiency-skeletal dysplasia syndrome" ] .
+}
+

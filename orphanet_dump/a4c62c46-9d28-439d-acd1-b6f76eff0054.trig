@@ -1,0 +1,27 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=99090> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:99090" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q24.5" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q24.5" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:99090" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare coronary artery congenital malformation characterized by displacement of one of the coronary arteries, originating closer to the aortic root or to the commissural area. The anomaly is considered to be asymptomatic, however, it may impose surgical difficulties during aortic root surgery." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "99090" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Malposition of a coronary ostium" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Malposition of a coronary ostium" ] .
+}
+

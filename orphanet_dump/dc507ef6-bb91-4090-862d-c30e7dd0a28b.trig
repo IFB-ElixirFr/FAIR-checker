@@ -1,0 +1,35 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=169796> a ns1:MedicalCondition ;
+        ns1:alternateName "Moderate congenital F9 deficiency",
+            "Moderate congenital factor IX deficiency" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "306900" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:169796" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:169796" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D67" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "306900" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D67" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "A moderately severe form of hemophilia B characterized by factor IX deficiency (biological activity 1-5 IU/dL) leading to abnormal bleeding as a result of minor injuries or following trauma, surgery or tooth extraction. Spontaneous hemorrhages are rare. The condition primarily affects males but may also be observed in female carriers of disease-causing mutations." ;
+        ns1:epidemiology "Prevalence : 1-9 / 1 000 000" ;
+        ns1:identifier "169796" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Moderate hemophilia B" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Moderate hemophilia B" ] .
+}
+

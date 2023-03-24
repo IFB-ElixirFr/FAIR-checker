@@ -1,0 +1,33 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=488647> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "C96.7" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:488647" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C96.7" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "616871" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "616871" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:488647" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare inherited cancer-predisposing syndrome characterized by adult onset of hematologic malignancies mainly affecting the myeloid lineage (such as myelodysplastic syndrome and/or acute myeloid leukemia), less frequently lymphoid malignancies. Some patients have been reported to develop granulomatous or immune disorders (including sarcoidosis, systemic lupus erythematosus, asthma, eczema, or juvenile arthritis) before or in the absence of hematologic malignancies." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "488647" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "DDX41-related hematologic malignancy predisposition syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "DDX41-related hematologic malignancy predisposition syndrome" ] .
+}
+

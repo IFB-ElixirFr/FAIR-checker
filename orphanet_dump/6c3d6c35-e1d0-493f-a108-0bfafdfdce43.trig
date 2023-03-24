@@ -1,0 +1,27 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=3151> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "G37.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:3151" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:3151" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G37.8" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "Multiple sclerosis-ichthyosis-factor VIII deficiency syndrome is characterized by the association of multiple sclerosis with lamellar ichthyosis (see this term) and hematological anomalies (beta thalassemia minor and a quantitative deficit of factor VIII-von Willebrand complex). Other clinical manifestations may include eye involvement (optic atrophy, diplopia), neuromuscular involvement (ataxia, pyramidal syndrome, gait disturbance) and sensory disorder. There have been no further descriptions in the literature since 1992." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "3151" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Multiple sclerosis-ichthyosis-factor VIII deficiency syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Multiple sclerosis-ichthyosis-factor VIII deficiency syndrome" ] .
+}
+

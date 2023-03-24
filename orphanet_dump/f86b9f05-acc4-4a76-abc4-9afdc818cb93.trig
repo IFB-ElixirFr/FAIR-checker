@@ -1,0 +1,34 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=1909> a ns1:MedicalCondition ;
+        ns1:alternateName "Fetal indomethacin syndrome" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "2303" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "2303" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q86.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q86.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:1909" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:1909" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "Indomethacin embryofetopathy refers to the manifestations that may be observed in a fetus or newborn when the mother has taken indomethacin, a potent prostaglandin inhibitor and tocolytic agent that can cross placenta, during pregnancy. Reported adverse fetal/neonatal effects include decreased renal function resulting in oligohydramnios, closure of the ductus arteriosus, and delayed cardiovascular adaptation at birth. These effects are usually transient and reversible. Indomethacin may also be a risk factor for cerebral injury (periventricular leukomalacia) and necrotizing enterocolitisin preterm infants." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "1909" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Indomethacin embryofetopathy" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Indomethacin embryofetopathy" ] .
+}
+

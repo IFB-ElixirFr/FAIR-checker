@@ -1,0 +1,30 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=563991> a ns1:MedicalCondition ;
+        ns1:alternateName "Aseptic necrosis of the tarsal bone",
+            "Avascular necrosis of the tarsal bone",
+            "Kohler disease" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "M92.6" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:563991" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:563991" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "M92.6" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "A rare bone disease characterized by avascular necrosis of the navicular bone in children. Patients present with sudden unexplained foot pain, inability to bear weight, and limping. Radiographic features include flattening, fragmentation, and patchy sclerosis of the navicular bone. Soft tissue swelling may be associated. The condition is most commonly unilateral and self-limiting. Boys are more often affected than girls." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "563991" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Osteochondrosis of the tarsal bone" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Osteochondrosis of the tarsal bone" ] .
+}
+

@@ -1,0 +1,27 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=91491> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:91491" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q13.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:91491" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q13.8" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "Congenital ectropion uveae is a rare, genetic, non-syndromic developmental defect of the eye characterized by the presence of iris pigment epithelium on the anterior surface of the iris, anterior insertion of the iris, angle dysgenesis and progressive open-angle glaucoma (the latter may present in infancy or may develop later in life). Patients may manifest with headaches, ocular pain, photophobia, and redness, watering and/or swelling of the eye. It can often be associated with neurofibromatosis and less commonly with other ocular abnormalities." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "91491" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Congenital ectropion uveae" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Congenital ectropion uveae" ] .
+}
+

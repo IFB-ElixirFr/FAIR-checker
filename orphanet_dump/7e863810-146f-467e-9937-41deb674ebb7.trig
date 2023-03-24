@@ -1,0 +1,33 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=289553> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "Q87.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:289553" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "615102" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:289553" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q87.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "615102" ;
+                ns1:codingSystem "OMIM" ] ;
+        ns1:description "Dysmorphism-conductive hearing loss-heart defect syndrome is a rare, multiple congenital anomalies syndrome characterized by a distinctive facial appearance (low frontal hairline, bilateral ptosis, prominent eyes, flat midface, broad, &#64258;at nares, Cupid's bow upper lip vermilion, and small, low-set, posteriorly rotated ears), in addition to cleft palate, conductive hearing loss, heart defects (atrial or ventricular septal defect) and mild developmental delay/intellectual disability." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "289553" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Dysmorphism-conductive hearing loss-heart defect syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Dysmorphism-conductive hearing loss-heart defect syndrome" ] .
+}
+

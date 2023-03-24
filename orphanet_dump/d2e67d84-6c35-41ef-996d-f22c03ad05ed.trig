@@ -1,0 +1,28 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=306617> a ns1:MedicalCondition ;
+        ns1:alternateName "SPG1" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:306617" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "12525" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:306617" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "12525" ;
+                ns1:codingSystem "GARD" ] ;
+        ns1:description "A congenital, X-linked, clinical subtype of L1 syndrome, characterized by spastic paraplegia, mild to moderate intellectual disability and normal brain morphology. This subtype represents the milder end of the L1 syndrome spectrum." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "306617" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "X-linked complicated spastic paraplegia type 1" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "X-linked complicated spastic paraplegia type 1" ] .
+}
+

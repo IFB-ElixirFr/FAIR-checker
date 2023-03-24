@@ -1,0 +1,28 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=447881> a ns1:MedicalCondition ;
+        ns1:alternateName "Isolated neck extensor myopathy" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:447881" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:447881" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G72.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G72.8" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "A rare acquired skeletal muscle disease characterized by severe weakness of the neck extensor muscles causing progressive reducible kyphosis of the cervical spine and the inability to hold the head up, in the absence of a known cause. Histological studies reveal a non-inflammatory myopathic picture. The clinical course is relatively benign, although cervical myelopathy may develop." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "447881" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Idiopathic dropped head syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Idiopathic dropped head syndrome" ] .
+}
+

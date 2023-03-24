@@ -1,0 +1,33 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=177929> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "D67" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:177929" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "306900" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "306900" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:177929" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D67" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "A rare bleeding disorder in association with carrier mutations in the <i>F9</i> gene (Xq27.1) encoding coagulation factor IX (FIX), with a biological activity of FIX &#8805;40 IU/dL and characterized clinically by abnormal bleeding as a result of minor injuries or following trauma, surgery or tooth extraction. Spontaneous hemorrhages may occur occasionally. Heavy menstrual bleeding is the most frequent type of bleed in the carriers." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "177929" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Bleeding disorder in hemophilia B carriers" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Bleeding disorder in hemophilia B carriers" ] .
+}
+

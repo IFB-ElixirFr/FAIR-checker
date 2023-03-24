@@ -1,0 +1,29 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=572428> a ns1:MedicalCondition ;
+        ns1:alternateName "OAS1 deficiency",
+            "OAS1-related infantile-onset pulmonary alveolar proteinosis-hypogammaglobulinemia" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:572428" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "J84.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:572428" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "J84.0" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "A rare genetic respiratory disease characterized by infantile onset of pulmonary alveolar proteinosis with hypogammaglobulinemia. Patients have normal respiratory function at birth, but subsequently develop recurrent, mainly viral, infections and progressive respiratory failure, often leading to death in infancy or early childhood. Additional reported features include leukocytosis and splenomegaly." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "572428" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Infantile-onset pulmonary alveolar proteinosis-hypogammaglobulinemia" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Infantile-onset pulmonary alveolar proteinosis-hypogammaglobulinemia" ] .
+}
+

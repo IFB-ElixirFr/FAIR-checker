@@ -1,0 +1,37 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=370> a ns1:MedicalCondition ;
+        ns1:alternateName "GSD due to phosphorylase kinase deficiency",
+            "GSD type 9",
+            "GSD type IX",
+            "Glycogen storage disease due to PhK deficiency",
+            "Glycogen storage disease type 9",
+            "Glycogen storage disease type IX",
+            "Glycogenosis due to phosphorylase kinase deficiency",
+            "Glycogenosis type 9",
+            "Glycogenosis type IX",
+            "Gycogenosis due to PhK deficiency" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "C0268147" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0268147" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:370" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:370" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "Glycogen storage disease (GSD) due to phosphorylase kinase deficiency is a group of inborn errors of glycogen metabolism that is clinically and genetically heterogeneous. This group comprises GSD due to liver phosphorylase kinase (PhK) deficiency, GSD due to muscle PhK deficiency and GSD due to liver and muscle PhK deficiency (see these terms)." ;
+        ns1:epidemiology "Prevalence : 1-9 / 100 000" ;
+        ns1:identifier "370" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Glycogen storage disease due to phosphorylase kinase deficiency" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Glycogen storage disease due to phosphorylase kinase deficiency" ] .
+}
+

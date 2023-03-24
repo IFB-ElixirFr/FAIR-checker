@@ -1,0 +1,28 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=456333> a ns1:MedicalCondition ;
+        ns1:alternateName "Hereditary neuroendocrine tumor of small bowel" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:456333" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C17.9" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C17.9" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:456333" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare inherited cancer-predisposing syndrome characterized by occurrence of multiple synchronous primary carcinoids of the small intestine. Clinical presentation is otherwise indistinguishable from sporadic carcinoids and includes abdominal pain, flushing, and diarrhea, often becoming manifest only after a long asymptomatic period. Most patients present with low grade tumors. Occurrence of pulmonary carcinoids has also been reported." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "456333" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Hereditary neuroendocrine tumor of small intestine" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Hereditary neuroendocrine tumor of small intestine" ] .
+}
+

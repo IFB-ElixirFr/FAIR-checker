@@ -1,0 +1,28 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=563576> a ns1:MedicalCondition ;
+        ns1:alternateName "AIH type 1" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "K75.4" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:563576" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:563576" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "K75.4" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "A form of autoimmune hepatitis characterized by clinical presentation as cryptogenic hepatitis, interface hepatitis on histological examination, elevated serum aminotransferase levels, hypergammaglobulinemia/elevated immunoglobulin G, and presence of circulating autoantibodies, specifically antinuclear antibodies (ANA), anti-smooth muscle antibodies (anti-SMA), and/or anti-soluble liver antigen/liver pancreas antigen antibodies (anti-SLA/LP). The disease predominantly develops at a post-pubertal age and most commonly takes a chronic course, although acute or acute severe presentation may also be observed. Typical concurrent autoimmune diseases are autoimmune thyroiditis and rheumatic diseases." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "563576" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Autoimmune hepatitis type 1" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Autoimmune hepatitis type 1" ] .
+}
+

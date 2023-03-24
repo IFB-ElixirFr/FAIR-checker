@@ -1,0 +1,22 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=488239> a ns1:MedicalCondition ;
+        ns1:alternateName "AMNR" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:488239" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:488239" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare, acquired retinal disorder characterised by transient or permanent visual impairment accompanied by the presence of reddish-brown, wedge-shaped lesions in the macula, the apices of which tend to point towards the fovea. The lesions usually appear in a petalloid or tear-drop configuration. Patients tend to be young, Caucasian, and female." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "488239" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Acute macular neuroretinopathy" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Acute macular neuroretinopathy" ] .
+}
+

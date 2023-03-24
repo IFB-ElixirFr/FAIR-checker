@@ -1,0 +1,28 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=2232> a ns1:MedicalCondition ;
+        ns1:alternateName "Al Awadi-Farag-Teebi syndrome" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "E28.3" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:2232" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C2931374" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "241090" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E29.1" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "A rare endocrine disorder characterized by primary hypogonadism and partial alopecia. Females present with Mûllerian hypoplasia, absent or streak ovaries, hypoplastic internal genitalia, primary amenorrhea, and sparse or absent axillary and pubic hair. Some patients also presented sparse eyebrows, microcephaly, flat occiput, dorsal kyphosis or mild intellectual disability. The only described male presents with germinal cell aplasia. Affected individual all present partical scalp alopecia." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "2232" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Primary hypergonadotropic hypogonadism-partial alopecia syndrome" ] .
+}
+

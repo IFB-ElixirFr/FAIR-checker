@@ -1,0 +1,29 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=206599> a ns1:MedicalCondition ;
+        ns1:alternateName "Idiopathic asymptomatic hyperCKemia",
+            "Isolated asymptomatic hyperCKemia" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:206599" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "R74.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "R74.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:206599" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare neurologic biological anomaly characterized by persistent elevation of the serum creatine phosphokinase (CK) without any clinical, neurophysical or histopathological evidence of neuromuscular disease using the available laboratory procedures. It is usually an incidental finding, diagnosed after exclusion of other possible causes of elevated CK levels." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "206599" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Isolated asymptomatic elevation of creatine phosphokinase" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Isolated asymptomatic elevation of creatine phosphokinase" ] .
+}
+

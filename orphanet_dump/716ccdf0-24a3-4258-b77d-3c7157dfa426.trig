@@ -1,0 +1,33 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=363677> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "605637" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G71.2" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G71.2" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:363677" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:363677" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "605637" ;
+                ns1:codingSystem "OMIM" ] ;
+        ns1:description "A rare, genetic, non-dystrophic myopathy disease characterized by childhood-onset severe external ophthalmoplegia, typically without ptosis, associated with mild, very slowly progressive muscular weakness and atrophy, involving the facial, neck flexor and limb (upper > lower, proximal > distal) muscles. Muscle biopsy shows type 1 fiber uniformity, absent, or abnormally small, type 2A fibers, increased variability of fiber size, internalized nuclei and/or fatty infiltration." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "363677" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Childhood-onset autosomal recessive myopathy with external ophthalmoplegia" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Childhood-onset autosomal recessive myopathy with external ophthalmoplegia" ] .
+}
+

@@ -1,0 +1,28 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=75567> a ns1:MedicalCondition ;
+        ns1:alternateName "PPFG" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "G31.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:75567" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:75567" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G31.8" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "Primary progressive freezing gait is a rare, heterogeneous, progressively incapacitating neurodegenerative disease characterized by freezing of gait (usually during the first 3 years), later associating postural instability, eventually resulting in a wheelchair-bound state. Other features may include mild bradykinesia, rigidity, postural tremor, hyperreflexia, speech disorder and dementia. The disease is unresponsive to dopaminergic treatments." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "75567" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Primary progressive freezing gait" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Primary progressive freezing gait" ] .
+}
+

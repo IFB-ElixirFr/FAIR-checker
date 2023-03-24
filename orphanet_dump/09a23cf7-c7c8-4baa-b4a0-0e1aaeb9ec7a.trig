@@ -1,0 +1,35 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=314911> a ns1:MedicalCondition ;
+        ns1:alternateName "Infantile Canavan disease",
+            "Neonatal Canavan disease" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "E75.2" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:314911" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E75.2" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "271900" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "271900" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:314911" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "Severe Canavan disease (CD) is a rapidly progressing neurodegenerative disorder characterized by leukodystrophy with macrocephaly, severe developmental delay and hypotonia." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "314911" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Severe Canavan disease" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Severe Canavan disease" ] .
+}
+

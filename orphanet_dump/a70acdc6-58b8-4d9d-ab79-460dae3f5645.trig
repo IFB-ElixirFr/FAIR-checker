@@ -1,0 +1,35 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=199260> a ns1:MedicalCondition ;
+        ns1:alternateName "Juvenile aponeurotic fibromatosis",
+            "Keasby tumor" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "M72.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0553647" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:199260" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0553647" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "M72.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:199260" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare, superficial fibromatosis characterized by non-malignant, locally invading, fibrosing tumour of differentiated fibroblasts, slowly growing subcutaneously, occurring predominantly distally on the extremities, especially the hands and feet. Histologic examination shows a multinodular pattern with large areas of calcification and fibrosis, and the presence of elongated spindle cells with hyperchromatic plump vesicular nuclei interspersed within fine bands of collagen." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "199260" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Calcifying aponeurotic fibroma" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Calcifying aponeurotic fibroma" ] .
+}
+

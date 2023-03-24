@@ -1,0 +1,39 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=180229> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:180229" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0334518" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C80.9" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "9621" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "9621" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C80.9" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0334518" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:180229" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare malignant germ cell tumor characterized by predominant composition of embryoid bodies consisting of a central core of embryonal carcinoma cells, an amnion-like cavity, and a yolk sac tumor component. The tumor usually occurs as the dominant component of a mixed germ cell tumor, with teratoma being the most common associated element. It may manifest as an abdominal mass or with abdominal pain, menstrual irregularities, or precocious puberty in women, while men typically present with testicular enlargement. Serum alpha-fetoprotein and/or beta-human chorionic gonadotropin can be elevated." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "180229" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Polyembryoma" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Polyembryoma" ] .
+}
+

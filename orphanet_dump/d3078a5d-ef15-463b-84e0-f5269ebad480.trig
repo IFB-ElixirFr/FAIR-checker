@@ -1,0 +1,34 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=457088> a ns1:MedicalCondition ;
+        ns1:alternateName "Invasive candidiasis-deep dermatophytosis syndrome" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "D84.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "212050" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "212050" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D84.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:457088" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:457088" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare, genetic primary immunodeficiency characterized by increased susceptibility to fungal infections, typically manifesting as recurrent, chronic mucocutaneous candidiasis, systemic candidiasis with meningoencephalitis, and deep dermatophystosis with dermatophytes invading skin, hair, nails, lymph nodes, and brain, resulting in erythematosquamous lesions, nodular subcutaneous or ulcerative infiltrations, severe onychomycosis, and lymphadenopathy." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "457088" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Predisposition to invasive fungal disease due to CARD9 deficiency" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Predisposition to invasive fungal disease due to CARD9 deficiency" ] .
+}
+

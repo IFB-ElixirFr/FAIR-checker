@@ -1,0 +1,39 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=2420> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:2420" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0519063" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10037418" ;
+                ns1:codingSystem "MedDRA" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C85.7" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C85.7" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10037418" ;
+                ns1:codingSystem "MedDRA" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0519063" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:2420" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare neoplastic disease defined as a clonal lymphoid proliferation affecting one or both lungs (parenchyma and/or bronchi) in a patient with no detectable extrapulmonary involvement at diagnosis or during the subsequent 3 months. PPL comprises low grade/indolent B cell PPL forms, the most frequent form represented by the marginal B-cell lymphoma of mucosa associated lymphoid tissue (MALT lymphoma) and other non-MALT low grade lymphomas; and more rarely high-grade B-cell PPL (including diffuse large B cell lymphoma) and lymphomatoid granulomatosis (LYG)." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "2420" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Primary pulmonary lymphoma" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Primary pulmonary lymphoma" ] .
+}
+

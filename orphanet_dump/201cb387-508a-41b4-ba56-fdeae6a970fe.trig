@@ -1,0 +1,51 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=3143> a ns1:MedicalCondition ;
+        ns1:alternateName "APS type 2",
+            "APS2",
+            "Autoimmune polyendocrine syndrome type 2",
+            "Autoimmune polyglandular syndrome type 2",
+            "Autoimmune thyroid disease and/or type 1 diabetes-Addison disease syndrome",
+            "Schmidt syndrome" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:3143" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0085860" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "7611" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0085860" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "269200" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:3143" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E31.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "7611" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E31.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "269200" ;
+                ns1:codingSystem "OMIM" ] ;
+        ns1:description "A rare, endocrine disease characterized by autoimmune Addison disease associated with autoimmune thyroid disease or type I diabetes mellitus, or both, and without chronic candidiasis. Additional endocrine (hypogonadism, hypoparathyroidism) and non-endocrine diseases (vitiligo, autoimmune hepatitis, autoimmune gastritis, pernicious anemia, and myasthenia gravies) may be present." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "3143" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Autoimmune polyendocrinopathy type 2" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Autoimmune polyendocrinopathy type 2" ] .
+}
+

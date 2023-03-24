@@ -1,0 +1,29 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=542323> a ns1:MedicalCondition ;
+        ns1:alternateName "CAR T cell therapy-associated CRS",
+            "Chimeric antigen receptor-T cell therapy-associated cytokine release syndrome" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "D89.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:542323" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D89.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:542323" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare systemic condition affecting patients undergoing chimeric antigen receptor (CAR) T-cell therapy and characterized by a systemic inflammatory response due to massive activation of leukocytes with subsequent cytokine release. It can present with a variety of signs and symptoms ranging from mild, flu-like symptoms (such as fever, fatigue, headache, rash, arthralgia, and myalgia) to severe life-threatening manifestations including vascular leakage, disseminated intravascular coagulation, shock, and multiple organ failure. Respiratory manifestations are common and range from cough and tachypnea to acute respiratory distress syndrome (ARDS)." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "542323" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "CAR T cell therapy-associated cytokine release syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "CAR T cell therapy-associated cytokine release syndrome" ] .
+}
+

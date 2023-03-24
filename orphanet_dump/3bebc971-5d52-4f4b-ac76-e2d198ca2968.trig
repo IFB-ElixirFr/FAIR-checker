@@ -1,0 +1,30 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=280325> a ns1:MedicalCondition ;
+        ns1:alternateName "12p13.33 microdeletion syndrome",
+            "Del(12)(p13.33)",
+            "Distal deletion 12p" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "Q93.5" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q93.5" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:280325" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:280325" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare partial autosomal monosomy characterized by language development delay with childhood apraxia of speech, mild intellectual disability, behavourial abnormalities (autistic spectrum disorder, attention deficit hyperactivity disorder, anxiety) and mildly dysmorphic nonspecific features. Additional clinical features may include muscular hypotonia and joint laxity, hernias and microcephaly." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "280325" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Distal monosomy 12p" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Distal monosomy 12p" ] .
+}
+

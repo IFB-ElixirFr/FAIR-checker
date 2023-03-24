@@ -1,0 +1,40 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=889> a ns1:MedicalCondition ;
+        ns1:alternateName "Cutaneous hypersensitivity vasculitis" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "M31.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0151436" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:889" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "7851" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "M31.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "7851" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0151436" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:889" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A small vessel vasculitis characterized by neutrophilic inflammation predominantly limited to the superficial cutaneous postcapillary venules and without systemic vasculitis or glomerulonephritis. Typical presentation is of unifocal or multifocal palpable purpura on the lower extremities." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "889" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Cutaneous small vessel vasculitis" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Cutaneous small vessel vasculitis" ] .
+}
+

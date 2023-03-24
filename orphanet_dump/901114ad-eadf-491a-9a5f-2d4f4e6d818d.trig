@@ -1,0 +1,36 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=1272> a ns1:MedicalCondition ;
+        ns1:alternateName "Brachycephaly-deafness-cataract-intellectual disability syndrome",
+            "Brachycephaly-hearing loss-cataract-intellectual disability syndrome",
+            "Fine-Lubinsky syndrome" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "C0795941" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "958" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:1272" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "601353" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C537933" ;
+                ns1:codingSystem "MeSH" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "601088" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q87.8" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "A rare genetic multiple congenital anomalies/dysmorphic syndrome characterized by congenital cataract, sensorineural hearing loss, developmental delay with variable degrees of intellectual disability, seizures, short stature, brachycephaly, and dysmorphic facial features (such as flat facial appearance, ptosis, short nasal tip, long philtrum, low-set and posteriorly rotated ears, and small mouth). Additional reported manifestations are skeletal abnormalities, nail dystrophy, mammary gland hypoplasia, and autism spectrum disorder." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "1272" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Aymé-Gripp syndrome" ] .
+}
+

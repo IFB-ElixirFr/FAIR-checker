@@ -1,0 +1,56 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=140989> a ns1:MedicalCondition ;
+        ns1:alternateName "Isolated angiitis of the central nervous system",
+            "PACNS",
+            "PCNSV",
+            "Primary central nervous system vasculitis",
+            "Primary vasculitis of the central nervous system" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "D020293" ;
+                ns1:codingSystem "MeSH" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "I67.7" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:140989" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "8703" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C2930862" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:140989" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C535276" ;
+                ns1:codingSystem "MeSH" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "I67.7" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C535276" ;
+                ns1:codingSystem "MeSH" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C2930862" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "8703" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D020293" ;
+                ns1:codingSystem "MeSH" ] ;
+        ns1:description "A rare, medium or small vessel vasculitis characterized by focal and/or diffuse neurologic symptoms due to a documented arteritic process in the central nervous system, in the absence of other identified underlying cause (infectious, systemic, other neurologic diseases, etc.). It presents with non-specific symptoms of headache, stroke or transient ischemic attacks with cognitive impairment, hemiplegia, weakness, and rarely, with cranial nerve involvement, seizures and ataxia." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "140989" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Primary angiitis of the central nervous system" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Primary angiitis of the central nervous system" ] .
+}
+

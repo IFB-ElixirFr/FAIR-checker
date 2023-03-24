@@ -1,0 +1,30 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=589515> a ns1:MedicalCondition ;
+        ns1:alternateName "PADDAS syndrome",
+            "SCA47",
+            "Spinocerebellar ataxia type 47" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "G11.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:589515" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G11.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:589515" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare genetic syndromic intellectual disability characterized by developmental delay, intellectual disability, ataxia, and, more variably, seizures and short stature. Behavioral abnormalities may also be observed, as well as variable facial and other dysmorphic features (such as broad nasal bridge, hypertelorism, almond-shaped eyes, high-arched palate, and anomalies of the fingers and toes). Brain imaging may reveal dilated ventricles, small corpus callosum, or posterior fossa abnormalities." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "589515" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "PUM1-associated developmental disability-ataxia-seizure syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "PUM1-associated developmental disability-ataxia-seizure syndrome" ] .
+}
+

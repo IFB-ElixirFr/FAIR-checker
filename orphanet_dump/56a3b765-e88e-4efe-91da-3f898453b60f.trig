@@ -1,0 +1,41 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=101039> a ns1:MedicalCondition ;
+        ns1:alternateName "EFMR",
+            "Juberg-Hellman syndrome" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "10806" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "300088" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:101039" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "300088" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10806" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C1848137" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C1848137" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:101039" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "Female restricted epilepsy with intellectual disability is a rare X-linked epilepsy syndrome characterized by febrile or afebrile seizures (mainly tonic-clonic, but also absence, myoclonic, and atonic) starting in the first years of life and, in most cases, developmental delay and intellectual disability of variable severity. Behavioral disturbances (e.g. autistic features, hyperactivity, and aggressiveness) are also frequently associated. This disease affects exclusively females, with male carriers being unaffected, despite an X-linked inheritance." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "101039" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Female restricted epilepsy with intellectual disability" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Female restricted epilepsy with intellectual disability" ] .
+}
+

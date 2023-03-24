@@ -1,0 +1,29 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=276422> a ns1:MedicalCondition ;
+        ns1:alternateName "Dup(10)(q22.3q23.3)",
+            "Trisomy 10q22.3q23.3" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:276422" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q92.3" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:276422" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q92.3" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "10q22.3q23.3 microduplication syndrome is a rare, chromosomal anomaly characterized by variable clinical features that may include developmental delay, mild intellectual disability and dysmorphic facial features. In some cases, microcephaly, growth retardation and congenital heart defects have been reported." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "276422" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "10q22.3q23.3 microduplication syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "10q22.3q23.3 microduplication syndrome" ] .
+}
+

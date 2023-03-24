@@ -1,0 +1,29 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=324648> a ns1:MedicalCondition ;
+        ns1:alternateName "Invasive non-typhoidal salmonella disease",
+            "iNTS disease" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "A02.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "A02.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:324648" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:324648" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "Invasive non-typhoidal salmonellosis is a rare, bacterial, infectious disease caused by extraintestinal infection of non-typhoidal serotypes of <i> Salmonella enterica </i> in patients with underlying HIV infection, malaria or malignancy. It has a high mortality rate and patients typically present with fever, pallor and respiratory signs (cough, tachypnea, pneumonia). Gastrointestinal manifestations (diarrhea, vomit, abdominal pain) are not common. Occasionally, organ abscesses, septic shock and meningitis may be observed." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "324648" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Invasive non-typhoidal salmonellosis" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Invasive non-typhoidal salmonellosis" ] .
+}
+

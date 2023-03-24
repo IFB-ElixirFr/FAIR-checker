@@ -1,0 +1,24 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=2443> a ns1:MedicalCondition ;
+        ns1:alternateName "Mitochondrial oxidative phosphorylation disorder due to nDNA anomalies",
+            "OXPHOS disease due to nDNA anomalies",
+            "OXPHOS disease due to nuclear DNA anomalies" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:2443" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:2443" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A group of clinically heterogeneous diseases, commonly defined by lack of cellular energy due to defects of oxidative phosphorylation (OXPHOS), resulting from pathogenic mutations in the nuclear DNA. Mitochondrial oxidative phosphorylation disorder due to nuclear DNA anomalies includes diseases classified according to defects in: genes encoding structural components of OXPHOS complexes (such as Leigh syndrome, coenzyme Q10 deficiency); genes encoding assembly factors of OXPHOS complexes (such as GRACILE syndrome); genes altering the stability of mitochondrial DNA (such as autosomal dominant progressive external ophthalmoplegia, mitochondrial DNA depletion syndrome); mitochondrial protein synthesis." ;
+        ns1:epidemiology "Prevalence : 1-9 / 100 000" ;
+        ns1:identifier "2443" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Mitochondrial oxidative phosphorylation disorder due to nuclear DNA anomalies" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Mitochondrial oxidative phosphorylation disorder due to nuclear DNA anomalies" ] .
+}
+

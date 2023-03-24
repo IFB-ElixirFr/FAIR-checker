@@ -1,0 +1,34 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=724> a ns1:MedicalCondition ;
+        ns1:alternateName "IAEP" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "J82" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:724" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:724" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "J82" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "519" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "519" ;
+                ns1:codingSystem "GARD" ] ;
+        ns1:description "Idiopathic acute eosinophilic pneumonia (IAEP) is an eosinophilic pneumonia of undetermined etiology that is characterized by acute febrile hypoxic respiratory failure associated with diffuse radiographic infiltrates and pulmonary eosinophilia, but without concurring allergy or infection." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "724" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Idiopathic acute eosinophilic pneumonia" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Idiopathic acute eosinophilic pneumonia" ] .
+}
+

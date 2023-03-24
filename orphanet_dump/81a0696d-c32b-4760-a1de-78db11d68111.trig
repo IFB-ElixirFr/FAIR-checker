@@ -1,0 +1,35 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=330064> a ns1:MedicalCondition ;
+        ns1:alternateName "Actinic reticuloid",
+            "Chronic photosensitivity dermatitis" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "L57.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0282309" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0282309" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:330064" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:330064" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "L57.1" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "Chronic actinic dermatitis (CAD) is an immunologically mediated photodermatosis usually observed in temperate climates and that typically develops in middle-aged to elderly males. CAD is characterized by eczematous and often lichenified pruritic patches and confluent plaques located predominantly on sun-exposed areas with notable sparing of eyelids, skin folds, and postauricular skin. It is often accompanied by multiple contact allergies and usually occurs in a background of either atopic, contact allergic, or seborrheic dermatitis, although it can occur <i>de novo</i>. Resolution of photosensitivity is reported in up to 50% of individuals after 15 years or more, with contact allergies persisting." ;
+        ns1:epidemiology "Prevalence : 1-5 / 10 000" ;
+        ns1:identifier "330064" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Chronic actinic dermatitis" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Chronic actinic dermatitis" ] .
+}
+

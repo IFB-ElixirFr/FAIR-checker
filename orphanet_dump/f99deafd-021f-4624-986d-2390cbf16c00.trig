@@ -1,0 +1,57 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=65282> a ns1:MedicalCondition ;
+        ns1:alternateName "KWWH type II",
+            "Keratoderma with woolly hair type II",
+            "Woolly hair-palmoplantar hyperkeratosis-dilated cardiomyopathy syndrome",
+            "Woolly hair-palmoplantar keratoderma-dilated cardiomyopathy syndrome",
+            "Wooly hair-palmoplantar hyperkeratosis-dilated cardiomyopathy syndrome",
+            "Wooly hair-palmoplantar keratoderma-dilated cardiomyopathy syndrome" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "605676" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "615821" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "605676" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:65282" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:65282" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "I42.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C1854063" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "5595" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "615821" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "5595" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "I42.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C1854063" ;
+                ns1:codingSystem "UMLS" ] ;
+        ns1:description "A syndrome that is characterized by woolly hair, palmoplantar keratoderma and dilated cardiomyopathy principally affecting the left ventricle." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "65282" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Carvajal syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Carvajal syndrome" ] .
+}
+

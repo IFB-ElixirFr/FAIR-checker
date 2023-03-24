@@ -1,0 +1,51 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=93601> a ns1:MedicalCondition ;
+        ns1:alternateName "XDH deficiency",
+            "XO deficiency",
+            "XOR deficiency",
+            "Xanthine dehydrogenase deficiency",
+            "Xanthine oxidase deficiency",
+            "Xanthine oxidoreductase deficiency" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "C0268118" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "278300" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "5621" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E79.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "278300" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:93601" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E79.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "5621" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0268118" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:93601" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "Type I xanthinuria, a type of classical xanthinuria (see this term), is a rare autosomal recessive disorder of purine metabolism (see this term) characterized by the isolated deficiency of xanthine dehydrogenase, causing hyperxanthinemia with low or absent uric acid and xanthinuria, leading to urolithiasis, hematuria, renal colic and urinary tract infections, while some patients are asymptomatic and others suffer from kidney failure. Less common manifestations include arthropathy, myopathy and duodenal ulcer." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "93601" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Xanthinuria type I" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Xanthinuria type I" ] .
+}
+

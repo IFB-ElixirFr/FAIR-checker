@@ -1,0 +1,27 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=101932> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "Q23.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q23.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:101932" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:101932" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A group of rare congenital mitral malformations characterized by anomalies of the chordae tendineae and papillary muscles. This comprises anomalous mitral arcade or hammock valve (due to thickened and extremely short chordae tendineae), straddling valve (abnormal attachment of the chordae tendineae to both ventricles), and parachute valve (unifocal attachment of the chordae tendineae to a single or fused papillary muscle), resulting in an incompetent valve with regurgitation and/or stenosis and impaired left ventricular inflow, potentially leading to heart failure. In most cases, other cardiac anomalies are found in association." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "101932" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Anomaly of the mitral subvalvular apparatus" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Anomaly of the mitral subvalvular apparatus" ] .
+}
+

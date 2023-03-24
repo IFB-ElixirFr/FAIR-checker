@@ -1,0 +1,41 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=169808> a ns1:MedicalCondition ;
+        ns1:alternateName "Mild congenital F8 deficiency",
+            "Mild congenital factor VIII deficiency" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "C0272324" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D66" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "306700" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "306700" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D66" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0272324" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:169808" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:169808" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A mild form of hemophilia A characterized by a small deficiency of factor VIII (biological activity between 5 and 40 IU/dL) leading to abnormal bleeding as a result of minor injuries or following surgery or tooth extraction. Spontaneous hemorrhages do not occur. Patients may be also labeled as having mild hemophilia A if they have a FVIII >40 IU/dL and a DNA change in the F8 gene and one of the following: (i) a family member with the same DNA change and FVIII of <40 IU/dL, and the DNA change is found in <1% of the population; and (ii) the international databases list the DNA change as being associated with hemophilia A and <40 IU/dL FVIII. The condition may affect males and female carriers of disease-causing mutations." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "169808" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Mild hemophilia A" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Mild hemophilia A" ] .
+}
+

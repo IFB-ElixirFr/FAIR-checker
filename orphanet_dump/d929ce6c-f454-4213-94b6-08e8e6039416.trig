@@ -1,0 +1,30 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=96109> a ns1:MedicalCondition ;
+        ns1:alternateName "Distal duplication 22q",
+            "Telomeric duplication 22q",
+            "Trisomy 22qter" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "Q92.3" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q92.3" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:96109" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:96109" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "Distal trisomy 22q is a rare chromosomal anomaly syndrome, resulting from the partial duplication of the long arm of chromosome 22, with variable phenotype principally characterized by varying degrees of intellectual disabilty and developmental delay, pre- and postnatal growth deficiency, hypotonia, and craniofacial dysmorphism (incl. microcephaly, hypertelorism, narrow and upslanted palpebral fissures, epicanthic folds, low-set dysplastic ears, broad and depressed nasal bridge, cleft lip an/or palate, long philtrum, retro/micrognathia). Congenital heart defects, as well as cerebral, skeletal, renal and genital anomalies, have also been reported." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "96109" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Distal trisomy 22q" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Distal trisomy 22q" ] .
+}
+

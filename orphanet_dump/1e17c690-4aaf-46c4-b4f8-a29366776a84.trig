@@ -1,0 +1,37 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=89842> a ns1:MedicalCondition ;
+        ns1:alternateName "Autosomal recessive dystrophic epidermolysis bullosa generalisata mitis",
+            "Autosomal recessive dystrophic epidermolysis bullosa, non-Hallopeau-Siemens type",
+            "Generalized RDEB, intermediate form",
+            "RDEB, non-Hallopeau-Siemens type" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "12794" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q81.2" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q81.2" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:89842" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:89842" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "12794" ;
+                ns1:codingSystem "GARD" ] ;
+        ns1:description "A rare dystrophic epidermolysis bullosa (DEB) characterized by generalized cutaneous and mucosal blistering that is not associated with severe deformities." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "89842" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Autosomal recessive generalized dystrophic epidermolysis bullosa, intermediate form" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Autosomal recessive generalized dystrophic epidermolysis bullosa, intermediate form" ] .
+}
+

@@ -1,0 +1,34 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=369867> a ns1:MedicalCondition ;
+        ns1:alternateName "RI-CMT type C" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "G60.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:369867" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "615376" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G60.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:369867" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "615376" ;
+                ns1:codingSystem "OMIM" ] ;
+        ns1:description "A rare subtype of autosomal recessive intermediate Charcot-Marie-Tooth (CMT) disease characterized by childhood to adulthood-onset of progressive, moderate to severe, predominantly distal, mostly lower limb muscle weakness and atrophy, foot deformities (including pes cavus and hammer toes), absent deep tendon reflexes and distal sensory loss associated with decreased motor and sensory nerve conduction velocities and features of both demyelinating and axonal neuropathy on sural nerve biopsy." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "369867" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Autosomal recessive intermediate Charcot-Marie-Tooth disease type C" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Autosomal recessive intermediate Charcot-Marie-Tooth disease type C" ] .
+}
+

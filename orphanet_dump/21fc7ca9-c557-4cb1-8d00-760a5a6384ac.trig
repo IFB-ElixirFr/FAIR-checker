@@ -1,0 +1,28 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=100035> a ns1:MedicalCondition ;
+        ns1:alternateName "Hepatic solitary necrotic nodule" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:100035" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D13.4" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:100035" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D13.4" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "A rare nonmalignant hepatic lesion characterized by a mass with a completely necrotic core often partially calcified, surrounded by a dense hyalinized fibrous capsule containing elastin fibers. Patients are usually asymptomatic but some may suffer from intermittent abdominal pain or discomfort." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "100035" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Solitary necrotic nodule of the liver" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Solitary necrotic nodule of the liver" ] .
+}
+

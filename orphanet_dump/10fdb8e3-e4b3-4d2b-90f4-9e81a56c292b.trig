@@ -1,0 +1,38 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=295000> a ns1:MedicalCondition ;
+        ns1:alternateName "Amniotic band sequence",
+            "Amniotic band syndrome",
+            "Congenital ring constrictions",
+            "Constriction band syndrome",
+            "Streeter dysplasia" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "217100" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q79.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "217100" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:295000" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:295000" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q79.8" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "Constriction rings syndrome is a congenital limb malformation disorder with an extremely variable clinical presentation characterized by the presence of partial to complete, congenital, fibrous, circumferential, constriction bands/rings on any part of the body, although a particular predilection for the upper or lower extremities is seen. Phenotypes range from only a mild skin indentation to complete amputation of parts of the fetus (e.g. digits, distal limb). Compression from the rings may lead to edema, skeletal anomalies (e.g. fractures, foot deformities) and, infrequently, neural compromise." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "295000" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Constriction rings syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Constriction rings syndrome" ] .
+}
+

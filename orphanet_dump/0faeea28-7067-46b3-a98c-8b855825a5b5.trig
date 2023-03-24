@@ -1,0 +1,28 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=99095> a ns1:MedicalCondition ;
+        ns1:alternateName "Left ventricular-to-right atrial communication" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "Q21.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q21.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:99095" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:99095" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare, congenital non-syndromic heart malformation characterized by an abnormal shunting between the left ventricle and right atrium. The clinical manifestation varies, depending on the volume of the shunt. Small congenital shunts are usually asymptomatic or associated with dyspnea and fever, whereas larger shunts often present with chest pain, fatigue, weakness, lower extremity edema, and sometimes heart failure and death. Other congenital heart anomalies may be associated." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "99095" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Congenital Gerbode defect" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Congenital Gerbode defect" ] .
+}
+

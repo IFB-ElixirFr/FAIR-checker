@@ -1,0 +1,27 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=86821> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "Q04.3" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:86821" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q04.3" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:86821" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "Lissencephaly type 3-familial fetal akinesia sequence syndrome is characterised by the association of microencephaly, agenesis of the corpus callosum, brainstem hypoplasia, cystic cerebellum and foetal akinesia sequence. Less than 10 cases have been described so far. The syndrome is transmitted as an autosomal recessive trait and may be an allelic variant of Neu-Laxova syndrome and lissencephaly type III with metacarpal bone dysplasia (see these terms)." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "86821" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Lissencephaly type 3-familial fetal akinesia sequence syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Lissencephaly type 3-familial fetal akinesia sequence syndrome" ] .
+}
+

@@ -1,0 +1,29 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=1692> a ns1:MedicalCondition ;
+        ns1:alternateName "Mosaic trisomy chromosome 1",
+            "Trisomy 1 mosaicism" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:1692" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q92.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:1692" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q92.1" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "A rare autosomal trisomy, characterized by reduced fetal movements and intrauterine growth retardation, low birth weight, and multiple congenital anomalies. The latter include, amongst others, facial dysmorphism (like hypertelorism, cleft lip/palate, micrognathia, low hairline, and small, low-set, and posteriorly rotated ears), head circumference below average, deformities of the hands (camptodactyly) and feet, marked hypertrichosis, and anomalies of the brain, heart, and lungs. Lethality appears to depend on the degree of mosaicism." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "1692" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Mosaic trisomy 1" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Mosaic trisomy 1" ] .
+}
+

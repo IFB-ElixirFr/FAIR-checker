@@ -1,0 +1,28 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=315311> a ns1:MedicalCondition ;
+        ns1:alternateName "Classic 21-OHD CAH, simple virilizing form" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:315311" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E25.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E25.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:315311" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A form of classical congenital adrenal hyperplasia due to 21-hydroxylase deficiency characterized by abnormal genital development with variable levels of virilization in females, and normal genitalia in males in association with glucocorticoid insufficiency with absence of salt-wasting, accelerated growth velocity and bone maturation, premature adrenarche and precocious puberty leading to reduced adult height. Females have a normal uterus and various degrees of abnormal vaginal development." ;
+        ns1:epidemiology "Prevalence : 1-9 / 100 000" ;
+        ns1:identifier "315311" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Classic congenital adrenal hyperplasia due to 21-hydroxylase deficiency, simple virilizing form" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Classic congenital adrenal hyperplasia due to 21-hydroxylase deficiency, simple virilizing form" ] .
+}
+

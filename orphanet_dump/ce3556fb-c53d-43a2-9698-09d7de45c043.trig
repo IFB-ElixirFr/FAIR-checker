@@ -1,0 +1,29 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=99094> a ns1:MedicalCondition ;
+        ns1:alternateName "VSD with aortic insufficiency",
+            "Ventricular septal defect with aortic insufficiency" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:99094" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:99094" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q21.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q21.0" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "Laubry-Pezzi syndrome is a rare, non-syndromic, congenital heart malformation characterized by the prolapse of an aortic valve cusp into a subjacent ventricular septal defect due to Venturi effect, resulting in aortic regurgitation. Patients typically present with symptoms of progressive aortic valve insufficiency, such as shortness of breath, heart palpitations, chest pain and exercise intolerance." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "99094" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Laubry-Pezzi syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Laubry-Pezzi syndrome" ] .
+}
+

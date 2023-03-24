@@ -1,0 +1,33 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=3188> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "4598" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q26.3" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:3188" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:3188" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "4598" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q26.3" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "A rare progressive and life-threatening anomaly of the great vessels characterized by narrowing and obstruction of one or more normally positioned pulmonary vein at their junction with the left atrium. Presentation is typically during early infancy with dyspnea, tachypnea, and repeated pulmonary infections. Eventually, when all pulmonary veins of one lung are affected, the disorder results in pulmonary hypertension (PH) and consecutive pulmonary arterial hypertension (PAH). It may manifest as an isolated lesion or associated with other cardiac defects such as congenital pulmonary venous return anomaly and septal defects." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "3188" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Congenital pulmonary veins atresia or stenosis" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Congenital pulmonary veins atresia or stenosis" ] .
+}
+

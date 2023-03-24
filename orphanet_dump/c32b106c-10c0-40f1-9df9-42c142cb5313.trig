@@ -1,0 +1,46 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=101082> a ns1:MedicalCondition ;
+        ns1:alternateName "CMT1B" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "118200" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0270912" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "1246" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:101082" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G60.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "1246" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "118200" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G60.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:101082" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0270912" ;
+                ns1:codingSystem "UMLS" ] ;
+        ns1:description "Charcot-Marie-Tooth disease type 1B (CMT1B) is a form of CMT1 (see this term), caused by mutations in the <i>MPZ</i> gene (1q22), that presents with the manifestations of peripheral neuropathy (distal muscle weakness and atrophy, foot deformities and sensory loss). The phenotype is variable depending on the particular mutation. Two distinct presentations have been described: (1) an early infantile onset severe phenotype with delayed walking and motor nerve conduction velocities (MNCV) <10 m/s, often referred to as Dejerine-Sottas syndrome (see this term), or (2) a much later onset phenotype (>age 40), with normal or mildly slowed MNCV and more frequent hearing loss and pupillary abnormalities. CMT1B can also cause the classical CMT phenotype in about 15% of total CMT1B cases." ;
+        ns1:epidemiology "Prevalence : 1-9 / 100 000" ;
+        ns1:identifier "101082" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Charcot-Marie-Tooth disease type 1B" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Charcot-Marie-Tooth disease type 1B" ] .
+}
+

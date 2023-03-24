@@ -1,0 +1,32 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=685> a ns1:MedicalCondition ;
+        ns1:alternateName "Familial spastic paraplegia",
+            "HSP",
+            "Hereditary spastic paraparesis",
+            "SPG",
+            "Strümpell-Lorrain disease" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "C0037773" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G11.4" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "6637" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:685" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10019903" ;
+                ns1:codingSystem "MedDRA" ] ;
+        ns1:description "A genetically and clinically heterogeneous group of slowly progressive neurological disorders which in the pure form is characterized by pyramidal signs (weakness, spasticity, brisk tendon reflexes, and extensor plantar responses) predominantly affecting the lower limbs and with possible association of sphincter disturbances and deep sensory loss; and in the complex form by the addition of variable neurological or non-neurological features." ;
+        ns1:epidemiology "Prevalence : 1-9 / 100 000" ;
+        ns1:identifier "685" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Hereditary spastic paraplegia" ] .
+}
+

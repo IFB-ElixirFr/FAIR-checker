@@ -1,0 +1,33 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=140933> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "L90.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:140933" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C1274753" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C1274753" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "L90.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:140933" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "Linear atrophoderma of Moulin (LAM) is characterized by mildly atrophic and hyperpigmented band-like lesions that follow the lines of Blaschko on the trunk or limbs. Since its initial description in 1992, less than 30 cases have been reported in the literature. Onset occurs during childhood or adolescence and the disease is non-progressive. There is no prior inflammation or subsequent scleroderma. The aetiology is unknown but as LAM follows the lines of Blaschko it has been suggested that the disease is caused by mosaicism of a predisposing gene." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "140933" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Linear atrophoderma of Moulin" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Linear atrophoderma of Moulin" ] .
+}
+

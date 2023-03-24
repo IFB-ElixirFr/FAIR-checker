@@ -1,0 +1,40 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=284232> a ns1:MedicalCondition ;
+        ns1:alternateName "CMT2O" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "G60.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "12434" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:284232" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "614228" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:284232" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G60.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "614228" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "12434" ;
+                ns1:codingSystem "GARD" ] ;
+        ns1:description "A rare, genetic, subtype of autosomal dominant Charcot-Marie-Tooth disease type 2 characterized by early childhood-onset of slowly progressive, predominantly distal, lower limb muscle weakness and atrophy, delayed motor development, variable sensory loss, and pes cavus in the presence of normal or near-normal nerve conduction velocities. Additional variable features may include proximal muscle weakness, abnormal gait, arthrogryposis, scoliosis, cognitive impairment, and spasticity." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "284232" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Autosomal dominant Charcot-Marie-Tooth disease type 2O" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Autosomal dominant Charcot-Marie-Tooth disease type 2O" ] .
+}
+

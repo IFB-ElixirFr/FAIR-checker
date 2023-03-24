@@ -1,0 +1,22 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=1172> a ns1:MedicalCondition ;
+        ns1:alternateName "ARCA" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:1172" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:1172" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A heterogeneous group of rare neurological disorders involving both the central and peripheral nervous system (and in some cases other systems and organs), and characterized by degeneration or abnormal development of the cerebellum and spinal cord and, in most cases, early onset occurring before the age of 20 years." ;
+        ns1:epidemiology "Prevalence : 1-9 / 100 000" ;
+        ns1:identifier "1172" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Autosomal recessive cerebellar ataxia" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Autosomal recessive cerebellar ataxia" ] .
+}
+

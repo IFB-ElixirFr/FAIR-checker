@@ -1,0 +1,27 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=280068> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:280068" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E83.5" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E83.5" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:280068" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare, life-threatening, non-inflammatory vasculopathy characterized by diffuse precipitation of calcium in viscera (mainly in the heart or lungs, but also in the stomach or kidneys) leading to fibrosis and thrombosis, which eventually causes tissue necrosis. Depending on the affected organ, patients may present with dyspnea, cough and respiratory failure or acute heart block and subsequent sudden cardiac death. The disease predominantly affects patients with end-stage kidney disease (ESKD) on dialysis." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "280068" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Visceral calciphylaxis" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Visceral calciphylaxis" ] .
+}
+

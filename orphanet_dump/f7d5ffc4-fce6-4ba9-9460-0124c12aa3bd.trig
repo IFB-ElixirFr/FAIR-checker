@@ -1,0 +1,30 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=99111> a ns1:MedicalCondition ;
+        ns1:alternateName "Persistent left SVC connecting to left-sided atrium",
+            "Persistent left SVC connecting to the roof of left-sided atrium",
+            "Persistent left superior vena cava connecting to left-sided atrium" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "Q26.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q26.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:99111" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:99111" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare congenital anomaly of superior vena cava characterized by a persistent left superior vena cava that drains into the left atrium through a direct connection to its roof, creating a right-to-left shunt. Patients are at risk of developing chronic hypoxia, decreased exercise tolerance, cyanosis, embolic cerebrovascular events, and heart failure." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "99111" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Persistent left superior vena cava connecting to the roof of left-sided atrium" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Persistent left superior vena cava connecting to the roof of left-sided atrium" ] .
+}
+

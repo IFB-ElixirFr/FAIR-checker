@@ -1,0 +1,40 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=168960> a ns1:MedicalCondition ;
+        ns1:alternateName "RAEB-t" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "10038271" ;
+                ns1:codingSystem "MedDRA" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0280028" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10038271" ;
+                ns1:codingSystem "MedDRA" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0280028" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:168960" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D46.3" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D46.3" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:168960" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare hematologic disease characterized by the presence of 20-29% blasts in the bone marrow, presence of 5-29% blasts in the peripheral blood, and/or presence of Auer rods. Patients show relatively stable peripheral blood counts for weeks or months, with specific cytogenetic and molecular genetic characteristics constituting important prognostic factors." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "168960" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Refractory anemia with excess blasts in transformation" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Refractory anemia with excess blasts in transformation" ] .
+}
+

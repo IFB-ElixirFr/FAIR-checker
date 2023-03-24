@@ -1,0 +1,40 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=157215> a ns1:MedicalCondition ;
+        ns1:alternateName "HHRH" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:157215" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C1853271" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "241530" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "241530" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E83.3" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E83.3" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C1853271" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:157215" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare hereditary disorder of renal phosphate wasting characterized by hypophosphatemia and hypercalciuria associated with rickets and/or osteomalacia. Other features include slow growth, short stature, skeletal deformities, muscle weakness and bone pain that are associated with normal or elevated plasma levels of calcitriol and hyperphosphaturia." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "157215" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Hereditary hypophosphatemic rickets with hypercalciuria" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Hereditary hypophosphatemic rickets with hypercalciuria" ] .
+}
+

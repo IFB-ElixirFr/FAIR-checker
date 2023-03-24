@@ -1,0 +1,27 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=269221> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "Q04.3" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q04.3" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:269221" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:269221" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "Isolated bilateral hemispheric cerebellar hypoplasia is a rare cerebellar malformation characterized by hypoplasia of both cerebellar hemispheres with no other cerebellar/cerebral anomaly or other associated clinical feature. Affected patients present with mild hypotonia with motor delay, mild cognitive impairment, language delay, visuospatial and verbal memory deficits, dysdiadochokinesis, intentional tremor, and possible presence of emotional fragility and mild depression." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "269221" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Isolated bilateral hemispheric cerebellar hypoplasia" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Isolated bilateral hemispheric cerebellar hypoplasia" ] .
+}
+

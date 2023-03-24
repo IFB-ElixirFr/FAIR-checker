@@ -1,0 +1,37 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=536532> a ns1:MedicalCondition ;
+        ns1:alternateName "AEBP1-related EDS",
+            "AEBP1-related Ehlers-Danlos syndrome",
+            "Classical-like EDS type 2",
+            "clEDS type 2" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "618000" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "618000" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q79.6" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:536532" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q79.6" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:536532" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare systemic disease characterized by generalized joint hypermobility with recurrent joint dislocations, redundant and hyperextensible skin with poor wound healing and abnormal scarring, easy bruising, and osteopenia/osteoporosis. Additional manifestations include hypotonia, delayed motor development, foot deformities, prominent superficial veins in the chest region, vascular complications (like mitral valve prolapse and aortic root dilation), hernias, dental anomalies, scoliosis, and facial dysmorphisms (like high palate, micrognathia, narrow palate). Mode of inheritance is autosomal recessive." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "536532" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Classical-like Ehlers-Danlos syndrome type 2" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Classical-like Ehlers-Danlos syndrome type 2" ] .
+}
+

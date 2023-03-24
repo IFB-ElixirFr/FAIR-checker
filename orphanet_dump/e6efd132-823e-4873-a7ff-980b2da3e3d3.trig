@@ -1,0 +1,34 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=141184> a ns1:MedicalCondition ;
+        ns1:alternateName "RICH" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "C1275421" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:141184" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:141184" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C1275421" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D18.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D18.0" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "Rapidly involuting congenital hemangiomas (RICH) are a distinctive type of congenital hemangioma that are fully formed <i>in utero</i> and differ from non-involuting congenital haemangiomas (NICH; see this term) mainly because they undergo rapid postnatal involution." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "141184" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Rapidly involuting congenital hemangioma" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Rapidly involuting congenital hemangioma" ] .
+}
+

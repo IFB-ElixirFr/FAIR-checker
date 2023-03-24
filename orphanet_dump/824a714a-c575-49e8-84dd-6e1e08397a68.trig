@@ -1,0 +1,24 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=329813> a ns1:MedicalCondition ;
+        ns1:alternateName "Androgenetic/biparental mosaicism",
+            "Genome-wide paternal uniparental disomy mosaicism",
+            "Mosaic genome-wide paternal UPD" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:329813" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:329813" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare chromosomal anomaly characterized by a combination of paternal uniparental and biparental cell lineages, leading to variable clinical presentation that predominantly includes features of Beckwith-Wiedemann syndrome and increased risk of various tumors. In addition, features of Angelman syndrome and transient neonatal diabetes might be expected." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "329813" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Mosaic genome-wide paternal uniparental disomy" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Mosaic genome-wide paternal uniparental disomy" ] .
+}
+

@@ -1,0 +1,27 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=166424> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "G40.5" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G40.5" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:166424" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:166424" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "Thinking seizures is a rare neurologic disease characterized by seizures induced by specific cognitive tasks, such as calculation or solving arithmetic problems (e.g. Sudoku puzzle), playing thinking games (e.g. Rubik's cube, chess, cards), thinking, making decisions and abstract reasoning. Idiopathic generalized seizures are mainly involved, but partial epilepsies may, in rare cases, be observed." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "166424" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Thinking seizures" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Thinking seizures" ] .
+}
+

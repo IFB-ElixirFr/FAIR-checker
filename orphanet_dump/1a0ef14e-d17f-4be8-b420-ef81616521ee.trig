@@ -1,0 +1,29 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=563589> a ns1:MedicalCondition ;
+        ns1:alternateName "Autoantibody-negative autoimmune hepatitis",
+            "Seronegative AIH" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "K75.4" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:563589" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "K75.4" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:563589" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A form of autoimmune hepatitis characterized by the features of classic autoimmune hepatitis (i. e. clinical presentation as acute or chronic cryptogenic hepatitis, interface hepatitis on histological examination, elevated serum aspartate aminotransferase and alanine aminotransferase levels, hypergammaglobulinemia/elevated immunoglobulin G, therapeutic response to corticosteroids) in the absence of serum autoantibodies. Clinical manifestations include fatigue, malaise, arthralgia, jaundice, at later stages also signs of advanced chronic liver disease, such as spider nevi, caput medusae, splenomegaly, ascites, and palmar erythema. Presence of concurrent autoimmune diseases is frequently observed." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "563589" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Seronegative autoimmune hepatitis" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Seronegative autoimmune hepatitis" ] .
+}
+

@@ -1,0 +1,27 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=85327> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:85327" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:85327" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q87.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q87.8" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "X-linked intellectual disability-acromegaly-hyperactivity syndrome is characterised by severe intellectual deficit, acromegaly and hyperactivity. The syndrome has been described in two half-brothers. Dysarthria, aggressive behaviour, a characteristic facies (an acromegalic and triangular face with a long nose) and macroorchidism were also present. The mother displayed moderate intellectual deficit and milder facial anomalies. Central nervous system anomalies were identified in the two boys: subarachnoid cysts and hyperdensity in the pontine region." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "85327" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "X-linked intellectual disability-acromegaly-hyperactivity syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "X-linked intellectual disability-acromegaly-hyperactivity syndrome" ] .
+}
+

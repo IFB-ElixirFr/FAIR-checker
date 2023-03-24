@@ -1,0 +1,45 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=217330> a ns1:MedicalCondition ;
+        ns1:alternateName "ADTKD-REN",
+            "FJHN type 2",
+            "Familial juvenile hyperuricemic nephropathy type 2",
+            "REN-associated FJHN",
+            "REN-associated familial juvenile hyperuricemic nephropathy",
+            "REN-associated kidney disease" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "C2751310" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q61.5" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:217330" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "613092" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C2751310" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q61.5" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:217330" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "613092" ;
+                ns1:codingSystem "OMIM" ] ;
+        ns1:description "A rare autosomal dominant tubulointerstitial kidney disease (ADTKD) of childhood due to <i>REN</i> mutations and characterized by early onset hypoproliferative anemia, hyperuricemia, gout, and slowly progressive tubulointerstitial kidney disease." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "217330" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "REN-related autosomal dominant tubulointerstitial kidney disease" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "REN-related autosomal dominant tubulointerstitial kidney disease" ] .
+}
+

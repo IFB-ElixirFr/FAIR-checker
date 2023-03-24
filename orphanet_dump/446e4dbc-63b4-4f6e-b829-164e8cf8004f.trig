@@ -1,0 +1,27 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=209973> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "G81.9" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G81.9" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:209973" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:209973" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "Benign nocturnal alternating hemiplegia of childhood is a rare neurologic disease characterized by recurrent attacks of nocturnal screaming or crying followed or accompanied by unilateral or sometimes bilateral hemiplegia. Disorder is not associated with neurological or developmental impairments but may be associated with mild behavioral abnormalities." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "209973" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Benign nocturnal alternating hemiplegia of childhood" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Benign nocturnal alternating hemiplegia of childhood" ] .
+}
+

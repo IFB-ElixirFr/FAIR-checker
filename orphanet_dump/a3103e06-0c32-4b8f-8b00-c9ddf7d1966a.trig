@@ -1,0 +1,27 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=586130> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:586130" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "A81.9" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "A81.9" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:586130" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare sporadic human prion disease characterized by adult onset of progredient neurodegeneration presenting as a combination of psychiatric, sleep, and oculomotor disturbances, with development of progressive cognitive impairment (the predominantly affected cognitive domains being memory, temporal and/or spatial orientation, language, executive functions, and attention), postural instability, and sometimes additional motor abnormalities and autonomic hyperactivity, in the course of the disease. Bilateral thalamic hypometabolism on FDG-PET imaging and positive prion seeding activity in the cerebrospinal fluid are present in many cases. The disease is fatal within typically two to three years." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "586130" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Sporadic fatal insomnia" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Sporadic fatal insomnia" ] .
+}
+

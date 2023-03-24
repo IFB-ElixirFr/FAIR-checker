@@ -1,0 +1,30 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=289347> a ns1:MedicalCondition ;
+        ns1:alternateName "IDH",
+            "Infective dermatitis associated with human T-lymphotropic virus type 1",
+            "Infective dermatitis associated with human T-lymphotropic virus type I" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:289347" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "L30.3" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "L30.3" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:289347" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "Infective dermatitis associated with HTLV-1 is a rare and severe chronic disease characterized by recurrent chronic eczema (with erythematous, scaly and crusted lesions) mainly affecting seborrheic areas (e.g. scalp, forehead, eyelids, paranasal and periauricular skin, neck, axillae, and groin), a generalized fine papular rash, chronic nasal discharge with crusting of the anterior nares, and non-virulent <i>Staphylococcus aureus</i> or beta-hemolytic <i>Streptococcus</i> infections, thought to be a result of HTLV-1-induced immunosuppression. Lymphadenopathy, anemia, mild to moderate pruritus and increased incidence of other infections (e.g. crusted scabies) have also been reported in some patients. Patients may subsequently develop other HTLV-1 associated conditions such as adult T-cell leukemia/lymphoma and tropical spastic paraparesis (see these terms)." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "289347" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Infective dermatitis associated with HTLV-1" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Infective dermatitis associated with HTLV-1" ] .
+}
+

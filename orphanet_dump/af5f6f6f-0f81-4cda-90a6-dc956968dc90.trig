@@ -1,0 +1,40 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=228119> a ns1:MedicalCondition ;
+        ns1:alternateName "Fusarium infection" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "10051919" ;
+                ns1:codingSystem "MedDRA" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "B48.7" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "B48.7" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:228119" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0276758" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:228119" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10051919" ;
+                ns1:codingSystem "MedDRA" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0276758" ;
+                ns1:codingSystem "UMLS" ] ;
+        ns1:description "Fusariosis describes a superficial, locally invasive, disseminated infection with the pathogenic fungus species, <i>Fusarium</i>, often found in soil and water, which is mainly transmitted to humans through traumatic inoculation and that manifests with keratitis, onychomycosis and less frequently peritonitis and cellulitis. In the immunocompromised, disseminated fusariosis is more common and it manifests with refractory fever, skin lesions (ecthyma-like, target, and multiple subcutaneous nodules), severe myalgias and sino-pulmonary infections." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "228119" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Fusariosis" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Fusariosis" ] .
+}
+

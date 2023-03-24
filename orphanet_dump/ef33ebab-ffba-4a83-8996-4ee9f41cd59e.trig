@@ -1,0 +1,35 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=402823> a ns1:MedicalCondition ;
+        ns1:alternateName "HDV",
+            "Hepatitis D virus" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "C0011226" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0011226" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "B17.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:402823" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "B17.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:402823" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "Hepatitis delta is a rare hepatic disease characterized by variable degrees of acute hepatitis resulting from infection with the hepatitis delta virus. Occasionally it may present a benign course, but most frequently it manifests with severe liver disease that may include fulminant liver failure, hepatic decompensation and rapid progression to cirrhosis. All patients present concomitant hepatitis B virus infection and an increased risk of developing hepatocellular carcinoma has been reported." ;
+        ns1:epidemiology "Prevalence : 1-5 / 10 000" ;
+        ns1:identifier "402823" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Hepatitis delta" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Hepatitis delta" ] .
+}
+

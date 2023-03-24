@@ -1,0 +1,29 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=99852> a ns1:MedicalCondition ;
+        ns1:alternateName "Progressive encephalopathy with severe infantile anorexia",
+            "Reunion island-anorexia-vomiting which is irrepressible-neurological signs syndrome" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "E75.2" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E75.2" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:99852" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:99852" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "Ravine syndrome is an extremely rare genetic neurological disorder, reported in a small number of patients in a specific community on Reunion Island (Ravine region), characterized by infantile anorexia with irrepressible and repeated vomiting, acute brainstem dysfunction, severe failure to thrive, and progressive encephalopathy with MRI showing vanishing of medulla oblongata and cerebellar white matter and severe atrophy of pons, along with supra-tentorial periventricular white-matter hyperintensities and basal ganglia anomalies." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "99852" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Ravine syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Ravine syndrome" ] .
+}
+

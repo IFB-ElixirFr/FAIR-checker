@@ -1,0 +1,25 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=94148> a ns1:MedicalCondition ;
+        ns1:alternateName "ADCA3",
+            "ADCAIII",
+            "Autosomal dominant cerebellar ataxia type 3",
+            "Pure cerebellar syndrome-mild pyramidal signs syndrome" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:94148" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:94148" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A group of neurodegenerative disorders characterized by mostly pure cerebellar syndromes with occasional non-cerebellar signs (e.g. pyramidal signs, peripheral neuropathy, writer's cramp) and includes spinocerebellar ataxia (SCA) type 5 (SCA5), SCA6, SCA11, SCA26, SCA30, and SCA31." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "94148" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Autosomal dominant cerebellar ataxia type III" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Autosomal dominant cerebellar ataxia type III" ] .
+}
+

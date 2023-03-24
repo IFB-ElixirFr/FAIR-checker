@@ -1,0 +1,32 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=79093> a ns1:MedicalCondition ;
+        ns1:alternateName "Angiodysgenetic necrotizing myelopathy",
+            "Familial osteosclerosis with abnormalities of the nervous system and meninges",
+            "Subacute angiohypertrophic myelomalacia",
+            "Subacute ascending necrotizing myelitis",
+            "Subacute necrotizing myelitis" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "G37.4" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:79093" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G37.4" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:79093" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "Foix-Alajouanine syndrome, also called subacute ascending necrotising myelitis, results from chronic congestion of the extrinsic pial veins of the spinal cord and of the intrinsic subpial network. It is characterised by progressive ascending deficit over a period of several months or years." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "79093" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Foix-Alajouanine syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Foix-Alajouanine syndrome" ] .
+}
+

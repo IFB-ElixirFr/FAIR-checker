@@ -1,0 +1,38 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=1456> a ns1:MedicalCondition ;
+        ns1:alternateName "Coarctation of the abdominal aorta",
+            "Mid-aortic dysplastic syndrome",
+            "Mid-aortic syndrome",
+            "Midaortic syndrome",
+            "Middle aortic syndrome" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:1456" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q25.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q25.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:1456" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C3805239" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C3805239" ;
+                ns1:codingSystem "UMLS" ] ;
+        ns1:description "A rare vascular anomaly characterized by the segmental narrowing of the abdominal and/or distal descending thoracic aorta, with varying involvement of the visceral and renal arteries, that commonly presents in children and young adults with early onset and refractory hypertension, abdominal angina, and lower-limb claudication, that can lead to life-threatening complications associated with severe hypertension (i.e. myocardial infarction, heart failure, aortic rupture, renal insufficiency and intracranial hemorrhage). It may be due to various congenital or acquired causes, but it is most often secondary to an acquired inflammatory disease (i.e. Takayasu arteritis or giant cell arteritis)." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "1456" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Atypical coarctation of aorta" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Atypical coarctation of aorta" ] .
+}
+

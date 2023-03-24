@@ -1,0 +1,40 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=284388> a ns1:MedicalCondition ;
+        ns1:alternateName "RCVS" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "I67.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:284388" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "12768" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "12768" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:284388" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C3544214" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C3544214" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "I67.8" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "A rare cerebrovascular disorder characterized by severe headaches with or without focal neurological deficits or seizures, and a reversible segmental and multifocal vasoconstriction of cerebral arteries. It may occur spontaneously or be provoked by various precipitating factors, the most common being postpartum and exposure to various vasoactive substances such as illicit drugs and selective serotonin-reuptake inhibitors. The major complication is ischemic or hemorrhagic stroke." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "284388" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Reversible cerebral vasoconstriction syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Reversible cerebral vasoconstriction syndrome" ] .
+}
+

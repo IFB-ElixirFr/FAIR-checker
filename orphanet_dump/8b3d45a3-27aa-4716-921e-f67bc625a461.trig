@@ -1,0 +1,48 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=585> a ns1:MedicalCondition ;
+        ns1:alternateName "Juvenile sulfatidosis, Austin type",
+            "MSD",
+            "Mucosulfatidosis" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "C0268263" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "5061" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:585" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0268263" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:585" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E75.2" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "5061" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E75.2" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "272200" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "272200" ;
+                ns1:codingSystem "OMIM" ] ;
+        ns1:description "Multiple sulfatase deficiency (MSD) is a very rare and fatal lysosomal storage disease characterized by a clinical phenotype that combines the features of different sulfatase deficiencies (whether lysosomal or not) that can have neonatal (most severe), infantile (most common) and juvenile (rare) presentations with manifestations including hypotonia, coarse facial features, mild deafness, skeletal anomalies, ichthyosis, hepatomegaly, developmental delay, progressive neurologic deterioration and hydrocephalus." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "585" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Multiple sulfatase deficiency" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Multiple sulfatase deficiency" ] .
+}
+

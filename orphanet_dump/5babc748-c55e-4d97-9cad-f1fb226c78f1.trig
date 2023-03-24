@@ -1,0 +1,30 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=54247> a ns1:MedicalCondition ;
+        ns1:alternateName "Benson syndrome",
+            "Biparietal Alzheimer disease",
+            "PCA" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:54247" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G31.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G31.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:54247" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare neurologic disease characterized by impairment of higher visual processing skills and other posterior cortical functions without any evidence of ocular abnormalities, relatively intact memory and language in the early stages, and atrophy of posterior brain regions." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "54247" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Posterior cortical atrophy" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Posterior cortical atrophy" ] .
+}
+

@@ -1,0 +1,34 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=477749> a ns1:MedicalCondition ;
+        ns1:alternateName "PADMAL" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "618564" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "I67.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "618564" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:477749" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "I67.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:477749" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare genetic cerebral small vessel disease characterized by recurrent ischemic strokes, often with a predilection for the pons, with typical onset in the fourth or fifth decade of life. Patients present progressive cognitive and motor impairment with pyramidal, bulbar, and cerebellar symptoms, among others. Brain imaging shows multiple lacunar infarcts, typically with involvement of the pons, as well as variable leukoencephalopathy of the cerebral hemispheres." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "477749" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Pontine autosomal dominant microangiopathy with leukoencephalopathy" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Pontine autosomal dominant microangiopathy with leukoencephalopathy" ] .
+}
+

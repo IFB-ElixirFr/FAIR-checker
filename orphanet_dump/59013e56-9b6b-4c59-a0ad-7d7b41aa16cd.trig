@@ -1,0 +1,29 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=95496> a ns1:MedicalCondition ;
+        ns1:alternateName "Ectopic neurohypophysis",
+            "PSIS" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "E23.6" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:95496" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E23.6" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:95496" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "Pituitary stalk interruption syndrome (PSIS) is a congenital abnormality of the pituitary that is responsible for pituitary deficiency and is usually characterized by the triad of a very thin or interrupted pituitary stalk, an ectopic (or absent) posterior pituitary (EPP) and hypoplasia or aplasia of the anterior pituitary visible on MRI. In some patients the abnormality may be limited to EPP (also called ectopic neurohypophysis) or to an interrupted pituitary stalk." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "95496" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Pituitary stalk interruption syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Pituitary stalk interruption syndrome" ] .
+}
+

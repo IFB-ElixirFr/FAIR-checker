@@ -1,0 +1,42 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=79086> a ns1:MedicalCondition ;
+        ns1:alternateName "Acquired lipoatrophic diabetes",
+            "Lawrence syndrome",
+            "Lawrence-Seip syndrome" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "12603" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0271693" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0271693" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:79086" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "12603" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E88.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E88.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:79086" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare lipodystrophic syndrome characterized by loss of adipose tissue, and is a syndrome of insulin resistance that leads to increased cardiovascular risk. Acquired generalized lipodystrophy is related to a selective loss of subcutaneous adipose tissue occurring exclusively at the extremities (face, legs, arms, palms and sometimes soles)." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "79086" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Acquired generalized lipodystrophy" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Acquired generalized lipodystrophy" ] .
+}
+

@@ -1,0 +1,33 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=331190> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "613860" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D84.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "613860" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D84.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:331190" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:331190" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "Immunodeficiency due to ficolin3 deficiency is a rare, genetic, immunodeficiency due to a complement cascade protein anomaly characterized by low or undetectable serum ficolin3 levels, susceptibility to infections, and possibly autoimmunity. The presentation is variable, from perinatal necrotizing enterocolitis and recurrent skin infections with <i>Staphylococcus aureus</i> to childhood-onset recurrent pulmonary infections leading to brain abscesses and pulmonary fibrosis, to membranous nephropathy. In some patients, clinical consequences of ficolin3 deficiency were not clear." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "331190" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Immunodeficiency due to ficolin3 deficiency" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Immunodeficiency due to ficolin3 deficiency" ] .
+}
+

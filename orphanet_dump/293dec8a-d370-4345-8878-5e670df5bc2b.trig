@@ -1,0 +1,52 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=79332> a ns1:MedicalCondition ;
+        ns1:alternateName "Beta-1,4-galactosyltransferase deficiency",
+            "CDG syndrome type IId",
+            "CDG-IId",
+            "CDG2D",
+            "Carbohydrate deficient glycoprotein syndrome type IId",
+            "Congenital disorder of glycosylation type 2d",
+            "Congenital disorder of glycosylation type IId" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "E77.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "9841" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "9841" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C2931009" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "607091" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:79332" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E77.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "607091" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:79332" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C2931009" ;
+                ns1:codingSystem "UMLS" ] ;
+        ns1:description "B4GALT1-CDG is a congenital disorder of glycosylation characterised by macrocephaly due to Dandy-Walker malformation, hydrocephaly, hypotonia, myopathy and coagulation anomalies. To date, only one case has been reported. The syndrome is associated with mutations in the <i>GALT1</i> gene (localised to region q13 of chromosome 9) leading to a deficiency in the Golgi apparatus enzyme beta-1,4-galactosyl transferase." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "79332" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "B4GALT1-CDG" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "B4GALT1-CDG" ] .
+}
+

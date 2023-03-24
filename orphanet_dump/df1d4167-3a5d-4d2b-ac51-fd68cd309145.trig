@@ -1,0 +1,30 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=314621> a ns1:MedicalCondition ;
+        ns1:alternateName "DPG-plus syndrome",
+            "Duplication of the pituitary gland-plus syndrome",
+            "Hypophyseal duplication" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "Q89.2" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:314621" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:314621" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q89.2" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "Duplication of the pituitary gland is a rare midline cerebral malformation disorder characterized by duplicated pituitary stalks and/or glands within duplicated sella. Patients may present various degrees of facial dysmorphism and endocrine abnormalities, including precocious puberty, hypogonadism, hypothyroidism and/or hyperprolactinemia, as well as associated congenital anomalies, such as clift lip/palate, bifid nasal bridge/tongue/uvula, hypothalamic enlargement with or without hamartoma, nasopharyngeal tumors, corpus callosum agenesis/hypoplasia, basilar artery duplication, and/or vertebral defects (in particular, duplication of the odontoid process)." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "314621" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Duplication of the pituitary gland" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Duplication of the pituitary gland" ] .
+}
+

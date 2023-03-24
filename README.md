@@ -1,3 +1,5 @@
+# Documentation Scrapper CMD Tool - Fair checker
+
 [![Actions Status](https://github.com/IFB-ElixirFr/fair-checker/workflows/Build%20and%20test/badge.svg)](https://github.com/IFB-ElixirFr/fair-checker/actions) [![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE) [![Version 1.0.3](https://img.shields.io/badge/version-v1.0.3-blue)]()
 
 
@@ -6,13 +8,21 @@ FAIR-Checker is a tool aimed at assessing FAIR principles and empowering data pr
 
 Data providers and consumers can check how FAIR are web resources. Developers can explore and inspect metadata exposed in web resources.
 
-FAIR-Checker is deployed at [http://fair-checker.france-bioinformatique.fr](http://fair-checker.france-bioinformatique.fr).
+FAIR-Checker is a web and command line tool to assess FAIRness of web resources:
+
+1. FAIR Checker web app, is deployed at http://fair-checker.france-bioinformatique.fr. 
+1. Command line tool, is a metadata scraper and validator.
+    **Usage examples :**
+        python app.py --url http://bio.tools/bwa
+        python app.py --bioschemas --url http://bio.tools/bwa
+        python app.py --scrapp --urls http://bio.tools/bwa
+        python app.py --scrapp --files file.txt
 
 Main contributors are: 
 - [Thomas Rosnet](https://github.com/thomasrosnet)
 - [Alban Gaignard](https://github.com/albangaignard)
 - [Marie-Dominique Devignes](https://members.loria.fr/MDDevignes/)
-
+- [Sahar Frikha](https://github.com/sahar-frikha)
 
 ## Main features
 - extracts embedded metatdata from web pages, currently supporting RDFa, JSON-LD, and microdata formats

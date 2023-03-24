@@ -1,0 +1,30 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=294973> a ns1:MedicalCondition ;
+        ns1:alternateName "Congenital absence of humerus",
+            "Congenital hypoplasia of humerus",
+            "Humeral intercalary meromelia" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "Q71.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:294973" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q71.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:294973" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "Humeral agenesis/hypoplasia is a rare, non-syndromic limb reduction defect characterized by the unilateral or bilateral presence of a short arm with completely absent or underdeveloped humerus, frequently associated with ulnar and/or radial malformations. Patients may present with the appearance of the forearm directly attached to the shoulder, no articulation at the shoulder joint, impossible passive extension of the arm beyond the mid-axillary line, no elbow joints, bowing of the radius, a short ulna and/or ulnar/radial deviation of the hand at the wrist." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "294973" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Humeral agenesis/hypoplasia" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Humeral agenesis/hypoplasia" ] .
+}
+

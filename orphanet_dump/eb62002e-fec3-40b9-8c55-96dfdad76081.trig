@@ -1,0 +1,29 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=324299> a ns1:MedicalCondition ;
+        ns1:alternateName "Multiple paragangliomas associated with erythrocytosis",
+            "Paraganglioma-somatostatinoma-polycythemia syndrome" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:324299" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:324299" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D75.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D75.1" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "A rare, endocrine disease characterized by early onset of polycythemia, and later occuring multiple parangliomas. Clinical presentation includes hypertension, headaches, fatigue, nausea, anxiety, and high concentration of red blood cells, leading to increased risk of stroke and pulmonary thromboembolism." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "324299" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Multiple paragangliomas associated with polycythemia" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Multiple paragangliomas associated with polycythemia" ] .
+}
+

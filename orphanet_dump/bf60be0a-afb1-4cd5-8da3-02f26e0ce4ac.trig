@@ -1,0 +1,27 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=464756> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:464756" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C16.9" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C16.9" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:464756" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare neoplastic disease characterized by occurrence of atypical and aggressive gastric type 1 neuroendocrine tumors (NET) in early adulthood. The tumors often show nodal infiltration requiring total gastrectomy. Synchronous gastric adenocarcinoma has also been reported. Patients present high serum gastrin concentrations and iron-deficiency anemia (rather than megaloblastic anemia, which is a typical feature in patients with sporadic gastric type 1 NET, where the tumor usually arises on the background of autoimmune atrophic gastritis)." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "464756" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Familial gastric type 1 neuroendocrine tumor" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Familial gastric type 1 neuroendocrine tumor" ] .
+}
+

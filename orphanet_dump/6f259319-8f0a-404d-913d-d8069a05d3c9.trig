@@ -1,0 +1,34 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=86867> a ns1:MedicalCondition ;
+        ns1:alternateName "NMZL" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "C83.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:86867" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10029460" ;
+                ns1:codingSystem "MedDRA" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C83.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10029460" ;
+                ns1:codingSystem "MedDRA" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:86867" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "Nodal marginal zone B-cell lymphoma is a rare, indolent B-cell non-Hodgkin lymphoma, characterized by abnormal clonal proliferation of mature B-lymphocytes with involvement of the lymph nodes, sometimes the bone marrow, and rarely the blood. Clinically it presents with disseminated peripheral, abdominal and/or thoracic lymphadenopathy. Cytopenia and bulky tumors (greater than 5 cm) are rare. Association with Hepatitis C virus and chronic inflammation has been reported." ;
+        ns1:epidemiology "Prevalence : 1-9 / 100 000" ;
+        ns1:identifier "86867" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Nodal marginal zone B-cell lymphoma" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Nodal marginal zone B-cell lymphoma" ] .
+}
+

@@ -1,0 +1,33 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=397927> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "Q87.5" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "615709" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q87.5" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:397927" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "615709" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:397927" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "Sacral agenesis-abnormal ossification of the vertebral bodies-persistent notochordal canal syndrome is a rare, genetic, neural tube defect malformation syndrome characterized by sacral agenesis and abnormal vertebral body ossification with normal vertebral arches associated with notochord canal persistence on ultrasonography. Additional findings include bilateral clubfoot, oligohydramnios, single umbilical artery and, in some, increased nuchal translucency." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "397927" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Sacral agenesis-abnormal ossification of the vertebral bodies-persistent notochordal canal syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Sacral agenesis-abnormal ossification of the vertebral bodies-persistent notochordal canal syndrome" ] .
+}
+

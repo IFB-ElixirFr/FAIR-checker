@@ -1,0 +1,27 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=90398> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:90398" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:90398" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "L98.5" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "L98.5" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "Localized lichen myxedematosus (LM) with mixed features of different subtypes is a form of atypical lichen myxedematosus (see this term), characterized by mixed features of the 5 subtypes of localized LM which are: discrete papular LM, acral persistent papular mucinosis, self-healing papular mucinosis, papular mucinosis of infancy, and nodular LM (see these terms)." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "90398" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Localized lichen myxedematosus with mixed features of different subtypes" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Localized lichen myxedematosus with mixed features of different subtypes" ] .
+}
+

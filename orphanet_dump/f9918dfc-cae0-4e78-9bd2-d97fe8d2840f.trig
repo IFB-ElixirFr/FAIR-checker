@@ -1,0 +1,27 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=90069> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "T60.3" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:90069" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:90069" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "T60.3" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "Systemic monochloroacetate poisoning is a rare, life-threatening intoxication with monochloroacetic acid (mainly through the skin, but also by inhalation or ingestion). It is characterized by vomiting, diarrhea and central nervous system (CNS)-excitability (disorientation, delirium, convulsions) as early signs of systemic poisoning, followed by CNS-depression, coma and cerebral edema. Additional signs include heart involvement (severe myocardial depression, shock, arrhythmias, nonspecific myocardial damage), severe metabolic acidosis, hypokalemia, hypocalcemia and progressive renal failure leading to anuria. Myoglobinemia and leukocytosis may occur. Manifestations may be delayed for 1-4 hours." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "90069" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Systemic monochloroacetate poisoning" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Systemic monochloroacetate poisoning" ] .
+}
+

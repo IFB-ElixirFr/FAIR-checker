@@ -1,0 +1,30 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=567546> a ns1:MedicalCondition ;
+        ns1:alternateName "Idiopathic SSNS with secondary steroid resistance",
+            "Secondary SRNS",
+            "Secondary steroid-resistant nephrotic syndrome" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "N04.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:567546" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "N04.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:567546" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare, idiopathic nephrotic syndrome characterized by pediatric onset of proteinuria, hypoalbuminemia and edema. Patients respond successfully to the initial standard course of corticosteroids, but are resistant to standard therapy for a subsequent relapse and following this relapse remain steroid-resistant." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "567546" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Idiopathic steroid-sensitive nephrotic syndrome with secondary steroid resistance" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Idiopathic steroid-sensitive nephrotic syndrome with secondary steroid resistance" ] .
+}
+

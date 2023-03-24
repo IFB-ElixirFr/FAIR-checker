@@ -1,0 +1,36 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=98849> a ns1:MedicalCondition ;
+        ns1:alternateName "SM-AHN",
+            "SM-AHNMD",
+            "Systemic mastocytosis with an associated clonal hematologic non-mast cell lineage disease" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "C1301365" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:98849" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C1301365" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C96.2" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:98849" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C96.2" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "An advanced form of systemic mastocytosis (SM) characterized by the abnormal accumulation of neoplastic mast cells (MCs) in one or more extracutaneous organs, mainly the bone marrow, associated with another hematologic neoplasm of non MC nature." ;
+        ns1:epidemiology "Prevalence : 1-9 / 100 000" ;
+        ns1:identifier "98849" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Systemic mastocytosis with associated hematologic neoplasm" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Systemic mastocytosis with associated hematologic neoplasm" ] .
+}
+

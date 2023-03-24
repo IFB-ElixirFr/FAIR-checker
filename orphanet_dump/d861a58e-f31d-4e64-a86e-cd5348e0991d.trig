@@ -1,0 +1,43 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=247257> a ns1:MedicalCondition ;
+        ns1:alternateName "Inhalation anthrax disease",
+            "Pulmonary anthrax",
+            "Respiratory anthrax",
+            "Respiratory anthrax disease" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "10035667" ;
+                ns1:codingSystem "MedDRA" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:247257" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "A22.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:247257" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10035667" ;
+                ns1:codingSystem "MedDRA" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0155866" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0155866" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "A22.1" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "Inhalational anthrax is a rare acute systemic infection caused by the inhalation of <i>Bacillus anthracis</i> spores (e.g. through infected animal products, bioterrorism) and characterized by an initial stage where patients present with non specific symptoms (fever, cough, chills, fatigue) that is followed by an acute phase during which hemorrhagic mediastinitis occurs that can progress into meningitis, gastrointestinal involvement, and refractory shock, that can be fatal, if left untreated." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "247257" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Inhalational anthrax" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Inhalational anthrax" ] .
+}
+

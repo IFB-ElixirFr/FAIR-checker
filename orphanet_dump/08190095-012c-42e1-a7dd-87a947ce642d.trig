@@ -1,0 +1,34 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=411703> a ns1:MedicalCondition ;
+        ns1:alternateName "Non-tuberculous mycobacterial lung disease" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "12829" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "A31.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "A31.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:411703" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "12829" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:411703" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare bacterial infectious disease caused by non-tuberculous mycobacteria (including <i>Mycobacterium avium</i> complex, <i>Mycobacterium kansasii</i>, or <i>Mycobacterium xenopi</i>, among others), characterized by chronic pulmonary disease with symptoms like chronic cough (with or without sputum production), chest pain, and weight loss. Predisposing factors are preexisting lung conditions, neoplasms, immunosuppression, or thoracic skeletal abnormalities." ;
+        ns1:epidemiology "Prevalence : 1-9 / 100 000" ;
+        ns1:identifier "411703" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Pulmonary non-tuberculous mycobacterial infection" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Pulmonary non-tuberculous mycobacterial infection" ] .
+}
+

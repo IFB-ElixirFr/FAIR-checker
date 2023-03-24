@@ -1,0 +1,35 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=412181> a ns1:MedicalCondition ;
+        ns1:alternateName "DST-related epidermolysis bullosa simplex",
+            "EBS due to BP230 deficiency" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "Q81.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:412181" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:412181" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "615425" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q81.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "615425" ;
+                ns1:codingSystem "OMIM" ] ;
+        ns1:description "A rare, inherited, epidermolysis bullosa simplex characterized by mild, predominantly acral, trauma-induced skin fragility, resulting in blisters. Blisters mostly affect the feet, including the dorsal side." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "412181" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Epidermolysis bullosa simplex due to BP230 deficiency" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Epidermolysis bullosa simplex due to BP230 deficiency" ] .
+}
+

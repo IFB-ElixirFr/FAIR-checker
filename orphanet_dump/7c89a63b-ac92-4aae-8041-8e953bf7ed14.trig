@@ -1,0 +1,33 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=448270> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "C0013580" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q24.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0013580" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q24.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:448270" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:448270" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare, life-threatening, congenital non-syndromic heart malformation characterized by complete or partial location of the heart outside the thoracic cavity. The main ectopic positions are thoracic but anterior to the sternum, abdominal, thoracoabdominal, and cervical. Associated abnormalities include sternal, diaphragmatic, pericardial, and abdominal wall defects, as well as intracardiac malformations." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "448270" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Ectopia cordis" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Ectopia cordis" ] .
+}
+

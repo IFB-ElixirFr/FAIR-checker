@@ -1,0 +1,23 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=494424> a ns1:MedicalCondition ;
+        ns1:alternateName "ECAA",
+            "ECCA" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:494424" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:494424" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare vascular anomaly characterized by dilation of the internal or the common carotid artery greater than 150% of the diameter of the normal, healthy vessel. Lesions of the carotid bifurcation are typically fusiform, degenerative in nature, and may occur bilaterally, while saccular aneurysms are usually unilateral and mostly located in the middle segment of the internal carotid artery. Symptomatic patients may present with a palpable pulsating mass, local pain, cerebral ischemia, peripheral nerve dysfunction, stridor, or voice changes due to local compression." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "494424" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Extracranial carotid artery aneurysm" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Extracranial carotid artery aneurysm" ] .
+}
+

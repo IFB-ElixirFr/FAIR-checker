@@ -1,0 +1,34 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=370091> a ns1:MedicalCondition ;
+        ns1:alternateName "OCA5" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "E70.3" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:370091" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E70.3" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "615312" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "615312" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:370091" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A form of oculocutaneous albinism characterized by white skin, golden hair, photophobia, nystagmus, foveal hypoplasia and impaired visual acuity, that affects males and females equally. Patients have been reported only in a consanguineous Pakistani family. The responsible gene has not yet been detected." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "370091" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Oculocutaneous albinism type 5" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Oculocutaneous albinism type 5" ] .
+}
+

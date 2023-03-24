@@ -1,0 +1,33 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=314795> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:314795" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q87.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:314795" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "300582" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q87.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "300582" ;
+                ns1:codingSystem "OMIM" ] ;
+        ns1:description "SHOX-related short stature is a primary bone dysplasia characterized by a height that is 2 standard deviations below the corresponding mean height for a given age, sex and population group, in the absence of obvious skeletal abnormalities and other diseases and with normal developmental milestones. Patients present normal bone age with normal limbs, shortening of the extremities (significantly lower extremities-trunk and sitting height-to-height ratios), normal hGH values, normal karyotype, and Leri-Weill dyschondrosteosis-like radiological signs (e.g. triangularization of distal radial epiphyses, pyramidalization of distal carpal row, and lucency of the distal radius on the ulnar side). Mesomelic disproportions and Madelung deformity are not apparent at a young age, but may develop later in life or never." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "314795" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "SHOX-related short stature" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "SHOX-related short stature" ] .
+}
+

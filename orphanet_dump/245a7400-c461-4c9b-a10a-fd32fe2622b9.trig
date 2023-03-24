@@ -1,0 +1,27 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=521123> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "G54.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:521123" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G54.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:521123" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare radiation-induced disorder characterized by impairment of the peripheral nervous system at the level of the brachial or lumbosacral plexus following radiation therapy. Onset of symptoms can occur between several months up to decades after the last dose of radiation. Patients with radiation-induced brachial plexopathy typically present with mostly unilateral progressive paresthesia, followed by weakness, atrophy, and pain. Symptoms in radiation-induced lumbosacral plexopathy include more variable combinations of numbness, paresthesia, pain, and weakness, and are more often bilateral." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "521123" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Radiation-induced plexopathy" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Radiation-induced plexopathy" ] .
+}
+

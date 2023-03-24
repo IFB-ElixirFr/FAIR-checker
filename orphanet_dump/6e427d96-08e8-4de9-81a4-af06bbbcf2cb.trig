@@ -1,0 +1,34 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=247198> a ns1:MedicalCondition ;
+        ns1:alternateName "PCCA" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:247198" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "615851" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G31.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "615851" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G31.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:247198" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare genetic neurological disorder characterized by postnatal onset of severe global developmental delay, profound mental retardation, progressive microcephaly, progressive spasticity evolving into spastic quadriplegia with joint contractures, generalized seizures, and irritability. Severe choreoathetosis and dysmorphic features are absent. Brain imaging shows progressive cerebellar atrophy followed by cerebral atrophy affecting both white and grey matter, but no pontine involvement." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "247198" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Progressive cerebello-cerebral atrophy" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Progressive cerebello-cerebral atrophy" ] .
+}
+

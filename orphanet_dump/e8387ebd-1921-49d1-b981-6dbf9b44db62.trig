@@ -1,0 +1,27 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=31827> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:31827" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "T60.3" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "T60.3" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:31827" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "Paraquat poisoning is a rare intoxication with paraquat (a non-selective bipyridilium herbicide that has been banned in Europe), usually occurring through ingestion of the poison, and that presents with caustic injury of the oral cavity and pharynx, as well as nausea, vomiting, epigastric pain, lethargy, loss of consciousness and fever. Patients may develop potentially life-threatening complications such as hepatic dysfunction, acute tubular necrosis and renal insufficiency, and respiratory failure (due to pulmonary fibrosis) due to its inherent toxicity and lack of effective treatment. Intoxication via inhalation, injection and dermal or mucus contact have also been reported." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "31827" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Paraquat poisoning" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Paraquat poisoning" ] .
+}
+

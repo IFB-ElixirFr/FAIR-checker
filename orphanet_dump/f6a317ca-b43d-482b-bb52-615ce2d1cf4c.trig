@@ -1,0 +1,34 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=458798> a ns1:MedicalCondition ;
+        ns1:alternateName "SCA41" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:458798" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "616410" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G11.2" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:458798" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G11.2" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "616410" ;
+                ns1:codingSystem "OMIM" ] ;
+        ns1:description "Spinocerebellar ataxia type 41 is a rare autosomal dominant cerebellar ataxia type III disorder characterized by adult-onset progressive imbalance and loss of coordination associated with an ataxic gait. Mild atrophy of the cerebellar vermis has been reported on brain magnetic resonance imaging." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "458798" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Spinocerebellar ataxia type 41" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Spinocerebellar ataxia type 41" ] .
+}
+

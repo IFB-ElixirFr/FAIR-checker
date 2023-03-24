@@ -1,0 +1,28 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=178544> a ns1:MedicalCondition ;
+        ns1:alternateName "PCDLBCL,LT" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:178544" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:178544" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C83.3" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C83.3" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "A rare, aggressive, primary cutaneous B-cell lymphoma characterized by rapidly progressive, red to bluish, often ulcerating, nodular tumors predominantly involving the lower legs. Histology shows sheets of centroblasts and immunoblasts that spare the epidermis, but infiltrate the dermis and subcutaneous tissues, and often disseminate extracutaneously. The neoplastic cells typically express CD20, CD79a, Bcl-2, MUM-1, and FOXP1, but are negative for CD10." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "178544" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Primary cutaneous diffuse large B-cell lymphoma, leg type" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Primary cutaneous diffuse large B-cell lymphoma, leg type" ] .
+}
+

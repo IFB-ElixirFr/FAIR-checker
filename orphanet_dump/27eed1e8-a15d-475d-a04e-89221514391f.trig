@@ -1,0 +1,27 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=99061> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "Q23.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:99061" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q23.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:99061" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A congenital non-syndromic heart malformation characratized by an accessory mitral valve leaflet or various accessory mitral valve structures. It may be asymptomatic or present at various ages with symptoms of left ventricular outflow tract obstruction, low cardiac output due to subaortic obstruction or congestive heart failure. In some cases, it may be a source of cardioembolism. The malformation may be isolated or associated with other congenital heart malformations." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "99061" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Accessory mitral valve tissue" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Accessory mitral valve tissue" ] .
+}
+

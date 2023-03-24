@@ -1,0 +1,40 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=454714> a ns1:MedicalCondition ;
+        ns1:alternateName "PCL" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "C0023484" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C90.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "9373" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:454714" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:454714" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0023484" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C90.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "9373" ;
+                ns1:codingSystem "GARD" ] ;
+        ns1:description "A rare plasma cell neoplasm characterized by peripheral plasmacytosis, usually with extensive and diffuse infiltration of the bone marrow, and monoclonal paraproteinemia. Neoplastic plasma cells may also be found in extramedullary sites, such as the liver or spleen, among others. Most cases present as primary plasma cell leukemia without previous diagnosis of myeloma. The condition can also represent leukemic transformation of plasma cell myeloma (secondary plasma cell leukemia). Clinical manifestations include lymphadenopathy, organomegaly, renal failure, bone marrow failure, and peripheral neuropathies. High serum levels of lactate dehydrogenase and beta2-microglobulin, as well as hypercalcemia (potentially leading to hypercalcemic crisis) are typically observed." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "454714" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Plasma cell leukemia" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Plasma cell leukemia" ] .
+}
+

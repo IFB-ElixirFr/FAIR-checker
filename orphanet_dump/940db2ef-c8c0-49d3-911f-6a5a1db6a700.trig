@@ -1,0 +1,29 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=75508> a ns1:MedicalCondition ;
+        ns1:alternateName "Phlebectatic osteohypoplastic angiodysplasia",
+            "Servelle-Martorell syndrome" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "Q87.2" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q87.2" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:75508" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:75508" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare, congenital, vascular anomaly syndrome characterized by venous or, on occasion, arterial malformations which lead to soft tissue hypertrophy and bone hypoplasia. Affected limb is generally shortened, highly deformed, painful and edematous and associates bone and muscle hypotrophy. Single parts, or multiple small parts, of limbs are typically affected but more extensive involvement, including complete extremity, shoulder girdle and axilla, has been reported." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "75508" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Angioosteohypotrophic syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Angioosteohypotrophic syndrome" ] .
+}
+

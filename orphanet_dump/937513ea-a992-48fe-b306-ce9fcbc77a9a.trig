@@ -1,0 +1,29 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=444051> a ns1:MedicalCondition ;
+        ns1:alternateName "Del(20)(q11.2)",
+            "Monosomy 20q11" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:444051" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:444051" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q93.5" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q93.5" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "A rare, genetic, syndromic intellectual disability characterized by psychomotor delay, hypotonia, feeding difficulties, failure to thrive, anomalies of the hands and feet (clinodactyly, camptodactyly, brachydactyly, feet malposition), and craniofacial dysmorphism. Associated prenatal growth retardation, and gastrointestinal, heart and eye anomalies have been reported." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "444051" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "20q11.2 microdeletion syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "20q11.2 microdeletion syndrome" ] .
+}
+

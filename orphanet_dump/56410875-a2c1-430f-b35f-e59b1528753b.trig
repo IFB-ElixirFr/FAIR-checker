@@ -1,0 +1,34 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=443162> a ns1:MedicalCondition ;
+        ns1:alternateName "MHAC" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "Q04.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "605013" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:443162" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:443162" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q04.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "605013" ;
+                ns1:codingSystem "OMIM" ] ;
+        ns1:description "NDE1-related microhydranencephaly is a rare, hereditary syndrome with a central nervous system malformation as major feature characterized by extreme microcephaly and growth restriction, severe motor delay and mental retardation, and typical radiological findings of gross dilation of the ventricles resulting from the absence (or severe delay in the development) of cerebral hemispheres, hypoplasia of the corpus callosum, cerebellum, and brainstem. Associated features are thin bones and scalp rugae." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "443162" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "NDE1-related microhydranencephaly" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "NDE1-related microhydranencephaly" ] .
+}
+

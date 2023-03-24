@@ -1,0 +1,35 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=466026> a ns1:MedicalCondition ;
+        ns1:alternateName "Class I G6PD deficiency",
+            "Severe hemolytic anemia due to G6PD deficiency" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "300908" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:466026" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D55.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:466026" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "300908" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D55.0" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "A rare constitutional hemolytic anemia due to an enzyme disorder characterized by severe glucose-6-phosphate dehydrogenase deficiency (typically <10% residual enzyme activity) associated with chronic non-spherocytic hemolytic anemia of highly variable severity. Patients are at risk of developing neonatal jaundice (potentially leading to kernicterus), gallstones, and reticulocytosis and splenomegaly. They have an increased susceptibility to oxidizing agents provoking episodes of acute hemolysis. Favism, which describes the occurrence of an acute hemolytic reaction in response to the ingestion of fava beans, is more common in infants and young children." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "466026" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Class I glucose-6-phosphate dehydrogenase deficiency" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Class I glucose-6-phosphate dehydrogenase deficiency" ] .
+}
+

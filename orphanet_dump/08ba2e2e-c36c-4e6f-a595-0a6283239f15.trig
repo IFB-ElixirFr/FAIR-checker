@@ -1,0 +1,34 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=401849> a ns1:MedicalCondition ;
+        ns1:alternateName "SPG72" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "G11.4" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:401849" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G11.4" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:401849" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "615625" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "615625" ;
+                ns1:codingSystem "OMIM" ] ;
+        ns1:description "Autosomal spastic paraplegia type 72 is a rare, genetic, pure hereditary spastic paraplegia disorder characterized by early childhood onset of slowly progressive crural spastic paraparesis presenting with spastic gait, mild stiffness at rest, hyperreflexia (in lower limbs), extensor plantar responses and, in some, mild postural tremor, pes cavus, sphincter disturbances and sensory loss at ankles." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "401849" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Autosomal spastic paraplegia type 72" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Autosomal spastic paraplegia type 72" ] .
+}
+

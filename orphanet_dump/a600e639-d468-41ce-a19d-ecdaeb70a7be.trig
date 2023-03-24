@@ -1,0 +1,40 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=1538> a ns1:MedicalCondition ;
+        ns1:alternateName "Braddock-Jones-Superneau syndrome" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "Q03.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "123155" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "123155" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q03.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "998" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:1538" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:1538" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "998" ;
+                ns1:codingSystem "GARD" ] ;
+        ns1:description "A rare malformation disorder characterized by sagittal craniosynostosis, Dandy-Walker malformation, hydrocephalus, craniofacial dysmorphism (including dolichocephaly, hypertelorism, micrognathia, positional ear deformity) and variable developmental delay." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "1538" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Craniosynostosis-Dandy-Walker malformation-hydrocephalus syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Craniosynostosis-Dandy-Walker malformation-hydrocephalus syndrome" ] .
+}
+

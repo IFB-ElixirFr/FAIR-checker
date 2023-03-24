@@ -1,0 +1,58 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=2308> a ns1:MedicalCondition ;
+        ns1:alternateName "11q terminal deletion syndrome",
+            "Del(11)(q23.3)",
+            "Del(11)(qter)",
+            "Distal deletion 11q",
+            "Distal monosomy 11q",
+            "Monosomy 11qter",
+            "Telomeric deletion 11q" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "147791" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "307" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "147791" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q93.5" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:2308" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0795841" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D054868" ;
+                ns1:codingSystem "MeSH" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:2308" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D054868" ;
+                ns1:codingSystem "MeSH" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0795841" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q93.5" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "307" ;
+                ns1:codingSystem "GARD" ] ;
+        ns1:description "A rare genetic disorder caused by deletions in the long arm of chromosome 11 (<i>11q</i>) and mainly characterized by craniofacial dysmorphism, congenital heart disease, intellectual disability, Paris Trousseau bleeding disorder, structural kidney defects and immunodeficiency." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "2308" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Jacobsen syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Jacobsen syndrome" ] .
+}
+

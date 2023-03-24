@@ -1,0 +1,40 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=397787> a ns1:MedicalCondition ;
+        ns1:alternateName "SCID due to IKK2 deficiency" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "615592" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D81.2" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "618204" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "615592" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "618204" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:397787" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:397787" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D81.2" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "Severe combined immunodeficiency due to IKK2 deficiency is a rare, genetic form of primary immunodeficiency characterized by life-threatening bacterial, fungal and viral infections with the onset in infancy, and failure to thrive. Typically, hypogammaglobulinemia or agammaglobulinemia and normal levels of T and B cells are present." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "397787" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Severe combined immunodeficiency due to IKK2 deficiency" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Severe combined immunodeficiency due to IKK2 deficiency" ] .
+}
+

@@ -1,0 +1,33 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=168950> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "D47.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:168950" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:168950" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C3472621" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D47.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C3472621" ;
+                ns1:codingSystem "UMLS" ] ;
+        ns1:description "A rare, malignant, neoplastic disease characterized by clonal proliferation of myeloid and/or lymphoid precursors harboring rearrangements in the PDGFRB gene, in the blood, bone marrow and often other tissues as well (spleen, lymph nodes, skin, etc.). It usually presents as chronic myelomonocytic leukemia with eosinophilia, chronic eosinophilic leukemia, atypical chronic myelogenous leukemia, juvenile myelomonocytic leukemia, myelodysplastic syndrome, acute myeloid leukemia or acute lymphoblastic leukemia. Patients usually present with anemia, leukocytosis, monocytosis, eosinophilia and/or splenomegaly, or systemic symptoms, such as fever, sweating and/or weight loss." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "168950" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Myeloid/lymphoid neoplasm associated with PDGFRB rearrangement" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Myeloid/lymphoid neoplasm associated with PDGFRB rearrangement" ] .
+}
+

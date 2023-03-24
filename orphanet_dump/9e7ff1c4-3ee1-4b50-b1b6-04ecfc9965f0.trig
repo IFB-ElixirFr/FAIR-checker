@@ -1,0 +1,40 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=404553> a ns1:MedicalCondition ;
+        ns1:alternateName "Vasculitis due to DADA2" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "M30.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "615688" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "12383" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "615688" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "12383" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:404553" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "M30.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:404553" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "Vasculitis due to ADA2 deficiency is a rare, genetic, systemic and rheumatologic disease due to adenosine deaminase-2 inactivating mutations, combining variable features of autoinflammation, vasculitis, and a mild immunodeficiency. Variable clinical presentation includes chronic or recurrent systemic inflammation with fever, livedo reticularis or racemosa, early-onset ischemic or hemorrhagic strokes, peripheral neuropathy, abdominal pain, hepatosplenomegaly, portal hypertension, cutaneous polyarteritis nodosa, variable cytopenia and immunoglobulin deficiency." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "404553" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Vasculitis due to ADA2 deficiency" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Vasculitis due to ADA2 deficiency" ] .
+}
+

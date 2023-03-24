@@ -1,0 +1,39 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=99057> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "1496" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:99057" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0158618" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "1496" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0158618" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:99057" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q23.2" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q23.2" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "Congenital mitral stenosis is a congenital heart malformation comprising a spectrum of morphologically heterogeneous developmental anomalies that result in functional and anatomic obstruction of inflow into the left ventricle. The structure of the mitral valve is affected at the level of the supravalvular ring, annulus, leaflets or subvalvar components and include supra-valvular ring, leaflet fusion (intra-leaflet ring), mitral parachute deformity and papillary muscle abnormalities. It may be isolated or associated with other heart malformations. The clinical presentation depends on the degree of obstruction, the presence of regurgitation, the presence and severity of associated pulmonary hypertension, and the presence of associated heart malformations. It may present with symptoms and signs of low cardiac output and right ventricular failure such as pulmonary infections, failure to thrive, exertional dyspnoea, cough, cyanosis and congestive heart failure." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "99057" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Congenital mitral stenosis" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Congenital mitral stenosis" ] .
+}
+

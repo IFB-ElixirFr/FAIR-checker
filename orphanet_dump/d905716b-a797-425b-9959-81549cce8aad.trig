@@ -1,0 +1,48 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=208650> a ns1:MedicalCondition ;
+        ns1:alternateName "CAPS",
+            "Cryopyrinopathy",
+            "NLRP3-associated systemic autoinflammatory disease" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "10068850" ;
+                ns1:codingSystem "MedDRA" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10927" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C2316212" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:208650" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10927" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D056587" ;
+                ns1:codingSystem "MeSH" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:208650" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D056587" ;
+                ns1:codingSystem "MeSH" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C2316212" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10068850" ;
+                ns1:codingSystem "MedDRA" ] ;
+        ns1:description "Cryopyrin associated periodic syndrome (CAPS) defines a group of autoinflammatory diseases, characterized by recurrent episodes of systemic inflammatory attacks in the absence of infection or autoimmune disease. CAPS comprises 3 disorders on a continuum of severity: severe CINCA syndrome, intermediate Muckle-Wells syndrome (MWS) and milder familial cold urticaria (FCAS) (see these terms)." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "208650" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Cryopyrin-associated periodic syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Cryopyrin-associated periodic syndrome" ] .
+}
+

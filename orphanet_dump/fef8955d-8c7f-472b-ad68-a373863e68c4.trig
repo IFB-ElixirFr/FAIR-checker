@@ -1,0 +1,34 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=294986> a ns1:MedicalCondition ;
+        ns1:alternateName "Congenital absence of foot" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:294986" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q72.3" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0265624" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0265624" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q72.3" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:294986" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare non-syndromic limb reduction defect characterized by congenital total absence of the foot and ankle with no bony elements distal to the tibia or fibula, while the lower leg, including the epiphysis of the tibia and fibula, is present. The malformation can be unilateral or bilateral." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "294986" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Apodia" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Apodia" ] .
+}
+

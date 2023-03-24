@@ -1,0 +1,34 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=320380> a ns1:MedicalCondition ;
+        ns1:alternateName "SPG54" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "G11.4" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "615033" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "615033" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:320380" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G11.4" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:320380" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "Autosomal recessive spastic paraplegia type 54 (SPG54) is a rare, complex form of hereditary spastic paraplegia characterized by the onset in early childhood of progressive spastic paraplegia associated with cerebellar signs, short stature, delayed psychomotor development, intellectual disability and, less commonly, foot contractures, dysarthria, dysphagia, strabismus and optic hypoplasia. SPG54 is caused by mutations in the <i>DDHD2</i> gene (8p11.23) encoding phospholipase DDHD2." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "320380" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Autosomal recessive spastic paraplegia type 54" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Autosomal recessive spastic paraplegia type 54" ] .
+}
+

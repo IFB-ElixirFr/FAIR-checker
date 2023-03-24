@@ -1,0 +1,34 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=231393> a ns1:MedicalCondition ;
+        ns1:alternateName "XLTT" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "D69.4" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:231393" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "314050" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:231393" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "314050" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D69.4" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "Beta-thalassemia - X-linked thrombocytopenia is a form of beta-thalassemia (see this term) characterized by splenomegaly and petechiae, moderate thrombocytopenia, prolonged bleeding time due to platelet dysfunction, reticulocytosis and mild beta-thalassemia." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "231393" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Beta-thalassemia-X-linked thrombocytopenia syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Beta-thalassemia-X-linked thrombocytopenia syndrome" ] .
+}
+

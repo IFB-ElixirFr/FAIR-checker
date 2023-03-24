@@ -1,0 +1,38 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=464443> a ns1:MedicalCondition ;
+        ns1:alternateName "CDG syndrome type IIL",
+            "CDG-IIL",
+            "CDG2L",
+            "Congenital disorder of glycosylation type 2l",
+            "Congenital disorder of glycosylation type IIL" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "614576" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E77.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "614576" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:464443" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E77.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:464443" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare congenital disorder of glycosylation characterized by neonatal onset of global developmental delay, hypotonia, failure to thrive, hematological/immunological abnormalities, recurrent infections, liver involvement (with hepatosplenomegaly, cholestasis, fibrosis, or cirrhosis), and enteropathy. Additional reported manifestations include dysmorphic craniofacial features (such as microcephaly, broad palpebral fissures, and retrognathia), hypohidrosis, hyperkeratosis, and cardiac and musculoskeletal anomalies. Brain imaging may show hypoplastic corpus callosum, cerebral and cerebellar atrophy, and enlarged ventricles." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "464443" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "COG6-CGD" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "COG6-CGD" ] .
+}
+

@@ -1,0 +1,34 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=1464> a ns1:MedicalCondition ;
+        ns1:alternateName "Double inlet atrioventricular connection" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:1464" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q20.4" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:1464" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10045545" ;
+                ns1:codingSystem "MedDRA" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10045545" ;
+                ns1:codingSystem "MedDRA" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q20.4" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "A severe congenital cardiac malformation characterized by both atria related entirely or almost entirely to one functionally single ventricular chamber. The clinical manifestations include congestive heart failure, failure to thrive, cyanosis, hypoxemia and neurodevelopmental disabilities." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "1464" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Univentricular heart" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Univentricular heart" ] .
+}
+

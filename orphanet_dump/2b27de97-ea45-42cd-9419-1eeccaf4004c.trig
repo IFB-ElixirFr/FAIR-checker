@@ -1,0 +1,51 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=169095> a ns1:MedicalCondition ;
+        ns1:alternateName "Alymphoid cystic thymic dysgenesis",
+            "Nude/SCID",
+            "Nude/severe combined immunodeficiency",
+            "SCID due to FOXN1 deficiency",
+            "Severe T-cell immunodeficiency-congenital alopecia-nail dystrophy syndrome",
+            "Winged helix deficiency" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "4358" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:169095" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D82.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "4358" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "601705" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "601705" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "618806" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D82.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:169095" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "618806" ;
+                ns1:codingSystem "OMIM" ] ;
+        ns1:description " A rare, genetic, primary immunodeficiency due to a defect in adaptive immunity characterized by the triad of congenital athymia (resulting in severe T-cell immunodeficiency), congenital alopecia totalis and nail dystrophy. Patients present neonatal or infantile-onset, severe, recurrent, life-threatening infections and low or absent circulating T cells. Additional features reported include erythroderma, lymphoadenopathy, diarrhea and failure to thrive." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "169095" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Severe combined immunodeficiency due to FOXN1 deficiency" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Severe combined immunodeficiency due to FOXN1 deficiency" ] .
+}
+

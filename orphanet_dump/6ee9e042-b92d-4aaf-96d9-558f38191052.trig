@@ -1,0 +1,25 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=436151> a ns1:MedicalCondition ;
+        ns1:alternateName "Intellectual disability-loss of expressive language-facial dysmorphism syndrome" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:436151" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q87.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "616078" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "616083" ;
+                ns1:codingSystem "OMIM" ] ;
+        ns1:description "A rare genetic syndromic intellectual disability characterized by moderate to severe intellectual deficiency, language deficit (completely absent or significantly impaired speech), and distinctive facial dysmorphism (long face, straight eyebrows, and, less frequently, low-set ears and café-au-lait spots). Additional, variably observed features include motor delays, behavioral difficulties, and seizures." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "436151" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Intellectual disability-expressive aphasia-facial dysmorphism syndrome" ] .
+}
+

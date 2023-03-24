@@ -1,0 +1,41 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=300865> a ns1:MedicalCondition ;
+        ns1:alternateName "Primary C-ALCL",
+            "Regressive atypical histiocytosis" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "10065863" ;
+                ns1:codingSystem "MedDRA" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C86.6" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C1301362" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C86.6" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C1301362" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10065863" ;
+                ns1:codingSystem "MedDRA" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:300865" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:300865" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "Primary cutaneous anaplastic large cell lymphoma (C-ALCL) is a rare T-cell non-Hodgkin lymphoma that affects the skin and generally shows no extracutaneous involvement at presentation. It belongs to the spectrum of primary cutaneous CD30+ lymphoproliferative disorders along with lymphomatoid papulosis (see this term) with which it shares overlapping clinical and histopathologic features." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "300865" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Primary cutaneous anaplastic large cell lymphoma" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Primary cutaneous anaplastic large cell lymphoma" ] .
+}
+

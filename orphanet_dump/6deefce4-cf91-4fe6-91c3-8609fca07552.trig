@@ -1,0 +1,28 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=90157> a ns1:MedicalCondition ;
+        ns1:alternateName "Lipoatrophy caused by injected drug" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "E88.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:90157" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:90157" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E88.1" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "Drug-induced localized lipodystrophy is a rare, acquired, localized lipodystrophy characterized by the appearance of asymptomatic, well-demarcated, variably sized, depressed, lipoatrophic lesions secondary to subcutaneous, intradermic or intramuscular drug injection, including corticosteroids, insulin, human growth hormone and antibiotics. Skin coloration may vary from white or hypopigmented to reddish, pinkish or violaceous. Epidermal atrophy may be also present." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "90157" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Drug-induced localized lipodystrophy" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Drug-induced localized lipodystrophy" ] .
+}
+

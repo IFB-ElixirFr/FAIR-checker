@@ -1,0 +1,27 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=99059> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:99059" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:99059" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q23.2" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q23.2" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "Congenital supravalvular mitral ring is a rare, congenital, mitral valve malformation characterized by an abnormal ridge of the connective tissue on the atrial side of the mitral valve, which can present clinically with signs and symptoms of left ventricle inflow obstruction (dyspnea, tachypnea, pulmonary hypertension, right ventricle hypertrophy, pulmonary edema). Association with other mitral valve anomalies, aortic stenosis, ventricular septal defect, patent ductus arteriosus, double-outlet right ventricle, pulmonary hypertension, and Shone complex has been reported." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "99059" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Congenital supravalvular mitral ring" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Congenital supravalvular mitral ring" ] .
+}
+

@@ -1,0 +1,33 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=36913> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "E20.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0271865" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0271865" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:36913" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:36913" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E20.8" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "A rare parathyroid disease and phosphocalcic metabolism anomaly characterized by hypocalcemia, hyperphosphatemia, hypercalciuria, and low serum parathyroid hormone levels, in the presence of autoantibodies against parathyroid tissue. Clinical signs and symptoms are of variable severity and include paresthesia, seizures, laryngospasm, tetany, cardiac dysrhythmias, calcifications of the basal ganglia, and neuropsychological manifestations such as anxiety, depression, confusion, or hallucination. The condition may occur as an isolated disease or in association with other autoimmune diseases." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "36913" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Autoimmune hypoparathyroidism" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Autoimmune hypoparathyroidism" ] .
+}
+

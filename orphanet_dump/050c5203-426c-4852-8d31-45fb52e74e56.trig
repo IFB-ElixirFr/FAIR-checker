@@ -1,0 +1,38 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=228374> a ns1:MedicalCondition ;
+        ns1:alternateName "AR-CMT2B5",
+            "Autosomal recessive Charcot-Marie-Tooth disease type 2B5",
+            "SEOAN due to NEFL deficiency",
+            "Severe early-onset axonal neuropathy due to NEFL deficiency",
+            "Severe early-onset axonal neuropathy due to light neurofilament subunit deficiency" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:228374" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "607734" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "607734" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:228374" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G60.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G60.0" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "A rare axonal hereditary motor and sensory neuropathy characterized by infantile onset of slowly progressive distal motor weakness and atrophy (more severe in legs and moderate in arms) with mildly delayed motor development, hypotonia, and distal sensory impairment of all sensory modalities." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "228374" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Charcot-Marie-Tooth disease type 2B5" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Charcot-Marie-Tooth disease type 2B5" ] .
+}
+

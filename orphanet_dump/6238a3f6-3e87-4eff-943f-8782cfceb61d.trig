@@ -1,0 +1,63 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=800> a ns1:MedicalCondition ;
+        ns1:alternateName "Aberfeld syndrome",
+            "Burton skeletal dysplasia",
+            "Burton syndrome",
+            "Catel-Hempel syndrome",
+            "Dysostosis enchondralis metaepiphysaria, Catel-Hempel type",
+            "Myotonic chondrodystrophy",
+            "Myotonic myopathy, dwarfism, chondrodystrophy, ocular and facial anomalies",
+            "Osteochondromuscular dystrophy",
+            "SJS",
+            "SJS1",
+            "Schwartz-Jampel syndrome type 1",
+            "Schwartz-Jampel-Aberfeld syndrome" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "G71.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0036391" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "250" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "255800" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q78.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:800" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:800" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "250" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "255800" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0036391" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q78.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G71.1" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "A rare, genetic neuromuscular disease characterized by permanent myotonia, mask-like facies (with blepharospasm, narrow palpebral fissures, small mouth with pursed lips and puckered chin) , and chondrodysplasia (variably manifesting with short stature, pectus carinatum, kyphoscoliosis, bowing of long bones, epiphyseal, metaphyseal, and hip dysplasia)." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "800" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Schwartz-Jampel syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Schwartz-Jampel syndrome" ] .
+}
+

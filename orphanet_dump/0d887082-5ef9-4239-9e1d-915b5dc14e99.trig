@@ -1,0 +1,38 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=2444> a ns1:MedicalCondition ;
+        ns1:alternateName "CCAM",
+            "CPAM",
+            "Congenital cystic adenomatoid malformation of the lung",
+            "Congenital cystic adenomatous malformation of the lung",
+            "Congenital cystic disease of the lung" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "C0010668" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q33.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0010668" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:2444" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q33.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:2444" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare respiratory malformation characterized by a hamartomatous mass of non-functioning lung tissue of variable extent and with variable degrees of cystic or adenomatoid change. Clinical presentation, prognosis, and presence of associated abnormalities depend on the subtype of the lesion. Based on histopathological findings, five subtypes (types 0 to 4) can be differentiated." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "2444" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Congenital pulmonary airway malformation" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Congenital pulmonary airway malformation" ] .
+}
+

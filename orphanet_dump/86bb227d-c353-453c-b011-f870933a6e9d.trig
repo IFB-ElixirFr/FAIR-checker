@@ -1,0 +1,27 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=254854> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:254854" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G71.3" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G71.3" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:254854" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "Pure mitochondrial myopathy is a rare mitochondrial disease characterized by exclusive skeletal muscle involvement, without clinical evidence of other organ involvement, manifesting with progressive limb weakness, proximal limb muscle atrophy, and eye muscle anomalies (e.g. ocular motility restriction, ptosis). Patients may present with lactic acidosis, diffuse myalgia and overall fatigability (particularly during/after physical activities), dysphagia, and diminished deep tendon reflexes." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "254854" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Pure mitochondrial myopathy" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Pure mitochondrial myopathy" ] .
+}
+

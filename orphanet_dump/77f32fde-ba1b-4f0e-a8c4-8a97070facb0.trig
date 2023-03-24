@@ -1,0 +1,30 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=85435> a ns1:MedicalCondition ;
+        ns1:alternateName "Juvenile idiopathic rheumatoid factor-positive polyarthritis",
+            "Juvenile polyarthritis with rheumatoid factor",
+            "Rheumatoid factor-positive polyarticular JIA" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:85435" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "M08.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "M08.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:85435" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare form of juvenile idiopathic arthritis characterized by distal and symmetrical polyarthritis (more than 5 joints) with presence of rheumatoid factor and possible evolution towards the appearance of erosions and joint destruction." ;
+        ns1:epidemiology "Prevalence : 1-9 / 100 000" ;
+        ns1:identifier "85435" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Rheumatoid factor-positive polyarticular juvenile idiopathic arthritis" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Rheumatoid factor-positive polyarticular juvenile idiopathic arthritis" ] .
+}
+

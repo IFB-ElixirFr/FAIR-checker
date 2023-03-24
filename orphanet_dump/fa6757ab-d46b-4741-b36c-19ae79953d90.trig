@@ -1,0 +1,28 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=464760> a ns1:MedicalCondition ;
+        ns1:alternateName "Familial CODA" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:464760" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "611543" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:464760" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "611543" ;
+                ns1:codingSystem "OMIM" ] ;
+        ns1:description "A rare genetic eye disease characterized by congenital profound excavation of the optic nerve head with diminished visual field, in the absence of elevated intraocular pressure. Many patients lack a well-formed retinal artery and have multiple radial cilioretinal arteries instead. The condition is mostly bilateral, may worsen progressively, and is often complicated by serous macular detachment with profound visual loss." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "464760" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Familial cavitary optic disc anomaly" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Familial cavitary optic disc anomaly" ] .
+}
+

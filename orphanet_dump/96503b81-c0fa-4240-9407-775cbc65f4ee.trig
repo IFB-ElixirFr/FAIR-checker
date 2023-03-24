@@ -1,0 +1,46 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=330> a ns1:MedicalCondition ;
+        ns1:alternateName "Congenital Hageman factor deficiency" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "6558" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "234000" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "234000" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:330" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D68.2" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "6558" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0015526" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:330" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "D68.2" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0015526" ;
+                ns1:codingSystem "UMLS" ] ;
+        ns1:description "A rare, autosomal recessive systemic dysfunction of the hemostatic pathway, that is due to a defect in the coagulation factor XII (FXII or Hageman factor), and is either asymptomatic or characterized by a prolonged activated partial thromboplastin time and an increased risk for thromboembolism. FXII deficiency is strongly associated with primary recurrent abortions." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "330" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Congenital factor XII deficiency" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Congenital factor XII deficiency" ] .
+}
+

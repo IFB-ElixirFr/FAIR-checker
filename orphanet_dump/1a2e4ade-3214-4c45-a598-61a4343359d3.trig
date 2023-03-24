@@ -1,0 +1,39 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=206569> a ns1:MedicalCondition ;
+        ns1:alternateName "Anti-HMG-CoA myopathy",
+            "Anti-SRP myopathy",
+            "Autoimmune necrotizing myositis",
+            "IMNM",
+            "Immune myopathy with myocyte necrosis",
+            "NAM" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "C3267047" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:206569" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G72.4" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C3267047" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G72.4" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:206569" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare form of idiopathic inflammatory myopathy characterized by acute or subacute, severe, symmetrical, proximal muscle weakness usually associated with muscle-specific antibodies (anti-HMGCR or anti-SRP). Histopathological characteristics include myocyte necrosis and regeneration without significant inflammation, and C5b-9 deposition on non-necrotic myofibers." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "206569" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Immune-mediated necrotizing myopathy" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Immune-mediated necrotizing myopathy" ] .
+}
+

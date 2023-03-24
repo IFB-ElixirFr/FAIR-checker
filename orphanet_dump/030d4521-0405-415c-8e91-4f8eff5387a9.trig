@@ -1,0 +1,32 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=2856> a ns1:MedicalCondition ;
+        ns1:alternateName "PMDS",
+            "Persistent Müllerian derivatives" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "Q55.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C1849930" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "261550" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C536665" ;
+                ns1:codingSystem "MeSH" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:2856" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "8435" ;
+                ns1:codingSystem "GARD" ] ;
+        ns1:description "Persistent Müllerian duct syndrome (PMDS) is a rare disorder of sex development (DSD) characterized by the persistence of Müllerian derivatives, the uterus and/or fallopian tubes, in otherwise normally virilized boys." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "2856" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Persistent Müllerian duct syndrome" ] .
+}
+

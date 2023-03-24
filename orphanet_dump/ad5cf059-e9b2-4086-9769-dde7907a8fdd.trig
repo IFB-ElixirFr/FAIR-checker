@@ -1,0 +1,21 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=226292> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:226292" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:226292" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "Permanent congenital hypothyroidism is a type of congenital hypothyroidism (CH; see this term), a thyroid hormone deficiency present from birth." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "226292" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Permanent congenital hypothyroidism" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Permanent congenital hypothyroidism" ] .
+}
+

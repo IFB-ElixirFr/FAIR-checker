@@ -1,0 +1,28 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=103907> a ns1:MedicalCondition ;
+        ns1:alternateName "Maltase-glucoamylase deficiency" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:103907" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E74.3" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E74.3" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:103907" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare intestinal disease characterized by impaired absorption of starch and short polymers of glucose due to primary small intestinal glucoamylase deficiency. Patients present in infancy or early childhood with chronic diarrhea, abdominal distention, and bloating. Levels of pancreatic amylase are typically normal, and histopathological analysis shows normal morphology of the intestinal mucosa." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "103907" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Chronic diarrhea due to glucoamylase deficiency" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Chronic diarrhea due to glucoamylase deficiency" ] .
+}
+

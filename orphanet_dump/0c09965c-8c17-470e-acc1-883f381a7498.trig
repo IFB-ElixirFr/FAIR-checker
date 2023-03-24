@@ -1,0 +1,51 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=79333> a ns1:MedicalCondition ;
+        ns1:alternateName "CDG syndrome type IIe",
+            "CDG-IIe",
+            "CDG2E",
+            "Carbohydrate deficient glycoprotein syndrome type IIe",
+            "Congenital disorder of glycosylation type 2e",
+            "Congenital disorder of glycosylation type IIe" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "9842" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E77.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "9842" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:79333" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "608779" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C2931010" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C2931010" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:79333" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E77.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "608779" ;
+                ns1:codingSystem "OMIM" ] ;
+        ns1:description "COG7-CDG is a congenital disorder of glycosylation characterised by dysmorphism, skeletal dysplasia, hypotonia, hepatosplenomegaly, jaundice, cardiac insufficiency, recurrent infections and epilepsy. To date, it has been described in two infants, both of whom died within the first three months of life. The syndrome is caused by a mutation in the gene encoding COG-7 (chromosome 16), a subunit of the oligomeric Golgi complex." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "79333" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "COG7-CDG" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "COG7-CDG" ] .
+}
+

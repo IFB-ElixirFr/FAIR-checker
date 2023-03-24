@@ -1,0 +1,22 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=86823> a ns1:MedicalCondition ;
+        ns1:alternateName "LCH" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:86823" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:86823" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "Lissencephaly with cerebellar hypoplasia (LCH) is a variant form of lissencephaly and involves a heterogeneous group of cortical malformations without severe congenital microcephaly (>-3 SD). LCH is characterized by cerebellar underdevelopment ranging from vermian hypoplasia to total aplasia with classical or cobblestone lissencephaly. The phenotypic features of LCH include small head circumference (between -2 and -3 standard deviations (SD) forage) at birth and postnatally, moderate to severe intellectual disability, hypotonia and spasticity. Seizures are often observed and infantile spasms have been reported in some rare cases. LCH has been classified into six subgroups according to neuroradiographic properties and are classified LCH type A to F." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "86823" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Lissencephaly with cerebellar hypoplasia" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Lissencephaly with cerebellar hypoplasia" ] .
+}
+

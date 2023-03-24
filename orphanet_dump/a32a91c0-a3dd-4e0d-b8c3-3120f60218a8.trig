@@ -1,0 +1,23 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=231426> a ns1:MedicalCondition ;
+        ns1:alternateName "PCB variant of GBS",
+            "PCB variant of Guillain-Barré syndrome",
+            "Pharyngeal-cervical-brachial weakness",
+            "Pharyngo-cervico-brachial variant of GBS",
+            "Pharyngo-cervico-brachial variant of Guillain-Barré syndrome" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:231426" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G61.0" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "Pharyngeal-cervical-brachial variant of Guillain-Barré syndrome is a rare, acquired peripheral neuropathy disease characterized by rapidly progressive oropharyngeal (facial palsy, dysarthria) and cervicobrachial weakness, associated with upper limb weakness and hypo/areflexia, in the absence of ophthalmoplegia, ataxia, altered consciousness, and prominent lower limb weakness. The presence of monospecific IgG anti-GT1a antibodies is associated." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "231426" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Pharyngeal-cervical-brachial variant of Guillain-Barré syndrome" ] .
+}
+

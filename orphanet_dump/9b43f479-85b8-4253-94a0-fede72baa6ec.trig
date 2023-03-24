@@ -1,0 +1,34 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=363412> a ns1:MedicalCondition ;
+        ns1:alternateName "HBSL" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:363412" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "615281" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:363412" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "615281" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E75.2" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E75.2" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "Hypomyelination with brain stem and spinal cord involvement and leg spasticity is a rare, genetic, leukodystrophy disorder characterized by diffuse hypomyelination in the supratentorial brain white matter, brain stem and spinal cord. Patients usually present nystagmus, lower limb spasticity, hypotonia, and motor developmental delay, as well as MRI signal abnormalities involving the corpus callosum, anterior brainstem, pyramidal tracts, superior and inferior cerebellar peduncles, dorsal columns and/or lateral corticospinal tracts." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "363412" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Hypomyelination with brain stem and spinal cord involvement and leg spasticity" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Hypomyelination with brain stem and spinal cord involvement and leg spasticity" ] .
+}
+

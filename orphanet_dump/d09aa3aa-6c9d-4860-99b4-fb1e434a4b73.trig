@@ -1,0 +1,40 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=70591> a ns1:MedicalCondition ;
+        ns1:alternateName "CTEPH" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "C2363973" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10068739" ;
+                ns1:codingSystem "MedDRA" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:70591" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:70591" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "612862" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10068739" ;
+                ns1:codingSystem "MedDRA" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C2363973" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "612862" ;
+                ns1:codingSystem "OMIM" ] ;
+        ns1:description "A rare complication of acute pulmonary embolism (PE), either symptomatic or not, that is characterized by fibrotic intravascular material occlusion of pulmonary arteries in combination with a secondary microvasculopathy of vessels less than 500 &#181;m. The consequence is an increase in pulmonary vascular resistance (PVR) and progressive right heart failure." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "70591" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Chronic thromboembolic pulmonary hypertension" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Chronic thromboembolic pulmonary hypertension" ] .
+}
+

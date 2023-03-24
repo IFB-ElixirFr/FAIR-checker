@@ -1,0 +1,27 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=45452> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:45452" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "P29.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "P29.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:45452" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "Idiopathic neonatal atrial flutter (AFL) is a rare rhythm disorder, characterized by sustained tachycardia in newborns and infants with an atrial rate often at around 440 beats/minute (range 340-580). AFL may manifest as asymptomatic tachycardia, congestive heart failure or hydrops." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "45452" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Idiopathic neonatal atrial flutter" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Idiopathic neonatal atrial flutter" ] .
+}
+

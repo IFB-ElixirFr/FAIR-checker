@@ -1,0 +1,27 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=93126> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "N05.7" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "N05.7" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:93126" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:93126" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "A rare small vessel vasculitis associated with rapidly progressive glomerulonephritis (GN) and clinically characterized by renal manifestations such as urinary abnormalities (hematuria and/or proteinuria) and hypertension leading to renal failure within days or weeks, and distinguished by the absence of immune deposits on immunofluorescent microscopy. The disease can occur as a renal-limited disease or as a component of systemic necrotizing small-vessel vasculitis." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "93126" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Pauci-immune glomerulonephritis" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Pauci-immune glomerulonephritis" ] .
+}
+

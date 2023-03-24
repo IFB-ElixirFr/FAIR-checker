@@ -1,0 +1,37 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=99827> a ns1:MedicalCondition ;
+        ns1:alternateName "CCHF",
+            "Congo fever",
+            "Congo hemorrhagic fever",
+            "Crimean hemorrhagic fever" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:99827" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "A98.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:99827" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "A98.0" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0019099" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0019099" ;
+                ns1:codingSystem "UMLS" ] ;
+        ns1:description "Crimean-Congo hemorrhagic fever (CCHF) is a tick-borne zoonotic disease caused by CCHF virus and characterized by initial fever, headache, and malaise followed by gastrointestinal symptoms and, in severe cases, bleeding, shock, and multi-organ system failure." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "99827" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Crimean-Congo hemorrhagic fever" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Crimean-Congo hemorrhagic fever" ] .
+}
+

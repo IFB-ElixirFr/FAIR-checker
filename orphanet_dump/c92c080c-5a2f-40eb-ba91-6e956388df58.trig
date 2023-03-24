@@ -1,0 +1,39 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=3092> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "Q24.4" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "271950" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:3092" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C1848979" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q24.4" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C1848979" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:3092" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "271950" ;
+                ns1:codingSystem "OMIM" ] ;
+        ns1:description "Fixed subaortic stenosis (FSS) is a rare heart malformation characterized by the obstruction by membranous or fibromuscular tissue of the left ventricular outflow tract (LVOT) below the aortic valve, that occurs as an isolated lesion or in association with additional cardiac malformations (e.g. ventricular septal defect, patent ductus arteriosus, coarctation of the aorta), that presents in childhood with signs of LVOT obstruction (e.g. dyspnea, chest pain, syncope, palpitations) and that can potentially lead to life-threatening complications (e.g. aortic regurgitation, infective endocarditis). It comprises three anatomical subforms: discrete fixed membranous subaortic stenosis (membranous tissue encircling the LVOT), discrete fibromuscular subaortic stenosis (fibromuscular tissue encircling the LVOT) and tunnel subaortic stenosis (fibromuscular diffuse tunnel-like narrowing of the LVOT), the two latter forms being generally more severe than the membranous form." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "3092" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Fixed subaortic stenosis" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Fixed subaortic stenosis" ] .
+}
+

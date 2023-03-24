@@ -1,0 +1,54 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=1671> a ns1:MedicalCondition ;
+        ns1:alternateName "SCM type 1",
+            "SCM type I",
+            "Split cord malformation type 1" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "Q06.2" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0011999" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "222500" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0011999" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10012750" ;
+                ns1:codingSystem "MedDRA" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "1851" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:1671" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:1671" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "1851" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q06.2" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10012750" ;
+                ns1:codingSystem "MedDRA" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "222500" ;
+                ns1:codingSystem "OMIM" ] ;
+        ns1:description "A rare, neural tube defect characterized by localized longitudinal division of the spinal cord with an interposed osseous, cartilaginous or fibrous septum and double dural sac, typically occurring at the thoracic or lumbar level. Local vertebral segmental defects, syringomyelia, meningocele and intraspinal tumors may be associated. Variable clinical presentation includes pain, scoliosis, asymmetry and weakness of the lower limbs, neurological deficits, sphincter dysfunction, and various cutaneous abnormalities overlying the spine, such as hypertrichosis, dimple, hemangioma, subcutaneous mass or pigmented nevus." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "1671" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Split cord malformation type I" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Split cord malformation type I" ] .
+}
+

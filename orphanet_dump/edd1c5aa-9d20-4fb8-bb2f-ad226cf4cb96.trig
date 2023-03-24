@@ -1,0 +1,39 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=1913> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:1913" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q86.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C537798" ;
+                ns1:codingSystem "MeSH" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C537798" ;
+                ns1:codingSystem "MeSH" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0265373" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q86.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:1913" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C0265373" ;
+                ns1:codingSystem "UMLS" ] ;
+        ns1:description "A drug-related embryofetopathy that can occur when an embryo/fetus is exposed to trimethadione and that is characterized by pre- and post-natal growth retardation, intellectual deficit, developmental and speech delay, craniofacial anomalies (with some similarities to those seen in fetal valproate syndrome), and less commonly, cleft palate, malformations of the heart, urogenital system and limbs. Trimethadione is an antiepileptic drug that has been removed from the market in Europe and is no longer used much in other countries due to teratogenicity and potential side effects." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "1913" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Fetal trimethadione syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Fetal trimethadione syndrome" ] .
+}
+

@@ -1,0 +1,35 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=353217> a ns1:MedicalCondition ;
+        ns1:alternateName "AGC1 deficiency",
+            "Mitochondrial aspartate-glutamate carrier 1 deficiency" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "612949" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "612949" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:353217" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:353217" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E88.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E88.8" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "Epileptic encephalopathy with global cerebral demyelination is a rare mitochondrial substrate carrier disorder characterized by severe muscular hypotonia, seizures (with or without episodic apnea) beginning in the first year of life, and arrested psychomotor development (affecting mainly motor skills). Severe spasticity with hyperreflexia has also been reported. Global cerebral hypomyelination is a characteristic imaging feature of this disease." ;
+        ns1:epidemiology "Prevalence : " ;
+        ns1:identifier "353217" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Epileptic encephalopathy with global cerebral demyelination" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Epileptic encephalopathy with global cerebral demyelination" ] .
+}
+

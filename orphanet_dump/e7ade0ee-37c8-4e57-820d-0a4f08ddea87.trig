@@ -1,0 +1,38 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=1590> a ns1:MedicalCondition ;
+        ns1:alternateName "13q32 deletion",
+            "Deletion 13q32",
+            "Distal 13q deletion",
+            "Monosomy 13q32",
+            "Telomeric deletion13q" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:1590" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q93.5" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "602553" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q93.5" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "602553" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:1590" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "Distal monosomy 13q is a rare chromosomal anomaly syndrome, resulting from a partial deletion of the long arm of chromosome 13, with a highly variable phenotype typically characterized by varying degrees of intellectual disability and developmental delay, as well as CNS malformations (e.g. holoprosencephaly, anencephaly, ventriculomegaly, Dandy-Walker malformation), ocular abnormalities (e.g. hypertelorism, microphthalmia, strabismus, aniridia, retinal dysplasia) and craniofacial dysmorphism (microcephaly, trigonocephaly, large and malformed ears, broad prominent nasal bridge, micrognathia). Cardiac, genitourinary, gastrointestinal and skeletal manifestations have also been reported." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "1590" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Distal monosomy 13q" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Distal monosomy 13q" ] .
+}
+

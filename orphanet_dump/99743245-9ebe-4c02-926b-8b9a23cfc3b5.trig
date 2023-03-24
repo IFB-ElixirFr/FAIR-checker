@@ -1,0 +1,29 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=217557> a ns1:MedicalCondition ;
+        ns1:alternateName "Infantile cellular interstitial pneumonitis",
+            "PIG" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:217557" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:217557" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "P22.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "P22.8" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "Pulmonary interstitial glycogenosis (PIG) is a rare non-lethal pediatric form of interstitial lung disease (ILD, see this term)." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "217557" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Pulmonary interstitial glycogenosis" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Pulmonary interstitial glycogenosis" ] .
+}
+

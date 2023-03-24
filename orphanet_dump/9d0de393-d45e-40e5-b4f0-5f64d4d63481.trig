@@ -1,0 +1,24 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=485358> a ns1:MedicalCondition ;
+        ns1:alternateName "PTU embryofetopathy",
+            "PTU embryopathy",
+            "Propylthiouracil embryopathy" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:485358" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:485358" ;
+                ns1:codingSystem "ORPHAcode" ] ;
+        ns1:description "Propylthiouracil embryofetopathy is a rare teratologic disease characterized by variable congenital anomalies resulting from maternal treatment and prenatal exposure to propylthiouracil. Anomalies frequently encountered include ear malformations (e.g. accessory auricle, preauricular sinus/fistula/cyst), urinary system malformations (e.g. isolated unilateral kidney, congenital hydronephrosis), gastrointestinal anomalies (e.g. congenital bands with intestinal malrotation) and cardiac defects (e.g. situs inversus dextrocardia, cardiac outflow tract defects)." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "485358" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Propylthiouracil embryofetopathy" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Propylthiouracil embryofetopathy" ] .
+}
+

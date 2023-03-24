@@ -1,0 +1,50 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=79096> a ns1:MedicalCondition ;
+        ns1:alternateName "PNPO deficiency",
+            "PNPO-related neonatal epileptic encephalopathy",
+            "Pyridoxal phosphate-dependent seizures",
+            "Pyridoxamine 5'-oxidase deficiency",
+            "Pyridoxamine 5'-phosphate oxidase deficiency" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "10730" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:79096" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C1864723" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "610090" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G40.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:79096" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "610090" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G40.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "10730" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C1864723" ;
+                ns1:codingSystem "UMLS" ] ;
+        ns1:description "A very rare neonatal epileptic encephalopathy disorder characterized clinically by onset of severe seizures within hours of birth that are not responsive to anticonvulsants, but are responsive to treatment with pyridoxal phosphate." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "79096" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Pyridoxal phosphate-responsive seizures" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Pyridoxal phosphate-responsive seizures" ] .
+}
+

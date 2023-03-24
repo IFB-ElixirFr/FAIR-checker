@@ -1,0 +1,27 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=531151> a ns1:MedicalCondition ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:531151" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "F78.1" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:531151" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "F78.1" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "A rare, genetic, intellectual disability malformation syndrome characterized by global developmental delay, intellectual disability, delayed speech and language development, epilepsy, autistic behavior, and moderate facial dysmorphism (including elongated face, narrow forehead, arched eyebrows, horizontal palpebral fissures, hypertelorism, epicanthus, midface flattening, short nose, long and featureless philtrum, thin upper lip, macrostomia, and prominent chin). Additional variable manifestations include microcephaly, hypotonia, hypertrichosis, and strabismus." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "531151" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "9q21.13 microdeletion syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "9q21.13 microdeletion syndrome" ] .
+}
+

@@ -1,0 +1,28 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=449427> a ns1:MedicalCondition ;
+        ns1:alternateName "Idiopathic hypertrophic pachymeningitis" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "G03.9" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:449427" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:449427" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "G03.9" ;
+                ns1:codingSystem "ICD-10" ] ;
+        ns1:description "A rare, brain inflammatory disease characterized by thickening of the dura mater of the cranium or spine with at least two histiopatholgical features of IgG4-related disease: dense lymphoplasmacytic infiltrate, storiform fibrosis, and/or obliterative phlebitis. Patients typically have non-specific CSF findings, and might be without systemic involvement or serum IgG4 elevation. Clinical manifestation are caused by mechanical compression of nerve or vascular structure, leading to functional deficit, most commonly headache, cranial nerve palsies, vision problems and motor weakness." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "449427" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "IgG4-related pachymeningitis" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "IgG4-related pachymeningitis" ] .
+}
+

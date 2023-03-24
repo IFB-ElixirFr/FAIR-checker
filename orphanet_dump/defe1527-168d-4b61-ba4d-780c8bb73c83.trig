@@ -1,0 +1,41 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=85275> a ns1:MedicalCondition ;
+        ns1:alternateName "MCOPS4",
+            "Syndromic microphthalmia type 4" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "C1844948" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q11.2" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "5066" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:85275" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:85275" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "Q11.2" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C1844948" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "5066" ;
+                ns1:codingSystem "GARD" ] ;
+        ns1:description "Microphthalmia-ankyloblepharon-intellectual disability syndrome is characterized by microphthalmia, ankyloblepharon and intellectual deficit. It has been described in seven male patients from two generations of a Northern Ireland family. The causative gene is localized to the Xq27-q28 region. The syndrome is transmitted as an X-linked recessive trait." ;
+        ns1:epidemiology "Prevalence : Unknown" ;
+        ns1:identifier "85275" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Microphthalmia-ankyloblepharon-intellectual disability syndrome" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "Microphthalmia-ankyloblepharon-intellectual disability syndrome" ] .
+}
+

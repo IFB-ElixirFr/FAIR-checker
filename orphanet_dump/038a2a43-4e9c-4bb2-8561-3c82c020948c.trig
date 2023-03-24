@@ -1,0 +1,52 @@
+@prefix ns1: <http://schema.org/> .
+
+{
+    <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=79319> a ns1:MedicalCondition ;
+        ns1:alternateName "CDG syndrome type Ib",
+            "CDG-Ib",
+            "CDG1B",
+            "Carbohydrate deficient glycoprotein syndrome type Ib",
+            "Congenital disorder of glycosylation type 1b",
+            "Congenital disorder of glycosylation type Ib",
+            "Phosphomannose isomerase deficiency" ;
+        ns1:code [ a ns1:MedicalCode ;
+                ns1:codeValue "E77.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C1865145" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "602579" ;
+                ns1:codingSystem "OMIM" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:79319" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "ORPHA:79319" ;
+                ns1:codingSystem "ORPHAcode" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "9830" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "9830" ;
+                ns1:codingSystem "GARD" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "C1865145" ;
+                ns1:codingSystem "UMLS" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "E77.8" ;
+                ns1:codingSystem "ICD-10" ],
+            [ a ns1:MedicalCode ;
+                ns1:codeValue "602579" ;
+                ns1:codingSystem "OMIM" ] ;
+        ns1:description "MPI-CDG is a form of congenital disorders of N-linked glycosylation, characterized by cyclic vomiting, profound hypoglycemia, failure to thrive, liver fibrosis, gastrointestinal complications (protein-losing enteropathy with hypoalbuminaemia, life-threatening intestinal bleeding of diffuse origin), and thrombotic events (protein C and S deficiency, low anti-thrombine III levels), whereas neurological development and cognitive capacity is usually normal. The clinical course is variable even within families. The disease is caused by loss of function of the gene <i>MPI</i> (15q24.1)." ;
+        ns1:epidemiology "Prevalence : <1 / 1 000 000" ;
+        ns1:identifier "79319" ;
+        ns1:name [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "MPI-CDG" ],
+            [ a ns1:PronounceableText ;
+                ns1:inLanguage "EN" ;
+                ns1:textValue "MPI-CDG" ] .
+}
+
