@@ -320,12 +320,10 @@ def display_vocab_status():
 
 scheduler = BackgroundScheduler()
 scheduler.add_job(func=update_vocab_status, trigger="interval", seconds=600)
-# scheduler.add_job(func=display_info, trigger="interval", seconds=600)
 scheduler.add_job(
     func=F1B_Impl.update_identifiers_org_dump, trigger="interval", seconds=604800
 )
 scheduler.add_job(func=update_profiles, trigger="interval", seconds=604800)
-
 scheduler.start()
 
 # Shut down the scheduler when exiting the app
@@ -405,24 +403,6 @@ def statistics():
         r_success=stats.this_week_for_named_metrics(prefix="R", success=1),
         r_failures=stats.this_week_for_named_metrics(prefix="R", success=0),
     )
-
-
-# my_fields = api.model(
-#     "MyModel",
-#     {
-#         "name": fields.String(description="The name"),
-#         "type": fields.String(description="The object type", enum=["A", "B"]),
-#         "age": fields.Integer(min=0),
-#         "num": fields.Integer(description="The num to get the square of", min=0),
-#         # 'url': fields.String(Description='The URL of the resource to be tested', required=True)
-#     },
-# )
-
-# @api.route("/square/<int:num>")
-# class TestSquare(Resource):
-#     @api.marshal_with(my_fields)
-#     def get(self, num):
-#         return {"data": num ** 2}
 
 
 reqparse = reqparse.RequestParser()
