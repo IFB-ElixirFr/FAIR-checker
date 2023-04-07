@@ -7,144 +7,36 @@
 {% block body %}
 
 <script type="text/javascript" charset="utf-8">
-
     $( document ).ready(function() {
-
-<!--        var cm = new CodeMirror.fromTextArea(document.getElementById("editor"), {-->
-<!--            lineNumbers: true,-->
-<!--            lineWrapping: true,-->
-<!--         });-->
-
-        console.log( "ready!" );
         $("#notif").addClass("is-hidden");
-
-        console.log('trying to connect...');
-        var socket = io.connect({{ config['SERVER_IP']|tojson }});
-        //var socket = io();
-        console.log('connected');
-
-        //////////////////
-        // click handlers
-        //////////////////
-
-
-
-        //////////////////
-        // event handlers
-        //////////////////
-
-        socket.on('connect', function() {
-            socket.emit('hello', {data: 'I\'m connected!'});
-            console.log('hello message sent');
-        });
     });
-
 </script>
-
-{#<h1 class="title">Statistics</h1>#}
 
 <section class="hero is-warning">
     <div class="hero-body">
         <div class="container">
-            <!--      <h1 class="title">-->
-            <!--        Primary title-->
-            <!--      </h1>-->
-            <!--      <h2 class="subtitle">-->
-            <!--        Primary subtitle-->
-            <!--      </h2>-->
-
             <section class="section">
                 <nav class="level">
                     <div class="level-item has-text-centered">
                         <div>
-                            <p class="heading">Evaluations this week</p>
-                            <p class="title">{{ evals }}</p>
+                            <p class="heading">Metrics evaluations the last 30 days</p>
+                            <p class="title">{{ evals_30 }}</p>
                         </div>
                     </div>
                     <div class="level-item has-text-centered">
                         <div>
-                            <p class="heading">Success this week</p>
-                            <p class="title">{{ success }}</p>
+                            <p class="heading">Success the last 30 days</p>
+                            <p class="title">{{ success_30 }}</p>
                         </div>
                     </div>
                     <div class="level-item has-text-centered">
                         <div>
-                            <p class="heading">Failures this week</p>
-                            <p class="title">{{ failures }}</p>
+                            <p class="heading">Failures the last 30 days</p>
+                            <p class="title">{{ failures_30 }}</p>
                         </div>
                     </div>
                 </nav>
             </section>
-
-            <section class="section">
-                <nav class="level">
-                    <div class="level-item has-text-centered">
-                        <div>
-                            <p class="heading">FINDABLE this week</p>
-                            <p class="title">{{ f_success }}</p>
-                        </div>
-                    </div>
-                    <div class="level-item has-text-centered">
-                        <div>
-                            <p class="heading">not FINDABLE this week</p>
-                            <p class="title">{{ f_failures }}</p>
-                        </div>
-                    </div>
-                </nav>
-            </section>
-
-            <section class="section">
-                <nav class="level">
-                    <div class="level-item has-text-centered">
-                        <div>
-                            <p class="heading">ACCESSIBLE this week</p>
-                            <p class="title">{{ a_success }}</p>
-                        </div>
-                    </div>
-                    <div class="level-item has-text-centered">
-                        <div>
-                            <p class="heading">not ACCESSIBLE this week</p>
-                            <p class="title">{{ a_failures }}</p>
-                        </div>
-                    </div>
-                </nav>
-            </section>
-
-            <section class="section">
-                <nav class="level">
-                    <div class="level-item has-text-centered">
-                        <div>
-                            <p class="heading">INTEROPERABLE this week</p>
-                            <p class="title">{{ i_success }}</p>
-                        </div>
-                    </div>
-                    <div class="level-item has-text-centered">
-                        <div>
-                            <p class="heading">not INTEROPERABLE this week</p>
-                            <p class="title">{{ i_failures }}</p>
-                        </div>
-                    </div>
-                </nav>
-            </section>
-
-            <section class="section">
-                <nav class="level">
-                    <div class="level-item has-text-centered">
-                        <div>
-                            <p class="heading">REUSABLE this week</p>
-                            <p class="title">{{ r_success }}</p>
-                        </div>
-                    </div>
-                    <div class="level-item has-text-centered">
-                        <div>
-                            <p class="heading">not REUSABLE this week</p>
-                            <p class="title">{{ r_failures }}</p>
-                        </div>
-                    </div>
-                </nav>
-            </section>
-
-
         </div>
     </div>
 </section>
@@ -159,83 +51,57 @@
 /////////////////// -->
 
 
-<article id="last_week_chart" class="message is-info">
+<article id="last_week_chart" class="message is-grey">
     <div class="message-header">
-        <p>Last 7 days results</p>
+        <p>Last 30 days results</p>
     </div>
     <div class="message-body">
-        <!-- <canvas id="myChart" width="400" height="400"></canvas> -->
         <section>
             <!-- Create a div where the graph will take place -->
             <div>
-                <canvas id="myChart" class="columns is-mobile is-centered"></canvas>
+                <canvas id="last30barplot" class="columns is-mobile is-centered"></canvas>
             </div>
         </section>
     </div>
 </article>
 
-<article id="last_year_chart" class="message is-info">
+<article id="last_year_chart" class="message is-grey">
     <div class="message-header">
-        <p>Weekly results</p>
+        <p>Evaluations per month</p>
     </div>
     <div class="message-body">
-
-        <div class="field is-grouped is-grouped-centered">
-            <!-- <canvas id="myChart" width="400" height="400"></canvas> -->
-            <p class="control">
-                <button id="update_stats_total" data-fair="Total" class="button is-info"><i
-                        class="fa fa-bar-chart fa-fw"></i>Total
-                </button>
-            </p>
-            <p class="control">
-                <button id="update_stats_f" data-fair="F" class="button is-info"><i class="fa fa-bar-chart fa-fw"></i>Findable
-                </button>
-            </p>
-            <p class="control">
-                <button id="update_stats_a" data-fair="A" class="button is-info"><i class="fa fa-bar-chart fa-fw"></i>Accessible
-                </button>
-            </p>
-            <p class="control">
-                <button id="update_stats_i" data-fair="I" class="button is-info"><i class="fa fa-bar-chart fa-fw"></i>Interoperable
-                </button>
-            </p>
-            <p class="control">
-                <button id="update_stats_r" data-fair="R" class="button is-info"><i class="fa fa-bar-chart fa-fw"></i>Reusable
-                </button>
-            </p>
-        </div>
         <section>
-
             <div>
                 <canvas id="myLineChart" class="columns is-mobile is-centered"></canvas>
             </div>
-
         </section>
     </div>
 </article>
 
 
 <script>
-  var ctx = document.getElementById("myChart").getContext("2d");
-
-
+  var ctx = document.getElementById("last30barplot").getContext("2d");
 
   var data2 = {
       labels: ["Total", "F", "A", "I", "R"],
       datasets: [
           {
               label: "Success",
-              borderWidth: '1',
-              borderColor: 'rgba(75, 192, 192, 1)',
-              backgroundColor: 'rgba(219, 242, 242, 0.5)',
-              data: [{{ success }},{{ f_success }},{{ a_success }},{{ i_success }},{{ r_success }}]
+              //borderWidth: '2',
+              //borderColor: 'rgba(75, 192, 192, 1)',
+              borderRadius: '5',
+              backgroundColor: '#2ec4b6',
+              //backgroundColor: 'rgba(219, 242, 242, 0.5)',
+              data: [{{ success_30 }},{{ f_success_30 }},{{ a_success_30 }},{{ i_success_30 }},{{ r_success_30 }}]
           },
           {
               label: "Failures",
-              borderWidth: '1',
-              borderColor: 'rgba(255, 99, 132, 1)',
-              backgroundColor: 'rgba(255, 224, 230, 0.5)',
-              data: [{{ failures }},{{ f_failures }},{{ a_failures }},{{ i_failures }},{{ r_failures }}]
+              //borderWidth: '2',
+              //borderColor: 'rgba(255, 99, 132, 1)',
+              borderRadius: '5',
+              backgroundColor: '#ffbf69',
+              //backgroundColor: 'rgba(255, 224, 230, 0.8)',
+              data: [{{ failures_30 }},{{ f_failures_30 }},{{ a_failures_30 }},{{ i_failures_30 }},{{ r_failures_30 }}]
           }
       ]
   };
@@ -246,7 +112,7 @@
       type: 'bar',
       data: data2,
       options: {
-          barValueSpacing: 20,
+          barValueSpacing: 10,
           scales: {
               yAxes: [{
                   ticks: {
@@ -262,61 +128,19 @@
 
 <script>
   var ctx = document.getElementById("myLineChart").getContext("2d");
-  console.log( {{ success_weekly|tojson }});
-  console.log( {{ failures_weekly|tojson }});
 
-  var success_labels = {{ success_weekly|tojson }}.map(v => (v.x));
-  var failures_labels = {{ failures_weekly|tojson }}.map(v => (v.x));
-  var labels = [...new Set([...success_labels, ...failures_labels])].sort();
-
-  // const labels = Object.keys({{ failures_weekly|tojson }});
-  // const values_success = Object.values({{ success_weekly|tojson }});
-  // const values_failures = Object.values({{ failures_weekly|tojson }});
-
-  // console.log(labels);
-  // console.log(values_failures);
-
-  var array1 = [1, 2, 3];
-  var array2 = [2, 3, 4];
-  console.log();
+  var total_labels = {{ total_monthly|tojson }}.map(v => (v.x));
 
   var data = {
-      // labels: ["2020-47","2020-48","2021-1","2021-2","2021-3","2021-4","2021-6"],
       datasets: [
           {
-              label: "Success",
-              borderWidth: '1',
-              borderColor: 'rgba(75, 192, 192, 1)',
-              backgroundColor: 'rgba(219, 242, 242, 0.5)',
+              label: "Total number of evaluations",
+              borderRadius: '5',
+              //backgroundColor: '#264653',
+              backgroundColor: 'rgba(74, 74, 74, 1)',
               fill: false,
-              data: {{ success_weekly|tojson }},
+              data: {{ total_monthly|tojson }},
           },
-          {
-              label: "Failures",
-              borderWidth: '1',
-              borderColor: 'rgba(255, 99, 132, 1)',
-              backgroundColor: 'rgba(255, 224, 230, 0.5)',
-              fill: false,
-              data: {{ failures_weekly|tojson }},
-          },
-          // {
-          //     label: "Success",
-          //     borderWidth: '1',
-          //     borderColor: 'rgba(75, 192, 192, 1)',
-          //     // backgroundColor: 'rgba(219, 242, 242, 0.5)',
-          //     fill: false,
-          //     data: {{ success_weekly|tojson }},
-          //     type: "line",
-          // },
-          // {
-          //     label: "Failures",
-          //     borderWidth: '1',
-          //     borderColor: 'rgba(255, 99, 132, 1)',
-          //     // backgroundColor: 'rgba(255, 224, 230, 0.5)',
-          //     fill: false,
-          //     data: {{ failures_weekly|tojson }},
-          //     type: "line",
-          // },
       ]
   };
 
@@ -324,81 +148,48 @@
     type: 'bar',
     data: data,
     options: {
-        title: {
-            display: true,
-            text: 'Total',
-            fontSize: 28,
-        },
+        //title: {
+        //    display: true,
+        //    text: 'Total',
+        //    fontSize: 28,
+        //},
         spanGaps: false,
         tooltips: {
             callbacks: {
                 title: function(tooltipItem, data) {
                     return "";
                 },
-                // label: function(tooltipItem, data) {
-                //     return data['datasets'][0]['data'][tooltipItem['index']];
-                // },
             },
         },
-        // hover: {
-        //    mode: 'index',
-        //    intersect: false
-        // },
         scales: {
             xAxes: [{
                 type: 'category',
-                labels: labels
+                labels: total_labels
+            }], 
+            yAxes: [{
+                type: 'logarithmic'
             }]
         }
-
     },
-
   });
-
-
-
 </script>
 
 <script>
   // start all selected metrics test
   $("button[id^='update_stats_']").on('click', function($e){
-    // console.log($(this).data("fair"));
-
 
     switch ($(this).data("fair")) {
       case 'Total':
+        console.log("click")
         myLineChart.options.title.text = 'Total';
-        var values_success = Object.values({{ success_weekly|tojson }});
-        var values_failures = Object.values({{ failures_weekly|tojson }});
-        break;
-      case 'F':
-        myLineChart.options.title.text = 'Findable';
-        // var labels = Object.keys({{ success_weekly|tojson }});
-        var values_success = Object.values({{ f_success_weekly|tojson }});
-        var values_failures = Object.values({{ f_failures_weekly|tojson }});
-        break;
-      case 'A':
-        myLineChart.options.title.text = 'Accessible';
-        var values_success = Object.values({{ a_success_weekly|tojson }});
-        var values_failures = Object.values({{ a_failures_weekly|tojson }});
-        break;
-      case 'I':
-        myLineChart.options.title.text = 'Interoperable';
-        var values_success = Object.values({{ i_success_weekly|tojson }});
-        var values_failures = Object.values({{ i_failures_weekly|tojson }});
-        break;
-      case 'R':
-        myLineChart.options.title.text = 'Reusable';
-        var values_success = Object.values({{ r_success_weekly|tojson }});
-        var values_failures = Object.values({{ r_failures_weekly|tojson }});
+        var values_all = Object.values({{ total_monthly|tojson }});
         break;
     }
 
     // myLineChart.data.labels = labels;
-    myLineChart.data.datasets[0].data = values_success;
-    myLineChart.data.datasets[1].data = values_failures;
+    myLineChart.data.datasets[0].data = values_all;
+    // myLineChart.data.datasets[1].data = values_failures;
     myLineChart.update();
-
   });
 
 </script>
