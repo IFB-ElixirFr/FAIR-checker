@@ -13,7 +13,7 @@ class Config(object):
     GITHUB_TOKEN = environ.get("GITHUB_TOKEN")
     DEBUG = False
     TESTING = False
-    SERVER_NAME = "127.0.0.1:5000"
+    SERVER_NAME = "0.0.0.0:5000"
     # Flask-Caching related configs
     CACHE_TYPE = "SimpleCache"
     CACHE_DEFAULT_TIMEOUT = 60  # timer in seconds for metrics
@@ -31,7 +31,7 @@ class ProductionConfig(Config):
 
 class DevelopmentConfig(Config):
     DEBUG = True
-    SERVER_IP = "http://127.0.0.1:5000"
+    SERVER_IP = "http://0.0.0.0:5000"
     CACHE_DEFAULT_TIMEOUT = 30  # timer in seconds
     CACHE_CONTROLLED_VOCAB_TIMER = (
         24  # timer in hours for Vocabularies (OLS, LOV, BioPortal)
