@@ -320,12 +320,10 @@ def display_vocab_status():
 
 scheduler = BackgroundScheduler()
 scheduler.add_job(func=update_vocab_status, trigger="interval", seconds=600)
-# scheduler.add_job(func=display_info, trigger="interval", seconds=600)
 scheduler.add_job(
     func=F1B_Impl.update_identifiers_org_dump, trigger="interval", seconds=604800
 )
 scheduler.add_job(func=update_profiles, trigger="interval", seconds=604800)
-
 scheduler.start()
 
 # Shut down the scheduler when exiting the app
@@ -383,46 +381,29 @@ def statistics():
         "statistics.html",
         title="Statistics",
         subtitle="Visualize usage statistics of FAIR-Checker",
-        evals=stats.evaluations_this_week(),
-        success=stats.success_this_week(),
-        success_weekly=stats.success_weekly_one_year(),
-        failures=stats.failures_this_week(),
-        failures_weekly=stats.failures_weekly_one_year(),
-        f_success_weekly=stats.weekly_named_metrics(prefix="F", success=1),
-        f_failures_weekly=stats.weekly_named_metrics(prefix="F", success=0),
-        a_success_weekly=stats.weekly_named_metrics(prefix="A", success=1),
-        a_failures_weekly=stats.weekly_named_metrics(prefix="A", success=0),
-        i_success_weekly=stats.weekly_named_metrics(prefix="I", success=1),
-        i_failures_weekly=stats.weekly_named_metrics(prefix="I", success=0),
-        r_success_weekly=stats.weekly_named_metrics(prefix="R", success=1),
-        r_failures_weekly=stats.weekly_named_metrics(prefix="R", success=0),
-        f_success=stats.this_week_for_named_metrics(prefix="F", success=1),
-        f_failures=stats.this_week_for_named_metrics(prefix="F", success=0),
-        a_success=stats.this_week_for_named_metrics(prefix="A", success=1),
-        a_failures=stats.this_week_for_named_metrics(prefix="A", success=0),
-        i_success=stats.this_week_for_named_metrics(prefix="I", success=1),
-        i_failures=stats.this_week_for_named_metrics(prefix="I", success=0),
-        r_success=stats.this_week_for_named_metrics(prefix="R", success=1),
-        r_failures=stats.this_week_for_named_metrics(prefix="R", success=0),
+        evals_30=stats.evaluations_this_month(),
+        success_30=stats.success_this_month(),
+        failures_30=stats.failures_this_month(),
+        f_success_30=stats.this_month_for_named_metrics(prefix="F", success=1),
+        f_failures_30=stats.this_month_for_named_metrics(prefix="F", success=0),
+        a_success_30=stats.this_month_for_named_metrics(prefix="A", success=1),
+        a_failures_30=stats.this_month_for_named_metrics(prefix="A", success=0),
+        i_success_30=stats.this_month_for_named_metrics(prefix="I", success=1),
+        i_failures_30=stats.this_month_for_named_metrics(prefix="I", success=0),
+        r_success_30=stats.this_month_for_named_metrics(prefix="R", success=1),
+        r_failures_30=stats.this_month_for_named_metrics(prefix="R", success=0),
+        total_monthly=stats.total_monthly(),
+        # success_weekly=stats.success_monthly_one_year(),
+        # failures_weekly=stats.failures_monthly_one_year(),
+        # f_success_weekly=stats.monthly_named_metrics(prefix="F", success=1),
+        # f_failures_weekly=stats.monthly_named_metrics(prefix="F", success=0),
+        # a_success_weekly=stats.monthly_named_metrics(prefix="A", success=1),
+        # a_failures_weekly=stats.monthly_named_metrics(prefix="A", success=0),
+        # i_success_weekly=stats.monthly_named_metrics(prefix="I", success=1),
+        # i_failures_weekly=stats.monthly_named_metrics(prefix="I", success=0),
+        # r_success_weekly=stats.monthly_named_metrics(prefix="R", success=1),
+        # r_failures_weekly=stats.monthly_named_metrics(prefix="R", success=0),
     )
-
-
-# my_fields = api.model(
-#     "MyModel",
-#     {
-#         "name": fields.String(description="The name"),
-#         "type": fields.String(description="The object type", enum=["A", "B"]),
-#         "age": fields.Integer(min=0),
-#         "num": fields.Integer(description="The num to get the square of", min=0),
-#         # 'url': fields.String(Description='The URL of the resource to be tested', required=True)
-#     },
-# )
-
-# @api.route("/square/<int:num>")
-# class TestSquare(Resource):
-#     @api.marshal_with(my_fields)
-#     def get(self, num):
-#         return {"data": num ** 2}
 
 
 reqparse = reqparse.RequestParser()
