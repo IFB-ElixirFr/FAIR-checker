@@ -266,5 +266,4 @@ def total_monthly():
 
     for key in sorted(month_count_eval.keys()):
         month_count_eval_list.append({"x": key, "y": month_count_eval[key]})
-    print(month_count_eval_list)
     return month_count_eval_list

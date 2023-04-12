@@ -1,8 +1,8 @@
 from time import time
-from SPARQLWrapper import SPARQLWrapper, N3, JSON, RDF, TURTLE, JSONLD
-from rdflib import Graph, ConjunctiveGraph, Namespace, URIRef
-from rdflib.namespace import RDF
+from SPARQLWrapper import SPARQLWrapper, N3
+from rdflib import Graph, ConjunctiveGraph, URIRef
 import requests
+import metrics.statistics as stats
 
 requests.packages.urllib3.disable_warnings(
     requests.packages.urllib3.exceptions.InsecureRequestWarning
@@ -757,3 +757,24 @@ def replace_value_char_for_key(key, var, old_char, new_char):
                         key, d, old_char, new_char
                     ):
                         yield result
+
+
+def gen_usage_statistics():
+    logging.info("Retrieving stats")
+    stats_dict = {
+        "evals_30": stats.evaluations_this_month(),
+        "success_30": stats.success_this_month(),
+        "failures_30": stats.failures_this_month(),
+        "f_success_30": stats.this_month_for_named_metrics(prefix="F", success=1),
+        "f_failures_30": stats.this_month_for_named_metrics(prefix="F", success=0),
+        "a_success_30": stats.this_month_for_named_metrics(prefix="A", success=1),
+        "a_failures_30": stats.this_month_for_named_metrics(prefix="A", success=0),
+        "i_success_30": stats.this_month_for_named_metrics(prefix="I", success=1),
+        "i_failures_30": stats.this_month_for_named_metrics(prefix="I", success=0),
+        "r_success_30": stats.this_month_for_named_metrics(prefix="R", success=1),
+        "r_failures_30": stats.this_month_for_named_metrics(prefix="R", success=0),
+        "total_monthly": stats.total_monthly(),
+    }
+    with open("data/usage_stats.json", "w") as outfile:
+        json.dump(stats_dict, outfile)
+    logging.info("Saved stats")

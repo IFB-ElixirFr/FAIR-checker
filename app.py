@@ -158,16 +158,14 @@ else:
     # Prevent PROD logger from output
     prod_logger.propagate = False
 
-dev_logger.warning("Watch out dev!")
-dev_logger.info("I told you so dev")
-dev_logger.debug("DEBUG dev")
+# dev_logger.warning("Watch out dev!")
+# dev_logger.info("I told you so dev")
+# dev_logger.debug("DEBUG dev")
+#
+# prod_logger.warning("Watch out prod!")
+# prod_logger.info("I told you so prod")
+# prod_logger.debug("DEBUG prod")
 
-prod_logger.warning("Watch out prod!")
-prod_logger.info("I told you so prod")
-prod_logger.debug("DEBUG prod")
-
-
-# blueprint = Blueprint('api', __name__, url_prefix='/api')
 
 api = Api(
     app=app,
@@ -324,6 +322,7 @@ scheduler.add_job(
     func=F1B_Impl.update_identifiers_org_dump, trigger="interval", seconds=604800
 )
 scheduler.add_job(func=update_profiles, trigger="interval", seconds=604800)
+scheduler.add_job(func=util.gen_usage_statistics(), trigger="interval", seconds=10000)
 scheduler.start()
 
 # Shut down the scheduler when exiting the app
@@ -377,32 +376,26 @@ def about():
 
 @app.route("/statistics")
 def statistics():
+    usage_stats = {}
+    with open("data/usage_stats.json", "r") as infile:
+        usage_stats = json.load(infile)
+
     return render_template(
         "statistics.html",
         title="Statistics",
         subtitle="Visualize usage statistics of FAIR-Checker",
-        evals_30=stats.evaluations_this_month(),
-        success_30=stats.success_this_month(),
-        failures_30=stats.failures_this_month(),
-        f_success_30=stats.this_month_for_named_metrics(prefix="F", success=1),
-        f_failures_30=stats.this_month_for_named_metrics(prefix="F", success=0),
-        a_success_30=stats.this_month_for_named_metrics(prefix="A", success=1),
-        a_failures_30=stats.this_month_for_named_metrics(prefix="A", success=0),
-        i_success_30=stats.this_month_for_named_metrics(prefix="I", success=1),
-        i_failures_30=stats.this_month_for_named_metrics(prefix="I", success=0),
-        r_success_30=stats.this_month_for_named_metrics(prefix="R", success=1),
-        r_failures_30=stats.this_month_for_named_metrics(prefix="R", success=0),
-        total_monthly=stats.total_monthly(),
-        # success_weekly=stats.success_monthly_one_year(),
-        # failures_weekly=stats.failures_monthly_one_year(),
-        # f_success_weekly=stats.monthly_named_metrics(prefix="F", success=1),
-        # f_failures_weekly=stats.monthly_named_metrics(prefix="F", success=0),
-        # a_success_weekly=stats.monthly_named_metrics(prefix="A", success=1),
-        # a_failures_weekly=stats.monthly_named_metrics(prefix="A", success=0),
-        # i_success_weekly=stats.monthly_named_metrics(prefix="I", success=1),
-        # i_failures_weekly=stats.monthly_named_metrics(prefix="I", success=0),
-        # r_success_weekly=stats.monthly_named_metrics(prefix="R", success=1),
-        # r_failures_weekly=stats.monthly_named_metrics(prefix="R", success=0),
+        evals_30=usage_stats["evals_30"],
+        success_30=usage_stats["success_30"],
+        failures_30=usage_stats["failures_30"],
+        f_success_30=usage_stats["f_success_30"],
+        f_failures_30=usage_stats["f_failures_30"],
+        a_success_30=usage_stats["a_success_30"],
+        a_failures_30=usage_stats["a_failures_30"],
+        i_success_30=usage_stats["i_success_30"],
+        i_failures_30=usage_stats["i_failures_30"],
+        r_success_30=usage_stats["r_success_30"],
+        r_failures_30=usage_stats["r_failures_30"],
+        total_monthly=usage_stats["total_monthly"],
     )
 
 

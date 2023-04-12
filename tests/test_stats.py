@@ -1,5 +1,6 @@
 import sys
 from metrics.Evaluation import Evaluation
+from metrics.util import gen_usage_statistics
 
 sys.path.insert(1, "..")
 
@@ -9,46 +10,17 @@ from metrics.test_metric import getMetrics
 # from metrics.evaluation import Evaluation
 from pymongo import MongoClient
 from datetime import datetime, date, timedelta
-
 import metrics.statistics as stats
-
 import unittest
+import json
 
 
 @unittest.skip("to be run through a cron and with a specific test DB")
 class StatisticsTestCase(unittest.TestCase):
-    metrics = []
-    factory = None
-
-    @classmethod
-    def setUpClass(cls) -> None:
-        json_metrics = getMetrics()
-        factory = FAIRMetricsFactory()
-
-        # for i in range(1,3):
-        try:
-            # metrics.append(factory.get_metric("test_f1"))
-            # metrics.append(factory.get_metric("test_r2"))
-            for metric in json_metrics:
-                # remove "FAIR Metrics Gen2" from metric name
-                name = metric["name"].replace("FAIR Metrics Gen2- ", "")
-                # same but other syntax because of typo
-                name = name.replace("FAIR Metrics Gen2 - ", "")
-                principle = metric["principle"].rsplit("/", 1)[-1]
-                cls.metrics.append(
-                    factory.get_metric(
-                        name,
-                        metric["@id"],
-                        metric["description"],
-                        metric["smarturl"],
-                        principle,
-                        metric["creator"],
-                        metric["created_at"],
-                        metric["updated_at"],
-                    )
-                )
-        except ValueError as e:
-            print(f"no metrics implemention for {e}")
+    # metrics = []
+    # factory = None
+    # @classmethod
+    # def setUpClass(cls) -> None:
 
     def test_number_eva(self):
         client = MongoClient()
@@ -119,8 +91,14 @@ class StatisticsTestCase(unittest.TestCase):
         print(nb_eval)
 
     def test_per_principle(self):
-        print(stats.this_week_for_named_metrics(prefix="F", success=1))
-        print(stats.this_week_for_named_metrics(prefix="F", success=0))
+        print(stats.this_month_for_named_metrics(prefix="F", success=1))
+        print(stats.this_month_for_named_metrics(prefix="F", success=0))
+
+    def test_gen_stat_file(self):
+        gen_usage_statistics()
+        with open("../data/usage_stats.json", "r") as infile:
+            usage_stats = json.load(infile)
+            self.assertGreaterEqual(usage_stats["evals_30"], 0)
 
     def test_record_eval(self):
         e = Evaluation()
