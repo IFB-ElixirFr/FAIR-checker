@@ -322,7 +322,7 @@ scheduler.add_job(
     func=F1B_Impl.update_identifiers_org_dump, trigger="interval", seconds=604800
 )
 scheduler.add_job(func=update_profiles, trigger="interval", seconds=604800)
-scheduler.add_job(func=util.gen_usage_statistics(), trigger="interval", seconds=10000)
+scheduler.add_job(func=util.gen_usage_statistics, trigger="interval", seconds=10000)
 scheduler.start()
 
 # Shut down the scheduler when exiting the app
