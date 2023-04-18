@@ -22,8 +22,6 @@ import json
 import os
 import re
 
-from json.decoder import JSONDecodeError
-
 from metrics.util import clean_kg_excluding_ns_prefix
 
 logger = logging.getLogger("DEV")
@@ -104,21 +102,13 @@ class WebResource:
             "dct", URIRef("http://purl.org/dc/terms/")
         )
 
-        # self.kg_links_header = ConjunctiveGraph(identifier="http://webresource/links_headers")
-        # self.kg_auto = ConjunctiveGraph(identifier="http://webresource/auto")
-        # self.kg_brut = ConjunctiveGraph(identifier="http://webresource/brut")
-        # self.kg_links_html = ConjunctiveGraph(identifier="http://webresource/links_html")
-        # self.kg_html = ConjunctiveGraph(identifier="http://webresource/html")
-
         self.init_kgs()
-
-        # b = [self.get_var_name(el) for el in kg_list]
-        # print(b)
 
         if rdf_graph is None:
 
             # get headers of the resource
-            response = requests.head(url)
+            # response = requests.head(url)
+            response = requests.get(url)
             self.headers = response.headers
             self.status_code = response.status_code
 
@@ -147,7 +137,7 @@ class WebResource:
                         self.url, rdf_format, self.kg_auto
                     )
 
-                # if no rdf found: brutforce testing each RDF formats regardless of mimetypes
+                # if no rdf found: brute force testing each RDF formats regardless of mimetypes
                 if len(self.kg_auto) == 0:
                     rdf_str = response.text
                     for rdf_format in self.RDF_MEDIA_TYPES_MAPPING.keys():
@@ -409,7 +399,6 @@ class WebResource:
         logging.debug("Getting RDF from: " + rdf_format)
 
         kg_temp = ConjunctiveGraph()
-
         response = requests.get(url)
 
         if response.status_code == 200:
@@ -421,18 +410,20 @@ class WebResource:
                     format=rdf_format,
                     publicID=url,
                 )
-                for s, p, o in kg_temp:
-                    kg.add((s, p, o))
+
+                kg += kg_temp
+                # for s, p, o in kg_temp:
+                #     kg.add((s, p, o))
                 # print("######################")
                 # for namespace in kg.namespaces():
                 #     print(namespace)
+                logging.debug(len(kg_temp))
             except Exception as err:
                 # if error UnicodeDecodeError execute following code, otherwise continue to next format
                 if type(err).__name__ == "UnicodeDecodeError":
                     print(err)
                     print("ERROR UNICODE")
                     kg = self.handle_unicodedecodeerror(url, kg, response)
-        print(len(kg))
 
         return kg
 
