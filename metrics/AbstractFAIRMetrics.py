@@ -1,8 +1,6 @@
 from abc import ABC, abstractmethod
 import logging
-import sys
-from io import StringIO
-from metrics.Evaluation import Result, Evaluation
+from metrics.Evaluation import Evaluation
 
 
 class AbstractFAIRMetrics(ABC):
@@ -19,6 +17,7 @@ PREFIX nie: <http://www.semanticdesktop.org/ontologies/2007/01/19/nie#>
 PREFIX prov: <http://www.w3.org/ns/prov#>
 PREFIX pav: <http://purl.org/pav/>
 PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+PREFIX odrl: <http://www.w3.org/ns/odrl/2/>
     """
 
     cache = {}
