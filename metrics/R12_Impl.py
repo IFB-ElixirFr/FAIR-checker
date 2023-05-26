@@ -40,10 +40,13 @@ class R12_Impl(AbstractFAIRMetrics):
             prov:wasAssociatedWith
             prov:startedAtTime 
             prov:endedAtTime
-            dct:hasVersion 
+            dct:hasVersion
+            dct:isVersionOf 
             dct:creator 
             dct:contributor 
-            pav:hasVersion 
+            dct:publisher
+            pav:hasVersion
+            pav:version 
             pav:hasCurrentVersion 
             pav:createdBy 
             pav:authoredBy 
