@@ -9,8 +9,8 @@ assignees: albangaignard
 
 ## Name and identifier of the ontology term 
 
-## Link to its documentation
+## Link to the ontology and its documentation
 
-## Resources using it
+## Online resources using this term
 
 ## Motivations for being evaluated through FAIR-Checker
