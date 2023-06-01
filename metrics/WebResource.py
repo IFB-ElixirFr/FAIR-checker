@@ -9,7 +9,6 @@ from selenium.webdriver.chrome.options import Options
 from selenium.common.exceptions import NoSuchElementException
 import extruct
 from pathlib import Path
-import rdflib
 from rdflib import ConjunctiveGraph, URIRef, Dataset, Namespace
 from rdflib.namespace import NamespaceManager
 import requests
@@ -191,10 +190,9 @@ class WebResource:
                 # print("SELENIUM: " + str(len(kg_selenium)))
                 # print("HTML: " + str(len(self.kg_html)))
 
-            else:
-                # get static RDF metadata (already available in html sources)
-                self.html_content = self.request_from_url(self.url)
-                self.html_to_rdf_extruct(self.html_content)
+            # get static RDF metadata (already available in html sources)
+            self.html_content = self.request_from_url(self.url)
+            self.html_to_rdf_extruct(self.html_content)
 
             self.rdf = (
                 # self.kg_requests
@@ -368,7 +366,7 @@ class WebResource:
             if str(p).startswith("http://schema.org"):
                 return True
             new_o = o
-            if isinstance(o, rdflib.URIRef):
+            if isinstance(o, URIRef):
                 if str(o).startswith("http://schema.org"):
                     return True
         return False
@@ -379,16 +377,16 @@ class WebResource:
             changed = False
             new_s = s
             if str(s).startswith("http://schema.org"):
-                new_s = rdflib.URIRef(str(s).replace("http", "https", 1))
+                new_s = URIRef(str(s).replace("http", "https", 1))
                 changed = True
             new_p = p
             if str(p).startswith("http://schema.org"):
-                new_p = rdflib.URIRef(str(p).replace("http", "https", 1))
+                new_p = URIRef(str(p).replace("http", "https", 1))
                 changed = True
             new_o = o
-            if isinstance(o, rdflib.URIRef):
+            if isinstance(o, URIRef):
                 if str(o).startswith("http://schema.org"):
-                    new_o = rdflib.URIRef(str(o).replace("http", "https", 1))
+                    new_o = URIRef(str(o).replace("http", "https", 1))
                     changed = True
             if changed:
                 kg.remove((s, p, o, g))
@@ -537,7 +535,7 @@ class WebResource:
                 time.sleep(10)
 
         # self.html_requests = response.content
-        return response
+        return response.text
 
     # def retrieve_html_request(self):
     #     nb_retry = 0
@@ -621,21 +619,27 @@ class WebResource:
 
         if "rdfa" in data.keys():
             for md in data["rdfa"]:
+                # print(md)
+                # print(json.dumps(md, ensure_ascii=False))
                 kg_rdfa.parse(
                     data=json.dumps(md, ensure_ascii=False),
                     format="json-ld",
                     publicID=self.url,
                 )
+                print(len(kg_rdfa))
 
         kg_microdata = ConjunctiveGraph()
 
         if "microdata" in data.keys():
             for md in data["microdata"]:
+                # print(md)
+                # print(json.dumps(md, ensure_ascii=False))
                 kg_microdata.parse(
                     data=json.dumps(md, ensure_ascii=False),
                     format="json-ld",
                     publicID=self.url,
                 )
+                print(len(kg_microdata))
 
         kg_extruct = kg_jsonld + kg_rdfa + kg_microdata
 
