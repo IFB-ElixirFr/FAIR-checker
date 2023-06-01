@@ -16,9 +16,7 @@ class I1A_Impl(AbstractFAIRMetrics):
         self.principle_tag = "I1A"
         self.implem = "FAIR-Checker"
         self.desc = """
-            For the weak assessment, FAIR-Checker verifies that at least one RDF triple can be found in metadata. 
-            For the strong assessment, FAIR-Checker verifies that at least one properties is part of 
-            
+            For the strong assessment, FAIR-Checker verifies that at least one RDF triple can be found in metadata.  
         """
 
     def weak_evaluate(self):
@@ -33,7 +31,7 @@ class I1A_Impl(AbstractFAIRMetrics):
 
     def strong_evaluate(self):
         """
-        Delegated to F2B
+        Delegated to F2A
         """
         eval = self.get_evaluation()
         eval.set_implem(self.implem)
