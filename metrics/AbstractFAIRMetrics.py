@@ -8,6 +8,7 @@ class AbstractFAIRMetrics(ABC):
     COMMON_SPARQL_PREFIX = """
 PREFIX schema: <http://schema.org/>
 PREFIX dct: <http://purl.org/dc/terms/>
+PREFIX dcat: <http://www.w3.org/ns/dcat#>
 PREFIX doap: <http://usefulinc.com/ns/doap#>
 PREFIX dbpedia-owl: <http://dbpedia.org/ontology/>
 PREFIX cc: <http://creativecommons.org/ns#>
