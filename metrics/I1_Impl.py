@@ -27,8 +27,8 @@ class I1_Impl(AbstractFAIRMetrics):
         Delegated to F2A
         """
         eval = self.get_evaluation()
-        eval.set_implem(self.implem)
-        eval.set_metrics(self.principle_tag)
+        # eval.set_implem(self.implem)
+        # eval.set_metrics(self.principle_tag)
         eval_from_F2A = F2A_Impl(self.get_web_resource()).weak_evaluate(eval=eval)
         return eval_from_F2A
 
@@ -37,7 +37,7 @@ class I1_Impl(AbstractFAIRMetrics):
         Delegated to F2A
         """
         eval = self.get_evaluation()
-        eval.set_implem(self.implem)
-        eval.set_metrics(self.principle_tag)
+        # eval.set_implem(self.implem)
+        # eval.set_metrics(self.principle_tag)
         eval_from_F2A = F2A_Impl(self.get_web_resource()).strong_evaluate(eval=eval)
         return eval_from_F2A
