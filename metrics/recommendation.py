@@ -7,6 +7,11 @@ json_rec = {
             Ensure that the resource is accessible using the provided URL (typos ? dead link ? other reason ?)
         """,
     },
+    "A12": {
+        "reco1": """
+            You should describe the access policy in metadata by using at least one of the following properties:  
+        """,
+    },
     "F1A": {
         "reco1": """
             The webpage you are evaluating is not reachable. You should make sure that it can be reached properly with 
@@ -37,7 +42,10 @@ json_rec = {
              enable links between multiple data on the web using controlled vocabularies. JSON-LD is widely recommended 
              as the most suitable approach for encoding RDF metadata in your web page, learn more in the <a href="https://faircookbook.elixir-europe.org/content/recipes/findability/seo.html#" target=”_blank”><b><u>FAIR-CookBook 
              section on search engine optimisation</u></b></a>, or in the <a href="https://rdmkit.elixir-europe.org/machine_actionability#what-makes-a-file-machine-actionable" target=”_blank”><b><u>RDMkit section on machine actionability.</u></b></a>
-        """
+        """,
+        "reco2": """
+            You should provide discoverability oriented metadata with one of the following properties:  
+        """,
     },
     "F2B": {
         "reco1": """

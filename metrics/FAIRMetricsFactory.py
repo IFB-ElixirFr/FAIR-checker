@@ -5,6 +5,7 @@ from metrics.F1B_Impl import F1B_Impl
 from metrics.F2A_Impl import F2A_Impl
 from metrics.F2B_Impl import F2B_Impl
 from metrics.A11_Impl import A11_Impl
+from metrics.A12_Impl import A12_Impl
 from metrics.I1_Impl import I1_Impl
 from metrics.I1A_Impl import I1A_Impl
 from metrics.I1B_Impl import I1B_Impl
@@ -42,6 +43,7 @@ class FAIRMetricsFactory:
             F2A_Impl().get_name(): F2A_Impl(),
             F2B_Impl().get_name(): F2B_Impl(),
             A11_Impl().get_name(): A11_Impl(),
+            A12_Impl().get_name(): A12_Impl(),
             I1_Impl().get_name(): I1_Impl(),
             I2_Impl().get_name(): I2_Impl(),
             I3_Impl().get_name(): I3_Impl(),
@@ -59,6 +61,7 @@ class FAIRMetricsFactory:
             F2A_Impl(web_resource),
             F2B_Impl(web_resource),
             A11_Impl(web_resource),
+            A12_Impl(web_resource),
             I1_Impl(web_resource),
             I2_Impl(web_resource),
             I3_Impl(web_resource),
@@ -102,6 +105,13 @@ class FAIRMetricsFactory:
             raise NotYetImplementedException
         else:
             return A11_Impl(web_resource)
+
+    @staticmethod
+    def get_A12(web_resource, impl=Implem.FAIR_CHECKER):
+        if impl == Implem.FAIR_METRICS_API:
+            raise NotYetImplementedException
+        else:
+            return A12_Impl(web_resource)
 
     @staticmethod
     def get_I1(web_resource, impl=Implem.FAIR_CHECKER):

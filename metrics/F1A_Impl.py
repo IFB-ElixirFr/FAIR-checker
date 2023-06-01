@@ -1,18 +1,7 @@
 import logging
-import json
-
-import requests
-from pathlib import Path
-from urllib.parse import urlparse
-import logging
-from rdflib import URIRef
 
 from metrics.AbstractFAIRMetrics import AbstractFAIRMetrics
-from datetime import timedelta
-from metrics.FairCheckerExceptions import FairCheckerException
 from metrics.Evaluation import Evaluation
-import validators
-import re
 from metrics.recommendation import json_rec
 
 
@@ -31,8 +20,7 @@ class F1A_Impl(AbstractFAIRMetrics):
         self.principle_tag = "F1A"
         self.implem = "FAIR-Checker"
         self.desc = """
-            FAIRChecker check that the resource identifier is an URL that can be reach, meaning it is unique, it is even
-             better if the URL refer to a DOI.
+FAIRChecker checks that the resource identifier is a reachable URL. It's better if the URL is persistent (WebID, PURL or DOI).   
         """
 
     def weak_evaluate(self, eval=None) -> Evaluation:

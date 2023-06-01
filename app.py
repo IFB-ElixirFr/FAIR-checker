@@ -814,8 +814,7 @@ def evaluate_fairmetrics(json, metric_name, client_metric_id, url):
 
 
 def evaluate_fc_metrics(metric_name, client_metric_id, url):
-    # print("OK FC Metrics")
-    # print(cache.get("TOTO"))
+    # print(metric_name)
     # print(METRICS_CUSTOM)
 
     dev_logger.info("Evaluating FAIR-Checker metric")
@@ -880,7 +879,6 @@ def evaluate_fc_metrics(metric_name, client_metric_id, url):
         # "name": name,
     }
     emit("done_" + client_metric_id, emit_json)
-    dev_logger.info("DONE our own metric !")
 
 
 @socketio.on("quick_structured_data_search")

@@ -207,9 +207,8 @@
     $("#btn_kg").click(function () {
         $(this).addClass("is-loading");
         $("#microdata").val("");
-        // $("#nb_triples").text("0" + " triples");
         $("#kgs_len").text("");
-        $('#block_valid').html("");
+        $('#block_valid_report').html("");
         $('#t_classes').html("");
         $('#t_properties').html("");
         $('#vocab_interpret').hide();
@@ -802,9 +801,9 @@
                     {% include 'bioschemas_report.html' %}
                     {% endblock %}
 
-                    <div id="block_valid" class="block">
-
-                    </div>
+{#                    <div id="block_valid" class="block">#}
+{##}
+{#                    </div>#}
 
                     <!-- <div class="field is-grouped is-grouped-centered">
                     <p class="control"><a id="btn_annot_bioschemas" class="button is-warning is-hidden">Annotate missing

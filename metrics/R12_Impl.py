@@ -40,10 +40,13 @@ class R12_Impl(AbstractFAIRMetrics):
             prov:wasAssociatedWith
             prov:startedAtTime 
             prov:endedAtTime
-            dct:hasVersion 
+            dct:hasVersion
+            dct:isVersionOf 
             dct:creator 
             dct:contributor 
-            pav:hasVersion 
+            dct:publisher
+            pav:hasVersion
+            pav:version 
             pav:hasCurrentVersion 
             pav:createdBy 
             pav:authoredBy 
@@ -55,6 +58,11 @@ class R12_Impl(AbstractFAIRMetrics):
             pav:curatedBy 
             pav:createdAt 
             pav:previousVersion
+            schema:creator
+            schema:author
+            schema:publisher
+            schema:provider
+            schema:funder
         """
         query_prov = (
             self.COMMON_SPARQL_PREFIX

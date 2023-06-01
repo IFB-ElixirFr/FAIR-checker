@@ -44,7 +44,6 @@ class APITestCase(unittest.TestCase):
     def test_check_individual(self):
         for api_url in list_api_check():
             with self.subTest():
-                # print("Testing: " + url)
                 response = self.app.get(
                     api_url + self.url_biotools,
                 )
@@ -76,7 +75,6 @@ class APITestCase(unittest.TestCase):
     def test_describe_individual(self):
         for api_url in list_api_inspect():
             with self.subTest():
-                # print("Testing: " + url)
 
                 # GET
                 get_api_url = api_url.rstrip("/") + "?url="
