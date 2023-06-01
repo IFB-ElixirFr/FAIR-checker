@@ -320,6 +320,16 @@ class WebResourceTestCase(unittest.TestCase):
         expasy = WebResource("https://prosite.expasy.org")
         logging.info(f"{len(expasy.get_rdf())} loaded RDF triples")
 
+    # def test_bioschemas_website(self):
+    #     bsweb = WebResource("https://bioschemas.org")
+    #     logging.info(f"{len(bsweb.get_rdf())} loaded RDF triples")
+
+    def test_zenodo(self):
+        zenodo = WebResource("https://zenodo.org/record/4420116")
+        nbtriples = len(zenodo.get_rdf())
+        logging.info(f"{nbtriples} loaded RDF triples")
+        self.assertGreaterEqual(nbtriples, 30)
+
     def test_UnicodeDecodeError_resources(self):
         # Workflohub is working correctly, it is a positive control
         urls = [
