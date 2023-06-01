@@ -58,6 +58,11 @@ class R12_Impl(AbstractFAIRMetrics):
             pav:curatedBy 
             pav:createdAt 
             pav:previousVersion
+            schema:creator
+            schema:author
+            schema:publisher
+            schema:provider
+            schema:funder
         """
         query_prov = (
             self.COMMON_SPARQL_PREFIX
