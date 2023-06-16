@@ -54,7 +54,7 @@ import metrics.statistics as stats
 from metrics import test_metric
 from metrics.FAIRMetricsFactory import FAIRMetricsFactory
 from metrics.WebResource import WebResource
-from metrics.Evaluation import Result
+from metrics.Evaluation import Result, Evaluation
 from profiles.bioschemas_shape_gen import validate_any_from_KG
 from profiles.bioschemas_shape_gen import validate_any_from_microdata
 from metrics.util import SOURCE, inspect_onto_reg
@@ -498,13 +498,23 @@ class RetrieveMetadata(Resource):
     @fc_inspect_namespace.expect(reqparse)
     def get(self):
         """Get RDF metadata in JSON-LD from a web resource"""
+        eval = Evaluation()
+        eval.set_start_time()
+        eval.set_metrics("metadata_harvesting")
 
         args = reqparse.parse_args()
         url = args["url"]
+        eval.set_target_uri(url)
 
         web_res = WebResource(url)
+        nb_triples = len(web_res.get_rdf())
         data_str = web_res.get_rdf().serialize(format="json-ld")
         data_json = json.loads(data_str)
+        eval.set_reason(nb_triples)
+        eval.set_end_time()
+        print("before persist")
+        eval.persist(str(SOURCE.API))
+        print("after persist")
         return data_json
 
 
@@ -538,8 +548,13 @@ def generate_ask_api(describe):
         @fc_inspect_namespace.expect(reqparse)
         def get(self):
 
+            eval = Evaluation()
+            eval.set_start_time()
+            eval.set_metrics("ask_" + describe.__name__)
+
             args = reqparse.parse_args()
             url = args["url"]
+            eval.set_target_uri(url)
 
             web_res = WebResource(url)
             kg = web_res.get_rdf()
@@ -556,6 +571,9 @@ def generate_ask_api(describe):
                 "triples_after": triples_after,
                 "@graph": json.loads(new_kg.serialize(format="json-ld")),
             }
+
+            eval.set_end_time()
+            eval.persist(source=str(SOURCE.API))
             return data
 
         get.__doc__ = (
@@ -564,8 +582,13 @@ def generate_ask_api(describe):
 
         @fc_inspect_namespace.expect(graph_payload)
         def post(self):
+            eval = Evaluation()
+            eval.set_start_time()
+            eval.set_metrics("ask_" + describe.__name__)
+
             json_data = request.get_json(force=True)
             url = json_data["url"]
+            eval.set_target_uri(url)
 
             kg = ConjunctiveGraph()
             kg.parse(data=json_data["json-ld"], format="json-ld")
@@ -582,6 +605,8 @@ def generate_ask_api(describe):
                 "triples_after": triples_after,
                 "@graph": json.loads(new_kg.serialize(format="json-ld")),
             }
+            eval.set_end_time()
+            eval.persist(source=str(SOURCE.API))
             return data
 
         post.__doc__ = "Try to enrich RDF metadata with SPARQL request"
@@ -600,13 +625,22 @@ class InspectOntologies(Resource):
     def get(self):
         """Inspect if RDF properties and classes are found in ontology registries (OLS, LOV, BioPortal)"""
 
+        eval = Evaluation()
+        eval.set_start_time()
+        eval.set_metrics("inspect_ontologies")
+
         args = reqparse.parse_args()
         url = args["url"]
+        eval.set_target_uri(url)
 
         web_res = WebResource(url)
         kg = web_res.get_rdf()
 
-        return inspect_onto_reg(kg, False)
+        res = inspect_onto_reg(kg, False)
+        eval.set_end_time()
+        eval.persist(source=str(SOURCE.API))
+
+        return res
 
 
 # TODO update method
@@ -615,8 +649,14 @@ class InspectBioschemas(Resource):
     @fc_inspect_namespace.expect(reqparse)
     def get(self):
         """Validate an RDF JSON-LD graph against Bioschemas profiles"""
+
+        eval = Evaluation()
+        eval.set_start_time()
+        eval.set_metrics("bioschemas_validation")
+
         args = reqparse.parse_args()
         url = args["url"]
+        eval.set_target_uri(url)
 
         web_res = WebResource(url)
         kg = web_res.get_rdf()
@@ -638,6 +678,9 @@ class InspectBioschemas(Resource):
 
         # TODO Try similarity match her for profiles that are not matched
 
+        eval.set_end_time()
+        eval.persist(source=str(SOURCE.API))
+
         return results
 
 
@@ -646,8 +689,13 @@ class InspectBioschemasConformsTo(Resource):
     @fc_inspect_namespace.expect(reqparse)
     def get(self):
         """Validate an RDF JSON-LD graph against Bioschemas profiles using dct:conformsTo"""
+        eval = Evaluation()
+        eval.set_start_time()
+        eval.set_metrics("bioschemas_validation_by_conforms_to")
+
         args = reqparse.parse_args()
         url = args["url"]
+        eval.set_target_uri(url)
 
         web_res = WebResource(url)
         kg = web_res.get_rdf()
@@ -657,6 +705,9 @@ class InspectBioschemasConformsTo(Resource):
 
         # TODO Try similarity match her for profiles that are not matched
 
+        eval.set_end_time()
+        eval.persist(source=str(SOURCE.API))
+
         return results_conformsto
 
 
@@ -665,8 +716,13 @@ class InspectBioschemasTypesMatch(Resource):
     @fc_inspect_namespace.expect(reqparse)
     def get(self):
         """Validate an RDF JSON-LD graph against Bioschemas profiles using types"""
+        eval = Evaluation()
+        eval.set_start_time()
+        eval.set_metrics("bioschemas_validation_by_types")
+
         args = reqparse.parse_args()
         url = args["url"]
+        eval.set_target_uri(url)
 
         web_res = WebResource(url)
         kg = web_res.get_rdf()
@@ -677,6 +733,8 @@ class InspectBioschemasTypesMatch(Resource):
 
         # TODO Try similarity match her for profiles that are not matched
 
+        eval.set_end_time()
+        eval.persist(source=str(SOURCE.API))
         return results_type
 
 
