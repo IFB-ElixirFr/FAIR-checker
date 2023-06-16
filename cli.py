@@ -51,10 +51,6 @@ def print_valid_report(eval_results, conforms_to):
         table = Table(show_header=True, header_style="bold magenta")
         table.add_column("Required missing properties", justify="right")
         table.add_column("Improvements", justify="right")
-        # print(r)
-        # print(json.dumps(eval_results[r], indent=True))
-        # print(eval_results[r]["errors"])
-        # print(eval_results[r]["warnings"])
         rows = itertools.zip_longest(
             list(set(eval_results[r]["errors"])), list(set(eval_results[r]["warnings"]))
         )
@@ -144,7 +140,7 @@ def cmd_evaluate(rdf_files, urls, debug):
 
         for file in rdf_files:
             start_time = time.time()
-            logging.debug(f"Testing local file {file}")
+            console.print(f"Testing local file {file}")
             file_KG = ConjunctiveGraph()
             # file_KG.parse(file, format="turtle")
             file_KG.parse(file)
@@ -159,6 +155,8 @@ def cmd_evaluate(rdf_files, urls, debug):
             metrics_collection.append(FAIRMetricsFactory.get_F1B(web_res))
             metrics_collection.append(FAIRMetricsFactory.get_F2A(web_res))
             metrics_collection.append(FAIRMetricsFactory.get_F2B(web_res))
+            metrics_collection.append(FAIRMetricsFactory.get_A11(web_res))
+            metrics_collection.append(FAIRMetricsFactory.get_A12(web_res))
             metrics_collection.append(FAIRMetricsFactory.get_I1(web_res))
             metrics_collection.append(FAIRMetricsFactory.get_I1A(web_res))
             metrics_collection.append(FAIRMetricsFactory.get_I1B(web_res))
@@ -192,6 +190,17 @@ def cmd_evaluate(rdf_files, urls, debug):
                         "",
                         "",
                     )
+                elif m.get_principle_tag().startswith("A"):
+                    A_norm += int(res.get_score())
+                    table.add_row(
+                        "",
+                        Text(
+                            m.get_name() + " " + str(res.get_score()),
+                            style=get_result_style(res),
+                        ),
+                        "",
+                        "",
+                    )
                 elif m.get_principle_tag().startswith("I"):
                     I_norm += int(res.get_score())
                     table.add_row(
@@ -220,7 +229,9 @@ def cmd_evaluate(rdf_files, urls, debug):
             console.print(
                 Text("F normalized score: " + str(round(F_norm / 8 * 100, 1)) + "%")
             )
-            console.print(Text("A normalized score: " + str(round(0, 1)) + "%"))
+            console.print(
+                Text("A normalized score: " + str(round(A_norm / 4 * 100, 1)) + "%")
+            )
             console.print(
                 Text("I normalized score: " + str(round(I_norm / 14 * 100, 1)) + "%")
             )
@@ -324,31 +335,10 @@ def cmd_evaluate(rdf_files, urls, debug):
 @click.option("-uc", "--url-collection")
 @click.option("-o", "--out-dir")
 def cmd_extract_metadata(urls, url_collection, out_dir):
-    # FAIR-Checker as a metadata crawler
 
-    # import metrics.util as util
-    # import metrics.statistics as stats
-    # from metrics import test_metric
-    # from metrics.FAIRMetricsFactory import FAIRMetricsFactory
     from metrics.WebResource import WebResource
 
-    # from metrics.Evaluation import Result
-    # from profiles.bioschemas_shape_gen import validate_any_from_KG
-    # from profiles.bioschemas_shape_gen import validate_any_from_microdata
-    # from metrics.util import SOURCE
-    # from app import get_result_style, app_logger
-
     start_time = time.time()
-
-    # if url_collection:
-    #     file = args.url_collection[0]
-    #     mydoc = open(file, "r")
-    #     urls = mydoc.readlines()
-    # else:
-    #     logging.warning(
-    #         "There is no valid argument after --extract-metadata. Please add --urls or --url-collection."
-    #     )
-    #     sys.exit(1)
 
     if len(urls) > 0:
         for url in urls:
@@ -501,23 +491,3 @@ cli.add_command(cmd_extract_metadata)
 
 if __name__ == "__main__":
     cli()
-
-# if __name__ == "__main__":
-
-#     if args.debug:
-#         logging.basicConfig(
-#             level=logging.DEBUG,
-#             format="[%(asctime)s] {%(filename)s:%(lineno)d} %(levelname)-8s %(message)s",
-#             datefmt="%Y-%m-%d %H:%M:%S",
-#         )
-
-#     else:
-#         logging.basicConfig(
-#             level=logging.INFO,
-#             format="[%(asctime)s] {%(filename)s:%(lineno)d} %(levelname)-8s %(message)s",
-#             datefmt="%Y-%m-%d %H:%M:%S",
-#         )
-#     LOGGER = logging.getLogger()
-#     if not LOGGER.handlers:
-#         LOGGER.addHandler(logging.StreamHandler(sys.stdout))
-#     LOGGER.propagate = False
