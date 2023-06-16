@@ -21,6 +21,39 @@ def evaluations_this_month():
     return nb_eval
 
 
+def md_harvesting_this_month():
+    client = MongoClient()
+    db = client.fair_checker
+    evaluations = db.evaluations
+    a_month_ago = datetime.now() - timedelta(30)
+    nb_eval = evaluations.count_documents(
+        {"started_at": {"$gt": a_month_ago}, "metrics": "metadata_harvesting"}
+    )
+    return nb_eval
+
+
+def validation_this_month():
+    client = MongoClient()
+    db = client.fair_checker
+    evaluations = db.evaluations
+    a_month_ago = datetime.now() - timedelta(30)
+    nb_eval = evaluations.count_documents(
+        {"started_at": {"$gt": a_month_ago}, "metrics": "bioschemas_validation"}
+    )
+    return nb_eval
+
+
+def validation_this_month_v2():
+    client = MongoClient()
+    db = client.fair_checker
+    evaluations = db.evaluations
+    a_month_ago = datetime.now() - timedelta(30)
+    nb_eval = evaluations.count_documents(
+        {"started_at": {"$gt": a_month_ago}, "metrics": {"$regex": "^bioschemas"}}
+    )
+    return nb_eval
+
+
 def success_this_month():
     client = MongoClient()
     db = client.fair_checker
