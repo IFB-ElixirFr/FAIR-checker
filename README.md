@@ -9,11 +9,14 @@ FAIR-Checker is a web and command line tool to assess FAIRness of web resources:
 
 1. FAIR Checker web app, is deployed at http://fair-checker.france-bioinformatique.fr. 
 1. Command line tool, is a metadata scraper and validator.
-    **Usage examples :**
-        python app.py --url http://bio.tools/bwa
-        python app.py --bioschemas --url http://bio.tools/bwa
-        python app.py --scrapp --urls http://bio.tools/bwa
-        python app.py --scrapp --files file.txt
+
+**Usage examples :**
+```
+python cli.py --help
+python cli.py evaluate --url http://bio.tools/bwa --url http://bio.tools/jaspar
+python cli.py extract_metadata --url http://bio.tools/bwa -o metadata_dump
+python cli.py validate_bioschemas --url http://bio.tools/bwa
+```
 
 Main contributors are: 
 - [Thomas Rosnet](https://github.com/thomasrosnet)
