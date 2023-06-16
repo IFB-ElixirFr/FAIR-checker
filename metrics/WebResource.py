@@ -91,9 +91,7 @@ class WebResource:
         self.id = "WebResource Unique ID for cache"
         self.url = url
 
-        # TODO rename variable
         self.wr_dataset = ConjunctiveGraph()
-
         self.wr_dataset.namespace_manager.bind("sc", URIRef("http://schema.org/"))
         self.wr_dataset.namespace_manager.bind("scs", URIRef("https://schema.org/"))
         self.wr_dataset.namespace_manager.bind("bsc", URIRef("https://bioschemas.org/"))
@@ -205,27 +203,22 @@ class WebResource:
             )
 
             self.kg_auto.bind("wr", Namespace("http://webresource/"))
-            # self.wr_dataset.add_graph(self.kg_auto)
             for s, p, o in self.kg_auto:
                 self.wr_dataset.add((s, p, o, URIRef(self.url + "#mimetypes_match")))
 
             self.kg_brut.bind("wr", Namespace("http://webresource/"))
-            # self.wr_dataset.add_graph(self.kg_brut)
             for s, p, o in self.kg_brut:
                 self.wr_dataset.add((s, p, o, URIRef(self.url + "#rdfformats_match")))
 
             self.kg_links_header.bind("wr", Namespace("http://webresource/"))
-            # self.wr_dataset.add_graph(self.kg_links_header)
             for s, p, o in self.kg_links_header:
                 self.wr_dataset.add((s, p, o, URIRef(self.url + "#links_header")))
 
             self.kg_links_html.bind("wr", Namespace("http://webresource/"))
-            # self.wr_dataset.add_graph(self.kg_links_html)
             for s, p, o in self.kg_links_html:
                 self.wr_dataset.add((s, p, o, URIRef(self.url + "#links_html")))
 
             self.kg_html.bind("wr", Namespace("http://webresource/"))
-            # self.wr_dataset.add_graph(self.kg_html)
             for s, p, o in self.kg_html:
                 self.wr_dataset.add((s, p, o, URIRef(self.url + "#html")))
 
@@ -257,15 +250,25 @@ class WebResource:
             #     print(len(kg))
 
         else:
-            self.rdf = rdf_graph
+            self.wr_dataset = rdf_graph
+            self.wr_dataset.namespace_manager.bind("sc", URIRef("http://schema.org/"))
+            self.wr_dataset.namespace_manager.bind("scs", URIRef("https://schema.org/"))
+            self.wr_dataset.namespace_manager.bind(
+                "bsc", URIRef("https://bioschemas.org/")
+            )
+            self.wr_dataset.namespace_manager.bind(
+                "dct", URIRef("http://purl.org/dc/terms/")
+            )
 
         # self.rdf.namespace_manager.bind("sc", URIRef("http://schema.org/"))
-        self.rdf.namespace_manager.bind("bsc", URIRef("https://bioschemas.org/"))
-        self.rdf.namespace_manager.bind("dct", URIRef("http://purl.org/dc/terms/"))
-        self.rdf = clean_kg_excluding_ns_prefix(
-            self.rdf, "http://www.w3.org/1999/xhtml/vocab#"
+        self.wr_dataset.namespace_manager.bind("bsc", URIRef("https://bioschemas.org/"))
+        self.wr_dataset.namespace_manager.bind(
+            "dct", URIRef("http://purl.org/dc/terms/")
         )
-        # print("Full graph size: " + str(len(self.rdf)))
+        self.wr_dataset = clean_kg_excluding_ns_prefix(
+            self.wr_dataset, "http://www.w3.org/1999/xhtml/vocab#"
+        )
+        # print("Full graph size: " + str(len(self.wr_dataset)))
         # print(self.rdf.serialize(format="json-ld"))
 
     def init_kgs(self):
@@ -537,46 +540,6 @@ class WebResource:
         # self.html_requests = response.content
         return response.text
 
-    # def retrieve_html_request(self):
-    #     nb_retry = 0
-    #     while nb_retry < 3:
-    #         try:
-    #             nb_retry += 1
-    #             response = requests.get(url=self.url, timeout=15, verify=False)
-    #             break
-    #         except SSLError:
-    #             time.sleep(5)
-    #         except requests.exceptions.Timeout:
-    #             print("Timeout, retrying")
-    #             time.sleep(5)
-    #         except requests.exceptions.ConnectionError as e:
-    #             print(e)
-    #             print("ConnectionError, retrying...")
-    #             time.sleep(10)
-
-    #     self.status_code = response.status_code
-    #     self.html_requests = response.content
-
-    # # @staticmethod
-    # def extract_rdf_extruct(self, url) -> ConjunctiveGraph:
-    #     while True:
-    #         try:
-
-    #             response = requests.get(url=url, timeout=10, verify=False)
-    #             break
-    #         except SSLError:
-    #             time.sleep(5)
-    #         except requests.exceptions.Timeout:
-    #             print("Timeout, retrying")
-    #             time.sleep(5)
-    #         except requests.exceptions.ConnectionError as e:
-    #             print(e)
-    #             print("ConnectionError, retrying...")
-    #             time.sleep(10)
-
-    #     # self.html_requests = response.content
-    #     return response
-
     def get_html_selenium(self, url):
 
         browser = WebResource.WEB_BROWSER_HEADLESS
@@ -643,145 +606,8 @@ class WebResource:
 
         kg_extruct = kg_jsonld + kg_rdfa + kg_microdata
 
-        # logging.debug(kg_extruct.serialize(format="turtle"))
-
         for s, p, o in kg_extruct:
             self.kg_html.add((s, p, o))
-
-        # self.kg_html.namespace_manager.bind("sc", URIRef("http://schema.org/"))
-        # self.kg_html.namespace_manager.bind("bsc", URIRef("https://bioschemas.org/"))
-        # self.kg_html.namespace_manager.bind("dct", URIRef("http://purl.org/dc/terms/"))
-
-        # self.kg_links_header.namespace_manager.bind("sc", URIRef("http://schema.org/"))
-        # self.kg_links_header.namespace_manager.bind("bsc", URIRef("https://bioschemas.org/"))
-        # self.kg_links_header.namespace_manager.bind("dct", URIRef("http://purl.org/dc/terms/"))
-
-        # self.kg_html = kg_extruct
-
-        # return kg_extruct
-
-    # # @staticmethod
-    # def extract_rdf_extruct(self, url) -> ConjunctiveGraph:
-    #     while True:
-    #         try:
-    #             response = requests.get(url=url, timeout=10, verify=False)
-    #             break
-    #         except SSLError:
-    #             time.sleep(5)
-    #         except requests.exceptions.Timeout:
-    #             print("Timeout, retrying")
-    #             time.sleep(5)
-    #         except requests.exceptions.ConnectionError as e:
-    #             print(e)
-    #             print("ConnectionError, retrying...")
-    #             time.sleep(10)
-
-    #     self.status_code = response.status_code
-    #     self.content_type = response.headers["Content-Type"]
-    #     html_source = response.content
-
-    #     data = extruct.extract(
-    #         html_source, syntaxes=["microdata", "rdfa", "json-ld"], errors="ignore"
-    #     )
-
-    #     kg = ConjunctiveGraph()
-
-    #     if "json-ld" in data.keys():
-    #         for md in data["json-ld"]:
-    #             if "@context" in md.keys():
-    #                 if ("https://schema.org" in md["@context"]) or (
-    #                     "http://schema.org" in md["@context"]
-    #                 ):
-    #                     md["@context"] = self.static_file_path
-    #             kg.parse(
-    #                 data=json.dumps(md, ensure_ascii=False),
-    #                 format="json-ld",
-    #                 publicID=url,
-    #             )
-    #     if "rdfa" in data.keys():
-    #         for md in data["rdfa"]:
-    #             if "@context" in md.keys():
-    #                 if ("https://schema.org" in md["@context"]) or (
-    #                     "http://schema.org" in md["@context"]
-    #                 ):
-    #                     md["@context"] = self.static_file_path
-    #             kg.parse(
-    #                 data=json.dumps(md, ensure_ascii=False),
-    #                 format="json-ld",
-    #                 publicID=url,
-    #             )
-
-    #     if "microdata" in data.keys():
-    #         for md in data["microdata"]:
-    #             if "@context" in md.keys():
-    #                 if ("https://schema.org" in md["@context"]) or (
-    #                     "http://schema.org" in md["@context"]
-    #                 ):
-    #                     md["@context"] = self.static_file_path
-    #             kg.parse(
-    #                 data=json.dumps(md, ensure_ascii=False),
-    #                 format="json-ld",
-    #                 publicID=url,
-    #             )
-
-    #     # logging.debug(kg.serialize(format="turtle"))
-
-    #     kg.namespace_manager.bind("sc", URIRef("http://schema.org/"))
-    #     kg.namespace_manager.bind("bsc", URIRef("https://bioschemas.org/"))
-    #     kg.namespace_manager.bind("dct", URIRef("http://purl.org/dc/terms/"))
-
-    #     return kg
-
-    # @staticmethod
-    # def extract_rdf_selenium(url) -> ConjunctiveGraph:
-    #     kg = ConjunctiveGraph()
-
-    #     browser = WebResource.WEB_BROWSER_HEADLESS
-    #     browser.get(url)
-    #     # self.html_source = browser.page_source
-    #     # browser.quit()
-    #     logging.debug(type(browser.page_source))
-    #     print(browser.page_source)
-    #     logging.info(f"Size of the parsed web page: {len(browser.page_source)}")
-
-    #     try:
-    #         element = browser.find_element_by_xpath(
-    #             "//script[@type='application/ld+json']"
-    #         )
-    #         element = element.get_attribute("outerHTML")
-    #         # browser.quit()
-
-    #         tree = html.fromstring(element)
-    #         jsonld_string = tree.xpath('//script[@type="application/ld+json"]//text()')
-    #         print(jsonld_string)
-    #         data = extruct.extract(
-    #             browser.page_source, syntaxes=["microdata", "rdfa", "json-ld"], errors="ignore"
-    #         )
-    #         print(data)
-    #         for json_ld_annots in jsonld_string:
-    #             jsonld = json.loads(json_ld_annots)
-    #             if type(jsonld) == list:
-    #                 jsonld = jsonld[0]
-    #             if "@context" in jsonld.keys():
-    #                 if "//schema.org" in jsonld["@context"]:
-    #                     jsonld["@context"] = WebResource.static_file_path
-    #             kg.parse(
-    #                 data=json.dumps(jsonld, ensure_ascii=False),
-    #                 format="json-ld",
-    #                 publicID=url,
-    #             )
-    #             logging.debug(f"{len(kg)} retrieved triples in KG")
-    #             # logging.debug(kg.serialize(format="turtle"))
-
-    #     except NoSuchElementException:
-    #         logging.warning('Can\'t find "application/ld+json" content')
-    #         pass
-
-    #     kg.namespace_manager.bind("sc", URIRef("http://schema.org/"))
-    #     kg.namespace_manager.bind("bsc", URIRef("https://bioschemas.org/"))
-    #     kg.namespace_manager.bind("dct", URIRef("http://purl.org/dc/terms/"))
-
-    #     return kg
 
     def __str__(self) -> str:
         out = """Web resource under FAIR assesment:\n\t"""
