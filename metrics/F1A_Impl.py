@@ -98,7 +98,7 @@ ASK {
                     )
                     # eval.append_reason("No blank node found !")
                     eval.set_score(2)
-                print(eval.get_reason())
+                # print(eval.get_reason())
                 return eval
 
             pass

@@ -134,8 +134,8 @@ class F2B_Impl(AbstractFAIRMetrics):
         )
 
         results = inspect_onto_reg(kg, False)
-        print(results)
-        print("#######")
+        # print(results)
+        # print("#######")
         # for kg in kgs.graphs():
         #     results = inspect_onto_reg(kg, False)
         #     print(results)
@@ -144,7 +144,7 @@ class F2B_Impl(AbstractFAIRMetrics):
         # print(results["properties_false"])
 
         for class_entry in results["classes_false"]:
-            print(f"{class_entry} not known in OLS, LOV, or BioPortal")
+            # print(f"{class_entry} not known in OLS, LOV, or BioPortal")
             eval.log_warning(f"{class_entry} class not known in OLS, LOV, or BioPortal")
 
         if results["classes_false"]:
@@ -153,7 +153,7 @@ class F2B_Impl(AbstractFAIRMetrics):
             eval.log_info("All classes found in those ontology registries")
 
         for property_entry in results["properties_false"]:
-            print(f"{property_entry} not known in OLS, or LOV, or BioPortal ")
+            # print(f"{property_entry} not known in OLS, or LOV, or BioPortal ")
             eval.log_warning(
                 f"{property_entry} property not known in OLS, LOV, or BioPortal"
             )
