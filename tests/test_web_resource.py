@@ -379,6 +379,15 @@ class WebResourceTestCase(unittest.TestCase):
     #         size = len(kg)
     #         self.assertGreaterEqual(size, 1)
 
+    def test_redirect(self):
+        src = "https://data.inrae.fr/dataset.xhtml?persistentId=doi:10.15454/P27LDX"
+        red = "https://entrepot.recherche.data.gouv.fr/dataset.xhtml?persistentId=doi:10.15454/P27LDX"
+
+        kg_src = WebResource(src).get_rdf()
+        kg_red = WebResource(red).get_rdf()
+
+        self.assertEqual(len(kg_red), len(kg_src))
+
 
 if __name__ == "__main__":
     unittest.main()

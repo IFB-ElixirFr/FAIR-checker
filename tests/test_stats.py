@@ -1,6 +1,11 @@
 import sys
 from metrics.Evaluation import Evaluation
 from metrics.util import gen_usage_statistics
+from metrics.statistics import (
+    validation_this_month,
+    validation_this_month_v2,
+    md_harvesting_this_month,
+)
 
 sys.path.insert(1, "..")
 
@@ -15,7 +20,7 @@ import unittest
 import json
 
 
-@unittest.skip("to be run through a cron and with a specific test DB")
+# @unittest.skip("to be run through a cron and with a specific test DB")
 class StatisticsTestCase(unittest.TestCase):
     # metrics = []
     # factory = None
@@ -104,6 +109,11 @@ class StatisticsTestCase(unittest.TestCase):
         e = Evaluation()
         print(e)
         e.persist(source="http://test")
+
+    def test_nb_valid(self):
+        print(f"{md_harvesting_this_month()} metadata harvesting this month")
+        print(f"{validation_this_month()} valid this month")
+        print(f"{validation_this_month_v2()} valid broad this month")
 
 
 if __name__ == "__main__":
