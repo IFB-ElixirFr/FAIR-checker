@@ -133,6 +133,12 @@ class FindabilityTestCase(unittest.TestCase):
         print(res)
         self.assertEqual(res.get_score(), str(Result.NO.value))
 
+    def test_identifiers_maser(self):
+        datacite = WebResource("https://doi.org/10.25935/6jg4-mk86")
+        res = FAIRMetricsFactory.get_F1B(web_resource=datacite).evaluate()
+        print(res)
+        self.assertEqual(res.get_score(), str(Result.NO.value))
+
 
 if __name__ == "__main__":
     unittest.main()
