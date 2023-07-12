@@ -232,7 +232,7 @@
     console.log($("#p1").parent().closest('div').data("label"));
     $("#p1").parent().closest('div').data("label", "toto");
 
-    // add recommandation if score == 0
+    // add recommendation if score == 0
     if (value['recommendation'] != "No recommendation, metric validated") {
       {#$("#row_guideline_{{f.id}}").parent("div").find('button').show()#}
       $("#show_more_reco_{{f.id}}").show();
