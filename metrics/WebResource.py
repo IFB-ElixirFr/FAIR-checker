@@ -1,3 +1,9 @@
+import eventlet
+
+# from https://github.com/eventlet/eventlet/issues/670
+# eventlet.monkey_patch(select=False)
+eventlet.monkey_patch()
+
 import time
 from ssl import SSLError
 from lxml import html
