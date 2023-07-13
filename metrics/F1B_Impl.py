@@ -1,12 +1,8 @@
 import logging
 import json
-
 import requests
 from pathlib import Path
 from urllib.parse import urlparse
-import logging
-from rdflib import URIRef
-
 from metrics.AbstractFAIRMetrics import AbstractFAIRMetrics
 from metrics.FairCheckerExceptions import FairCheckerException
 from metrics.recommendation import json_rec

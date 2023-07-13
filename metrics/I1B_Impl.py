@@ -2,6 +2,7 @@ from metrics.AbstractFAIRMetrics import AbstractFAIRMetrics
 from metrics.F2A_Impl import F2A_Impl
 
 
+@DeprecationWarning
 class I1B_Impl(AbstractFAIRMetrics):
     """
     GOAL :

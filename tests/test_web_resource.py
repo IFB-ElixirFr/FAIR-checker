@@ -4,10 +4,7 @@ from metrics.FAIRMetricsFactory import FAIRMetricsFactory
 from metrics.WebResource import WebResource
 import logging
 import time
-from rdflib import Graph
 import requests
-import extruct
-import json
 
 logging.basicConfig(
     level=logging.DEBUG,
@@ -121,7 +118,6 @@ class WebResourceTestCase(unittest.TestCase):
         self.assertEqual(60, len(harvard_dataverse_jsonld.get_rdf()))
 
     def test_dataverse_html(self):
-
         harvard_dataverse_html = WebResource(
             "https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/ISBMO4"
         )
@@ -166,9 +162,6 @@ class WebResourceTestCase(unittest.TestCase):
         self.assertGreaterEqual(18000, len(uniprot_rest_WR.get_rdf()))
 
     def test_named_graph(self):
-
-        RDFLib = Namespace("https://rdflib.github.io/")
-
         # turtle
         url_turtle = "https://www.w3.org/TR/turtle/examples/example1.ttl"
         response = requests.get(url_turtle)
@@ -191,20 +184,13 @@ class WebResourceTestCase(unittest.TestCase):
         ds.add_graph(g_turtle)
         ds.add_graph(g_n3)
 
-        # g_all = g_turtle + g_n3
-
-        # print(ds.serialize(format="trig"))
-        # print(g_all.serialize(format="trig"))
         print(len(ds))
         for c in ds.graphs():
             print(len(c))
         print(len(g_turtle))
         print(len(g_n3))
-        # print(len(g_all))
 
     def test_named_graph_pangaea(self):
-
-        # jsonld
         url_jsonld = (
             "https://doi.pangaea.de/10.1594/PANGAEA.932827?format=metadata_jsonld"
         )
@@ -227,11 +213,6 @@ class WebResourceTestCase(unittest.TestCase):
         ds.add_graph(g_jsonld)
         ds.add_graph(g_html)
 
-        # g_all = g_turtle + g_n3
-
-        # print(ds.serialize(format="trig"))
-        # print(g_all.serialize(format="trig"))
-
         for c in ds.graphs():
             print(len(c))
             print(c)
@@ -248,13 +229,6 @@ class WebResourceTestCase(unittest.TestCase):
         bwa = WebResource("http://bio.tools/bwa")
         self.assertEqual(len(bwa.get_rdf()), 121)
 
-    # def test_define_var(self):
-    #     url_html = "https://doi.pangaea.de/10.1594/PANGAEA.932827"
-    #     wr_pangaea = WebResource(url_html)
-    #     # wr_pangaea.init_kgs()
-
-    #     # print(wr_pangaea.get_wr_dataset().serialize(format="trig"))
-
     def test_elixir(self):
         elixir = WebResource("https://www.elixir-europe.org/")
         logging.info(f"{len(elixir.get_rdf())} loaded RDF triples")
@@ -270,29 +244,6 @@ class WebResourceTestCase(unittest.TestCase):
     def test_expasy(self):
         expasy = WebResource("https://prosite.expasy.org")
         logging.info(f"{len(expasy.get_rdf())} loaded RDF triples")
-
-    def test_UnicodeDecodeError_resources(self):
-        # Workflohub is working correctly, it is a positive control
-        urls = [
-            # "https://workflowhub.eu/workflows/18"
-            # "https://ebisc.org/",
-            "https://www.metanetx.org/",
-            # "https://www.ebi.ac.uk/interpro/",
-            # "https://datacatalog.elixir-luxembourg.org/",
-            # "https://ippidb.pasteur.fr/",
-            # "http://edgar.biocomp.unibo.it/",
-            # "http://phenpath.biocomp.unibo.it/phenpath/",
-            # "https://humanmine.org/",
-            # "https://prosite.expasy.org",
-            # "https://enzyme.expasy.org",
-            # "https://hamap.expasy.org/",
-            # "https://www.ebi.ac.uk/chembl/",
-            # "http://www.ebi.ac.uk/Tools/hmmer/",
-        ]
-
-        for url in urls:
-            wr_kg = WebResource(url).get_rdf()
-            print(len(wr_kg))
 
     def test_schema_file_context(self):
         urls = [
@@ -303,26 +254,6 @@ class WebResourceTestCase(unittest.TestCase):
         for url in urls:
             wr_kg = WebResource(url).get_rdf()
             print(len(wr_kg))
-
-    def test_elixir(self):
-        elixir = WebResource("https://www.elixir-europe.org/")
-        logging.info(f"{len(elixir.get_rdf())} loaded RDF triples")
-
-    def test_biosamples(self):
-        biosamples = WebResource("https://www.ebi.ac.uk/biosamples/")
-        logging.info(f"{len(biosamples.get_rdf())} loaded RDF triples")
-
-    def test_pscan(self):
-        pscan = WebResource("http://159.149.160.88/pscan/")
-        logging.info(f"{len(pscan.get_rdf())} loaded RDF triples")
-
-    def test_expasy(self):
-        expasy = WebResource("https://prosite.expasy.org")
-        logging.info(f"{len(expasy.get_rdf())} loaded RDF triples")
-
-    # def test_bioschemas_website(self):
-    #     bsweb = WebResource("https://bioschemas.org")
-    #     logging.info(f"{len(bsweb.get_rdf())} loaded RDF triples")
 
     def test_zenodo(self):
         zenodo = WebResource("https://zenodo.org/record/4420116")
@@ -353,31 +284,24 @@ class WebResourceTestCase(unittest.TestCase):
             wr_kg = WebResource(url).get_rdf()
             print(len(wr_kg))
 
-    def test_schema_file_context(self):
-        urls = [
-            # "https://www.metanetx.org/",
-            "https://bio.tools/jaspar"
-        ]
+    def test_remote_files_with_redirect(self):
+        url = "https://doi.pangaea.de/10.1594/PANGAEA.932827?format=metadata_jsonld"
+        kg = WebResource(url).get_rdf()
+        size = len(kg)
+        print(f"{url} : size = {size} triples")
+        self.assertGreaterEqual(size, 190)
 
-        for url in urls:
-            wr_kg = WebResource(url).get_rdf()
-            print(len(wr_kg))
+        url = "http://purl.obolibrary.org/obo/ro.owl"
+        kg = WebResource(url).get_rdf()
+        size = len(kg)
+        print(f"{url} : size = {size} triples")
+        self.assertGreaterEqual(size, 10000)
 
-    # def test_remote_file(self):
-    #     candidate_urls = [
-    #         # "http://95.142.173.26:8090/?format=ttl",
-    #         # "http://95.142.173.26:8090",
-    #         "https://doi.pangaea.de/10.1594/PANGAEA.932827?format=metadata_jsonld",
-    #         "http://purl.obolibrary.org/obo/envo.owl",
-    #         "https://raw.githubusercontent.com/EnvironmentOntology/envo/master/envo.owl",
-    #         "https://bio.tools/api/jaspar?format=jsonld",
-    #         "https://nemi.molgeniscloud.org/api/fdp",
-    #     ]
-    #     for u in candidate_urls:
-    #         print(u)
-    #         kg = WebResource(u).get_rdf()
-    #         size = len(kg)
-    #         self.assertGreaterEqual(size, 1)
+        url = "https://raw.githubusercontent.com/oborel/obo-relations/master/ro.owl"
+        kg = WebResource(url).get_rdf()
+        size = len(kg)
+        print(f"{url} : size = {size} triples")
+        self.assertGreaterEqual(size, 10000)
 
 
 if __name__ == "__main__":
