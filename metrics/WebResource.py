@@ -6,13 +6,10 @@ from selenium import webdriver
 from selenium.webdriver.support.wait import WebDriverWait
 from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.chrome.options import Options
-from selenium.common.exceptions import NoSuchElementException
 import extruct
 from pathlib import Path
-from rdflib import ConjunctiveGraph, URIRef, Dataset, Namespace
-from rdflib.namespace import NamespaceManager
+from rdflib import ConjunctiveGraph, URIRef, Namespace
 import requests
-import time
 
 requests.packages.urllib3.disable_warnings(
     requests.packages.urllib3.exceptions.InsecureRequestWarning
@@ -104,9 +101,6 @@ class WebResource:
         self.init_kgs()
 
         if rdf_graph is None:
-
-            # get headers of the resource
-            # response = requests.head(url)
             response = requests.get(url)
             self.headers = response.headers
             self.status_code = response.status_code
@@ -126,7 +120,6 @@ class WebResource:
 
             # if not html, try to retrieve rdf from possible rdf format
             if mimetype != "text/html":
-
                 response = self.request_from_url(self.url)
 
                 # generate rdf graph from mapped mimetypes
@@ -138,7 +131,6 @@ class WebResource:
 
                 # if no rdf found: brute force testing each RDF formats regardless of mimetypes
                 if len(self.kg_auto) == 0:
-                    rdf_str = response.text
                     for rdf_format in self.RDF_MEDIA_TYPES_MAPPING.keys():
                         self.kg_brut = self.get_rdf_from_mimetype_match(
                             url, rdf_format, self.kg_brut
@@ -149,9 +141,7 @@ class WebResource:
                 )
 
             elif mimetype == "text/html":
-
                 self.html_content = self.get_html_selenium(url)
-                # print(len(self.extract_rdf_selenium(url)))
 
                 # should only use selenium here I think
                 # TODO get RDF from HTTP html
@@ -181,22 +171,11 @@ class WebResource:
                 # get RDF metadata directly from html content
                 self.html_to_rdf_extruct(self.html_content)
 
-                # self.kg_selenium = kg_selenium
-
-                # self.rdf = kg_requests + kg_selenium
-                # self.html_rdf = kg_requests + kg_selenium
-
-                # print("EXTRUCT: " + str(len(kg_requests)))
-                # print("SELENIUM: " + str(len(kg_selenium)))
-                # print("HTML: " + str(len(self.kg_html)))
-
             # get static RDF metadata (already available in html sources)
             self.html_content = self.request_from_url(self.url)
             self.html_to_rdf_extruct(self.html_content)
 
             self.rdf = (
-                # self.kg_requests
-                # + self.kg_selenium
                 self.kg_auto
                 + self.kg_brut
                 + self.kg_links_header
@@ -242,19 +221,12 @@ class WebResource:
             self.wr_dataset = clean_kg_excluding_ns_prefix(
                 self.wr_dataset, "http://www.w3.org/1999/xhtml/vocab#"
             )
-            # self.wr_dataset.add_graph(self.kg_auto)
-            # print("######################")
-            # for namespace in self.kg_links_header.namespaces():
-            #     print(namespace)
-            # print(self.rdf.serialize(format="trig"))
+
             print("HTML: " + str(len(self.kg_html)))
             print("LINKS HEADERS: " + str(len(self.kg_links_header)))
             print("AUTO: " + str(len(self.kg_auto)))
-            print("BRUTFORCE: " + str(len(self.kg_brut)))
-            print("LINKS HTML: " + str(len(self.kg_links_html)))
-
-            # for kg in self.get_wr_kg_dataset().graphs():
-            #     print(len(kg))
+            print("FORMATS_GUESSING: " + str(len(self.kg_brut)))
+            print("HTML LINKS: " + str(len(self.kg_links_html)))
 
         else:
             self.rdf = rdf_graph
@@ -265,54 +237,26 @@ class WebResource:
         self.rdf = clean_kg_excluding_ns_prefix(
             self.rdf, "http://www.w3.org/1999/xhtml/vocab#"
         )
-        # print("Full graph size: " + str(len(self.rdf)))
-        # print(self.rdf.serialize(format="json-ld"))
 
     def init_kgs(self):
         for var_str in self.kg_var_strings:
-            # print(var_str)
-
             setattr(
                 WebResource,
                 var_str,
                 ConjunctiveGraph(identifier="http://webresource/" + var_str),
             )
-
-            # clean_kg_excluding_ns_prefix(
-            #     getattr(WebResource, var_str), "http://schema.org/"
-            # )
-            # getattr(WebResource, var_str).namespace_manager.bind(
-            #     "sc", URIRef("https://schema.org/")
-            # )
             getattr(WebResource, var_str).namespace_manager.bind(
                 "bsc", URIRef("https://bioschemas.org/")
             )
             getattr(WebResource, var_str).namespace_manager.bind(
                 "dct", URIRef("http://purl.org/dc/terms/")
             )
-            # getattr(WebResource, var_str).bind("sc", Namespace("http://schema.org/"))
             clean_kg_excluding_ns_prefix(
                 getattr(WebResource, var_str), "http://www.w3.org/1999/xhtml/vocab#"
             )
 
-        # print(self.kg_links_header.namespaces())
-        # for namespace in self.kg_links_header.namespaces():
-        #     print(namespace)
-
-        # self.kg_links_header.namespace_manager.bind("sc", URIRef("http://schema.org/"))
-        # self.kg_links_header.namespace_manager.bind("bsc", URIRef("https://bioschemas.org/"))
-        # self.kg_links_header.namespace_manager.bind("dct", URIRef("http://purl.org/dc/terms/"))
-
-    # def get_var_name(variable):
-    #     for name, value in globals().items():
-    #         if value is variable:
-    #             return name
-
     def get_kg_from_header(self, described_by):
-        # get RDF from HTTP headers
-        # kg_links_header = self.kg_links_header
         for link in described_by:
-
             reg_string = '<(.*?)>*;*rel="(.*?)"*;*type="(.*?)"'
             p = re.compile(reg_string)
             match = re.search(reg_string, link)
@@ -325,14 +269,10 @@ class WebResource:
             for rdf_format in rdf_formats:
                 self.get_rdf_from_mimetype_match(url, rdf_format, self.kg_links_header)
 
-    # def get_kg_from_rdf_formats(self, format):
-    #     print("toto")
-
     def get_url(self):
         return self.url
 
     def get_rdf(self):
-        # return self.rdf
         return self.wr_dataset
 
     def get_wr_kg_dataset(self):
@@ -347,9 +287,6 @@ class WebResource:
     def get_status_code(self):
         return self.status_code
 
-    # def get_html_selenium(self):
-    #     return self.html_selenium
-
     def get_html_requests(self):
         return self.html_requests
 
@@ -359,13 +296,10 @@ class WebResource:
     @staticmethod
     def is_schema_http(kg):
         for s, p, o, g in kg.quads(None):
-            changed = False
-            new_s = s
             if str(s).startswith("http://schema.org"):
                 return True
             if str(p).startswith("http://schema.org"):
                 return True
-            new_o = o
             if isinstance(o, URIRef):
                 if str(o).startswith("http://schema.org"):
                     return True
@@ -410,23 +344,20 @@ class WebResource:
                 )
 
                 kg += kg_temp
-                # for s, p, o in kg_temp:
-                #     kg.add((s, p, o))
-                # print("######################")
-                # for namespace in kg.namespaces():
-                #     print(namespace)
                 logging.debug(len(kg_temp))
             except Exception as err:
                 # if error UnicodeDecodeError execute following code, otherwise continue to next format
-                if type(err).__name__ == "UnicodeDecodeError":
+                if type(err).__name__ == "BadSyntax":
+                    print("RDF syntax error")
                     print(err)
-                    print("ERROR UNICODE")
+                if type(err).__name__ == "UnicodeDecodeError":
+                    print("UNICODE error")
+                    print(err)
                     kg = self.handle_unicodedecodeerror(url, kg, response)
 
         return kg
 
     def get_rdf_format_from_contenttype(self, mimetype):
-
         all_mediatypes = [
             item
             for sublist in self.RDF_MEDIA_TYPES_MAPPING.values()
@@ -442,8 +373,8 @@ class WebResource:
 
     def handle_unicodedecodeerror(self, url, kg, response):
         print("Handle JSON-LD parsing error")
-        base_path = Path(__file__).parent.parent  # current directory
-        static_file_path = str((base_path / "static/data/jsonldcontext.json").resolve())
+        # base_path = Path(__file__).parent.parent  # current directory
+        # static_file_path = str((base_path / "static/data/jsonldcontext.json").resolve())
         json_response = response.json()
 
         if "@context" in json_response.keys():
@@ -451,17 +382,6 @@ class WebResource:
                 "http://schema.org" in json_response["@context"]
             ):
                 json_response["@context"] = self.static_file_path
-
-            # if ("https://schema.org" in json_response["@context"]) or (
-            #     "http://schema.org" in json_response["@context"]
-            # ):
-            #     json_response["@context"] = self.static_file_path
-
-        # kg.parse(
-        #     data=json.dumps(json_response, ensure_ascii=False),
-        #     format="json-ld",
-        #     publicID=self.url,
-        # )
 
         json_str = json.dumps(json_response, ensure_ascii=False)
 
@@ -534,58 +454,15 @@ class WebResource:
                 print("ConnectionError, retrying...")
                 time.sleep(10)
 
-        # self.html_requests = response.content
         return response.text
 
-    # def retrieve_html_request(self):
-    #     nb_retry = 0
-    #     while nb_retry < 3:
-    #         try:
-    #             nb_retry += 1
-    #             response = requests.get(url=self.url, timeout=15, verify=False)
-    #             break
-    #         except SSLError:
-    #             time.sleep(5)
-    #         except requests.exceptions.Timeout:
-    #             print("Timeout, retrying")
-    #             time.sleep(5)
-    #         except requests.exceptions.ConnectionError as e:
-    #             print(e)
-    #             print("ConnectionError, retrying...")
-    #             time.sleep(10)
-
-    #     self.status_code = response.status_code
-    #     self.html_requests = response.content
-
-    # # @staticmethod
-    # def extract_rdf_extruct(self, url) -> ConjunctiveGraph:
-    #     while True:
-    #         try:
-
-    #             response = requests.get(url=url, timeout=10, verify=False)
-    #             break
-    #         except SSLError:
-    #             time.sleep(5)
-    #         except requests.exceptions.Timeout:
-    #             print("Timeout, retrying")
-    #             time.sleep(5)
-    #         except requests.exceptions.ConnectionError as e:
-    #             print(e)
-    #             print("ConnectionError, retrying...")
-    #             time.sleep(10)
-
-    #     # self.html_requests = response.content
-    #     return response
-
     def get_html_selenium(self, url):
-
         browser = WebResource.WEB_BROWSER_HEADLESS
         browser.get(url)
         time.sleep(2)
         browser.set_page_load_timeout(30)
         browser.implicitly_wait(30)
-        # resp = requests.get(url)
-        # print(len(resp.content))
+
         WebDriverWait(self.WEB_BROWSER_HEADLESS, self.SERVER_TIMEOUT).until(
             lambda wd: self.WEB_BROWSER_HEADLESS.execute_script(
                 "return document.readyState"
@@ -596,7 +473,6 @@ class WebResource:
         html_content = browser.page_source
         logging.debug(type(browser.page_source))
         logging.info(f"size of the parsed web page: {len(html_content)}")
-        # print(browser.page_source)
         return html_content
 
     # @staticmethod
@@ -619,8 +495,6 @@ class WebResource:
 
         if "rdfa" in data.keys():
             for md in data["rdfa"]:
-                # print(md)
-                # print(json.dumps(md, ensure_ascii=False))
                 kg_rdfa.parse(
                     data=json.dumps(md, ensure_ascii=False),
                     format="json-ld",
@@ -632,8 +506,6 @@ class WebResource:
 
         if "microdata" in data.keys():
             for md in data["microdata"]:
-                # print(md)
-                # print(json.dumps(md, ensure_ascii=False))
                 kg_microdata.parse(
                     data=json.dumps(md, ensure_ascii=False),
                     format="json-ld",
@@ -643,145 +515,8 @@ class WebResource:
 
         kg_extruct = kg_jsonld + kg_rdfa + kg_microdata
 
-        # logging.debug(kg_extruct.serialize(format="turtle"))
-
         for s, p, o in kg_extruct:
             self.kg_html.add((s, p, o))
-
-        # self.kg_html.namespace_manager.bind("sc", URIRef("http://schema.org/"))
-        # self.kg_html.namespace_manager.bind("bsc", URIRef("https://bioschemas.org/"))
-        # self.kg_html.namespace_manager.bind("dct", URIRef("http://purl.org/dc/terms/"))
-
-        # self.kg_links_header.namespace_manager.bind("sc", URIRef("http://schema.org/"))
-        # self.kg_links_header.namespace_manager.bind("bsc", URIRef("https://bioschemas.org/"))
-        # self.kg_links_header.namespace_manager.bind("dct", URIRef("http://purl.org/dc/terms/"))
-
-        # self.kg_html = kg_extruct
-
-        # return kg_extruct
-
-    # # @staticmethod
-    # def extract_rdf_extruct(self, url) -> ConjunctiveGraph:
-    #     while True:
-    #         try:
-    #             response = requests.get(url=url, timeout=10, verify=False)
-    #             break
-    #         except SSLError:
-    #             time.sleep(5)
-    #         except requests.exceptions.Timeout:
-    #             print("Timeout, retrying")
-    #             time.sleep(5)
-    #         except requests.exceptions.ConnectionError as e:
-    #             print(e)
-    #             print("ConnectionError, retrying...")
-    #             time.sleep(10)
-
-    #     self.status_code = response.status_code
-    #     self.content_type = response.headers["Content-Type"]
-    #     html_source = response.content
-
-    #     data = extruct.extract(
-    #         html_source, syntaxes=["microdata", "rdfa", "json-ld"], errors="ignore"
-    #     )
-
-    #     kg = ConjunctiveGraph()
-
-    #     if "json-ld" in data.keys():
-    #         for md in data["json-ld"]:
-    #             if "@context" in md.keys():
-    #                 if ("https://schema.org" in md["@context"]) or (
-    #                     "http://schema.org" in md["@context"]
-    #                 ):
-    #                     md["@context"] = self.static_file_path
-    #             kg.parse(
-    #                 data=json.dumps(md, ensure_ascii=False),
-    #                 format="json-ld",
-    #                 publicID=url,
-    #             )
-    #     if "rdfa" in data.keys():
-    #         for md in data["rdfa"]:
-    #             if "@context" in md.keys():
-    #                 if ("https://schema.org" in md["@context"]) or (
-    #                     "http://schema.org" in md["@context"]
-    #                 ):
-    #                     md["@context"] = self.static_file_path
-    #             kg.parse(
-    #                 data=json.dumps(md, ensure_ascii=False),
-    #                 format="json-ld",
-    #                 publicID=url,
-    #             )
-
-    #     if "microdata" in data.keys():
-    #         for md in data["microdata"]:
-    #             if "@context" in md.keys():
-    #                 if ("https://schema.org" in md["@context"]) or (
-    #                     "http://schema.org" in md["@context"]
-    #                 ):
-    #                     md["@context"] = self.static_file_path
-    #             kg.parse(
-    #                 data=json.dumps(md, ensure_ascii=False),
-    #                 format="json-ld",
-    #                 publicID=url,
-    #             )
-
-    #     # logging.debug(kg.serialize(format="turtle"))
-
-    #     kg.namespace_manager.bind("sc", URIRef("http://schema.org/"))
-    #     kg.namespace_manager.bind("bsc", URIRef("https://bioschemas.org/"))
-    #     kg.namespace_manager.bind("dct", URIRef("http://purl.org/dc/terms/"))
-
-    #     return kg
-
-    # @staticmethod
-    # def extract_rdf_selenium(url) -> ConjunctiveGraph:
-    #     kg = ConjunctiveGraph()
-
-    #     browser = WebResource.WEB_BROWSER_HEADLESS
-    #     browser.get(url)
-    #     # self.html_source = browser.page_source
-    #     # browser.quit()
-    #     logging.debug(type(browser.page_source))
-    #     print(browser.page_source)
-    #     logging.info(f"Size of the parsed web page: {len(browser.page_source)}")
-
-    #     try:
-    #         element = browser.find_element_by_xpath(
-    #             "//script[@type='application/ld+json']"
-    #         )
-    #         element = element.get_attribute("outerHTML")
-    #         # browser.quit()
-
-    #         tree = html.fromstring(element)
-    #         jsonld_string = tree.xpath('//script[@type="application/ld+json"]//text()')
-    #         print(jsonld_string)
-    #         data = extruct.extract(
-    #             browser.page_source, syntaxes=["microdata", "rdfa", "json-ld"], errors="ignore"
-    #         )
-    #         print(data)
-    #         for json_ld_annots in jsonld_string:
-    #             jsonld = json.loads(json_ld_annots)
-    #             if type(jsonld) == list:
-    #                 jsonld = jsonld[0]
-    #             if "@context" in jsonld.keys():
-    #                 if "//schema.org" in jsonld["@context"]:
-    #                     jsonld["@context"] = WebResource.static_file_path
-    #             kg.parse(
-    #                 data=json.dumps(jsonld, ensure_ascii=False),
-    #                 format="json-ld",
-    #                 publicID=url,
-    #             )
-    #             logging.debug(f"{len(kg)} retrieved triples in KG")
-    #             # logging.debug(kg.serialize(format="turtle"))
-
-    #     except NoSuchElementException:
-    #         logging.warning('Can\'t find "application/ld+json" content')
-    #         pass
-
-    #     kg.namespace_manager.bind("sc", URIRef("http://schema.org/"))
-    #     kg.namespace_manager.bind("bsc", URIRef("https://bioschemas.org/"))
-    #     kg.namespace_manager.bind("dct", URIRef("http://purl.org/dc/terms/"))
-
-    #     return kg
 
     def __str__(self) -> str:
         out = """Web resource under FAIR assesment:\n\t"""
