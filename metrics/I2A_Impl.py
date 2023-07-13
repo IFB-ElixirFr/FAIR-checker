@@ -3,6 +3,7 @@ from metrics.AbstractFAIRMetrics import AbstractFAIRMetrics
 from metrics.recommendation import json_rec
 
 
+@DeprecationWarning
 class I2A_Impl(AbstractFAIRMetrics):
     """
     GOAL :
