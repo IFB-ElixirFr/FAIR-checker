@@ -64,7 +64,6 @@ class F2A_Impl(AbstractFAIRMetrics):
         return eval
 
     def strong_evaluate(self, eval=None) -> Evaluation:
-
         if not eval:
             eval = self.get_evaluation()
             eval.set_implem(self.implem)
@@ -95,11 +94,11 @@ class F2A_Impl(AbstractFAIRMetrics):
             + checked_properties
         )
         res = self.get_web_resource().get_rdf().query(query_prov)
-        print()
-        print(res)
-        print()
+        # print()
+        # print(res)
+        # print()
         for bool_res in res:
-            print(bool_res)
+            # print(bool_res)
             if bool_res:
                 eval.log_info(
                     "At least one of the discoverability properties was found in metadata !"
@@ -119,6 +118,6 @@ class F2A_Impl(AbstractFAIRMetrics):
                 eval.set_score(0)
                 return eval
 
-        print("ERROR ERROR ERROR")
+        # print("ERROR ERROR ERROR")
         eval.set_score(0)
         return eval

@@ -6,7 +6,6 @@ from metrics.recommendation import json_rec
 
 
 class F2B_Impl(AbstractFAIRMetrics):
-
     query_classes = """
             SELECT DISTINCT ?class WHERE { GRAPH ?g { ?s rdf:type ?class } } ORDER BY ?class
         """
@@ -134,8 +133,8 @@ class F2B_Impl(AbstractFAIRMetrics):
         )
 
         results = inspect_onto_reg(kg, False)
-        print(results)
-        print("#######")
+        # print(results)
+        # print("#######")
         # for kg in kgs.graphs():
         #     results = inspect_onto_reg(kg, False)
         #     print(results)
