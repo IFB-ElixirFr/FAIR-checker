@@ -117,7 +117,7 @@ class WebResource:
 
             # list of possibles rdf formats from mimetypes
             rdf_formats = self.get_rdf_format_from_contenttype(mimetype)
-            print(self.headers)
+            # print(self.headers)
 
             cite_as, described_by, items = self.retrieve_links_from_headers()
 
@@ -130,7 +130,7 @@ class WebResource:
 
                 # generate rdf graph from mapped mimetypes
                 for rdf_format in rdf_formats:
-                    print(rdf_format)
+                    # print(rdf_format)
                     self.kg_auto = self.get_rdf_from_mimetype_match(
                         self.url, rdf_format, self.kg_auto
                     )
@@ -506,7 +506,7 @@ class WebResource:
                     format="json-ld",
                     publicID=self.url,
                 )
-                print(len(kg_rdfa))
+                # print(len(kg_rdfa))
 
         kg_microdata = ConjunctiveGraph()
 
@@ -517,7 +517,7 @@ class WebResource:
                     format="json-ld",
                     publicID=self.url,
                 )
-                print(len(kg_microdata))
+                # print(len(kg_microdata))
 
         kg_extruct = kg_jsonld + kg_rdfa + kg_microdata
 
