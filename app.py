@@ -255,6 +255,7 @@ STATUS_LOV = requests.head("https://lov.linkeddata.es/dataset/lov/sparql").statu
 
 DICT_BANNER_INFO = {"banner_message_info": {}}
 
+
 # Update banner info with the message in .env
 @app.context_processor
 def display_info():
@@ -417,7 +418,6 @@ def generate_check_api(metric):
         )
         @fc_check_namespace.expect(reqparse)
         def get(self):
-
             args = reqparse.parse_args()
             url = args["url"]
 
@@ -537,7 +537,6 @@ def generate_ask_api(describe):
     class Ask(Resource):
         @fc_inspect_namespace.expect(reqparse)
         def get(self):
-
             args = reqparse.parse_args()
             url = args["url"]
 
@@ -893,7 +892,6 @@ def handle_quick_structured_data_search(url):
 
 
 def recommendation(emit_json, metric_name, comment):
-
     recommendation_dict = {
         # F1
         "unique_identifier": {
@@ -1068,7 +1066,6 @@ def write_temp_metric_res_file(principle, api_url, time, score, comment, content
 
 @socketio.on("download_csv")
 def handle_csv_download():
-
     # temp_file_path = "./temp/" + FILE_UUID
 
     print("Received download request from " + FILE_UUID)
@@ -1179,7 +1176,6 @@ def named_kg_len(kgs):
 
 @socketio.on("change_rdf_type")
 def handle_change_rdf_type(data):
-
     sid = request.sid
     RDF_TYPE[sid] = data["rdf_type"]
     kgs = KGS[sid]
@@ -2005,16 +2001,12 @@ def get_result_style(result) -> str:
 
 
 if __name__ == "__main__":
-
     if len(sys.argv) == 1:
         parser.print_help(sys.stderr)
         sys.exit(1)
 
     args = parser.parse_args()
     print(args)
-
-    if args.update:
-        print("UPDATE BS her")
 
     if args.debug:
         logging.basicConfig(
@@ -2058,7 +2050,6 @@ if __name__ == "__main__":
                 logging.info("Bioschemas eval")
 
             else:
-
                 for m in track(metrics_collection, "Processing FAIR metrics ..."):
                     logging.info(m.get_name())
                     res = m.evaluate()
