@@ -107,7 +107,7 @@ class GenSHACLTestCase(unittest.TestCase):
 
     def test_datacite_validation(self):
         res = validate_any_from_microdata(
-            input_url="https://search.datacite.org/works/10.7892/boris.108387"
+            input_url="https://commons.datacite.org/doi.org/10.7892/boris.108387"
         )
         self.assertGreater(len(res[0]), 0)
         self.assertFalse(res[0]["https://doi.org/10.7892/boris.108387"]["conforms"])
@@ -120,7 +120,7 @@ class GenSHACLTestCase(unittest.TestCase):
 
     @unittest.skip("Deprecated, Profile.py should be used instead")
     def test_datacite_validation_kg(self):
-        input_url = "https://search.datacite.org/works/10.7892/boris.108387"
+        input_url = "https://commons.datacite.org/doi.org/10.7892/boris.108387"
         datacite_md = WebResource(input_url)
         kg = datacite_md.get_rdf()
 

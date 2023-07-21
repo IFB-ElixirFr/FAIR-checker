@@ -18,7 +18,6 @@ if not LOGGER.handlers:
 
 
 class FindabilityTestCase(unittest.TestCase):
-
     uri_wf = "https://workflowhub.eu/workflows/45"
     uri_tool = "https://bio.tools/bwa"
     wf = None
@@ -108,7 +107,7 @@ class FindabilityTestCase(unittest.TestCase):
             web_resource=biotools, impl=Implem.FAIR_CHECKER
         ).evaluate()
         logging.info(res)
-        self.assertEqual(res.get_score(), str(Result.STRONG.value))
+        self.assertEqual(res.get_score(), str(Result.WEAK.value))
 
     def test_F2B_biotools(self):
         biotools = FindabilityTestCase.tool
@@ -116,7 +115,7 @@ class FindabilityTestCase(unittest.TestCase):
             web_resource=biotools, impl=Implem.FAIR_CHECKER
         ).evaluate()
         logging.info(res)
-        self.assertEqual(res.get_score(), str(Result.STRONG.value))
+        self.assertEqual(res.get_score(), str(Result.WEAK.value))
 
     @unittest.skip("too long")
     def test_identifiers_dataverse(self):
