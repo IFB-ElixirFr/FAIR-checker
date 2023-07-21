@@ -115,7 +115,7 @@ class FindabilityTestCase(unittest.TestCase):
             web_resource=biotools, impl=Implem.FAIR_CHECKER
         ).evaluate()
         logging.info(res)
-        self.assertEqual(res.get_score(), str(Result.WEAK.value))
+        self.assertEqual(res.get_score(), str(Result.STRONG.value))
 
     @unittest.skip("too long")
     def test_identifiers_dataverse(self):
