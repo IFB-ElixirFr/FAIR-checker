@@ -27,6 +27,7 @@ class InteroperablilityTestCase(unittest.TestCase):
         logging.info(res)
         self.assertEqual(res.get_score(), str(Result.WEAK.value))
 
+    @unittest.skip("Deprecated metrics")
     def test_I2A_biotools(self):
         biotools = WebResource("http://bio.tools/bwa")
         res = FAIRMetricsFactory.get_I2A(
