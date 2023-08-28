@@ -23,7 +23,7 @@ Main contributors are:
 
 ## Main features
 - extracts embedded metatdata from web pages, currently supporting RDFa, JSON-LD, and microdata formats
-- evaluates [FAIR metrics](https://www.go-fair.org/fair-principles/) on these metadata (supported by [Identifiers.org](https://www.identifiers.org)). 
+- evaluates [FAIR metrics](https://www.go-fair.org/fair-principles/) on these metadata (supported by [Identifiers.org](https://identifiers.org/)). 
 - provides a graphical summary on FAIR assesment 
 - provides detailed evaluations for each metric with technical recommendations
 - explore the content of metadata
