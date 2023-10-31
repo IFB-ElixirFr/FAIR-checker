@@ -488,36 +488,31 @@ class WebResource:
         )
 
         kg_jsonld = ConjunctiveGraph()
-
         if "json-ld" in data.keys():
             for md in data["json-ld"]:
-                kg_jsonld.parse(
+                kg_jsonld += kg_jsonld.parse(
                     data=json.dumps(md, ensure_ascii=False),
                     format="json-ld",
                     publicID=self.url,
                 )
 
         kg_rdfa = ConjunctiveGraph()
-
         if "rdfa" in data.keys():
             for md in data["rdfa"]:
-                kg_rdfa.parse(
+                kg_rdfa += kg_rdfa.parse(
                     data=json.dumps(md, ensure_ascii=False),
                     format="json-ld",
                     publicID=self.url,
                 )
-                # print(len(kg_rdfa))
 
         kg_microdata = ConjunctiveGraph()
-
         if "microdata" in data.keys():
             for md in data["microdata"]:
-                kg_microdata.parse(
+                kg_microdata += kg_microdata.parse(
                     data=json.dumps(md, ensure_ascii=False),
                     format="json-ld",
                     publicID=self.url,
                 )
-                # print(len(kg_microdata))
 
         kg_extruct = kg_jsonld + kg_rdfa + kg_microdata
 
