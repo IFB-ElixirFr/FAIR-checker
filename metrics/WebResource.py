@@ -16,6 +16,7 @@ import extruct
 from pathlib import Path
 from rdflib import ConjunctiveGraph, URIRef, Namespace
 import requests
+import signposting
 
 requests.packages.urllib3.disable_warnings(
     requests.packages.urllib3.exceptions.InsecureRequestWarning
@@ -90,6 +91,35 @@ class WebResource:
         "nquads": ["application/n-quads", "text/x-nquads"],
     }
 
+    def get_rdf_from_content_neg(self, anyurl):
+        response = requests.get(anyurl)
+        headers = response.headers
+        # status_code = response.status_code
+
+        #########################
+        # 0. mimetypes from headers -> RDF formats
+        mimetype = headers["Content-Type"].split(";")[0]
+        # self.mimetype = mimetype
+        # list of possibles rdf formats from mimetypes
+        rdf_formats = self.get_rdf_format_from_contenttype(mimetype)
+
+        response = self.get_response_with_retry(anyurl)
+
+        kg = ConjunctiveGraph()
+
+        # generate rdf graph from mapped mimetypes
+        for rdf_format in rdf_formats:
+            # print(rdf_format)
+            kg = self.get_rdf_from_mimetype_match(anyurl, rdf_format, kg)
+
+        # if no rdf found: brute force testing each RDF formats regardless of mimetypes
+        if len(self.kg_auto) == 0:
+            for rdf_format in self.RDF_MEDIA_TYPES_MAPPING.keys():
+                print(f"Trying {rdf_format}")
+                kg = self.get_rdf_from_mimetype_match(anyurl, rdf_format, kg)
+
+        return kg
+
     def __init__(self, url, rdf_graph=None) -> None:
         self.id = "WebResource Unique ID for cache"
         self.url = url
@@ -111,22 +141,28 @@ class WebResource:
             self.headers = response.headers
             self.status_code = response.status_code
 
-            # mimetypes from headers
+            #########################
+            # 0. mimetypes from headers -> RDF formats
             mimetype = self.headers["Content-Type"].split(";")[0]
             self.mimetype = mimetype
-
             # list of possibles rdf formats from mimetypes
             rdf_formats = self.get_rdf_format_from_contenttype(mimetype)
             # print(self.headers)
 
-            cite_as, described_by, items = self.retrieve_links_from_headers()
-
+            #########################
+            # 1. FAIR Signposting
+            described_by = self.retrieve_signposting_links()
+            for d in described_by:
+                print(d)
+            # cite_as, described_by, items = self.retrieve_links_from_headers()
             # get RDF from HTTP headers
-            self.get_kg_from_header(described_by)
+            # self.get_kg_from_header(described_by)
 
+            #########################
+            # 2. Content negotiation
             # if not html, try to retrieve rdf from possible rdf format
             if mimetype != "text/html":
-                response = self.request_from_url(self.url)
+                response = self.get_response_with_retry(self.url)
 
                 # generate rdf graph from mapped mimetypes
                 for rdf_format in rdf_formats:
@@ -146,6 +182,9 @@ class WebResource:
                     "Resource content_type is: " + self.headers["Content-Type"]
                 )
 
+            #########################
+            # 3. HTML scrapping
+            # looking for embedded JSON-LD/RDFa/microdata
             elif mimetype == "text/html":
                 self.html_content = self.get_html_selenium(url)
 
@@ -173,12 +212,12 @@ class WebResource:
                                 self.kg_links_html = self.get_rdf_from_mimetype_match(
                                     url, rdf_format, self.kg_links_html
                                 )
-
+                print(self.html_content)
                 # get RDF metadata directly from html content
                 self.html_to_rdf_extruct(self.html_content)
 
             # get static RDF metadata (already available in html sources)
-            self.html_content = self.request_from_url(self.url)
+            self.html_content = self.get_response_with_retry(self.url)
             self.html_to_rdf_extruct(self.html_content)
 
             self.rdf = (
@@ -399,51 +438,71 @@ class WebResource:
 
         return kg
 
-    def retrieve_links_from_headers(self):
-        links_col = []
-        decsribed_by_col = []
-        cite_as_col = []
-        item_col = []
-        headers = self.headers
-        for k in headers.keys():
-            if "link" in k.lower():
-                l_header = headers[k]
-                links = l_header.split(",")
-                for link in links:
-                    # print("----")
-                    links_col.append(link)
-                    tokens = link.split(";")
-                    # print(tokens)
-                    for t in tokens:
-                        if 'rel="describedby"' in t:
-                            decsribed_by_col.append(link)
-                        elif 'rel="item"' in t:
-                            item_col.append(link)
-                        elif 'rel="cite-as"' in t:
-                            cite_as_col.append(link)
-        self.links_headers = (cite_as_col, decsribed_by_col, item_col)
-        return cite_as_col, decsribed_by_col, item_col
-
-    def retrieve_links_from_html(self, source_html):
-        tree = html.fromstring(source_html)
+    def retrieve_signposting_links(self):
         links = []
+        described_by = []
+        cite_as = []
+        item = []
 
-        txt = tree.xpath('//link[contains(@rel, "describedby")]')
-        for t in txt:
-            links.append(t.values())
+        s = signposting.find_signposting_http(self.url)
+        for d in s.describedBy:
+            print(d.target)
+            print(d.type)
+            described_by.append(d.target)
 
-        txt = tree.xpath('//link[contains(@rel, "cite-as")]')
-        for t in txt:
-            links.append(t.values())
+        s = signposting.find_signposting_html(self.url)
+        for d in s.describedBy:
+            print(d.target)
+            print(d.type)
+            described_by.append(d.target)
 
-        txt = tree.xpath('//link[contains(@rel, "item")]')
-        for t in txt:
-            links.append(t.values())
-        return links
+        return described_by
+
+    # def retrieve_links_from_headers(self):
+    #     links_col = []
+    #     decsribed_by_col = []
+    #     cite_as_col = []
+    #     item_col = []
+    #     headers = self.headers
+    #     for k in headers.keys():
+    #         if "link" in k.lower():
+    #             l_header = headers[k]
+    #             links = l_header.split(",")
+    #             for link in links:
+    #                 # print("----")
+    #                 links_col.append(link)
+    #                 tokens = link.split(";")
+    #                 # print(tokens)
+    #                 for t in tokens:
+    #                     if 'rel="describedby"' in t:
+    #                         decsribed_by_col.append(link)
+    #                     elif 'rel="item"' in t:
+    #                         item_col.append(link)
+    #                     elif 'rel="cite-as"' in t:
+    #                         cite_as_col.append(link)
+    #     self.links_headers = (cite_as_col, decsribed_by_col, item_col)
+    #     return cite_as_col, decsribed_by_col, item_col
+
+    # def retrieve_links_from_html(self, source_html):
+    #     tree = html.fromstring(source_html)
+    #     links = []
+
+    #     txt = tree.xpath('//link[contains(@rel, "describedby")]')
+    #     for t in txt:
+    #         links.append(t.values())
+
+    #     txt = tree.xpath('//link[contains(@rel, "cite-as")]')
+    #     for t in txt:
+    #         links.append(t.values())
+
+    #     txt = tree.xpath('//link[contains(@rel, "item")]')
+    #     for t in txt:
+    #         links.append(t.values())
+    #     return links
 
     # TODO Extruct can work with Selenium
 
-    def request_from_url(self, url):
+    def get_response_with_retry(self, url):
         nb_retry = 0
         while nb_retry < 3:
             try:
@@ -488,36 +547,33 @@ class WebResource:
         )
 
         kg_jsonld = ConjunctiveGraph()
-
         if "json-ld" in data.keys():
             for md in data["json-ld"]:
-                kg_jsonld.parse(
+                print(json.dumps(md, ensure_ascii=False))
+                kg_jsonld += kg_jsonld.parse(
                     data=json.dumps(md, ensure_ascii=False),
                     format="json-ld",
                     publicID=self.url,
                 )
 
         kg_rdfa = ConjunctiveGraph()
-
         if "rdfa" in data.keys():
             for md in data["rdfa"]:
-                kg_rdfa.parse(
+                kg_rdfa += kg_rdfa.parse(
                     data=json.dumps(md, ensure_ascii=False),
                     format="json-ld",
                     publicID=self.url,
                 )
-                # print(len(kg_rdfa))
 
         kg_microdata = ConjunctiveGraph()
-
         if "microdata" in data.keys():
             for md in data["microdata"]:
-                kg_microdata.parse(
+                kg_microdata += kg_microdata.parse(
                     data=json.dumps(md, ensure_ascii=False),
                     format="json-ld",
                     publicID=self.url,
                 )
-                # print(len(kg_microdata))
+                print(len(kg_microdata))
 
         kg_extruct = kg_jsonld + kg_rdfa + kg_microdata
 
