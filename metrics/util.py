@@ -1,5 +1,5 @@
-from time import time
-from SPARQLWrapper import SPARQLWrapper, N3
+# from time import time
+# from SPARQLWrapper import SPARQLWrapper, N3
 from rdflib import Graph, ConjunctiveGraph, URIRef
 import requests
 import metrics.statistics as stats
@@ -62,6 +62,7 @@ cache_BP = TTLCache(
 
 # DOI regex
 regex = r"10.\d{4,9}\/[-._;()\/:A-Z0-9]+"
+
 
 # Dynamicaly generates a table with FAIR metrics implementations
 def gen_metrics():
@@ -407,7 +408,6 @@ def inspect_onto_reg(kg, is_inspect_ui):
         emit("done_check", table_content)
 
     for c in table_content["classes"]:
-
         c["tag"]["OLS"] = ask_OLS(c["name"])
         if is_inspect_ui:
             emit("done_check", table_content)
@@ -430,7 +430,6 @@ def inspect_onto_reg(kg, is_inspect_ui):
             table_content["classes_false"].append(c["name"])
 
     for p in table_content["properties"]:
-
         p["tag"]["OLS"] = ask_OLS(p["name"])
         if is_inspect_ui:
             emit("done_check", table_content)
@@ -693,7 +692,6 @@ def extract_rdf_from_html(uri):
 
 
 def extruct_to_rdf(extruct_str):
-
     g = ConjunctiveGraph()
 
     for md in extruct_str["json-ld"]:
