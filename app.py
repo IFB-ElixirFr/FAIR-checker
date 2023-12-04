@@ -54,7 +54,7 @@ import metrics.statistics as stats
 from metrics import test_metric
 from metrics.FAIRMetricsFactory import FAIRMetricsFactory
 from metrics.WebResource import WebResource
-from metrics.Evaluation import Result
+from metrics.Evaluation import Result, Evaluation
 from profiles.bioschemas_shape_gen import validate_any_from_KG
 from profiles.bioschemas_shape_gen import validate_any_from_microdata
 from metrics.util import SOURCE, inspect_onto_reg
@@ -502,9 +502,21 @@ class RetrieveMetadata(Resource):
         args = reqparse.parse_args()
         url = args["url"]
 
+        eval = Evaluation()
+        eval.set_start_time()
+        eval.set_target_uri(url)
+        eval.set_reason("metadata harvesting, success score == metadata size")
+
         web_res = WebResource(url)
-        data_str = web_res.get_rdf().serialize(format="json-ld")
+        kg = web_res.get_rdf()
+        size = len(kg)
+        data_str = kg.serialize(format="json-ld")
         data_json = json.loads(data_str)
+
+        eval.set_score(size)
+        eval.set_end_time()
+        eval.persist(source="API")
+
         return data_json
 
 
@@ -616,17 +628,21 @@ class InspectBioschemas(Resource):
         """Validate an RDF JSON-LD graph against Bioschemas profiles"""
         args = reqparse.parse_args()
         url = args["url"]
+        
+        eval = Evaluation()
+        eval.set_start_time()
+        eval.set_target_uri(url)
+        eval.set_reason("bioschemas metadata validation")
 
         web_res = WebResource(url)
         kg = web_res.get_rdf()
         results = {}
-
+        
         # Evaluate only profile with conformsTo
         results_conformsto = dyn_evaluate_profile_with_conformsto(kg)
 
         # Try to match and evaluate all found corresponding profiles
         results_type = evaluate_profile_from_type(kg)
-        print(results_type)
 
         for result_key in results_conformsto.keys():
             results[result_key] = results_conformsto[result_key]
@@ -634,6 +650,9 @@ class InspectBioschemas(Resource):
         for result_key in results_type.keys():
             if result_key not in results:
                 results[result_key] = results_type[result_key]
+
+        eval.set_end_time()
+        eval.persist(source="API")
 
         # TODO Try similarity match her for profiles that are not matched
 
@@ -648,6 +667,11 @@ class InspectBioschemasConformsTo(Resource):
         args = reqparse.parse_args()
         url = args["url"]
 
+        eval = Evaluation()
+        eval.set_start_time()
+        eval.set_target_uri(url)
+        eval.set_reason("bioschemas metadata validation (from conforms_to)")
+
         web_res = WebResource(url)
         kg = web_res.get_rdf()
 
@@ -655,6 +679,9 @@ class InspectBioschemasConformsTo(Resource):
         results_conformsto = dyn_evaluate_profile_with_conformsto(kg)
 
         # TODO Try similarity match her for profiles that are not matched
+
+        eval.set_end_time()
+        eval.persist(source="API")
 
         return results_conformsto
 
@@ -667,12 +694,19 @@ class InspectBioschemasTypesMatch(Resource):
         args = reqparse.parse_args()
         url = args["url"]
 
+        eval = Evaluation()
+        eval.set_start_time()
+        eval.set_target_uri(url)
+        eval.set_reason("bioschemas metadata validation (from types)")
+
         web_res = WebResource(url)
         kg = web_res.get_rdf()
 
         # Try to match and evaluate all found corresponding profiles
         results_type = evaluate_profile_from_type(kg)
-        print(results_type)
+
+        eval.set_end_time()
+        eval.persist(source="API")
 
         # TODO Try similarity match her for profiles that are not matched
 
