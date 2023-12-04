@@ -590,7 +590,7 @@ def validate_any_from_KG(kg):
         # print(o.n3(kg.namespace_manager))
         if o.n3(kg.namespace_manager) in bs_profiles.keys():
             # print()
-            # print(f"Trying to validate {s} as a(n) {o} resource")
+            print(f"Trying to validate {s} as a(n) {o} resource")
             shacl_shape, ref_profile = gen_SHACL_from_target_class(
                 o.n3(kg.namespace_manager)
             )
