@@ -99,15 +99,15 @@ class Evaluation:
     def set_end_time(self):
         self.end_time = self.get_current_time()
 
-    def set_recommendations(self, recommendation_text):
+    def set_recommendations(self, recommendation_text: str):
         self.recommendation = recommendation_text
 
     # used by FAIRMetrics, will probably be replaced by logs
-    def set_reason(self, r):
+    def set_reason(self, r: str):
         self.reason = r
 
     # used by FAIRMetrics, will probably be replaced by logs
-    def append_reason(self, r):
+    def append_reason(self, r: str):
         self.reason = self.reason + "\n" + r
 
     def set_web_resource(self, web_resource):
