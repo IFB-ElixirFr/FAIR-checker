@@ -472,7 +472,7 @@ def evaluate_profile_with_conformsto(kg):
 
             if ct_profile is not None:
                 shacl_shape = ct_profile.get_shacl_shape()
-                print(shacl_shape)
+                # print(shacl_shape)
                 conforms, warnings, errors = ct_profile.validate_shape(
                     sub_kg, shacl_shape
                 )

@@ -139,10 +139,12 @@ class WebResourceTestCase(unittest.TestCase):
         # self.assertEqual(60, len(turtle_WR.get_rdf()))
 
     def test_MassBank(self):
-        mb = WebResource("https://massbank.eu/MassBank/RecordDisplay?id=MSBNK-RIKEN_IMS-LQB00001")
+        mb = WebResource(
+            "https://massbank.eu/MassBank/RecordDisplay?id=MSBNK-RIKEN_IMS-LQB00001"
+        )
         kg = mb.get_rdf()
-        #print(kg.serialize(format="turtle"))
-        #logging.info(f"{len(kg)} loaded RDF triples")
+        # print(kg.serialize(format="turtle"))
+        # logging.info(f"{len(kg)} loaded RDF triples")
         self.assertGreater(len(kg), 70)
 
     def test_n3(self):

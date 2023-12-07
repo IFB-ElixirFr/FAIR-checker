@@ -102,7 +102,7 @@ class Profile:
 
             fc:{{shape_name}}
                 a sh:NodeShape ;
-                
+
                 {% for c in target_classes %}
                 sh:targetClass {{c}}, {{c.replace("sc:", "scs:")}} ;
                 {% endfor %}
@@ -180,8 +180,8 @@ class Profile:
 
         results = results_graph.query(report_query)
         # print("VALIDATION RESULTS")
-        print(knowledge_graph.serialize(format="turtle"))
-        print(shacl_shape)
+        # print(knowledge_graph.serialize(format="turtle"))
+        # print(shacl_shape)
         # print(results_text)
         # print(conforms)
         # print(results_graph.serialize(format="turtle"))
@@ -208,8 +208,8 @@ class Profile:
                     errors.append(f'{r["path"]}')
                 else:
                     errors.append(f'{r["path"]}')
-        print(errors)
-        print(warnings)
+        # print(errors)
+        # print(warnings)
         return conforms, warnings, errors
 
     def match_sub_kgs_from_profile(self, kg):
