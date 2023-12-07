@@ -628,7 +628,7 @@ class InspectBioschemas(Resource):
         """Validate an RDF JSON-LD graph against Bioschemas profiles"""
         args = reqparse.parse_args()
         url = args["url"]
-        
+
         eval = Evaluation()
         eval.set_start_time()
         eval.set_target_uri(url)
@@ -637,7 +637,7 @@ class InspectBioschemas(Resource):
         web_res = WebResource(url)
         kg = web_res.get_rdf()
         results = {}
-        
+
         # Evaluate only profile with conformsTo
         results_conformsto = dyn_evaluate_profile_with_conformsto(kg)
 
