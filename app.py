@@ -311,9 +311,6 @@ def update_vocab_status():
     prod_logger.info("Updating banner status")
 
 
-# print("before profiles creation")
-# profiles = ProfileFactory.create_all_profiles_from_specifications()
-# print("after profiles creation")
 profiles = PROFILES
 
 
