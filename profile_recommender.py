@@ -19,18 +19,12 @@ parser = ArgumentParser(
 profile_recommender helps you in finding the most relevant Bioschemas profile.   
 
 Usage examples :
-    python profile_recommender.py -url http://bio.tools/jaspar
+    python profile_recommender.py --url http://www.cathdb.info
     
 Please report any issue to alban.gaignard@univ-nantes.fr
 """,
     formatter_class=RawTextHelpFormatter,
 )
-
-# parser.add_argument(
-#     "-u",
-#     "--update",
-#     help="download or update the EDAM ontology",
-# )
 
 parser.add_argument(
     "-u",
@@ -41,14 +35,14 @@ parser.add_argument(
     help="input urls",
 )
 
-parser.add_argument(
-    "-f",
-    "--files",
-    metavar="files",
-    type=str,
-    nargs="+",
-    help="input files",
-)
+# parser.add_argument(
+#     "-f",
+#     "--files",
+#     metavar="files",
+#     type=str,
+#     nargs="+",
+#     help="input files",
+# )
 
 
 def list_all_instances(kg):
@@ -134,52 +128,6 @@ if __name__ == "__main__":
                                 str(hit),
                             )
 
-            # table.add_row(
-            #     str(str(e)),
-            #     f"[link={sorted_results[hit]['ref']}]{sorted_results[hit]['ref']}[/link]",
-            #     str(sorted_results[hit]["score"]),
-            #     str(hit),
-            # )
-
             console.rule(f"[bold red]Relevent Bioschemas profile for {url}")
-            console.print(table)
-            console.print()
-
-    if args.files:
-        for file in args.files:
-            console.print(f"Which profile is relevant for {file} ?")
-
-            kg = ConjunctiveGraph()
-            # kg.parse(file, format="turtle")
-            kg.parse(file)
-            console.print(f"{len(kg)} loaded RDF triples")
-
-            results = {}
-
-            for p_name in profiles.keys():
-                profile = profiles[p_name]
-                sim = profile.compute_similarity(kg)
-                # sim = profile.compute_loose_similarity(kg)
-                results[p_name] = {"score": sim, "ref": ""}
-
-            sorted_results = dict(
-                sorted(results.items(), key=lambda item: item[1]["score"], reverse=True)
-            )
-            # print(sorted_results)
-
-            table = Table(show_header=True, header_style="bold magenta")
-            table.add_column("Profile", justify="left")
-            table.add_column("Similarity score", justify="right")
-            table.add_column("Profile URI", justify="right", style="green")
-
-            for hit in sorted_results.keys():
-                table.add_row(
-                    str(hit),
-                    str(sorted_results[hit]["score"]),
-                    # str({sorted_results[hit]["ref"]})
-                    f"[link={sorted_results[hit]['ref']}]{sorted_results[hit]['ref']}[/link]",
-                )
-
-            console.rule(f"[bold red]Relevent Bioschemas profile for {file}")
             console.print(table)
             console.print()
