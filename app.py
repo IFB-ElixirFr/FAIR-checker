@@ -65,7 +65,7 @@ from urllib.parse import urlparse
 from profiles.Profile import Profile
 from profiles.ProfileFactory import (
     ProfileFactory,
-    PROFILES, 
+    PROFILES,
     find_conformsto_subkg,
     load_profiles,
     update_profiles,
@@ -315,6 +315,7 @@ def update_vocab_status():
 # profiles = ProfileFactory.create_all_profiles_from_specifications()
 # print("after profiles creation")
 profiles = PROFILES
+
 
 @app.context_processor
 def display_vocab_status():
@@ -665,10 +666,7 @@ def suggest_profile(kg):
                             "profile_url": hit,
                         }
                     )
-        res_sorted = sorted(
-                        final_results,
-                        key=lambda item: item["score"],
-                        reverse=True)
+        res_sorted = sorted(final_results, key=lambda item: item["score"], reverse=True)
     return res_sorted
 
 
@@ -1732,8 +1730,9 @@ def recommend_profile():
         title="Which profile should I use ?",
         subtitle="suggests the most relevant metadata profiles (beta feature)",
         results=results,
-        url=url
+        url=url,
     )
+
 
 #######################################
 #######################################
