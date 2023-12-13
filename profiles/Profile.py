@@ -14,7 +14,6 @@ from metrics.WebResource import WebResource
 
 
 class Profile:
-
     # TODO doc class
     # TODO getters for class attributes
 
@@ -146,7 +145,6 @@ class Profile:
         return shape
 
     def validate_shape(self, knowledge_graph, shacl_shape):
-
         r = validate(
             data_graph=knowledge_graph,
             data_graph_format="turtle",
@@ -188,7 +186,6 @@ class Profile:
         warnings = []
         errors = []
         for r in results:
-
             if "#Warning" in r["severity"]:
                 # print(
                 #     f'WARNING: Property {r["path"]} should be provided for {r["node"]}'
@@ -221,7 +218,7 @@ class Profile:
         # print(kg.serialize(format="trig"))
 
         # for s, p, o in kg.triples((None, RDF.type, None)):
-        for (s, p, o, g) in kg.quads((None, RDF.type, None, None)):
+        for s, p, o, g in kg.quads((None, RDF.type, None, None)):
             # print(o)
             # print(o.n3(kg.namespace_manager))
             if o.n3(kg.namespace_manager).replace("scs:", "sc:") in self.target_classes:
@@ -234,7 +231,6 @@ class Profile:
                 )
 
                 for x, y, z, g in kg.quads((s, None, None, None)):
-
                     # print(f"{x} -> {y} -> {z} -> {g}")
                     # print(i)
                     sub_kg.add((x, y, z))
@@ -247,8 +243,7 @@ class Profile:
         kg.namespace_manager.bind("sc", URIRef("http://schema.org/"))
         kg.namespace_manager.bind("bsc", URIRef("https://bioschemas.org/"))
         kg.namespace_manager.bind("dct", URIRef("http://purl.org/dc/terms/"))
-
-        # print(len(kg))
+        # print(str(self.get_name()) + " targeting -> " + str(self.get_target()))
         # print(kg.serialize(format="turtle"))
 
         results = {}
@@ -256,15 +251,13 @@ class Profile:
         # list classes
         for s, p, o in kg.triples((None, RDF.type, None)):
             # print()
-            # print(f"{s.n3(kg.namespace_manager)} is a {o.n3(kg.namespace_manager)}")
             # print(bs_profiles.keys())
             # print(o.n3(kg.namespace_manager))
+            # print(self.target_classes)
             if o.n3(kg.namespace_manager) in self.target_classes:
                 # print()
                 print(f"Trying to validate {s} as a(n) {o} resource")
-                shacl_shape = self.gen_SHACL_from_profile(
-                    # o.n3(kg.namespace_manager)
-                )
+                shacl_shape = self.gen_SHACL_from_profile()
 
                 sub_kg = ConjunctiveGraph()
                 for x, y, z in kg.triples((s, None, None)):
@@ -278,12 +271,15 @@ class Profile:
                 # print(f"{len(errors)} / {self.nb_min}")
                 # print(f"{len(warnings)} / {self.nb_rec}")
 
-                max_points = 2 * self.nb_min + self.nb_rec
+                weight = 20
+
+                max_points = weight * self.nb_min + self.nb_rec
 
                 similarity = (
-                    max_points - (2 * len(errors) + len(warnings))
+                    max_points - (weight * len(errors) + len(warnings))
                 ) / max_points
                 similarity = round(similarity, 2)
+                print(self.get_name() + ": " + str(similarity))
                 return similarity
 
         return 0.0
@@ -307,9 +303,7 @@ class Profile:
 
             # print()
             print(f"Trying to validate {s} as a(n) {o} resource")
-            shacl_shape = self.gen_SHACL_from_profile(
-                # o.n3(kg.namespace_manager)
-            )
+            shacl_shape = self.gen_SHACL_from_profile()
 
             sub_kg = ConjunctiveGraph()
             for x, y, z in kg.triples((s, None, None)):

@@ -228,11 +228,11 @@ class WebResource:
                 self.wr_dataset, "http://www.w3.org/1999/xhtml/vocab#"
             )
 
-            print("HTML: " + str(len(self.kg_html)))
-            print("LINKS HEADERS: " + str(len(self.kg_links_header)))
-            print("AUTO: " + str(len(self.kg_auto)))
-            print("FORMATS_GUESSING: " + str(len(self.kg_brut)))
-            print("HTML LINKS: " + str(len(self.kg_links_html)))
+            # print("HTML: " + str(len(self.kg_html)))
+            # print("LINKS HEADERS: " + str(len(self.kg_links_header)))
+            # print("AUTO: " + str(len(self.kg_auto)))
+            # print("FORMATS_GUESSING: " + str(len(self.kg_brut)))
+            # print("HTML LINKS: " + str(len(self.kg_links_html)))
 
         else:
             self.rdf = rdf_graph

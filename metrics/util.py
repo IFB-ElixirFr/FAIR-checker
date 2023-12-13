@@ -1,6 +1,6 @@
 # from time import time
 # from SPARQLWrapper import SPARQLWrapper, N3
-from rdflib import Graph, ConjunctiveGraph, URIRef
+from rdflib import Graph, ConjunctiveGraph, URIRef, RDF
 import requests
 import metrics.statistics as stats
 
@@ -776,3 +776,14 @@ def gen_usage_statistics():
     with open("data/usage_stats.json", "w") as outfile:
         json.dump(stats_dict, outfile)
     logging.info("Saved stats")
+
+
+def list_all_instances(kg):
+    #
+    # list all typed entities in a knowledge graph
+    #
+    subjects = []
+    for s, p, o in kg.triples((None, RDF.type, None)):
+        # print(f"{s} is a {o}")
+        subjects.append(s)
+    return subjects

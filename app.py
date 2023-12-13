@@ -65,6 +65,7 @@ from urllib.parse import urlparse
 from profiles.Profile import Profile
 from profiles.ProfileFactory import (
     ProfileFactory,
+    PROFILES,
     find_conformsto_subkg,
     load_profiles,
     update_profiles,
@@ -308,6 +309,9 @@ def update_vocab_status():
         DICT_BANNER_INFO["banner_message_info"].pop("status_lov", None)
 
     prod_logger.info("Updating banner status")
+
+
+profiles = PROFILES
 
 
 @app.context_processor
@@ -618,6 +622,72 @@ class InspectOntologies(Resource):
         kg = web_res.get_rdf()
 
         return inspect_onto_reg(kg, False)
+
+
+def suggest_profile(kg):
+    entities = util.list_all_instances(kg)
+    results = {}
+    final_results = []
+
+    for e in entities:
+        sub_kg = ConjunctiveGraph()
+        for s, p, o in kg.triples((e, None, None)):
+            sub_kg.add((s, p, o))
+
+        has_matching_profile = False
+        for p_name in profiles.keys():
+            profile = profiles[p_name]
+            sim = profile.compute_similarity(sub_kg)
+            # sim = profile.compute_loose_similarity(kg)
+            results[p_name] = {"score": sim, "ref": profile.get_name()}
+            if sim > 0:
+                # print(f"closests_profile({e},{p_name}) = {sim}")
+                has_matching_profile = True
+
+            sorted_results = dict(
+                sorted(
+                    results.items(),
+                    key=lambda item: item[1]["score"],
+                    reverse=True,
+                )
+            )
+
+        if has_matching_profile:
+            for hit in sorted_results.keys():
+                if sorted_results[hit]["score"] > 0:
+                    final_results.append(
+                        {
+                            "entity": str(e),
+                            "profile_name": sorted_results[hit]["ref"],
+                            "score": sorted_results[hit]["score"],
+                            "profile_url": hit,
+                        }
+                    )
+        res_sorted = sorted(final_results, key=lambda item: item["score"], reverse=True)
+    return res_sorted
+
+
+@fc_inspect_namespace.route("/suggest_profile")
+class SuggestBioschemasProfile(Resource):
+    @fc_inspect_namespace.expect(reqparse)
+    def get(self):
+        """Validate an RDF JSON-LD graph against Bioschemas profiles"""
+        args = reqparse.parse_args()
+        url = args["url"]
+
+        eval = Evaluation()
+        eval.set_start_time()
+        eval.set_target_uri(url)
+        eval.set_reason("profile recommendation")
+
+        web_res = WebResource(url)
+        kg = web_res.get_rdf()
+        results = suggest_profile(kg)
+
+        eval.set_end_time()
+        eval.persist(source="API")
+
+        return results
 
 
 # TODO update method
@@ -1488,121 +1558,6 @@ def handle_complete_kg(json):
     print("completing KG for " + str(json["url"]))
 
 
-# def inspect_onto_reg(kg, is_inspect_ui):
-#     query_classes = """
-#         SELECT DISTINCT ?class { ?s rdf:type ?class } ORDER BY ?class
-#     """
-#     query_properties = """
-#         SELECT DISTINCT ?prop { ?s ?prop ?o } ORDER BY ?prop
-#     """
-
-#     table_content = {
-#         "classes": [],
-#         "classes_false": [],
-#         "properties": [],
-#         "properties_false": [],
-#         "done": False,
-#     }
-#     qres = kg.query(query_classes)
-#     for row in qres:
-#         namespace = urlparse(row["class"]).netloc
-#         class_entry = {}
-
-#         if namespace == "bioschemas.org":
-#             class_entry = {
-#                 "name": row["class"],
-#                 "tag": {
-#                     "OLS": None,
-#                     "LOV": None,
-#                     "BioPortal": None,
-#                     "Bioschemas": True,
-#                 },
-#             }
-#         else:
-#             class_entry = {
-#                 "name": row["class"],
-#                 "tag": {"OLS": None, "LOV": None, "BioPortal": None},
-#             }
-
-#         table_content["classes"].append(class_entry)
-
-#     qres = kg.query(query_properties)
-#     for row in qres:
-#         namespace = urlparse(row["prop"]).netloc
-#         property_entry = {}
-
-#         if namespace == "bioschemas.org":
-#             property_entry = {
-#                 "name": row["prop"],
-#                 "tag": {
-#                     "OLS": None,
-#                     "LOV": None,
-#                     "BioPortal": None,
-#                     "Bioschemas": True,
-#                 },
-#             }
-#         else:
-#             property_entry = {
-#                 "name": row["prop"],
-#                 "tag": {"OLS": None, "LOV": None, "BioPortal": None},
-#             }
-
-#         table_content["properties"].append(property_entry)
-
-#     if is_inspect_ui:
-#         emit("done_check", table_content)
-
-#     for c in table_content["classes"]:
-
-#         c["tag"]["OLS"] = util.ask_OLS(c["name"])
-#         if is_inspect_ui:
-#             emit("done_check", table_content)
-
-#         c["tag"]["LOV"] = util.ask_LOV(c["name"])
-#         if is_inspect_ui:
-#             emit("done_check", table_content)
-
-#         c["tag"]["BioPortal"] = util.ask_BioPortal(c["name"], "class")
-#         if is_inspect_ui:
-#             emit("done_check", table_content)
-
-#         all_false_rule = [
-#             c["tag"]["OLS"] == False,
-#             c["tag"]["LOV"] == False,
-#             c["tag"]["BioPortal"] == False,
-#         ]
-
-#         if all(all_false_rule) and not "Bioschemas" in c["tag"]:
-#             table_content["classes_false"].append(c["name"])
-
-#     for p in table_content["properties"]:
-
-#         p["tag"]["OLS"] = util.ask_OLS(p["name"])
-#         if is_inspect_ui:
-#             emit("done_check", table_content)
-
-#         p["tag"]["LOV"] = util.ask_LOV(p["name"])
-#         if is_inspect_ui:
-#             emit("done_check", table_content)
-
-#         p["tag"]["BioPortal"] = util.ask_BioPortal(p["name"], "property")
-#         if is_inspect_ui:
-#             emit("done_check", table_content)
-
-#         all_false_rule = [
-#             p["tag"]["OLS"] == False,
-#             p["tag"]["LOV"] == False,
-#             p["tag"]["BioPortal"] == False,
-#         ]
-#         if all(all_false_rule) and not "Bioschemas" in p["tag"]:
-#             table_content["properties_false"].append(p["name"])
-
-#     table_content["done"] = True
-#     if is_inspect_ui:
-#         emit("done_check", table_content)
-#     return table_content
-
-
 @socketio.on("check_kg")
 def check_vocabularies(data):
     step = 0
@@ -1727,12 +1682,16 @@ def validate_bioschemas():
     uri = request.args.get("url")
     logging.info(f"Validating Bioschemas markup for {uri}")
 
-    kg = WebResource(uri).get_rdf()
-    print(len(kg))
+    eval = Evaluation()
+    eval.set_start_time()
+    eval.set_target_uri(url)
+    eval.set_reason("bioschemas validation")
 
+    kg = WebResource(uri).get_rdf()
     results = evaluate_bioschemas_profiles(kg)
 
-    # res, kg = validate_any_from_microdata(input_url=uri)
+    eval.set_end_time()
+    eval.persist(source="UI")
 
     m = []
     return render_template(
@@ -1744,6 +1703,31 @@ def validate_bioschemas():
         title="Inspect",
         subtitle="to enhance metadata quality",
         jld=buildJSONLD(),
+    )
+
+
+@app.route("/suggest_profile")
+def recommend_profile():
+    url = request.args.get("url")
+
+    eval = Evaluation()
+    eval.set_start_time()
+    eval.set_target_uri(url)
+    eval.set_reason("profile recommendation")
+
+    web_res = WebResource(url)
+    kg = web_res.get_rdf()
+    results = suggest_profile(kg)
+
+    eval.set_end_time()
+    eval.persist(source="UI")
+
+    return render_template(
+        "profile_reco.html",
+        title="Which profile should I use ?",
+        subtitle="suggests the most relevant metadata profiles (beta feature)",
+        results=results,
+        url=url,
     )
 
 
