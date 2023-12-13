@@ -114,17 +114,32 @@ if __name__ == "__main__":
                             reverse=True,
                         )
                     )
-                    # print(sorted_results)
 
+                final_results = []
                 if has_matching_profile:
                     for hit in sorted_results.keys():
                         if sorted_results[hit]["score"] > 0:
+                            final_results.append(
+                                (
+                                    str(str(e)),
+                                    f"[link={sorted_results[hit]['ref']}]{sorted_results[hit]['ref']}[/link]",
+                                    str(sorted_results[hit]["score"]),
+                                    str(hit),
+                                )
+                            )
                             table.add_row(
                                 str(str(e)),
                                 f"[link={sorted_results[hit]['ref']}]{sorted_results[hit]['ref']}[/link]",
                                 str(sorted_results[hit]["score"]),
                                 str(hit),
                             )
+
+            # table.add_row(
+            #     str(str(e)),
+            #     f"[link={sorted_results[hit]['ref']}]{sorted_results[hit]['ref']}[/link]",
+            #     str(sorted_results[hit]["score"]),
+            #     str(hit),
+            # )
 
             console.rule(f"[bold red]Relevent Bioschemas profile for {url}")
             console.print(table)

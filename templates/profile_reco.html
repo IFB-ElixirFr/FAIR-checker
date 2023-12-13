@@ -1,0 +1,85 @@
+<link rel="stylesheet" href="../static/css/bulma-divider.min.css">
+
+{% extends "layout.html" %}
+
+{% block nav %}
+{% include 'nav.html' %}
+{% endblock %}
+
+{% block body %}
+
+<script type="text/javascript" charset="utf-8">
+
+$(document).ready(function () {
+
+    console.log("ready!");
+    $("#notif").addClass("is-hidden");
+
+    console.log('trying to connect...');
+    var socket = io.connect({{ config['SERVER_IP']| tojson }});
+    //var socket = io();
+    console.log('connected');
+
+    //////////////////
+    // click handlers
+    //////////////////
+
+    //////////////////
+    // event handlers
+    //////////////////
+
+});
+</script>
+
+<article class="message">
+    <div id="article-profile-reco">
+        <div class="message-body">
+            <h1 class="subtitle"><b>Recommended profiles</b></h1>
+            <div class="block">
+                <!-- <section id="section-profile-reco" class="section"> -->
+                    <p>
+                        <a href="https://bioschemas.org" target="_blank" class="has-text-link">Bioschemas</a> is a community effort aimed at reusing and extending <a href="https://schema.org" target="_blank" class="has-text-link">Schema.org</a> for better life
+                        science digital resource findability. Several profiles are defined for each kind of Life Science
+                        resources, specifying minimal, recommended or optional information.
+                    </p>
+                </br>
+                    <p>
+                        Here are proposed a list of possibly relevant profile based on an analysis of all typed entities described 
+                        in your page metadata. The score is computed based on profile's required and recommended properties.  
+                    </p>
+                <!-- </section> -->
+                </br>   
+                <p>
+                    <div class="tag is-primary is-medium">
+                        <a  href="{{url}}" target="_blank">{{url}}</a>
+                    </div>
+                </p>
+            </div>
+                <table class="table is-striped is-fullwidth">
+                    <thead>
+                        <tr>
+                            <th>Typed entities</th>
+                            <th>Profile</th>
+                            <th>Similarity score</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for item in results %}
+                        <tr>
+                            <td>{{item["entity"]}}</td>
+                            <td>
+                                <a class="has-text-link" href="{{item["profile_url"]}}" target="_blank" >
+                                {{item["profile_name"]}}
+                                </a>
+                            </td>
+                            <td class="is-family-monospace has-text-centered">{{item["score"]}}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</article>
+
+{% endblock %}
