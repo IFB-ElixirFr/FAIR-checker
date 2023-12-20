@@ -3,7 +3,7 @@ import unittest
 
 from rich.console import Console
 from rich.table import Table
-from rich.text import Text
+import pandas as pd
 
 from rdflib import ConjunctiveGraph, URIRef
 from rdflib.namespace import RDF

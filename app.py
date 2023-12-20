@@ -1684,7 +1684,7 @@ def validate_bioschemas():
 
     eval = Evaluation()
     eval.set_start_time()
-    eval.set_target_uri(url)
+    eval.set_target_uri(uri)
     eval.set_reason("bioschemas validation")
 
     kg = WebResource(uri).get_rdf()

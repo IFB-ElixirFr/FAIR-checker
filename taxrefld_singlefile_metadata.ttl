@@ -1,0 +1,2327 @@
+@prefix bibo:           <http://purl.org/ontology/bibo/> .
+@prefix cc:             <https://creativecommons.org/ns#>.
+@prefix dcat:           <http://www.w3.org/ns/dcat#> .
+@prefix dce:            <http://purl.org/dc/elements/1.1/> .
+@prefix dct:            <http://purl.org/dc/terms/> .
+@prefix dwc:            <http://rs.tdwg.org/dwc/terms/> .
+@prefix dwc:	        <http://rs.tdwg.org/dwc/terms/> .
+@prefix dwciri:         <http://rs.tdwg.org/dwc/iri/> .
+@prefix foaf:           <http://xmlns.com/foaf/0.1/> .
+@prefix geofla:         <http://data.ign.fr/id/geofla/> .
+@prefix igeo:           <http://rdf.insee.fr/def/geo#> .
+@prefix owl:            <http://www.w3.org/2002/07/owl#> .
+@prefix pav:            <http://purl.org/pav/>.
+@prefix prov:           <http://www.w3.org/ns/prov#> .
+@prefix rdf:            <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:           <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix ro:             <http://purl.obolibrary.org/obo/> .
+@prefix schema:         <http://schema.org/> .
+@prefix sd:             <http://www.w3.org/ns/sparql-service-description#> .
+@prefix skos:           <http://www.w3.org/2004/02/skos/core#> .
+@prefix skosxl:         <http://www.w3.org/2008/05/skos-xl#> .
+@prefix taxrefbgs:      <http://taxref.mnhn.fr/lod/bioGeoStatus/> .
+@prefix taxrefbs:       <http://taxref.mnhn.fr/lod/biologicalStage/>.
+@prefix taxrefhab:      <http://taxref.mnhn.fr/lod/habitat/> .
+@prefix taxref:         <http://taxref.mnhn.fr/lod/> .
+@prefix taxrefloc:      <http://taxref.mnhn.fr/lod/loc/> .
+@prefix taxrefprop:     <http://taxref.mnhn.fr/lod/property/> .
+@prefix taxrefrk:       <http://taxref.mnhn.fr/lod/taxrank/> .
+@prefix taxrefsex:      <http://taxref.mnhn.fr/lod/sex/>.
+@prefix taxrefspec:     <http://taxref.mnhn.fr/lod/specificity/> .
+@prefix taxrefstatus:   <http://taxref.mnhn.fr/lod/status/> .
+@prefix taxreftl:       <http://taxref.mnhn.fr/lod/trophicLevel/> .
+@prefix tn:             <http://rs.tdwg.org/ontology/voc/TaxonName#> .
+@prefix vann:           <http://purl.org/vocab/vann/> .
+@prefix void:           <http://rdfs.org/ns/void#> .
+@prefix wd:             <http://www.wikidata.org/entity/> .
+@prefix wdt:            <http://www.wikidata.org/prop/direct/> .
+@prefix xsd:            <http://www.w3.org/2001/XMLSchema#> .
+
+# --------------------------------------- ./Taxrefld_static_biota.ttl
+
+
+
+# ------------------------------------------------------------------------------
+# Biota is the taxonomical classification root
+<http://taxref.mnhn.fr/lod/name/349525>
+    a skos:Concept;
+    skos:inScheme <http://taxref.mnhn.fr/lod/taxref-ld>;
+    skos:topConceptOf <http://taxref.mnhn.fr/lod/taxref-ld>;
+    skos:prefLabel "Biota"; rdfs:label "Biota";
+    taxrefprop:isReferenceNameOf <http://taxref.mnhn.fr/lod/taxon/349525>;
+    .
+  
+<http://taxref.mnhn.fr/lod/taxon/349525>
+    a owl:Class;
+    rdfs:label "Biota";
+    taxrefprop:hasReferenceName <http://taxref.mnhn.fr/lod/name/349525>;
+    .
+
+# --------------------------------------- ./Taxrefld_static_dataset_description.ttl
+
+
+
+
+# ------------------------------------------------------------------------------
+# DCAT Catalog for TAXREF-LD datasets in all versions
+taxref:Catalog
+    a dcat:Catalog;
+    dct:title  "Catalog of TAXREF-LD datasets"@en;
+    rdfs:label "Catalog of TAXREF-LD datasets"@en;
+    dct:title  "Catalogue des jeux de données TAXREF-LD"@fr;
+    rdfs:label "Catalogue des jeux de données TAXREF-LD"@fr;
+    foaf:page <https://github.com/frmichel/taxref-ld/>;
+    dct:language <http://id.loc.gov/vocabulary/iso639-1/fr>, <http://data.bnf.fr/ark:/12148/cb11935375d>;
+    dct:language <http://id.loc.gov/vocabulary/iso639-1/en>, <http://data.bnf.fr/ark:/12148/cb119308987>;
+    dcat:dataset taxref:taxref-ld;
+    dcat:dataset taxref:taxref;
+    dct:publisher
+        <https://ror.org/03wkt5x30>, taxref:INPN,
+        <https://ror.org/0496p8026>, <https://ror.org/02kvxyf05>, <https://ror.org/02feahw73>;
+    .
+
+# ------------------------------------------------------------------------------
+
+# TAXREF dataset DCAT definition
+taxref:taxref
+    a schema:Dataset;
+    dct:title "TAXREF: Taxonomic register for flora and fauna of mainland France and overseas territories"@en;
+    dct:title "TAXREF : Référentiel taxonomique pour la flore et la faune de France métropolitaine et outre-mer"@fr;
+    dct:description "TAXREF est le référentiel taxonomique national pour la faune, la flore et la fonge de France métropolitaine et d’outre-mer, élaboré et diffusé par le Muséum national d’Histoire naturelle (MNHN). TAXREF est téléchargeable depuis le site Web du MNHN. TAXREF-LD, la représentation Linked Data de TAXREF, est une initiative conjointe du MNHN et du laboratoire I3S (Université Côte d'Azur, CNRS, Inria)."@fr;
+    dct:description "TAXREF is the national taxonomical register for fauna and flora in mainland France and overseas territories, produced by the French National Museum of Natural History (MNHN). TAXREF is downloadable from the MNHN Web site and can be queriesd through a Web service. TAXREF-LD, the Linked Data representation of TAXREF, is a joint initiative of MNHN and the I3S laboratory (Université Côte d'Azur, CNRS, Inria)."@en;  
+
+    dcat:landingPage        <https://inpn.mnhn.fr/programme/referentiel-taxonomique-taxref?lg=en>;
+    schema:sameAs           <https://inpn.mnhn.fr/programme/referentiel-taxonomique-taxref?lg=en>;
+    foaf:page               <https://inpn.mnhn.fr/programme/referentiel-taxonomique-taxref?lg=en>;
+    
+    dct:license             <https://creativecommons.org/licenses/by/3.0/fr/>;
+    schema:license          <https://creativecommons.org/licenses/by/3.0/fr/>;
+    owl:versionInfo         "15.0";
+    dcat:version            "15.0";
+    dct:issued              "2021-12-16"^^xsd:date;
+    dct:creator             "O. Gargominy", "S. Tercerie", "C. Régnier", "T. Ramage", "C. Schoelinck", "P. Dupont", "E. Vandel", "P. Daszkiewicz";
+    dct:publisher           <https://ror.org/03wkt5x30>, taxref:INPN;
+    schema:subjectOf        taxref:taxrefmethodo;
+    dct:accrualPeriodicity  <http://purl.org/linked-data/sdmx/2009/code#freq-A>;
+    .
+
+# TAXREF-LD dataset DCAT definition
+taxref:taxref-ld
+    a dcat:Dataset, schema:Dataset;
+    a owl:Ontology;
+    a skos:ConceptScheme; skos:hasTopConcept <http://taxref.mnhn.fr/lod/name/349525>;
+
+    dct:title "TAXREF-LD"; rdfs:label "TAXREF-LD"; schema:name "TAXREF-LD";
+    <http://qudt.org/schema/qudt/acronym> "taxref-ld";
+    dct:description "Representation of the TAXREF taxonomic register as linked data. This resource is at the same time an ontology of classes depicting the taxa and a thesaurus (SKOS concept scheme) of the scientific names attached to the taxa."@en;
+    dct:description "Représentation du référentiel taxonomique TAXREF comme un jeu de données liées. Cette ressource est à la fois une ontologies des classes représentant les taxons, et un thésaurus (SKOS concept scheme) des noms scientifiques désignant ces taxons."@fr;
+    foaf:page <https://github.com/frmichel/taxref-ld/>;
+    dct:bibliographicCitation "Franck Michel, Olivier Gargominy, Sandrine Tercerie, Catherine Faron Zucker. A Model to Represent Nomenclatural and Taxonomic Information as Linked Data. Application to the French Taxonomic Register, TAXREF. In Proceedings of the 2nd International Workshop on Semantics for Biodiversity (S4Biodiv) co-located with ISWC 2017, Oct 2017, Vienna, Austria. CEUR Vol. 1933, pp.1-12, 2017";
+
+    dct:identifier  "https://doi.org/10.5281/zenodo.6940891";
+    bibo:doi        "10.5281/zenodo.6940891";
+    dct:license     <https://creativecommons.org/licenses/by/3.0/fr/>;
+    schema:license  <https://creativecommons.org/licenses/by/3.0/fr/>;
+    owl:versionInfo "15.2";
+    owl:versionIRI  <http://taxref.mnhn.fr/lod/taxref-ld/15.2>;
+    dcat:version    "15.2";
+
+    pav:createdOn "2015"^^xsd:gYear; dct:created "2015"^^xsd:gYear; schema:dateCreated "2015"^^xsd:gYear;
+    dct:issued    "2022-07-29"^^xsd:date; schema:datePublished "2022-07-29"^^xsd:date;
+    dct:modified  "2022-07-29"^^xsd:date; schema:dateModified "2022-07-29"^^xsd:date;
+
+    dct:publisher
+        <https://ror.org/03wkt5x30>, taxref:INPN,
+        <https://ror.org/0496p8026>, <https://ror.org/02kvxyf05>, <https://ror.org/02feahw73>;
+    schema:publisher 
+        <https://ror.org/03wkt5x30>, taxref:INPN,
+        <https://ror.org/0496p8026>, <https://ror.org/02kvxyf05>, <https://ror.org/02feahw73>;
+    dct:creator 
+        <https://orcid.org/0000-0001-9064-0463>, <https://orcid.org/0000-0001-5959-5561>, 
+        taxref:oliviergargominy, taxref:sandrinetercerie;
+    schema:author
+        <https://orcid.org/0000-0001-9064-0463>, <https://orcid.org/0000-0001-5959-5561>, 
+        taxref:oliviergargominy, taxref:sandrinetercerie;
+    dct:contributor <https://orcid.org/0000-0003-4868-2584>, "Julien Kaplan";
+    foaf:fundedBy
+        <https://ror.org/03wkt5x30>, taxref:INPN,
+        <https://ror.org/0496p8026>, <https://ror.org/02kvxyf05>, <https://ror.org/02feahw73>;
+
+    dct:accessRights <http://purl.org/coar/access_right/c_abf2>, <http://publications.europa.eu/resource/authority/access-right/PUBLIC>;
+    dct:rightsHolder 
+        <https://ror.org/03wkt5x30>, taxref:INPN,
+        <https://ror.org/0496p8026>, <https://ror.org/02kvxyf05>, <https://ror.org/02feahw73>;
+
+    schema:subjectOf taxref:hal01617708;
+    dct:language    <http://id.loc.gov/vocabulary/iso639-1/fr>, <http://data.bnf.fr/ark:/12148/cb11935375d>;
+    dct:language    <http://id.loc.gov/vocabulary/iso639-1/en>, <http://data.bnf.fr/ark:/12148/cb119308987>;
+    schema:language <http://id.loc.gov/vocabulary/iso639-1/fr>, <http://data.bnf.fr/ark:/12148/cb11935375d>;
+    schema:language <http://id.loc.gov/vocabulary/iso639-1/en>, <http://data.bnf.fr/ark:/12148/cb119308987>;
+    dct:subject     "biodiversity", "lifesciences", "taxonomy", "species", "fauna", "flora", "fungus";
+    schema:keywords "biodiversity", "lifesciences", "taxonomy", "species", "fauna", "flora", "fungus";
+    dcat:keyword
+        "biodiversity", "lifesciences", "taxonomy", "species", "fauna", "flora", "lifesciences", "schemata", "lod",
+        "deref-vocab", "vocab-mappings", "provenance-metadata", "published-by-producer", "license-metadata",
+        "format-rdf", "format-rdfs", "format-skos", "format-dc", "format-foaf", "format-schema", "format-geonames", "format-geospecies", "format-txn", "format-ncbitaxon", "format-dwc", "format-ro", "format-bibo";
+
+    dcat:distribution [
+        a                   dcat:Distribution;
+        dct:description     "Distribution of TAXREF-LD as an archive of RDF Turtle files";
+        dcat:accessURL      <https://doi.org/10.5281/zenodo.6940891>;
+        dcat:downloadURL    <https://zenodo.org/record/6940891/files/taxrefld15.2.zip>;
+        dcat:mediaType      <http://www.iana.org/assignments/media-types/text/turtle>;
+        dcat:compressFormat <http://www.iana.org/assignments/media-types/application/zip>;
+    ];
+
+    a prov:Entity;
+    prov:hadPrimarySource   taxref:taxref;
+    prov:wasDerivedFrom     taxref:taxref;
+    prov:wasGeneratedBy     taxref:RdfGeneration;
+    prov:wasGeneratedAtTime "2022-07-29"^^xsd:date;
+
+    dct:spatial
+        <http://sws.geonames.org/3017382/>, <http://sws.geonames.org/3381670/>, <http://sws.geonames.org/3570311/>, <http://sws.geonames.org/3579143/>, <http://sws.geonames.org/3578421/>, <http://sws.geonames.org/3578476/>, <http://sws.geonames.org/3424932/>, <http://sws.geonames.org/1024031/>, <http://sws.geonames.org/935317/>, <http://sws.geonames.org/6690916/>, <http://sws.geonames.org/1546748/>, <http://sws.geonames.org/4030656/>, <http://sws.geonames.org/2139685/>, <http://sws.geonames.org/4034749/>, <http://sws.geonames.org/4020092/>;
+        
+    vann:preferredNamespaceUri      "http://taxref.mnhn.fr/lod/";
+    vann:preferredNamespacePrefix   "taxref";
+
+    .
+
+# TAXREF-LD dataset VOID description
+taxref:taxref-ld
+    a                   void:Dataset;
+    void:uriSpace       "http://taxref.mnhn.fr/lod/";
+    void:rootResource   <http://taxref.mnhn.fr/lod/name/349525>;
+    void:triples        "35486931"^^xsd:integer;
+    void:sparqlEndpoint <http://taxref.mnhn.fr/sparql>;
+    void:dataDump       <https://zenodo.org/record/6940891/files/taxrefld15.2.zip>;
+    void:exampleResource <http://taxref.mnhn.fr/lod/taxon/60878>;
+    void:vocabulary
+        skos:, skosxl:, dct:, foaf:, schema:, bibo:, <http://www.wikidata.org/>, <http://sws.geonames.org/>,
+        ro:, dwc:, dwciri:,
+        <http://aims.fao.org/aos/agrovoc/>, <http://lod.taxonconcept.org/ontology/txn.owl>, <http://purl.obolibrary.org/obo/ncbitaxon.owl>, <http://purl.obolibrary.org/obo/envo.owl>, <http://rdf.geospecies.org/ont/geospecies.owl>, <http://rs.tdwg.org/ontology/voc/TaxonRank>, <http://rs.tdwg.org/ontology/voc/TaxonName>, <http://rs.tdwg.org/dwc/terms/>;
+    .
+
+# ------------------------------------------------------------------------------
+
+# SPARQL Service Description and DCAT DataService
+taxref:sparql-service
+    a                    sd:Service, dcat:DataService;
+    sd:supportedLanguage sd:SPARQL10Query, sd:SPARQL11Query;
+    sd:endpoint          <http://taxref.mnhn.fr/sparql>;
+    dcat:endpointURL     <http://taxref.mnhn.fr/sparql>;
+    rdfs:label           "SPARQL endpoint serving the TAXREF-LD Knowledge Graph";
+    dcat:servesDataset   taxref:taxref-ld;
+    sd:availableGraphs [
+        a                sd:GraphCollection;
+        sd:namedGraph
+            <http://taxref.mnhn.fr/lod/graph/metadata>,
+            <http://taxref.mnhn.fr/lod/graph/biblio>,
+            <http://taxref.mnhn.fr/lod/graph/locations>,
+            <http://taxref.mnhn.fr/lod/graph/media>,
+            <http://taxref.mnhn.fr/lod/graph/statusCodes>,
+            <http://taxref.mnhn.fr/lod/graph/concepts>,
+            <http://taxref.mnhn.fr/lod/graph/classes/15.0>,
+            <http://taxref.mnhn.fr/lod/graph/interactions/15.0>,
+            <http://taxref.mnhn.fr/lod/graph/habitats/15.0>,
+            <http://taxref.mnhn.fr/lod/graph/statuses/15.0>,
+            <http://taxref.mnhn.fr/lod/graph/vernacular/15.0>,
+            <http://taxref.mnhn.fr/lod/graph/dbxref/15.0>,
+            <http://taxref.mnhn.fr/lod/graph/links-ncbi>,
+            <http://taxref.mnhn.fr/lod/graph/links-agrovoc>,
+            <http://taxref.mnhn.fr/lod/graph/links-worms>
+    ].
+
+
+# ------------------------------------------------------------------------------
+# Publishers of the DCAT catalog and datasets
+
+taxref:INPN
+    a foaf:Organization;
+    foaf:name "French National Inventory of Natural Heritage"@en;
+    foaf:name "Inventaire National du Patrimoine Naturel"@fr;
+    rdfs:label "French National Inventory of Natural Heritage"@en;
+    rdfs:label "Inventaire National du Patrimoine Naturel"@fr;
+    foaf:homepage <https://inpn.mnhn.fr/?lg=en>.
+
+<https://ror.org/03wkt5x30>
+    a foaf:Organization;
+    foaf:name "National Museum of Natural History of Paris";
+    foaf:homepage <http://www.mnhn.fr>.
+    
+<https://ror.org/0496p8026>
+    a foaf:Organization;
+    foaf:name "University Côte d'Azur";
+    foaf:homepage <https://univ-cotedazur.fr>.
+    
+<https://ror.org/02kvxyf05>
+    a foaf:Organization;
+    foaf:name "Inria";
+    foaf:homepage <https://www.inria.fr>.
+    
+<https://ror.org/02feahw73>
+    a foaf:Organization;
+    foaf:name "CNRS";
+    foaf:homepage <https://www.cnrs.fr>.
+    
+<https://team.inria.fr/wimmics/> a foaf:Organization; foaf:name "Wimmics research team".
+
+
+# ------------------------------------------------------------------------------
+# Contributors/authors
+
+<https://orcid.org/0000-0001-9064-0463>
+    a foaf:Person; 
+    foaf:name "Franck MICHEL";
+    schema:name "Franck MICHEL";
+    foaf:homepage <https://w3id.org/people/franckmichel>;
+    schema:sameAs <https://cv.archives-ouvertes.fr/fmichel/>, <https://www.researchgate.net/profile/Franck_Michel3>.
+    
+<https://orcid.org/0000-0001-5959-5561>
+    a foaf:Person; 
+    schema:name "Catherine FARON";
+    foaf:name "Catherine FARON";
+    foaf:homepage <http://www.i3s.unice.fr/~faron/>;
+    schema:sameAs <https://cv.archives-ouvertes.fr/catherine-faron-zucker>,
+        <https://www.researchgate.net/profile/Catherine_Faron-Zucker>.
+
+<https://orcid.org/0000-0003-4868-2584>
+    a foaf:Person; 
+    schema:name "Antonia ETTORRE";
+    foaf:name "Antonia ETTORRE";
+    schema:sameAs <https://www.linkedin.com/in/antonia-ettorre-105271175>.
+
+taxref:johanmontagnat a schema:Person;
+    schema:name "Johan MONTAGNAT";
+    foaf:name "Johan MONTAGNAT";
+    foaf:homepage <http://www.i3s.unice.fr/~johan/>;
+    schema:sameAs <https://cv.archives-ouvertes.fr/johan-montagnat>.
+    
+taxref:loicdjimenou a schema:Person;
+    schema:name "Loïc DJIMENOU";
+    foaf:name "Loïc DJIMENOU";
+    schema:sameAs <https://www.linkedin.com/in/loic-djimenou-13386511a>.
+        
+taxref:sandrinetercerie a schema:Person;
+    schema:name "Sandrine TERCERIE";
+    foaf:name "Sandrine TERCERIE";
+    schema:sameAs <https://www.researchgate.net/profile/Sandrine_Tercerie>.
+
+taxref:oliviergargominy a schema:Person;
+    schema:name "Olivier GARGOMINY";
+    foaf:name "Olivier GARGOMINY";
+    schema:sameAs <https://www.researchgate.net/profile/Gargominy_Olivier>, <https://mnhn.academia.edu/GargominyOlivier>.
+        
+# ------------------------------------------------------------------------------
+# Provenance information
+
+taxref:WebService
+    a prov:Entity;
+    rdfs:label "TAXREF web service";
+    dct:description "CSV, XML and JSON query web service";
+    dcat:mediaType "text/csv", "application/xml", "application/json";
+    dcat:accessURL <https://taxref.mnhn.fr/taxref-web/>.
+
+taxref:xR2RML
+    a prov:SoftwareAgent;
+    foaf:homepage <https://github.com/frmichel/morph-xr2rml/>;
+    dct:title "Morph-xR2RML"; rdfs:label "Morph-xR2RML";
+    dct:description "Implementation of the xR2RML mapping language";
+    dct:creator <https://orcid.org/0000-0001-9064-0463>; schema:author <https://orcid.org/0000-0001-9064-0463>;
+    dct:license <http://www.apache.org/licenses/LICENSE-2.0>;
+    owl:versionInfo "1.3.2";
+    schema:subjectOf taxref:hal01207828.
+  
+taxref:RdfGeneration
+    a prov:Activity;
+    dct:title "RDF generation process"; rdfs:label "RDF generation process";
+    dct:description "Transformation of the JSON version of TAXREF, obtained from the web service, into RDF using the Morph-xR2RML mapping pocessing engine";
+    prov:used taxref:WebService;
+    prov:wasAssociatedWith taxref:xR2RML.
+
+
+# ------------------------------------------------------------------------------
+# Bibliographic references
+
+taxref:hal01207828 
+    a <https://data.archives-ouvertes.fr/doctype/Article>, <http://purl.org/ontology/bibo/AcademicArticle>, <https://schema.org/ScholarlyArticle>;
+    dct:title "Translation of Relational and Non-Relational Databases into RDF with xR2RML";
+    schema:name "Translation of Relational and Non-Relational Databases into RDF with xR2RML";
+    dct:issued "2015"^^xsd:gYear; schema:datePublished "2015"^^xsd:gYear;
+    dct:bibliographicCitation "Franck Michel, Loïc Djimenou, Catherine Faron Zucker, Johan Montagnat. Translation of Relational and Non-Relational Databases into RDF with xR2RML. Proceedings of the WebIST'15 Conference, 2015, Lisbon, Portugal. pp.443-454";
+    bibo:doi "10.5220/0005448304430454";
+    dct:creator     <https://orcid.org/0000-0001-9064-0463>, taxref:loicdjimenou, <https://orcid.org/0000-0001-5959-5561>, taxref:johanmontagnat;
+    schema:author   <https://orcid.org/0000-0001-9064-0463>, taxref:loicdjimenou, <https://orcid.org/0000-0001-5959-5561>, taxref:johanmontagnat;
+    schema:sameAs   <https://hal.archives-ouvertes.fr/hal-01207828>;
+    schema:about    taxref:xR2RML;
+    dct:references  taxref:xR2RML.
+    
+taxref:hal01617708
+    a <https://data.archives-ouvertes.fr/doctype/Article>, <http://purl.org/ontology/bibo/AcademicArticle>, <https://schema.org/ScholarlyArticle>;
+    dct:title "A Model to Represent Nomenclatural and Taxonomic Information as Linked Data. Application to the French Taxonomic Register, TAXREF";
+    schema:name "A Model to Represent Nomenclatural and Taxonomic Information as Linked Data. Application to the French Taxonomic Register, TAXREF";
+    dct:issued "2017"^^xsd:gYear; schema:datePublished "2017"^^xsd:gYear;
+    dct:bibliographicCitation "Franck Michel, Olivier Gargominy, Sandrine Tercerie, Catherine Faron Zucker. A Model to Represent Nomenclatural and Taxonomic Information as Linked Data. Application to the French Taxonomic Register, TAXREF. In Proceedings of the 2nd International Workshop on Semantics for Biodiversity (S4Biodiv) co-located with ISWC 2017, Oct 2017, Vienna, Austria. CEUR Vol. 1933, pp.1-12, 2017";
+    dct:creator     <https://orcid.org/0000-0001-9064-0463>, taxref:oliviergargominy, taxref:sandrinetercerie, <https://orcid.org/0000-0001-5959-5561>;
+    schema:author   <https://orcid.org/0000-0001-9064-0463>, taxref:oliviergargominy, taxref:sandrinetercerie, <https://orcid.org/0000-0001-5959-5561>;
+    schema:sameAs   <https://hal.archives-ouvertes.fr/hal-01617708>, <http://fusion.cs.uni-jena.de/s4biodiv2017>;
+    schema:about    taxref:taxref-ld;
+    dct:references  taxref:taxref-ld.
+
+taxref:taxrefmethodo
+    a <https://data.archives-ouvertes.fr/doctype/Report>, <https://schema.org/Article>;
+    dct:title "TAXREF v15, référentiel taxonomique pour la France : méthodologie, mise en œuvre et diffusion";
+    schema:name "TAXREF v15, référentiel taxonomique pour la France : méthodologie, mise en œuvre et diffusion";
+    dct:issued "2021"^^xsd:gYear; schema:datePublished "2021"^^xsd:gYear;
+    dct:bibliographicCitation "Gargominy O., Tercerie S., Régnier C., Ramage T., Dupont P., Daszkiewicz P. & Poncet L. (2021). TAXREF v15, référentiel taxonomique pour la France : méthodologie, mise en œuvre et diffusion. Muséum national d’Histoire naturelle, Paris";
+    dct:creator taxref:oliviergargominy, taxref:sandrinetercerie, "Régnier C.", "Ramage T.", "Dupont P.", "Daszkiewicz P.", "Poncet L";
+    schema:author taxref:oliviergargominy, taxref:sandrinetercerie, "Régnier C.", "Ramage T.", "Dupont P.", "Daszkiewicz P.", "Poncet L";
+    schema:url <https://inpn.mnhn.fr/docs-web/docs/download/396404>;
+    .
+
+# --------------------------------------- ./Taxrefld_static_dataset_linksets.ttl
+
+
+
+
+# ------------------------------------------------------------------------------
+# Linksets
+
+<http://taxref.mnhn.fr/lod/taxref-ld>
+    void:subset <http://taxref.mnhn.fr/lod/Taxref2Agrovoc>;
+    void:subset <http://taxref.mnhn.fr/lod/Taxref2NcbiTaxon>;
+    void:subset <http://taxref.mnhn.fr/lod/Taxref2Worms>;
+    .
+
+taxref:Agrovoc
+   a void:Dataset;
+   rdfs:label "AGROVOC Multilingual agricultural thesaurus"@en;
+   dct:issued "2021-03-02"^^xsd:date;
+   foaf:homepage <http://aims.fao.org/agrovoc>, <https://datahub.io/dataset/agrovoc-skos>.
+taxref:NcbiTaxon
+   a void:Dataset;
+   rdfs:label "NCBI Organismal Classification"@en;
+   dct:issued "2021-02-15"^^xsd:date;
+   foaf:homepage <http://bioportal.bioontology.org/ontologies/NCBITAXON>, <https://datahub.io/dataset/bioportal-ncbitaxon>.
+taxref:Worms
+   a void:Dataset;
+   rdfs:label "World Register of Marine Species"@en;
+   foaf:homepage <http://www.marinespecies.org>.
+
+
+<http://taxref.mnhn.fr/lod/Taxref2Agrovoc>
+   a void:Linkset;
+   void:linkPredicate skos:exactMatch;
+   void:subjectsTarget <http://taxref.mnhn.fr/lod/taxref-ld>;
+   void:objectsTarget taxref:Agrovoc;
+   void:triples "2875"^^xsd:integer;
+   .
+<http://taxref.mnhn.fr/lod/Taxref2NcbiTaxon>
+   a void:Linkset;
+   void:linkPredicate owl:equivalentClass;
+   void:subjectsTarget <http://taxref.mnhn.fr/lod/taxref-ld>;
+   void:objectsTarget taxref:NcbiTaxon;
+   void:triples "84336"^^xsd:integer;
+   .
+<http://taxref.mnhn.fr/lod/Taxref2Worms>
+   a void:Linkset;
+   void:linkPredicate skos:exactMatch;
+   void:subjectsTarget <http://taxref.mnhn.fr/lod/taxref-ld>;
+   void:objectsTarget taxref:Worms;
+   void:triples "163038"^^xsd:integer;
+   .
+
+# --------------------------------------- ./Taxrefld_static_defs_habitats.ttl
+
+
+
+
+# --- Types of Habitat
+
+taxrefhab:Habitat
+    rdfs:subClassOf skos:Concept;
+    rdfs:isDefinedBy <http://taxref.mnhn.fr/lod/taxref-ld>;
+    owl:equivalentClass <http://lod.taxonconcept.org/ontology/txn.owl#Habitat>;
+    rdfs:label "Class of habitats"@en;
+    dct:description "Class of types of habitat (subclass of skos:Concept)"@en;
+    owl:deprecated "true"^^xsd:boolean.
+
+
+taxrefhab:HabitatCollection
+    a skos:Collection;
+    rdfs:isDefinedBy <http://taxref.mnhn.fr/lod/taxref-ld>;
+    rdfs:label "Collection of habitat concepts"@en;
+    skos:member taxrefhab:Marine, taxrefhab:FreshWater, taxrefhab:BrackishWater, taxrefhab:Terrestrial.
+
+taxrefhab:Marine
+    a skos:Concept;
+    skos:inScheme <http://taxref.mnhn.fr/lod/taxref-ld>;
+    rdfs:label "Marine habitat"@en;
+    skos:prefLabel "Marine habitat"@en;
+    skos:prefLabel "Milieu marin"@fr;
+    skos:definition "Species living exclusively in marine habitat"@en;
+    skos:definition "Espèces vivant uniquement en milieu marin"@fr;
+    skos:exactMatch <http://purl.obolibrary.org/obo/ENVO_00002149>;
+    skos:relatedMatch <http://purl.obolibrary.org/obo/ENVO_01000320>;
+    skos:exactMatch <http://lod.taxonconcept.org/ontology/txn.owl#MarineHabitat>.
+
+taxrefhab:FreshWater
+    a skos:Concept;
+    skos:inScheme <http://taxref.mnhn.fr/lod/taxref-ld>;
+    rdfs:label "Freshwater"@en;
+    skos:prefLabel "Freshwater"@en;
+    skos:prefLabel "Eau douce"@fr;
+    skos:definition "Species living exclusively in freshwater"@en;
+    skos:definition "Espèces vivant uniquement en eau douce"@fr;
+    skos:exactMatch <http://purl.obolibrary.org/obo/ENVO_00002011>;
+    skos:exactMatch <http://lod.taxonconcept.org/ontology/txn.owl#FreshwaterHabitat>.
+
+taxrefhab:BrackishWater
+    a skos:Concept;
+    skos:inScheme <http://taxref.mnhn.fr/lod/taxref-ld>;
+    rdfs:label "Brackish water"@en;
+    skos:prefLabel "Brackish water"@en;
+    skos:prefLabel "Eau saumâtre"@fr;
+    skos:definition "Species living exclusively in brackish water"@en;
+    skos:definition "Espèces vivant uniquement en eau saumâtre"@fr;
+    skos:exactMatch <http://purl.obolibrary.org/obo/ENVO_00002019>.
+
+taxrefhab:Terrestrial
+    a skos:Concept;
+    skos:inScheme <http://taxref.mnhn.fr/lod/taxref-ld>;
+    rdfs:label "Terrestrial"@en;
+    skos:prefLabel "Terrestrial"@en;
+    skos:prefLabel "Terrestre"@fr;
+    skos:definition "Species living exclusively in terrestrial habitat"@en;
+    skos:definition "Espèces vivant uniquement en milieu terrestre"@fr;
+    skos:exactMatch <http://purl.obolibrary.org/obo/ENVO_00000446>;
+    skos:exactMatch <http://lod.taxonconcept.org/ontology/txn.owl#TerrestrialHabitat>.
+
+# --------------------------------------- ./Taxrefld_static_defs_interaction_biological_stages.ttl
+
+
+
+taxrefbs:BiologicalStageCollection
+ a skos:Collection;
+ rdfs:label "Collection of biological stages"@en;
+ rdfs:isDefinedBy <http://taxref.mnhn.fr/lod/taxref-ld>;
+ skos:member taxrefbs:Adult, taxrefbs:Polyp, taxrefbs:Medusa, taxrefbs:Ephyra, taxrefbs:Juvenile, taxrefbs:Manca, taxrefbs:Egg, taxrefbs:Larva, taxrefbs:Nauplius, taxrefbs:Planula, taxrefbs:Postlarva, taxrefbs:Spat, taxrefbs:Subadult, taxrefbs:Zoea, taxrefbs:Megalopa, taxrefbs:Hydroid, taxrefbs:Cypris, taxrefbs:Hatchling, taxrefbs:CopepoditeI, taxrefbs:CopepoditeII,  taxrefbs:CopepoditeIII,  taxrefbs:CopepoditeIV,  taxrefbs:CopepoditeV,  taxrefbs:CopepoditeVI, taxrefbs:Gametophyte, taxrefbs:Sporophyte, taxrefbs:Macrothallus, taxrefbs:Microthallus, taxrefbs:1YearOld, taxrefbs:Fetus;
+ .
+
+# --- Types of Biological Stage
+
+taxrefbs:Adult
+ a skos:Concept, <http://www.wikidata.org/entity/Q1811014>;
+ skos:inScheme <http://taxref.mnhn.fr/lod/taxref-ld>;
+ skos:prefLabel "Adult"@en;
+ skos:prefLabel "Adulte"@fr;
+ skos:exactMatch <http://www.wikidata.org/entity/Q80994>;
+ skos:exactMatch <http://purl.obolibrary.org/obo/UBERON_0018241>.
+
+taxrefbs:Polyp
+ a skos:Concept, <http://www.wikidata.org/entity/Q1811014>;
+ skos:inScheme <http://taxref.mnhn.fr/lod/taxref-ld>;
+ skos:prefLabel "Polyp"@en;
+ skos:prefLabel "Polype"@fr;
+ skos:exactMatch <http://www.wikidata.org/entity/Q689884>.
+
+taxrefbs:Medusa
+ a skos:Concept, <http://www.wikidata.org/entity/Q1811014>;
+ skos:inScheme <http://taxref.mnhn.fr/lod/taxref-ld>;
+ skos:prefLabel "Medusa"@en;
+ skos:prefLabel "Méduse"@fr.
+
+taxrefbs:Ephyra
+ a skos:Concept, <http://www.wikidata.org/entity/Q1811014>;
+ skos:inScheme <http://taxref.mnhn.fr/lod/taxref-ld>;
+ skos:prefLabel "Ephyra"@en;
+ skos:prefLabel "Ephyra"@fr;
+ skos:exactMatch <http://www.wikidata.org/entity/Q286450>.
+
+taxrefbs:Juvenile
+ a skos:Concept, <http://www.wikidata.org/entity/Q1811014>;
+ skos:inScheme <http://taxref.mnhn.fr/lod/taxref-ld>;
+ skos:prefLabel "Juvenile"@en;
+ skos:prefLabel "Juvénile"@fr;
+ skos:exactMatch <http://www.wikidata.org/entity/Q1516282>;
+ skos:exactMatch <http://purl.obolibrary.org/obo/UBERON_0034919>.
+
+taxrefbs:Manca
+ a skos:Concept, <http://www.wikidata.org/entity/Q1811014>;
+ skos:inScheme <http://taxref.mnhn.fr/lod/taxref-ld>;
+ skos:prefLabel "Manca"@en;
+ skos:prefLabel "Manca"@fr;
+ skos:exactMatch <http://www.wikidata.org/entity/Q2194934>.
+
+taxrefbs:Egg
+ a skos:Concept, <http://www.wikidata.org/entity/Q1811014>;
+ skos:inScheme <http://taxref.mnhn.fr/lod/taxref-ld>;
+ skos:prefLabel "Egg"@en;
+ skos:prefLabel "Œuf"@fr;
+ skos:exactMatch <http://www.wikidata.org/entity/Q17147>.
+
+taxrefbs:Larva
+ a skos:Concept, <http://www.wikidata.org/entity/Q1811014>;
+ skos:inScheme <http://taxref.mnhn.fr/lod/taxref-ld>;
+ skos:prefLabel "Larva"@en;
+ skos:prefLabel "Larve"@fr;
+ skos:exactMatch <http://www.wikidata.org/entity/Q129270>;
+ skos:exactMatch <http://purl.obolibrary.org/obo/UBERON_0000069>.
+
+taxrefbs:Nauplius
+ a skos:Concept, <http://www.wikidata.org/entity/Q1811014>;
+ skos:inScheme <http://taxref.mnhn.fr/lod/taxref-ld>;
+ skos:prefLabel "Nauplius"@en;
+ skos:prefLabel "Nauplius"@fr;
+ skos:exactMatch <http://www.wikidata.org/entity/Q570505>;
+ skos:exactMatch <http://purl.obolibrary.org/obo/UBERON_0014406>.
+
+taxrefbs:Planula
+ a skos:Concept, <http://www.wikidata.org/entity/Q1811014>;
+ skos:inScheme <http://taxref.mnhn.fr/lod/taxref-ld>;
+ skos:prefLabel "Planula"@en;
+ skos:prefLabel "Planula"@fr;
+ skos:exactMatch <http://www.wikidata.org/entity/Q943388>.
+
+taxrefbs:Postlarva
+ a skos:Concept, <http://www.wikidata.org/entity/Q1811014>;
+ skos:inScheme <http://taxref.mnhn.fr/lod/taxref-ld>;
+ skos:prefLabel "Postlarva"@en;
+ skos:prefLabel "Post-larve"@fr;
+ skos:relatedMatch <http://purl.obolibrary.org/obo/UBERON_0014406>.
+
+taxrefbs:Spat
+ a skos:Concept, <http://www.wikidata.org/entity/Q1811014>;
+ skos:inScheme <http://taxref.mnhn.fr/lod/taxref-ld>;
+ skos:prefLabel "Spat"@en;
+ skos:prefLabel "Au nid"@fr.
+
+taxrefbs:Subadult
+ a skos:Concept, <http://www.wikidata.org/entity/Q1811014>;
+ skos:inScheme <http://taxref.mnhn.fr/lod/taxref-ld>;
+ skos:prefLabel "Subadult"@en;
+ skos:prefLabel "Subadulte"@fr.
+
+taxrefbs:Zoea
+ a skos:Concept, <http://www.wikidata.org/entity/Q1811014>;
+ skos:inScheme <http://taxref.mnhn.fr/lod/taxref-ld>;
+ skos:prefLabel "Zoea"@en;
+ skos:prefLabel "Zoea"@fr;
+ skos:exactMatch <http://www.wikidata.org/entity/Q1968233>;
+ skos:exactMatch <http://purl.obolibrary.org/obo/UBERON_0014857>.
+
+taxrefbs:Megalopa
+ a skos:Concept, <http://www.wikidata.org/entity/Q1811014>;
+ skos:inScheme <http://taxref.mnhn.fr/lod/taxref-ld>;
+ skos:prefLabel "Megalopa"@en;
+ skos:prefLabel "Megalopa"@fr;
+ skos:exactMatch <http://www.wikidata.org/entity/Q12036332>;
+ skos:exactMatch <http://purl.obolibrary.org/obo/UBERON_0014859>.
+
+taxrefbs:Hydroid
+ a skos:Concept, <http://www.wikidata.org/entity/Q1811014>;
+ skos:inScheme <http://taxref.mnhn.fr/lod/taxref-ld>;
+ skos:prefLabel "Hydroid"@en;
+ skos:prefLabel "Hydroïde"@fr.
+
+taxrefbs:Cypris
+ a skos:Concept, <http://www.wikidata.org/entity/Q1811014>;
+ skos:inScheme <http://taxref.mnhn.fr/lod/taxref-ld>;
+ skos:prefLabel "Cypris"@en;
+ skos:prefLabel "Cypris"@fr;
+ skos:exactMatch <http://www.wikidata.org/entity/Q2034819>.
+
+taxrefbs:Hatchling
+ a skos:Concept, <http://www.wikidata.org/entity/Q1811014>;
+ skos:inScheme <http://taxref.mnhn.fr/lod/taxref-ld>;
+ skos:prefLabel "Hatchling"@en;
+ skos:prefLabel "Nouveau-né"@fr;
+ skos:exactMatch <http://www.wikidata.org/entity/Q2892050>.
+
+taxrefbs:CopepoditeI
+ a skos:Concept, <http://www.wikidata.org/entity/Q1811014>;
+ skos:inScheme <http://taxref.mnhn.fr/lod/taxref-ld>;
+ skos:prefLabel "Copepodite I"@en;
+ skos:prefLabel "Copepodite I"@fr;
+ skos:exactMatch <http://purl.obolibrary.org/obo/UBERON_8200002>.
+
+taxrefbs:CopepoditeII
+ a skos:Concept, <http://www.wikidata.org/entity/Q1811014>;
+ skos:inScheme <http://taxref.mnhn.fr/lod/taxref-ld>;
+ skos:prefLabel "Copepodite II"@en;
+ skos:prefLabel "Copepodite II"@fr;
+ skos:exactMatch <http://purl.obolibrary.org/obo/UBERON_8200003>;
+ skos:exactMatch <http://purl.obolibrary.org/obo/ECOCORE_00000034>.
+ 
+taxrefbs:CopepoditeIII
+ a skos:Concept, <http://www.wikidata.org/entity/Q1811014>;
+ skos:inScheme <http://taxref.mnhn.fr/lod/taxref-ld>;
+ skos:prefLabel "Copepodite III"@en;
+ skos:prefLabel "Copepodite III"@fr;
+ skos:exactMatch <http://purl.obolibrary.org/obo/UBERON_8200004>;
+ skos:exactMatch <http://purl.obolibrary.org/obo/ECOCORE_00000035>.
+
+taxrefbs:CopepoditeIV
+ a skos:Concept, <http://www.wikidata.org/entity/Q1811014>;
+ skos:inScheme <http://taxref.mnhn.fr/lod/taxref-ld>;
+ skos:prefLabel "Copepodite IV"@en;
+ skos:prefLabel "Copepodite IV"@fr;
+ skos:exactMatch <http://purl.obolibrary.org/obo/UBERON_8200005>;
+ skos:exactMatch <http://purl.obolibrary.org/obo/ECOCORE_00000036>.
+
+taxrefbs:CopepoditeV
+ a skos:Concept, <http://www.wikidata.org/entity/Q1811014>;
+ skos:inScheme <http://taxref.mnhn.fr/lod/taxref-ld>;
+ skos:prefLabel "Copepodite V"@en;
+ skos:prefLabel "Copepodite V"@fr;
+ skos:exactMatch <http://purl.obolibrary.org/obo/UBERON_8200006>;
+ skos:exactMatch <http://purl.obolibrary.org/obo/ECOCORE_00000037>.
+
+taxrefbs:CopepoditeVI
+ a skos:Concept, <http://www.wikidata.org/entity/Q1811014>;
+ skos:inScheme <http://taxref.mnhn.fr/lod/taxref-ld>;
+ skos:prefLabel "Copepodite VI"@en;
+ skos:prefLabel "Copepodite VI"@fr;
+ skos:exactMatch <http://purl.obolibrary.org/obo/UBERON_8200007>;
+ skos:exactMatch <http://purl.obolibrary.org/obo/ECOCORE_00000038>.
+
+taxrefbs:Gametophyte
+ a skos:Concept, <http://www.wikidata.org/entity/Q1811014>;
+ skos:inScheme <http://taxref.mnhn.fr/lod/taxref-ld>;
+ skos:prefLabel "Gametophyte"@en;
+ skos:prefLabel "Gametophyte"@fr.
+
+taxrefbs:Sporophyte
+ a skos:Concept, <http://www.wikidata.org/entity/Q1811014>;
+ skos:inScheme <http://taxref.mnhn.fr/lod/taxref-ld>;
+ skos:prefLabel "Sporophyte"@en;
+ skos:prefLabel "Sporophyte"@fr.
+ 
+taxrefbs:Macrothallus
+ a skos:Concept, <http://www.wikidata.org/entity/Q1811014>;
+ skos:inScheme <http://taxref.mnhn.fr/lod/taxref-ld>;
+ skos:prefLabel "Macrothallus"@en;
+ skos:prefLabel "Macrothallus"@fr.
+
+taxrefbs:Microthallus
+ a skos:Concept, <http://www.wikidata.org/entity/Q1811014>;
+ skos:inScheme <http://taxref.mnhn.fr/lod/taxref-ld>;
+ skos:prefLabel "Microthallus"@en;
+ skos:prefLabel "Microthallus"@fr.
+
+taxrefbs:1YearOld
+ a skos:Concept, <http://www.wikidata.org/entity/Q1811014>;
+ skos:inScheme <http://taxref.mnhn.fr/lod/taxref-ld>;
+ skos:prefLabel "1-year old"@en;
+ skos:prefLabel "De l'année"@fr.
+
+taxrefbs:Fetus
+ a skos:Concept, <http://www.wikidata.org/entity/Q1811014>;
+ skos:inScheme <http://taxref.mnhn.fr/lod/taxref-ld>;
+ skos:prefLabel "Fetus"@en;
+ skos:prefLabel "Foetus"@fr;
+ skos:exactMatch <http://www.wikidata.org/entity/Q17013437>;
+ skos:relatedMatch <http://purl.obolibrary.org/obo/UBERON_0000068>.
+
+
+# Classes of all organisms in each biological stage
+
+<http://taxref.mnhn.fr/lod/Organisms_in_adulte_stage>
+      a owl:Restriction;
+      owl:onProperty    taxrefprop:hasBiologicalStage;
+      owl:hasValue      taxrefbs:Adult.
+
+<http://taxref.mnhn.fr/lod/Organisms_in_polype_stage>
+      a owl:Restriction;
+      owl:onProperty    taxrefprop:hasBiologicalStage;
+      owl:hasValue      taxrefbs:Polyp.
+
+<http://taxref.mnhn.fr/lod/Organisms_in_méduse_stage>
+      a owl:Restriction;
+      owl:onProperty    taxrefprop:hasBiologicalStage;
+      owl:hasValue      taxrefbs:Medusa.
+
+<http://taxref.mnhn.fr/lod/Organisms_in_ephyra_stage>
+      a owl:Restriction;
+      owl:onProperty    taxrefprop:hasBiologicalStage;
+      owl:hasValue      taxrefbs:Ephyra.
+
+<http://taxref.mnhn.fr/lod/Organisms_in_juvénile_stage>
+      a owl:Restriction;
+      owl:onProperty    taxrefprop:hasBiologicalStage;
+      owl:hasValue      taxrefbs:Juvenile.
+
+<http://taxref.mnhn.fr/lod/Organisms_in_manca_stage>
+      a owl:Restriction;
+      owl:onProperty    taxrefprop:hasBiologicalStage;
+      owl:hasValue      taxrefbs:Manca.
+
+<http://taxref.mnhn.fr/lod/Organisms_in_Œuf_stage>
+      a owl:Restriction;
+      owl:onProperty    taxrefprop:hasBiologicalStage;
+      owl:hasValue      taxrefbs:Egg.
+
+<http://taxref.mnhn.fr/lod/Organisms_in_larve_stage>
+      a owl:Restriction;
+      owl:onProperty    taxrefprop:hasBiologicalStage;
+      owl:hasValue      taxrefbs:Larva.
+
+<http://taxref.mnhn.fr/lod/Organisms_in_planula_stage>
+      a owl:Restriction;
+      owl:onProperty    taxrefprop:hasBiologicalStage;
+      owl:hasValue      taxrefbs:Planula.
+
+<http://taxref.mnhn.fr/lod/Organisms_in_post-larve_stage>
+      a owl:Restriction;
+      owl:onProperty    taxrefprop:hasBiologicalStage;
+      owl:hasValue      taxrefbs:Postlarva.
+
+<http://taxref.mnhn.fr/lod/Organisms_in_au%20nid_stage>
+      a owl:Restriction;
+      owl:onProperty    taxrefprop:hasBiologicalStage;
+      owl:hasValue      taxrefbs:Spat.
+
+<http://taxref.mnhn.fr/lod/Organisms_in_subadulte_stage>
+      a owl:Restriction;
+      owl:onProperty    taxrefprop:hasBiologicalStage;
+      owl:hasValue      taxrefbs:Subadult.
+
+<http://taxref.mnhn.fr/lod/Organisms_in_zoea_stage>
+      a owl:Restriction;
+      owl:onProperty    taxrefprop:hasBiologicalStage;
+      owl:hasValue      taxrefbs:Zoea.
+
+<http://taxref.mnhn.fr/lod/Organisms_in_megalopa_stage>
+      a owl:Restriction;
+      owl:onProperty    taxrefprop:hasBiologicalStage;
+      owl:hasValue      taxrefbs:Megalopa.
+
+<http://taxref.mnhn.fr/lod/Organisms_in_hydroïde_stage>
+      a owl:Restriction;
+      owl:onProperty    taxrefprop:hasBiologicalStage;
+      owl:hasValue      taxrefbs:Hydroid.
+
+<http://taxref.mnhn.fr/lod/Organisms_in_cypris_stage>
+      a owl:Restriction;
+      owl:onProperty    taxrefprop:hasBiologicalStage;
+      owl:hasValue      taxrefbs:Cypris.
+
+<http://taxref.mnhn.fr/lod/Organisms_in_nouveau-né_stage>
+      a owl:Restriction;
+      owl:onProperty    taxrefprop:hasBiologicalStage;
+      owl:hasValue      taxrefbs:Hatchling.
+
+<http://taxref.mnhn.fr/lod/Organisms_in_nauplius_stage>
+      a owl:Restriction;
+      owl:onProperty    taxrefprop:hasBiologicalStage;
+      owl:hasValue      taxrefbs:Nauplius.
+
+<http://taxref.mnhn.fr/lod/Organisms_in_copepodite%20I_stage>
+      a owl:Restriction;
+      owl:onProperty    taxrefprop:hasBiologicalStage;
+      owl:hasValue      taxrefbs:CopepoditeI.
+
+<http://taxref.mnhn.fr/lod/Organisms_in_copepodite%20II_stage>
+      a owl:Restriction;
+      owl:onProperty    taxrefprop:hasBiologicalStage;
+      owl:hasValue      taxrefbs:CopepoditeII.
+
+<http://taxref.mnhn.fr/lod/Organisms_in_copepodite%20III_stage>
+      a owl:Restriction;
+      owl:onProperty    taxrefprop:hasBiologicalStage;
+      owl:hasValue      taxrefbs:CopepoditeIII.
+
+<http://taxref.mnhn.fr/lod/Organisms_in_copepodite%20IV_stage>
+      a owl:Restriction;
+      owl:onProperty    taxrefprop:hasBiologicalStage;
+      owl:hasValue      taxrefbs:CopepoditeIV.
+
+<http://taxref.mnhn.fr/lod/Organisms_in_copepodite%20V_stage>
+      a owl:Restriction;
+      owl:onProperty    taxrefprop:hasBiologicalStage;
+      owl:hasValue      taxrefbs:CopepoditeV.
+
+<http://taxref.mnhn.fr/lod/Organisms_in_copepodite%20VI_stage>
+      a owl:Restriction;
+      owl:onProperty    taxrefprop:hasBiologicalStage;
+      owl:hasValue      taxrefbs:CopepoditeVI.
+
+<http://taxref.mnhn.fr/lod/Organisms_in_gametophyte_stage>
+      a owl:Restriction;
+      owl:onProperty    taxrefprop:hasBiologicalStage;
+      owl:hasValue      taxrefbs:Gametophyte.
+
+<http://taxref.mnhn.fr/lod/Organisms_in_sporophyte_stage>
+      a owl:Restriction;
+      owl:onProperty    taxrefprop:hasBiologicalStage;
+      owl:hasValue      taxrefbs:Sporophyte.
+
+<http://taxref.mnhn.fr/lod/Organisms_in_macrothallus_stage>
+      a owl:Restriction;
+      owl:onProperty    taxrefprop:hasBiologicalStage;
+      owl:hasValue      taxrefbs:Macrothallus.
+
+<http://taxref.mnhn.fr/lod/Organisms_in_microthallus_stage>
+      a owl:Restriction;
+      owl:onProperty    taxrefprop:hasBiologicalStage;
+      owl:hasValue      taxrefbs:Microthallus.
+
+<http://taxref.mnhn.fr/lod/Organisms_in_de%20l%27année_stage>
+      a owl:Restriction;
+      owl:onProperty    taxrefprop:hasBiologicalStage;
+      owl:hasValue      taxrefbs:1YearOld.
+
+<http://taxref.mnhn.fr/lod/Organisms_in_foetus_stage>
+      a owl:Restriction;
+      owl:onProperty    taxrefprop:hasBiologicalStage;
+      owl:hasValue      taxrefbs:Fetus.
+
+# --------------------------------------- ./Taxrefld_static_defs_interaction_sex.ttl
+
+
+
+# --- Classes of male and female individuals 
+
+<http://taxref.mnhn.fr/lod/mâle_Organisms>
+    rdfs:label "male oganisms"@en;
+    rdfs:label "oganismes mâles"@fr;
+    owl:equivalentClass [
+        a owl:Restriction;
+        owl:onProperty    taxrefprop:hasSex;
+        owl:hasValue      <http://www.wikidata.org/entity/Q6581097>
+    ];
+    owl:equivalentClass <http://purl.obolibrary.org/obo/BILA_0000027>;
+    owl:equivalentClass <http://www.wikidata.org/entity/Q44148>.
+
+
+<http://taxref.mnhn.fr/lod/femelle_Organisms>
+    rdfs:label "female oganisms"@en;
+    rdfs:label "oganismes femelles"@fr;
+    owl:equivalentClass [
+        a owl:Restriction;
+        owl:onProperty    taxrefprop:hasSex;
+        owl:hasValue      <http://www.wikidata.org/entity/Q6581072>
+    ];
+    owl:equivalentClass <http://purl.obolibrary.org/obo/BILA_0000028>;
+    owl:equivalentClass <http://www.wikidata.org/entity/Q43445>.
+
+# --------------------------------------- ./Taxrefld_static_defs_interaction_specificity.ttl
+
+
+
+# List of terms from NCI Thesaurus: https://www.ebi.ac.uk/ols/ontologies/ncit
+
+
+taxrefspec:SpecificityCollection
+ a skos:Collection;
+ rdfs:label "Collection of interaction specificities"@en;
+ rdfs:isDefinedBy <http://taxref.mnhn.fr/lod/taxref-ld>;
+ skos:member taxrefspec:Mandatory, taxrefspec:Principal, taxrefspec:Regular, taxrefspec:Optional, taxrefspec:Sporadic.
+
+
+# --- Types of Specificity
+
+taxrefspec:Mandatory
+ a skos:Concept;
+ skos:inScheme <http://taxref.mnhn.fr/lod/taxref-ld>;
+ rdfs:label "Mandatory"@en;
+ skos:prefLabel "Mandatory"@en;
+ skos:prefLabel "Obligatoire"@fr;
+ skos:definition "The interaction is mandatory for the survival of the individual"@en;
+ skos:definition "L'interaction est obligatoire à la survie de l'individu"@fr;
+ skos:relatedMatch <http://purl.obolibrary.org/obo/NCIT_C25652>.
+
+taxrefspec:Principal
+ a skos:Concept;
+ skos:inScheme <http://taxref.mnhn.fr/lod/taxref-ld>;
+ rdfs:label "Principal"@en;
+ skos:prefLabel "Principal"@en;
+ skos:prefLabel "Principale"@fr;
+ skos:definition "A principal interaction is not mandatory, it can be remplaced by an optional interaction with another species";
+ skos:definition "Une interaction principale n'est pas obligatoire, elle peut être remplacée par une autre interaction occasionelle avec une autre espèce"@fr;
+ skos:relatedMatch <http://purl.obolibrary.org/obo/NCIT_C25628>.
+
+taxrefspec:Regular
+ a skos:Concept;
+ skos:inScheme <http://taxref.mnhn.fr/lod/taxref-ld>;
+ rdfs:label "Regular"@en;
+ skos:prefLabel "Regular"@en;
+ skos:prefLabel "Régulière"@fr;
+ skos:definition "The interaction is regularly observed"@en;
+ skos:definition "L'interaction est régulièrement observée"@fr;
+ skos:relatedMatch <http://purl.obolibrary.org/obo/NCIT_C102843>.
+
+taxrefspec:Optional
+ a skos:Concept;
+ skos:inScheme <http://taxref.mnhn.fr/lod/taxref-ld>;
+ rdfs:label "Optional"@en;
+ skos:prefLabel "Optional"@en;
+ skos:prefLabel "Facultative"@fr;
+ skos:definition "An optional interaction is not mandatory for the survival of the individual"@en;
+ skos:definition "Une interaction facultative n'est pas obligatoire à la survie de l'individu"@fr;
+ skos:relatedMatch <http://purl.obolibrary.org/obo/NCIT_C25603>;
+ skos:relatedMatch <https://www.wikidata.org/wiki/Q59864995>.
+
+taxrefspec:Sporadic
+ a skos:Concept;
+ skos:inScheme <http://taxref.mnhn.fr/lod/taxref-ld>;
+ rdfs:label "Sporadic"@en;
+ skos:prefLabel "Sporadic"@en;
+ skos:prefLabel "occasionnelle / exceptionnelle"@fr;
+ skos:definition "The interaction is observed sporadically"@en;
+ skos:definition "L'interaction est observée de manière occasionnelle/exceptionnelle"@fr;
+ skos:relatedMatch <http://purl.obolibrary.org/obo/NCIT_C64954>.
+
+# --------------------------------------- ./Taxrefld_static_defs_locations.ttl
+
+
+
+
+
+taxrefloc:MaritimeArea
+    rdfs:subClassOf wd:Q1496967, wd:Q15324;        # Q1496967 = territorial entity, Q15324 = body of water
+    rdfs:isDefinedBy <http://taxref.mnhn.fr/lod/taxref-ld>;
+    rdfs:label "Maritime area"@en;
+    dct:description "Maritime area different from seas, oceans, territorial waters and EEZ."@en;
+    rdfs:comment "A maritime area, generally surrounding a landmass, that does not correspond to any specific sea or ocean, nor to any internationally recognized administrative subdivision (i.e. territorial waters or EEZ)"@en.
+
+# --------------- Mapping between Wikidata classes and INSEE/IGN counterparts -------------
+
+wd:Q192498
+    a owl:Class;
+    owl:equivalentClass igeo:TerritoireFrancais, geofla:UniteAdministrative.
+    
+wd:Q702842
+    a owl:Class;
+    owl:equivalentClass igeo:ArrondissementMunicipal.
+    
+wd:Q484170
+    a owl:Class;
+    owl:equivalentClass igeo:Commune, geofla:Commune.
+
+wd:Q6465
+    a owl:Class;
+    owl:equivalentClass igeo:Departement, geofla:Departement.
+
+wd:Q36784
+    a owl:Class;
+    owl:equivalentClass igeo:Region, geofla:Region.
+
+wd:Q719487
+    a owl:Class;
+    owl:equivalentClass igeo:CollectiviteDOutreMer.
+    
+wd:Q3624078
+    a owl:Class;
+    owl:equivalentClass igeo:Pays.
+
+# --------------------------------------- ./Taxrefld_static_defs_properties.ttl
+
+
+
+
+# ============================================================
+# Resources imported from other ontologies:
+#
+# ENVO - Environment Ontology: types of habitat (https://www.ebi.ac.uk/ols/ontologies/envo)
+#   Class http://purl.obolibrary.org/obo/ENVO_00002149: Sea water
+#   Class http://purl.obolibrary.org/obo/ENVO_01000320: Marine Environment
+#   Class http://purl.obolibrary.org/obo/ENVO_00002011: Fresh water
+#   Class http://purl.obolibrary.org/obo/ENVO_00002019: Brackish water
+#   Class http://purl.obolibrary.org/obo/ENVO_00000446: Terrestrial biome
+#
+# RO - Relations Ontology (http://www.ontobee.org/ontology/RO)
+#   Property http://purl.obolibrary.org/obo/RO_0002303: has habitat
+#   + properties of interactions between species (preys on, symbiotically interacts with, parasite of, etc.)
+#
+# TaxonConcept Ontology:
+#   Property http://lod.taxonconcept.org/ontology/txn.owl#habitat: links a taxon to its habitat
+#   Top-class of habitats: http://lod.taxonconcept.org/ontology/txn.owl#Habitat
+#   Classes of habitats: http://lod.taxonconcept.org/ontology/txn.owl#*Habitat
+#   Property http://lod.taxonconcept.org/ontology/txn.owl#authority: authority of a taxon e.g. "Heinrich, 1952"
+#   Classes of Taxonomical ranks: http://lod.taxonconcept.org/ontology/txn.owl#Rank*
+#
+# NCBI organismal classification (http://www.ontobee.org/ontology/NCBITaxon): <http://purl.obolibrary.org/obo/ncbitaxon.owl>
+#   Property http://purl.obolibrary.org/obo/ncbitaxon#has_rank: associates a taxonomical rank to a taxon
+#   Classes of Taxonomical ranks: http://purl.obolibrary.org/obo/NCBITaxon_*
+#
+# GeoSpecies Knowledge Base (https://bioportal.bioontology.org/ontologies/GEOSPECIES): <http://rdf.geospecies.org/ont/geospecies.owl>
+#   Classes of taxonomical ranks: http://rdf.geospecies.org/ont/geospecies#TaxonRank_*
+#   Class http://rdf.geospecies.org/ont/geospecies#OccurrenceStatus
+#   Property http://rdf.geospecies.org/ont/geospecies#hasVernacularName
+#
+# TDWG Ontology (https://github.com/tdwg/ontology)
+#   Occurrence Status Terms (https://github.com/tdwg/ontology/blob/master/ontology/voc/OccurrenceStatusTerm.rdf):
+#     Values of occurrence statuses, aka. biogeographical statuses: <http://rs.tdwg.org/ontology/voc/OccurrenceStatusTerm>
+#     (note that these are deprecated).
+#   Class <http://rs.tdwg.org/ontology/voc/TaxonRank#TaxonRankTerm>
+#   Class <http://rs.tdwg.org/ontology/voc/TaxonName#TaxonName> (class of all scientific names, in add. to skos:Concept)
+#
+# Darwin Core Terms (http://rs.tdwg.org/dwc/terms/ and http://rs.tdwg.org/dwc/iri/):
+#   Property http://rs.tdwg.org/dwc/iri/occurrenceStatus
+#   Property http://rs.tdwg.org/dwc/terms/locationID (http://terms.tdwg.org/wiki/dwc:locationID)
+#      No longer used in this RDF representation.
+#      May be used with values from TDWG and WOEID as recommended by GBIF: http://rs.gbif.org/areas/.
+#   Property http://rs.tdwg.org/dwc/terms/vernacularName
+#   Property http://rs.tdwg.org/dwc/terms/taxonRank
+#   Property http://rs.tdwg.org/dwc/iri/habitat
+#   Property http://rs.tdwg.org/dwc/terms/scientificName
+#
+# URIs and identifiers of geographical places:
+#   Geonames: URIs of France mainland and overseas territories
+#   TDWG World Geographical Scheme for Recording Plant Distributions
+#     https://github.com/tdwg/prior-standards/tree/master/world-geographical-scheme-for-recording-plant-distributions
+#   Yahoo! Where On Earth ID (WOEID)
+#
+# VTO (Vertebrate Taxon O,ntology)
+#   Property http://purl.obolibrary.org/obo/vto#has_rank
+#
+# BIBO - Bibliographic Ontology (http://bibliographic-ontology.org/bibo/bibo.php)
+#   Class http://purl.org/ontology/bibo/Article
+#   Property http://purl.org/ontology/bibo/doi
+# 
+# HAL
+#   Class https://data.archives-ouvertes.fr/doctype/Article
+#
+# Dublim Core Terms
+#   Property dct:bibliographicCitation
+#   Property dct:issued
+#
+# BioTop Ontology - https://github.com/BioTopOntology/biotop/
+#   Property http://purl.org/biotop/biotop.owl#OrganismInteraction
+#
+# Wikidata
+#   Property P248 "stated in" - statuses, interactions
+#   Property P3005 "valid in place" - statuses
+#   Red List types (world, european, national, regional)
+#   Indiv. for Red List statuses
+#   ...TBC...
+
+
+# ============================================================
+# ==== Annotation Properties associated to taxa
+# ============================================================
+
+taxrefprop:hasRank
+ a owl:AnnotationProperty;
+ rdfs:isDefinedBy <http://taxref.mnhn.fr/lod/taxref-ld>;
+ rdfs:label "has taxonomic rank"@en;
+ dct:description "Relates a scientific name or a taxon to a taxonimical rank"@en;
+ rdfs:comment "This property is not equivalent to http://rs.tdwg.org/ontology/voc/TaxonConcept#rank nor http://rs.tdwg.org/ontology/voc/TaxonName#rank whose domains are http://rs.tdwg.org/ontology/voc/TaxonConcept#TaxonConcept and http://rs.tdwg.org/ontology/voc/TaxonName#TaxonName respectively, whereas we want to use taxrefprop:hasRank with taxa implemented as owl:Class's as well as scientific names implemented as instances of skos:Concept. "@en;
+ rdfs:comment "This property is not equivalent to dwc:taxonRank which is expected to be used only with literal values (see http://rs.tdwg.org/dwc/terms/guides/rdf/index.htm, section 3.5)"@en;
+ owl:equivalentProperty <http://purl.obolibrary.org/obo/ncbitaxon#has_rank>;
+ owl:equivalentProperty wdt:P105;
+ rdfs:seeAlso dwc:taxonRank, <http://rs.tdwg.org/ontology/voc/TaxonName#rank>, <http://rs.tdwg.org/ontology/voc/TaxonConcept#rank>.
+
+taxrefprop:hasReferenceName
+ a owl:AnnotationProperty;
+ rdfs:isDefinedBy <http://taxref.mnhn.fr/lod/taxref-ld>;
+ rdfs:label "has reference name"@en;
+ dct:description "Relates a taxon to its reference (valid) scientific name"@en;
+ rdfs:comment "DwC's scientificName property is recommended to be used with a literal object, and does not distinguish between reference vs. synonym names. Hence, TAXREF-LD extends it (rdfs:subPropertyOf) instead of asserting an equivalence."@en;
+ rdfs:seeAlso dwc:scientificName.
+
+taxrefprop:hasSynonym
+ a owl:AnnotationProperty;
+ rdfs:isDefinedBy <http://taxref.mnhn.fr/lod/taxref-ld>;
+ rdfs:label "has synonym"@en;
+ dct:description "Relates a taxon to one of its synonyms"@en;
+ rdfs:comment "DwC's scientificName property is recommended to be used with a literal object, and does not distinguish between reference vs. synonym names. Hence, in TAXREF-LD, we extend it with rdfs:subPropertyOf instead of asserting an equivalence."@en;
+ rdfs:seeAlso dwc:scientificName.
+  
+taxrefprop:vernacularName
+ a owl:AnnotationProperty;
+ rdfs:isDefinedBy <http://taxref.mnhn.fr/lod/taxref-ld>;
+ rdfs:label "has vernacular name"@en;
+ dct:description "Relates a taxon to one of its vernacular (common) names"@en;
+ rdfs:seeAlso <http://rdf.geospecies.org/ont/geospecies#hasVernacularName>;
+ rdfs:seeAlso dwc:vernacularName;
+ owl:equivalentProperty wdt:P1843.
+ 
+taxrefprop:vernacularNameXL
+ a owl:AnnotationProperty;
+ rdfs:isDefinedBy <http://taxref.mnhn.fr/lod/taxref-ld>;
+ rdfs:label "has extended vernacular name"@en;
+ dct:description "Relates a taxon to one of its vernacular (common) names in the form of a SKOS extended label"@en;
+ rdfs:comment "This property was initially defined as a subPropertyOf skosxl:altLabel. However skosxl:altLabel is an owl:ObjectProperty and thus cannot apply to a class. Therefore, we instead define it a an owl:AnnotationProperty whose range is a skosxl:Label";
+ rdfs:range skosxl:Label.
+ 
+taxrefprop:habitat
+ a owl:AnnotationProperty;
+ rdfs:isDefinedBy <http://taxref.mnhn.fr/lod/taxref-ld>;
+ rdfs:seeAlso <http://purl.obolibrary.org/obo/RO_0002303>, dwciri:habitat, <http://lod.taxonconcept.org/ontology/txn.owl#habitat>;
+ owl:equivalentProperty wdt:P2974;
+ rdfs:label "has habitat"@en;
+ dct:description "Relates a taxon to an habitat in which it lives"@en.
+
+taxrefprop:hasStatus
+ a owl:AnnotationProperty;
+ rdfs:isDefinedBy <http://taxref.mnhn.fr/lod/taxref-ld>;
+ rdfs:label "has status"@en;
+ dct:description "Relates a taxon to one of its biogeographical, red list or legal statuses."@en.
+
+# Unusued in TAXREF-LD v15 as the data is not available from the API
+taxrefprop:hasTrophicLevel
+ a owl:AnnotationProperty;
+ rdfs:isDefinedBy <http://taxref.mnhn.fr/lod/taxref-ld>;
+ rdfs:label "has trophic level"@en;
+ dct:description "Relates a taxon to its tophic level"@en.
+
+
+# ============================================================
+# ==== Properties associated with taxon names
+# ============================================================
+
+taxrefprop:hasAuthority
+ a owl:AnnotationProperty;
+ rdfs:isDefinedBy <http://taxref.mnhn.fr/lod/taxref-ld>;
+ owl:equivalentProperty <http://lod.taxonconcept.org/ontology/txn.owl#authority>;
+ owl:equivalentProperty <http://rs.tdwg.org/ontology/voc/TaxonName#authorship>;
+ rdfs:seeAlso dwc:scientificNameAuthorship;
+ rdfs:label "has scientific name authority"@en;
+ dct:description "Provides the authorship information of a scientific name"@en;
+ rdfs:comment "TDWG ontology's property http://rs.tdwg.org/ontology/voc/TaxonName#authorship is preferably associated with a scientific name (http://rs.tdwg.org/ontology/voc/TaxonName#TaxonName), which is in line with TAXREF-LD's modelling. By contrast, DwC's scientificNameAuthorship property is associated with a taxon (dwc:Taxon), and its object shoud be a literal (DwC does not have a class for taxon names). Therefore, TAXREF-LD's hasAuthority property is not equivalent to the latter."@en.
+
+taxrefprop:isReferenceNameOf
+ a owl:AnnotationProperty;
+ rdfs:isDefinedBy <http://taxref.mnhn.fr/lod/taxref-ld>;
+ owl:inverse taxrefprop:hasReferenceName;
+ rdfs:label "is the reference name of"@en;
+ dct:description "Relates a scientific name to the taxon for which it is the reference (valid) name"@en.
+
+taxrefprop:isSynonymOf 
+ a owl:AnnotationProperty;
+ rdfs:isDefinedBy <http://taxref.mnhn.fr/lod/taxref-ld>;
+ owl:inverse taxrefprop:hasSynonym;
+ rdfs:label "is a synonym of"@en;
+ dct:description "Relates a scientific name to a taxon for which it is a synonym"@en.
+
+
+# ============================================================
+# === Properties to describe statuses
+# ============================================================
+
+taxrefprop:statusValue
+    a owl:ObjectProperty;
+    rdfs:isDefinedBy <http://taxref.mnhn.fr/lod/taxref-ld>;
+    rdfs:label "status value"@en;
+    dct:description "Relates a taxon status with the actual status value"@en;
+    rdfs:domain taxrefstatus:TaxonStatus.
+    
+taxrefprop:statusType
+    a owl:ObjectProperty;
+    rdfs:isDefinedBy <http://taxref.mnhn.fr/lod/taxref-ld>;
+    rdfs:label "status type"@en;
+    dct:description "Relates a taxon status with the type of status which is a narrower concept of taxrefstatus:TaxonStatusType"@en;
+    rdfs:domain taxrefstatus:TaxonStatus.
+
+
+# ============================================================
+# == Properties to describe species interactions
+# ============================================================
+
+taxrefprop:hasSex
+ a owl:ObjectProperty;
+ rdfs:isDefinedBy <http://taxref.mnhn.fr/lod/taxref-ld>;
+ owl:equivalentProperty <http://www.wikidata.org/prop/direct/P21>;
+ rdfs:label "has sex"@en;
+ dct:description "Gives the sex of a biologic individual (member of a taxon class)"@en.
+
+taxrefprop:hasBiologicalStage
+ a owl:ObjectProperty;
+ rdfs:isDefinedBy <http://taxref.mnhn.fr/lod/taxref-ld>;
+ owl:equivalentProperty <http://www.wikidata.org/prop/direct/P4774>;
+ rdfs:label "has biological stage"@en;
+ dct:description "Gives the biological stage of a biologic individual (member of a taxon class)"@en.
+
+taxrefprop:hasSpecificity
+ a owl:ObjectProperty;
+ rdfs:isDefinedBy <http://taxref.mnhn.fr/lod/taxref-ld>;
+ rdfs:label "has a specificity"@en;
+ dct:description "Specificity of the interaction"@en.
+
+
+# --- Deprecated terms ---
+
+taxrefprop:bioGeoStatusIn
+ a owl:ObjectProperty;
+ rdfs:isDefinedBy <http://taxref.mnhn.fr/lod/taxref-ld>;
+ rdfs:label "has biogeograpical status"@en;
+ dct:description "(deprecated). Relates a taxon to a biogeograpical status within a certain region. As of TAXREF v12, this property should no longer be used. Instead use class taxrefstatus:BioGeographicalStatus"@en;
+ owl:deprecated "true"^^xsd:boolean;
+ rdfs:range taxrefbgs:BioGeographicalStatus.
+ 
+
+# --------------------------------------- ./Taxrefld_static_defs_statuses.ttl
+
+
+
+
+#-------------------------------- TaxonStatus ---------------------------------
+# TaxonStatus = status of a taxon that may consist of a status value, a geographical location where the 
+# status applies, and a bibliographic source that describes this status
+
+taxrefstatus:TaxonStatus
+    a owl:Class;
+    rdfs:isDefinedBy <http://taxref.mnhn.fr/lod/taxref-ld>;
+    rdfs:label "Biogeographical, conservation or legal status of a taxon"@en;
+    rdfs:comment "Relates a biogeographical, conservation or legal status of a taxon with the geographical location where this status is valid and the bibliographic source that assigned this status to that taxon"@en.
+
+taxrefstatus:RedListStatus
+    rdfs:subClassOf taxrefstatus:TaxonStatus;
+    rdfs:isDefinedBy <http://taxref.mnhn.fr/lod/taxref-ld>;
+    rdfs:label "IUCN Red List status of a taxon in a geographical area, according to a bibliographic source"@en.
+
+taxrefstatus:BioGeographicalStatus
+    rdfs:subClassOf taxrefstatus:TaxonStatus;
+    rdfs:isDefinedBy <http://taxref.mnhn.fr/lod/taxref-ld>;
+    rdfs:label "Biogeographical status of a taxon in a geographical area, according to a bibliographic source"@en;
+    rdfs:comment "The biogeographical status of a taxon with the geographical area where this status applies and the bibliographic source that assigned this status to that taxon"@en.
+
+taxrefstatus:LegalStatus
+    rdfs:subClassOf taxrefstatus:TaxonStatus;
+    rdfs:isDefinedBy <http://taxref.mnhn.fr/lod/taxref-ld>;
+    rdfs:label "Status of a taxon attested by a legal document"@en;
+    rdfs:comment "To be used jointly with http://taxref.mnhn.fr/lod/status/TaxonStatusType whose narrower concepts represent directives, conventions, regulations or protections"@en.
+    
+    
+#------------------ Types of taxon legal statuses -------------------
+
+taxrefstatus:TaxonStatusType
+    a skos:Concept;
+    skos:inScheme <http://taxref.mnhn.fr/lod/taxref-ld>;
+    skos:prefLabel "Top concept for types of taxon statuses"@en.
+    
+taxrefstatus:InternationalConvention
+    a skos:Concept;
+    skos:broader taxrefstatus:TaxonStatusType ;
+    skos:inScheme <http://taxref.mnhn.fr/lod/taxref-ld>;
+    skos:prefLabel "International Convention"@en;
+    skos:prefLabel "Convention internationale"@fr.
+    
+taxrefstatus:EuropeanDirective
+    a skos:Concept;
+    skos:broader taxrefstatus:TaxonStatusType ;
+    skos:inScheme <http://taxref.mnhn.fr/lod/taxref-ld>;
+    skos:prefLabel "European Directive"@en;
+    skos:prefLabel "Directive européenne"@fr.    
+    
+taxrefstatus:Regulation
+    a skos:Concept;
+    skos:broader taxrefstatus:TaxonStatusType ;
+    skos:inScheme <http://taxref.mnhn.fr/lod/taxref-ld>;
+    skos:prefLabel "Regulation"@en;
+    skos:prefLabel "Règlementation"@fr.
+    
+taxrefstatus:Protection
+    a skos:Concept;
+    skos:broader taxrefstatus:TaxonStatusType ;
+    skos:inScheme <http://taxref.mnhn.fr/lod/taxref-ld>;
+    skos:prefLabel "Protection"@en;
+    skos:prefLabel "Protection"@fr.    
+    
+
+#---------------------- Status values for TAXREF-specific Red List statuses ----------------
+# - RE?: Disappeared at regional level?
+# - CR*: Don't know if the species is globally extinct or just locally disappeared
+# - NA:  Not applicable - Used for taxa that are artifically introduced in an area.
+#        In this case a red list status can not be associated to that taxon 
+#
+# For the other red list statuses (LC, NT, VU, EN, CR, EW, EX, Ex, RE, DD) Wikidata values are used. 
+    
+<http://taxref.mnhn.fr/lod/status/RedList/RE%3F>
+    a wd:Q82673;        # (conservation status)
+    rdfs:isDefinedBy <http://taxref.mnhn.fr/lod/taxref-ld>;
+    rdfs:label "Probably extinct regionaly"@en;
+    rdfs:label "Probablement disparue au niveau régional"@fr;
+    dct:description "Taxon is not extinct worldwide but may be extinct in a specific region"@en.
+
+<http://taxref.mnhn.fr/lod/status/RedList/CR%2A>
+    a wd:Q82673;        # (conservation status)
+    rdfs:isDefinedBy <http://taxref.mnhn.fr/lod/taxref-ld>;
+    rdfs:label "Extinct regionaly and possibly extinct worldwide"@en;
+    rdfs:label "Disparue au niveau régional mais on ne sait pas si elle est éteinte au niveau mondial"@fr;
+    dct:description "Taxon is certainly disappeared regionally and possibly extinct worldwide"@en.    
+
+<http://taxref.mnhn.fr/lod/status/RedList/NA>
+    a wd:Q82673;        # (conservation status)
+    rdfs:isDefinedBy <http://taxref.mnhn.fr/lod/taxref-ld>;
+    rdfs:label "Not applicable"@en;
+    rdfs:label "Non applicable"@fr;
+    dct:description "Taxon was introduced artificially in a region. Red list status does not apply in that case."@en.
+
+
+# --------------------------- Biogeographical status values -------------------------------
+
+taxrefbgs:BioGeographicalStatus
+ rdfs:subClassOf skos:Concept;
+ rdfs:isDefinedBy <http://taxref.mnhn.fr/lod/taxref-ld>;
+ rdfs:label "Class of biogeographical status values"@en;
+ dct:description "Class of biogeographical status values (subclass of skos:Concept)"@en;
+ owl:deprecated "true"^^xsd:boolean.
+
+
+taxrefbgs:BioGeographicalStatusCollection
+    a skos:Collection;
+    rdfs:isDefinedBy <http://taxref.mnhn.fr/lod/taxref-ld>;
+    rdfs:label "Collection of biogeographical status values"@en;
+    skos:member taxrefbgs:P, taxrefbgs:B, taxrefbgs:E, taxrefbgs:S, taxrefbgs:C, taxrefbgs:I, taxrefbgs:J, taxrefbgs:M, taxrefbgs:D, taxrefbgs:A, taxrefbgs:W, taxrefbgs:X, taxrefbgs:Y, taxrefbgs:Z, taxrefbgs:Q.
+
+taxrefbgs:P
+ a skos:Concept;
+ skos:inScheme <http://taxref.mnhn.fr/lod/taxref-ld>;
+ rdfs:label "présent (indigène ou indéterminé)"@fr;
+ rdfs:label "present"@en;
+ skos:definition "Taxon présent dans la zone géographique considérée, i.e. taxon indigène ou taxon dont on ne sait pas s’il appartient à l'une des autres catégories. Le défaut de connaissance profite donc à l’indigénat. Par indigène on entend : taxon qui est issu de la zone géographique considérée et qui s’y est naturellement développé sans contribution humaine, ou taxon qui est arrivé là sans intervention humaine (intentionnelle ou non) à partir d’une zone dans laquelle il est indigène 6 . (NB : exclus les hybrides dont l’un des parents au moins est introduit dans la zone considérée). Sont regroupés sous ce statut tous les taxons catégorisés natif ou autochtone. Les taxons hivernant quelques mois de l’année entrent dans cette catégorie."@fr;
+ skos:relatedMatch <http://rs.tdwg.org/ontology/voc/SPMInfoItems#DoubtfullyNative>;
+ skos:relatedMatch <http://rdf.geospecies.org/ont/geospecies#OccurrenceStatus_present>;
+ skos:relatedMatch <http://rs.tdwg.org/ontology/voc/SPMInfoItems#Native>.
+
+taxrefbgs:B
+ a skos:Concept;
+ skos:inScheme <http://taxref.mnhn.fr/lod/taxref-ld>;
+ rdfs:label "occasionnel"@fr;
+ rdfs:label "occasional"@en;
+ skos:definition "Taxon occasionnel, non nicheur, accidentel dans la zone géographique considérée (par exemple migrateur de passage)."@fr;
+ skos:closeMatch <http://rdf.geospecies.org/ont/geospecies#OccurrenceStatus_irregular>;
+ skos:closeMatch <http://rdf.geospecies.org/ont/geospecies#OccurrenceStatus_rare>.
+
+taxrefbgs:E
+ a skos:Concept;
+ skos:inScheme <http://taxref.mnhn.fr/lod/taxref-ld>;
+ rdfs:label "endémique"@fr;
+ rdfs:label "endemic"@en;
+ skos:definition "Taxon naturellement restreint à la zone géographique considérée."@fr;
+ skos:exactMatch <http://rs.tdwg.org/ontology/voc/SPMInfoItems#Endemic>.
+
+taxrefbgs:S
+ a skos:Concept;
+ skos:inScheme <http://taxref.mnhn.fr/lod/taxref-ld>;
+ rdfs:label "subendémique"@fr;
+ rdfs:label "subendemic"@en;
+ skos:definition "Taxon naturellement restreint à une zone un peu plus grande que la zone géographique considérée mais dont les principales populations se situent dans la zone géographique considérée. Pour l’Outre-mer, on applique ce statut à l’endémisme régional : pour la Guyane française = endémique du plateau des Guyanes ; pour les Antilles françaises = endémique des petites Antilles ; pour Mayotte = endémique des Comores ; pour la Réunion = endémique des Mascareignes ; pour les TAAF = endémique de la South Indian Ocean Province."@fr;
+ skos:relatedMatch <http://rs.tdwg.org/ontology/voc/SPMInfoItems#Endemic>.
+
+taxrefbgs:C
+ a skos:Concept;
+ skos:inScheme <http://taxref.mnhn.fr/lod/taxref-ld>;
+ rdfs:label "cryptogène"@fr;
+ rdfs:label "cryptogenic"@en;
+ skos:definition "Taxon dont l’aire d’origine est inconnue et dont on ne peut donc pas dire s’il est indigène ou introduit"@fr;
+ skos:relatedMatch <http://rs.tdwg.org/ontology/voc/SPMInfoItems#DoubtfullyNative>;
+ skos:relatedMatch <http://rs.tdwg.org/ontology/voc/SPMInfoItems#DoubtfullyIntroduced>.
+
+taxrefbgs:I
+ a skos:Concept;
+ skos:inScheme <http://taxref.mnhn.fr/lod/taxref-ld>;
+ rdfs:label "Introduit"@fr;
+ rdfs:label "Introduced"@en;
+ skos:definition "Taxon introduit (établi ou possiblement établi) dans la zone géographique considérée. Par introduit on entend : taxon dont la présence dans la zone géographique considérée est due à une intervention humaine, intentionnelle ou non, ou taxon qui est arrivé dans la zone sans intervention humaine mais à partir d’une zone dans laquelle il est introduit. Par établi (terme pour la faune, = naturalisé pour la flore) on entend : taxon introduit qui forme des populations viables (se reproduisant) et durables qui se maintiennent dans le milieu naturel sans besoin d’intervention humaine. Sont regroupés sous ce statut tous les taxons catégorisés non-indigène, exotique, exogène, allogène, allochtone, non-natif, naturalisé (en anglais : alien) dans une publication scientifique."@fr;
+ skos:relatedMatch <http://rs.tdwg.org/ontology/voc/SPMInfoItems#Introduced>;
+ skos:exactMatch <http://rs.tdwg.org/ontology/voc/SPMInfoItems#Naturalized>.
+
+taxrefbgs:J
+ a skos:Concept;
+ skos:inScheme <http://taxref.mnhn.fr/lod/taxref-ld>;
+ rdfs:label "introduit envahissant"@fr;
+ rdfs:label "introduced invasive"@en;
+ skos:definition "Taxon introduit dans la zone géographique considérée, qui produit des descendants fertiles souvent en grand nombre, et qui a le potentiel pour s’étendre de façon exponentielle sur une grande aire, augmentant ainsi rapidement son aire de répartition 6 . Cela induit souvent des conséquences écologiques, économiques ou sanitaires négatives (IUCN, 2000). Sont regroupés sous ce statut tous les taxons catégorisés introduite envahissante, exotique envahissant ou invasif (invasive en anglais) dans une publication scientifique."@fr;
+ skos:relatedMatch <http://rs.tdwg.org/ontology/voc/SPMInfoItems#Introduced>;
+ skos:relatedMatch <http://rs.tdwg.org/ontology/voc/SPMInfoItems#Naturalized>.
+
+taxrefbgs:M
+ a skos:Concept;
+ skos:inScheme <http://taxref.mnhn.fr/lod/taxref-ld>;
+ rdfs:label "introduit non établi (dont domestique)"@fr;
+ rdfs:label "introduced casual"@en;
+ skos:definition "Taxon introduit qui peut occasionnellement se reproduire en dehors de son aire de culture ou de captivité, mais qui ne peut se maintenir à l’état sauvage car ne pouvant former de populations viables sans intervention humaine, et qui dépend donc d’introductions répétées pour se maintenir dans la nature. Sont regroupés sous ce statut tous les taxons catégorisés introduit occasionnel, subspontané, échappé de culture ou de captivité (en anglais : casual alien)). Ce statut inclut les taxons strictement domestiques (faune) ou uniquement cultivés (flore)."@fr;
+ skos:relatedMatch <http://rs.tdwg.org/ontology/voc/SPMInfoItems#Introduced>;
+ skos:relatedMatch <http://rs.tdwg.org/ontology/voc/SPMInfoItems#Cultivated>;
+ skos:relatedMatch <http://rs.tdwg.org/ontology/voc/SPMInfoItems#CasualAlien>.
+
+taxrefbgs:D
+ a skos:Concept;
+ skos:inScheme <http://taxref.mnhn.fr/lod/taxref-ld>;
+ rdfs:label "douteux"@fr;
+ rdfs:label "doubtful"@en;
+ skos:definition "Taxon dont la présence dans la zone géographique considérée n’est pas avérée (en attente de confirmation)."@fr;
+ skos:exactMatch <http://rs.tdwg.org/ontology/voc/SPMInfoItems#Questionable>;
+ skos:exactMatch <http://rdf.geospecies.org/ont/geospecies#OccurrenceStatus_doubtful>.
+
+taxrefbgs:A
+ a skos:Concept;
+ skos:inScheme <http://taxref.mnhn.fr/lod/taxref-ld>;
+ rdfs:label "absent"@fr;
+ rdfs:label "absent"@en;
+ skos:definition "Taxon non présent dans la zone géographique considérée."@fr;
+ skos:exactMatch <http://rdf.geospecies.org/ont/geospecies#OccurrenceStatus_absent>.
+
+taxrefbgs:W
+ a skos:Concept;
+ skos:inScheme <http://taxref.mnhn.fr/lod/taxref-ld>;
+ rdfs:label "disparu"@fr;
+ rdfs:label "disappeared"@en;
+ skos:definition "Taxon qui n’est plus présent à l’état sauvage dans la zone géographique considérée mais qui n’est pas globalement éteint. Rq : en cas de doute sur la présence ancienne ou non du taxon à l’état sauvage, utiliser le statut absent (A)."@fr;
+ skos:relatedMatch <http://rs.tdwg.org/ontology/voc/SPMInfoItems#Extinct>.
+
+taxrefbgs:X
+ a skos:Concept;
+ skos:inScheme <http://taxref.mnhn.fr/lod/taxref-ld>;
+ rdfs:label "éteint"@fr;
+ rdfs:label "extinct"@en;
+ skos:definition "Taxon globalement éteint (= ayant totalement disparu de la surface du globe terrestre)."@fr;
+ skos:exactMatch <http://rs.tdwg.org/ontology/voc/SPMInfoItems#Extinct>;
+ skos:exactMatch wd:Q237350.
+
+taxrefbgs:Y
+ a skos:Concept;
+ skos:inScheme <http://taxref.mnhn.fr/lod/taxref-ld>;
+ rdfs:label "introduit éteint/disparu"@fr;
+ rdfs:label "introduced extinct/disappeared"@en;
+ skos:definition "Taxon introduit par le passé mais aujourd’hui disparu de la zone géographique considérée (W) ou éteint (X)."@fr;
+ skos:relatedMatch <http://rs.tdwg.org/ontology/voc/SPMInfoItems#Introduced>;
+ skos:relatedMatch <http://rs.tdwg.org/ontology/voc/SPMInfoItems#Extinct>.
+
+taxrefbgs:Z
+ a skos:Concept;
+ skos:inScheme <http://taxref.mnhn.fr/lod/taxref-ld>;
+ rdfs:label "endémique éteint"@fr;
+ rdfs:label "endemic extinct"@en;
+ skos:definition "Taxon endémique et aujourd’hui disparu, donc globalement éteint (X)."@fr;
+ skos:relatedMatch <http://rs.tdwg.org/ontology/voc/SPMInfoItems#Endemic>;
+ skos:relatedMatch <http://rs.tdwg.org/ontology/voc/SPMInfoItems#Extinct>.
+
+taxrefbgs:Q
+ a skos:Concept;
+ skos:inScheme <http://taxref.mnhn.fr/lod/taxref-ld>;
+ rdfs:label "mentionné par erreur "@fr;
+ rdfs:label "reported in error"@en;
+ skos:definition "Taxon mentionné par erreur comme présent sur le territoire considéré."@fr;
+ skos:exactMatch <http://rs.tdwg.org/ontology/voc/SPMInfoItems#AbsentButReportedInError>.
+
+
+# --------------------------------------- ./Taxrefld_static_defs_taxranks.ttl
+
+
+
+
+# --- Taxonomical ranks linked with equivalent ranks from other ontologies
+
+taxrefrk:TaxonomicRank
+ rdfs:subClassOf skos:Concept;
+ rdfs:isDefinedBy <http://taxref.mnhn.fr/lod/taxref-ld>;
+ owl:equivalentClass <http://rs.tdwg.org/ontology/voc/TaxonRank#TaxonRankTerm>;
+ rdfs:label "Class of taxonomical ranks"@en;
+ dct:description "Class of taxonomical ranks, subclass of skos:Concept"@en;
+ owl:deprecated "true"^^xsd:boolean.
+
+
+taxrefrk:TaxonomicRankCollection
+ a skos:Collection;
+ rdfs:isDefinedBy <http://taxref.mnhn.fr/lod/taxref-ld>;
+ rdfs:label "Collection of taxonomical ranks"@en;
+ skos:member taxrefrk:Domain.
+ 
+taxrefrk:Domain
+ a skos:Concept;
+ skos:inScheme <http://taxref.mnhn.fr/lod/taxref-ld>;
+ skos:prefLabel "Domain"@en;
+ skos:exactMatch <http://lod.taxonconcept.org/ontology/txn.owl#RankDomain>;
+ skos:exactMatch <http://purl.obolibrary.org/obo/TAXRANK_0000037>;
+ skos:exactMatch <http://rdf.geospecies.org/ont/geospecies#TaxonRank_domain>;
+ skos:exactMatch <http://rs.tdwg.org/ontology/voc/TaxonRank#Domain>;
+ .
+ 
+taxrefrk:Superkingdom
+ a skos:Concept;
+ skos:inScheme <http://taxref.mnhn.fr/lod/taxref-ld>;
+ skos:prefLabel "Super-kingdom"@en;
+ skos:exactMatch <http://lod.taxonconcept.org/ontology/txn.owl#RankSuperkingdom>;
+ skos:exactMatch <http://purl.obolibrary.org/obo/NCBITaxon_superkingdom>;
+ skos:exactMatch <http://rs.tdwg.org/ontology/voc/TaxonRank#SuperKingdom>;
+ .
+
+taxrefrk:Kingdom
+ a skos:Concept;
+ skos:inScheme <http://taxref.mnhn.fr/lod/taxref-ld>;
+ skos:prefLabel "Kingdom"@en;
+ skos:exactMatch <http://lod.taxonconcept.org/ontology/txn.owl#RankKingdom>;
+ skos:exactMatch <http://purl.obolibrary.org/obo/NCBITaxon_kingdom>;
+ skos:exactMatch <http://purl.obolibrary.org/obo/TAXRANK_0000017>;
+ skos:exactMatch <http://rdf.geospecies.org/ont/geospecies#TaxonRank_kingdom>;
+ skos:exactMatch <http://rs.tdwg.org/ontology/voc/TaxonRank#Kingdom>;
+ .
+
+taxrefrk:SubKingdom
+ a skos:Concept;
+ skos:inScheme <http://taxref.mnhn.fr/lod/taxref-ld>;
+ skos:prefLabel "Sub-kingdom"@en;
+ skos:exactMatch <http://lod.taxonconcept.org/ontology/txn.owl#RankSubkingdom>;
+ skos:exactMatch <http://purl.obolibrary.org/obo/NCBITaxon_subkingdom>;
+ skos:exactMatch <http://purl.obolibrary.org/obo/TAXRANK_0000029>;
+ skos:exactMatch <http://rdf.geospecies.org/ont/geospecies#TaxonRank_subkingdom>;
+ skos:exactMatch <http://rs.tdwg.org/ontology/voc/TaxonRank#Subkingdom>;
+ .
+
+taxrefrk:InfraKingdom
+ a skos:Concept;
+ skos:inScheme <http://taxref.mnhn.fr/lod/taxref-ld>;
+ skos:prefLabel "Infra-kingdom"@en;
+ skos:exactMatch <http://purl.obolibrary.org/obo/TAXRANK_0000044>;
+ skos:exactMatch <http://lod.taxonconcept.org/ontology/txn.owl#RankIngrakingdom>;
+ skos:exactMatch <http://rs.tdwg.org/ontology/voc/TaxonRank#Infrakingdom>;
+ .
+
+taxrefrk:Phylum
+ a skos:Concept;
+ skos:inScheme <http://taxref.mnhn.fr/lod/taxref-ld>;
+ skos:prefLabel "Phylum"@en;
+ skos:exactMatch <http://lod.taxonconcept.org/ontology/txn.owl#RankRankPhylum>;
+ skos:exactMatch <http://purl.obolibrary.org/obo/NCBITaxon_phylum>;
+ skos:exactMatch <http://purl.obolibrary.org/obo/TAXRANK_0000001>;
+ skos:exactMatch <http://rdf.geospecies.org/ont/geospecies#TaxonRank_phylum>;
+ skos:exactMatch <http://rs.tdwg.org/ontology/voc/TaxonRank#Phylum>;
+ .
+
+taxrefrk:SubPhylum
+ a skos:Concept;
+ skos:inScheme <http://taxref.mnhn.fr/lod/taxref-ld>;
+ skos:prefLabel "Sub-phylum"@en;
+ skos:exactMatch <http://lod.taxonconcept.org/ontology/txn.owl#RankRankSubphylum>;
+ skos:exactMatch <http://purl.obolibrary.org/obo/NCBITaxon_subphylum>;
+ skos:exactMatch <http://purl.obolibrary.org/obo/TAXRANK_0000008>;
+ skos:exactMatch <http://rdf.geospecies.org/ont/geospecies#TaxonRank_subphylum>;
+ skos:exactMatch <http://rs.tdwg.org/ontology/voc/TaxonRank#Superphylum>;
+ .
+
+taxrefrk:InfraPhylum
+ a skos:Concept;
+ skos:inScheme <http://taxref.mnhn.fr/lod/taxref-ld>;
+ skos:prefLabel "Infra-phylum"@en;
+ skos:exactMatch <http://purl.obolibrary.org/obo/TAXRANK_0000040>;
+ skos:exactMatch <http://rs.tdwg.org/ontology/voc/TaxonRank#Infraphylum>;
+ .
+
+taxrefrk:Division
+ a skos:Concept;
+ skos:inScheme <http://taxref.mnhn.fr/lod/taxref-ld>;
+ skos:prefLabel "Division"@en;
+ skos:exactMatch <http://lod.taxonconcept.org/ontology/txn.owl#RankRankDivision>;
+ skos:exactMatch <http://rs.tdwg.org/ontology/voc/TaxonRank#Division>;
+ .
+
+taxrefrk:SubDivision
+ a skos:Concept;
+ skos:inScheme <http://taxref.mnhn.fr/lod/taxref-ld>;
+ skos:prefLabel "Sub-division"@en;
+ skos:exactMatch <http://lod.taxonconcept.org/ontology/txn.owl#RankRankSubdivision>;
+ skos:exactMatch <http://rs.tdwg.org/ontology/voc/TaxonRank#Subdivision>;
+ .
+
+taxrefrk:SuperClass
+ a skos:Concept;
+ skos:inScheme <http://taxref.mnhn.fr/lod/taxref-ld>;
+ skos:prefLabel "Super-class"@en;
+ skos:exactMatch <http://lod.taxonconcept.org/ontology/txn.owl#RankSuperclass>;
+ skos:exactMatch <http://purl.obolibrary.org/obo/NCBITaxon_superclass>;
+ skos:exactMatch <http://rdf.geospecies.org/ont/geospecies#TaxonRank_superclass>;
+ skos:exactMatch <http://rs.tdwg.org/ontology/voc/TaxonRank#Superclass>;
+ .
+
+taxrefrk:Cladus
+ a skos:Concept;
+ skos:inScheme <http://taxref.mnhn.fr/lod/taxref-ld>;
+ skos:prefLabel "Cladus"@en.
+
+taxrefrk:Class
+ a skos:Concept;
+ skos:inScheme <http://taxref.mnhn.fr/lod/taxref-ld>;
+ skos:prefLabel "Class"@en;
+ skos:exactMatch <http://lod.taxonconcept.org/ontology/txn.owl#RankClass>;
+ skos:exactMatch <http://purl.obolibrary.org/obo/NCBITaxon_class>;
+ skos:exactMatch <http://purl.obolibrary.org/obo/TAXRANK_0000002>;
+ skos:exactMatch <http://rdf.geospecies.org/ont/geospecies#TaxonRank_lass>;
+ skos:exactMatch <http://rs.tdwg.org/ontology/voc/TaxonRank#Class>;
+ .
+
+taxrefrk:SubClass
+ a skos:Concept;
+ skos:inScheme <http://taxref.mnhn.fr/lod/taxref-ld>;
+ skos:prefLabel "Sub-class"@en;
+ skos:exactMatch <http://lod.taxonconcept.org/ontology/txn.owl#RankSubclass>;
+ skos:exactMatch <http://purl.obolibrary.org/obo/NCBITaxon_subclass>;
+ skos:exactMatch <http://purl.obolibrary.org/obo/TAXRANK_0000007>;
+ skos:exactMatch <http://rdf.geospecies.org/ont/geospecies#TaxonRank_subclass>;
+ skos:exactMatch <http://rs.tdwg.org/ontology/voc/TaxonRank#Subclass>;
+ .
+
+taxrefrk:InfraClass
+ a skos:Concept;
+ skos:inScheme <http://taxref.mnhn.fr/lod/taxref-ld>;
+ skos:prefLabel "Infra-class"@en;
+ skos:exactMatch <http://lod.taxonconcept.org/ontology/txn.owl#RankInfraclass>;
+ skos:exactMatch <http://purl.obolibrary.org/obo/TAXRANK_0000019>;
+ skos:exactMatch <http://purl.obolibrary.org/obo/NCBITaxon_infraclass>;
+ skos:exactMatch <http://rs.tdwg.org/ontology/voc/TaxonRank#Infraclass>;
+ .
+
+taxrefrk:Legio
+ a skos:Concept;
+ skos:inScheme <http://taxref.mnhn.fr/lod/taxref-ld>;
+ skos:prefLabel "Legio"@en.
+
+taxrefrk:SuperOrder
+ a skos:Concept;
+ skos:inScheme <http://taxref.mnhn.fr/lod/taxref-ld>;
+ skos:prefLabel "Super-order"@en;
+ skos:exactMatch <http://lod.taxonconcept.org/ontology/txn.owl#RankSuperorder>;
+ skos:exactMatch <http://purl.obolibrary.org/obo/NCBITaxon_superorder>;
+ skos:exactMatch <http://rdf.geospecies.org/ont/geospecies#TaxonRank_superorder>;
+ skos:exactMatch <http://rs.tdwg.org/ontology/voc/TaxonRank#Superorder>;
+ .
+
+taxrefrk:Cohort
+ a skos:Concept;
+ skos:inScheme <http://taxref.mnhn.fr/lod/taxref-ld>;
+ skos:prefLabel "Cohort"@en.
+
+taxrefrk:Order
+ a skos:Concept;
+ skos:inScheme <http://taxref.mnhn.fr/lod/taxref-ld>;
+ skos:prefLabel "Order"@en;
+ skos:exactMatch <http://lod.taxonconcept.org/ontology/txn.owl#RankOrder>;
+ skos:exactMatch <http://purl.obolibrary.org/obo/NCBITaxon_order>;
+ skos:exactMatch <http://purl.obolibrary.org/obo/TAXRANK_0000003>;
+ skos:exactMatch <http://rdf.geospecies.org/ont/geospecies#TaxonRank_order>;
+ skos:exactMatch <http://rs.tdwg.org/ontology/voc/TaxonRank#Order>;
+ .
+ 
+taxrefrk:SubOrder
+ a skos:Concept;
+ skos:inScheme <http://taxref.mnhn.fr/lod/taxref-ld>;
+ skos:prefLabel "Sub-order"@en;
+ skos:exactMatch <http://lod.taxonconcept.org/ontology/txn.owl#RankSuborder>;
+ skos:exactMatch <http://purl.obolibrary.org/obo/NCBITaxon_suborder>;
+ skos:exactMatch <http://purl.obolibrary.org/obo/TAXRANK_0000014>;
+ skos:exactMatch <http://rdf.geospecies.org/ont/geospecies#TaxonRank_suborder>;
+ skos:exactMatch <http://rs.tdwg.org/ontology/voc/TaxonRank#Suborder>;
+ .
+ 
+taxrefrk:InfraOrder
+ a skos:Concept;
+ skos:inScheme <http://taxref.mnhn.fr/lod/taxref-ld>;
+ skos:prefLabel "Infra-order"@en;
+ skos:exactMatch <http://lod.taxonconcept.org/ontology/txn.owl#RankInfraorder>;
+ skos:exactMatch <http://purl.obolibrary.org/obo/NCBITaxon_infraorder>;
+ skos:exactMatch <http://purl.obolibrary.org/obo/TAXRANK_0000013>;
+ skos:exactMatch <http://rdf.geospecies.org/ont/geospecies#TaxonRank_infraorder>;
+ skos:exactMatch <http://rs.tdwg.org/ontology/voc/TaxonRank#Infraorder>;
+ .
+ 
+taxrefrk:SuperFamily
+ a skos:Concept;
+ skos:inScheme <http://taxref.mnhn.fr/lod/taxref-ld>;
+ skos:prefLabel "Super-family"@en;
+ skos:exactMatch <http://lod.taxonconcept.org/ontology/txn.owl#RankSuperfamily>;
+ skos:exactMatch <http://purl.obolibrary.org/obo/NCBITaxon_superfamily>;
+ skos:exactMatch <http://rdf.geospecies.org/ont/geospecies#TaxonRank_superfamily>;
+ skos:exactMatch <http://rs.tdwg.org/ontology/voc/TaxonRank#Superfamily>;
+ .
+
+taxrefrk:Family
+ a skos:Concept;
+ skos:inScheme <http://taxref.mnhn.fr/lod/taxref-ld>;
+ skos:prefLabel "Family"@en;
+ skos:exactMatch <http://lod.taxonconcept.org/ontology/txn.owl#RankFamily>;
+ skos:exactMatch <http://purl.obolibrary.org/obo/NCBITaxon_family>;
+ skos:exactMatch <http://purl.obolibrary.org/obo/TAXRANK_0000004>;
+ skos:exactMatch <http://rdf.geospecies.org/ont/geospecies#TaxonRank_family>;
+ skos:exactMatch <http://rs.tdwg.org/ontology/voc/TaxonRank#Family>;
+ .
+
+taxrefrk:SubFamily
+ a skos:Concept;
+ skos:inScheme <http://taxref.mnhn.fr/lod/taxref-ld>;
+ skos:prefLabel "Sub-family"@en;
+ skos:exactMatch <http://lod.taxonconcept.org/ontology/txn.owl#RankSubfamily>;
+ skos:exactMatch <http://purl.obolibrary.org/obo/NCBITaxon_subfamily>;
+ skos:exactMatch <http://purl.obolibrary.org/obo/TAXRANK_0000024>;
+ skos:exactMatch <http://rdf.geospecies.org/ont/geospecies#TaxonRank_subfamily>;
+ skos:exactMatch <http://rs.tdwg.org/ontology/voc/TaxonRank#Subfamily>;
+ .
+
+taxrefrk:Tribe
+ a skos:Concept;
+ skos:inScheme <http://taxref.mnhn.fr/lod/taxref-ld>;
+ skos:prefLabel "Tribe"@en;
+ skos:exactMatch <http://lod.taxonconcept.org/ontology/txn.owl#RankTribe>;
+ skos:exactMatch <http://purl.obolibrary.org/obo/NCBITaxon_tribe>;
+ skos:exactMatch <http://rdf.geospecies.org/ont/geospecies#TaxonRank_tribe>;
+ skos:exactMatch <http://rs.tdwg.org/ontology/voc/TaxonRank#Tribe>;
+ .
+
+taxrefrk:SubTribe
+ a skos:Concept;
+ skos:inScheme <http://taxref.mnhn.fr/lod/taxref-ld>;
+ skos:prefLabel "Sub-tribe"@en;
+ skos:exactMatch <http://purl.obolibrary.org/obo/NCBITaxon_subtribe>;
+ skos:exactMatch <http://rdf.geospecies.org/ont/geospecies#TaxonRank_subtribe>;
+ skos:exactMatch <http://rs.tdwg.org/ontology/voc/TaxonRank#Subtribe>;
+ .
+
+taxrefrk:Genus
+ a skos:Concept;
+ skos:inScheme <http://taxref.mnhn.fr/lod/taxref-ld>;
+ skos:prefLabel "Genus"@en;
+ skos:exactMatch <http://lod.taxonconcept.org/ontology/txn.owl#RankGenus>;
+ skos:exactMatch <http://purl.obolibrary.org/obo/NCBITaxon_genus>;
+ skos:exactMatch <http://purl.obolibrary.org/obo/TAXRANK_0000005>;
+ skos:exactMatch <http://rdf.geospecies.org/ont/geospecies#TaxonRank_genus>;
+ skos:exactMatch <http://rs.tdwg.org/ontology/voc/TaxonRank#Genus>;
+ .
+
+taxrefrk:SubGenus
+ a skos:Concept;
+ skos:inScheme <http://taxref.mnhn.fr/lod/taxref-ld>;
+ skos:prefLabel "Sub-genus"@en;
+ skos:exactMatch <http://lod.taxonconcept.org/ontology/txn.owl#RankSubgenus>;
+ skos:exactMatch <http://purl.obolibrary.org/obo/NCBITaxon_subgenus>;
+ skos:exactMatch <http://purl.obolibrary.org/obo/TAXRANK_0000009>;
+ skos:exactMatch <http://rdf.geospecies.org/ont/geospecies#TaxonRank_subgenus>;
+ skos:exactMatch <http://rs.tdwg.org/ontology/voc/TaxonRank#Subgenus>;
+ .
+
+taxrefrk:Section
+ a skos:Concept;
+ skos:inScheme <http://taxref.mnhn.fr/lod/taxref-ld>;
+ skos:prefLabel "Section"@en;
+ skos:exactMatch <http://purl.obolibrary.org/obo/TAXRANK_0000030>;
+ skos:exactMatch <http://rdf.geospecies.org/ont/geospecies#TaxonRank_section>;
+ skos:exactMatch <http://rs.tdwg.org/ontology/voc/TaxonRank#Section>;
+ .
+
+taxrefrk:SubSection
+ a skos:Concept;
+ skos:inScheme <http://taxref.mnhn.fr/lod/taxref-ld>;
+ skos:prefLabel "Sub-section"@en;
+ skos:exactMatch <http://purl.obolibrary.org/obo/TAXRANK_0000053>;
+ skos:exactMatch <http://rdf.geospecies.org/ont/geospecies#TaxonRank_subsection>;
+ skos:exactMatch <http://rs.tdwg.org/ontology/voc/TaxonRank#Subsection>;
+ .
+
+taxrefrk:Series
+ a skos:Concept;
+ skos:inScheme <http://taxref.mnhn.fr/lod/taxref-ld>;
+ skos:prefLabel "Series"@en;
+ skos:exactMatch <http://purl.obolibrary.org/obo/TAXRANK_0000031>;
+ skos:exactMatch <http://rs.tdwg.org/ontology/voc/TaxonRank#Series>;
+ .
+
+taxrefrk:SubSeries
+ a skos:Concept;
+ skos:inScheme <http://taxref.mnhn.fr/lod/taxref-ld>;
+ skos:prefLabel "Sub-series"@en;
+ skos:exactMatch <http://purl.obolibrary.org/obo/TAXRANK_0000054>;
+ skos:exactMatch <http://rs.tdwg.org/ontology/voc/TaxonRank#Subseries>;
+ .
+
+taxrefrk:Agregate
+ a skos:Concept;
+ skos:inScheme <http://taxref.mnhn.fr/lod/taxref-ld>;
+ skos:prefLabel "Agregate"@en;
+ skos:exactMatch <http://rs.tdwg.org/ontology/voc/TaxonRank#SpeciesAggregate>;
+ .
+
+taxrefrk:Species
+ a skos:Concept;
+ skos:inScheme <http://taxref.mnhn.fr/lod/taxref-ld>;
+ skos:prefLabel "Species"@en;
+ skos:exactMatch <http://lod.taxonconcept.org/ontology/txn.owl#RankSpecies>;
+ skos:exactMatch <http://purl.obolibrary.org/obo/NCBITaxon_species>;
+ skos:exactMatch <http://purl.obolibrary.org/obo/TAXRANK_0000006>;
+ skos:exactMatch <http://rdf.geospecies.org/ont/geospecies#TaxonRank_species>;
+ skos:exactMatch <http://rs.tdwg.org/ontology/voc/TaxonRank#Species>;
+ .
+
+taxrefrk:SemiSpecies
+ a skos:Concept;
+ skos:inScheme <http://taxref.mnhn.fr/lod/taxref-ld>;
+ skos:prefLabel "Semi-species"@en.
+
+taxrefrk:MicroSpecies
+ a skos:Concept;
+ skos:inScheme <http://taxref.mnhn.fr/lod/taxref-ld>;
+ skos:prefLabel "Micro-species"@en.
+
+taxrefrk:SubSpecies
+ a skos:Concept;
+ skos:inScheme <http://taxref.mnhn.fr/lod/taxref-ld>;
+ skos:prefLabel "Sub-species"@en;
+ skos:exactMatch <http://lod.taxonconcept.org/ontology/txn.owl#RankSubpecies>;
+ skos:exactMatch <http://purl.obolibrary.org/obo/NCBITaxon_subspecies>;
+ skos:exactMatch <http://purl.obolibrary.org/obo/TAXRANK_0000023>;
+ skos:exactMatch <http://rdf.geospecies.org/ont/geospecies#TaxonRank_subspecies>;
+ skos:exactMatch <http://rs.tdwg.org/ontology/voc/TaxonRank#Subspecies>;
+ .
+
+taxrefrk:Natio
+ a skos:Concept;
+ skos:inScheme <http://taxref.mnhn.fr/lod/taxref-ld>;
+ skos:prefLabel "Natio"@en.
+
+taxrefrk:Varietas
+ a skos:Concept;
+ skos:inScheme <http://taxref.mnhn.fr/lod/taxref-ld>;
+ skos:prefLabel "Varietas"@en;
+ skos:exactMatch <http://lod.taxonconcept.org/ontology/txn.owl#RankVariety>;
+ skos:exactMatch <http://purl.obolibrary.org/obo/NCBITaxon_varietas>;
+ skos:exactMatch <http://rdf.geospecies.org/ont/geospecies#TaxonRank_variety>;
+ skos:exactMatch <http://rs.tdwg.org/ontology/voc/TaxonRank#Variety>;
+ .
+
+taxrefrk:SubVarietas
+ a skos:Concept;
+ skos:inScheme <http://taxref.mnhn.fr/lod/taxref-ld>;
+ skos:prefLabel "Sub-varietas"@en;
+ skos:exactMatch <http://rdf.geospecies.org/ont/geospecies#TaxonRank_subvariety>;
+ skos:exactMatch <http://rs.tdwg.org/ontology/voc/TaxonRank#Sub-Variety>;
+ .
+
+taxrefrk:Forma
+ a skos:Concept;
+ skos:inScheme <http://taxref.mnhn.fr/lod/taxref-ld>;
+ skos:prefLabel "Forma"@en;
+ skos:exactMatch <http://purl.obolibrary.org/obo/NCBITaxon_forma>;
+ skos:exactMatch <http://purl.obolibrary.org/obo/TAXRANK_0000026>;
+ skos:exactMatch <http://rdf.geospecies.org/ont/geospecies#TaxonRank_form>;
+ skos:exactMatch <http://rs.tdwg.org/ontology/voc/TaxonRank#Form>;
+ .
+
+taxrefrk:SubForma
+ a skos:Concept;
+ skos:inScheme <http://taxref.mnhn.fr/lod/taxref-ld>;
+ skos:prefLabel "Sub-forma"@en;
+ skos:exactMatch <http://purl.obolibrary.org/obo/TAXRANK_0000059>;
+ skos:exactMatch <http://rdf.geospecies.org/ont/geospecies#TaxonRank_subform>;
+ skos:exactMatch <http://rs.tdwg.org/ontology/voc/TaxonRank#Subform>;
+ .
+
+taxrefrk:FormaSpecies
+ a skos:Concept;
+ skos:inScheme <http://taxref.mnhn.fr/lod/taxref-ld>;
+ skos:prefLabel "Forma species"@en.
+
+taxrefrk:Linea
+ a skos:Concept;
+ skos:inScheme <http://taxref.mnhn.fr/lod/taxref-ld>;
+ skos:prefLabel "Linea"@en.
+
+taxrefrk:Clone
+ a skos:Concept;
+ skos:inScheme <http://taxref.mnhn.fr/lod/taxref-ld>;
+ skos:prefLabel "Clone"@en.
+
+taxrefrk:Race
+ a skos:Concept;
+ skos:inScheme <http://taxref.mnhn.fr/lod/taxref-ld>;
+ skos:prefLabel "Race"@en.
+
+taxrefrk:Cultivar
+ a skos:Concept;
+ skos:inScheme <http://taxref.mnhn.fr/lod/taxref-ld>;
+ skos:prefLabel "Cultivar"@en;
+ skos:exactMatch <http://purl.obolibrary.org/obo/TAXRANK_0000034>;
+ skos:exactMatch <http://rdf.geospecies.org/ont/geospecies#TaxonRank_cultivar>;
+ skos:exactMatch <http://rs.tdwg.org/ontology/voc/TaxonRank#Cultivar>;
+ .
+
+taxrefrk:Morpha
+ a skos:Concept;
+ skos:inScheme <http://taxref.mnhn.fr/lod/taxref-ld>;
+ skos:prefLabel "Morpha"@en.
+
+taxrefrk:Abberatio
+ a skos:Concept;
+ skos:inScheme <http://taxref.mnhn.fr/lod/taxref-ld>;
+ skos:prefLabel "Abberatio"@en.
+
+# --------------------------------------- ./Taxrefld_static_defs_trophic_levels.ttl
+
+
+
+taxreftl:TrophicLevelCollection
+ a skos:Collection;
+ rdfs:label "Collection of trophic levels"@en;
+ rdfs:isDefinedBy <http://taxref.mnhn.fr/lod/taxref-ld>;
+ skos:member taxreftl:Unknown, taxreftl:Autotroph, taxreftl:Chemoautotroph, taxreftl:Photoautotroph, taxreftl:Heterotroph, taxreftl:Herbivore, taxreftl:Graminivore, taxreftl:Folivore, taxreftl:Rhizovore, taxreftl:Algivore, taxreftl:Frugivore, taxreftl:Granivore, taxreftl:Xylophage, taxreftl:Florivore, taxreftl:Palynivore, taxreftl:Nectarivore, taxreftl:Decomposer, taxreftl:Saprotroph, taxreftl:Saproxylotroph, taxreftl:Coprophage, taxreftl:Detritivore, taxreftl:Carnivore, taxreftl:Predator, taxreftl:Scavenger, taxreftl:Fungivore, taxreftl:Xylofungivore.
+ 
+ 
+# --- Types of Trophic Level
+
+taxreftl:Unknown
+ a skos:Concept;
+ skos:inScheme <http://taxref.mnhn.fr/lod/taxref-ld>;
+ rdfs:label "Unknown"@en;
+ skos:prefLabel "Unknown"@en;
+ skos:prefLabel "Inconnu"@fr;
+ skos:definition "We don't know the species trophic level"@en;
+ skos:definition "On ne connait pas le niveau trophique de l'espèce"@fr.
+
+taxreftl:Autotroph
+ a skos:Concept;
+ skos:inScheme <http://taxref.mnhn.fr/lod/taxref-ld>;
+ rdfs:label "Autotroph"@en;
+ skos:prefLabel "Autotroph"@en;
+ skos:prefLabel "Producteur primaire"@fr;
+ skos:definition "An organism which is capable of incorporating abiogenic (inorganic) carbon into its biomass"@en;
+ skos:definition "Organisme capable d'incorporer du carbone abiogène (inorganique) dans sa biomasse"@fr;
+ skos:exactMatch <http://purl.obolibrary.org/obo/ECOCORE_00000023>;
+ skos:relatedMatch <http://www.wikidata.org/entity/Q131427>.
+
+taxreftl:Chemoautotroph
+ a skos:Concept;
+ skos:inScheme <http://taxref.mnhn.fr/lod/taxref-ld>;
+ rdfs:label "Chemoautotroph"@en;
+ skos:prefLabel "Chemoautotroph"@en;
+ skos:prefLabel "Chemoautotrophe"@fr;
+ skos:definition "An autotroph which is capable of obtaining energy from the bonds in a chemical compound"@en;
+ skos:definition "Autotrophe capable d'obtenir de l'énergie à partir des liaisons d'un composé chimique"@fr;
+ skos:exactMatch <http://purl.obolibrary.org/obo/ECOCORE_00000129>;
+ skos:relatedMatch <http://www.wikidata.org/entity/Q747472>.
+
+taxreftl:Photoautotroph
+ a skos:Concept;
+ skos:inScheme <http://taxref.mnhn.fr/lod/taxref-ld>;
+ rdfs:label "Photoautotroph"@en;
+ skos:prefLabel "Photoautotroph"@en;
+ skos:prefLabel "Photoautotrophe"@fr;
+ skos:definition "An autotroph which is capable of transforming light into chemical energy"@en;
+ skos:definition "Un autotrophe capable de transformer la lumière en énergie chimique"@fr;
+ skos:exactMatch <http://purl.obolibrary.org/obo/ECOCORE_00000130>;
+ skos:relatedMatch <http://www.wikidata.org/entity/Q335183>.
+
+taxreftl:Heterotroph
+ a skos:Concept;
+ skos:inScheme <http://taxref.mnhn.fr/lod/taxref-ld>;
+ rdfs:label "Heterotroph"@en;
+ skos:prefLabel "Heterotroph"@en;
+ skos:prefLabel "Hétérotrophe"@fr;
+ skos:definition "An organism that obtains carbon for growth and development by metabolizing biogenic organic compounds derived from living or dead material"@en;
+ skos:definition "Organisme qui obtient du carbone pour sa croissance et son développement en métabolisant des composés organiques biogènes dérivés de matières vivantes ou mortes"@fr;
+ skos:exactMatch <http://purl.obolibrary.org/obo/ECOCORE_00000010>;
+ skos:relatedMatch <http://www.wikidata.org/entity/Q159344>.
+
+taxreftl:Herbivore
+ a skos:Concept;
+ skos:inScheme <http://taxref.mnhn.fr/lod/taxref-ld>;
+ rdfs:label "Herbivore"@en;
+ skos:prefLabel "Herbivore"@en;
+ skos:prefLabel "Consommateur d’autotrophes"@fr;
+ skos:definition "A heterotroph which consumes plants or macroalgae via ingestion through a type of 'mouth'. Plant or algal matter is broken down through an internal digestion process"@en;
+ skos:definition "Un hétérotrophe qui consomme des plantes ou des macroalgues par ingestion par une sorte de 'bouche'. La matière végétale ou algale est décomposée par un processus de digestion interne"@fr;
+ skos:exactMatch <http://purl.obolibrary.org/obo/ECOCORE_00000019>;
+ skos:relatedMatch <http://www.wikidata.org/entity/Q59099>.
+
+taxreftl:Graminivore
+ a skos:Concept;
+ skos:inScheme <http://taxref.mnhn.fr/lod/taxref-ld>;
+ rdfs:label "Graminivore"@en;
+ skos:prefLabel "Graminivore"@en;
+ skos:prefLabel "Graminivore"@fr;
+ skos:definition "An herbivore that primarily consumes grasses"@en;
+ skos:definition "Un herbivore qui consomme principalement des graminées"@fr;
+ skos:exactMatch <http://purl.obolibrary.org/obo/ECOCORE_00000083>;
+ skos:exactMatch <http://www.wikidata.org/entity/Q5593647>.
+
+taxreftl:Folivore
+ a skos:Concept;
+ skos:inScheme <http://taxref.mnhn.fr/lod/taxref-ld>;
+ rdfs:label "Folivore"@en;
+ skos:prefLabel "Folivore"@en;
+ skos:prefLabel "Folivore"@fr;
+ skos:definition "An herbivore that primarily consumes leaves"@en;
+ skos:definition "Un herbivore qui consomme principalement des feuilles"@fr;
+ skos:exactMatch <http://purl.obolibrary.org/obo/ECOCORE_00000084>;
+ skos:exactMatch <http://www.wikidata.org/entity/Q617573>.
+
+taxreftl:Rhizovore
+ a skos:Concept;
+ skos:inScheme <http://taxref.mnhn.fr/lod/taxref-ld>;
+ rdfs:label "Rhizovore"@en;
+ skos:prefLabel "Rhizovore"@en;
+ skos:prefLabel "Rhizovore"@fr;
+ skos:definition "An herbivore that primarily consumes roots"@en;
+ skos:definition "Un herbivore qui consomme principalement des racines"@fr;
+ skos:exactMatch <http://purl.obolibrary.org/obo/ECOCORE_00000085>.
+
+taxreftl:Algivore
+ a skos:Concept;
+ skos:inScheme <http://taxref.mnhn.fr/lod/taxref-ld>;
+ rdfs:label "Algivore"@en;
+ skos:prefLabel "Algivore"@en;
+ skos:prefLabel "Algivore"@fr;
+ skos:definition "An herbivore that primarily consumes algae"@en;
+ skos:definition "Un herbivore qui consomme principalement des algues"@fr;
+ skos:exactMatch <http://purl.obolibrary.org/obo/ECOCORE_00000086>.
+
+taxreftl:Frugivore
+ a skos:Concept;
+ skos:inScheme <http://taxref.mnhn.fr/lod/taxref-ld>;
+ rdfs:label "Frugivore"@en;
+ skos:prefLabel "Frugivore"@en;
+ skos:prefLabel "Frugivore"@fr;
+ skos:definition "An herbivore that primarily consumes fruits or fruit-like vegetables"@en;
+ skos:definition "Un herbivore qui consomme principalement des fruits ou des légumes ressemblant à des fruits"@fr;
+ skos:exactMatch <http://purl.obolibrary.org/obo/ECOCORE_00000136>;
+ skos:exactMatch <http://www.wikidata.org/entity/Q1470764>.
+
+taxreftl:Granivore
+ a skos:Concept;
+ skos:inScheme <http://taxref.mnhn.fr/lod/taxref-ld>;
+ rdfs:label "Granivore"@en;
+ skos:prefLabel "Granivore"@en;
+ skos:prefLabel "Granivore"@fr;
+ skos:definition "An herbivore that primarily consumes seeds"@en;
+ skos:definition "Un herbivore qui consomme principalement des graines"@fr;
+ skos:exactMatch <http://purl.obolibrary.org/obo/ECOCORE_00000143>;
+ skos:exactMatch <http://www.wikidata.org/entity/Q1974986>.
+
+taxreftl:Xylophage
+ a skos:Concept;
+ skos:inScheme <http://taxref.mnhn.fr/lod/taxref-ld>;
+ rdfs:label "Xylophage"@en;
+ skos:prefLabel "Xylophage"@en;
+ skos:prefLabel "Xylophage"@fr;
+ skos:definition "An herbivore that primarily consumes wood"@en;
+ skos:definition "Un herbivore qui consomme principalement d'aubier'"@fr;
+ skos:exactMatch <http://purl.obolibrary.org/obo/ECOCORE_00000144>;
+ skos:exactMatch <http://www.wikidata.org/entity/Q2072826>.
+
+taxreftl:Florivore
+ a skos:Concept;
+ skos:inScheme <http://taxref.mnhn.fr/lod/taxref-ld>;
+ rdfs:label "Florivore"@en;
+ skos:prefLabel "Florivore"@en;
+ skos:prefLabel "Florivore"@fr;
+ skos:definition "An herbivore that primarily consumes flowers"@en;
+ skos:definition "Un herbivore qui consomme principalement des fleurs"@fr;
+ skos:exactMatch <http://www.wikidata.org/entity/Q48835467>.
+
+taxreftl:Palynivore
+ a skos:Concept;
+ skos:inScheme <http://taxref.mnhn.fr/lod/taxref-ld>;
+ rdfs:label "Palynivore"@en;
+ skos:prefLabel "Palynivore"@en;
+ skos:prefLabel "Palynivore"@fr;
+ skos:definition "An herbivore that primarily consumes pollen"@en;
+ skos:definition "Un herbivore qui consomme principalement du pollen"@fr;
+ skos:exactMatch <http://purl.obolibrary.org/obo/ECOCORE_00000137>;
+ skos:relatedMatch <http://www.wikidata.org/entity/Q3805698>.
+
+taxreftl:Nectarivore
+ a skos:Concept;
+ skos:inScheme <http://taxref.mnhn.fr/lod/taxref-ld>;
+ rdfs:label "Nectarivore"@en;
+ skos:prefLabel "Nectarivore"@en;
+ skos:prefLabel "Nectarivore"@fr;
+ skos:definition "An herbivore that primarily consumes nectar"@en;
+ skos:definition "Un herbivore qui consomme principalement du nectar de plantes"@fr;
+ skos:exactMatch <http://purl.obolibrary.org/obo/ECOCORE_00000140>;
+ skos:exactMatch <http://www.wikidata.org/entity/Q120880>.
+
+taxreftl:Decomposer
+ a skos:Concept;
+ skos:inScheme <http://taxref.mnhn.fr/lod/taxref-ld>;
+ rdfs:label "Decomposer"@en;
+ skos:prefLabel "Decomposer"@en;
+ skos:prefLabel "Décomposeur"@fr;
+ skos:definition "Organism that breaks down dead or decaying organisms"@en;
+ skos:definition "Organisme qui décompose les organismes morts ou en décomposition"@fr;
+ skos:exactMatch <http://purl.obolibrary.org/obo/ECOCORE_00000054>;
+ skos:exactMatch <http://www.wikidata.org/entity/Q842391>.
+
+taxreftl:Saprotroph
+ a skos:Concept;
+ skos:inScheme <http://taxref.mnhn.fr/lod/taxref-ld>;
+ rdfs:label "Saprotroph"@en;
+ skos:prefLabel "Saprotroph"@en;
+ skos:prefLabel "Saprophage"@fr;
+ skos:definition "A decomposer that obtains nutrition through extracellular digestion of decaying organic matter"@en;
+ skos:definition "Un décomposeur qui obtient la nutrition par digestion extracellulaire de la matière organique en décomposition"@fr;
+ skos:exactMatch <http://purl.obolibrary.org/obo/ECOCORE_00000056>;
+ skos:exactMatch <http://www.wikidata.org/entity/Q2224108>.
+
+taxreftl:Saproxylotroph
+ a skos:Concept;
+ skos:inScheme <http://taxref.mnhn.fr/lod/taxref-ld>;
+ rdfs:label "Saproxylotroph"@en;
+ skos:prefLabel "Saproxylotroph"@en;
+ skos:prefLabel "Saproxylophage"@fr;
+ skos:relatedMatch <http://www.wikidata.org/entity/Q770791>.
+
+taxreftl:Coprophage
+ a skos:Concept;
+ skos:inScheme <http://taxref.mnhn.fr/lod/taxref-ld>;
+ rdfs:label "Coprophage"@en;
+ skos:prefLabel "Coprophage"@en;
+ skos:prefLabel "Coprophage"@fr;
+ skos:definition "A decomposer which obtains nutrition by consuming feces"@en;
+ skos:definition "Un décomposeur qui se nourrit en consommant des matières fécales"@fr;
+ skos:exactMatch <http://purl.obolibrary.org/obo/ECOCORE_00000176>;
+ skos:exactMatch <http://www.wikidata.org/entity/Q45845947>.
+
+taxreftl:Detritivore
+ a skos:Concept;
+ skos:inScheme <http://taxref.mnhn.fr/lod/taxref-ld>;
+ rdfs:label "Detritivore"@en;
+ skos:prefLabel "Detritivore"@en;
+ skos:prefLabel "Detritivore"@fr;
+ skos:definition "A decomposer which obtains nutrition by consuming detritus"@en;
+ skos:definition "Un décomposeur qui se nourrit en consommant des détritus"@fr;
+ skos:exactMatch <http://purl.obolibrary.org/obo/ECOCORE_00000055>;
+ skos:exactMatch <http://www.wikidata.org/entity/Q2750657>.
+
+taxreftl:Carnivore
+ a skos:Concept;
+ skos:inScheme <http://taxref.mnhn.fr/lod/taxref-ld>;
+ rdfs:label "Carnivore"@en;
+ skos:prefLabel "Carnivore"@en;
+ skos:prefLabel "Consommateur d’hétérotrophes"@fr;
+ skos:definition "A heterotroph that consumes animals in whole or in part via ingestion through a type of 'mouth'. Animal matter is broken down through an internal digestion process."@en;
+ skos:definition "Un hétérotrophe qui consomme des animaux en tout ou en partie par ingestion par une sorte de 'bouche'. La matière animale est décomposée par un processus de digestion interne."@fr;
+ skos:exactMatch <http://purl.obolibrary.org/obo/ECOCORE_00000088>;
+ skos:relatedMatch <http://www.wikidata.org/entity/Q220314>.
+
+taxreftl:Predator
+ a skos:Concept;
+ skos:inScheme <http://taxref.mnhn.fr/lod/taxref-ld>;
+ rdfs:label "Predator"@en;
+ skos:prefLabel "Predator"@en;
+ skos:prefLabel "Prédateur"@fr;
+ skos:definition "A carnivore that actively captures and consumes other animals, causing their immediate or imminent death"@en;
+ skos:definition "Un carnivore qui capture et consomme activement d'autres animaux, causant leur mort immédiate ou imminente"@fr;
+ skos:exactMatch <http://purl.obolibrary.org/obo/ECOCORE_00000089>;
+ skos:relatedMatch <http://www.wikidata.org/entity/Q29017578>.
+
+taxreftl:Scavenger
+ a skos:Concept;
+ skos:inScheme <http://taxref.mnhn.fr/lod/taxref-ld>;
+ rdfs:label "Scavenger"@en;
+ skos:prefLabel "Scavenger"@en;
+ skos:prefLabel "Nécrophage / Charognard"@fr;
+ skos:definition "A carnivore that feeds on dead and decaying animal matter"@en;
+ skos:definition "Un carnivore qui se nourrit de matières animales mortes et en décomposition"@fr;
+ skos:exactMatch <http://purl.obolibrary.org/obo/ECOCORE_00000090>;
+ skos:exactMatch <http://www.wikidata.org/entity/Q25524623>.
+
+taxreftl:Fungivore
+ a skos:Concept;
+ skos:inScheme <http://taxref.mnhn.fr/lod/taxref-ld>;
+ rdfs:label "Fungivore"@en;
+ skos:prefLabel "Fungivore"@en;
+ skos:prefLabel "Mycétophage"@fr;
+ skos:definition "A heterotroph which consumes fungi"@en;
+ skos:definition "Un hétérotrophe qui consomme des champignons"@fr;
+ skos:exactMatch <http://purl.obolibrary.org/obo/ECOCORE_00000015>;
+ skos:exactMatch <http://www.wikidata.org/entity/Q3331325>.
+
+taxreftl:Xylofungivore
+ a skos:Concept;
+ skos:inScheme <http://taxref.mnhn.fr/lod/taxref-ld>;
+ rdfs:label "Xylofungivore"@en;
+ skos:prefLabel "Xylofungivore"@en;
+ skos:prefLabel "Xylomycétophage"@fr.
+ 
+
+# --------------------------------------- ./Taxrefld_static_wikidata_imports.ttl
+
+wdt:P105    rdfs:label "taxon rank (Wikidata)".
+wdt:P1843   rdfs:label "taxon common name (Wikidata)".
+wdt:P2974   rdfs:label "habitat (Wikidata)".
+wdt:P3005   rdfs:label "valid in place (Wikidata)".
+wdt:P248    rdfs:label "stated in (Wikidata)".
+wdt:P2561   rdfs:label "name (Wikidata)".
+wdt:P298    rdfs:label "ISO 3166-1 alpha-3 code (Wikidata)".
+wdt:P300    rdfs:label "ISO 3166-2 code (Wikidata)".
+wdt:P276    rdfs:label "location (Wikidata)".
+wdt:P2007   rdfs:label "Zoobank publication id (Wikidata)".
+wdt:P356    rdfs:label "DOI (Wikidata)".
+
+# ======= IUCN Red lists
+wd:Q32059   rdfs:label "IUCN Red List (Wikidata)".
+wd:Q73996204 rdfs:label "IUCN European Red List (Wikidata)".
+wd:Q73999284 rdfs:label "IUCN French Red List (Wikidata)".
+wd:Q74002580 rdfs:label "IUCN French Regional Red List (Wikidata)".
+
+# ======= IUCN Red list statuses
+wd:Q82673   rdfs:label "conservation status (Wikidata)".
+wd:Q211005  rdfs:label "least concern (Wikidata)".
+wd:Q719675  rdfs:label "near threatened (Wikidata)".
+wd:Q278113  rdfs:label "vulnerable (Wikidata)".
+wd:Q11394   rdfs:label "endangered species (Wikidata)".
+wd:Q219127  rdfs:label "critically endangered (Wikidata)".
+wd:Q239509  rdfs:label "extinct in the Wild (Wikidata)".
+wd:Q237350  rdfs:label "extinct (Wikidata)".
+wd:Q3245245 rdfs:label "data deficient (Wikidata)".
+
+# ======= Geopgraphic entities
+wd:Q702842  rdfs:label "municipal arrondissement (Wikidata)".
+wd:Q484170  rdfs:label "commune of France (Wikidata)".
+wd:Q6465    rdfs:label "department of France (Wikidata)".
+wd:Q36784   rdfs:label "region of France (Wikidata)".
+wd:Q719487  rdfs:label "overseas collectivity (Wikidata)".
+wd:Q3624078 rdfs:label "sovereign state (Wikidata)".
+wd:Q192498  rdfs:label "administrative territorial entity of France (Wikidata)".
+wd:Q1496967 rdfs:label "territorial entity (Wikidata)".
+wd:Q33837   rdfs:label "archipelago (Wikidata)".
+wd:Q23442   rdfs:label "island (Wikidata)".
+wd:Q15324   rdfs:label "body of water (Wikidata)".
+
+# ======= ID in third party DBs
+wdt:P1348   rdfs:label "AlgaeBase ID (Wikidata)".
+wdt:P5354   rdfs:label "Amphibian Species of the World ID (Wikidata)".
+wdt:P2026   rdfs:label "Avibase ID (Wikidata)".
+wdt:P5257   rdfs:label "BirdLife ID (Wikidata)".
+wdt:P3105   rdfs:label "Tela Botanica ID".
+wdt:P6052   rdfs:label "Cockroach Species File Online ID (Wikidata)".
+wdt:P6053   rdfs:label "Coreoidea Species File Online ID (Wikidata)".
+wdt:P4630   rdfs:label "DORIS ID (Wikidata)".
+wdt:P3031   rdfs:label "EPPO Global Database ID (Wikidata)".
+wdt:P1895   rdfs:label "Fauna Europaea ID (Wikidata)".
+wdt:P938    rdfs:label "FishBase ID (Wikidata)".
+wdt:P846    rdfs:label "GBIF ID (Wikidata)".
+wdt:P5626   rdfs:label "Global Invasive Species Database ID (Wikidata)".
+wdt:P961    rdfs:label "IPNI ID (Wikidata)".
+wdt:P627    rdfs:label "IUCN taxon ID".
+wdt:P1391   rdfs:label "Index Fungorum ID (Wikidata)".
+wdt:P2794   rdfs:label "Index Hepaticarum ID (Wikidata)".
+wdt:P959    rdfs:label "Mammal Species of the World ID (Wikidata)".
+wdt:P6055   rdfs:label "Mantodea Species File Online ID (Wikidata)".
+wdt:P962    rdfs:label "Mycobank ID (Wikidata)".
+wdt:P6050   rdfs:label "Orthoptera Species File Online ID (Wikidata)".
+wdt:P5037   rdfs:label "POWO ID (Wikidata)".
+wdt:P4855   rdfs:label "Phasmida Species File Online ID (Wikidata)".
+wdt:P6376   rdfs:label "Psyl'list ID (Wikidata)".
+wdt:P1717   rdfs:label "SANDRE ID (Wikidata)".
+wdt:P6018   rdfs:label "SeaLifeBase ID (Wikidata)".
+wdt:P6057   rdfs:label "Systematic Catalog of Culicidae ID (Wikidata)".
+wdt:P3186   rdfs:label "TAXREF ID (Wikidata)".
+wdt:P960    rdfs:label "TROPICOS ID (Wikidata)".
+wdt:P3064   rdfs:label "The Global Lepidoptera Names Index ID (Wikidata)".
+wdt:P1070   rdfs:label "The Plant List (TPL) ID (Wikidata)".
+wdt:P3288   rdfs:label "The World Spider Catalog ID (Wikidata)".
+wdt:P1745   rdfs:label "VASCAN ID (Wikidata)".
+wdt:P850    rdfs:label "WoRMS ID (Wikidata)".
+wdt:P3591   rdfs:label "World Checklist of Selected Plant Families ID (Wikidata)".
+wdt:P1746   rdfs:label "ZooBank ID (Wikidata)".
+wdt:P1076   rdfs:label "International Committee on Taxonomy of Viruses ID (Wikidata)".
+wdt:P7715   rdfs:label "World Flora Online ID".
+
+# ======= Misc
+wd:Q44148   rdfs:label "male organism".
+wd:Q43445   rdfs:label "female organism".
+wd:Q1811014 rdfs:label "phase of life".
+
+# --------------------------------------- ./prefixes.ttl
+
+
