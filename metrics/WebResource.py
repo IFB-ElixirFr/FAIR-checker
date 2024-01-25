@@ -11,6 +11,7 @@ import logging
 from selenium import webdriver
 from selenium.webdriver.support.wait import WebDriverWait
 from webdriver_manager.chrome import ChromeDriverManager
+from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.chrome.options import Options
 import extruct
 from pathlib import Path
@@ -46,9 +47,8 @@ class WebResource:
     if proxy:
         chrome_options.add_argument("--proxy-server=" + proxy)
 
-    WEB_BROWSER_HEADLESS = webdriver.Chrome(
-        ChromeDriverManager().install(), options=chrome_options
-    )
+    service = Service(executable_path=ChromeDriverManager().install())
+    WEB_BROWSER_HEADLESS = webdriver.Chrome(service=service, options=chrome_options)
     # WEB_BROWSER_HEADLESS.implicitly_wait(20)
 
     SERVER_TIMEOUT = 30
