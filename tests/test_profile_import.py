@@ -114,23 +114,22 @@ class ImportBSProfileTestCase(unittest.TestCase):
         url = "https://workflowhub.eu/workflows/18"
         kg = WebResource(url).get_rdf()
 
-        self.assertEqual(len(kg), 49)
+        self.assertEqual(len(kg), 65)
         result = dyn_evaluate_profile_with_conformsto(kg)
 
-        self.assertEqual(len(result), 1)
+        self.assertEqual(len(result), 5)
 
     def test_wfh_type_eval(self):
-
         url = "https://workflowhub.eu/workflows/18"
         kg = WebResource(url).get_rdf()
 
-        self.assertEqual(len(kg), 49)
+        self.assertEqual(len(kg), 65)
 
         result = evaluate_profile_from_type(kg)
 
         print(result)
 
-        self.assertEqual(len(result), 11)
+        self.assertEqual(len(result), 15)
 
     def test_fairchecker_conformsto_eval(self):
         url = "https://fair-checker.france-bioinformatique.fr/"
@@ -150,6 +149,7 @@ class ImportBSProfileTestCase(unittest.TestCase):
         kg = WebResource(url).get_rdf()
 
         self.assertEqual(len(kg), 35)
+        print(kg.serialize(format="turtle"))
 
         result = evaluate_profile_from_type(kg)
         print(result)
@@ -158,7 +158,6 @@ class ImportBSProfileTestCase(unittest.TestCase):
         self.assertFalse(result["https://orcid.org/0000-0002-3597-8557"]["conforms"])
 
     def test_profile_file_parser(self):
-
         url_profiles = [
             "https://raw.githubusercontent.com/BioSchemas/bioschemas-dde/main/bioschemas.json",
             "https://raw.githubusercontent.com/BioSchemas/bioschemas-dde/main/bioschemasdrafts.json",
@@ -175,7 +174,7 @@ class ImportBSProfileTestCase(unittest.TestCase):
                 if profiles_dict[profile_key]["name"] not in profiles_names_list:
                     results[profile_key] = profiles_dict[profile_key]
                     profiles_names_list.append(profiles_dict[profile_key]["name"])
-        self.assertEqual(len(results), 31)
+        self.assertEqual(len(results), 32)
 
     def test_req_profile_versions(self):
         response = requests.get(

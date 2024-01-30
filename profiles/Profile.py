@@ -103,15 +103,21 @@ class Profile:
                 a sh:NodeShape ;
 
                 {% for c in target_classes %}
-                sh:targetClass {{c}}, {{c.replace("sc:", "scs:")}} ;
+                sh:targetClass {{c}} ;
                 {% endfor %}
 
                 {% for min_prop in min_props %}
                 sh:property [
                     {% if min_prop.startswith("sc:") %}
-                    sh:path [sh:alternativePath({{min_prop}} {{min_prop.replace("sc:", "scs:")}})] ;
+                        sh:path [sh:alternativePath({{min_prop}} {{min_prop.replace("sc:", "scs:")}})] ;
+                    {% elif min_prop.startswith("scs:") %}
+                        sh:path [sh:alternativePath({{min_prop}} {{min_prop.replace("scs:", "sc:")}})] ;
+                    {% elif min_prop.startswith("<http://schema.org/") %}
+                        sh:path [sh:alternativePath({{min_prop}} {{min_prop.replace("http://schema.org/","https://schema.org/")}})] ;
+                    {% elif min_prop.startswith("<https://schema.org/") %}
+                        sh:path [sh:alternativePath({{min_prop}} {{min_prop.replace("https://schema.org/","http://schema.org/")}})] ;
                     {% else %}
-                    sh:path {{min_prop}} ;
+                        sh:path {{min_prop}} ;
                     {% endif %}
                     sh:minCount 1 ;
                     sh:severity sh:Violation
@@ -121,9 +127,15 @@ class Profile:
                 {% for rec_prop in rec_props %}
                 sh:property [
                     {% if rec_prop.startswith("sc:") %}
-                    sh:path [sh:alternativePath({{rec_prop}} {{rec_prop.replace("sc:", "scs:")}})] ;
+                        sh:path [sh:alternativePath({{rec_prop}} {{rec_prop.replace("sc:", "scs:")}})] ;
+                    {% elif rec_prop.startswith("scs:") %}
+                        sh:path [sh:alternativePath({{rec_prop}} {{rec_prop.replace("scs:", "sc:")}})] ;
+                    {% elif rec_prop.startswith("<http://schema.org/") %}
+                        sh:path [sh:alternativePath({{rec_prop}} {{rec_prop.replace("http://schema.org/","https://schema.org/")}})] ;
+                    {% elif rec_prop.startswith("<https://schema.org/") %}
+                        sh:path [sh:alternativePath({{rec_prop}} {{rec_prop.replace("https://schema.org/","http://schema.org/")}})] ;
                     {% else %}
-                    sh:path {{rec_prop}} ;
+                        sh:path {{rec_prop}} ;
                     {% endif %}
                     sh:minCount 1 ;
                     sh:severity sh:Warning

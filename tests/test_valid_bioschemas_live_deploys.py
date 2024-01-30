@@ -178,7 +178,7 @@ class BioschemasLiveDeploysTestCase(unittest.TestCase):
         shape_rdf = profile_gene.get_shacl_shape()
         shape_graph = Graph()
         shape_graph.parse(data=shape_rdf, format="ttl")
-        self.assertEqual(len(shape_graph), 57)
+        self.assertEqual(len(shape_graph), 56)
 
     @unittest.skip("Need to be part of bioschemas tests")
     def test_ld_bioschemas_annot(self):

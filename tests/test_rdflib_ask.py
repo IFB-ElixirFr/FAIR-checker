@@ -6,7 +6,6 @@ from rdflib import Graph, ConjunctiveGraph, Namespace, URIRef, Literal, BNode
 
 
 class KG_ask(unittest.TestCase):
-
     kg = None
 
     @classmethod
@@ -38,6 +37,7 @@ class KG_ask(unittest.TestCase):
 
     def test_ask_filter(self):
         q1 = """
+        PREFIX dct: <http://purl.org/dc/terms/>
         ASK {
             ?s dct:title ?t .
             FILTER (?t = "Title")
@@ -48,6 +48,7 @@ class KG_ask(unittest.TestCase):
             self.assertFalse(bool_r)
 
         q2 = """
+        PREFIX dct: <http://purl.org/dc/terms/>
         ASK {
             ?s dct:title ?t .
             FILTER (?t = "Title"@en)
@@ -59,6 +60,7 @@ class KG_ask(unittest.TestCase):
 
     def test_ask_filter_notIsBlank(self):
         q3 = """
+        PREFIX dct: <http://purl.org/dc/terms/>
         ASK {
             ?s dct:title ?t .
             FILTER ( ! isBlank (?s) )
@@ -70,6 +72,7 @@ class KG_ask(unittest.TestCase):
 
     def test_ask_filter_isIRI(self):
         q4 = """
+        PREFIX dct: <http://purl.org/dc/terms/>
         ASK {
             ?s dct:title ?t .
             FILTER ( isIRI (?s) )
@@ -81,6 +84,7 @@ class KG_ask(unittest.TestCase):
 
     def test_ask_filter_isBlank(self):
         q5 = """
+        PREFIX dct: <http://purl.org/dc/terms/>
         ASK {
             ?s dct:creator ?c .
             FILTER ( isBlank (?c) )

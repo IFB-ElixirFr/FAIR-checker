@@ -93,7 +93,6 @@ def profile_file_parser(url_profile):
                     if "$validation" in element:
                         if importance in element["$validation"]:
                             for property in element["$validation"][importance]:
-
                                 added = False
                                 # Identifying non Schema properties
                                 for elem in profiles_jsonld["@graph"]:
@@ -101,7 +100,6 @@ def profile_file_parser(url_profile):
                                         elem["@type"] == "rdf:Property"
                                         and property == elem["rdfs:label"]
                                     ):
-
                                         profile_dict[importance].append(
                                             # Maybe change prefix in shape gen instead
                                             elem["@id"].replace("bioschemas:", "bsc:")
@@ -219,7 +217,6 @@ def get_profiles_specs_from_github():
 
 @DeprecationWarning
 def get_latest_profile(profiles_dict):
-
     latest_rel = max(profiles_dict.values())
 
     # latest_url_dl = list(profiles_dict.keys())[list(profiles_dict.values()).index(latest_rel)]
@@ -303,7 +300,6 @@ def parse_profile(jsonld, url_dl):
     for importance in importance_levels:
         if importance in jsonld["@graph"][0]["$validation"]:
             for property in jsonld["@graph"][0]["$validation"][importance]:
-
                 added = False
                 # Identifying non Schema properties
                 for element in jsonld["@graph"]:
@@ -379,7 +375,7 @@ def find_conformsto_subkg(kg):
         sub_kg.namespace_manager.bind("scs", URIRef("https://schema.org/"))
         sub_kg.namespace_manager.bind("dct", URIRef("http://purl.org/dc/terms/"))
 
-        for (s, p, o, g) in kg.quads((identifier, None, None, None)):
+        for s, p, o, g in kg.quads((identifier, None, None, None)):
             # print(f"{s} -> {p} -> {o} -> {g.identifier}")
             sub_kg.add((s, p, o))
         # print(sub_kg.serialize(format="trig"))
@@ -536,7 +532,6 @@ def is_profile_deprecated(profile_name, profile_versions):
 
 
 def is_profile_version_latest(profile_name, version, profile_versions):
-
     # profile_versions = request_profile_versions()
 
     if profile_name in profile_versions.keys():
@@ -551,7 +546,6 @@ def is_profile_version_latest(profile_name, version, profile_versions):
 
 
 def get_latest_ref_profile_from_pname(profile_name, profile_versions):
-
     bs_ref_profile_base = "https://bioschemas.org/profiles/" + profile_name + "/"
 
     # profile_versions = request_profile_versions()

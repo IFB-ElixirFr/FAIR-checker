@@ -690,6 +690,52 @@ class SuggestBioschemasProfile(Resource):
         return results
 
 
+@fc_inspect_namespace.route("/eval_custom_profile")
+class EvaluateCustomProfile(Resource):
+    reqparse.add_argument("md_profile", type=dict, required=True, location="args")
+
+    @fc_inspect_namespace.expect(reqparse)
+    def get(self):
+        """Validate an RDF JSON-LD graph against custom profiles"""
+        args = reqparse.parse_args()
+        url = args["url"]
+        profile = args["md_profile"]
+
+        eval = Evaluation()
+        eval.set_start_time()
+        eval.set_target_uri(url)
+        eval.set_reason("custom metadata validation")
+
+        web_res = WebResource(url)
+        kg = web_res.get_rdf()
+
+        # min_props = ["<https://schema.org/title>"]
+        # rec_props = ["<https://schema.org/identifier>"]
+        # target_classes = ["<http://TestClass>"]
+
+        p = Profile(
+            shape_name="test",
+            target_classes=profile["target_classes"],
+            min_props=profile["min_props"],
+            rec_props=profile["rec_props"],
+            ref_profile=None,
+        )
+
+        shape = p.get_shacl_shape()
+        conforms, warnings, errors = p.validate_shape(kg, shape)
+
+        conforms = len(errors) == 0
+        results = {
+            "conforms": conforms,
+            "warnings": warnings,
+            "errors": errors,
+        }
+
+        eval.set_end_time()
+        eval.persist(source="API")
+        return results
+
+
 # TODO update method
 @fc_inspect_namespace.route("/bioschemas_validation")
 class InspectBioschemas(Resource):
@@ -724,7 +770,7 @@ class InspectBioschemas(Resource):
         eval.set_end_time()
         eval.persist(source="API")
 
-        # TODO Try similarity match her for profiles that are not matched
+        # TODO Try similarity matcher for profiles that are not matched
 
         return results
 

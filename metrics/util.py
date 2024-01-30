@@ -1,5 +1,5 @@
 # from time import time
-# from SPARQLWrapper import SPARQLWrapper, N3
+from SPARQLWrapper import SPARQLWrapper, N3
 from rdflib import Graph, ConjunctiveGraph, URIRef, RDF
 import requests
 import metrics.statistics as stats

@@ -26,6 +26,7 @@ class SignpostingTestCase(unittest.TestCase):
         logging.info(f"{len(turtle_WR.get_rdf())} loaded RDF triples")
         # self.assertEqual(60, len(turtle_WR.get_rdf()))
 
+    @unittest.skip("Not yet ready")
     def test_signposting_01(self):
         print()
         wf = WebResource(

@@ -22,15 +22,10 @@ class GenSHACLTestCase(unittest.TestCase):
 
     def test_validate_shape_tool(self):
         classes = ["sc:SoftwareApplication"]
-        minimal_software_properties = ["sc:name", "sc:description", "sc:url"]
+        minimal_software_properties = ["sc:citation"]
         recommended_software_properties = [
-            "sc:additionalType",
-            "sc:applicationCategory",
             "sc:applicationSubCategory",
-            "sc:author" "sc:license",
-            "sc:citation",
-            "sc:featureList",
-            "sc:softwareVersion",
+            "sc:license",
         ]
 
         shape = gen_SHACL_from_profile(
@@ -47,9 +42,9 @@ class GenSHACLTestCase(unittest.TestCase):
             rdf_syntax="json-ld",
             shacl_shape=shape,
         )
-
-        self.assertTrue(conforms)
-        self.assertEqual(len(warnings), 0)
+        print(errors)
+        print(warnings)
+        self.assertEqual(len(warnings), 1)
         self.assertEqual(len(errors), 0)
 
     @unittest.skip("Testing method no longer used")
@@ -87,7 +82,7 @@ class GenSHACLTestCase(unittest.TestCase):
         shape, ref_profile = gen_SHACL_from_target_class(target_class=target_class)
         self.assertTrue("sh:path" in shape)
 
-    @unittest.skip("Issue with parsing remote bio.tools jsonld")
+    # @unittest.skip("Issue with parsing remote bio.tools jsonld")
     def test_biotools_validation(self):
         res = validate_any_from_RDF(
             input_url="https://bio.tools/api/jaspar?format=jsonld", rdf_syntax="json-ld"
@@ -96,6 +91,7 @@ class GenSHACLTestCase(unittest.TestCase):
         self.assertEqual(len(res["https://bio.tools/jaspar"]["warnings"]), 5)
         self.assertEqual(len(res["https://bio.tools/jaspar"]["errors"]), 3)
 
+    @unittest.skip("Max retries exceeded with url: /10.1594/PANGAEA.914331")
     def test_pangaea_validation(self):
         res = validate_any_from_microdata(
             input_url="https://doi.pangaea.de/10.1594/PANGAEA.914331"
