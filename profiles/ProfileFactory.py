@@ -379,7 +379,7 @@ def find_conformsto_subkg(kg):
         sub_kg.namespace_manager.bind("scs", URIRef("https://schema.org/"))
         sub_kg.namespace_manager.bind("dct", URIRef("http://purl.org/dc/terms/"))
 
-        for (s, p, o, g) in kg.quads((identifier, None, None, None)):
+        for s, p, o, g in kg.quads((identifier, None, None, None)):
             # print(f"{s} -> {p} -> {o} -> {g.identifier}")
             sub_kg.add((s, p, o))
         # print(sub_kg.serialize(format="trig"))
