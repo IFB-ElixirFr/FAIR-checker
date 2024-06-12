@@ -14,7 +14,6 @@ from metrics.recommendation import json_rec
 
 
 class F2A_Impl(AbstractFAIRMetrics):
-
     """
     GOAL :
 
