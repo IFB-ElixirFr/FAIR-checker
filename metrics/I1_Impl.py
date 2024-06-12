@@ -5,7 +5,6 @@ import logging
 
 
 class I1_Impl(AbstractFAIRMetrics):
-
     """
     GOAL :
 
