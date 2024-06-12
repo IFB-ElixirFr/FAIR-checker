@@ -471,7 +471,7 @@ def requestResultSparql(metric_evaluation_result_text, term):
 
     query_res = result.query(query_string)
     res_list = []
-    for (s, p, o) in query_res:
+    for s, p, o in query_res:
         res_list.append(o)
 
     return "\n".join(res_list)
