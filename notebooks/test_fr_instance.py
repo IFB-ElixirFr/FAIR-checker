@@ -12,7 +12,7 @@ eval = res.json()
 
 print(json.dumps(eval, indent=4))
 
-assert "score" in eval.keys()
+assert "sore" in eval.keys()
 assert "recommendation" in eval.keys()
 
 
