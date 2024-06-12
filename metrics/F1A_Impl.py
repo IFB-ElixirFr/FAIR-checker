@@ -6,7 +6,6 @@ from metrics.recommendation import json_rec
 
 
 class F1A_Impl(AbstractFAIRMetrics):
-
     """
     GOAL :
 
