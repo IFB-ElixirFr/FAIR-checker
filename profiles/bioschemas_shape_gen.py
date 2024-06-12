@@ -33,10 +33,10 @@ def generate_profiles_from_files():
 
     # get list of path of .json bioschemas profiles
     dir_path = os.path.join(os.path.dirname(__file__), "../data/specifications")
-    for (sub_dir_path, dirnames, filenames) in walk(dir_path):
+    for sub_dir_path, dirnames, filenames in walk(dir_path):
         # print(dirnames)
 
-        for (dirpath, dirnames, filenames) in walk(sub_dir_path):
+        for dirpath, dirnames, filenames in walk(sub_dir_path):
             for filename in filenames:
                 if filename.endswith("RELEASE.json"):
                     profile_files.append(dirpath + "/" + filename)
