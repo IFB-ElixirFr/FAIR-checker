@@ -3,7 +3,6 @@ from metrics.F2B_Impl import F2B_Impl
 
 
 class R13_Impl(AbstractFAIRMetrics):
-
     """
     GOAL :
 
