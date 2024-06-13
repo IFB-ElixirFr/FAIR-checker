@@ -64,8 +64,8 @@ class WebResourceTestCase(unittest.TestCase):
     @unittest.skip("Using local hard path, should not be used in CI")
     def test_EDAM(self):
         EDAM_KG = ConjunctiveGraph()
-        # EDAM_KG.parse("https://edamontology.org/EDAM.owl")
-        EDAM_KG.parse("/Users/gaignard-a/Documents/Dev/edamverify/src/EDAM.owl")
+        EDAM_KG.parse("https://edamontology.org/EDAM.owl")
+        # EDAM_KG.parse("/Users/gaignard-a/Documents/Dev/edamverify/src/EDAM.owl")
         # print(f"Loaded {len(EDAM_KG)} triples.")
         edam = WebResource(
             "file:///Users/gaignard-a/Documents/Dev/edamverify/src/EDAM.owl",
