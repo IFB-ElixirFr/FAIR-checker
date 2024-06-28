@@ -12,6 +12,7 @@ from selenium import webdriver
 from selenium.webdriver.support.wait import WebDriverWait
 from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.chrome.options import Options
+from selenium.webdriver.chrome.service import Service
 import extruct
 from pathlib import Path
 from rdflib import ConjunctiveGraph, URIRef, Namespace
@@ -47,7 +48,7 @@ class WebResource:
         chrome_options.add_argument("--proxy-server=" + proxy)
 
     WEB_BROWSER_HEADLESS = webdriver.Chrome(
-        ChromeDriverManager().install(), options=chrome_options
+        service=Service(ChromeDriverManager().install()), options=chrome_options
     )
     # WEB_BROWSER_HEADLESS.implicitly_wait(20)
 
