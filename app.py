@@ -374,8 +374,16 @@ def home():
 def about():
     return render_template(
         "about.html",
-        title="About",
-        subtitle="More about FAIR-Checker",
+        title="About us",
+        #subtitle="More about FAIR-Checker",
+    )
+
+
+@app.route("/terms")
+def terms():
+    return render_template(
+        "terms.html",
+        title="Terms of use",
     )
 
 
@@ -1818,28 +1826,6 @@ def base_metrics():
     content_uuid = str(uuid.uuid1())
     DICT_TEMP_RES[content_uuid] = ""
 
-    # print(str(session.items()))
-    # sid = request.sid
-    # return render_template('test_asynch.html')
-    # metrics = []
-    #
-    # metrics_res = METRICS_RES
-    #
-    # for metric in metrics_res:
-    #     # remove "FAIR Metrics Gen2" from metric name
-    #     name = metric["name"].replace('FAIR Metrics Gen2- ','')
-    #     # same but other syntax because of typo
-    #     name = name.replace('FAIR Metrics Gen2 - ','')
-    #     metrics.append({
-    #         "name": name,
-    #         "description": metric["description"],
-    #         "api_url": metric["smarturl"],
-    #         "id": "metric_" + metric["@id"].rsplit('/', 1)[-1],
-    #         "principle": metric["principle"],
-    #         "principle_tag": metric["principle"].rsplit('/', 1)[-1],
-    #         "principle_category": metric["principle"].rsplit('/', 1)[-1][0],
-    #     })
-
     raw_jld = buildJSONLD()
 
     metrics = []
@@ -1860,24 +1846,6 @@ def base_metrics():
             }
         )
 
-    # for key in METRICS.keys():
-    #     print()
-    #     metrics.append(
-    #         {
-    #             "name": METRICS[key].get_name(),
-    #             "implem": METRICS[key].get_implem(),
-    #             "description": METRICS[key].get_desc(),
-    #             "api_url": METRICS[key].get_api(),
-    #             "id": "metric_" + METRICS[key].get_id().rsplit("/", 1)[-1],
-    #             "principle": METRICS[key].get_principle(),
-    #             "principle_tag": METRICS[key].get_principle().rsplit("/", 1)[-1],
-    #             "principle_category": METRICS[key]
-    #             .get_principle()
-    #             .rsplit("/", 1)[-1][0],
-    #         }
-    #     )
-
-    # response =
     return make_response(
         render_template(
             "check.html",
@@ -1886,18 +1854,9 @@ def base_metrics():
             jld=raw_jld,
             uuid=content_uuid,
             title="Check",
-            subtitle="How FAIR is my resource ?",
+            subtitle="FAIR assessment of web resources",
         )
     )
-    # )).headers.add('Access-Control-Allow-Origin', '*')
-
-
-# @app.after_request
-# def after_request(response):
-#   response.headers.add('Access-Control-Allow-Origin', '*')
-#   response.headers.add('Access-Control-Allow-Headers', 'Content-Type,Authorization')
-#   response.headers.add('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS')
-#   return response
 
 
 @app.route("/inspect")
