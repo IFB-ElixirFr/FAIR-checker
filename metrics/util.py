@@ -305,7 +305,7 @@ def ask_OLS(uri):
     p = {"iri": uri}
     # TODO we are only checking for properties and not classes, to be fixed.
     res = requests.get(
-        "https://www.ebi.ac.uk/ols/api/properties", headers=h, params=p, verify=True
+        "https://www.ebi.ac.uk/ols4/api/properties", headers=h, params=p, verify=True
     )
 
     if res.status_code == 200:
