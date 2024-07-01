@@ -283,7 +283,7 @@ def update_vocab_status():
     global DICT_BANNER_INFO, STATUS_BIOPORTAL, STATUS_OLS, STATUS_LOV
 
     STATUS_BIOPORTAL = requests.head("https://bioportal.bioontology.org/").status_code
-    STATUS_OLS = requests.head("https://www.ebi.ac.uk/ols/index").status_code
+    STATUS_OLS = requests.head("https://www.ebi.ac.uk/ols4/index").status_code
     STATUS_LOV = requests.head(
         "https://lov.linkeddata.es/dataset/lov/sparql"
     ).status_code
