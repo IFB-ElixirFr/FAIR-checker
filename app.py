@@ -10,6 +10,7 @@ eventlet.monkey_patch()
 import sys
 from flask import (
     Flask,
+    Response,
     request,
     render_template,
     session,
@@ -77,6 +78,9 @@ from profiles.ProfileFactory import (
 import time
 import atexit
 import requests
+from pymongo import MongoClient
+from bson import ObjectId
+from bson.errors import InvalidId
 
 requests.packages.urllib3.disable_warnings(
     requests.packages.urllib3.exceptions.InsecureRequestWarning
@@ -456,9 +460,90 @@ for key in METRICS_CUSTOM.keys():
     generate_check_api(METRICS_CUSTOM[key])
 
 
+@app.route("/data/<ID>")
+def derefLD(ID):
+    mimetype = None
+    if "Content-Type" in request.headers:
+        mimetype = request.headers["Content-Type"].split(";")[0]
+
+    try:
+        client = MongoClient()
+        db = client.fair_checker
+        evaluations = db.evaluations
+        eval_json = evaluations.find_one({"_id": ObjectId(ID)})
+        e = Evaluation()
+        e.build_from_json(data=eval_json)
+        ttl = e.to_rdf_turtle(id=ID)
+        kg = ConjunctiveGraph()
+        try:
+            kg.parse(data=ttl, format="turtle")
+        except Exception:
+            return Response(
+                "Error while parsing RDF:\n\n" + e.to_rdf_turtle(), mimetype="text"
+            )
+        if mimetype == "application/json":
+            return Response(kg.serialize(format="json-ld"), mimetype="application/json")
+        elif mimetype == "application/ld+json":
+            return Response(
+                kg.serialize(format="json-ld"), mimetype="application/ld+json"
+            )
+        elif mimetype == "application/rdf+xml":
+            return Response(kg.serialize(format="xml"), mimetype="application/rdf+xml")
+        elif mimetype == "text/n3":
+            return Response(kg.serialize(format="n3"), mimetype="text/n3")
+        elif mimetype == "text/turtle":
+            return Response(kg.serialize(format="turtle"), mimetype="text/turtle")
+        else:
+            return Response(kg.serialize(format="turtle"), mimetype="text/turtle")
+    except InvalidId:
+        return Response(f"Cannot find evaluation {ID}", mimetype="text")
+
+
 @fc_check_namespace.route("/metrics_all")
-# @fc_check_namespace.doc(url_fields)
 class MetricEvalAll(Resource):
+    @fc_check_namespace.doc("Evaluates all FAIR metrics at once")
+    @fc_check_namespace.expect(reqparse)
+    def get(self):
+        """All FAIR metrics"""
+
+        args = reqparse.parse_args()
+        url = args["url"]
+
+        web_res = WebResource(url)
+
+        metrics_collection = []
+        for metric_key in METRICS_CUSTOM.keys():
+            metric = METRICS_CUSTOM[metric_key]
+            metric.set_web_resource(web_res)
+            metrics_collection.append(metric)
+
+        # metrics_collection = FAIRMetricsFactory.get_FC_impl(web_res)
+
+        results = []
+        kg = ConjunctiveGraph()
+        for metric in metrics_collection:
+            result = metric.evaluate()
+            data = {
+                "metric": result.get_metrics(),
+                "score": result.get_score(),
+                "target_uri": result.get_target_uri(),
+                "eval_time": str(result.get_test_time()),
+                "recommendation": result.get_recommendation(),
+                "comment": result.get_log(),
+            }
+            r = result.persist(str(SOURCE.API))
+            kg.parse(data=result.to_rdf_turtle(id=r.inserted_id), format="turtle")
+            results.append(data)
+
+        # print(kg.serialize(format="turtle"))
+        json_str = kg.serialize(format="json-ld", indent=4)
+        json_obj = json.loads(json_str)
+        return json_obj
+
+
+@fc_check_namespace.route("/legacy/metrics_all")
+# @fc_check_namespace.doc(url_fields)
+class MetricEvalAllLegacy(Resource):
     # reqparse = None
     # def __init__(self, args):
     #     self.reqparse = reqparse.RequestParser()
