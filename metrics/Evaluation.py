@@ -4,6 +4,106 @@ from enum import Enum, unique
 import logging
 from io import StringIO
 import uuid
+from string import Template
+
+prefix = """
+@prefix daq: <http://purl.org/eis/vocab/daq#> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix dqv: <http://www.w3.org/ns/dqv#> .
+@prefix duv: <http://www.w3.org/ns/duv#> .
+@prefix oa: <http://www.w3.org/ns/oa#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix sdmx-attribute: <http://purl.org/linked-data/sdmx/2009/attribute#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+@prefix : <https://fair-checker.france-bioinformatique.fr/data/> .
+"""
+
+FC_spec = [
+    {"id": "F1A", "category": "Findable", "label": "Unique IDs", "definition": ""},
+    {"id": "F1B", "category": "Findable", "label": "Persistent IDs", "definition": ""},
+    {
+        "id": "F2A",
+        "category": "Findable",
+        "label": "Structured metadata",
+        "definition": "",
+    },
+    {
+        "id": "F2B",
+        "category": "Findable",
+        "label": "Shared vocabularies for metadata",
+        "definition": "",
+    },
+    {
+        "id": "A11",
+        "category": "Accessible",
+        "label": "Open resolution protocol",
+        "definition": "",
+    },
+    {
+        "id": "A12",
+        "category": "Accessible",
+        "label": "Authorisation procedure or access rights",
+        "definition": "",
+    },
+    {
+        "id": "I1",
+        "category": "Interoperable",
+        "label": "Machine readable format",
+        "definition": "",
+    },
+    {
+        "id": "I2",
+        "category": "Interoperable",
+        "label": "Use shared ontologies",
+        "definition": "",
+    },
+    {
+        "id": "I3",
+        "category": "Interoperable",
+        "label": "External links",
+        "definition": "",
+    },
+    {
+        "id": "R11",
+        "category": "Reusable",
+        "label": "Metadata includes license",
+        "definition": "",
+    },
+    {
+        "id": "R12",
+        "category": "Reusable",
+        "label": "Metadata includes provenance",
+        "definition": "",
+    },
+    {
+        "id": "R13",
+        "category": "Reusable",
+        "label": "Community standards",
+        "definition": "",
+    },
+]
+
+
+FAIR_Checker_template = """
+:$metric_id
+    a dqv:Dimension ;
+    skos:prefLabel "$metric_label"@en ;
+    skos:definition "$metric_definition"@en ;
+    dqv:inCategory :$category ."""
+
+metrics_tpl = """
+:$id
+    a dqv:QualityMeasurement ;
+    dqv:computedOn <$url> ;
+    dqv:isMeasurementOf :$dimension ;
+    dqv:value "$value"^^xsd:integer ;
+    prov:generatedAtTime "$date"^^xsd:dateTime ;
+    prov:wasAttributedTo <https://github.com/IFB-ElixirFr/fair-checker> ;
+    rdfs:seeAlso <https://doi.org/10.1186/s13326-023-00289-5> ."""
 
 
 @unique
@@ -33,6 +133,7 @@ class Evaluation:
     result_text = None
     reason = None
 
+    _id = None
     web_resource = None
     metrics = None
     target_uri = None
@@ -43,18 +144,18 @@ class Evaluation:
 
     def __init__(self):
         self.log_capture_string = StringIO()
-        ### Create the logger
+        # Create the logger
         # self.eval_logger = logging.getLogger("eval_logger")
         logger_id = str(uuid.uuid4())
         self.eval_logger = logging.getLogger(logger_id)
         self.eval_logger.setLevel(logging.INFO)
         # self.eval_logger.propagate = False
 
-        ### Setup the console handler with a StringIO object
+        # Setup the console handler with a StringIO object
         console_handler = logging.StreamHandler(self.log_capture_string)
         # console_handler.setLevel(logging.DEBUG)
 
-        ### Add a formatter
+        # Add a formatter
         formatter = logging.Formatter(
             "%(levelname)s - %(message)s",
             # "%Y-%m-%d %H:%M:%S"
@@ -62,9 +163,30 @@ class Evaluation:
         )
         console_handler.setFormatter(formatter)
 
-        ### Add the console handler to the logger
+        # Add the console handler to the logger
         self.eval_logger.addHandler(console_handler)
         self.eval_logger.propagate = False
+
+    def build_from_json(self, data):
+        self.__init__()
+        if "_id" in data.keys():
+            self._id = data["_id"]
+        if "target_uri" in data.keys():
+            self.set_target_uri(data["target_uri"])
+        if "implementation" in data.keys():
+            self.set_implem(data["implementation"])
+        if "success" in data.keys():
+            self.set_score(data["success"])
+        if "reason" in data.keys():
+            self.set_reason(data["reason"])
+        if "metrics" in data.keys():
+            self.set_metrics(data["metrics"])
+        if "started_at" in data.keys():
+            self.start_time = data["started_at"]
+        if "ended_at" in data.keys():
+            self.end_time = data["ended_at"]
+        if "log" in data.keys():
+            self.set_recommendations(data["log"])
 
     def log_debug(self, message):
         self.eval_logger.debug(message)
@@ -172,6 +294,39 @@ class Evaluation:
 
     def get_test_time(self):
         return self.end_time - self.start_time
+
+    def to_rdf_turtle(self, id):
+
+        d = None
+        eval_ttl = ""
+        spec_ttl = ""
+
+        if not self._id:
+            self._id = id
+
+        if self.end_time:
+            d = self.end_time.isoformat()
+
+        if self.score:
+            eval_ttl = Template(metrics_tpl).safe_substitute(
+                id=str(self._id),
+                url=self.get_target_uri().strip(),
+                dimension=self.get_metrics(),
+                value=self.get_score(),
+                date=d,
+            )
+        ttl = prefix + eval_ttl
+
+        for spec in FC_spec:
+            spec_ttl = Template(FAIR_Checker_template).safe_substitute(
+                metric_id=spec["id"],
+                metric_label=spec["label"],
+                metric_definition=spec["definition"],
+                category=spec["category"],
+            )
+            ttl += spec_ttl
+
+        return ttl
 
     def __str__(self):
         return (
