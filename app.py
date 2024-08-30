@@ -1,6 +1,5 @@
 import copy
-from asyncio.log import logger
-from unittest import result
+
 import eventlet
 
 # from https://github.com/eventlet/eventlet/issues/670
@@ -157,7 +156,6 @@ else:
 
     dev_log_handler.setFormatter(dev_formatter)
     dev_logger.addHandler(dev_log_handler)
-
     dev_logger.setLevel(logging.DEBUG)
 
     # Prevent PROD logger from output
@@ -505,19 +503,15 @@ class MetricEvalAll(Resource):
     @fc_check_namespace.expect(reqparse)
     def get(self):
         """All FAIR metrics"""
-
         args = reqparse.parse_args()
         url = args["url"]
-
         web_res = WebResource(url)
-
         metrics_collection = []
+
         for metric_key in METRICS_CUSTOM.keys():
             metric = METRICS_CUSTOM[metric_key]
             metric.set_web_resource(web_res)
             metrics_collection.append(metric)
-
-        # metrics_collection = FAIRMetricsFactory.get_FC_impl(web_res)
 
         results = []
         kg = ConjunctiveGraph()
@@ -542,32 +536,20 @@ class MetricEvalAll(Resource):
 
 
 @fc_check_namespace.route("/legacy/metrics_all")
-# @fc_check_namespace.doc(url_fields)
 class MetricEvalAllLegacy(Resource):
-    # reqparse = None
-    # def __init__(self, args):
-    #     self.reqparse = reqparse.RequestParser()
-    #     self.reqparse.add_argument('url', type = str, required = True, location='args', help="Name cannot be blank!")
-    #     # self.reqparse.add_argument('test', type = str, required = True, location='args')
-    #     # super(MetricEvalAll, self).__init__()
-
     @fc_check_namespace.doc("Evaluates all FAIR metrics at once")
     @fc_check_namespace.expect(reqparse)
     def get(self):
         """All FAIR metrics"""
-
         args = reqparse.parse_args()
         url = args["url"]
-
         web_res = WebResource(url)
-
         metrics_collection = []
+
         for metric_key in METRICS_CUSTOM.keys():
             metric = METRICS_CUSTOM[metric_key]
             metric.set_web_resource(web_res)
             metrics_collection.append(metric)
-
-        # metrics_collection = FAIRMetricsFactory.get_FC_impl(web_res)
 
         results = []
         for metric in metrics_collection:
@@ -1053,28 +1035,72 @@ def evaluate_fc_metrics(metric_name, client_metric_id, url):
 
     # Persist Evaluation oject in MongoDB
     implem = METRICS_CUSTOM[metric_name].get_implem()
-    result.persist(str(SOURCE.UI))
+    r = result.persist(str(SOURCE.UI))
 
     id = METRICS_CUSTOM[metric_name].get_id()
     csv_line = '"{}"\t"{}"\t"{}"\t"{}"\t"{}"'.format(
         id, name, score, str(evaluation_time), comment
     )
+
+    b_url = str(request.base_url)
+    if "socket.io" in str(request.base_url):
+        b_url = str(request.base_url).split("socket.io/")[0]
+
     csv_line = {
         "id": id,
         "name": name,
         "score": score,
         "time": str(evaluation_time),
         "comment": comment,
+        "uri": b_url + "data/" + str(r.inserted_id),
+        "target_url": url,
     }
     emit_json = {
+        "id": id,
         "score": str(score),
         "time": str(evaluation_time),
         "comment": comment,
         "recommendation": recommendation,
         "csv_line": csv_line,
-        # "name": name,
+        "uri": b_url + "data/" + str(r.inserted_id),
+        "name": name,
+        "target_url": url,
     }
     emit("done_" + client_metric_id, emit_json)
+
+
+@socketio.on("done_fair_assessment")
+def handle_done_fair_assessment(data):
+    dev_logger.info("FAIR assessment done !")
+    dev_logger.info(data)
+
+    client = MongoClient()
+    db = client.fair_checker
+    db_assessments = db.assessments
+
+    evals = []
+
+    for k, v in data["wasDerivedFrom"].items():
+        evals.append(v["uri"])
+
+    assessment = {
+        "target_url": data["target_url"],
+        "score": data["score"],
+        "wasDerivedFrom": evals,
+    }
+
+    b_url = str(request.base_url)
+    if "socket.io" in str(request.base_url):
+        b_url = str(request.base_url).split("socket.io/")[0]
+
+    r = db_assessments.insert_one(assessment)
+    emit(
+        "persisted_assessment",
+        {
+            "score": assessment["score"],
+            "uri": b_url + "assessment/" + str(r.inserted_id),
+        },
+    )
 
 
 @socketio.on("quick_structured_data_search")
