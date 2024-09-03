@@ -9,7 +9,7 @@
         {#<th>Time</th>#}
         {#<th>Comment</th>#}
         <th>Result</th>
-        <th>Score</th>
+        <!--<th>Score</th>-->
         <th>Recommandation</th>
         <th>Details</th>
     </tr>
@@ -59,8 +59,8 @@
         </td> -->
         <!-- <td id="comment_{{ f.id }}"></td> -->
         <!-- <td class="vcenter hcenter"><span id="row_status_{{ f.id }}" class="tag is-small">Status</span></td>-->
-        <td class="vcenter hcenter"><span id="row_status_{{ f.id }}"></span></td>
-        <td class="vcenter hcenter" id="row_score_{{ f.id }}" data-category="{{ f.principle_category }}"></td>
+        <td class="vcenter hcenter"><span id="row_status_{{ f.id }}" score="0" category="{{f.principle_category}}"></span></td>
+        <!--<td class="vcenter hcenter" id="row_score_{{ f.id }}" data-category="{{ f.principle_category }}"></td>-->
         <td class="vcenter has-text-right" name="recommendation">
             <div id="test_row_guideline_{{ f.id }}" class="content hide-content">
 
