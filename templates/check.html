@@ -47,7 +47,8 @@
     console.log("Testing metric {{f.name}}");
     $(this).addClass("is-loading");
 
-    $("#row_score_{{f.id}}").text("");
+    $("#row_status_{{f.id}}").text("");
+    $("#row_status_{{f.id}}").attr("score", "0");
     $("#modal_score_{{f.id}}").text("");
     $("#row_time_{{f.id}}").text("");
     $("#modal_time_{{f.id}}").text("");
@@ -155,7 +156,7 @@
   });
 
   socket.on('done_{{f.id}}', function (value) {
-    console.log('DONE {{f.name}}');
+    // console.log('DONE {{f.name}}');
     console.log(value);
     $("#test_{{f.id}}").removeClass("is-loading");
     $("#btn_test_all").removeClass("is-loading");
@@ -177,47 +178,17 @@
 
     var badge;
     if (value['score'] == 2) {
-      badge = '<a href="'+value["uri"]+'" target="_blank"><img src="https://img.shields.io/badge/FAIR_principle_'+value["name"]+'-2/2-green" alt="'+value["uri"]+' - 2 (FAIR-Checker)"></a>';
+      color = "green";
     } else if (value['score'] == 1) {
-      badge = '<a href="'+value["uri"]+'" target="_blank"><img src="https://img.shields.io/badge/FAIR_principle_'+value["name"]+'-1/2-orange" alt="'+value["uri"]+' - 2 (FAIR-Checker)"></a>';
+      color = "orange";
     } else {
-      badge = '<a href="'+value["uri"]+'" target="_blank"><img src="https://img.shields.io/badge/FAIR_principle_'+value["name"]+'-0/2-red" alt="'+value["uri"]+' - 2 (FAIR-Checker)"></a>';
+      color = "red";
     }
-    $("#row_status_{{f.id}}").html(badge);
 
-    // change status color
-    // if (value['score'] >= 1) {
-    //   $("#row_status_{{f.id}}").removeClass("is-danger");
-    //   $("#row_status_{{f.id}}").addClass("is-success");
-    //   $("#row_status_{{f.id}}").html(badge);
-    //   // $("#row_status_{{f.id}}").html(pre_link_ld+"Success"+post_link_ld);
-    //   // $("#row_status_{{f.id}}").text("Success");
-    //   // $("#row_status_{{f.id}}").attr("href", value["uri"]);
-    //   $("#result_{{f.id}}").addClass("is-success");
-    //   // update_checkbox color
-    //   $("#checkbox_test_{{f.id}}").parent("label").parent("td").css('background-color', '#DBF2F2');
-    //   $("#metrics_row_{{ f.id }}").css('background-color', '#dbf2f2');
-    //   $("#metrics_row_{{ f.id }}").hover(function(){
-    //     $(this).css("background-color", "#c7ebeb");
-    //   }, function(){
-    //     $(this).css("background-color", "#dbf2f2");
-    //   });
-    // } else {
-    //   $("#row_status_{{f.id}}").removeClass("is-success");
-    //   $("#row_status_{{f.id}}").addClass("is-danger");
-    //   $("#row_status_{{f.id}}").html(badge);
-    //   //$("#row_status_{{f.id}}").text("Failure");
-    //   //$("#row_status_{{f.id}}").html(pre_link_ld+"Failure"+post_link_ld);
-    //   $("#result_{{f.id}}").addClass("is-danger");
-    //   // update_checkbox color
-    //   $("#checkbox_test_{{f.id}}").parent("label").parent("td").css('background-color', '#FFE0E6');
-    //   $("#metrics_row_{{ f.id }}").css('background-color', '#ffe6eb');
-    //   $("#metrics_row_{{ f.id }}").hover(function(){
-    //     $(this).css("background-color", "#ffccd6");
-    //   }, function(){
-    //     $(this).css("background-color", "#ffe6eb");
-    //   });
-    // }
+    badge = '<a href="'+value["uri"]+'" target="_blank"><img src="https://img.shields.io/badge/FAIR_principle_'+value["name"]+'-'+value["score"]+'/2-'+color+'" alt="'+value["uri"]+' - 2 (FAIR-Checker)"></a>';
+    $("#row_status_{{f.id}}").attr("category", "{{f.principle_category}}");
+    $("#row_status_{{f.id}}").attr("score", value["score"]);
+    $("#row_status_{{f.id}}").html(badge);
 
     // add score to result
     $("#row_score_{{f.id}}").text(value['score']);
@@ -234,16 +205,16 @@
 
 
     //update progressbar
-    // current = parseInt($("#p1").attr("value"));
-    progress = 0
-    $("#p1").attr("value", progress);
-    $('[id^=row_score]').each(function (progress) {
-      if ($(this).text() != "") {
-        $("#p1").attr("value", progress + 1);
+    $("#p1").attr("value", 0);
+    $('[id^=row_status]').each(function () {
+      if ($(this).html() != "") {
+        v = parseInt($("#p1").attr("value"));
+        $("#p1").attr("value", v + 1);
+       //  console.log(v + 1);
       }
     });
-    console.log($("#p1").parent().closest('div').data("label"));
-    $("#p1").parent().closest('div').data("label", "toto");
+    // console.log($("#p1").parent().closest('div').data("label"));
+    // $("#p1").parent().closest('div').data("label", "toto");
 
     // add recommendation if score == 0
     if (value['recommendation'] != "No recommendation, metric validated") {
@@ -337,7 +308,7 @@
     // put checkbox in tested state true and trigger change
     $("#checkbox_test_{{f.id}}").data('tested', true).trigger("change");
 
-    update_radar_chart();
+    // update_radar_chart();
     update_radar_chart2();
 
   });
@@ -346,18 +317,29 @@
   socket.on('persisted_assessment', function (value) {
     console.log("persisted_assessment");
     console.log(value);
-    //generate a persistent badge for the assessment
-
+  
     var badge;
+    var color;
+
     if (+value['score'] >= 75) {
-      badge = '<a href="'+value["uri"]+'" target="_blank"><img src="https://img.shields.io/badge/FAIR_assessment-'+value['score']+'_%25-green" alt="'+value["score"]+' % FAIR"></a>';
+      color = "green";
     } else if (+value['score'] >= 50) {
-      badge = '<a href="'+value["uri"]+'" target="_blank"><img src="https://img.shields.io/badge/FAIR_assessment-'+value['score']+'_%25-orange" alt="'+value["score"]+' % FAIR"></a>';
+      color = "orange";
     } else {
-      badge = '<a href="'+value["uri"]+'" target="_blank"><img src="https://img.shields.io/badge/FAIR_assessment-'+value['score']+'_%25-red" alt="'+value["score"]+' % FAIR"></a>';
+      color = "red";
     }
-    console.log(badge);
-    $("#fair_badge").html(badge);
+
+    //generate a persistent badge for the assessment
+    var badge_html = '<a href="'+value["uri"]+'" target="_blank"><img src="https://img.shields.io/badge/FAIR_assessment-'+value["score"]+'_%25-'+color+' alt="'+value['score']+' % FAIR"></a>';
+    var badge_md = '[!['+value['score']+' % FAIR](https://img.shields.io/badge/FAIR_assessment-'+value['score']+'_%25-'+color+')]('+value['uri']+')';
+
+    // console.log(badge_html);
+    // console.log(badge_md);
+    $("#share_title").removeClass("is-hidden");
+    $("#fair_badge").html(badge_html);
+    $("#fair_badge_html").text(badge_html);
+    $("#fair_badge_md").text(badge_md);
+
   });
 
   //////////////////
@@ -425,10 +407,16 @@
       alert("Please, enter a resource identifier !");
       return false;
     }
+    $("#p1").attr("value", 0);
     $("#btn_test_checked").prop('disabled', true);
     $("#btn_test_all").addClass("is-loading");
     csv_lines = [];
     aggregated_fair_assesment = [];
+
+    $('[id^=row_status_]').each(function (id) {
+      $(this).attr("score", "0");
+      $(this).text("");
+    });
 
     $('[id^=test_]').each(function (id) {
       $(this).trigger("click");
@@ -702,7 +690,7 @@
     <!-- <div class="section"> -->
     <div class="columns is-centered is-vcentered">
       <div class="column is-half">
-        <progress id="p1" class="progress is-primary is-centered" value="0" max="11"></progress>
+        <progress id="p1" class="progress is-primary is-centered" value="0" max="12"></progress>
 
       </div>
       <div class="column is-narrow">
@@ -831,6 +819,10 @@
   <div class="message-body is-check">
     <h1 class="subtitle"><b>FAIR compliance</b></h1>
     <div class="content">{% include 'radar_chart.html' %}</div>
+    <h1 class="subtitle is-hidden" id="share_title"><b>Share your results</b></h1>
+    <div class="content" id="fair_badge"></div>
+    <div class="content has-text-light has-background-dark is-size-7" id="fair_badge_html"></div>
+    <div class="content has-text-light has-background-dark is-size-7" id="fair_badge_md"></div>
   </div>
 </article>
 
@@ -838,8 +830,6 @@
 <article id="metrics_details_rec" class="message">
   <div class="message-body is-check">
     <h1 class="subtitle is-inline-block"><b>Detailed results</b></h1>
-
-    <span id="fair_badge" class="is-pulled-right"></span>
     <button id="download_csv" data-dl="{{ uuid }}" download="results.csv" class="button is-info is-small is-pulled-right" disabled><i class="fa fa-download fa-fw"></i>&nbsp;Export</button>
 
     <div class="content">{% include 'metrics_table.html' %}</div>
