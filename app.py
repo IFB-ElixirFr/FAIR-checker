@@ -30,13 +30,14 @@ from os import environ, path
 from dotenv import load_dotenv, dotenv_values
 import secrets
 import time
+from string import Template
 import os
 import io
 import uuid
 import argparse
 import functools
 from argparse import RawTextHelpFormatter
-from datetime import timedelta
+from datetime import datetime, timedelta
 import json
 from json import JSONDecodeError
 from pathlib import Path
@@ -77,6 +78,7 @@ from profiles.ProfileFactory import (
 import time
 import atexit
 import requests
+from requests.exceptions import ConnectionError
 from pymongo import MongoClient
 from bson import ObjectId
 from bson.errors import InvalidId
@@ -252,9 +254,26 @@ FILE_UUID = ""
 
 DICT_TEMP_RES = {}
 
-STATUS_BIOPORTAL = requests.head("https://bioportal.bioontology.org/").status_code
-STATUS_OLS = requests.head("https://www.ebi.ac.uk/ols/index").status_code
-STATUS_LOV = requests.head("https://lov.linkeddata.es/dataset/lov/sparql").status_code
+# Get status from bioportal external service
+try:
+    STATUS_BIOPORTAL = requests.head("https://bioportal.bioontology.org/").status_code
+except ConnectionError:
+    STATUS_BIOPORTAL = 0
+
+# Get statust from OLS external service
+try:
+    STATUS_OLS = requests.head("https://www.ebi.ac.uk/ols/index").status_code
+except ConnectionError:
+    STATUS_OLS = 0
+
+# Get statust from LOV external service
+try:
+    STATUS_LOV = requests.head(
+        "https://lov.linkeddata.es/dataset/lov/sparql"
+    ).status_code
+except ConnectionError:
+    STATUS_LOV = 0
+
 
 DICT_BANNER_INFO = {"banner_message_info": {}}
 
@@ -479,6 +498,85 @@ def derefLD(ID):
             return Response(
                 "Error while parsing RDF:\n\n" + e.to_rdf_turtle(), mimetype="text"
             )
+        if mimetype == "application/json":
+            return Response(kg.serialize(format="json-ld"), mimetype="application/json")
+        elif mimetype == "application/ld+json":
+            return Response(
+                kg.serialize(format="json-ld"), mimetype="application/ld+json"
+            )
+        elif mimetype == "application/rdf+xml":
+            return Response(kg.serialize(format="xml"), mimetype="application/rdf+xml")
+        elif mimetype == "text/n3":
+            return Response(kg.serialize(format="n3"), mimetype="text/n3")
+        elif mimetype == "text/turtle":
+            return Response(kg.serialize(format="turtle"), mimetype="text/turtle")
+        else:
+            return Response(kg.serialize(format="turtle"), mimetype="text/turtle")
+    except InvalidId:
+        return Response(f"Cannot find evaluation {ID}", mimetype="text")
+
+
+# Generate machine readable FAIR assessment report
+@app.route("/assessment/<ID>")
+def deref_assessment_LD(ID):
+    mimetype = None
+    if "Content-Type" in request.headers:
+        mimetype = request.headers["Content-Type"].split(";")[0]
+    try:
+        client = MongoClient()
+        db = client.fair_checker
+        assessments = db.assessments
+        assess_json = assessments.find_one({"_id": ObjectId(ID)})
+
+        target_url = assess_json["target_url"]
+        score = assess_json["score"]
+        evals = assess_json["wasDerivedFrom"]
+        genAtTime = assess_json["generatedAtTime"]
+
+        print(target_url)
+        print(score)
+        print(evals)
+
+        prefix = """
+@prefix daq: <http://purl.org/eis/vocab/daq#> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix dqv: <http://www.w3.org/ns/dqv#> .
+@prefix duv: <http://www.w3.org/ns/duv#> .
+@prefix oa: <http://www.w3.org/ns/oa#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix sdmx-attribute: <http://purl.org/linked-data/sdmx/2009/attribute#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+@prefix : <https://fair-checker.france-bioinformatique.fr/data/> .
+"""
+        assess_tpl = """
+:$id
+    a dqv:QualityMeasurement ;
+    dqv:computedOn <$url> ;
+    dqv:value "$value"^^xsd:integer ;
+    prov:generatedAtTime "$date"^^xsd:dateTime ;
+    prov:wasAttributedTo <https://github.com/IFB-ElixirFr/fair-checker> ;
+    prov:wasDerivedFrom $evaluations ;
+    rdfs:seeAlso <https://doi.org/10.1186/s13326-023-00289-5> ."""
+
+        assess_ttl = Template(assess_tpl).safe_substitute(
+            id=str(ID),
+            url=target_url,
+            value=score,
+            date=genAtTime.isoformat(),
+            evaluations="<" + ">, <".join(evals) + ">",
+        )
+        ttl = prefix + assess_ttl
+        print(ttl)
+
+        kg = ConjunctiveGraph()
+        try:
+            kg.parse(data=ttl, format="turtle")
+        except Exception:
+            return Response("Error while parsing RDF:\n\n" + ttl, mimetype="text")
         if mimetype == "application/json":
             return Response(kg.serialize(format="json-ld"), mimetype="application/json")
         elif mimetype == "application/ld+json":
@@ -1087,6 +1185,7 @@ def handle_done_fair_assessment(data):
         "target_url": data["target_url"],
         "score": data["score"],
         "wasDerivedFrom": evals,
+        "generatedAtTime": datetime.now(),
     }
 
     b_url = str(request.base_url)
