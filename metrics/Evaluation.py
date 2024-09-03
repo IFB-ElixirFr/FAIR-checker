@@ -38,13 +38,13 @@ FC_spec = [
         "definition": "",
     },
     {
-        "id": "A11",
+        "id": "A1.1",
         "category": "Accessible",
         "label": "Open resolution protocol",
         "definition": "",
     },
     {
-        "id": "A12",
+        "id": "A1.2",
         "category": "Accessible",
         "label": "Authorisation procedure or access rights",
         "definition": "",
@@ -68,19 +68,19 @@ FC_spec = [
         "definition": "",
     },
     {
-        "id": "R11",
+        "id": "R1.1",
         "category": "Reusable",
         "label": "Metadata includes license",
         "definition": "",
     },
     {
-        "id": "R12",
+        "id": "R1.2",
         "category": "Reusable",
         "label": "Metadata includes provenance",
         "definition": "",
     },
     {
-        "id": "R13",
+        "id": "R1.3",
         "category": "Reusable",
         "label": "Community standards",
         "definition": "",
@@ -318,13 +318,14 @@ class Evaluation:
         ttl = prefix + eval_ttl
 
         for spec in FC_spec:
-            spec_ttl = Template(FAIR_Checker_template).safe_substitute(
-                metric_id=spec["id"],
-                metric_label=spec["label"],
-                metric_definition=spec["definition"],
-                category=spec["category"],
-            )
-            ttl += spec_ttl
+            if self.get_metrics() == spec["id"]:
+                spec_ttl = Template(FAIR_Checker_template).safe_substitute(
+                    metric_id=spec["id"],
+                    metric_label=spec["label"],
+                    metric_definition=spec["definition"],
+                    category=spec["category"],
+                )
+                ttl += spec_ttl
 
         return ttl
 
