@@ -86,98 +86,98 @@ class FAIRMetricsFactory:
             return F1A_Impl(web_resource)
 
     @staticmethod
-    def get_F2A(web_resource, impl=Implem.FAIR_CHECKER):
+    def get_F2A(web_resource=None, impl=Implem.FAIR_CHECKER):
         if impl == Implem.FAIR_METRICS_API:
             raise NotYetImplementedException
         else:
             return F2A_Impl(web_resource)
 
     @staticmethod
-    def get_F2B(web_resource, impl=Implem.FAIR_CHECKER):
+    def get_F2B(web_resource=None, impl=Implem.FAIR_CHECKER):
         if impl == Implem.FAIR_METRICS_API:
             raise NotYetImplementedException
         else:
             return F2B_Impl(web_resource)
 
     @staticmethod
-    def get_A11(web_resource, impl=Implem.FAIR_CHECKER):
+    def get_A11(web_resource=None, impl=Implem.FAIR_CHECKER):
         if impl == Implem.FAIR_METRICS_API:
             raise NotYetImplementedException
         else:
             return A11_Impl(web_resource)
 
     @staticmethod
-    def get_A12(web_resource, impl=Implem.FAIR_CHECKER):
+    def get_A12(web_resource=None, impl=Implem.FAIR_CHECKER):
         if impl == Implem.FAIR_METRICS_API:
             raise NotYetImplementedException
         else:
             return A12_Impl(web_resource)
 
     @staticmethod
-    def get_I1(web_resource, impl=Implem.FAIR_CHECKER):
+    def get_I1(web_resource=None, impl=Implem.FAIR_CHECKER):
         if impl == Implem.FAIR_METRICS_API:
             raise NotYetImplementedException
         else:
             return I1_Impl(web_resource)
 
     @staticmethod
-    def get_I1A(web_resource, impl=Implem.FAIR_CHECKER):
+    def get_I1A(web_resource=None, impl=Implem.FAIR_CHECKER):
         if impl == Implem.FAIR_METRICS_API:
             raise NotYetImplementedException
         else:
             return I1A_Impl(web_resource)
 
     @staticmethod
-    def get_I1B(web_resource, impl=Implem.FAIR_CHECKER):
+    def get_I1B(web_resource=None, impl=Implem.FAIR_CHECKER):
         if impl == Implem.FAIR_METRICS_API:
             raise NotYetImplementedException
         else:
             return I1B_Impl(web_resource)
 
     @staticmethod
-    def get_I2(web_resource, impl=Implem.FAIR_CHECKER):
+    def get_I2(web_resource=None, impl=Implem.FAIR_CHECKER):
         if impl == Implem.FAIR_METRICS_API:
             raise NotYetImplementedException
         else:
             return I2_Impl(web_resource)
 
     @staticmethod
-    def get_I2A(web_resource, impl=Implem.FAIR_CHECKER):
+    def get_I2A(web_resource=None, impl=Implem.FAIR_CHECKER):
         if impl == Implem.FAIR_METRICS_API:
             raise NotYetImplementedException
         else:
             return I2A_Impl(web_resource)
 
     @staticmethod
-    def get_I2B(web_resource, impl=Implem.FAIR_CHECKER):
+    def get_I2B(web_resource=None, impl=Implem.FAIR_CHECKER):
         if impl == Implem.FAIR_METRICS_API:
             raise NotYetImplementedException
         else:
             return I2B_Impl(web_resource)
 
     @staticmethod
-    def get_I3(web_resource, impl=Implem.FAIR_CHECKER):
+    def get_I3(web_resource=None, impl=Implem.FAIR_CHECKER):
         if impl == Implem.FAIR_METRICS_API:
             raise NotYetImplementedException
         else:
             return I3_Impl(web_resource)
 
     @staticmethod
-    def get_R11(web_resource, impl=Implem.FAIR_CHECKER):
+    def get_R11(web_resource=None, impl=Implem.FAIR_CHECKER):
         if impl == Implem.FAIR_METRICS_API:
             raise NotYetImplementedException
         else:
             return R11_Impl(web_resource)
 
     @staticmethod
-    def get_R12(web_resource, impl=Implem.FAIR_CHECKER):
+    def get_R12(web_resource=None, impl=Implem.FAIR_CHECKER):
         if impl == Implem.FAIR_METRICS_API:
             raise NotYetImplementedException
         else:
             return R12_Impl(web_resource)
 
     @staticmethod
-    def get_R13(web_resource, impl=Implem.FAIR_CHECKER):
+    def get_R13(web_resource=None, impl=Implem.FAIR_CHECKER):
         if impl == Implem.FAIR_METRICS_API:
             raise NotYetImplementedException
         else:
