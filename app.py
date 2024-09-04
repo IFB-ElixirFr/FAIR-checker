@@ -482,7 +482,7 @@ def derefLD(ID):
     mimetype = None
     if "Content-Type" in request.headers:
         mimetype = request.headers["Content-Type"].split(";")[0]
-        
+
     try:
         client = MongoClient()
         db = client.fair_checker
