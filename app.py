@@ -482,7 +482,7 @@ def derefLD(ID):
     mimetype = None
     if "Content-Type" in request.headers:
         mimetype = request.headers["Content-Type"].split(";")[0]
-
+        
     try:
         client = MongoClient()
         db = client.fair_checker
@@ -496,7 +496,7 @@ def derefLD(ID):
             kg.parse(data=ttl, format="turtle")
         except Exception:
             return Response(
-                "Error while parsing RDF:\n\n" + e.to_rdf_turtle(), mimetype="text"
+                "Error while parsing RDF:\n\n" + e.to_rdf_turtle(id=ID), mimetype="text"
             )
         if mimetype == "application/json":
             return Response(kg.serialize(format="json-ld"), mimetype="application/json")
@@ -507,7 +507,9 @@ def derefLD(ID):
         elif mimetype == "application/rdf+xml":
             return Response(kg.serialize(format="xml"), mimetype="application/rdf+xml")
         elif mimetype == "text/n3":
-            return Response(kg.serialize(format="n3"), mimetype="text/n3")
+            return Response(kg.serialize(format="nt"), mimetype="text/n3")
+        elif mimetype == "text/nt":
+            return Response(kg.serialize(format="nt"), mimetype="text/n3")
         elif mimetype == "text/turtle":
             return Response(kg.serialize(format="turtle"), mimetype="text/turtle")
         else:
