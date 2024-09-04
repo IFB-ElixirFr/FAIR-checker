@@ -787,3 +787,134 @@ def list_all_instances(kg):
         # print(f"{s} is a {o}")
         subjects.append(s)
     return subjects
+
+
+ld_eval_prefix = """
+@prefix daq: <http://purl.org/eis/vocab/daq#> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix dqv: <http://www.w3.org/ns/dqv#> .
+@prefix duv: <http://www.w3.org/ns/duv#> .
+@prefix oa: <http://www.w3.org/ns/oa#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix sdmx-attribute: <http://purl.org/linked-data/sdmx/2009/attribute#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+@prefix : <https://fair-checker.france-bioinformatique.fr/data/> .
+"""
+
+
+def get_ld_FC_spec():
+    from metrics.FAIRMetricsFactory import FAIRMetricsFactory as FMF
+
+    metrics = FMF.get_FC_impl()
+
+    ld_FC_spec = [
+        {
+            "id": "F1A",
+            "category": "Findable",
+            "label": "Unique IDs",
+            "definition": "".join(FMF.get_F1A().get_desc().strip().splitlines()),
+            "seeAlso": FMF.get_F1A().get_principle(),
+        },
+        {
+            "id": "F1B",
+            "category": "Findable",
+            "label": "Persistent IDs",
+            "definition": "".join(FMF.get_F1B().get_desc().strip().splitlines()),
+            "seeAlso": FMF.get_F1B().get_principle(),
+        },
+        {
+            "id": "F2A",
+            "category": "Findable",
+            "label": "Structured metadata",
+            "definition": "".join(FMF.get_F2A().get_desc().strip().splitlines()),
+            "seeAlso": FMF.get_F2A().get_principle(),
+        },
+        {
+            "id": "F2B",
+            "category": "Findable",
+            "label": "Shared vocabularies for metadata",
+            "definition": "".join(FMF.get_F2B().get_desc().strip().splitlines()),
+            "seeAlso": FMF.get_F2B().get_principle(),
+        },
+        {
+            "id": "A1.1",
+            "category": "Accessible",
+            "label": "Open resolution protocol",
+            "definition": "".join(FMF.get_A11().get_desc().strip().splitlines()),
+            "seeAlso": FMF.get_A11().get_principle(),
+        },
+        {
+            "id": "A1.2",
+            "category": "Accessible",
+            "label": "Authorisation procedure or access rights",
+            "definition": "".join(FMF.get_A12().get_desc().strip().splitlines()),
+            "seeAlso": FMF.get_A12().get_principle(),
+        },
+        {
+            "id": "I1",
+            "category": "Interoperable",
+            "label": "Machine readable format",
+            "definition": "".join(FMF.get_I1().get_desc().strip().splitlines()),
+            "seeAlso": FMF.get_I1().get_principle(),
+        },
+        {
+            "id": "I2",
+            "category": "Interoperable",
+            "label": "Use shared ontologies",
+            "definition": "".join(FMF.get_I2().get_desc().strip().splitlines()),
+            "seeAlso": FMF.get_I2().get_principle(),
+        },
+        {
+            "id": "I3",
+            "category": "Interoperable",
+            "label": "External links",
+            "definition": "".join(FMF.get_I3().get_desc().strip().splitlines()),
+            "seeAlso": FMF.get_I3().get_principle(),
+        },
+        {
+            "id": "R1.1",
+            "category": "Reusable",
+            "label": "Metadata includes license",
+            "definition": "".join(FMF.get_R11().get_desc().strip().splitlines()),
+            "seeAlso": FMF.get_R11().get_principle(),
+        },
+        {
+            "id": "R1.2",
+            "category": "Reusable",
+            "label": "Metadata includes provenance",
+            "definition": "".join(FMF.get_R12().get_desc().strip().splitlines()),
+            "seeAlso": FMF.get_R12().get_principle(),
+        },
+        {
+            "id": "R1.3",
+            "category": "Reusable",
+            "label": "Community standards",
+            "definition": "".join(FMF.get_R13().get_desc().strip().splitlines()),
+            "seeAlso": FMF.get_R13().get_principle(),
+        },
+    ]
+
+    return ld_FC_spec
+
+
+ld_FAIR_Checker_template = """
+:$metric_id
+    a dqv:Dimension ;
+    skos:prefLabel "$metric_label"@en ;
+    skos:definition "$metric_definition"@en ;
+    dqv:inCategory :$category ;
+    rdfs:seeAlso <$seeAlso> ."""
+
+ld_metrics_tpl = """
+:$id
+    a dqv:QualityMeasurement ;
+    dqv:computedOn <$url> ;
+    dqv:isMeasurementOf :$dimension ;
+    dqv:value "$value"^^xsd:integer ;
+    prov:generatedAtTime "$date"^^xsd:dateTime ;
+    prov:wasAttributedTo <https://github.com/IFB-ElixirFr/fair-checker> ;
+    rdfs:seeAlso <https://doi.org/10.1186/s13326-023-00289-5> ."""

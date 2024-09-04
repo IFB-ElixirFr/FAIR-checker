@@ -16,8 +16,7 @@ class R12_Impl(AbstractFAIRMetrics):
         self.principle_tag = "R1.2"
         self.implem = "FAIR-Checker"
         self.desc = """
-            Metadata includes provenance. <br>
-            FAIR-Checker verifies that at least one provenance property from PROV, DCTerms, or PAV ontologies are found in metadata. 
+            Metadata includes provenance.<br> FAIR-Checker verifies that at least one provenance property from PROV, DCTerms, or PAV ontologies are found in metadata.
         """
 
     def weak_evaluate(self):
