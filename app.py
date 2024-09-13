@@ -599,10 +599,12 @@ def deref_assessment_LD(ID):
 
 @fc_check_namespace.route("/metrics_all")
 class MetricEvalAll(Resource):
-    @fc_check_namespace.doc("Evaluates all FAIR metrics at once")
+    @fc_check_namespace.doc(
+        "Evaluates all FAIR metrics at once, and produces a JSON-LD output based on the DQV and PROV ontologies"
+    )
     @fc_check_namespace.expect(reqparse)
     def get(self):
-        """All FAIR metrics"""
+        """All FAIR metrics, producing a JSON-LD output"""
         args = reqparse.parse_args()
         url = args["url"]
         web_res = WebResource(url)
@@ -637,10 +639,12 @@ class MetricEvalAll(Resource):
 
 @fc_check_namespace.route("/legacy/metrics_all")
 class MetricEvalAllLegacy(Resource):
-    @fc_check_namespace.doc("Evaluates all FAIR metrics at once")
+    @fc_check_namespace.doc(
+        "Evaluates all FAIR metrics at once, and produces a JSON output"
+    )
     @fc_check_namespace.expect(reqparse)
     def get(self):
-        """All FAIR metrics"""
+        """All FAIR metrics (legacy)"""
         args = reqparse.parse_args()
         url = args["url"]
         web_res = WebResource(url)
