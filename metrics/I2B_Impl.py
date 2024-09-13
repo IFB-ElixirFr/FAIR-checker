@@ -17,7 +17,7 @@ class I2B_Impl(AbstractFAIRMetrics):
         self.principle_tag = "I2B"
         self.implem = "FAIR-Checker"
         self.desc = """
-            FAIR-Checker verifies that at least one RDF triple can be found in metadata. 
+            FAIR-Checker verifies that at least one RDF triple can be found in metadata.
         """
 
     def weak_evaluate(self):

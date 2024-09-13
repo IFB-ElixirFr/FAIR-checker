@@ -16,8 +16,7 @@ class R13_Impl(AbstractFAIRMetrics):
         self.principle_tag = "R1.3"
         self.implem = "FAIR-Checker"
         self.desc = """
-            Weak: FAIR-Checker verifies that at least one used ontology class or property are known in major ontology registries (OLS, BioPortal, LOV)<br><br>
-            Strong: FAIR-Checker verifies that all used ontology classes or properties are known in major ontology registries (OLS, BioPortal, LOV)
+            Weak: FAIR-Checker verifies that at least one used ontology class or property are known in major ontology registries (OLS, BioPortal, LOV)<br> Strong: FAIR-Checker verifies that all used ontology classes or properties are known in major ontology registries (OLS, BioPortal, LOV)
         """
 
     def weak_evaluate(self):

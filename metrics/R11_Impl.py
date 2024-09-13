@@ -33,8 +33,7 @@ class R11_Impl(AbstractFAIRMetrics):
         self.principle_tag = "R1.1"
         self.implem = "FAIR-Checker"
         self.desc = """
-            Metadata includes license. <br>
-            FAIR-Checker verifies that at least one license property from Schema.org, DCTerms, or DOAP ontologies are found in metadata. 
+            Metadata includes license.<br> FAIR-Checker verifies that at least one license property from Schema.org, DCTerms, or DOAP ontologies are found in metadata.
         """
 
     def weak_evaluate(self):

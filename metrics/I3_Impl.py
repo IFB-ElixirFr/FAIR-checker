@@ -19,7 +19,7 @@ class I3_Impl(AbstractFAIRMetrics):
         self.principle_tag = "I3"
         self.implem = "FAIR-Checker"
         self.desc = """
-            FAIR-Checker verifies that at least 3 different URL authorities are used in the URIs of RDF metadata. 
+            FAIR-Checker verifies that at least 3 different URL authorities are used in the URIs of RDF metadata.
         """
 
     def weak_evaluate(self):

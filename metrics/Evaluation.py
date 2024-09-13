@@ -4,6 +4,14 @@ from enum import Enum, unique
 import logging
 from io import StringIO
 import uuid
+from string import Template
+
+from metrics.util import (
+    ld_FAIR_Checker_template,
+    get_ld_FC_spec,
+    ld_metrics_tpl,
+    ld_eval_prefix,
+)
 
 
 @unique
@@ -33,6 +41,7 @@ class Evaluation:
     result_text = None
     reason = None
 
+    _id = None
     web_resource = None
     metrics = None
     target_uri = None
@@ -43,18 +52,18 @@ class Evaluation:
 
     def __init__(self):
         self.log_capture_string = StringIO()
-        ### Create the logger
+        # Create the logger
         # self.eval_logger = logging.getLogger("eval_logger")
         logger_id = str(uuid.uuid4())
         self.eval_logger = logging.getLogger(logger_id)
         self.eval_logger.setLevel(logging.INFO)
         # self.eval_logger.propagate = False
 
-        ### Setup the console handler with a StringIO object
+        # Setup the console handler with a StringIO object
         console_handler = logging.StreamHandler(self.log_capture_string)
         # console_handler.setLevel(logging.DEBUG)
 
-        ### Add a formatter
+        # Add a formatter
         formatter = logging.Formatter(
             "%(levelname)s - %(message)s",
             # "%Y-%m-%d %H:%M:%S"
@@ -62,9 +71,30 @@ class Evaluation:
         )
         console_handler.setFormatter(formatter)
 
-        ### Add the console handler to the logger
+        # Add the console handler to the logger
         self.eval_logger.addHandler(console_handler)
         self.eval_logger.propagate = False
+
+    def build_from_json(self, data):
+        self.__init__()
+        if "_id" in data.keys():
+            self._id = data["_id"]
+        if "target_uri" in data.keys():
+            self.set_target_uri(data["target_uri"])
+        if "implementation" in data.keys():
+            self.set_implem(data["implementation"])
+        if "success" in data.keys():
+            self.set_score(data["success"])
+        if "reason" in data.keys():
+            self.set_reason(data["reason"])
+        if "metrics" in data.keys():
+            self.set_metrics(data["metrics"])
+        if "started_at" in data.keys():
+            self.start_time = data["started_at"]
+        if "ended_at" in data.keys():
+            self.end_time = data["ended_at"]
+        if "log" in data.keys():
+            self.set_recommendations(data["log"])
 
     def log_debug(self, message):
         self.eval_logger.debug(message)
@@ -172,6 +202,41 @@ class Evaluation:
 
     def get_test_time(self):
         return self.end_time - self.start_time
+
+    def to_rdf_turtle(self, id):
+
+        d = None
+        eval_ttl = ""
+        spec_ttl = ""
+
+        if not self._id:
+            self._id = id
+
+        if self.end_time:
+            d = self.end_time.isoformat()
+
+        if self.score:
+            eval_ttl = Template(ld_metrics_tpl).safe_substitute(
+                id=str(self._id),
+                url=self.get_target_uri().strip(),
+                dimension=self.get_metrics(),
+                value=self.get_score(),
+                date=d,
+            )
+        ttl = ld_eval_prefix + eval_ttl
+
+        for spec in get_ld_FC_spec():
+            if self.get_metrics() == spec["id"]:
+                spec_ttl = Template(ld_FAIR_Checker_template).safe_substitute(
+                    metric_id=spec["id"],
+                    metric_label=spec["label"],
+                    metric_definition=spec["definition"],
+                    category=spec["category"],
+                    seeAlso=spec["seeAlso"],
+                )
+                ttl += spec_ttl
+
+        return ttl
 
     def __str__(self):
         return (

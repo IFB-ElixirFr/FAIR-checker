@@ -1,6 +1,5 @@
 import copy
-from asyncio.log import logger
-from unittest import result
+
 import eventlet
 
 # from https://github.com/eventlet/eventlet/issues/670
@@ -10,6 +9,7 @@ eventlet.monkey_patch()
 import sys
 from flask import (
     Flask,
+    Response,
     request,
     render_template,
     session,
@@ -30,13 +30,14 @@ from os import environ, path
 from dotenv import load_dotenv, dotenv_values
 import secrets
 import time
+from string import Template
 import os
 import io
 import uuid
 import argparse
 import functools
 from argparse import RawTextHelpFormatter
-from datetime import timedelta
+from datetime import datetime, timedelta
 import json
 from json import JSONDecodeError
 from pathlib import Path
@@ -77,6 +78,10 @@ from profiles.ProfileFactory import (
 import time
 import atexit
 import requests
+from requests.exceptions import ConnectionError
+from pymongo import MongoClient
+from bson import ObjectId
+from bson.errors import InvalidId
 
 requests.packages.urllib3.disable_warnings(
     requests.packages.urllib3.exceptions.InsecureRequestWarning
@@ -153,7 +158,6 @@ else:
 
     dev_log_handler.setFormatter(dev_formatter)
     dev_logger.addHandler(dev_log_handler)
-
     dev_logger.setLevel(logging.DEBUG)
 
     # Prevent PROD logger from output
@@ -250,9 +254,26 @@ FILE_UUID = ""
 
 DICT_TEMP_RES = {}
 
-STATUS_BIOPORTAL = requests.head("https://bioportal.bioontology.org/").status_code
-STATUS_OLS = requests.head("https://www.ebi.ac.uk/ols/index").status_code
-STATUS_LOV = requests.head("https://lov.linkeddata.es/dataset/lov/sparql").status_code
+# Get status from bioportal external service
+try:
+    STATUS_BIOPORTAL = requests.head("https://bioportal.bioontology.org/").status_code
+except ConnectionError:
+    STATUS_BIOPORTAL = 0
+
+# Get statust from OLS external service
+try:
+    STATUS_OLS = requests.head("https://www.ebi.ac.uk/ols/index").status_code
+except ConnectionError:
+    STATUS_OLS = 0
+
+# Get statust from LOV external service
+try:
+    STATUS_LOV = requests.head(
+        "https://lov.linkeddata.es/dataset/lov/sparql"
+    ).status_code
+except ConnectionError:
+    STATUS_LOV = 0
+
 
 DICT_BANNER_INFO = {"banner_message_info": {}}
 
@@ -456,33 +477,183 @@ for key in METRICS_CUSTOM.keys():
     generate_check_api(METRICS_CUSTOM[key])
 
 
-@fc_check_namespace.route("/metrics_all")
-# @fc_check_namespace.doc(url_fields)
-class MetricEvalAll(Resource):
-    # reqparse = None
-    # def __init__(self, args):
-    #     self.reqparse = reqparse.RequestParser()
-    #     self.reqparse.add_argument('url', type = str, required = True, location='args', help="Name cannot be blank!")
-    #     # self.reqparse.add_argument('test', type = str, required = True, location='args')
-    #     # super(MetricEvalAll, self).__init__()
+@app.route("/data/<ID>")
+def derefLD(ID):
+    mimetype = None
+    if "Content-Type" in request.headers:
+        mimetype = request.headers["Content-Type"].split(";")[0]
 
-    @fc_check_namespace.doc("Evaluates all FAIR metrics at once")
+    try:
+        client = MongoClient()
+        db = client.fair_checker
+        evaluations = db.evaluations
+        eval_json = evaluations.find_one({"_id": ObjectId(ID)})
+        e = Evaluation()
+        e.build_from_json(data=eval_json)
+        ttl = e.to_rdf_turtle(id=ID)
+        kg = ConjunctiveGraph()
+        try:
+            kg.parse(data=ttl, format="turtle")
+        except Exception:
+            return Response(
+                "Error while parsing RDF:\n\n" + e.to_rdf_turtle(id=ID), mimetype="text"
+            )
+        if mimetype == "application/json":
+            return Response(kg.serialize(format="json-ld"), mimetype="application/json")
+        elif mimetype == "application/ld+json":
+            return Response(
+                kg.serialize(format="json-ld"), mimetype="application/ld+json"
+            )
+        elif mimetype == "application/rdf+xml":
+            return Response(kg.serialize(format="xml"), mimetype="application/rdf+xml")
+        elif mimetype == "text/n3":
+            return Response(kg.serialize(format="nt"), mimetype="text/n3")
+        elif mimetype == "text/nt":
+            return Response(kg.serialize(format="nt"), mimetype="text/n3")
+        elif mimetype == "text/turtle":
+            return Response(kg.serialize(format="turtle"), mimetype="text/turtle")
+        else:
+            return Response(kg.serialize(format="turtle"), mimetype="text/turtle")
+    except InvalidId:
+        return Response(f"Cannot find evaluation {ID}", mimetype="text")
+
+
+# Generate machine readable FAIR assessment report
+@app.route("/assessment/<ID>")
+def deref_assessment_LD(ID):
+    mimetype = None
+    if "Content-Type" in request.headers:
+        mimetype = request.headers["Content-Type"].split(";")[0]
+    try:
+        client = MongoClient()
+        db = client.fair_checker
+        assessments = db.assessments
+        assess_json = assessments.find_one({"_id": ObjectId(ID)})
+
+        target_url = assess_json["target_url"]
+        score = assess_json["score"]
+        evals = assess_json["wasDerivedFrom"]
+        genAtTime = assess_json["generatedAtTime"]
+
+        print(target_url)
+        print(score)
+        print(evals)
+
+        prefix = """
+@prefix daq: <http://purl.org/eis/vocab/daq#> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix dqv: <http://www.w3.org/ns/dqv#> .
+@prefix duv: <http://www.w3.org/ns/duv#> .
+@prefix oa: <http://www.w3.org/ns/oa#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix sdmx-attribute: <http://purl.org/linked-data/sdmx/2009/attribute#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+@prefix : <https://fair-checker.france-bioinformatique.fr/data/> .
+"""
+        assess_tpl = """
+:$id
+    a dqv:QualityMeasurement ;
+    dqv:computedOn <$url> ;
+    dqv:value "$value"^^xsd:integer ;
+    prov:generatedAtTime "$date"^^xsd:dateTime ;
+    prov:wasAttributedTo <https://github.com/IFB-ElixirFr/fair-checker> ;
+    prov:wasDerivedFrom $evaluations ;
+    rdfs:seeAlso <https://doi.org/10.1186/s13326-023-00289-5> ."""
+
+        assess_ttl = Template(assess_tpl).safe_substitute(
+            id=str(ID),
+            url=target_url,
+            value=score,
+            date=genAtTime.isoformat(),
+            evaluations="<" + ">, <".join(evals) + ">",
+        )
+        ttl = prefix + assess_ttl
+        print(ttl)
+
+        kg = ConjunctiveGraph()
+        try:
+            kg.parse(data=ttl, format="turtle")
+        except Exception:
+            return Response("Error while parsing RDF:\n\n" + ttl, mimetype="text")
+        if mimetype == "application/json":
+            return Response(kg.serialize(format="json-ld"), mimetype="application/json")
+        elif mimetype == "application/ld+json":
+            return Response(
+                kg.serialize(format="json-ld"), mimetype="application/ld+json"
+            )
+        elif mimetype == "application/rdf+xml":
+            return Response(kg.serialize(format="xml"), mimetype="application/rdf+xml")
+        elif mimetype == "text/n3":
+            return Response(kg.serialize(format="n3"), mimetype="text/n3")
+        elif mimetype == "text/turtle":
+            return Response(kg.serialize(format="turtle"), mimetype="text/turtle")
+        else:
+            return Response(kg.serialize(format="turtle"), mimetype="text/turtle")
+    except InvalidId:
+        return Response(f"Cannot find evaluation {ID}", mimetype="text")
+
+
+@fc_check_namespace.route("/metrics_all")
+class MetricEvalAll(Resource):
+    @fc_check_namespace.doc(
+        "Evaluates all FAIR metrics at once, and produces a JSON-LD output based on the DQV and PROV ontologies"
+    )
     @fc_check_namespace.expect(reqparse)
     def get(self):
-        """All FAIR metrics"""
-
+        """All FAIR metrics, producing a JSON-LD output"""
         args = reqparse.parse_args()
         url = args["url"]
-
         web_res = WebResource(url)
-
         metrics_collection = []
+
         for metric_key in METRICS_CUSTOM.keys():
             metric = METRICS_CUSTOM[metric_key]
             metric.set_web_resource(web_res)
             metrics_collection.append(metric)
 
-        # metrics_collection = FAIRMetricsFactory.get_FC_impl(web_res)
+        results = []
+        kg = ConjunctiveGraph()
+        for metric in metrics_collection:
+            result = metric.evaluate()
+            data = {
+                "metric": result.get_metrics(),
+                "score": result.get_score(),
+                "target_uri": result.get_target_uri(),
+                "eval_time": str(result.get_test_time()),
+                "recommendation": result.get_recommendation(),
+                "comment": result.get_log(),
+            }
+            r = result.persist(str(SOURCE.API))
+            kg.parse(data=result.to_rdf_turtle(id=r.inserted_id), format="turtle")
+            results.append(data)
+
+        # print(kg.serialize(format="turtle"))
+        json_str = kg.serialize(format="json-ld", indent=4)
+        json_obj = json.loads(json_str)
+        return json_obj
+
+
+@fc_check_namespace.route("/legacy/metrics_all")
+class MetricEvalAllLegacy(Resource):
+    @fc_check_namespace.doc(
+        "Evaluates all FAIR metrics at once, and produces a JSON output"
+    )
+    @fc_check_namespace.expect(reqparse)
+    def get(self):
+        """All FAIR metrics (legacy)"""
+        args = reqparse.parse_args()
+        url = args["url"]
+        web_res = WebResource(url)
+        metrics_collection = []
+
+        for metric_key in METRICS_CUSTOM.keys():
+            metric = METRICS_CUSTOM[metric_key]
+            metric.set_web_resource(web_res)
+            metrics_collection.append(metric)
 
         results = []
         for metric in metrics_collection:
@@ -968,28 +1139,73 @@ def evaluate_fc_metrics(metric_name, client_metric_id, url):
 
     # Persist Evaluation oject in MongoDB
     implem = METRICS_CUSTOM[metric_name].get_implem()
-    result.persist(str(SOURCE.UI))
+    r = result.persist(str(SOURCE.UI))
 
     id = METRICS_CUSTOM[metric_name].get_id()
     csv_line = '"{}"\t"{}"\t"{}"\t"{}"\t"{}"'.format(
         id, name, score, str(evaluation_time), comment
     )
+
+    b_url = str(request.base_url)
+    if "socket.io" in str(request.base_url):
+        b_url = str(request.base_url).split("socket.io/")[0]
+
     csv_line = {
         "id": id,
         "name": name,
         "score": score,
         "time": str(evaluation_time),
         "comment": comment,
+        "uri": b_url + "data/" + str(r.inserted_id),
+        "target_url": url,
     }
     emit_json = {
+        "id": id,
         "score": str(score),
         "time": str(evaluation_time),
         "comment": comment,
         "recommendation": recommendation,
         "csv_line": csv_line,
-        # "name": name,
+        "uri": b_url + "data/" + str(r.inserted_id),
+        "name": name,
+        "target_url": url,
     }
     emit("done_" + client_metric_id, emit_json)
+
+
+@socketio.on("done_fair_assessment")
+def handle_done_fair_assessment(data):
+    dev_logger.info("FAIR assessment done !")
+    dev_logger.info(data)
+
+    client = MongoClient()
+    db = client.fair_checker
+    db_assessments = db.assessments
+
+    evals = []
+
+    for k, v in data["wasDerivedFrom"].items():
+        evals.append(v["uri"])
+
+    assessment = {
+        "target_url": data["target_url"],
+        "score": data["score"],
+        "wasDerivedFrom": evals,
+        "generatedAtTime": datetime.now(),
+    }
+
+    b_url = str(request.base_url)
+    if "socket.io" in str(request.base_url):
+        b_url = str(request.base_url).split("socket.io/")[0]
+
+    r = db_assessments.insert_one(assessment)
+    emit(
+        "persisted_assessment",
+        {
+            "score": assessment["score"],
+            "uri": b_url + "assessment/" + str(r.inserted_id),
+        },
+    )
 
 
 @socketio.on("quick_structured_data_search")

@@ -18,7 +18,7 @@ class I1_Impl(AbstractFAIRMetrics):
         self.principle_tag = "I1"
         self.implem = "FAIR-Checker"
         self.desc = """
-            FAIR-Checker verifies that at least one RDF triple can be found in metadata. 
+        FAIR-Checker verifies that at least one RDF triple can be found in metadata.
         """
 
     def weak_evaluate(self):

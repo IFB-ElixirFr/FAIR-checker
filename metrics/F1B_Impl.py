@@ -83,8 +83,7 @@ class F1B_Impl(AbstractFAIRMetrics):
         self.principle_tag = "F1B"
         self.implem = "FAIR-Checker"
         self.desc = """
-            Weak : FAIR-Checker verifies that at least one namespace from identifiers.org is used in metadata.<br><br>
-            Strong : FAIR-Checker verifies that the  “identifier” property from DCTerms or Schema.org vocabularies is present in metadata. 
+Weak : FAIR-Checker verifies that at least one namespace from identifiers.org is used in metadata.<br> Strong : FAIR-Checker verifies that the  “identifier” property from DCTerms or Schema.org vocabularies is present in metadata.
         """
 
     def weak_evaluate(self):

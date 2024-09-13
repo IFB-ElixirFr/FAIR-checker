@@ -27,9 +27,7 @@ class F2A_Impl(AbstractFAIRMetrics):
         self.principle_tag = "F2A"
         self.implem = "FAIR-Checker"
         self.desc = """
-            For weak assessment, FAIR-Checker verifies that at least one RDF triple can be found in metadata. 
-            For strong assessment, it searches for at least one property in dct:title dct:description dct:accessURL
-            dct:downloadURL dcat:endpointURL dcat:endpointDescription.    
+            Weak: FAIR-Checker verifies that at least one RDF triple can be found in metadata.<br> Strong: it searches for at least one property in dct:title dct:description dct:accessURL dct:downloadURL dcat:endpointURL dcat:endpointDescription.
         """
 
     def weak_evaluate(self, eval=None) -> Evaluation:

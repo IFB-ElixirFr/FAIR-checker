@@ -45,18 +45,17 @@
   $("#test_{{f.id}}").on('click', function ($e) {
     $e.preventDefault();
     console.log("Testing metric {{f.name}}");
-    console.log("ID: " + "{{f.id}}");
-    console.log("Value: " + "{{f.api_url}}");
     $(this).addClass("is-loading");
 
-    $("#row_score_{{f.id}}").text("");
+    $("#row_status_{{f.id}}").text("");
+    $("#row_status_{{f.id}}").attr("score", "0");
     $("#modal_score_{{f.id}}").text("");
     $("#row_time_{{f.id}}").text("");
     $("#modal_time_{{f.id}}").text("");
     $("#row_comment_{{f.id}}").parent("div").find('button').hide();
     $("#modal_comment_{{f.id}}").text("");
     $("#row_status_{{f.id}}").removeClass("is-danger is-success");
-    $("#row_status_{{f.id}}").text("Status");
+    //$("#row_status_{{f.id}}").text("Status");
     $("#test_row_guideline_{{f.id}}").text("");
     $("#modal_guideline_{{f.id}}").text("");
     $("#show_more_reco_{{f.id}}").hide();
@@ -99,20 +98,14 @@
   // event handlers
   //////////////////
 
-  socket.on('connect', function () {
-    socket.emit('hello', { data: 'I\'m connected!' });
-    console.log('hello message sent');
-  });
-
   socket.on('disconnect', function () {
     content_uuid = $("#download_csv").data("dl");
     socket.emit('disconnect', { uuid: content_uuid });
     console.log('send dc message');
   });
 
-
-
-  var csv_lines = []
+  var csv_lines = [];
+  var fair_assesment = {};
 
   {% for f in f_metrics %}
   // modal listner
@@ -163,47 +156,39 @@
   });
 
   socket.on('done_{{f.id}}', function (value) {
-    console.log('DONE {{f.name}}');
+    // console.log('DONE {{f.name}}');
+    console.log(value);
     $("#test_{{f.id}}").removeClass("is-loading");
+    $("#btn_test_all").removeClass("is-loading");
     // $("#test_{{f.id}}").prop("disabled", true);
-
-    console.log(value['time']);
-    console.log(value['score']);
-    console.log("toto");
-    console.log(value['csv_line']);
+    
+    let pre_link_ld = '<a href='+value["uri"]+' target="_blank">';
+    let post_link_ld = '</a>';
+    // console.log(value['time']);
+    // console.log(value['score']);
+    // console.log(value['csv_line']);
     csv_lines.push(value['csv_line']);
+    // console.log(value['csv_line']);
+    // console.log(value['name']);
+    // console.log(value['uri']);
+    let k = value['name'];
+    let v = value['uri'];
+    fair_assesment[k] = {score: value['score'], uri: v};
+    // console.log(fair_assesment);
 
-
-
-
-    // change status color
-    if (value['score'] >= 1) {
-      $("#row_status_{{f.id}}").removeClass("is-danger");
-      $("#row_status_{{f.id}}").addClass("is-success");
-      $("#row_status_{{f.id}}").text("Success");
-      $("#result_{{f.id}}").addClass("is-success");
-      // update_checkbox color
-      $("#checkbox_test_{{f.id}}").parent("label").parent("td").css('background-color', '#DBF2F2');
-      $("#metrics_row_{{ f.id }}").css('background-color', '#dbf2f2');
-      $("#metrics_row_{{ f.id }}").hover(function(){
-        $(this).css("background-color", "#c7ebeb");
-      }, function(){
-        $(this).css("background-color", "#dbf2f2");
-      });
+    var badge;
+    if (value['score'] == 2) {
+      color = "green";
+    } else if (value['score'] == 1) {
+      color = "orange";
     } else {
-      $("#row_status_{{f.id}}").removeClass("is-success");
-      $("#row_status_{{f.id}}").addClass("is-danger");
-      $("#row_status_{{f.id}}").text("Failure");
-      $("#result_{{f.id}}").addClass("is-danger");
-      // update_checkbox color
-      $("#checkbox_test_{{f.id}}").parent("label").parent("td").css('background-color', '#FFE0E6');
-      $("#metrics_row_{{ f.id }}").css('background-color', '#ffe6eb');
-      $("#metrics_row_{{ f.id }}").hover(function(){
-        $(this).css("background-color", "#ffccd6");
-      }, function(){
-        $(this).css("background-color", "#ffe6eb");
-      });
+      color = "red";
     }
+
+    badge = '<a href="'+value["uri"]+'" target="_blank"><img src="https://img.shields.io/badge/FAIR_principle_'+value["name"]+'-'+value["score"]+'/2-'+color+'" alt="'+value["uri"]+' - 2 (FAIR-Checker)"></a>';
+    $("#row_status_{{f.id}}").attr("category", "{{f.principle_category}}");
+    $("#row_status_{{f.id}}").attr("score", value["score"]);
+    $("#row_status_{{f.id}}").html(badge);
 
     // add score to result
     $("#row_score_{{f.id}}").text(value['score']);
@@ -220,17 +205,16 @@
 
 
     //update progressbar
-    // current = parseInt($("#p1").attr("value"));
-    progress = 0
-    $("#p1").attr("value", progress);
-    $('[id^=row_score]').each(function (progress) {
-      if ($(this).text() != "") {
-        $("#p1").attr("value", progress + 1);
-
+    $("#p1").attr("value", 0);
+    $('[id^=row_status]').each(function () {
+      if ($(this).html() != "") {
+        v = parseInt($("#p1").attr("value"));
+        $("#p1").attr("value", v + 1);
+       //  console.log(v + 1);
       }
     });
-    console.log($("#p1").parent().closest('div').data("label"));
-    $("#p1").parent().closest('div').data("label", "toto");
+    // console.log($("#p1").parent().closest('div').data("label"));
+    // $("#p1").parent().closest('div').data("label", "toto");
 
     // add recommendation if score == 0
     if (value['recommendation'] != "No recommendation, metric validated") {
@@ -275,30 +259,88 @@
     // open card
     $("#metric_card_content_{{f.id}}").removeClass("is-hidden");
 
-    // check if all metric are done
+    // check if all metrics are done
     is_loading = false
     $('[id^=test_]').each(function (id) {
       if ($(this).hasClass("is-loading")) {
         is_loading = true;
       }
     });
-    if (!is_loading) {
-      console.log("all done !!!!");
+
+
+    
+
+    has_pending_assessment = false
+    $('[id^=row_status_]').each(function (id) {
+      if ($(this).html().length == 0) {
+        has_pending_assessment = true;
+      }
+    });
+
+    if (! has_pending_assessment) {
       $("#btn_test_checked").removeClass("is-loading");
       $("#btn_test_all").removeClass("is-loading");
       // $("#btn_test_all").prop("disabled", false);
       $("#download_csv").prop("disabled", false);
       $("#btn_test_checked").prop("disabled", false);
+
+      var aggregated_score = 0;
+      n = 0;
+      for (const [key, value] of Object.entries(fair_assesment)) {
+        console.log(key + ": " + value.score);
+        aggregated_score += +value.score;
+        n +=1 ;
+      }
+      normalized_score = (aggregated_score*100/(2*n)).toFixed(2)
+
+      // console.log("aggregated_score: "+aggregated_score);
+      console.log("global_fair_score: "+ normalized_score + "%");
+
+      //store the global assessment server-side
+      socket.emit('done_fair_assessment', {
+        target_url: value["target_url"],
+        score: normalized_score,
+        wasDerivedFrom: fair_assesment,
+      });
+      console.log("done_fair_assessment");
     }
 
     // put checkbox in tested state true and trigger change
     $("#checkbox_test_{{f.id}}").data('tested', true).trigger("change");
 
-    update_radar_chart();
+    // update_radar_chart();
     update_radar_chart2();
 
   });
   {% endfor %}
+
+  socket.on('persisted_assessment', function (value) {
+    console.log("persisted_assessment");
+    console.log(value);
+  
+    var badge;
+    var color;
+
+    if (+value['score'] >= 75) {
+      color = "green";
+    } else if (+value['score'] >= 50) {
+      color = "orange";
+    } else {
+      color = "red";
+    }
+
+    //generate a persistent badge for the assessment
+    var badge_html = '<a href="'+value["uri"]+'" target="_blank"><img src="https://img.shields.io/badge/FAIR_assessment-'+value["score"]+'_%25-'+color+' alt="'+value['score']+' % FAIR"></a>';
+    var badge_md = '[!['+value['score']+' % FAIR](https://img.shields.io/badge/FAIR_assessment-'+value['score']+'_%25-'+color+')]('+value['uri']+')';
+
+    // console.log(badge_html);
+    // console.log(badge_md);
+    $("#share_title").removeClass("is-hidden");
+    $("#fair_badge").html(badge_html);
+    $("#fair_badge_html").text(badge_html);
+    $("#fair_badge_md").text(badge_md);
+
+  });
 
   //////////////////
   // exec all button
@@ -365,9 +407,16 @@
       alert("Please, enter a resource identifier !");
       return false;
     }
+    $("#p1").attr("value", 0);
     $("#btn_test_checked").prop('disabled', true);
     $("#btn_test_all").addClass("is-loading");
+    csv_lines = [];
+    aggregated_fair_assesment = [];
 
+    $('[id^=row_status_]').each(function (id) {
+      $(this).attr("score", "0");
+      $(this).text("");
+    });
 
     $('[id^=test_]').each(function (id) {
       $(this).trigger("click");
@@ -379,13 +428,10 @@
 
   //  detect doi regex
   $("#url").on('input', function (id) {
-    console.log("url updated");
     str_url = $(this).val();
     result = test_DOI(str_url);
     // console.log(n)
     if (result) {
-
-
 
       var doi_button = $('<button>', {
         "id": "doi_button",
@@ -417,16 +463,23 @@
     str_url = $(this).val();
     helper = $("#url_helper");
     statut_logo = $("#url_statut");
+    // console.log("valid url = "+is_valid_http_url(str_url))
+    // console.log("valid doi = "+test_DOI(str_url))
+
     if (is_valid_http_url(str_url) || test_DOI(str_url)) {
       socket.emit('webresource', str_url)
-      console.log("Is valid !");
+      // console.log(str_url + " is a valid URL");
       $(this).removeClass("is-danger");
       $(this).addClass("is-success");
       helper.removeClass("is-danger");
       helper.addClass("is-success");
-      helper.text("The URL/DOI is valid");
+      helper.text("Valid URL/DOI")
       statut_logo.addClass("fa-check");
       statut_logo.removeClass("fa-exclamation-triangle");
+      $("#btn_test_all").prop("disabled",false)
+      {% for f in f_metrics %}
+        $("#test_{{f.id}}").prop("disabled", false);
+      {% endfor %}
     } else if (str_url === "") {
       $(this).removeClass("is-danger");
       $(this).removeClass("is-success");
@@ -435,8 +488,11 @@
       helper.text("");
       statut_logo.removeClass("fa-check");
       statut_logo.removeClass("fa-exclamation-triangle");
+      {% for f in f_metrics %}
+        $("#test_{{f.id}}").prop("disabled", true);
+      {% endfor %}
+      $("#btn_test_all").prop("disabled",true)
     } else {
-      console.log("Is not valid !");
       $(this).removeClass("is-success");
       $(this).addClass("is-danger");
       helper.removeClass("is-success");
@@ -444,6 +500,11 @@
       helper.text("The URL/DOI is not valid");
       statut_logo.removeClass("fa-check");
       statut_logo.addClass("fa-exclamation-triangle");
+      $("#btn_test_all").prop("disabled",true)
+      {% for f in f_metrics %}
+        $("#test_{{f.id}}").prop("disabled", true);
+      {% endfor %}
+
     };
   });
 
@@ -509,18 +570,12 @@
     document.body.removeChild(downloadLink);
   });
 
-  socket.on('long', function (value) {
-    console.log('END LONG');
-    $("#notif").text(value);
-    $("#notif").removeClass("is-hidden");
-  });
-
-
   // trigger quick_structured_data_search on focus lost
   $("#quick_search_button").on('click', function () {
     console.log("focus lost");
     socket.emit('quick_structured_data_search', $("#url").val())
   });
+
   socket.on('done_data_search', function (array) {
     $("#structured_data_table > tbody").empty();
     // console.log(value);
@@ -537,9 +592,7 @@
 
   });
 
-  // socket.emit('fast');
-  //   socket.emit('slow');
-  //   socket.emit('long');
+
   });
 
   function test_DOI(str_url) {
@@ -548,14 +601,16 @@
   }
 
   function is_valid_http_url(string) {
-    let url;
-
+    var url;
+    // console.log("testing url: "+string);
     try {
       url = new URL(string);
     } catch (_) {
+      // console.log("invalid url:  "+string);
       return false;
     }
 
+    // console.log("valid url:  "+url);
     return url.protocol === "http:" || url.protocol === "https:";
   }
 
@@ -596,7 +651,7 @@
       </div>
       <div class="field is-grouped is-grouped-centered">
         <p class="control">
-          <button id="btn_test_all" class="button is-info is-large"><i class="fa fa-bar-chart fa-fw"></i>&nbsp;All
+          <button id="btn_test_all" disabled="true" class="button is-info is-large"><i class="fa fa-bar-chart fa-fw"></i>&nbsp;All
             metrics
           </button>
         </p>
@@ -635,7 +690,7 @@
     <!-- <div class="section"> -->
     <div class="columns is-centered is-vcentered">
       <div class="column is-half">
-        <progress id="p1" class="progress is-primary is-centered" value="0" max="11"></progress>
+        <progress id="p1" class="progress is-primary is-centered" value="0" max="12"></progress>
 
       </div>
       <div class="column is-narrow">
@@ -764,6 +819,10 @@
   <div class="message-body is-check">
     <h1 class="subtitle"><b>FAIR compliance</b></h1>
     <div class="content">{% include 'radar_chart.html' %}</div>
+    <h1 class="subtitle is-hidden" id="share_title"><b>Share your results</b></h1>
+    <div class="content" id="fair_badge"></div>
+    <div class="content has-text-light has-background-dark is-size-7" id="fair_badge_html"></div>
+    <div class="content has-text-light has-background-dark is-size-7" id="fair_badge_md"></div>
   </div>
 </article>
 
@@ -771,7 +830,6 @@
 <article id="metrics_details_rec" class="message">
   <div class="message-body is-check">
     <h1 class="subtitle is-inline-block"><b>Detailed results</b></h1>
-
     <button id="download_csv" data-dl="{{ uuid }}" download="results.csv" class="button is-info is-small is-pulled-right" disabled><i class="fa fa-download fa-fw"></i>&nbsp;Export</button>
 
     <div class="content">{% include 'metrics_table.html' %}</div>
