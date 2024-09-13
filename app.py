@@ -1146,9 +1146,12 @@ def evaluate_fc_metrics(metric_name, client_metric_id, url):
         id, name, score, str(evaluation_time), comment
     )
 
-    b_url = str(request.base_url)
-    if "socket.io" in str(request.base_url):
-        b_url = str(request.base_url).split("socket.io/")[0]
+    if app.config["ENV"] == "production":
+        b_url = app.config["SERVER_IP"] + "/"
+    else:
+        b_url = str(request.base_url)
+        if "socket.io" in str(request.base_url):
+            b_url = str(request.base_url).split("socket.io/")[0]
 
     csv_line = {
         "id": id,
@@ -1194,9 +1197,12 @@ def handle_done_fair_assessment(data):
         "generatedAtTime": datetime.now(),
     }
 
-    b_url = str(request.base_url)
-    if "socket.io" in str(request.base_url):
-        b_url = str(request.base_url).split("socket.io/")[0]
+    if app.config["ENV"] == "production":
+        b_url = app.config["SERVER_IP"] + "/"
+    else:
+        b_url = str(request.base_url)
+        if "socket.io" in str(request.base_url):
+            b_url = str(request.base_url).split("socket.io/")[0]
 
     r = db_assessments.insert_one(assessment)
     emit(
