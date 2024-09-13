@@ -47,14 +47,14 @@ class WebResource:
     if proxy:
         chrome_options.add_argument("--proxy-server=" + proxy)
 
-    try :
+    try:
         WEB_BROWSER_HEADLESS = webdriver.Chrome(
             service=Service(ChromeDriverManager().install()), options=chrome_options
         )
         # WEB_BROWSER_HEADLESS.implicitly_wait(20)
 
         SERVER_TIMEOUT = 10
-    except requests.ConnectionError as e :
+    except requests.ConnectionError as e:
         print(e)
         pass
 
