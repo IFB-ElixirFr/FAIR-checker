@@ -262,7 +262,7 @@ except ConnectionError:
 
 # Get statust from OLS external service
 try:
-    STATUS_OLS = requests.head("https://www.ebi.ac.uk/ols/index").status_code
+    STATUS_OLS = requests.head("https://www.ebi.ac.uk/ols4/index").status_code
 except ConnectionError:
     STATUS_OLS = 0
 
