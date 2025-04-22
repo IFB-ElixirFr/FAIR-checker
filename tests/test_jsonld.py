@@ -62,22 +62,22 @@ class JsonLDTestCase(unittest.TestCase):
     def test_http_context(self):
         kg = ConjunctiveGraph()
         kg.parse(data=self.jsonld_http_context, format="json-ld")
-        self.assertEquals(len(kg), 5)
+        self.assertEqual(len(kg), 5)
 
     def test_https_context(self):
         kg = ConjunctiveGraph()
         kg.parse(data=self.jsonld_https_context, format="json-ld")
-        self.assertEquals(len(kg), 5)
+        self.assertEqual(len(kg), 5)
 
     def test_array_context(self):
         kg = ConjunctiveGraph()
         kg.parse(data=self.jsonld_array_http_context, format="json-ld")
-        self.assertEquals(len(kg), 5)
+        self.assertEqual(len(kg), 5)
 
     def test_dict_context(self):
         kg = ConjunctiveGraph()
         kg.parse(data=self.jsonld_dict_vocab_http_context, format="json-ld")
-        self.assertEquals(len(kg), 5)
+        self.assertEqual(len(kg), 5)
 
 
 if __name__ == "__main__":
