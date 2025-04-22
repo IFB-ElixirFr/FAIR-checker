@@ -1,6 +1,5 @@
 import unittest
 import requests
-import re
 import json
 import yaml
 from rdflib import ConjunctiveGraph
@@ -14,7 +13,6 @@ from profiles.ProfileFactory import (
     profile_file_parser,
     load_profiles,
     update_profiles,
-    evaluate_profile_with_conformsto,
     evaluate_profile_from_type,
 )
 

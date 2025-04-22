@@ -1,14 +1,4 @@
-import logging
-import json
-
-import requests
-from pathlib import Path
-from urllib.parse import urlparse
-import logging
-from rdflib import URIRef
-
 from metrics.AbstractFAIRMetrics import AbstractFAIRMetrics
-from metrics.FairCheckerExceptions import FairCheckerException
 from metrics.Evaluation import Evaluation
 from metrics.recommendation import json_rec
 
@@ -76,11 +66,11 @@ class F2A_Impl(AbstractFAIRMetrics):
                 """
         query_prov = (
             self.COMMON_SPARQL_PREFIX
-            + """ 
-        ASK { 
+            + """
+        ASK {
             VALUES ?p { """
             + checked_properties
-            + """ } . 
+            + """ } .
             ?s ?p ?o .
         }
                     """

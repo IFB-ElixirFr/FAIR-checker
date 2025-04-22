@@ -13,7 +13,7 @@ from sympy import Symbol
 
 # =======================================================================================
 # =======================================================================================
-#                                Mesure FAIRChecker_V2
+#                                Measure FAIRChecker_V2
 # =======================================================================================
 # =======================================================================================
 
@@ -58,7 +58,7 @@ Data providers and consumers can check how FAIR are web resources. Developers ca
 # Requirements
 # ----------------------
 
-## description des requirements et ajout dans le dictionnaire
+# description des requirements et ajout dans le dictionnaire
 FC_R_F1A = Requirement(
     "FC_R_F1A",
     Description="""FAIRChecker checks that the resource identifier is a reachable URL. It's better if the URL is persistent (WebID, PURL or DOI).""",

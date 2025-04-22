@@ -3,39 +3,22 @@
 
 import os
 
-import urllib
-import urllib.request
-import json
 import requests
 from requests.exceptions import SSLError
 import rdflib
-from rdflib import Graph, plugin
-from rdflib.serializer import Serializer
 import argparse
 import termcolor
 from string import Template
 
-import itertools
 import threading
 import time
 import sys
 from datetime import datetime, timedelta
 
-# import joblib
-# from joblib import Parallel, delayed
 import multiprocessing
 from multiprocessing import Pool
 
-from tqdm import *
-
-#!!!!! fait bugguer enumerate()
-# from threading import *
-
-import random
-
-# from reprint import output
-
-import subprocess
+from tqdm import tqdm
 
 
 # timeout (connect, read) in secondes
@@ -174,12 +157,6 @@ def testMetric(metric_api_url, data):
     @return String Result returned by the request that is JSON-LD formated
     """
 
-    ##### BRICOLAGE A MODIFIER QUAND FAIRMETRICS SERA A JOUR
-    # base_url = "http://linkeddata.systems/cgi-bin/FAIR_Tests/"
-    # sub_url = metric_api_url.split('/')[5]
-    # metric_api_url = base_url + sub_url
-    # print(metric_api_url)
-
     # TODO return after a max number of retry (e.g. 3 or 5)
     while True:
         try:
@@ -299,7 +276,7 @@ def testMetrics(GUID):
                 )
                 end_time = getCurrentTime()
                 # print(metric_evaluation_result_text)
-                metric_evaluation_result = json.loads(metric_evaluation_result_text)
+                # metric_evaluation_result = json.loads(metric_evaluation_result_text)
                 test_time = end_time - start_time
 
                 if PRINT_DETAILS:
@@ -382,7 +359,6 @@ def testMetrics(GUID):
         "/" + OUTPUT_PREF + "_comment.tsv",
     )
 
-    ### RAJOUT SOMME SCORES et temps dans stdout
     # if args.score:
     # if args.time:
     return (
@@ -416,11 +392,9 @@ def pTestMetric(metric):
         metric_evaluation_result_text = testMetric(metric[0]["smarturl"], metric[1])
         end_time = getCurrentTime()
         # print(metric_evaluation_result_text)
-        metric_evaluation_result = json.loads(metric_evaluation_result_text)
+        # metric_evaluation_result = json.loads(metric_evaluation_result_text)
         test_time = end_time - start_time
 
-        # get comment
-        # REQUETE SPARQL !!!!!
         comment = requestResultSparql(metric_evaluation_result_text, "schema:comment")
         # remove empty lines from the comment
         comment = cleanComment(comment)
@@ -480,7 +454,6 @@ def requestResultSparql(metric_evaluation_result_text, term):
 def sumScoresTimes(headers_list, test_score_list, time_list):
     """"""
 
-    sum_score_dict = {}
     sum_dict = {}
     for i, principle in enumerate(headers_list):
         if i > 0:
@@ -489,7 +462,7 @@ def sumScoresTimes(headers_list, test_score_list, time_list):
             time = time_list[i]
 
             # scores
-            if not lettre in sum_dict.keys():
+            if lettre not in sum_dict.keys():
                 sum_dict[lettre] = [(score, time)]
             else:
                 sum_dict[lettre].append((score, time))
@@ -571,7 +544,6 @@ def writeScoreFile(headers_list, test_score_list, output_dir, filename):
     @param headers_list List Principle of each metric that will be used as headers
     @param filename String The name of the output file
     """
-    logname = "result_metrics_test.log"
 
     if not os.path.isdir(output_dir):
         os.makedirs(output_dir)
@@ -799,7 +771,6 @@ def readDOIsFile(filename):
 def webTestMetrics(GUID_test):
     global args
     args = parser.parse_args()
-    PRINT_DETAILS = True
     args.description = True
     args.thread_num = multiprocessing.cpu_count()
     args.directory = "web_test_dir"

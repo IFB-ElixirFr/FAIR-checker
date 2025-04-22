@@ -1,14 +1,10 @@
 # from abc import ABC, abstractmethod
 # import logging
 
-import requests
-
 from rdflib import ConjunctiveGraph, URIRef
 from rdflib.namespace import RDF
 from jinja2 import Template
 from pyshacl import validate
-from os import environ, path
-from metrics.WebResource import WebResource
 
 # class AbstractProfile(ABC):
 
@@ -246,8 +242,6 @@ class Profile:
         # print(str(self.get_name()) + " targeting -> " + str(self.get_target()))
         # print(kg.serialize(format="turtle"))
 
-        results = {}
-
         # list classes
         for s, p, o in kg.triples((None, RDF.type, None)):
             # print()
@@ -292,8 +286,6 @@ class Profile:
         print(f"Computing loose similarity  for profile {self.shape_name}")
         # print(len(kg))
         # print(kg.serialize(format="turtle"))
-
-        results = {}
 
         # list classes
         for s, p, o in kg.triples((None, RDF.type, None)):

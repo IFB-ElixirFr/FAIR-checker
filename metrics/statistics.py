@@ -231,7 +231,7 @@ def total_monthly():
     client = MongoClient()
     db = client.fair_checker
 
-    a_year_ago = datetime.now() - timedelta(356)
+    # a_year_ago = datetime.now() - timedelta(356)
     two_year_ago = datetime.now() - timedelta(356 * 2)
     # success = ["1", "2"]
 

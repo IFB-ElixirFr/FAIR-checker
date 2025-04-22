@@ -1,7 +1,7 @@
 # This workflow will install Python dependencies, run tests and lint with a single version of Python
 # For more information see: https://help.github.com/actions/language-and-framework-guides/using-python-with-github-actions
 
-name: Build and test
+name: Code quality
 
 on:
   workflow_dispatch:
@@ -53,16 +53,6 @@ jobs:
           conda info
           conda activate test
           # stop the build if there are Python syntax errors or undefined names
-          flake8 . --exclude=.venv,.git --count --select=E9,F63,F7,F82 --show-source --statistics
+          flake8 . --exclude=.venv,.git,.ipynb_checkpoints,notebooks --count --select=E9,F63,F7,F82,E262,F841,E265,E266,E712,E713,F401,F403,F405,F811 --show-source --statistics
           # exit-zero treats all errors as warnings. The GitHub editor is 127 chars wide
-          flake8 . --exclude=.venv,.git --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
-      #----------------------------------------------
-      #              run test suite
-      #----------------------------------------------
-      - name: Run tests
-        shell: bash -l {0}
-        run: |
-          conda info
-          conda activate test
-          coverage run --omit '.venv/*' -m pytest tests
-          coverage report -m
+          flake8 . --exclude=.venv,.git,.ipynb_checkpoints,notebooks --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics

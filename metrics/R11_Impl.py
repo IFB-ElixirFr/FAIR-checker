@@ -1,17 +1,4 @@
 from metrics.AbstractFAIRMetrics import AbstractFAIRMetrics
-from selenium import webdriver
-from selenium.webdriver.chrome.options import Options
-import requests
-import extruct
-
-import rdflib
-from rdflib import ConjunctiveGraph
-
-import json
-
-import validators
-
-from metrics.util import ask_LOV as is_in_LOV
 from metrics.recommendation import json_rec
 
 
@@ -48,14 +35,14 @@ class R11_Impl(AbstractFAIRMetrics):
         eval.set_metrics(self.principle_tag)
 
         checked_properties = """
-        schema:license 
-        dct:license 
-        doap:license 
-        dbpedia-owl:license 
-        cc:license 
-        xhv:license 
-        sto:license 
-        nie:license 
+        schema:license
+        dct:license
+        doap:license
+        dbpedia-owl:license
+        cc:license
+        xhv:license
+        sto:license
+        nie:license
         """
         query_licenses = (
             self.COMMON_SPARQL_PREFIX

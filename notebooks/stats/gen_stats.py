@@ -4,8 +4,7 @@ sys.path.append("../")
 
 import pandas as pd
 from pymongo import MongoClient
-from datetime import datetime, date, timedelta
-from dateutil.relativedelta import relativedelta
+from datetime import datetime, timedelta
 import seaborn as sns
 import matplotlib.pyplot as plt
 import json
@@ -105,7 +104,7 @@ domains = {}
 for e in evaluations.find({}):
     url = urlparse(e["target_uri"])
     d = url.netloc
-    if not d in domains.keys():
+    if d not in domains.keys():
         domains[d] = 1
     domains[d] += 1
 

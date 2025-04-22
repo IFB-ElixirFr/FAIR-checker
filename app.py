@@ -12,22 +12,17 @@ from flask import (
     Response,
     request,
     render_template,
-    session,
     send_file,
     send_from_directory,
     make_response,
-    Blueprint,
-    url_for,
 )
 from flask_restx import Resource, Api, fields, reqparse
-from flask_swagger_ui import get_swaggerui_blueprint
 from flask_cors import CORS
 from flask_socketio import SocketIO
 from flask_socketio import emit
 from flask_caching import Cache
-from flask import current_app
-from os import environ, path
-from dotenv import load_dotenv, dotenv_values
+from os import path
+from dotenv import dotenv_values
 import secrets
 import time
 from string import Template
@@ -43,7 +38,6 @@ from json import JSONDecodeError
 from pathlib import Path
 import rdflib
 from rdflib import ConjunctiveGraph, URIRef
-from rdflib.namespace import RDF
 import extruct
 import logging
 from rich.console import Console
@@ -51,31 +45,21 @@ from rich.table import Table
 from rich.text import Text
 from rich.progress import track
 import metrics.util as util
-import metrics.statistics as stats
 from metrics import test_metric
 from metrics.FAIRMetricsFactory import FAIRMetricsFactory
 from metrics.WebResource import WebResource
 from metrics.Evaluation import Result, Evaluation
 from profiles.bioschemas_shape_gen import validate_any_from_KG
-from profiles.bioschemas_shape_gen import validate_any_from_microdata
 from metrics.util import SOURCE, inspect_onto_reg
 from metrics.F1B_Impl import F1B_Impl
-from metrics.F1B_Impl import F1B_Impl
-from urllib.parse import urlparse
-
-from profiles.Profile import Profile
 from profiles.ProfileFactory import (
-    ProfileFactory,
     PROFILES,
-    find_conformsto_subkg,
     load_profiles,
     update_profiles,
-    evaluate_profile_with_conformsto,
     evaluate_profile_from_type,
     dyn_evaluate_profile_with_conformsto,
 )
 
-import time
 import atexit
 import requests
 from requests.exceptions import ConnectionError
@@ -132,7 +116,7 @@ if app.config["ENV"] == "production":
     prod_log_handler = logging.FileHandler("prod.log")
     # prod_log_handler = logging.StreamHandler(sys.stdout)
 
-    ### Add a formatter
+    # Add a formatter
     prod_formatter = logging.Formatter(
         "%(asctime)s - [%(levelname)s] %(message)s", "%d/%m/%Y %H:%M:%S"
     )
@@ -151,7 +135,7 @@ else:
     app.config.from_object("config.DevelopmentConfig")
 
     dev_log_handler = logging.StreamHandler()
-    ### Add a formatter
+    # Add a formatter
     dev_formatter = logging.Formatter(
         "[%(name)s-%(levelname)s][%(filename)s-%(lineno)d] - %(message)s",
     )
@@ -1016,7 +1000,6 @@ def handle_metric(json):
 
 
 def evaluate_fairmetrics(json, metric_name, client_metric_id, url):
-    id = METRICS[metric_name].get_id()
     api_url = METRICS[metric_name].get_api()
     principle = METRICS[metric_name].get_principle()
 
@@ -1138,7 +1121,6 @@ def evaluate_fc_metrics(metric_name, client_metric_id, url):
     # print(recommendation)
 
     # Persist Evaluation oject in MongoDB
-    implem = METRICS_CUSTOM[metric_name].get_implem()
     r = result.persist(str(SOURCE.UI))
 
     id = METRICS_CUSTOM[metric_name].get_id()
@@ -1593,10 +1575,6 @@ def handle_annotationn(data):
                 else:
                     new_kg.add((uri, rdflib.URIRef(p), rdflib.Literal(value)))
 
-        # print("****** Turtle syntax *****")
-        # print(new_kg.serialize(format='turtle').decode())
-        # print("**************************")
-
         emit("send_bs_annot", str(new_kg.serialize(format="json-ld")))
 
 
@@ -1606,16 +1584,11 @@ def handle_describe_opencitation(data):
     sid = request.sid
     kgs = KGS[sid]
     uri = str(data["url"])
-    graph = str(data["graph"])
-    # kg = ConjunctiveGraph()
-    # kg.parse(data=graph, format="turtle")
-    # check if id or doi in uri
     if util.is_DOI(uri):
         uri = util.get_DOI(uri)
         print(f"FOUND DOI: {uri}")
     kgs = util.describe_opencitation(uri, kgs)
 
-    # nb_triples = len(kg)
     kgs_len = named_kg_len(kgs)
 
     emit(
@@ -1633,15 +1606,10 @@ def handle_describe_wikidata(data):
     sid = request.sid
     kgs = KGS[sid]
     uri = str(data["url"])
-    graph = str(data["graph"])
-    # kg = ConjunctiveGraph()
-    # kg.parse(data=graph, format="turtle")
-    # check if id or doi in uri
     if util.is_DOI(uri):
         uri = util.get_DOI(uri)
         print(f"FOUND DOI: {uri}")
     kgs = util.describe_wikidata(uri, kgs)
-    # nb_triples = len(kg)
 
     kgs_len = named_kg_len(kgs)
 
@@ -1660,15 +1628,10 @@ def handle_describe_loa(data):
     sid = request.sid
     kgs = KGS[sid]
     uri = str(data["url"])
-    graph = str(data["graph"])
-    # kg = ConjunctiveGraph()
-    # kg.parse(data=graph, format="turtle")
-    # check if id or doi in uri
     if util.is_DOI(uri):
         uri = util.get_DOI(uri)
         print(f"FOUND DOI: {uri}")
     kgs = util.describe_openaire(uri, kgs)
-    # nb_triples = len(kgs)
 
     kgs_len = named_kg_len(kgs)
 
@@ -1712,7 +1675,7 @@ def handle_embedded_annot(data):
 
     # kg = util.extruct_to_rdf(d)
 
-    base_path = Path(__file__).parent  ## current directory
+    base_path = Path(__file__).parent  # current directory
     static_file_path = str((base_path / "static/data/jsonldcontext.json").resolve())
 
     # remove whitespaces from @id values after axtruct
@@ -1790,11 +1753,9 @@ def handle_complete_kg(json):
 
 @socketio.on("check_kg")
 def check_vocabularies(data):
-    step = 0
     sid = request.sid
     print(sid)
-    uri = str(data["url"])
-    if not sid in KGS.keys():
+    if sid not in KGS.keys():
         handle_embedded_annot_2(data)
     elif not KGS[sid]:
         handle_embedded_annot_2(data)
@@ -1806,24 +1767,17 @@ def check_vocabularies(data):
 @DeprecationWarning
 @socketio.on("check_kg_shape")
 def check_kg_shape(data):
-    step = 0
     sid = request.sid
     print(sid)
-    uri = str(data["url"])
-    if not sid in KGS.keys():
+    if sid not in KGS.keys():
         handle_embedded_annot_2(data)
     elif not KGS[sid]:
         handle_embedded_annot_2(data)
     kg = KGS[sid]
 
-    # TODO replace this code with profiles.bioschemas_shape_gen
     warnings, errors = util.shape_checks(kg)
     data = {"errors": errors, "warnings": warnings}
     emit("done_check_shape", data)
-
-    # replacement
-    # results = bioschemas_shape.validate_any_from_microdata(uri)
-    # print(results)
 
 
 @DeprecationWarning
@@ -1844,8 +1798,6 @@ def check_kg_shape_old(data):
 
 
 def evaluate_bioschemas_profiles(kg):
-    # A instancier au lancement du serveur et actualiser lors d'updates
-    # profiles = ProfileFactory.create_all_profiles_from_specifications()
 
     results = {}
 
@@ -2100,9 +2052,6 @@ def kg_metrics_2():
 @app.route("/test_url", methods=["POST"])
 def testUrl():
     test_url = request.form.get("url")
-
-    number = test_metric.getMetrics()
-    # socketio.emit('newnumber', {'number': number}, namespace='/test')
     socketio.emit("my response", {"data": "got it!"}, namespace="/test")
 
     (

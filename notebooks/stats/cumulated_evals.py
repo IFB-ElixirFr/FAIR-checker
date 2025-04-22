@@ -1,7 +1,6 @@
 import pandas as pd
 from pymongo import MongoClient
-from datetime import datetime, date, timedelta
-from dateutil.relativedelta import relativedelta
+from datetime import datetime, timedelta
 import seaborn as sns
 import matplotlib.pyplot as plt
 from tqdm import tqdm
@@ -26,7 +25,7 @@ df_m = pd.DataFrame(data_m)
 df_m.to_csv("cumulated_months.csv")
 
 plt.figure(figsize=(12, 6))
-sns.lineplot(data=df_m.iloc[0], marker="o", label="Cumulartive Count Over Time")
+sns.lineplot(data=df_m.iloc[0], marker="o", label="Cumulative Count Over Time")
 plt.xlabel("Year-Month")
 plt.ylabel("Cumulative Count")
 plt.title("Cumulative Count Over Time")

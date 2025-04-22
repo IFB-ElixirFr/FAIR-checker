@@ -1,5 +1,4 @@
 from metrics.AbstractFAIRMetrics import AbstractFAIRMetrics
-import validators
 from metrics.recommendation import json_rec
 
 

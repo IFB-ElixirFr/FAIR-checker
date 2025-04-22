@@ -453,7 +453,7 @@ def get_profiles_specs_from_github():
                         for file in results_files:
                             if (
                                 file["type"] == "file"
-                                and not "DEPRECATED" in file["download_url"]
+                                and "DEPRECATED" not in file["download_url"]
                             ):
                                 regex_version = "_v([0-9]*.[0-9]*)-"
                                 m = re.search(regex_version, file["download_url"])
@@ -515,7 +515,6 @@ def parse_profile(jsonld, profile_name, url_dl):
 
     profiles_versions = request_profile_versions()
 
-    additional_properties = []
     for element in jsonld["@graph"]:
         if element["@type"] == "rdfs:Class":
             # print("Class: " + element["@id"])

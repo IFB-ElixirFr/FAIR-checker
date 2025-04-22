@@ -10,11 +10,8 @@ from metrics.FairCheckerExceptions import (
 
 from profiles.ProfileFactory import (
     evaluate_profile_from_type,
-    evaluate_profile_with_conformsto,
     dyn_evaluate_profile_with_conformsto,
     ProfileFactory,
-    Profile,
-    PROFILES,
 )
 from metrics.WebResource import WebResource
 
