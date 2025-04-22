@@ -315,22 +315,25 @@
   {% endfor %}
 
   socket.on('persisted_assessment', function (value) {
-    console.log("persisted_assessment");
-    console.log(value);
+    // console.log("persisted_assessment");
+    // console.log(value);
+    // console.log(value['score']);
   
     var badge;
     var color;
 
-    if (+value['score'] >= 75) {
+    if (value['score'] >= 75) {
       color = "green";
-    } else if (+value['score'] >= 50) {
+    } else if (value['score'] >= 50) {
       color = "orange";
     } else {
       color = "red";
     }
 
+    // console.log(color);
+
     //generate a persistent badge for the assessment
-    var badge_html = '<a href="'+value["uri"]+'" target="_blank"><img src="https://img.shields.io/badge/FAIR_assessment-'+value["score"]+'_%25-'+color+' alt="'+value['score']+' % FAIR"></a>';
+    var badge_html = '<a href="'+value["uri"]+'" target="_blank"><img src="https://img.shields.io/badge/FAIR_assessment-'+value["score"]+'_%25-'+color+'" alt="'+value['score']+' % FAIR"></a>';
     var badge_md = '[!['+value['score']+' % FAIR](https://img.shields.io/badge/FAIR_assessment-'+value['score']+'_%25-'+color+')]('+value['uri']+')';
 
     // console.log(badge_html);
@@ -339,13 +342,11 @@
     $("#fair_badge").html(badge_html);
     $("#fair_badge_html").text(badge_html);
     $("#fair_badge_md").text(badge_md);
-
   });
 
   //////////////////
   // exec all button
   //////////////////
-
 
   // check all category boxes
   $('[id^=checkbox_all_]').on('click', function ($e) {
