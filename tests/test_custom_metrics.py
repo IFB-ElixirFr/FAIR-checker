@@ -40,12 +40,12 @@ class OlsLovTestCase(unittest.TestCase):
     @unittest.skip("To be done by a CRON")
     def testMetricsAPI(sefl):
         print(f"call to the FAIRMetrics API")
-        api_url = (
-            "https://fair-evaluator.semanticscience.org/FAIR_Evaluator/metrics.json"
-        )
+        # api_url = (
+        #     "https://fair-evaluator.semanticscience.org/FAIR_Evaluator/metrics.json"
+        # )
 
-        h = {"Accept": "application/json"}
-        res = requests.get(api_url, headers=h, verify=False)
+        # h = {"Accept": "application/json"}
+        # res = requests.get(api_url, headers=h, verify=False)
 
         # if res.json() > 0:
         #     return True

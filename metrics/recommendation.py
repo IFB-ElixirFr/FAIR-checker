@@ -101,20 +101,18 @@ json_rec = {
     },
     "R11": {
         "reco1": """
-            You should include information about licence in your metadata using one of the properties below: <br><br>
-            
+            You should include information about license in your metadata using one of the properties below: <br><br>
             Learn more about licenses in FAIR-Cookbook (
             <a href="https://faircookbook.elixir-europe.org/content/recipes/reusability/ATI-licensing.html" target=”_blank”><u><b></u>licence</b></a>, 
             <a href="https://faircookbook.elixir-europe.org/content/recipes/reusability/ATI_licensing_software.html" target=”_blank”><u><b>software license</u></b></a>, 
-            <a href="https://faircookbook.elixir-europe.org/content/recipes/reusability/ATI_licensing_data.html" target=”_blank”><u><b>data licence</u></b></a>)
+            <a href="https://faircookbook.elixir-europe.org/content/recipes/reusability/ATI_licensing_data.html" target=”_blank”><u><b>data license</u></b></a>)
             or in <a href="https://rdmkit.elixir-europe.org/licensing" target=”_blank”><u><b>RDMkit</u></b></a>
             <br><br>
         """,
     },
     "R12": {
-        "reco1": """    
+        "reco1": """
             You should include information about provenance in your metadata using one of the properties below: <br><br>
-            
             Read more in <a href="https://faircookbook.elixir-europe.org/content/recipes/reusability/provenance.html?highlight=prov " target=”_blank”><u><b>FAIR-Cookbook section on provenance.</u></b></a>
             <br><br>
          """,

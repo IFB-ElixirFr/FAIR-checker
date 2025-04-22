@@ -1,7 +1,5 @@
 from metrics.AbstractFAIRMetrics import AbstractFAIRMetrics
 from metrics.F2A_Impl import F2A_Impl
-from metrics.Evaluation import Evaluation
-import logging
 
 
 class I1_Impl(AbstractFAIRMetrics):

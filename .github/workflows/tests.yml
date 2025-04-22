@@ -1,0 +1,56 @@
+# This workflow will install Python dependencies, run tests and lint with a single version of Python
+# For more information see: https://help.github.com/actions/language-and-framework-guides/using-python-with-github-actions
+
+name: Unit testing
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [dev_alban, dev_thomas, master, pre_deploy_1.1]
+  pull_request:
+    branches: [dev_alban, dev_thomas, master, pre_deploy_1.1]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up Python 3.8
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.8
+      #----------------------------------------------
+      #  -----  install & configure conda
+      #----------------------------------------------
+      - uses: conda-incubator/setup-miniconda@v2
+        with:
+          python-version: 3.8
+          conda-build-version: "*"
+          channels: conda-forge,defaults
+          channel-priority: true
+
+      - shell: bash -l {0}
+        run: |
+          conda info
+          conda list
+          conda config --show-sources
+          conda config --show
+          printenv | sort
+
+      - shell: bash -l {0}
+        run: |
+          conda env update -n test --file environment.yml
+      - name: Create mongoDB Docker container
+        run: sudo docker run -d -p 27017:27017 mongo:latest
+
+      #----------------------------------------------
+      #              run test suite
+      #----------------------------------------------
+      - name: Run tests
+        shell: bash -l {0}
+        run: |
+          conda info
+          conda activate test
+          coverage run --omit '.venv/*' -m pytest tests
+          coverage report -m

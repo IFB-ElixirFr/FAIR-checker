@@ -1,6 +1,6 @@
 # from time import time
-# from SPARQLWrapper import SPARQLWrapper, N3
-from rdflib import Graph, ConjunctiveGraph, URIRef, RDF
+from SPARQLWrapper import SPARQLWrapper, N3
+from rdflib import ConjunctiveGraph, URIRef, RDF
 import requests
 import metrics.statistics as stats
 
@@ -12,12 +12,8 @@ from jinja2 import Template
 from pyshacl import validate
 import extruct
 import json
-from pathlib import Path
 from datetime import datetime, timedelta
 from enum import Enum
-from lxml import html
-from selenium import webdriver
-from selenium.webdriver.chrome.options import Options
 from cachetools import cached, TTLCache
 from flask import Flask
 from flask import current_app
@@ -26,7 +22,6 @@ import logging
 import copy
 import re
 import validators
-from requests.auth import HTTPBasicAuth
 from urllib.parse import urlparse
 
 
@@ -89,9 +84,8 @@ def gen_metrics():
 
 # Describe datacite
 def describe_opencitation(uri, g):
-    graph_pre_size = len(g)
     endpoint = "https://opencitations.net/sparql"
-    # print(f"SPARQL for [ {uri} ] with enpoint [ {endpoint} ]")
+    # print(f"SPARQL for [ {uri} ] with endpoint [ {endpoint} ]")
     # sparql = SPARQLWrapper("https://query.wikidata.org/sparql")
     query = (
         """
@@ -111,32 +105,21 @@ def describe_opencitation(uri, g):
     """
     )
 
-    # print(query)
-
     h = {"Accept": "text/turtle"}
     p = {"query": query}
 
     res = requests.get(endpoint, headers=h, params=p, verify=False)
-    # g.parse(data=res.text, format="turtle")
 
     new_g = ConjunctiveGraph()
     new_g.parse(data=res.text, format="turtle")
     for s, p, o in new_g:
         g.add((s, p, o, URIRef(uri + "#opencitations")))
 
-    graph_post_size = len(g)
-    # print(f"{graph_post_size - graph_pre_size} added new triples")
-
-    ######################
-
-    # print(g.serialize(format='turtle').decode())
     return g
 
 
-# Describe lod.openaire
+# Describe datacite
 def describe_openaire(uri, g):
-    # g = Graph()
-    graph_pre_size = len(g)
     logging.debug(f"SPARQL for [ {uri} ] with enpoint [ LOA ]")
     sparql = SPARQLWrapper("http://lod.openaire.eu/sparql")
     sparql.setQuery(
@@ -148,8 +131,6 @@ def describe_openaire(uri, g):
             }
     """
     )
-
-    g_len = Graph()
     sparql.setReturnFormat(N3)
     results = sparql.query().convert()
     # g.parse(data=results, format="turtle")
@@ -160,7 +141,7 @@ def describe_openaire(uri, g):
     for s, p, o in new_g:
         g.add((s, p, o, URIRef(uri + "#openaire")))
 
-    graph_post_size = len(g)
+    # graph_post_size = len(g)
     # print(f"{graph_post_size - graph_pre_size} added new triples")
     # print(g.serialize(format='turtle').decode())
     return g
@@ -421,12 +402,12 @@ def inspect_onto_reg(kg, is_inspect_ui):
             emit("done_check", table_content)
 
         all_false_rule = [
-            c["tag"]["OLS"] == False,
-            c["tag"]["LOV"] == False,
-            c["tag"]["BioPortal"] == False,
+            c["tag"]["OLS"] is False,
+            c["tag"]["LOV"] is False,
+            c["tag"]["BioPortal"] is False,
         ]
 
-        if all(all_false_rule) and not "Bioschemas" in c["tag"]:
+        if all(all_false_rule) and "Bioschemas" not in c["tag"]:
             table_content["classes_false"].append(c["name"])
 
     for p in table_content["properties"]:
@@ -443,11 +424,11 @@ def inspect_onto_reg(kg, is_inspect_ui):
             emit("done_check", table_content)
 
         all_false_rule = [
-            p["tag"]["OLS"] == False,
-            p["tag"]["LOV"] == False,
-            p["tag"]["BioPortal"] == False,
+            p["tag"]["OLS"] is False,
+            p["tag"]["LOV"] is False,
+            p["tag"]["BioPortal"] is False,
         ]
-        if all(all_false_rule) and not "Bioschemas" in p["tag"]:
+        if all(all_false_rule) and "Bioschemas" not in p["tag"]:
             table_content["properties_false"].append(p["name"])
 
     table_content["done"] = True
@@ -479,12 +460,12 @@ def shape_checks(kg):
     @return:
     """
 
-    types = [
-        "schema:SoftwareApplication",
-        "schema:CreativeWork",
-        "schema:Dataset",
-        "schema:ScholarlyArticle",
-    ]
+    # types = [
+    #     "schema:SoftwareApplication",
+    #     "schema:CreativeWork",
+    #     "schema:Dataset",
+    #     "schema:ScholarlyArticle",
+    # ]
     minimal_dataset_properties = [
         "schema:name",
         "schema:description",
@@ -808,8 +789,6 @@ ld_eval_prefix = """
 
 def get_ld_FC_spec():
     from metrics.FAIRMetricsFactory import FAIRMetricsFactory as FMF
-
-    metrics = FMF.get_FC_impl()
 
     ld_FC_spec = [
         {

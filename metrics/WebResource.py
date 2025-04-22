@@ -269,10 +269,8 @@ class WebResource:
     def get_kg_from_header(self, described_by):
         for link in described_by:
             reg_string = '<(.*?)>*;*rel="(.*?)"*;*type="(.*?)"'
-            p = re.compile(reg_string)
             match = re.search(reg_string, link)
             url = match.group(1)
-            rel = match.group(2)
             link_mimetype = match.group(3)
 
             rdf_formats = self.get_rdf_format_from_contenttype(link_mimetype)
@@ -369,11 +367,11 @@ class WebResource:
         return kg
 
     def get_rdf_format_from_contenttype(self, mimetype):
-        all_mediatypes = [
-            item
-            for sublist in self.RDF_MEDIA_TYPES_MAPPING.values()
-            for item in sublist
-        ]
+        # all_mediatypes = [
+        #     item
+        #     for sublist in self.RDF_MEDIA_TYPES_MAPPING.values()
+        #     for item in sublist
+        # ]
         rdf_formats = [
             i
             for i in self.RDF_MEDIA_TYPES_MAPPING

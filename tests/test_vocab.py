@@ -8,7 +8,6 @@ from app import app
 
 
 class CommunityVocabTestCase(unittest.TestCase):
-
     def setUp(self):
         self.app_context = app.app_context()
         self.app_context.push()

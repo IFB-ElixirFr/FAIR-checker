@@ -10,24 +10,21 @@ import sys
 fc_src = "../.."
 sys.path.insert(0, fc_src)
 
-import requests
 from os import path
 from tqdm import tqdm
 import pandas as pd
 import time
-import glob
 import logging
 
 logging.getLogger().setLevel(logging.ERROR)
 
 from rdflib import ConjunctiveGraph, Namespace, URIRef
-from rdflib.namespace import RDF, RDFS
+from rdflib.namespace import RDF
 
 schema = Namespace("http://schema.org/")
 
 from metrics.WebResource import WebResource
 from metrics.FAIRMetricsFactory import FAIRMetricsFactory
-from metrics.AbstractFAIRMetrics import AbstractFAIRMetrics
 
 filename = sys.argv[1]
 

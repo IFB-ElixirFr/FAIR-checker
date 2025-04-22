@@ -8,7 +8,7 @@ from metrics.util import describe_opencitation
 from metrics.util import is_DOI, get_DOI
 from metrics.WebResource import WebResource
 
-from rdflib import Graph, ConjunctiveGraph, Namespace, URIRef, Literal, BNode
+from rdflib import ConjunctiveGraph, URIRef, Literal
 
 
 class KGAugmentTestCase(unittest.TestCase):

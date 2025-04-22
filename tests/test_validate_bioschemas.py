@@ -3,7 +3,6 @@ from app import app
 from metrics.WebResource import WebResource
 from profiles.ProfileFactory import (
     find_conformsto_subkg,
-    dyn_evaluate_profile_with_conformsto,
     evaluate_profile_from_type,
 )
 

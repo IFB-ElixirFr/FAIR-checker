@@ -1,5 +1,4 @@
 import logging
-from time import sleep
 import unittest
 
 from metrics.FAIRMetricsFactory import FAIRMetricsFactory
@@ -14,10 +13,6 @@ class InteroperablilityTestCase(unittest.TestCase):
         super().tearDownModule()
         browser = WebResource.WEB_BROWSER_HEADLESS
         browser.quit()
-
-    # def tearDown(self) -> None:
-    #     sleep(1)
-    #     return super().tearDown()
 
     def test_I1_biotools(self):
         biotools = WebResource("http://bio.tools/bwa")

@@ -94,7 +94,7 @@ Weak : FAIR-Checker verifies that at least one namespace from identifiers.org is
         eval.set_implem(self.implem)
         eval.set_metrics(self.principle_tag)
 
-        kgs = self.get_web_resource().get_wr_kg_dataset()
+        # kgs = self.get_web_resource().get_wr_kg_dataset()
         kg = self.get_web_resource().get_rdf()
 
         # print(kg.serialize(format="trig"))

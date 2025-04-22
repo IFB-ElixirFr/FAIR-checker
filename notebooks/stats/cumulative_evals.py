@@ -1,10 +1,10 @@
 import pandas as pd
 from pymongo import MongoClient
-from datetime import datetime, date, timedelta
-from dateutil.relativedelta import relativedelta
+
+# from datetime import datetime, date, timedelta
+# from dateutil.relativedelta import relativedelta
 import seaborn as sns
 import matplotlib.pyplot as plt
-from tqdm import tqdm
 
 client = MongoClient()
 db = client.fair_checker

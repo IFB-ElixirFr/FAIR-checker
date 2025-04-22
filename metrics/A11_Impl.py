@@ -1,5 +1,4 @@
 from metrics.AbstractFAIRMetrics import AbstractFAIRMetrics
-import requests
 from metrics.recommendation import json_rec
 
 

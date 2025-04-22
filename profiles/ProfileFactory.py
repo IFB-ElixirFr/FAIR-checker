@@ -6,9 +6,7 @@ import re
 import json
 import os
 import yaml
-from tqdm import tqdm
 from rdflib import URIRef, ConjunctiveGraph
-from rdflib.namespace import RDF
 
 
 # from app import dev_logger
@@ -161,7 +159,6 @@ def get_profiles_specs_from_github():
         # Loop over each folder (one folder == one profile and/or one type)
         for profile_folder in profile_folders_json:
             if profile_folder["type"] == "dir":
-                profile_name = profile_folder["name"]
                 response = requests.get(profile_folder["url"], headers=headers)
                 items = response.json()
 

@@ -1,5 +1,4 @@
 from pymongo import MongoClient
-from rdflib import ConjunctiveGraph
 from string import Template
 import validators
 

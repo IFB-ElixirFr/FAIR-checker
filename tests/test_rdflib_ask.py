@@ -2,7 +2,7 @@ import unittest
 
 from metrics.WebResource import WebResource
 
-from rdflib import Graph, ConjunctiveGraph, Namespace, URIRef, Literal, BNode
+from rdflib import ConjunctiveGraph
 
 
 class KG_ask(unittest.TestCase):

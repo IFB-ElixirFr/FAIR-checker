@@ -1,12 +1,8 @@
-from flask import Flask, Response, redirect, url_for, request, render_template
-import random
-import os
-from rdflib import ConjunctiveGraph, Namespace
+from flask import Flask, Response, request
+from rdflib import ConjunctiveGraph
 from pymongo import MongoClient
 from bson import ObjectId
 from bson.errors import InvalidId
-
-from string import Template
 
 from metrics.Evaluation import Evaluation
 

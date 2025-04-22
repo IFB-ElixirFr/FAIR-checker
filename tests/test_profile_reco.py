@@ -1,24 +1,14 @@
-from contextlib import AbstractAsyncContextManager
 import unittest
 
 from rich.console import Console
 from rich.table import Table
-import pandas as pd
 
-from rdflib import ConjunctiveGraph, URIRef
-from rdflib.namespace import RDF
+from rdflib import ConjunctiveGraph
 
-from profiles.bioschemas_shape_gen import gen_SHACL_from_profile
-from profiles.bioschemas_shape_gen import gen_SHACL_from_target_class
-from profiles.bioschemas_shape_gen import validate_shape_from_RDF
-from profiles.bioschemas_shape_gen import validate_any_from_RDF
-from profiles.bioschemas_shape_gen import validate_any_from_KG
-from profiles.bioschemas_shape_gen import validate_any_from_microdata
-from profiles.bioschemas_shape_gen import validate_shape_from_microdata
 from profiles.bioschemas_shape_gen import load_profiles
 
 from profiles.Profile import Profile
-from profiles.ProfileFactory import ProfileFactory, find_conformsto_subkg
+from profiles.ProfileFactory import ProfileFactory
 
 from metrics.WebResource import WebResource
 

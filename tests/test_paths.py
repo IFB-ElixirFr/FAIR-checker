@@ -6,7 +6,7 @@ class FilesAccessTestCase(unittest.TestCase):
     def test_file_access(self):
         # self.assertEqual(True, False)
 
-        base_path = Path(__file__).parent  ## current directory
+        base_path = Path(__file__).parent  # current directory
         print(__file__)
         print(Path(__file__))
         print(Path(__file__).parent)

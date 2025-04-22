@@ -8,7 +8,7 @@ from rich.table import Table
 
 # from rich.text import Text
 from argparse import ArgumentParser, RawTextHelpFormatter
-from profiles.ProfileFactory import ProfileFactory, load_profiles
+from profiles.ProfileFactory import ProfileFactory
 
 import sys
 import time
@@ -35,20 +35,10 @@ parser.add_argument(
     help="input urls",
 )
 
-# parser.add_argument(
-#     "-f",
-#     "--files",
-#     metavar="files",
-#     type=str,
-#     nargs="+",
-#     help="input files",
-# )
-
 
 def list_all_instances(kg):
     subjects = []
     for s, p, o in kg.triples((None, RDF.type, None)):
-        # print(f"{s} is a {o}")
         subjects.append(s)
     return subjects
 

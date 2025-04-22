@@ -1,4 +1,4 @@
-from datetime import datetime, timedelta
+from datetime import datetime
 from pymongo import MongoClient
 from enum import Enum, unique
 import logging

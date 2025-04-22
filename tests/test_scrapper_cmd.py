@@ -1,8 +1,6 @@
 import datetime
 import unittest
-import sys
 import os
-import glob
 
 
 class TestScrapperCMDTool(unittest.TestCase):
