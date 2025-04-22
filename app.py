@@ -177,7 +177,7 @@ fc_inspect_namespace = api.namespace(
 )
 
 cache = Cache(app)
-socketio = SocketIO(app)
+socketio = SocketIO(app, async_mode="threading")
 socketio.init_app(app, cors_allowed_origins="*", async_mode="eventlet")
 
 app.secret_key = secrets.token_urlsafe(16)
