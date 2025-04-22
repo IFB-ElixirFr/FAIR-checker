@@ -77,6 +77,7 @@ from profiles.ProfileFactory import (
 
 import time
 import atexit
+import importlib
 import requests
 from requests.exceptions import ConnectionError
 from pymongo import MongoClient
@@ -92,7 +93,22 @@ import git
 
 basedir = path.abspath(path.dirname(__file__))
 
+
+def load_plugins(app):
+    plugins_dir = os.path.join(os.path.dirname(__file__), "plugins")
+    print("loading plugins from ", plugins_dir)
+    for filename in os.listdir(plugins_dir):
+        if filename.endswith(".py") and filename != "__init__.py":
+            module_name = f"plugins.{filename[:-3]}"
+            module = importlib.import_module(module_name)
+            if hasattr(module, "plugin_blueprint"):
+                app.register_blueprint(module.plugin_blueprint)
+                print("loaded plugin ", module_name)
+
+
 app = Flask(__name__)
+
+load_plugins(app)
 
 app.config.SWAGGER_UI_OPERATION_ID = True
 app.config.SWAGGER_UI_REQUEST_DURATION = True
