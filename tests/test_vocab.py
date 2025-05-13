@@ -7,7 +7,6 @@ from metrics.WebResource import WebResource
 
 
 class CommunityVocabTestCase(unittest.TestCase):
-
     def tearDown(self):
         self.app_context.pop()
 
