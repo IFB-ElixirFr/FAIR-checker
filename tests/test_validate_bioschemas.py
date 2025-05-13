@@ -1,5 +1,4 @@
 import unittest
-from app import app
 from metrics.WebResource import WebResource
 from profiles.ProfileFactory import (
     find_conformsto_subkg,
@@ -12,12 +11,6 @@ class ValidateBioschemasTestCase(unittest.TestCase):
     uri_wf = "https://workflowhub.eu/workflows/18"
     uri_tool = "https://bio.tools/bwa"
     uri_dataset = "https://doi.pangaea.de/10.1594/PANGAEA.914331"
-
-    def setUp(self):
-        app.config["ENV"] = "test"
-        # app.config['TESTING'] = True
-        app.config.from_object("config.TestingConfig")
-        self.app = app.test_client()
 
     @unittest.skip("Temporary disabled because doesn't work in GH actions")
     def test_validate_biotools(self):

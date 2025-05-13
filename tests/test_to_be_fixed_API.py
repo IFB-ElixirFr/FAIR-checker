@@ -1,5 +1,4 @@
 import unittest
-from app import app
 from rdflib import ConjunctiveGraph
 import json
 import urllib3
