@@ -38,7 +38,7 @@ class TestingUrlPatterns(unittest.TestCase):
         dataverse = (
             "https://data.inrae.fr/dataset.xhtml?persistentId=doi:10.15454/P27LDX"
         )
-        datacite = "https://search.datacite.org/works/10.7892/boris.108387"
+        datacite = "https://api.datacite.org/application/vnd.schemaorg.ld+json/10.7892/boris.108387"
 
         print(list_known_schemes)
         self.assertTrue(F1B_Impl.is_known_pid_scheme(biotools, list_known_schemes))

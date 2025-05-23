@@ -194,7 +194,7 @@ sample_resources = {
         },
         {
             "text": "Publication Datacite",
-            "url": "https://search.datacite.org/works/10.7892/boris.108387",  # Publication in Datacite
+            "url": "https://api.datacite.org/application/vnd.schemaorg.ld+json/10.7892/boris.108387",  # Publication in Datacite
         },
         {
             "text": "Dataset",
