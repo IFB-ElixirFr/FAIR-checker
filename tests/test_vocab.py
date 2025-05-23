@@ -4,15 +4,9 @@ from rdflib import BNode, ConjunctiveGraph, URIRef
 import requests
 import metrics.util as util
 from metrics.WebResource import WebResource
-from app import app
 
 
 class CommunityVocabTestCase(unittest.TestCase):
-    def setUp(self):
-        self.app_context = app.app_context()
-        self.app_context.push()
-        print("setup")
-
     def tearDown(self):
         self.app_context.pop()
 
