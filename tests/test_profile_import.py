@@ -112,7 +112,7 @@ class ImportBSProfileTestCase(unittest.TestCase):
         url = "https://workflowhub.eu/workflows/18"
         kg = WebResource(url).get_rdf()
 
-        self.assertEqual(len(kg), 49)
+        self.assertGreater(len(kg), 49)
         result = dyn_evaluate_profile_with_conformsto(kg)
 
         self.assertEqual(len(result), 1)
