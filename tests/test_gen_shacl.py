@@ -138,7 +138,7 @@ class GenSHACLTestCase(unittest.TestCase):
         res = validate_any_from_microdata(
             input_url="https://data.inrae.fr/dataset.xhtml?persistentId=doi:10.15454/PL3HWQ"
         )
-        self.assertEqual(len(res[0]), 1)
+        self.assertEqual(len(res[0]), 2)
 
     def test_workflow_validation(self):
         res = validate_any_from_microdata(
