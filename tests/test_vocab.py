@@ -274,6 +274,14 @@ class CommunityVocabTestCase(unittest.TestCase):
         res = kg.query(q_xhtml)
         self.assertEqual(len(res), 0)
 
+    def test_bp(self):
+        print("BioPortal status code")
+        STATUS_BIOPORTAL = requests.head(
+            "https://data.bioontology.org/search"
+        ).status_code
+        print(f"BioPortal status code: {STATUS_BIOPORTAL}")
+        self.assertEqual(STATUS_BIOPORTAL, 401)
+
 
 if __name__ == "__main__":
     unittest.main()

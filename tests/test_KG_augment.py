@@ -18,7 +18,7 @@ class KGAugmentTestCase(unittest.TestCase):
         browser = WebResource.WEB_BROWSER_HEADLESS
         browser.quit()
 
-    def test_base_url(selfself):
+    def test_base_url(self):
         # from https://github.com/RDFLib/rdflib/issues/1003
         rdf_triples_base = """
         @prefix category: <http://example.org/> .

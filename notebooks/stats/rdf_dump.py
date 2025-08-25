@@ -120,6 +120,7 @@ with open("fc_evaluations_dump.ttl", mode="w") as file_object:
     i = 0
     for e in evaluations.find({}):
         d = None
+        # print(e)
         if e["ended_at"]:
             d = e["ended_at"].isoformat()
         if e["success"]:
@@ -135,5 +136,6 @@ with open("fc_evaluations_dump.ttl", mode="w") as file_object:
             print(eval_ttl, file=file_object)
             i += 1
         if (i % 100000) == 0:
+        # if (i % 10) == 0:
             print(f"Serialized {i} FAIR metrics evaluations")
             # break
