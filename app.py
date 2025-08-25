@@ -240,7 +240,7 @@ DICT_TEMP_RES = {}
 
 # Get status from bioportal external service
 try:
-    STATUS_BIOPORTAL = requests.head("https://bioportal.bioontology.org/").status_code
+    STATUS_BIOPORTAL = requests.head("https://data.bioontology.org/search").status_code
 except ConnectionError:
     STATUS_BIOPORTAL = 0
 
@@ -287,7 +287,7 @@ def display_info():
 def update_vocab_status():
     global DICT_BANNER_INFO, STATUS_BIOPORTAL, STATUS_OLS, STATUS_LOV  # noqa: F824
 
-    STATUS_BIOPORTAL = requests.head("https://bioportal.bioontology.org/").status_code
+    STATUS_BIOPORTAL = requests.head("https://data.bioontology.org/search").status_code
     STATUS_OLS = requests.head("https://www.ebi.ac.uk/ols4/index").status_code
     STATUS_LOV = requests.head(
         "https://lov.linkeddata.es/dataset/lov/sparql"
