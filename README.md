@@ -37,17 +37,97 @@ Main contributors are:
 ## Contribute
 Please submit GitHub issues to provide feedback or ask for new features, and contact us for any related question.
 
-
 ## Install
-### With Conda 
+
+### Necessary software tools 
+
+Before installing FAIR-Checker make sure you have the following software tools installed on you machine.
+
+- git
+- micromamba
+- Google Chrome Webrowser
+
+> [!NOTE]
+> You won't be able to run FAIR-Checker correctly without them one of these tool missing.
+
+### Cloning the project 
+
 ```
+bash
 git clone https://github.com/IFB-ElixirFr/fair-checker.git
 cd fair-checker
-conda env create --file environment.yml
-conda activate fair-checker-env
 
+```
+
+### Install micromamba
+
+```
+bash
+curl -Ls https://micro.mamba.pm/api/micromamba/linux-64/latest | tar -xvj bin/micromamba
+```
+
+### Creating and activating the micromamba enviromnent
+
+```
+bash
+micromamba create --file environment.yml
+```
+
+```
+bash
+micromamba activate fair-checker-env
+```
+
+### Install Google Chrome
+
+```
+bash
+wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+sudo apt install ./google-chrome-stable_current_amd64.deb
+```
+
+### Fixing missing system binaries
+
+Sometimes, other system binaries need to be installed in the host machine to make the project run without any error. 
+If you encounter any error with the installation process, run this command:
+
+```
+bash
+sudo apt install -y \
+  fonts-liberation \
+  libnss3 \
+  libx11-xcb1 \
+  libxcomposite1 \
+  libxdamage1 \
+  libxrandr2 \
+  libgbm1 \
+  libasound2 \
+  libatk1.0-0 \
+  libatk-bridge2.0-0 \
+  ca-certificates
+```
+
+### Start the mongodb 
+
+Using the terminal where the `fair-checker-env` is active, launch the following command:
+
+```
+bash
+mongod --dbpath data
+```
+
+### Start FAIR-Checker
+
+In an other terminal, launch the project in a dev environment
+
+```
+bash
+micromamba activate fair-checker-env
 ./launch_dev.sh
 ```
+
+Go to [http://localhost:5000](http://localhost:5000) to see FAIR-Checker web interface. 
+Depending on the security profile of your web browser, some cors error can block FAIR Checker core features. We advise using the default Google Chrome configuration to prevent any error.
 
 ## License
 FAIR-Checker is released under the [MIT License](LICENSE). Some third-party components are included. They are subject to their own licenses. All of the license information can be found in the included [LICENSE](LICENSE) file.
