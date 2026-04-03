@@ -651,11 +651,25 @@
         <div class="help_wrapper"><span id="url_helper" class="help"></span><span class="help" id="is_doi"></span></div>
       </div>
       <div class="field is-grouped is-grouped-centered">
-        <p class="control">
-          <button id="btn_test_all" disabled="true" class="button is-info is-large"><i class="fa fa-bar-chart fa-fw"></i>&nbsp;All
-            metrics
-          </button>
-        </p>
+        <div class="dropdown is-active">
+          <div class="dropdown-trigger">
+            <button class="button is-large" aria-haspopup="true" aria-controls="dropdown-menu">
+              <span>Standard checklist</span>
+              <span class="icon is-small">
+                <i class="fa fa-angle-down" aria-hidden="true"></i>
+              </span>
+            </button>
+          </div>
+          <div class="dropdown-menu" id="dropdown-menu">
+            <div class="dropdown-content">
+              <a class="dropdown-item is-active is-large"> Standard checklist </a>
+              <a class="dropdown-item is-large"> Biodiversity checklist </a>
+            </div>
+          </div>
+        </div>
+        <button id="btn_test_all" disabled="true" class="button is-info is-large"><i class="fa fa-bar-chart fa-fw"></i>
+          &nbsp;Check
+        </button>
       </div>
     </div>
 
