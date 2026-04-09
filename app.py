@@ -2114,8 +2114,4 @@ if __name__ == "__main__":
 
     elif args.web:
         logging.info("Starting webserver")
-        try:
-            socketio.run(app, host="127.0.0.1", port=5000, debug=True)
-        finally:
-            browser = WebResource.WEB_BROWSER_HEADLESS
-            browser.quit()
+        socketio.run(app, host="127.0.0.1", port=5000, debug=True)
