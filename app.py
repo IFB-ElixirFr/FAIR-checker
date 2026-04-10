@@ -76,29 +76,50 @@ from profiles.ProfileFactory import (
 
 basedir = path.abspath(path.dirname(__file__))
 
+logging.basicConfig(
+    level=logging.DEBUG,
+    format="[%(asctime)s] %(levelname)s [%(name)s.%(funcName)s:%(lineno)d] %(message)s",
+    datefmt="%Y-%b-%d %H:%M:%S",
+    stream=sys.stdout,
+)
+
 app = Flask(__name__)
 
 app.config.SWAGGER_UI_OPERATION_ID = True
 app.config.SWAGGER_UI_REQUEST_DURATION = True
 
-logger = logging.getLogger()
-logger.setLevel(logging.INFO)
+APP_LOGGER_NAME = "fair_checker"
 
-# Create handler for stdout
-handler = logging.StreamHandler(sys.stdout)
-handler.setLevel(logging.INFO)
+# root = logging.getLogger()
+# root.handlers.clear()
+# root.setLevel(logging.WARNING)
+#
+# app.logger.handlers.clear()
+# handler = logging.StreamHandler(sys.stdout)
+# handler.setFormatter(
+#     logging.Formatter("[%(asctime)s] [%(levelname)s] %(name)s, %(line): %(message)s")
+# )
+#
+# app.logger.addHandler(handler)
+# app.logger.setLevel(logging.INFO)
+# app.logger.propagate = False
 
-# Create formatter and attach it
-formatter = logging.Formatter("[%(asctime)s] [%(levelname)s] %(name)s: %(message)s")
-handler.setFormatter(formatter)
+# print all loggers registered in logging module
+# for name in logging.root.manager.loggerDict:
+#    print(name + " : " + str(logging.getLogger(name).getEffectiveLevel()))
 
-# Avoid duplicate logs
-if not logger.handlers:
-    logger.addHandler(handler)
-
-# Use Flask's app.logger
-app.logger.handlers = logger.handlers
-app.logger.setLevel(logger.level)
+for name in (
+    "werkzeug",
+    "gunicorn.access",
+    "gunicorn.error",
+    "urllib3",
+    "engineio",
+    "socketio",
+    "git",
+    "apscheduler",
+    "selenium",
+):
+    logging.getLogger(name).setLevel(logging.CRITICAL)
 
 
 @app.route("/")
@@ -209,13 +230,13 @@ try:
 except ConnectionError:
     STATUS_BIOPORTAL = 0
 
-# Get statust from OLS external service
+# Get status from OLS external service
 try:
     STATUS_OLS = requests.head("https://www.ebi.ac.uk/ols4/index").status_code
 except ConnectionError:
     STATUS_OLS = 0
 
-# Get statust from LOV external service
+# Get status from LOV external service
 try:
     STATUS_LOV = requests.head(
         "https://lov.linkeddata.es/dataset/lov/sparql"
@@ -235,7 +256,7 @@ def display_info():
     try:
         env_banner_info = dotenv_values(".env")["BANNER_INFO"]
     except KeyError:
-        logger.warning(
+        app.logger.warning(
             "BANNER_INFO is not set in .env (e.g. BANNER_INFO='Write your message here')"
         )
         DICT_BANNER_INFO["banner_message_info"].pop("env_info", None)
@@ -278,7 +299,7 @@ def update_vocab_status():
     else:
         DICT_BANNER_INFO["banner_message_info"].pop("status_lov", None)
 
-    logger.info("Updating banner status")
+    app.logger.info("Updating banner status")
 
 
 profiles = PROFILES
@@ -292,7 +313,7 @@ def display_vocab_status():
 
 
 scheduler = BackgroundScheduler()
-scheduler.add_job(func=update_vocab_status, trigger="interval", seconds=600)
+scheduler.add_job(func=update_vocab_status, trigger="interval", seconds=604800)
 scheduler.add_job(
     func=F1B_Impl.update_identifiers_org_dump, trigger="interval", seconds=604800
 )
@@ -300,7 +321,7 @@ scheduler.add_job(func=update_profiles, trigger="interval", seconds=604800)
 scheduler.add_job(func=util.gen_usage_statistics, trigger="interval", seconds=10000)
 scheduler.start()
 
-logger.info("Background scheduler started")
+app.logger.info("Background scheduler started")
 
 # Shut down the scheduler when exiting the app
 atexit.register(lambda: scheduler.shutdown())
@@ -938,7 +959,7 @@ def list_routes():
 
 @socketio.on("webresource")
 def handle_webresource(url):
-    logger.info("A new url to retrieve metadata from !")
+    app.logger.info("A new url to retrieve metadata from !")
 
 
 @socketio.on("evaluate_metric")
@@ -955,7 +976,7 @@ def handle_metric(json):
     metric_name = json["metric_name"]
     client_metric_id = json["id"]
     url = json["url"]
-    logger.info("Testing: " + url)
+    app.logger.info("Testing: " + url)
 
     # if implem == "FAIRMetrics":
     # evaluate_fairmetrics(json, metric_name, client_metric_id, url)
@@ -1049,11 +1070,11 @@ def evaluate_fc_metrics(metric_name, client_metric_id, url):
     # print(metric_name)
     # print(METRICS_CUSTOM)
 
-    logger.info("Evaluating FAIR-Checker metric")
+    app.logger.info("Evaluating FAIR-Checker metric")
     # prod_logger.info("Evaluating FAIR-Checker metric")
     id = METRICS_CUSTOM[metric_name].get_id()
-    logger.info("ID: " + id)
-    logger.info("Client ID: " + client_metric_id)
+    app.logger.info("ID: " + id)
+    app.logger.info("Client ID: " + client_metric_id)
     # Faire une fonction recursive ?
     if cache.get(url) == "pulling":
         while True:
@@ -1071,7 +1092,7 @@ def evaluate_fc_metrics(metric_name, client_metric_id, url):
 
     METRICS_CUSTOM[metric_name].set_web_resource(webresource)
     name = METRICS_CUSTOM[metric_name].get_principle_tag()
-    logger.warning("Evaluation: " + metric_name)
+    app.logger.warning("Evaluation: " + metric_name)
 
     # logger.info("Evaluating: " + metric_name)
     result = METRICS_CUSTOM[metric_name].evaluate()
@@ -1127,8 +1148,8 @@ def evaluate_fc_metrics(metric_name, client_metric_id, url):
 
 @socketio.on("done_fair_assessment")
 def handle_done_fair_assessment(data):
-    logger.info("FAIR assessment done !")
-    logger.info(data)
+    app.logger.info("FAIR assessment done !")
+    app.logger.info(data)
 
     client = MongoClient()
     db = client.fair_checker
@@ -1399,14 +1420,14 @@ def csv_download(uuid):
 @socketio.on("connect")
 def handle_connect():
     global FILE_UUID
-    print("The random id using uuid() is : ", end="")
+    # print("The random id using uuid() is : ", end="")
     FILE_UUID = str(uuid.uuid1())
-    print(FILE_UUID)
-    print(request)
+    # print(FILE_UUID)
+    # print(request)
 
     sid = request.sid
 
-    logger.info("Connected with SID " + sid)
+    app.logger.info("Connected with SID " + sid)
 
     # Creates a new temp file
     # with open("./temp/" + sid, 'w') as fp:
@@ -1483,21 +1504,14 @@ def handle_embedded_annot_2(data):
 
     @param data dict Contains the data needed to aggregate (url, etc).
     """
-    # step = 0
-    print("handle annot_2")
+
     sid = request.sid
-    print(sid)
     RDF_TYPE[sid] = "trig"
     uri = str(data["url"])
-    print("retrieving embedded annotations for " + uri)
-    print("Retrieve KG for uri: " + uri)
+    app.logger.info("Retrieve KG for uri: " + uri)
 
     web_resource = WebResource(uri)
     kg = web_resource.get_rdf()
-    # kgs = web_resource.get_wr_kg_dataset()
-    # print(kgs.serialize(format="trig"))
-    # nb_triples = len(kgs)
-    # print(nb_triples)
 
     KGS[sid] = kg
 
@@ -2114,8 +2128,4 @@ if __name__ == "__main__":
 
     elif args.web:
         logging.info("Starting webserver")
-        try:
-            socketio.run(app, host="127.0.0.1", port=5000, debug=True)
-        finally:
-            browser = WebResource.WEB_BROWSER_HEADLESS
-            browser.quit()
+        socketio.run(app, host="127.0.0.1", port=5000, debug=True)
