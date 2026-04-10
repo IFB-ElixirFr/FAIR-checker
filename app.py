@@ -76,6 +76,13 @@ from profiles.ProfileFactory import (
 
 basedir = path.abspath(path.dirname(__file__))
 
+logging.basicConfig(
+    level=logging.DEBUG,
+    format="[%(asctime)s] %(levelname)s [%(name)s.%(funcName)s:%(lineno)d] %(message)s",
+    datefmt="%Y-%b-%d %H:%M:%S",
+    stream=sys.stdout,
+)
+
 app = Flask(__name__)
 
 app.config.SWAGGER_UI_OPERATION_ID = True
@@ -83,18 +90,19 @@ app.config.SWAGGER_UI_REQUEST_DURATION = True
 
 APP_LOGGER_NAME = "fair_checker"
 
-root = logging.getLogger()
-root.handlers.clear()
-root.setLevel(logging.WARNING)
-
-app.logger.handlers.clear()
-handler = logging.StreamHandler(sys.stdout)
-handler.setFormatter(
-    logging.Formatter("[%(asctime)s] [%(levelname)s] %(name)s: %(message)s")
-)
-app.logger.addHandler(handler)
-app.logger.setLevel(logging.INFO)
-app.logger.propagate = False
+# root = logging.getLogger()
+# root.handlers.clear()
+# root.setLevel(logging.WARNING)
+#
+# app.logger.handlers.clear()
+# handler = logging.StreamHandler(sys.stdout)
+# handler.setFormatter(
+#     logging.Formatter("[%(asctime)s] [%(levelname)s] %(name)s, %(line): %(message)s")
+# )
+#
+# app.logger.addHandler(handler)
+# app.logger.setLevel(logging.INFO)
+# app.logger.propagate = False
 
 # print all loggers registered in logging module
 # for name in logging.root.manager.loggerDict:
@@ -107,8 +115,11 @@ for name in (
     "urllib3",
     "engineio",
     "socketio",
+    "git",
+    "apscheduler",
+    "selenium",
 ):
-    logging.getLogger(name).setLevel(logging.WARNING)
+    logging.getLogger(name).setLevel(logging.CRITICAL)
 
 
 @app.route("/")
@@ -219,13 +230,13 @@ try:
 except ConnectionError:
     STATUS_BIOPORTAL = 0
 
-# Get statust from OLS external service
+# Get status from OLS external service
 try:
     STATUS_OLS = requests.head("https://www.ebi.ac.uk/ols4/index").status_code
 except ConnectionError:
     STATUS_OLS = 0
 
-# Get statust from LOV external service
+# Get status from LOV external service
 try:
     STATUS_LOV = requests.head(
         "https://lov.linkeddata.es/dataset/lov/sparql"
@@ -302,7 +313,7 @@ def display_vocab_status():
 
 
 scheduler = BackgroundScheduler()
-scheduler.add_job(func=update_vocab_status, trigger="interval", seconds=600)
+scheduler.add_job(func=update_vocab_status, trigger="interval", seconds=604800)
 scheduler.add_job(
     func=F1B_Impl.update_identifiers_org_dump, trigger="interval", seconds=604800
 )
@@ -1409,10 +1420,10 @@ def csv_download(uuid):
 @socketio.on("connect")
 def handle_connect():
     global FILE_UUID
-    print("The random id using uuid() is : ", end="")
+    # print("The random id using uuid() is : ", end="")
     FILE_UUID = str(uuid.uuid1())
-    print(FILE_UUID)
-    print(request)
+    # print(FILE_UUID)
+    # print(request)
 
     sid = request.sid
 

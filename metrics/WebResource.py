@@ -24,10 +24,10 @@ requests.packages.urllib3.disable_warnings(
 )
 
 # configure logger to print to console with a simple format, including line number
-logging.basicConfig(
-    level=logging.INFO,
-    format="%(asctime)s - %(levelname)s - %(name)s: %(lineno)d - %(message)s",
-)
+# logging.basicConfig(
+#    level=logging.INFO,
+#    format="%(asctime)s - %(levelname)s - %(name)s: %(lineno)d - %(message)s",
+# )
 
 
 class WebResource:
@@ -97,12 +97,10 @@ class WebResource:
 
         # remove triples with the xhtml vocab namespace,
         # as they are often noise in this context and not relevant for FAIR assessment
-        self.dataset = clean_kg_excluding_ns_prefix(
-            self.dataset, "http://www.w3.org/1999/xhtml/vocab#"
-        )
+        self.dataset = clean_kg_excluding_ns_prefix(self.dataset)
 
         logger.info(
-            "WebResourceV2 loaded %s with %s RDF triples",
+            "WebResource loaded %s with %s RDF triples",
             self.url,
             len(self.dataset),
         )
@@ -138,9 +136,13 @@ class WebResource:
         if is_DOI(self.url):
             self._collect_from_datacite()
 
+        self.dataset = clean_kg_excluding_ns_prefix(self.dataset)
+
         # if no triples were retrieved by content negotiation, try to collect embedded RDF with Selenium and extruct (costly)
         if len(g1) == 0:
             self._collect_embedded_rdf_with_selenium()
+
+        self.dataset = clean_kg_excluding_ns_prefix(self.dataset)
 
     def _http_get(
         self,

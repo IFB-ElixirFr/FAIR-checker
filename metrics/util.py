@@ -730,14 +730,19 @@ def rdf_to_triple_list(graph):
 #     pass
 
 
-def clean_kg_excluding_ns_prefix(kg, ns_prefix) -> ConjunctiveGraph:
+def clean_kg_excluding_ns_prefix(kg) -> ConjunctiveGraph:
+    prefixes = [
+        "http://www.w3.org/1999/xhtml/vocab#",
+        "http://ogp.me/ns",
+    ]
     cleaned_kg = copy.deepcopy(kg)
-    q_del = (
-        'DELETE {?s ?p ?o} WHERE { ?s ?p ?o . FILTER (strstarts(str(?p), "'
-        + ns_prefix
-        + '"))}'
-    )
-    cleaned_kg.update(q_del)
+    for prefix in prefixes:
+        q_del = (
+            'DELETE {?s ?p ?o} WHERE { ?s ?p ?o . FILTER (strstarts(str(?p), "'
+            + prefix
+            + '"))}'
+        )
+        cleaned_kg.update(q_del)
     return cleaned_kg
 
 
