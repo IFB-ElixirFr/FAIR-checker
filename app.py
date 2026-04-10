@@ -96,6 +96,9 @@ app.logger.addHandler(handler)
 app.logger.setLevel(logging.INFO)
 app.logger.propagate = False
 
+# print all loggers registered in logging module
+# for name in logging.root.manager.loggerDict:
+#    print(name + " : " + str(logging.getLogger(name).getEffectiveLevel()))
 
 for name in (
     "werkzeug",
@@ -1490,21 +1493,14 @@ def handle_embedded_annot_2(data):
 
     @param data dict Contains the data needed to aggregate (url, etc).
     """
-    # step = 0
-    print("handle annot_2")
+
     sid = request.sid
-    print(sid)
     RDF_TYPE[sid] = "trig"
     uri = str(data["url"])
-    print("retrieving embedded annotations for " + uri)
-    print("Retrieve KG for uri: " + uri)
+    app.logger.info("Retrieve KG for uri: " + uri)
 
     web_resource = WebResource(uri)
     kg = web_resource.get_rdf()
-    # kgs = web_resource.get_wr_kg_dataset()
-    # print(kgs.serialize(format="trig"))
-    # nb_triples = len(kgs)
-    # print(nb_triples)
 
     KGS[sid] = kg
 
