@@ -84,29 +84,12 @@ logging.basicConfig(
 )
 
 app = Flask(__name__)
+app_env = os.getenv("FAIR_CHECKER_ENV", os.getenv("FLASK_ENV", "development")).lower()
 
 app.config.SWAGGER_UI_OPERATION_ID = True
 app.config.SWAGGER_UI_REQUEST_DURATION = True
 
 APP_LOGGER_NAME = "fair_checker"
-
-# root = logging.getLogger()
-# root.handlers.clear()
-# root.setLevel(logging.WARNING)
-#
-# app.logger.handlers.clear()
-# handler = logging.StreamHandler(sys.stdout)
-# handler.setFormatter(
-#     logging.Formatter("[%(asctime)s] [%(levelname)s] %(name)s, %(line): %(message)s")
-# )
-#
-# app.logger.addHandler(handler)
-# app.logger.setLevel(logging.INFO)
-# app.logger.propagate = False
-
-# print all loggers registered in logging module
-# for name in logging.root.manager.loggerDict:
-#    print(name + " : " + str(logging.getLogger(name).getEffectiveLevel()))
 
 for name in (
     "werkzeug",
@@ -137,10 +120,12 @@ app.logger.propagate = False
 CORS(app)
 app.config["CORS_HEADERS"] = "Content-Type"
 
-if app.config["ENV"] == "production":
+if app_env == "production":
     app.config.from_object("config.ProductionConfig")
 else:
     app.config.from_object("config.DevelopmentConfig")
+
+app.config["APP_ENV"] = app_env
 
 api = Api(
     app=app,
@@ -163,8 +148,7 @@ fc_inspect_namespace = api.namespace(
 )
 
 cache = Cache(app)
-socketio = SocketIO(app, async_mode="threading")
-socketio.init_app(app, cors_allowed_origins="*", async_mode="eventlet")
+socketio = SocketIO(app, cors_allowed_origins="*", async_mode="eventlet")
 
 app.secret_key = secrets.token_urlsafe(16)
 
@@ -976,7 +960,7 @@ def handle_metric(json):
     metric_name = json["metric_name"]
     client_metric_id = json["id"]
     url = json["url"]
-    app.logger.info("Testing: " + url)
+    app.logger.info(f"Testing {metric_name} on {url}")
 
     # if implem == "FAIRMetrics":
     # evaluate_fairmetrics(json, metric_name, client_metric_id, url)
@@ -1070,11 +1054,11 @@ def evaluate_fc_metrics(metric_name, client_metric_id, url):
     # print(metric_name)
     # print(METRICS_CUSTOM)
 
-    app.logger.info("Evaluating FAIR-Checker metric")
+    app.logger.debug("Evaluating FAIR-Checker metric")
     # prod_logger.info("Evaluating FAIR-Checker metric")
     id = METRICS_CUSTOM[metric_name].get_id()
-    app.logger.info("ID: " + id)
-    app.logger.info("Client ID: " + client_metric_id)
+    app.logger.debug("ID: " + id)
+    app.logger.debug("Client ID: " + client_metric_id)
     # Faire une fonction recursive ?
     if cache.get(url) == "pulling":
         while True:
@@ -1092,7 +1076,7 @@ def evaluate_fc_metrics(metric_name, client_metric_id, url):
 
     METRICS_CUSTOM[metric_name].set_web_resource(webresource)
     name = METRICS_CUSTOM[metric_name].get_principle_tag()
-    app.logger.warning("Evaluation: " + metric_name)
+    app.logger.debug("Evaluation: " + metric_name)
 
     # logger.info("Evaluating: " + metric_name)
     result = METRICS_CUSTOM[metric_name].evaluate()
@@ -1116,7 +1100,7 @@ def evaluate_fc_metrics(metric_name, client_metric_id, url):
         id, name, score, str(evaluation_time), comment
     )
 
-    if app.config["ENV"] == "production":
+    if app.config.get("APP_ENV") == "production":
         b_url = app.config["SERVER_IP"] + "/"
     else:
         b_url = str(request.base_url)
@@ -1143,6 +1127,7 @@ def evaluate_fc_metrics(metric_name, client_metric_id, url):
         "name": name,
         "target_url": url,
     }
+    app.logger.info(f"{str(url)} : {metric_name} = {str(score)}")
     emit("done_" + client_metric_id, emit_json)
 
 
@@ -1167,7 +1152,7 @@ def handle_done_fair_assessment(data):
         "generatedAtTime": datetime.now(),
     }
 
-    if app.config["ENV"] == "production":
+    if app.config.get("APP_ENV") == "production":
         b_url = app.config["SERVER_IP"] + "/"
     else:
         b_url = str(request.base_url)
@@ -1395,9 +1380,9 @@ def csv_download(uuid):
         return send_file(
             mem,
             as_attachment=True,
-            attachment_filename="results.csv",
+            download_name="results.csv",
             mimetype="text/csv",
-            cache_timeout=-1,
+            max_age=0,
         )
         # return send_from_directory(
         #     "./temp/" + sid,
@@ -2128,4 +2113,4 @@ if __name__ == "__main__":
 
     elif args.web:
         logging.info("Starting webserver")
-        socketio.run(app, host="127.0.0.1", port=5000, debug=True)
+        socketio.run(app, host="127.0.0.1", port=5000, debug=True, log_output=False)
