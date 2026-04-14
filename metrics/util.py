@@ -45,14 +45,18 @@ app.config.from_object("config.Config")
 with app.app_context():
     ttl_cache_timer = current_app.config["CACHE_CONTROLLED_VOCAB_TIMER"]
     ttl_cache_maxsize = current_app.config["CACHE_CONTROLLED_VOCAB_MAXSIZE"]
+ttl_cache_seconds = float(timedelta(hours=ttl_cache_timer).total_seconds())
 cache_OLS = TTLCache(
-    maxsize=ttl_cache_maxsize, ttl=timedelta(hours=ttl_cache_timer), timer=datetime.now
+    maxsize=ttl_cache_maxsize,
+    ttl=ttl_cache_seconds,
 )
 cache_LOV = TTLCache(
-    maxsize=ttl_cache_maxsize, ttl=timedelta(hours=ttl_cache_timer), timer=datetime.now
+    maxsize=ttl_cache_maxsize,
+    ttl=ttl_cache_seconds,
 )
 cache_BP = TTLCache(
-    maxsize=ttl_cache_maxsize, ttl=timedelta(hours=ttl_cache_timer), timer=datetime.now
+    maxsize=ttl_cache_maxsize,
+    ttl=ttl_cache_seconds,
 )
 
 # # DOI regex
@@ -263,7 +267,7 @@ def ask_BioPortal(uri, type):
     """
     remove_key_from_value(cache_BP, None)
 
-    app.logger.debug(f"Call to the BioPortal REST API for [ {uri} ]")
+    app.logger.info(f"Call to the BioPortal REST API for [ {uri} ]")
     # print(app.config)
     with app.app_context():
         api_key = current_app.config["BIOPORTAL_APIKEY"]
@@ -299,9 +303,10 @@ def ask_OLS(uri):
     :param uri:
     :return: True if the URI is registered in one of the ontologies indexed in OLS, False otherwise, and None if registry is unreachable.
     """
+
     remove_key_from_value(cache_OLS, None)
 
-    app.logger.debug(f"Call to the OLS REST API for [ {uri} ]")
+    app.logger.info(f"Call to the OLS REST API for [ {uri} ]")
     # uri = requests.compat.quote_plus(uri)
     h = {"Accept": "application/json"}
     p = {"iri": uri}
@@ -327,7 +332,7 @@ def ask_LOV(uri):
     """
     remove_key_from_value(cache_LOV, None)
 
-    app.logger.debug(
+    app.logger.info(
         f"SPARQL for [ {uri} ] with enpoint [ https://lov.linkeddata.es/dataset/lov/sparql ]"
     )
 
