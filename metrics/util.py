@@ -12,7 +12,7 @@ from jinja2 import Template
 from pyshacl import validate
 import extruct
 import json
-from datetime import datetime, timedelta
+from datetime import timedelta
 from enum import Enum
 from cachetools import cached, TTLCache
 from flask import Flask
