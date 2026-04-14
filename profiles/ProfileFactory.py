@@ -7,6 +7,9 @@ import json
 import os
 import yaml
 from rdflib import URIRef, ConjunctiveGraph
+import logging
+
+logger = logging.getLogger(__name__)
 
 
 def profile_file_parser(url_profile):
@@ -29,7 +32,7 @@ def profile_file_parser(url_profile):
             profiles_versions = request_profile_versions()
 
             if element["@type"] == "rdfs:Class":
-                print("Class: " + element["@id"])
+                logger.info("Class: " + element["@id"])
 
                 name = element["rdfs:label"]
                 profile_dict["id"] = element["@id"].replace("bioschemas", "bsc")
@@ -75,7 +78,7 @@ def profile_file_parser(url_profile):
 
                             status_code = requests.head(url).status_code
                             if status_code != 200:
-                                print(url)
+                                logger.info(url)
                                 # print(status_code)
                         else:
                             raw_file_base = "https://raw.githubusercontent.com/BioSchemas/specifications/master/"
@@ -86,7 +89,7 @@ def profile_file_parser(url_profile):
 
                             # status_code = requests.head(raw_file_url).status_code
                             # if status_code != 200:
-                            print(raw_file_url)
+                            logger.info(raw_file_url)
                             # print(status_code)
                 else:
                     if profiles_versions[name]["latest_release"]:
@@ -343,14 +346,14 @@ def parse_profile(jsonld, url_dl):
 
 def load_profiles():
     if not path.exists("profiles/bs_profiles.json"):
-        print("Updating Bioschemas profiles from github")
+        logger.info("Updating Bioschemas profiles from github")
         profiles = get_profiles_from_dde()
         # profiles = get_profiles_specs_from_github()
         with open("profiles/bs_profiles.json", "w") as outfile:
             json.dump(profiles, outfile)
-        print("Profiles updated")
+        logger.info("Profiles updated")
     else:
-        print("Reading Bioschemas profiles from local file")
+        logger.info("Reading Bioschemas profiles from local file")
         # Opening JSON file
         with open("profiles/bs_profiles.json", "r") as openfile:
             # Reading from json file
@@ -425,7 +428,7 @@ def dyn_evaluate_profile_with_conformsto(kg):
 
     # Evaluate only profile with conformsTo
     ct_sub_kg_list = find_conformsto_subkg(kg)
-    print(ct_sub_kg_list)
+    logger.info(ct_sub_kg_list)
 
     for ct_sub_kg in ct_sub_kg_list:
         s = ct_sub_kg["subject"]
@@ -451,16 +454,16 @@ def dyn_evaluate_profile_with_conformsto(kg):
                 "latest_profile": profile.get_latest_profile(),
             }
         except BioschemasProfileNotFoundException as e:
-            print(e)
+            logger.error(e)
             profile_versions = request_profile_versions()
             profile_name = ct.split("/")[-2]
             bs_latest_profile = get_latest_ref_profile_from_pname(
                 profile_name, profile_versions
             )
-            print(bs_latest_profile)
+            logger.info(bs_latest_profile)
             profile = ProfileFactory.create_profile_from_ref_profile(bs_latest_profile)
 
-            print(profile)
+            logger.info(profile)
 
     return results
 
@@ -624,7 +627,7 @@ class ProfileFactory:
         p = bioschemas_profile_url
         version = p.split("/")[-1]
         profile_name = p.split("/")[-2]
-        print(f"Profile {profile_name} version {version}")
+        logger.info(f"Profile {profile_name} version {version}")
         github_file = f"https://raw.githubusercontent.com/BioSchemas/specifications/master/{profile_name}/jsonld/{profile_name}_v{version}.json"
         response_header = requests.head(github_file)
         if response_header.status_code != 200:
@@ -654,10 +657,10 @@ class ProfileFactory:
                 profile_name, profile_versions
             )
 
-        print("#####################")
-        print("Deprecated: " + str(is_deprecated))
-        print("Latest: " + str(latest_ref_profile))
-        print("#####################")
+        logger.info("#####################")
+        logger.info("Deprecated: " + str(is_deprecated))
+        logger.info("Latest: " + str(latest_ref_profile))
+        logger.info("#####################")
 
         profile = Profile(
             shape_name=dict_profile["name"],
@@ -674,7 +677,7 @@ class ProfileFactory:
     def create_profile_from_ref_profile(ref_profile):
         bs_profiles = load_profiles()
         for profile_key in bs_profiles.keys():
-            print(bs_profiles[profile_key]["ref_profile"])
+            logger.info(bs_profiles[profile_key]["ref_profile"])
             if ref_profile == bs_profiles[profile_key]["ref_profile"]:
                 name = bs_profiles[profile_key]["name"]
                 profile = Profile(
