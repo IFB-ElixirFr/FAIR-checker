@@ -12,6 +12,7 @@ logger = logging.getLogger(__name__)
 
 class WebResourceV2TestCase(unittest.TestCase):
     BIOTOOLS_DATASET_URL = "https://bio.tools/bwa"
+    BIOTOOLS_DATASET_API = "https://bio.tools/api/jaspar?format=jsonld"
     UNIPROT_angptl6_html = "https://www.uniprot.org/uniprotkb/Q8NI99"
     UNIPROT_angptl6_rdfxml = "https://www.uniprot.org/uniprotkb/Q8NI99.rdf"
     UNIPROT_angptl6_ttl = "https://www.uniprot.org/uniprotkb/Q8NI99.ttl"
@@ -36,6 +37,17 @@ class WebResourceV2TestCase(unittest.TestCase):
         self.assertGreater(len(rdf_dataset), 0, "No RDF triples were retrieved")
 
         print(rdf_dataset.serialize(format="turtle"))
+
+    def test_biotools_api_jsonld(self):
+        start_time = time.time()
+        wr = WebResource(self.BIOTOOLS_DATASET_API)
+        end_time = time.time()
+        logger.info(
+            f"Time taken to retrieve RDF triples: {round(end_time - start_time, 2)} seconds"
+        )
+        rdf_dataset = wr.get_rdf()
+        self.assertGreater(len(rdf_dataset), 0, "No RDF triples were retrieved")
+        logger.info(rdf_dataset.serialize(format="turtle"))
 
     def test_uniprot_html(self):
         start_time = time.time()
