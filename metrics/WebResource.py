@@ -24,10 +24,10 @@ requests.packages.urllib3.disable_warnings(
 )
 
 # configure logger to print to console with a simple format, including line number
-# logging.basicConfig(
-#    level=logging.INFO,
-#    format="%(asctime)s - %(levelname)s - %(name)s: %(lineno)d - %(message)s",
-# )
+logging.basicConfig(
+    level=logging.INFO,
+    format="%(asctime)s - %(levelname)s - %(name)s: %(lineno)d - %(message)s",
+)
 
 
 class WebResource:
@@ -318,6 +318,7 @@ class WebResource:
             chrome_options = Options()
             chrome_options.add_argument("--headless=new")
             chrome_options.add_argument("--no-sandbox")
+            chrome_options.add_argument("--disable-gpu")
             chrome_options.add_argument("--disable-dev-shm-usage")
 
             proxy = os.getenv("HTTP_PROXY")
@@ -328,6 +329,7 @@ class WebResource:
             driver = webdriver.Chrome(service=service, options=chrome_options)
             driver.set_page_load_timeout(self.timeout)
             driver.get(self.url)
+            logger.debug(f"Collecting embedded RDF with timeout {self.timeout}")
             WebDriverWait(driver, self.timeout).until(
                 lambda d: d.execute_script("return document.readyState") == "complete"
             )
