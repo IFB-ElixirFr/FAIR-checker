@@ -14,7 +14,9 @@ import extruct
 import json
 from datetime import timedelta
 from enum import Enum
-from cachetools import cached, TTLCache
+
+# from cachetools import cached, TTLCache
+from diskcache import Cache
 from flask import Flask
 from flask import current_app
 from flask_socketio import emit
@@ -23,6 +25,10 @@ import copy
 import re
 import validators
 from urllib.parse import urlparse, unquote
+
+logger = logging.getLogger(__name__)
+
+cache = Cache("cache_dir", size_limit=100 * 1024 * 1024)
 
 
 class SOURCE(Enum):
@@ -46,18 +52,6 @@ with app.app_context():
     ttl_cache_timer = current_app.config["CACHE_CONTROLLED_VOCAB_TIMER"]
     ttl_cache_maxsize = current_app.config["CACHE_CONTROLLED_VOCAB_MAXSIZE"]
 ttl_cache_seconds = float(timedelta(hours=ttl_cache_timer).total_seconds())
-cache_OLS = TTLCache(
-    maxsize=ttl_cache_maxsize,
-    ttl=ttl_cache_seconds,
-)
-cache_LOV = TTLCache(
-    maxsize=ttl_cache_maxsize,
-    ttl=ttl_cache_seconds,
-)
-cache_BP = TTLCache(
-    maxsize=ttl_cache_maxsize,
-    ttl=ttl_cache_seconds,
-)
 
 # # DOI regex
 # regex = r"10.\d{4,9}\/[-._;()\/:A-Z0-9]+"
@@ -66,6 +60,14 @@ DOI_PATTERN = re.compile(
     r"^10\.\d{4,9}/[-._;()/:A-Z0-9]+$",
     re.IGNORECASE,
 )
+
+
+def clean_cache():
+    s1 = len(cache)
+    logger.info(f"Cleaning cache")
+    cache.expire()
+    s2 = len(cache)
+    logger.info(f"Cleaned cache: removed {s2 - s1} expired entries)")
 
 
 # Dynamicaly generates a table with FAIR metrics implementations
@@ -258,14 +260,15 @@ def remove_key_from_value(d, val):
             d.pop(key)
 
 
-@cached(cache_BP)
+# @cached(cache_BP)
+@cache.memoize(expire=ttl_cache_seconds)
 def ask_BioPortal(uri, type):
     """
     Checks that the URI is registered in one of the ontologies indexed in BioPortal.
     :param uri:
     :return: True if the URI is registered in one of the ontologies indexed in BioPortal, False otherwise, and None if registry is unreachable.
     """
-    remove_key_from_value(cache_BP, None)
+    # remove_key_from_value(cache_BP, None)
 
     app.logger.info(f"Call to the BioPortal REST API for [ {uri} ]")
     # print(app.config)
@@ -296,7 +299,8 @@ def ask_BioPortal(uri, type):
         return None
 
 
-@cached(cache_OLS)
+# @cached(cache_OLS)
+@cache.memoize(expire=ttl_cache_seconds)
 def ask_OLS(uri):
     """
     Checks that the URI is registered in one of the ontologies indexed in OLS.
@@ -304,7 +308,7 @@ def ask_OLS(uri):
     :return: True if the URI is registered in one of the ontologies indexed in OLS, False otherwise, and None if registry is unreachable.
     """
 
-    remove_key_from_value(cache_OLS, None)
+    # remove_key_from_value(cache_OLS, None)
 
     app.logger.info(f"Call to the OLS REST API for [ {uri} ]")
     # uri = requests.compat.quote_plus(uri)
@@ -323,14 +327,15 @@ def ask_OLS(uri):
         return None
 
 
-@cached(cache_LOV)
+# @cached(cache_LOV)
+@cache.memoize(expire=ttl_cache_seconds)
 def ask_LOV(uri):
     """
     Checks that the URI is registered in one of the ontologies indexed in LOV (Linked Open Vocabularies).
     :param uri:
     :return: True if the URI is registered in one of the ontologies indexed in LOV, False otherwise, and None if registry is unreachable.
     """
-    remove_key_from_value(cache_LOV, None)
+    # remove_key_from_value(cache_LOV, None)
 
     app.logger.info(
         f"SPARQL for [ {uri} ] with enpoint [ https://lov.linkeddata.es/dataset/lov/sparql ]"

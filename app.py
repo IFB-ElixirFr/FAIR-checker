@@ -303,6 +303,9 @@ scheduler.add_job(
 )
 scheduler.add_job(func=update_profiles, trigger="interval", seconds=604800)
 scheduler.add_job(func=util.gen_usage_statistics, trigger="interval", seconds=10000)
+scheduler.add_job(
+    func=util.clean_cache, trigger="interval", seconds=86400
+)  # daily cache cleaning
 scheduler.start()
 
 app.logger.info("Background scheduler started")
@@ -1421,11 +1424,11 @@ def handle_connect():
 
 @socketio.on("disconnect")
 def handle_disconnected():
-    print("Disconnected")
+    app.logger.debug("Disconnected")
     sid = request.sid
 
     time.sleep(5)
-    print("Cleaning temp file after disconnect: " + sid)
+    app.logger.debug("Cleaning temp file after disconnect: " + sid)
     if os.path.exists("./temp/" + sid):
         os.remove("./temp/" + sid)
 
