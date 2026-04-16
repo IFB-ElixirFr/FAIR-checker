@@ -408,6 +408,7 @@
       alert("Please, enter a resource identifier !");
       return false;
     }
+
     $("#p1").attr("value", 0);
     $("#btn_test_checked").prop('disabled', true);
     $("#btn_test_all").addClass("is-loading");
@@ -418,6 +419,11 @@
       $(this).attr("score", "0");
       $(this).text("");
     });
+
+      update_radar_chart2();
+      $("#fair_badge").html("");
+      $("#fair_badge_html").text("");
+      $("#fair_badge_md").text("");
 
     $('[id^=test_]').each(function (id) {
       $(this).trigger("click");
