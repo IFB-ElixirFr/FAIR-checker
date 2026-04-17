@@ -4,6 +4,8 @@ from metrics.AbstractFAIRMetrics import AbstractFAIRMetrics
 from metrics.util import ask_BioPortal, ask_OLS, ask_LOV, inspect_onto_reg
 from metrics.recommendation import json_rec
 
+logger = logging.getLogger(__name__)
+
 
 class F2B_Impl(AbstractFAIRMetrics):
     query_classes = """
@@ -49,8 +51,8 @@ class F2B_Impl(AbstractFAIRMetrics):
             eval.set_score(0)
             return eval
 
-        eval.log_info("Weak evaluation:")
-        eval.log_info(
+        logger.info("Weak evaluation:")
+        logger.info(
             "Checking if at least one class used in RDF is known in OLS, LOV, or BioPortal"
         )
 
@@ -58,43 +60,39 @@ class F2B_Impl(AbstractFAIRMetrics):
         for row in qres:
             logging.debug(f'evaluating class {row["class"]}')
             if ask_OLS(row["class"]):
-                eval.log_info(f"{row['class']} known in Ontology Lookup Service (OLS)")
-                logging.debug(f"known in Ontology Lookup Service (OLS)")
+                logger.info((f"{row['class']} known in Ontology Lookup Service (OLS)"))
                 eval.set_score(1)
                 return eval
             elif ask_LOV(row["class"]):
-                eval.log_info(f"{row['class']} known in Linked Open Vocabularies (LOV)")
-                logging.debug(f"known in Linked Open Vocabularies (LOV)")
+                logger.info((f"{row['class']} known in Linked Open Vocabularies (LOV)"))
                 eval.set_score(1)
                 return eval
             elif ask_BioPortal(row["class"], type="class"):
-                eval.log_info(f"{row['class']} known in BioPortal")
+                logger.info((f"{row['class']} known in BioPortal"))
                 logging.debug(f"known in BioPortal")
                 eval.set_score(1)
                 return eval
 
-        eval.log_info(
+        logger.info(
             "Checking if at least one property used in RDF is known in OLS, LOV, or BioPortal"
         )
         qres = kg.query(self.query_properties)
         for row in qres:
             logging.debug(f'evaluating property {row["prop"]}')
             if ask_OLS(row["prop"]):
-                eval.log_info(f"{row['prop']} known in Ontology Lookup Service (OLS)")
-                logging.debug(f"known in Ontology Lookup Service (OLS)")
+                logger.info(f"{row['prop']} known in Ontology Lookup Service (OLS)")
                 eval.set_score(1)
                 return eval
             elif ask_LOV(row["prop"]):
-                eval.log_info(f"{row['prop']} known in Linked Open Vocabularies (LOV)")
-                logging.debug(f"known in Linked Open Vocabularies (LOV)")
+                logger.info(f"{row['prop']} known in Linked Open Vocabularies (LOV)")
                 eval.set_score(1)
                 return eval
             elif ask_BioPortal(row["prop"], type="property"):
-                eval.log_info(f"{row['prop']} known in BioPortal")
+                logger.info(f"{row['prop']} known in BioPortal")
                 eval.set_score(1)
                 return eval
 
-        eval.log_info(
+        logger.info(
             "No classes nor properties were found in one of the ontology registries"
         )
         eval.set_recommendations(json_rec["F2B"]["reco3"])
@@ -142,34 +140,27 @@ class F2B_Impl(AbstractFAIRMetrics):
         # print(results["properties_false"])
 
         for class_entry in results["classes_false"]:
-            print(f"{class_entry} not known in OLS, LOV, or BioPortal")
-            eval.log_warning(f"{class_entry} class not known in OLS, LOV, or BioPortal")
+            logger.info(f"{class_entry} not known in OLS, LOV, or BioPortal")
 
         if results["classes_false"]:
             eval.set_recommendations(json_rec["F2B"]["reco1"])
         else:
-            eval.log_info("All classes found in those ontology registries")
+            logger.info("All classes found in those ontology registries")
 
         for property_entry in results["properties_false"]:
-            print(f"{property_entry} not known in OLS, or LOV, or BioPortal ")
-            eval.log_warning(
+            logger.info(
                 f"{property_entry} property not known in OLS, LOV, or BioPortal"
             )
         if results["properties_false"]:
             eval.set_recommendations(json_rec["F2B"]["reco2"])
         else:
-            eval.log_info("All properties found in those ontology registries")
+            logger.info("All properties found in those ontology registries")
 
         # if True, go to weak evaluation
         if results["classes_false"] or results["properties_false"]:
             eval.set_score(0)
             return eval
 
-        eval.log_info(
-            "All classes and properties are known in major ontology registries"
-        )
-        logging.info(
-            "All classes and properties are known in major ontology registries"
-        )
+        logger.info("All classes and properties are known in major ontology registries")
         eval.set_score(2)
         return eval
