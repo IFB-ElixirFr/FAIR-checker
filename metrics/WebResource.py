@@ -15,19 +15,19 @@ from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.support.ui import WebDriverWait
 from webdriver_manager.chrome import ChromeDriverManager
 
-from metrics.util import clean_kg_excluding_ns_prefix, is_DOI, get_DOI
+from metrics.util import clean_kg_excluding_ns_prefix, is_DOI, get_DOI, get_disk_cache
 
 logger = logging.getLogger(__name__)
-
-requests.packages.urllib3.disable_warnings(
-    requests.packages.urllib3.exceptions.InsecureRequestWarning
-)
 
 # configure logger to print to console with a simple format, including line number
 logging.basicConfig(
     level=logging.INFO,
     format="%(asctime)s - %(levelname)s - %(name)s: %(lineno)d - %(message)s",
 )
+
+TTL_EVAL = 60 * 10
+
+dcache = get_disk_cache()
 
 
 class WebResource:
@@ -93,11 +93,19 @@ class WebResource:
             for s, p, o in rdf_graph:
                 self.dataset.add((s, p, o, URIRef(f"{self.url}#provided")))
         else:
-            self._retrieve_all_metadata()
-
-        # remove triples with the xhtml vocab namespace,
-        # as they are often noise in this context and not relevant for FAIR assessment
-        self.dataset = clean_kg_excluding_ns_prefix(self.dataset)
+            if not dcache.get(self.url):
+                logger.info(
+                    f"Loading web resource {self.url} and retrieving RDF metadata"
+                )
+                self._retrieve_all_metadata()
+                # remove triples with the xhtml vocab namespace,
+                # as they are often noise in this context and not relevant for FAIR assessment
+                self.dataset = clean_kg_excluding_ns_prefix(self.dataset)
+                dcache.set(self.url, self.dataset, expire=TTL_EVAL)
+            else:
+                logger.info(f"Loading web resource {self.url} from cache")
+                self.dataset = dcache.get(self.url)
+                self.status_code = 200
 
         logger.info(
             "WebResource loaded %s with %s RDF triples",

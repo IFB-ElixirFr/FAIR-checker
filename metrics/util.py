@@ -28,7 +28,17 @@ from urllib.parse import urlparse, unquote
 
 logger = logging.getLogger(__name__)
 
-cache = Cache("cache_dir", size_limit=100 * 1024 * 1024)
+_cache = None
+
+
+def get_disk_cache():
+    global _cache
+    if _cache is None:
+        _cache = Cache("cache_dir", size_limit=100 * 1024 * 1024)
+    return _cache
+
+
+dcache = get_disk_cache()
 
 
 class SOURCE(Enum):
@@ -63,11 +73,12 @@ DOI_PATTERN = re.compile(
 
 
 def clean_cache():
+    cache = get_disk_cache()
     s1 = len(cache)
     logger.info(f"Cleaning cache")
     cache.expire()
     s2 = len(cache)
-    logger.info(f"Cleaned cache: removed {s2 - s1} expired entries)")
+    logger.info(f"Cleaned cache: removed {s1 - s2} expired entries)")
 
 
 # Dynamicaly generates a table with FAIR metrics implementations
@@ -261,7 +272,7 @@ def remove_key_from_value(d, val):
 
 
 # @cached(cache_BP)
-@cache.memoize(expire=ttl_cache_seconds)
+@dcache.memoize(expire=ttl_cache_seconds)
 def ask_BioPortal(uri, type):
     """
     Checks that the URI is registered in one of the ontologies indexed in BioPortal.
@@ -300,7 +311,7 @@ def ask_BioPortal(uri, type):
 
 
 # @cached(cache_OLS)
-@cache.memoize(expire=ttl_cache_seconds)
+@dcache.memoize(expire=ttl_cache_seconds)
 def ask_OLS(uri):
     """
     Checks that the URI is registered in one of the ontologies indexed in OLS.
@@ -328,7 +339,7 @@ def ask_OLS(uri):
 
 
 # @cached(cache_LOV)
-@cache.memoize(expire=ttl_cache_seconds)
+@dcache.memoize(expire=ttl_cache_seconds)
 def ask_LOV(uri):
     """
     Checks that the URI is registered in one of the ontologies indexed in LOV (Linked Open Vocabularies).
