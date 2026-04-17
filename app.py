@@ -304,14 +304,18 @@ scheduler.add_job(
 scheduler.add_job(func=update_profiles, trigger="interval", seconds=604800)
 scheduler.add_job(func=util.gen_usage_statistics, trigger="interval", seconds=10000)
 scheduler.add_job(
-    func=util.clean_cache, trigger="interval", seconds=86400
-)  # daily cache cleaning
+    func=util.clean_cache,
+    trigger="interval",
+    seconds=86400,
+)  # daily disk cache cleaning
 scheduler.start()
 
 app.logger.info("Background scheduler started")
 
 # Shut down the scheduler when exiting the app
 atexit.register(lambda: scheduler.shutdown())
+
+util.clean_cache()  # clean cache at server startup
 
 
 @app.context_processor
@@ -955,7 +959,7 @@ def handle_metric(json):
     socketio Handler for a metric calculation requests, calling FAIRMetrics API.
     emit the result of the test
 
-    @param json dict Contains the necessary informations to execute evaluate a metric.
+    @param json dict Contains the necessary information to execute evaluate a metric.
     """
 
     implem = json["implem"]
@@ -1065,7 +1069,7 @@ def evaluate_fc_metrics(metric_name, client_metric_id, url):
     # Faire une fonction recursive ?
     if cache.get(url) == "pulling":
         while True:
-            time.sleep(2)
+            eventlet.sleep(2)
             if not cache.get(url) == "pulling":
                 webresource = cache.get(url)
                 break
