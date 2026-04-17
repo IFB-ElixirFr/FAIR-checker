@@ -4,6 +4,8 @@ from metrics.AbstractFAIRMetrics import AbstractFAIRMetrics
 from metrics.Evaluation import Evaluation
 from metrics.recommendation import json_rec
 
+logger = logging.getLogger(__name__)
+
 
 class F1A_Impl(AbstractFAIRMetrics):
     """
@@ -35,15 +37,15 @@ FAIRChecker checks that the resource identifier is a reachable URL. It's better 
         eval.set_metrics(self.principle_tag)
 
         status_code = eval.get_web_resource().get_status_code()
-        eval.log_info(
+        logger.info(
             "Checking if the URL is reachable, status code: " + str(status_code)
         )
         if status_code == 200:
-            eval.log_info("Status code is OK, meaning the url is Unique.")
+            logger.info("Status code is OK, meaning the url is Unique.")
             eval.set_score(2)
             return eval
         else:
-            eval.log_info(
+            logger.info(
                 "Status code is different than 200, thus, the resource is not reachable."
             )
             eval.set_score(0)
@@ -72,27 +74,26 @@ ASK {
             eval.set_score(0)
 
             # eval.set_reason("No metadata in RDF format found")
-            eval.log_info("No metadata in RDF format found")
+            logger.info("No metadata in RDF format found")
             return eval
         else:
             # eval.set_reason(
             #     "Found metadata in RDF format ! (" + str(len(kg)) + " triples)"
             # )
-            eval.log_info(
-                "Found metadata in RDF format ! (" + str(len(kg)) + " triples)"
-            )
-            logging.debug(f"running query:" + f"\n{query_blank_nodes}")
+            logger.info("Found metadata in RDF format ! (" + str(len(kg)) + " triples)")
+            logger.debug(f"running query:" + f"\n{query_blank_nodes}")
             res = kg.query(query_blank_nodes)
-            logging.debug(str(res.serialize(format="json")))
+            logger.debug(str(res.serialize(format="json")))
             for bool_res in res:
                 if bool_res:
                     # if blank node
-                    eval.log_info("Blank node found, thus ID is not unique")
+                    logger.info("Blank node found, thus ID is not unique")
                     # eval.append_reason("Blank node found, thus ID is not unique")
                     eval.set_score(0)
                 else:
                     # if no blank node
-                    eval.log_info(
+                    logger.info(
+                        "Blank node found, thus ID is not unique"
                         "No blank node found, meaning every identifiers should be unique"
                     )
                     # eval.append_reason("No blank node found !")
