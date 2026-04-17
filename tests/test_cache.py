@@ -2,6 +2,7 @@ import random
 import time
 import logging
 import unittest
+from metrics.WebResource import WebResource
 from diskcache import Cache
 
 logger = logging.getLogger(__name__)
@@ -26,7 +27,7 @@ cache = Cache(directory="test_cache", default_timeout=300)
 
 
 @timeit
-@cache.memoize(expire=5)
+@cache.memoize(expire=5, tag="LA")
 def long_ask(prop):
     res = random.choice([True, False])
     # time.sleep(random.randint(0, 2))
@@ -51,14 +52,17 @@ class CacheTestCase(unittest.TestCase):
         print("Number of items:", len(cache))
         print("Cache size (bytes):", cache.volume())
 
-        for key in cache.iterkeys():
-            print(f"Key: {key}, Value: {cache[key]}")
-
         print()
         print("ITERATION 1")
         for p in list_of_props:
             res = long_ask(p)
             print(f"{p} exists ? {res}")
+
+        self.assertTrue(cache.get(("test_cache.long_ask", "prop_2", None)))
+        self.assertFalse(cache.get(("test_cache.long_ask", "prop_20", None)))
+
+        for key in cache.iterkeys():
+            print(f"Key: {key}, Value: {cache[key]}")
 
         print("ITERATION 2")
         for p in list_of_props:
@@ -73,3 +77,23 @@ class CacheTestCase(unittest.TestCase):
         time.sleep(5)
         cache.expire()
         self.assertEqual(0, len(cache))
+
+    def test_cached_web_resource(self):
+        start = time.time()
+        wr_1 = WebResource("http://bio.tools/star")
+        delta = time.time() - start
+        logger.info(
+            f"retrieved {len(wr_1.get_rdf())} web resource {wr_1.url} in {round(delta,2)} seconds"
+        )
+        self.assertGreaterEqual(delta, 2)
+        self.assertGreaterEqual(len(wr_1.get_rdf()), 10)
+        time.sleep(2)
+
+        start = time.time()
+        wr_2 = WebResource("http://bio.tools/star")
+        delta = time.time() - start
+        logger.info(
+            f"retrieved {len(wr_2.get_rdf())} web resource {wr_2.url} in {round(delta,2)} seconds"
+        )
+        self.assertLessEqual(delta, 2)
+        self.assertGreaterEqual(len(wr_2.get_rdf()), 10)

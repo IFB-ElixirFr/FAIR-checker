@@ -101,6 +101,11 @@ class FindabilityTestCase(unittest.TestCase):
         logging.info(res)
         self.assertEqual(res.get_score(), str(Result.STRONG.value))
 
+    def test_F1B_PIDS(self):
+        DOI_1 = "http://doi.org/10.7892/boris.108387"
+        DOI_2 = "10.7892/boris.108387"
+        DOI_3 = "https://doi.pangaea.de/10.1594/PANGAEA.914331"
+
     def test_F2A_biotools(self):
         biotools = FindabilityTestCase.tool
         res = FAIRMetricsFactory.get_F2A(
