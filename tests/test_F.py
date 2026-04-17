@@ -103,8 +103,19 @@ class FindabilityTestCase(unittest.TestCase):
 
     def test_F1B_PIDS(self):
         DOI_1 = "http://doi.org/10.7892/boris.108387"
-        DOI_2 = "10.7892/boris.108387"
         DOI_3 = "https://doi.pangaea.de/10.1594/PANGAEA.914331"
+
+        wr = WebResource(DOI_1)
+        res = FAIRMetricsFactory.get_F1B(
+            web_resource=wr, impl=Implem.FAIR_CHECKER
+        ).evaluate()
+        self.assertEqual(res.get_score(), str(Result.STRONG.value))
+
+        wr = WebResource(DOI_3)
+        res = FAIRMetricsFactory.get_F1B(
+            web_resource=wr, impl=Implem.FAIR_CHECKER
+        ).evaluate()
+        self.assertEqual(res.get_score(), str(Result.STRONG.value))
 
     def test_F2A_biotools(self):
         biotools = FindabilityTestCase.tool
