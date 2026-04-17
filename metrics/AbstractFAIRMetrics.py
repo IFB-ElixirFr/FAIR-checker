@@ -1,6 +1,11 @@
 from abc import ABC, abstractmethod
 import logging
 from metrics.Evaluation import Evaluation
+from metrics.util import get_disk_cache
+
+logger = logging.getLogger(__name__)
+
+TTL_EVAL = 60
 
 
 class AbstractFAIRMetrics(ABC):
@@ -21,7 +26,7 @@ PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
 PREFIX odrl: <http://www.w3.org/ns/odrl/2/>
     """
 
-    cache = {}
+    dcache = get_disk_cache()
 
     def __init__(self, web_resource=None):
         self.name = "My metric name"
@@ -105,43 +110,39 @@ PREFIX odrl: <http://www.w3.org/ns/odrl/2/>
             url = self.get_web_resource().get_url()
             eval.set_target_uri(url)
             eval.set_web_resource(self.get_web_resource())
-            if url in AbstractFAIRMetrics.cache.keys():
 
-                if self.get_principle_tag() in AbstractFAIRMetrics.cache[url].keys():
-                    # logging.warning(
-                    #    f"Reusing cached result from {self.get_principle_tag()}"
-                    # )
-                    return AbstractFAIRMetrics.cache[url][self.get_principle_tag()]
-            else:
-                AbstractFAIRMetrics.cache[url] = {}
+            cache_key = self.get_principle_tag() + "_" + url
+
+            if self.dcache.get(cache_key) is not None:
+                logging.info(
+                    f"Reusing cached result for {self.get_principle_tag()} and URL {url}"
+                )
+                score = self.dcache.get(cache_key)
+                self.get_evaluation().set_end_time()
+                self.get_evaluation().set_score(float(score))
+                return self.get_evaluation()
 
             if self.strong_evaluate().get_score() == "2":
-                # print("STRONG")
                 self.get_evaluation().set_end_time()
-                AbstractFAIRMetrics.cache[url][
-                    self.get_principle_tag()
-                ] = self.get_evaluation()
-
+                self.dcache.set(
+                    cache_key, str(self.get_evaluation().get_score()), expire=TTL_EVAL
+                )
                 return self.get_evaluation()
             elif self.weak_evaluate().get_score() == "1":
-                # print("WEAK")
                 self.get_evaluation().set_end_time()
-                AbstractFAIRMetrics.cache[url][
-                    self.get_principle_tag()
-                ] = self.get_evaluation()
+                self.dcache.set(
+                    cache_key, str(self.get_evaluation().get_score()), expire=TTL_EVAL
+                )
 
                 return self.get_evaluation()
             else:
-                # print("NO")
                 self.get_evaluation().set_end_time()
-                AbstractFAIRMetrics.cache[url][
-                    self.get_principle_tag()
-                ] = self.get_evaluation()
-
+                self.dcache.set(
+                    cache_key, str(self.get_evaluation().get_score()), expire=TTL_EVAL
+                )
                 return self.get_evaluation()
-        except AttributeError as err:
-            print(err)
-            logging.warning("No web_resource set")
+        except Exception as err:
+            logger.error(err)
 
     @abstractmethod
     def weak_evaluate(self) -> Evaluation:
