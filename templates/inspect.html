@@ -603,56 +603,23 @@
 </script>
 
 
-
-<!-- <div id="section-build-KG" class="section"> -->
-
-<!-- <article id="article-build-KG" class="message is-info">
-    <div class="message-header">
-        <p>Step 1: Build Graph from resource identifier (URL/DOI)</p>
-    </div>
-    <div class="message-body">
-        <div class="field is-grouped">
-            <p class="control is-expanded">
-                <input id="url" name="url" class="input" type="text" placeholder="Resource URL"
-                    value="https://bio.tools/bwa">
-            </p>
-            <p class="control"><a id="btn_kg" class="button is-info">Build Knowledge Graph</a></p>
-        </div>
-
-        {% for k in sample_data.keys() %}
-        <p class="button is-info is-small">{{k}}<i class="fa fa-chevron-down fa-fw"></i></p>
-
-        <div class="panel">
-            <div class="panel-block is-centered">
-                <div class="field is-grouped is-grouped-centered">
-                    <p class="button is-info is-small">{{k}}&nbsp;<i class="fa fa-chevron-right fa-fw"></i></p>
-                    {% for s in sample_data[k] %}
-                    <p id="resource_{{k}}_{{loop.index}}" class="control"><a class="button is-small is-text"
-                            data-url="{{ s.url }}">{{ s.text }}</a></p>
-                    {% endfor %}
-                </div>
-            </div>
-        </div>
+<div>
+    <p>
+        <a id="base_plugin_btn" class="button is-info">Standard</a>
+        {% for plugin in plugins %}
+            <a id="biodiv_plugin_btn" class="button is-info">{{ plugin.name }}</a>
         {% endfor %}
-    </div>
-</article> -->
-
-
-
+    </p>
+    <br>
+</div>
 
 <article class="message">
     <div class="message-body is-inspect">
         <h2 class="subtitle"><b>Step 1: fetch RDF metadata from the resource URL</b></h2>
-        {% for k in sample_data.keys() %}
         <div class="field is-grouped">
-            <p class="is-small">{{k}}:&nbsp;</p>
-            {% for s in sample_data[k] %}
-            <p id="resource_{{k}}_{{loop.index}}" class="control"><a class="button is-small is-text"
-                    data-url="{{ s.url }}">{{ s.text
-                    }}</a></p>
-            {% endfor %}
+            <p class="is-small">Examples:&nbsp;</p>
+            <div id="exampleDatasetList" class="columns"></div>
         </div>
-        {% endfor %}
         <div class="field has-addons">
             <div class="control is-expanded">
 
@@ -860,42 +827,40 @@
         </div>
     </article>
 </div>
-<!-- <section id="section-KG" class="section"> -->
-<!--    <div class="section">-->
-<!-- <article id="article-KG" class="message is-info is-hidden">
-    <div class="message-header">
-        <p>Graph</p>
-    </div>
-    <div class="message-body is-hidden">
-        <div class="field">
-            <div class="control">
-                <textarea id="microdata" class="textarea is-small" placeholder="Knowledge graph, in RDF, turtle syntax"
-                    rows="15"></textarea>
-            </div>
-        </div>
-    </div>
-</article> -->
-
-
-<!--<article id="article-KGdisplay" class="message is-info">-->
-<!--    <div class="message-header">-->
-<!--        <p>Graph Display</p>-->
-<!--    </div>-->
-<!--    <div class="message-body">-->
-<!--        <div class="field">-->
-<!--            <div class="control">-->
-<!--                <div id="svg-body" class="panel-body"></div>-->
-<!--            </div>-->
-<!--        </div>-->
-<!--    </div>-->
-<!--</article>-->
 
 <script>
-    // var triples = [
-    // 		{subject:"ex:ThaiLand", 	predicate:"ex:hasFood", 	object:"ex:TomYumKung"},
-    //
-    // 	];
+    // On first render
 
+    function rendersExampleDatasets(pluginName) {
+        const exampleDatasets = {{ sample_data | tojson }}
+        if(Object.keys(exampleDatasets).includes(pluginName)) {
+            var renderedList = ""
+            exampleDatasets[pluginName].forEach(dataset => {
+                const renderedDatasetButton = `<p id="resource_k_loop.index" class="control column"><a class="button is-small is-text" data-url="s.url">${dataset.text}</a></p>`
+                renderedList += renderedDatasetButton
+            });
+            document.getElementById("exampleDatasetList").innerHTML = renderedList
+        }
+    }
+
+    rendersExampleDatasets("Base Plugin")
+</script>
+
+<script>
+
+    // State modifier functions
+
+    // TODO: Dynamically get all the plugins and create as many event listener as there is plugins
+
+    const basePluginBtn = document.getElementById("base_plugin_btn")
+    basePluginBtn.addEventListener("click", function (e) {
+        e.preventDefault()
+        rendersExampleDatasets("Base Plugin")
+    });
+
+</script>
+
+<script>
 
     var svg = d3.select("#svg-body").append("svg")
         .attr("width", "auto")
@@ -905,15 +870,6 @@
 
     var force = d3.layout.force().size([800, 600]);
 
-  	// var graph = triplesToGraph(triples);
-
-  	// update();
-
-
 </script>
-
-<!--    </div>-->
-<!-- </section> -->
-
 
 {% endblock %}

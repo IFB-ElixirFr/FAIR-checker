@@ -58,6 +58,9 @@ from rich.progress import track
 from rich.table import Table
 from rich.text import Text
 
+## Fair Checker plugins
+from plugins.example.main import ExamplePlugin
+
 import metrics.util as util
 from metrics import test_metric
 from metrics.Evaluation import Evaluation, Result
@@ -84,6 +87,12 @@ logging.basicConfig(
 )
 
 app = Flask(__name__)
+
+## Add the plugin to the active plugins list
+PLUGINS = [
+    ExamplePlugin("Example Plugin", "a plugin that serves as a demonstrator for the fair checker plugin system")
+]
+
 
 app.config.SWAGGER_UI_OPERATION_ID = True
 app.config.SWAGGER_UI_REQUEST_DURATION = True
@@ -169,7 +178,7 @@ socketio.init_app(app, cors_allowed_origins="*", async_mode="eventlet")
 app.secret_key = secrets.token_urlsafe(16)
 
 sample_resources = {
-    "Examples": [
+    "Base Plugin": [
         {
             "text": "Dataset Dataverse",
             "url": "https://data.inrae.fr/dataset.xhtml?persistentId=doi:10.15454/P27LDX",
@@ -192,6 +201,10 @@ sample_resources = {
         },
     ],
 }
+
+## Extend the example datasets with the example datasets from all the plugins 
+for plugin in PLUGINS:
+    sample_resources[plugin.name] = plugin.datasets
 
 metrics = [
     {"name": "f1", "category": "F", "description": "F1 verifies that ...  "},
@@ -1923,6 +1936,7 @@ def kg_metrics_2():
         "inspect.html",
         f_metrics=m,
         sample_data=sample_resources,
+        plugins=PLUGINS,
         title="Inspect",
         subtitle="to enhance metadata quality",
     )
