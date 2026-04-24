@@ -59,6 +59,7 @@ from rich.table import Table
 from rich.text import Text
 
 ## Fair Checker plugins
+from plugins.base.main import BasePlugin
 from plugins.example.main import ExamplePlugin
 
 import metrics.util as util
@@ -90,7 +91,8 @@ app = Flask(__name__)
 
 ## Add the plugin to the active plugins list
 PLUGINS = [
-    ExamplePlugin("Example Plugin", "a plugin that serves as a demonstrator for the fair checker plugin system")
+    BasePlugin("Base Plugin", "The basic plugin of Fair-Checker. It allows to perform the basic checks and inspection for any kind of web pages using a standard metric list"),
+    ExamplePlugin("Example Plugin", "A plugin that serves as a demonstrator for the fair checker plugin system")
 ]
 
 
@@ -177,34 +179,30 @@ socketio.init_app(app, cors_allowed_origins="*", async_mode="eventlet")
 
 app.secret_key = secrets.token_urlsafe(16)
 
-sample_resources = {
-    "Base Plugin": [
-        {
-            "text": "Dataset Dataverse",
-            "url": "https://data.inrae.fr/dataset.xhtml?persistentId=doi:10.15454/P27LDX",
-        },
-        {
-            "text": "Workflow",
-            "url": "https://workflowhub.eu/workflows/18",  # Workflow in WorkflowHub
-        },
-        {
-            "text": "Publication Datacite",
-            "url": "https://api.datacite.org/application/vnd.schemaorg.ld+json/10.7892/boris.108387",  # Publication in Datacite
-        },
-        {
-            "text": "Dataset",
-            "url": "https://doi.pangaea.de/10.1594/PANGAEA.914331",  # dataset in PANGAEA
-        },
-        {
-            "text": "Tool",
-            "url": "https://bio.tools/jaspar",
-        },
-    ],
-}
-
-## Extend the example datasets with the example datasets from all the plugins 
-for plugin in PLUGINS:
-    sample_resources[plugin.name] = plugin.datasets
+#sample_resources = { ## Deleted to put the sample_ressources into the plugin 
+#    "Base Plugin": [
+#        {
+#            "text": "Dataset Dataverse",
+#            "url": "https://data.inrae.fr/dataset.xhtml?persistentId=doi:10.15454/P27LDX",
+#        },
+#        {
+#            "text": "Workflow",
+#            "url": "https://workflowhub.eu/workflows/18",  # Workflow in WorkflowHub
+#        },
+#        {
+#            "text": "Publication Datacite",
+#            "url": "https://api.datacite.org/application/vnd.schemaorg.ld+json/10.7892/boris.108387",  # Publication in Datacite
+#        },
+#        {
+#            "text": "Dataset",
+#            "url": "https://doi.pangaea.de/10.1594/PANGAEA.914331",  # dataset in PANGAEA
+#        },
+#        {
+#            "text": "Tool",
+#            "url": "https://bio.tools/jaspar",
+#        },
+#    ],
+#}
 
 metrics = [
     {"name": "f1", "category": "F", "description": "F1 verifies that ...  "},
@@ -1916,7 +1914,6 @@ def base_metrics():
         render_template(
             "check.html",
             f_metrics=metrics,
-            sample_data=sample_resources,
             jld=raw_jld,
             uuid=content_uuid,
             title="Check",
@@ -1935,8 +1932,7 @@ def kg_metrics_2():
     return render_template(
         "inspect.html",
         f_metrics=m,
-        sample_data=sample_resources,
-        plugins=PLUGINS,
+        plugins=[plugin.to_dict() for plugin in PLUGINS],
         title="Inspect",
         subtitle="to enhance metadata quality",
     )

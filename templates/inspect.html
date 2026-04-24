@@ -12,6 +12,7 @@
 
 <!-- TESTING Display -->
 <script>
+
     function filterNodesById(nodes, id) {
         return nodes.filter(function (n) { return n.id === id; });
     }
@@ -188,14 +189,16 @@
     });
     {% endfor %}
 
-    // Exemple selector List
-    {% for k in sample_data.keys() %}
+    // Exemple selector List- might be useful
+    /*
+    {% for plugin in plugins %}
     $("#sample_{{k}}").on("change", function () {
         console.log(this.value);
         $("#url").val(this.value);
         $('#sample_{{k}} option[value="{{ k }}"]').attr("selected", "selected");
     });
     {% endfor %}
+    */
 
     // Exemple selector Button
     $('[id^="resource_"]').on("click", function () {
@@ -605,9 +608,8 @@
 
 <div>
     <p>
-        <a id="base_plugin_btn" class="button is-info">Standard</a>
         {% for plugin in plugins %}
-            <a id="biodiv_plugin_btn" class="button is-info">{{ plugin.name }}</a>
+            <a id="plg_{{ plugin.id }}_activate_btn" class="button is-info">{{ plugin.name }}</a>
         {% endfor %}
     </p>
     <br>
@@ -829,33 +831,44 @@
 </div>
 
 <script>
-    // On first render
+    // Constants
+
+    const plugins = {{ plugins | tojson }}
+
+
+    /**************** On first render ********************************************************************************************* /
+     * 
+     * Functions triggered once at the first render of the page. The functions triggered are used to gather the 
+     * relevant informations to display on the page first and to fill in all the States with their initial values
+     *
+    */
 
     function rendersExampleDatasets(pluginName) {
-        const exampleDatasets = {{ sample_data | tojson }}
-        if(Object.keys(exampleDatasets).includes(pluginName)) {
-            var renderedList = ""
-            exampleDatasets[pluginName].forEach(dataset => {
-                const renderedDatasetButton = `<p id="resource_k_loop.index" class="control column"><a class="button is-small is-text" data-url="s.url">${dataset.text}</a></p>`
-                renderedList += renderedDatasetButton
-            });
-            document.getElementById("exampleDatasetList").innerHTML = renderedList
-        }
+        const plugin = plugins.find(item => item.name === pluginName);
+        var renderedList = ""
+        plugin.datasets.forEach(dataset => {
+            const renderedDatasetButton = `<p id="resource_k_loop.index" class="control column"><a class="button is-small is-text" data-url="s.url">${dataset.text}</a></p>`
+            renderedList += renderedDatasetButton
+        });
+        document.getElementById("exampleDatasetList").innerHTML = renderedList
+        console.log(pluginName)
     }
 
     rendersExampleDatasets("Base Plugin")
-</script>
 
-<script>
 
-    // State modifier functions
+    /**************** Event listeners ********************************************************************************************* /
+     * 
+     * Event listeners allows to bind events (button clicked) etc to a function that will change the state of the page 
+     * dynamically. It's most used to react to users input
+     *
+    */
 
-    // TODO: Dynamically get all the plugins and create as many event listener as there is plugins
-
-    const basePluginBtn = document.getElementById("base_plugin_btn")
-    basePluginBtn.addEventListener("click", function (e) {
-        e.preventDefault()
-        rendersExampleDatasets("Base Plugin")
+    plugins.forEach(plugin => {
+        document.getElementById(`plg_${plugin.id}_activate_btn`).addEventListener("click", function(e) {
+            e.preventDefault()
+            rendersExampleDatasets(plugin.name)
+        })
     });
 
 </script>

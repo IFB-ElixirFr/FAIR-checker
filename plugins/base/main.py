@@ -43,15 +43,15 @@ from flask import Blueprint, render_template, abort
 from jinja2 import TemplateNotFound
 import json
 
-class ExamplePlugin(Plugin):
+class BasePlugin(Plugin):
 
     VERSION = "v0.0.1"
-    ID = "example_plugin"
+    ID = "base_plugin"
 
     def __init__(self, name, description):
         self.name = name
         self.description = description
-        self.datasets = self.read_json('plugins/example/datasets.json')
+        self.datasets = self.read_json('plugins/base/datasets.json')
     
     def to_dict(self):
         return {
