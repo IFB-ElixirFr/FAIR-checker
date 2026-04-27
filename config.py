@@ -28,7 +28,7 @@ class Config(object):
 
 
 class ProductionConfig(Config):
-    SERVER_IP = "https://fair-checker.france-bioinformatique.fr"
+    SERVER_IP = environ.get("SERVER_IP")
 
 
 class DevelopmentConfig(Config):
