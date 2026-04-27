@@ -16,6 +16,8 @@ from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.support.ui import WebDriverWait
 from webdriver_manager.chrome import ChromeDriverManager
 
+from playwright.sync_api import sync_playwright, TimeoutError as PlaywrightTimeoutError
+
 from metrics.util import clean_kg_excluding_ns_prefix, is_DOI, get_DOI, get_disk_cache
 
 logger = logging.getLogger(__name__)
@@ -150,7 +152,8 @@ class WebResource:
 
         # if no triples were retrieved by content negotiation, try to collect embedded RDF with Selenium and extruct (costly)
         if len(g1) == 0:
-            self._collect_embedded_rdf_with_selenium()
+            # self._collect_embedded_rdf_with_selenium()
+            self._collect_embedded_rdf_with_playwright()
 
         self.dataset = clean_kg_excluding_ns_prefix(self.dataset)
 
@@ -379,6 +382,75 @@ class WebResource:
                         self.url,
                         exc,
                     )
+
+    def _collect_embedded_rdf_with_playwright(self) -> None:
+        logger.info("Collecting embedded RDF with Playwright")
+        browser = None
+        context = None
+        page = None
+
+        try:
+            with sync_playwright() as p:
+                launch_kwargs = {"headless": True}
+                proxy = os.getenv("HTTP_PROXY")
+                if proxy:
+                    launch_kwargs["proxy"] = {"server": proxy}
+
+                browser = p.chromium.launch(**launch_kwargs)
+                context = browser.new_context(ignore_https_errors=True)
+                page = context.new_page()
+
+                page.goto(
+                    self.url, wait_until="domcontentloaded", timeout=self.timeout * 1000
+                )
+
+                # Option 1: attendre un signal metier si present
+                try:
+                    page.wait_for_selector(
+                        'script[type="application/ld+json"]', timeout=5000
+                    )
+                except PlaywrightTimeoutError:
+                    pass
+
+                # Option 2: fallback reseau "calme"
+                try:
+                    page.wait_for_load_state("networkidle", timeout=5000)
+                except PlaywrightTimeoutError:
+                    pass
+
+                html_source = page.content()
+
+                data = extruct.extract(
+                    html_source,
+                    base_url=self.url,
+                    syntaxes=["json-ld", "rdfa", "microdata"],
+                    errors="ignore",
+                )
+
+                self._parse_extruct_json_items(data.get("json-ld", []), "html_jsonld")
+                self._parse_extruct_json_items(data.get("rdfa", []), "html_rdfa")
+                self._parse_extruct_json_items(
+                    data.get("microdata", []), "html_microdata"
+                )
+
+        except Exception as exc:
+            logger.warning("Playwright extraction failed for %s: %s", self.url, exc)
+        finally:
+            if page is not None:
+                try:
+                    page.close()
+                except Exception:
+                    pass
+            if context is not None:
+                try:
+                    context.close()
+                except Exception:
+                    pass
+            if browser is not None:
+                try:
+                    browser.close()
+                except Exception:
+                    pass
 
     def _wait_for_dom_stability(
         self, driver, timeout=10, check_interval=0.5, stable_checks=3
