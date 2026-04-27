@@ -340,7 +340,7 @@ class WebResource:
             driver.set_page_load_timeout(self.timeout)
             driver.get(self.url)
             logger.debug(f"Collecting embedded RDF with timeout {self.timeout}")
-            
+
             success = self._wait_for_dom_stability(driver, timeout=10)
             if success:
                 html_source = driver.page_source
@@ -354,7 +354,9 @@ class WebResource:
 
                 self._parse_extruct_json_items(data.get("json-ld", []), "html_jsonld")
                 self._parse_extruct_json_items(data.get("rdfa", []), "html_rdfa")
-                self._parse_extruct_json_items(data.get("microdata", []), "html_microdata")
+                self._parse_extruct_json_items(
+                    data.get("microdata", []), "html_microdata"
+                )
             else:
                 raise Exception()
         except Exception as exc:
@@ -378,7 +380,9 @@ class WebResource:
                         exc,
                     )
 
-    def _wait_for_dom_stability(self, driver, timeout=10, check_interval=0.5, stable_checks=3):
+    def _wait_for_dom_stability(
+        self, driver, timeout=10, check_interval=0.5, stable_checks=3
+    ):
         """
         Wait until the DOM stops changing.
 
@@ -386,24 +390,29 @@ class WebResource:
         :param check_interval: time between checks
         :param stable_checks: how many consecutive identical DOMs before considering stable
         """
-        end_time = time.time() + timeout
-        last_html = ""
-        stable_count = 0
+        # end_time = time.time() + timeout
+        # last_html = ""
+        # stable_count = 0
+        #
+        # while time.time() < end_time:
+        #     html = driver.execute_script("return document.documentElement.outerHTML;")
+        #
+        #     if html == last_html:
+        #         stable_count += 1
+        #         if stable_count >= stable_checks:
+        #             return True
+        #     else:
+        #         stable_count = 0
+        #         last_html = html
+        #
+        #     time.sleep(check_interval)
+        #
+        # return False
 
-        while time.time() < end_time:
-            html = driver.execute_script("return document.documentElement.outerHTML;")
-
-            if html == last_html:
-                stable_count += 1
-                if stable_count >= stable_checks:
-                    return True
-            else:
-                stable_count = 0
-                last_html = html
-
-            time.sleep(check_interval)
-
-        return False
+        WebDriverWait(driver, 15).until(
+            lambda d: d.execute_script("return document.readyState") == "complete"
+        )
+        return True
 
     def _parse_extruct_json_items(self, items: Sequence[dict], graph_key: str) -> None:
         graph = self.dataset.get_context(self.graph_uris[graph_key])
