@@ -343,9 +343,6 @@ class WebResource:
             
             success = self._wait_for_dom_stability(driver, timeout=10)
             if success:
-            ##WebDriverWait(driver, self.timeout).until(
-            ##    lambda d: d.execute_script("return document.readyState") == "complete"
-            ##)
                 html_source = driver.page_source
 
                 data = extruct.extract(
