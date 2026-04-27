@@ -95,7 +95,6 @@ class WebResource:
                 self.dataset.add((s, p, o, URIRef(f"{self.url}#provided")))
         else:
             if not dcache.get(self.url):
-                print("went eval route")
                 logger.info(
                     f"Loading web resource {self.url} and retrieving RDF metadata"
                 )
@@ -105,7 +104,6 @@ class WebResource:
                 self.dataset = clean_kg_excluding_ns_prefix(self.dataset)
                 dcache.set(self.url, self.dataset, expire=TTL_EVAL)
             else:
-                print("went cache route")
                 logger.info(f"Loading web resource {self.url} from cache")
                 self.dataset = dcache.get(self.url)
                 self.status_code = 200
@@ -135,13 +133,10 @@ class WebResource:
             return
 
         self.status_code = base_response.status_code
-        print(self.status_code)
         self.headers = dict(base_response.headers)
-        print(self.headers)
         self.content_type = self._normalize_content_type(
             base_response.headers.get("Content-Type")
         )
-        print(self.content_type)
 
         # self._collect_from_link_relations(base_response)
         self._collect_from_common_accept_headers()
@@ -154,7 +149,6 @@ class WebResource:
         self.dataset = clean_kg_excluding_ns_prefix(self.dataset)
 
         # if no triples were retrieved by content negotiation, try to collect embedded RDF with Selenium and extruct (costly)
-        print(f"len of g1: {len(g1)}")
         if len(g1) == 0:
             self._collect_embedded_rdf_with_selenium()
 
@@ -295,7 +289,6 @@ class WebResource:
 
     def _collect_from_common_accept_headers(self) -> None:
         graph = self.dataset.get_context(self.graph_uris["mime_probe"])
-        print(f"collect_from_common : {graph}")
 
         for accept_mime, rdf_format in self.COMMON_RDF_MIME_TYPES:
             response = self._http_get(self.url, headers={"Accept": accept_mime})
@@ -354,7 +347,6 @@ class WebResource:
             ##    lambda d: d.execute_script("return document.readyState") == "complete"
             ##)
                 html_source = driver.page_source
-                print(f"html source from chromium: {html_source}")
 
                 data = extruct.extract(
                     html_source,
@@ -362,7 +354,6 @@ class WebResource:
                     syntaxes=["json-ld", "rdfa", "microdata"],
                     errors="ignore",
                 )
-                print(f"the data from chromium: {data}")
 
                 self._parse_extruct_json_items(data.get("json-ld", []), "html_jsonld")
                 self._parse_extruct_json_items(data.get("rdfa", []), "html_rdfa")
