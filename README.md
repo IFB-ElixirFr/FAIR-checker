@@ -83,6 +83,10 @@ poetry run python app.py --web
 
 The application should be accessible localy on your browser at [http://localhost:5000](http://localhost:5000)
 
+> [!NOTE]
+> A know bug can occur when using the development version of **Fair-Checker** on Firefox. We advise to use an other 
+> browser to use the application, such as **Google Chrome** or **Safari**
+
 ### Deployment in a production environment
 
 In a production environment the process is similar but Python 3.12 has to be used for the Fair-Checker application. Moreover the ```FLASK_ENV``` envrionment variable needs to be defined as well in the terminal. The environment variable such as the ```SERVER_IP``` also need to be editied from ```.env.sample``` file to fit the url of your deployment server. The ```.env.sample``` file also has to be renamed ```.env```
