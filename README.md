@@ -45,7 +45,18 @@ git clone https://github.com/IFB-ElixirFr/fair-checker.git
 cd fair-checker
 conda env create --file environment.yml
 conda activate fair-checker-env
+```
 
+### Set up the environemnt variables
+```
+cp .env.sample .env
+```
+
+Modify the environment in the .env file
+
+### Launch the application
+
+```
 ./launch_dev.sh
 ```
 
