@@ -1,4 +1,5 @@
 import json
+import time
 import logging
 import os
 import uuid
@@ -9,11 +10,8 @@ import extruct
 import requests
 from lxml import html
 from rdflib import ConjunctiveGraph, URIRef
-from selenium import webdriver
-from selenium.webdriver.chrome.options import Options
-from selenium.webdriver.chrome.service import Service
-from selenium.webdriver.support.ui import WebDriverWait
-from webdriver_manager.chrome import ChromeDriverManager
+
+from playwright.sync_api import sync_playwright, TimeoutError as PlaywrightTimeoutError
 
 from metrics.util import clean_kg_excluding_ns_prefix, is_DOI, get_DOI, get_disk_cache
 
@@ -98,10 +96,14 @@ class WebResource:
                     f"Loading web resource {self.url} and retrieving RDF metadata"
                 )
                 self._retrieve_all_metadata()
+                logger.info("RDF metadata retrieved")
                 # remove triples with the xhtml vocab namespace,
                 # as they are often noise in this context and not relevant for FAIR assessment
                 self.dataset = clean_kg_excluding_ns_prefix(self.dataset)
+                print(self.dataset.serialize(format="turtle"))
+                logger.info("DONE clean")
                 dcache.set(self.url, self.dataset, expire=TTL_EVAL)
+                logger.info("DONE cache set")
             else:
                 logger.info(f"Loading web resource {self.url} from cache")
                 self.dataset = dcache.get(self.url)
@@ -128,6 +130,7 @@ class WebResource:
     def _retrieve_all_metadata(self) -> None:
         base_response = self._http_get(self.url)
         if base_response is None:
+            logger.info(f"Failed to reach the url {self.url}. No response given back")
             return
 
         self.status_code = base_response.status_code
@@ -148,9 +151,12 @@ class WebResource:
 
         # if no triples were retrieved by content negotiation, try to collect embedded RDF with Selenium and extruct (costly)
         if len(g1) == 0:
-            self._collect_embedded_rdf_with_selenium()
+            # self._collect_embedded_rdf_with_selenium()
+            self._collect_embedded_rdf_with_playwright()
 
+        logger.info("DONE collect playwright")
         self.dataset = clean_kg_excluding_ns_prefix(self.dataset)
+        logger.info("DONE clean")
 
     def _http_get(
         self,
@@ -251,7 +257,7 @@ class WebResource:
                         seen.add(key)
                         candidates.append(key)
             except Exception as exc:
-                logger.debug("Could not parse HTML links for %s: %s", self.url, exc)
+                logger.error("Could not parse HTML links for %s: %s", self.url, exc)
 
         return candidates
 
@@ -317,62 +323,81 @@ class WebResource:
                         f"Parsed RDF triples: {len(graph)} triples for {accept_mime} with content-type inference: {inferred_format}"
                     )
 
-    def _collect_embedded_rdf_with_selenium(self) -> None:
-        logger.info("Collecting embedded RDF")
-        driver = None
-        service = None
+    def _collect_embedded_rdf_with_playwright(self) -> None:
+        logger.info("Collecting embedded RDF with Playwright")
+        browser = None
+        context = None
+        page = None
 
         try:
-            chrome_options = Options()
-            chrome_options.add_argument("--headless=new")
-            chrome_options.add_argument("--no-sandbox")
-            chrome_options.add_argument("--disable-gpu")
-            chrome_options.add_argument("--disable-dev-shm-usage")
+            with sync_playwright() as p:
+                launch_kwargs = {"headless": True}
+                proxy = os.getenv("HTTP_PROXY")
+                if proxy:
+                    launch_kwargs["proxy"] = {"server": proxy}
 
-            proxy = os.getenv("HTTP_PROXY")
-            if proxy:
-                chrome_options.add_argument("--proxy-server=" + proxy)
+                browser = p.chromium.launch(**launch_kwargs)
+                context = browser.new_context(ignore_https_errors=True)
+                page = context.new_page()
 
-            service = Service(ChromeDriverManager().install())
-            driver = webdriver.Chrome(service=service, options=chrome_options)
-            driver.set_page_load_timeout(self.timeout)
-            driver.get(self.url)
-            logger.debug(f"Collecting embedded RDF with timeout {self.timeout}")
-            WebDriverWait(driver, self.timeout).until(
-                lambda d: d.execute_script("return document.readyState") == "complete"
-            )
-            html_source = driver.page_source
+                page.goto(
+                    self.url, wait_until="domcontentloaded", timeout=self.timeout * 1000
+                )
 
-            data = extruct.extract(
-                html_source,
-                base_url=self.url,
-                syntaxes=["json-ld", "rdfa", "microdata"],
-                errors="ignore",
-            )
+                # Option 1: attendre un signal metier si present
+                try:
+                    page.wait_for_selector(
+                        'script[type="application/ld+json"]', timeout=5000
+                    )
+                except PlaywrightTimeoutError:
+                    pass
 
-            self._parse_extruct_json_items(data.get("json-ld", []), "html_jsonld")
-            self._parse_extruct_json_items(data.get("rdfa", []), "html_rdfa")
-            self._parse_extruct_json_items(data.get("microdata", []), "html_microdata")
+                # Option 2: fallback reseau "calme"
+                try:
+                    page.wait_for_load_state("networkidle", timeout=5000)
+                except PlaywrightTimeoutError:
+                    pass
+
+                html_source = page.content()
+
+                data = extruct.extract(
+                    html_source,
+                    base_url=self.url,
+                    syntaxes=["json-ld", "rdfa", "microdata"],
+                    errors="ignore",
+                )
+
+                self._parse_extruct_json_items(data.get("json-ld", []), "html_jsonld")
+                self._parse_extruct_json_items(data.get("rdfa", []), "html_rdfa")
+                self._parse_extruct_json_items(
+                    data.get("microdata", []), "html_microdata"
+                )
+                logger.info("Collected embedded RDF with Playwright")
+
         except Exception as exc:
-            logger.warning("Selenium extraction failed for %s: %s", self.url, exc)
+            logger.error("Playwright extraction failed for %s: %s", self.url, exc)
+
         finally:
-            # Always close webdriver and service to avoid orphan chromedriver processes.
-            if driver is not None:
+            logger.info("FINALLY")
+            if page is not None:
                 try:
-                    driver.quit()
+                    logger.info("Closing Playwright page")
+                    page.close()
                 except Exception as exc:
-                    logger.debug(
-                        "Error while quitting webdriver for %s: %s", self.url, exc
-                    )
-            if service is not None:
+                    logger.error("Playwright page could not be closed: %s", exc)
+            if context is not None:
                 try:
-                    service.stop()
+                    logger.info("Closing Playwright page")
+                    context.close()
                 except Exception as exc:
-                    logger.debug(
-                        "Error while stopping chromedriver service for %s: %s",
-                        self.url,
-                        exc,
-                    )
+                    logger.error("Playwright page could not be closed: %s", exc)
+
+            if browser is not None:
+                try:
+                    logger.info("Closing Playwright browser")
+                    browser.close()
+                except Exception as exc:
+                    logger.error("Playwright browser could not be closed: %s", exc)
 
     def _parse_extruct_json_items(self, items: Sequence[dict], graph_key: str) -> None:
         graph = self.dataset.get_context(self.graph_uris[graph_key])
@@ -383,7 +408,11 @@ class WebResource:
                     format="json-ld",
                     publicID=self.url,
                 )
+                logger.info(
+                    f"Loaded {len(graph)} triples from embedded {graph_key} metadata"
+                )
             except Exception:
+                logger.error("Failed to parse item %s", item)
                 continue
 
     def _parse_response_in_formats(

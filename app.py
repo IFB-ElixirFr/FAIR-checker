@@ -1,13 +1,4 @@
 import copy
-import os
-
-os.environ["EVENTLET_HUB"] = "poll"
-import eventlet
-
-# from https://github.com/eventlet/eventlet/issues/670
-eventlet.monkey_patch(select=False)
-# eventlet.monkey_patch(os=False, subprocess=False)
-
 import argparse
 import atexit
 import functools
@@ -101,6 +92,7 @@ for name in (
     "git",
     "apscheduler",
     "selenium",
+    "playwright",
 ):
     logging.getLogger(name).setLevel(logging.CRITICAL)
 
@@ -148,7 +140,9 @@ fc_inspect_namespace = api.namespace(
 )
 
 cache = Cache(app)
-socketio = SocketIO(app, cors_allowed_origins="*", async_mode="eventlet")
+# socketio = SocketIO(app, cors_allowed_origins="*", async_mode="eventlet")
+socketio = SocketIO(app, cors_allowed_origins="*", async_mode="threading")
+app.logger.info("SocketIO async_mode=%s", socketio.async_mode)
 
 app.secret_key = secrets.token_urlsafe(16)
 
@@ -1069,7 +1063,7 @@ def evaluate_fc_metrics(metric_name, client_metric_id, url):
     # Faire une fonction recursive ?
     if cache.get(url) == "pulling":
         while True:
-            eventlet.sleep(2)
+            time.sleep(0.2)
             if not cache.get(url) == "pulling":
                 webresource = cache.get(url)
                 break
