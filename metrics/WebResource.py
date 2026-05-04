@@ -154,9 +154,9 @@ class WebResource:
             # self._collect_embedded_rdf_with_selenium()
             self._collect_embedded_rdf_with_playwright()
 
-        logger.info("DONE collect playwright")
+        # logger.info("DONE collect playwright")
         self.dataset = clean_kg_excluding_ns_prefix(self.dataset)
-        logger.info("DONE clean")
+        # logger.info("DONE clean")
 
     def _http_get(
         self,
