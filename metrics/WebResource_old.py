@@ -31,6 +31,7 @@ from metrics.util import clean_kg_excluding_ns_prefix
 logger = logging.getLogger(__name__)
 
 
+@DeprecationWarning
 class WebResource:
     prefs = {
         "download_restrictions": 3,

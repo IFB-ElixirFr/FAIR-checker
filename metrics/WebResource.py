@@ -92,20 +92,20 @@ class WebResource:
                 self.dataset.add((s, p, o, URIRef(f"{self.url}#provided")))
         else:
             if not dcache.get(self.url):
-                logger.info(
-                    f"Loading web resource {self.url} and retrieving RDF metadata"
-                )
+                # logger.info(
+                #     f"Loading web resource {self.url} and retrieving RDF metadata"
+                # )
                 self._retrieve_all_metadata()
-                logger.info("RDF metadata retrieved")
+                # logger.info("RDF metadata retrieved")
                 # remove triples with the xhtml vocab namespace,
                 # as they are often noise in this context and not relevant for FAIR assessment
                 self.dataset = clean_kg_excluding_ns_prefix(self.dataset)
-                print(self.dataset.serialize(format="turtle"))
-                logger.info("DONE clean")
+                # print(self.dataset.serialize(format="turtle"))
+                # logger.info("DONE clean")
                 dcache.set(self.url, self.dataset, expire=TTL_EVAL)
-                logger.info("DONE cache set")
+                # logger.info("DONE cache set")
             else:
-                logger.info(f"Loading web resource {self.url} from cache")
+                # logger.info(f"Loading web resource {self.url} from cache")
                 self.dataset = dcache.get(self.url)
                 self.status_code = 200
 
