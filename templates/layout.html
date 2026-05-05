@@ -58,9 +58,10 @@
     <section class="hero">
         <div class="hero-body has-text-centered">
             <div class="title">
-                <img src="{{ url_for('static',filename='images/logo-FAIR-Checker.png') }}" width="500"/>
-                <br>
-                <img src="{{ url_for('static',filename='images/by-IFB.png') }}" width="120"/>
+                <p class="hero_title">{{ title }}</p>
+                {% if title == "FAIR-Checker" %}
+                    <img src="{{ url_for('static',filename='images/by-IFB.png') }}" width="100"/>
+                {% endif %}
             </div>
             <p class="subtitle" id="hero_subtitle">
                 {{ subtitle }}
