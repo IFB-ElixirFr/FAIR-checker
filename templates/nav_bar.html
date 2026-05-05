@@ -23,12 +23,14 @@
 
 <nav  id="fc_navbar" class="navbar is-fixed-top is-light" role="navigation" aria-label="main navigation">
   <div class="navbar-brand">
-    <a class="navbar-item" href="{{ url_for('home') }}">
-      <div class="is-flex is-align-items-center">
-        <b>FAIR-Checker</b>
-        <img src="{{ url_for('static',filename='images/by-IFB.png') }}" width="140"/>
-      </div>
-    </a>
+    <div class="navbar-item is-flex is-align-items-center">
+      <a href="{{ url_for('home') }}">
+        <img src="{{ url_for('static',filename='images/logo-FAIR-Checker.png') }}" width="160"/>
+      </a>
+      <a href="https://www.ifb-elixir.fr/">
+        <img src="{{ url_for('static',filename='images/by-IFB.png') }}" width="100"/>
+      </a>
+    </div>
     <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
       <span aria-hidden="true"></span>
       <span aria-hidden="true"></span>
