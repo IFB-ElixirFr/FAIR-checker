@@ -129,4 +129,4 @@ poetry run python app.py --web
 FAIR-Checker is released under the [MIT License](LICENSE). Some third-party components are included. They are subject to their own licenses. All of the license information can be found in the included [LICENSE](LICENSE) file.
 
 ## Funding
-This project is funded by the [French institute for Bioinformatics (IFB)](https://france-bioinformatique.fr/) through the [PIA2 11-INBS-0013 grant](https://anr.fr/ProjetIA-11-INBS-0013).
+This project is developed by the [French institute for Bioinformatics (IFB)](https://france-bioinformatique.fr/) ([PIA2 11-INBS-0013 grant](https://anr.fr/ProjetIA-11-INBS-0013)), the French Node of [ELIXIR](https://www.ifb-elixir.fr/en/).
