@@ -11,14 +11,14 @@ authors = [
     { name = "Sahar Frikha" },
     { name = "Brieuc Quemeneur" },
 ]
-requires-python = ">=3.9,<4.0"
+requires-python = ">=3.10,<4.0"
 
 dependencies = [
     # Web framework
-    "gunicorn==20.1.0",
+    "gunicorn==22.0.0",
     "Flask>=3.0,<4.0",
     "Werkzeug>=3.0,<4.0",
-    "Flask-Cors>=5.0,<6.0",
+    "Flask-Cors==6.0.0",
     "Flask-SocketIO>=5.3,<6.0",
     "Flask-Caching>=2.3,<3.0",
     "flask-restx>=1.3,<2.0",
@@ -28,32 +28,32 @@ dependencies = [
     "pyshacl~=0.25.0",
     "SPARQLWrapper==1.8.5",
     # Scraping / browser automation
-    "lxml==5.1.0",
-    "extruct==0.13.0",
+    "lxml==6.1.0",
+    "extruct==0.18.0",
     # Data / utilities
     "numpy>=1.21",
     "cachetools==5.0.0",
     "rich==10.12.0",
-    "tqdm==4.62.3",
+    "tqdm==4.66.3",
     "termcolor==1.1.0",
     "validators==0.18.2",
-    "python-dotenv==0.19.1",
+    "python-dotenv==1.2.2",
     "PyYAML>=6.0.2",
     "APScheduler>=3.11.0",
-    "gitpython>=3.1.44",
     # Database
-    "pymongo==3.11.0",
+    "pymongo==4.6.3",
     # Python 3.12 compatibility overrides
     "dnspython>=2.0.0",
     "diskcache (>=5.6.3,<6.0.0)",
     "playwright (>=1.58.0,<2.0.0)",
+    "gitpython (>=3.1.50,<4.0.0)",
 ]
 
 [tool.poetry]
 package-mode = false
 
 [tool.poetry.group.dev.dependencies]
-pytest = "6.2.5"
+pytest = "9.0.3"
 coverage = "6.2"
 flake8 = "^7.0"
 
