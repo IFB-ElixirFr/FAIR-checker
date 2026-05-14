@@ -1,0 +1,39 @@
+{% extends "layout.html" %}
+
+{% block body %}
+<section class="section">
+    <div class="container">
+        <h1 class="title">{{ tag }}</h1>
+        <h2 class="subtitle">{{ name }}</h2>
+
+        <article class="message is-info">
+            <div class="message-header">
+                <p>Description</p>
+            </div>
+            <div class="message-body">
+                {{ desc }}
+            </div>
+        </article>
+
+        <div class="content">
+            <p>
+                <strong>FAIR Principle:</strong>
+                <a href="{{ principle }}" target="_blank">{{ principle }}</a>
+            </p>
+        </div>
+
+        <table class="table is-bordered is-striped is-narrow">
+            <tbody>
+                <tr>
+                    <td><strong>Implementation</strong></td>
+                    <td>{{ implem }}</td>
+                </tr>
+                <tr>
+                    <td><strong>Last updated</strong></td>
+                    <td>{{ updated_at }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</section>
+{% endblock %}

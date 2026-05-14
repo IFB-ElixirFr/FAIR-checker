@@ -365,6 +365,29 @@ def terms():
     )
 
 
+@app.route("/test/<tag>")
+def metric_detail(tag):
+    tag = tag.upper()
+    metrics_by_tag = {
+        m.get_principle_tag(): m for m in FAIRMetricsFactory.get_FC_impl()
+    }
+    metric = metrics_by_tag.get(tag)
+    if metric is None:
+        from flask import abort
+        abort(404)
+    return render_template(
+        "metric_detail.html",
+        title=metric.get_principle_tag(),
+        subtitle=metric.get_name(),
+        tag=metric.get_principle_tag(),
+        name=metric.get_name(),
+        desc=metric.get_desc(),
+        principle=metric.get_principle(),
+        implem=metric.get_implem(),
+        updated_at=metric.get_update_date(),
+    )
+
+
 @app.route("/statistics")
 def statistics():
     usage_stats = {}
