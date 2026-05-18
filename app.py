@@ -42,7 +42,7 @@ from flask_cors import CORS
 from flask_restx import Api, Resource, fields, reqparse
 from flask_socketio import SocketIO, emit
 from pymongo import MongoClient
-from rdflib import ConjunctiveGraph, URIRef
+from rdflib import BNode, ConjunctiveGraph, Literal, URIRef
 from requests.exceptions import ConnectionError
 from rich.console import Console
 from rich.progress import track
@@ -309,7 +309,7 @@ app.logger.info("Background scheduler started")
 # Shut down the scheduler when exiting the app
 atexit.register(lambda: scheduler.shutdown())
 
-util.clean_cache()  # clean cache at server startup
+# util.clean_cache()  # clean cache at server startup
 
 
 @app.context_processor
@@ -374,6 +374,7 @@ def metric_detail(tag):
     metric = metrics_by_tag.get(tag)
     if metric is None:
         from flask import abort
+
         abort(404)
     return render_template(
         "metric_detail.html",
@@ -457,11 +458,66 @@ for key in METRICS_CUSTOM.keys():
     generate_check_api(METRICS_CUSTOM[key])
 
 
+def _turtle_to_html(ttl: str) -> str:
+    """Return Turtle text as HTML with URIs turned into clickable links.
+
+    Handles both full IRIs (<https://...>) and prefixed names (dqv:value)
+    by resolving the latter against the @prefix declarations in the document.
+    """
+    import html as _html
+    import re as _re
+
+    # Build prefix -> namespace map from @prefix declarations
+    prefix_map = {
+        m.group(1): m.group(2)
+        for m in _re.finditer(r'@prefix\s+(\w*):\s*<([^>]+)>', ttl)
+    }
+
+    # Single-pass pattern: full IRI, then named prefix:local, then default :local
+    pattern = _re.compile(
+        r'<(https?://[^>]+)>'                                             # group 1: full IRI
+        r'|'
+        r'\b([a-zA-Z_][a-zA-Z0-9_-]*):([a-zA-Z0-9_][a-zA-Z0-9_.-]*)'   # group 2+3: prefix:local
+        r'|'
+        r'(?<!\w):([a-zA-Z0-9_][a-zA-Z0-9_.-]*)'                         # group 4: :local (default prefix)
+    )
+
+    parts = []
+    last = 0
+    for m in pattern.finditer(ttl):
+        parts.append(_html.escape(ttl[last:m.start()]))
+        _a = '<a href="{}" target="_blank" rel="noopener noreferrer" style="color:#3273dc;">{}</a>'
+        if m.group(1):
+            uri = _html.escape(m.group(1))
+            parts.append(_a.format(uri, f"&lt;{uri}&gt;"))
+        elif m.group(2) and m.group(2) in prefix_map:
+            full_uri = _html.escape(prefix_map[m.group(2)] + m.group(3))
+            parts.append(_a.format(full_uri, _html.escape(m.group(0))))
+        elif m.group(4) is not None and "" in prefix_map:
+            full_uri = _html.escape(prefix_map[""] + m.group(4))
+            parts.append(_a.format(full_uri, _html.escape(m.group(0))))
+        else:
+            parts.append(_html.escape(m.group(0)))
+        last = m.end()
+
+    parts.append(_html.escape(ttl[last:]))
+    return "".join(parts)
+
+
 @app.route("/data/<ID>")
 def derefLD(ID):
-    mimetype = None
-    if "Content-Type" in request.headers:
-        mimetype = request.headers["Content-Type"].split(";")[0]
+    _FORMAT_PARAM = {
+        "json-ld": ("json-ld", "application/ld+json"),
+        "rdf-xml": ("xml", "application/rdf+xml"),
+        "turtle": ("turtle", "text/turtle"),
+    }
+    _ACCEPT_MAP = {
+        "application/ld+json": ("json-ld", "application/ld+json"),
+        "application/json": ("json-ld", "application/ld+json"),
+        "application/rdf+xml": ("xml", "application/rdf+xml"),
+        "text/turtle": ("turtle", "text/turtle"),
+        "text/n3": ("turtle", "text/turtle"),
+    }
 
     try:
         client = MongoClient()
@@ -478,22 +534,52 @@ def derefLD(ID):
             return Response(
                 "Error while parsing RDF:\n\n" + e.to_rdf_turtle(id=ID), mimetype="text"
             )
-        if mimetype == "application/json":
-            return Response(kg.serialize(format="json-ld"), mimetype="application/json")
-        elif mimetype == "application/ld+json":
-            return Response(
-                kg.serialize(format="json-ld"), mimetype="application/ld+json"
+
+        # 1) explicit ?format= query parameter takes priority
+        fmt_param = request.args.get("format", "").lower()
+        if fmt_param in _FORMAT_PARAM:
+            rdf_fmt, mime = _FORMAT_PARAM[fmt_param]
+            return Response(kg.serialize(format=rdf_fmt), mimetype=mime)
+
+        # 2) Accept-header negotiation
+        best = request.accept_mimetypes.best_match(
+            ["text/html"] + list(_ACCEPT_MAP.keys()),
+            default="text/turtle",
+        )
+
+        if best == "text/html":
+            def _node(n):
+                if isinstance(n, URIRef):
+                    return {"value": str(n), "type": "uri"}
+                if isinstance(n, BNode):
+                    return {"value": str(n), "type": "bnode"}
+                return {"value": str(n), "type": "literal"}
+
+            triples = [
+                {"subject": _node(s), "predicate": _node(p), "object": _node(o)}
+                for s, p, o in kg
+            ]
+            return render_template(
+                "data.html",
+                eval_id=ID,
+                target_uri=e.get_target_uri(),
+                metrics=e.get_metrics(),
+                score=e.get_score(),
+                start_time=e.start_time,
+                end_time=e.end_time,
+                triples=sorted(
+                    triples,
+                    key=lambda t: (t["subject"]["value"], t["predicate"]["value"]),
+                ),
+                turtle_html=_turtle_to_html(kg.serialize(format="turtle")),
             )
-        elif mimetype == "application/rdf+xml":
-            return Response(kg.serialize(format="xml"), mimetype="application/rdf+xml")
-        elif mimetype == "text/n3":
-            return Response(kg.serialize(format="nt"), mimetype="text/n3")
-        elif mimetype == "text/nt":
-            return Response(kg.serialize(format="nt"), mimetype="text/n3")
-        elif mimetype == "text/turtle":
-            return Response(kg.serialize(format="turtle"), mimetype="text/turtle")
-        else:
-            return Response(kg.serialize(format="turtle"), mimetype="text/turtle")
+
+        if best in _ACCEPT_MAP:
+            rdf_fmt, mime = _ACCEPT_MAP[best]
+            return Response(kg.serialize(format=rdf_fmt), mimetype=mime)
+
+        return Response(kg.serialize(format="turtle"), mimetype="text/turtle")
+
     except InvalidId:
         return Response(f"Cannot find evaluation {ID}", mimetype="text")
 
