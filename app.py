@@ -52,6 +52,7 @@ from rich.text import Text
 import metrics.util as util
 from metrics import test_metric
 from metrics.Evaluation import Evaluation, Result
+from metrics.util import _turtle_to_html, _assessment_to_rdf, _negotiate_rdf_response
 from metrics.F1B_Impl import F1B_Impl
 from metrics.FAIRMetricsFactory import FAIRMetricsFactory
 from metrics.util import SOURCE, inspect_onto_reg
@@ -124,8 +125,8 @@ api = Api(
     title="FAIR-Checker API",
     doc="/swagger",
     base_path="https://fair-checker.france-bioinformatique.fr",
-    # base_url=app.config["SERVER_IP"],
-    description=app.config["SERVER_IP"],
+    # base_url=app.config["SERVER_URL"],
+    description=app.config["SERVER_URL"],
     # url_scheme="https://fair-checker.france-bioinformatique.fr/",
 )
 
@@ -458,72 +459,14 @@ for key in METRICS_CUSTOM.keys():
     generate_check_api(METRICS_CUSTOM[key])
 
 
-def _turtle_to_html(ttl: str) -> str:
-    """Return Turtle text as HTML with URIs turned into clickable links.
 
-    Handles both full IRIs (<https://...>) and prefixed names (dqv:value)
-    by resolving the latter against the @prefix declarations in the document.
-    """
-    import html as _html
-    import re as _re
-
-    # Build prefix -> namespace map from @prefix declarations
-    prefix_map = {
-        m.group(1): m.group(2)
-        for m in _re.finditer(r'@prefix\s+(\w*):\s*<([^>]+)>', ttl)
-    }
-
-    # Single-pass pattern: full IRI, then named prefix:local, then default :local
-    pattern = _re.compile(
-        r'<(https?://[^>]+)>'                                             # group 1: full IRI
-        r'|'
-        r'\b([a-zA-Z_][a-zA-Z0-9_-]*):([a-zA-Z0-9_][a-zA-Z0-9_.-]*)'   # group 2+3: prefix:local
-        r'|'
-        r'(?<!\w):([a-zA-Z0-9_][a-zA-Z0-9_.-]*)'                         # group 4: :local (default prefix)
-    )
-
-    parts = []
-    last = 0
-    for m in pattern.finditer(ttl):
-        parts.append(_html.escape(ttl[last:m.start()]))
-        _a = '<a href="{}" target="_blank" rel="noopener noreferrer" style="color:#3273dc;">{}</a>'
-        if m.group(1):
-            uri = _html.escape(m.group(1))
-            parts.append(_a.format(uri, f"&lt;{uri}&gt;"))
-        elif m.group(2) and m.group(2) in prefix_map:
-            full_uri = _html.escape(prefix_map[m.group(2)] + m.group(3))
-            parts.append(_a.format(full_uri, _html.escape(m.group(0))))
-        elif m.group(4) is not None and "" in prefix_map:
-            full_uri = _html.escape(prefix_map[""] + m.group(4))
-            parts.append(_a.format(full_uri, _html.escape(m.group(0))))
-        else:
-            parts.append(_html.escape(m.group(0)))
-        last = m.end()
-
-    parts.append(_html.escape(ttl[last:]))
-    return "".join(parts)
-
-
-@app.route("/data/<ID>")
-def derefLD(ID):
-    _FORMAT_PARAM = {
-        "json-ld": ("json-ld", "application/ld+json"),
-        "rdf-xml": ("xml", "application/rdf+xml"),
-        "turtle": ("turtle", "text/turtle"),
-    }
-    _ACCEPT_MAP = {
-        "application/ld+json": ("json-ld", "application/ld+json"),
-        "application/json": ("json-ld", "application/ld+json"),
-        "application/rdf+xml": ("xml", "application/rdf+xml"),
-        "text/turtle": ("turtle", "text/turtle"),
-        "text/n3": ("turtle", "text/turtle"),
-    }
-
+@app.route("/eval/<ID>")
+def deref_eval_LD(ID):
     try:
-        client = MongoClient()
-        db = client.fair_checker
-        evaluations = db.evaluations
-        eval_json = evaluations.find_one({"_id": ObjectId(ID)})
+        db = MongoClient().fair_checker
+        eval_json = db.evaluations.find_one({"_id": ObjectId(ID)})
+        if eval_json is None:
+            return Response(f"Cannot find evaluation {ID}", mimetype="text/plain", status=404)
         e = Evaluation()
         e.build_from_json(data=eval_json)
         ttl = e.to_rdf_turtle(id=ID)
@@ -531,136 +474,29 @@ def derefLD(ID):
         try:
             kg.parse(data=ttl, format="turtle")
         except Exception:
-            return Response(
-                "Error while parsing RDF:\n\n" + e.to_rdf_turtle(id=ID), mimetype="text"
-            )
-
-        # 1) explicit ?format= query parameter takes priority
-        fmt_param = request.args.get("format", "").lower()
-        if fmt_param in _FORMAT_PARAM:
-            rdf_fmt, mime = _FORMAT_PARAM[fmt_param]
-            return Response(kg.serialize(format=rdf_fmt), mimetype=mime)
-
-        # 2) Accept-header negotiation
-        best = request.accept_mimetypes.best_match(
-            ["text/html"] + list(_ACCEPT_MAP.keys()),
-            default="text/turtle",
-        )
-
-        if best == "text/html":
-            def _node(n):
-                if isinstance(n, URIRef):
-                    return {"value": str(n), "type": "uri"}
-                if isinstance(n, BNode):
-                    return {"value": str(n), "type": "bnode"}
-                return {"value": str(n), "type": "literal"}
-
-            triples = [
-                {"subject": _node(s), "predicate": _node(p), "object": _node(o)}
-                for s, p, o in kg
-            ]
-            return render_template(
-                "data.html",
-                eval_id=ID,
-                target_uri=e.get_target_uri(),
-                metrics=e.get_metrics(),
-                score=e.get_score(),
-                start_time=e.start_time,
-                end_time=e.end_time,
-                triples=sorted(
-                    triples,
-                    key=lambda t: (t["subject"]["value"], t["predicate"]["value"]),
-                ),
-                turtle_html=_turtle_to_html(kg.serialize(format="turtle")),
-            )
-
-        if best in _ACCEPT_MAP:
-            rdf_fmt, mime = _ACCEPT_MAP[best]
-            return Response(kg.serialize(format=rdf_fmt), mimetype=mime)
-
-        return Response(kg.serialize(format="turtle"), mimetype="text/turtle")
-
+            return Response("Error while parsing RDF:\n\n" + ttl, mimetype="text/plain")
+        return _negotiate_rdf_response(kg, ID, e.get_target_uri(), "/eval")
     except InvalidId:
-        return Response(f"Cannot find evaluation {ID}", mimetype="text")
+        return Response(f"Invalid ID: {ID}", mimetype="text/plain", status=400)
 
 
-# Generate machine readable FAIR assessment report
 @app.route("/assessment/<ID>")
 def deref_assessment_LD(ID):
-    mimetype = None
-    if "Content-Type" in request.headers:
-        mimetype = request.headers["Content-Type"].split(";")[0]
     try:
-        client = MongoClient()
-        db = client.fair_checker
-        assessments = db.assessments
-        assess_json = assessments.find_one({"_id": ObjectId(ID)})
-
-        target_url = assess_json["target_url"]
-        score = assess_json["score"]
-        evals = assess_json["wasDerivedFrom"]
-        genAtTime = assess_json["generatedAtTime"]
-
-        print(target_url)
-        print(score)
-        print(evals)
-
-        prefix = """
-@prefix daq: <http://purl.org/eis/vocab/daq#> .
-@prefix dcat: <http://www.w3.org/ns/dcat#> .
-@prefix dcterms: <http://purl.org/dc/terms/> .
-@prefix dqv: <http://www.w3.org/ns/dqv#> .
-@prefix duv: <http://www.w3.org/ns/duv#> .
-@prefix oa: <http://www.w3.org/ns/oa#> .
-@prefix prov: <http://www.w3.org/ns/prov#> .
-@prefix sdmx-attribute: <http://purl.org/linked-data/sdmx/2009/attribute#> .
-@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
-@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-
-@prefix : <https://fair-checker.france-bioinformatique.fr/data/> .
-"""
-        assess_tpl = """
-:$id
-    a dqv:QualityMeasurement ;
-    dqv:computedOn <$url> ;
-    dqv:value "$value"^^xsd:integer ;
-    prov:generatedAtTime "$date"^^xsd:dateTime ;
-    prov:wasAttributedTo <https://github.com/IFB-ElixirFr/fair-checker> ;
-    prov:wasDerivedFrom $evaluations ;
-    rdfs:seeAlso <https://doi.org/10.1186/s13326-023-00289-5> ."""
-
-        assess_ttl = Template(assess_tpl).safe_substitute(
-            id=str(ID),
-            url=target_url,
-            value=score,
-            date=genAtTime.isoformat(),
-            evaluations="<" + ">, <".join(evals) + ">",
-        )
-        ttl = prefix + assess_ttl
-        print(ttl)
-
+        db = MongoClient().fair_checker
+        assess_json = db.assessments.find_one({"_id": ObjectId(ID)})
+        if assess_json is None:
+            return Response(f"Cannot find assessment {ID}", mimetype="text/plain", status=404)
+        ttl = _assessment_to_rdf(assess_json)
         kg = ConjunctiveGraph()
         try:
             kg.parse(data=ttl, format="turtle")
         except Exception:
-            return Response("Error while parsing RDF:\n\n" + ttl, mimetype="text")
-        if mimetype == "application/json":
-            return Response(kg.serialize(format="json-ld"), mimetype="application/json")
-        elif mimetype == "application/ld+json":
-            return Response(
-                kg.serialize(format="json-ld"), mimetype="application/ld+json"
-            )
-        elif mimetype == "application/rdf+xml":
-            return Response(kg.serialize(format="xml"), mimetype="application/rdf+xml")
-        elif mimetype == "text/n3":
-            return Response(kg.serialize(format="n3"), mimetype="text/n3")
-        elif mimetype == "text/turtle":
-            return Response(kg.serialize(format="turtle"), mimetype="text/turtle")
-        else:
-            return Response(kg.serialize(format="turtle"), mimetype="text/turtle")
+            return Response("Error while parsing RDF:\n\n" + ttl, mimetype="text/plain")
+        return _negotiate_rdf_response(kg, ID, assess_json["target_url"], "/assessment")
     except InvalidId:
-        return Response(f"Cannot find evaluation {ID}", mimetype="text")
+        return Response(f"Invalid ID: {ID}", mimetype="text/plain", status=400)
+
 
 
 @fc_check_namespace.route("/metrics_all")
@@ -1210,12 +1046,7 @@ def evaluate_fc_metrics(metric_name, client_metric_id, url):
         id, name, score, str(evaluation_time), comment
     )
 
-    if app.config.get("APP_ENV") == "production":
-        b_url = app.config["SERVER_IP"] + "/"
-    else:
-        b_url = str(request.base_url)
-        if "socket.io" in str(request.base_url):
-            b_url = str(request.base_url).split("socket.io/")[0]
+    b_url = app.config["EVAL_URL"]
 
     csv_line = {
         "id": id,
@@ -1223,7 +1054,7 @@ def evaluate_fc_metrics(metric_name, client_metric_id, url):
         "score": score,
         "time": str(evaluation_time),
         "comment": comment,
-        "uri": b_url + "data/" + str(r.inserted_id),
+        "uri": b_url + str(r.inserted_id),
         "target_url": url,
     }
     emit_json = {
@@ -1233,7 +1064,7 @@ def evaluate_fc_metrics(metric_name, client_metric_id, url):
         "comment": comment,
         "recommendation": recommendation,
         "csv_line": csv_line,
-        "uri": b_url + "data/" + str(r.inserted_id),
+        "uri": b_url + str(r.inserted_id),
         "name": name,
         "target_url": url,
     }
@@ -1262,19 +1093,12 @@ def handle_done_fair_assessment(data):
         "generatedAtTime": datetime.now(),
     }
 
-    if app.config.get("APP_ENV") == "production":
-        b_url = app.config["SERVER_IP"] + "/"
-    else:
-        b_url = str(request.base_url)
-        if "socket.io" in str(request.base_url):
-            b_url = str(request.base_url).split("socket.io/")[0]
-
     r = db_assessments.insert_one(assessment)
     emit(
         "persisted_assessment",
         {
             "score": assessment["score"],
-            "uri": b_url + "assessment/" + str(r.inserted_id),
+            "uri": app.config["ASSESSMENT_URL"] + str(r.inserted_id),
         },
     )
 
