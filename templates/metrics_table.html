@@ -24,7 +24,8 @@
                 
                 {# <button class="button is-info popover-trigger is-small" title="Click to keep open"><i class="fa fa-info-circle"></i></button> #}
 
-                {{ f.principle_tag }}: {{ f.name }}
+                <a href="/test/{{ f.principle_tag }}" target="_blank"
+                   style="color: #3273dc; font-weight: 500;">{{ f.principle_tag }}: {{ f.name }}</a>
 
                 <div class="popover-content" style="text-align: left; padding: 0;">
                     <article class="message is-info">
@@ -82,7 +83,10 @@
                 </div>
             </div> -->
         </td>
-        <td class="vcenter hcenter"><button id="modal_details_{{ f.id }}" class="button is-info" data-target="modal_{{ f.id }}"><i class="fa fa-info-circle"></i></button></td>
+        <td class="vcenter hcenter">
+            <button id="modal_details_{{ f.id }}" class="button is-info" data-target="modal_{{ f.id }}" disabled><i
+                    class="fa fa-info-circle"></i></button>
+        </td>
     </tr>
     {% endfor %}
     </tbody>
