@@ -12,11 +12,11 @@
     $("#notif").addClass("is-hidden");
 
     console.log('trying to connect...');
-    var socket = io.connect({{ config['SERVER_IP']| tojson }});
+      var socket = io.connect({{ config['SERVER_URL']| tojson }});
   //var socket = io();
   console.log('connected');
 
-  console.log({{ config['SERVER_IP']| tojson }});
+      console.log({{ config['SERVER_URL']| tojson }});
   //////////////////
   // select url to test
   //////////////////
