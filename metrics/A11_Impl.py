@@ -17,7 +17,7 @@ class A11_Impl(AbstractFAIRMetrics):
         self.name = "Open resolution protocol"
         self.id = "15"
         self.principle = "https://w3id.org/fair/principles/terms/A1.1"
-        self.principle_tag = "A1.1"
+        self.principle_tag = "A11"
         self.implem = "FAIR-Checker"
         self.desc = """
             FAIR-Checker verifies that the resource is accessible via an open protocol, for instance the protocol needs 

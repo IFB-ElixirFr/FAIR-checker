@@ -17,8 +17,9 @@ from enum import Enum
 
 # from cachetools import cached, TTLCache
 from diskcache import Cache
-from flask import Flask
-from flask import current_app
+import html
+from string import Template as StringTemplate
+from flask import Flask, current_app, request, Response, render_template
 from flask_socketio import emit
 import logging
 import copy
@@ -830,7 +831,7 @@ ld_eval_prefix = """
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 
-@prefix : <https://fair-checker.france-bioinformatique.fr/data/> .
+@prefix : <$data_url> .
 """
 
 
@@ -944,3 +945,118 @@ ld_metrics_tpl = """
     prov:generatedAtTime "$date"^^xsd:dateTime ;
     prov:wasAttributedTo <https://github.com/IFB-ElixirFr/fair-checker> ;
     rdfs:seeAlso <https://doi.org/10.1186/s13326-023-00289-5> ."""
+
+
+# ---------------------------------------------------------------------------
+# RDF rendering helpers
+# ---------------------------------------------------------------------------
+
+_FORMAT_PARAM = {
+    "json-ld": ("json-ld", "application/ld+json"),
+    "rdf-xml": ("xml", "application/rdf+xml"),
+    "turtle": ("turtle", "text/turtle"),
+}
+_ACCEPT_MAP = {
+    "application/ld+json": ("json-ld", "application/ld+json"),
+    "application/json": ("json-ld", "application/ld+json"),
+    "application/rdf+xml": ("xml", "application/rdf+xml"),
+    "text/turtle": ("turtle", "text/turtle"),
+    "text/n3": ("turtle", "text/turtle"),
+}
+
+
+def _turtle_to_html(ttl: str) -> str:
+    """Return Turtle text as HTML with URIs turned into clickable links."""
+    prefix_map = {
+        m.group(1): m.group(2)
+        for m in re.finditer(r"@prefix\s+(\w*):\s*<([^>]+)>", ttl)
+    }
+    pattern = re.compile(
+        r"<(https?://[^>]+)>"
+        r"|"
+        r"\b([a-zA-Z_][a-zA-Z0-9_-]*):([a-zA-Z0-9_][a-zA-Z0-9_.-]*)"
+        r"|"
+        r"(?<!\w):([a-zA-Z0-9_][a-zA-Z0-9_.-]*)"
+    )
+    _a = '<a href="{}" target="_blank" rel="noopener noreferrer" style="color:#3273dc;">{}</a>'
+    parts = []
+    last = 0
+    for m in pattern.finditer(ttl):
+        parts.append(html.escape(ttl[last : m.start()]))
+        if m.group(1):
+            uri = html.escape(m.group(1))
+            parts.append(_a.format(uri, f"&lt;{uri}&gt;"))
+        elif m.group(2) and m.group(2) in prefix_map:
+            full_uri = html.escape(prefix_map[m.group(2)] + m.group(3))
+            parts.append(_a.format(full_uri, html.escape(m.group(0))))
+        elif m.group(4) is not None and "" in prefix_map:
+            full_uri = html.escape(prefix_map[""] + m.group(4))
+            parts.append(_a.format(full_uri, html.escape(m.group(0))))
+        else:
+            parts.append(html.escape(m.group(0)))
+        last = m.end()
+    parts.append(html.escape(ttl[last:]))
+    return "".join(parts)
+
+
+def _assessment_to_rdf(assess_json) -> str:
+    """Return a Turtle string representing a global FAIR assessment."""
+    prefix = f"""
+@prefix daq: <http://purl.org/eis/vocab/daq#> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix dqv: <http://www.w3.org/ns/dqv#> .
+@prefix duv: <http://www.w3.org/ns/duv#> .
+@prefix oa: <http://www.w3.org/ns/oa#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix sdmx-attribute: <http://purl.org/linked-data/sdmx/2009/attribute#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+@prefix : <{current_app.config["ASSESSMENT_URL"]}> .
+"""
+    assess_tpl = """:$id
+    a dqv:QualityMeasurement ;
+    dqv:computedOn <$url> ;
+    dqv:value "$value"^^xsd:integer ;
+    prov:generatedAtTime "$date"^^xsd:dateTime ;
+    prov:wasAttributedTo <https://github.com/IFB-ElixirFr/fair-checker> ;
+    prov:wasDerivedFrom $evaluations ;
+    rdfs:seeAlso <https://doi.org/10.1186/s13326-023-00289-5> ."""
+    assess_ttl = StringTemplate(assess_tpl).safe_substitute(
+        id=str(assess_json["_id"]),
+        url=assess_json["target_url"],
+        value=assess_json["score"],
+        date=assess_json["generatedAtTime"].isoformat(),
+        evaluations="<" + ">, <".join(assess_json["wasDerivedFrom"]) + ">",
+    )
+    return prefix + assess_ttl
+
+
+def _negotiate_rdf_response(kg, record_id, target_uri, base_path):
+    """Handle content negotiation and return the appropriate Flask response."""
+    fmt_param = request.args.get("format", "").lower()
+    if fmt_param in _FORMAT_PARAM:
+        rdf_fmt, mime = _FORMAT_PARAM[fmt_param]
+        return Response(kg.serialize(format=rdf_fmt), mimetype=mime)
+
+    best = request.accept_mimetypes.best_match(
+        ["text/html"] + list(_ACCEPT_MAP.keys()),
+        default="text/turtle",
+    )
+
+    if best == "text/html":
+        return render_template(
+            "data.html",
+            eval_id=record_id,
+            target_uri=target_uri,
+            base_path=base_path,
+            turtle_html=_turtle_to_html(kg.serialize(format="turtle")),
+        )
+
+    if best in _ACCEPT_MAP:
+        rdf_fmt, mime = _ACCEPT_MAP[best]
+        return Response(kg.serialize(format=rdf_fmt), mimetype=mime)
+
+    return Response(kg.serialize(format="turtle"), mimetype="text/turtle")

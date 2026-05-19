@@ -16,7 +16,7 @@ $(document).ready(function () {
     $("#notif").addClass("is-hidden");
 
     console.log('trying to connect...');
-    var socket = io.connect({{ config['SERVER_IP']| tojson }});
+    var socket = io.connect({{ config['SERVER_URL']| tojson }});
     //var socket = io();
     console.log('connected');
 

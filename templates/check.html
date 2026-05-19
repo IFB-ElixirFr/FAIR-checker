@@ -12,11 +12,11 @@
     $("#notif").addClass("is-hidden");
 
     console.log('trying to connect...');
-    var socket = io.connect({{ config['SERVER_IP']| tojson }});
+      var socket = io.connect({{ config['SERVER_URL']| tojson }});
   //var socket = io();
   console.log('connected');
 
-  console.log({{ config['SERVER_IP']| tojson }});
+      console.log({{ config['SERVER_URL']| tojson }});
   //////////////////
   // select url to test
   //////////////////
@@ -129,6 +129,7 @@
     $("#row_status_{{f.id}}").text("Error");
     $("#row_status_{{f.id}}").addClass("is-warning");
     $("#metrics_row_{{ f.id }}").css('background-color', '#FFF7DF');
+      $("#modal_details_{{f.id}}").prop("disabled", false);
     $("#row_score_{{f.id}}").text("NA");
     // show comment buttpn
     $("#row_comment_{{f.id}}").parent("div").find('button').show();
@@ -189,6 +190,7 @@
     $("#row_status_{{f.id}}").attr("category", "{{f.principle_category}}");
     $("#row_status_{{f.id}}").attr("score", value["score"]);
     $("#row_status_{{f.id}}").html(badge);
+      $("#modal_details_{{f.id}}").prop("disabled", false);
 
     // add score to result
     $("#row_score_{{f.id}}").text(value['score']);

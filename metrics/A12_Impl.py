@@ -12,7 +12,7 @@ class A12_Impl(AbstractFAIRMetrics):
         self.name = "Authorisation procedure or access rights"
         self.id = "16"
         self.principle = "https://w3id.org/fair/principles/terms/A1.2"
-        self.principle_tag = "A1.2"
+        self.principle_tag = "A12"
         self.implem = "FAIR-Checker"
         self.desc = """
             The protocol allows for an authentication and authorisation procedure where necessary. <br>
