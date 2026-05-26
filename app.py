@@ -459,14 +459,15 @@ for key in METRICS_CUSTOM.keys():
     generate_check_api(METRICS_CUSTOM[key])
 
 
-
 @app.route("/eval/<ID>")
 def deref_eval_LD(ID):
     try:
         db = MongoClient().fair_checker
         eval_json = db.evaluations.find_one({"_id": ObjectId(ID)})
         if eval_json is None:
-            return Response(f"Cannot find evaluation {ID}", mimetype="text/plain", status=404)
+            return Response(
+                f"Cannot find evaluation {ID}", mimetype="text/plain", status=404
+            )
         e = Evaluation()
         e.build_from_json(data=eval_json)
         ttl = e.to_rdf_turtle(id=ID)
@@ -486,7 +487,9 @@ def deref_assessment_LD(ID):
         db = MongoClient().fair_checker
         assess_json = db.assessments.find_one({"_id": ObjectId(ID)})
         if assess_json is None:
-            return Response(f"Cannot find assessment {ID}", mimetype="text/plain", status=404)
+            return Response(
+                f"Cannot find assessment {ID}", mimetype="text/plain", status=404
+            )
         ttl = _assessment_to_rdf(assess_json)
         kg = ConjunctiveGraph()
         try:
@@ -496,7 +499,6 @@ def deref_assessment_LD(ID):
         return _negotiate_rdf_response(kg, ID, assess_json["target_url"], "/assessment")
     except InvalidId:
         return Response(f"Invalid ID: {ID}", mimetype="text/plain", status=400)
-
 
 
 @fc_check_namespace.route("/metrics_all")
@@ -1560,39 +1562,6 @@ def check_vocabularies(data):
     kg = KGS[sid]
 
     inspect_onto_reg(kg, True)
-
-
-@DeprecationWarning
-@socketio.on("check_kg_shape")
-def check_kg_shape(data):
-    sid = request.sid
-    print(sid)
-    if sid not in KGS.keys():
-        handle_embedded_annot_2(data)
-    elif not KGS[sid]:
-        handle_embedded_annot_2(data)
-    kg = KGS[sid]
-
-    warnings, errors = util.shape_checks(kg)
-    data = {"errors": errors, "warnings": warnings}
-    emit("done_check_shape", data)
-
-
-@DeprecationWarning
-@socketio.on("check_kg_shape_old")
-def check_kg_shape_old(data):
-    print("shape validation started")
-    sid = request.sid
-    print(sid)
-    kg = KGS[sid]
-
-    if not kg:
-        print("cannot access current knowledge graph")
-    elif len(kg) == 0:
-        print("cannot validate an empty knowledge graph")
-
-    results = validate_any_from_KG(kg)
-    emit("done_check_shape", results)
 
 
 def evaluate_bioschemas_profiles(kg):
