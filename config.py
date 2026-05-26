@@ -29,8 +29,10 @@ class Config(object):
 
 class ProductionConfig(Config):
     SERVER_URL = environ.get("SERVER_URL")
-    EVAL_URL = "https://fair-checker.france-bioinformatique.fr/eval/"
-    ASSESSMENT_URL = "https://fair-checker.france-bioinformatique.fr/assessment/"
+    # EVAL_URL = "https://fair-checker.france-bioinformatique.fr/eval/"
+    EVAL_URL = "https://w3id.org/fairchecker/eval/"
+    # ASSESSMENT_URL = "https://fair-checker.france-bioinformatique.fr/assessment/"
+    ASSESSMENT_URL = "https://w3id.org/fairchecker/assessment/"
 
 
 class DevelopmentConfig(Config):
