@@ -480,21 +480,6 @@ def inspect_onto_reg(kg, is_inspect_ui):
     return table_content
 
 
-# @Deprecated
-def gen_shape(property_list=None, class_list=None, recommendation=None):
-    """
-
-    @param property_list: a list of OWL/RDF properties
-    @param class_list: a list of OWL/RDF classes
-    @param recommendation: the message to be displayed during validation
-    @return: a SHACL constraint expression to validate RDF graph based on a list or required properties or classes (at least)
-
-    @TODO another method for strong validation (AND)
-    """
-
-    return None
-
-
 def extract_rdf_from_html(uri):
     page = requests.get(uri)
     html = page.content
