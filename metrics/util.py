@@ -1,6 +1,7 @@
 # from time import time
 from SPARQLWrapper import SPARQLWrapper, N3
-from rdflib import ConjunctiveGraph, URIRef, RDF
+from rdflib import ConjunctiveGraph, URIRef, RDF, Literal, Namespace
+from rdflib.namespace import DCTERMS
 import requests
 import metrics.statistics as stats
 
@@ -512,19 +513,6 @@ def rdf_to_triple_list(graph):
         tuple_list.append((str(s), str(p), str(o)))
 
     return tuple_list
-    # for s, p, o in graph.triples((None,  RDF.type, None)):
-    #     print("{} => {}".format(p, o))
-
-
-# TODO @Thomas, to be fixed (imports)
-# def download_csv(uri):
-#
-#     client = MongoClient()
-#     db = client.fair_checker
-#     evaluations = db.evaluations
-#
-#     a_day_ago = datetime.now() - timedelta(1)
-#     pass
 
 
 def clean_kg_excluding_ns_prefix(kg) -> ConjunctiveGraph:
@@ -594,6 +582,7 @@ def list_all_instances(kg):
 
 
 ld_eval_prefix = """
+@prefix ftr: <https://w3id.org/ftr#> .
 @prefix daq: <http://purl.org/eis/vocab/daq#> .
 @prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
@@ -708,17 +697,40 @@ ld_FAIR_Checker_template = """
     a dqv:Dimension ;
     skos:prefLabel "$metric_label"@en ;
     skos:definition "$metric_definition"@en ;
+    dcterms:description "$metric_definition"@en ;
+    dcterms:identifier "https://w3id.org/fairchecker/test/$metric_id" ;
     dqv:inCategory :$category ;
-    rdfs:seeAlso <$seeAlso> ."""
+    rdfs:seeAlso <$seeAlso> .
+"""
+
+# <https://w3id.org/foops/test/OM1>
+#   a <https://w3id.org/ftr#Test> ;
+#   dcterms:description """This check verifies if the following  minimum metadata are present in the ontology metadata [... definition omitted for simplicity...]""" ;
+#   dcterms:identifier "https://w3id.org/foops/test/OM1" ;
+#   dcterms:title "Ontology minimum metadata is declared" ;
+#   rdfs:isDefinedBy "https://oeg-upm.github.io/fair_ontologies/doc/test/OM1/OM1.ttl"^^xsd:anyURI;
+#   dcat:landingPage <https://oeg-upm.github.io/fair_ontologies/doc/test/OM1/OM1.html> ;
+#   dcat:version "0.0.1";
+#   dcat:endpointDescription <https://w3id.org/foops/api> ;
+#   dcat:endpointURL <https://w3id.org/foops/api/assess/test/OM1> .
 
 ld_metrics_tpl = """
 :$id
     a dqv:QualityMeasurement ;
+    a ftr:TestResult ;
     dqv:computedOn <$url> ;
+    ftr:assessmentTarget <$url> ;
     dqv:isMeasurementOf :$dimension ;
     dqv:value "$value"^^xsd:integer ;
+    ftr:completion 2 ;
+    ftr:outputFromTest <https://w3id.org/fairchecker/test/$test_id> ;
     prov:generatedAtTime "$date"^^xsd:dateTime ;
     prov:wasAttributedTo <https://github.com/IFB-ElixirFr/fair-checker> ;
+    prov:wasGeneratedBy [
+        a ftr:TestExecutionActivity ;
+        prov:used <$url> ;
+        prov:wasAssociatedWith <https://w3id.org/fairchecker/test/$test_id> ;
+    ] ; 
     rdfs:seeAlso <https://doi.org/10.1186/s13326-023-00289-5> ."""
 
 
@@ -807,6 +819,46 @@ def _assessment_to_rdf(assess_json) -> str:
         evaluations="<" + ">, <".join(assess_json["wasDerivedFrom"]) + ">",
     )
     return prefix + assess_ttl
+
+
+def _build_metric_kg(metric, subject_uri: str) -> ConjunctiveGraph:
+    """Build an RDF graph describing a FAIR metric.
+
+    Constructs a Turtle string template for readability, then parses it into
+    an rdflib ConjunctiveGraph using schema: + dcterms: vocabularies.
+    """
+    tag = metric.get_principle_tag()
+    plain_desc = re.sub(r"<[^>]+>", "", metric.get_desc()).strip()
+    github_url = (
+        "https://github.com/IFB-ElixirFr/FAIR-checker/blob/master/metrics/"
+        f"{tag}_Impl.py"
+    )
+
+    ttl_tpl = """\
+@prefix schema: <https://schema.org/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+
+<$subject_uri>
+    a schema:Thing ;
+    schema:name \"\"\"$name\"\"\" ;
+    dcterms:description \"\"\"$desc\"\"\" ;
+    dcterms:identifier "$tag" ;
+    schema:isPartOf <$principle> ;
+    schema:codeRepository <$github_url> .
+"""
+
+    ttl = StringTemplate(ttl_tpl).safe_substitute(
+        subject_uri=subject_uri,
+        name=metric.get_name(),
+        desc=plain_desc,
+        tag=tag,
+        principle=metric.get_principle(),
+        github_url=github_url,
+    )
+
+    kg = ConjunctiveGraph()
+    kg.parse(data=ttl, format="turtle")
+    return kg
 
 
 def _negotiate_rdf_response(kg, record_id, target_uri, base_path):
