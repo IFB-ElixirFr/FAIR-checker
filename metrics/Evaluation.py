@@ -5,6 +5,7 @@ import logging
 from io import StringIO
 import uuid
 from string import Template
+from flask import current_app
 
 from metrics.util import (
     ld_FAIR_Checker_template,
@@ -12,6 +13,10 @@ from metrics.util import (
     ld_metrics_tpl,
     ld_eval_prefix,
 )
+import json
+import logging
+
+logger = logging.getLogger(__name__)
 
 
 @unique
@@ -207,7 +212,6 @@ class Evaluation:
 
         d = None
         eval_ttl = ""
-        spec_ttl = ""
 
         if not self._id:
             self._id = id
@@ -222,8 +226,14 @@ class Evaluation:
                 dimension=self.get_metrics(),
                 value=self.get_score(),
                 date=d,
+                test_id=self.get_metrics(),
             )
-        ttl = ld_eval_prefix + eval_ttl
+        ttl = (
+            Template(ld_eval_prefix).safe_substitute(
+                data_url=current_app.config["EVAL_URL"]
+            )
+            + eval_ttl
+        )
 
         for spec in get_ld_FC_spec():
             if self.get_metrics() == spec["id"]:
@@ -241,7 +251,8 @@ class Evaluation:
     def __str__(self):
         return (
             f"FAIR metrics evaluation : "
-            f"\n\t started at {self.start_time} "
+            f"\n\t metrics {self.metrics}"
+            f"\n\t started at {self.start_time}"
             f"\n\t ended {self.end_time} "
             f"\n\t score {self.score} "
             f"\n\t reason {self.reason} "

@@ -12,7 +12,7 @@ class R12_Impl(AbstractFAIRMetrics):
         self.name = "Metadata includes provenance"
         self.id = "13"
         self.principle = "https://w3id.org/fair/principles/terms/R1.2"
-        self.principle_tag = "R1.2"
+        self.principle_tag = "R12"
         self.implem = "FAIR-Checker"
         self.desc = """
             Metadata includes provenance.<br> FAIR-Checker verifies that at least one provenance property from PROV, DCTerms, or PAV ontologies are found in metadata.

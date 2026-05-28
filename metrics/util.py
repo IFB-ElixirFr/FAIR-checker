@@ -1,6 +1,7 @@
 # from time import time
 from SPARQLWrapper import SPARQLWrapper, N3
-from rdflib import ConjunctiveGraph, URIRef, RDF
+from rdflib import ConjunctiveGraph, URIRef, RDF, Literal, Namespace
+from rdflib.namespace import DCTERMS
 import requests
 import metrics.statistics as stats
 
@@ -17,8 +18,9 @@ from enum import Enum
 
 # from cachetools import cached, TTLCache
 from diskcache import Cache
-from flask import Flask
-from flask import current_app
+import html
+from string import Template as StringTemplate
+from flask import Flask, current_app, request, Response, render_template
 from flask_socketio import emit
 import logging
 import copy
@@ -479,231 +481,6 @@ def inspect_onto_reg(kg, is_inspect_ui):
     return table_content
 
 
-# @Deprecated
-def gen_shape(property_list=None, class_list=None, recommendation=None):
-    """
-
-    @param property_list: a list of OWL/RDF properties
-    @param class_list: a list of OWL/RDF classes
-    @param recommendation: the message to be displayed during validation
-    @return: a SHACL constraint expression to validate RDF graph based on a list or required properties or classes (at least)
-
-    @TODO another method for strong validation (AND)
-    """
-
-    return None
-
-
-# @Deprecated
-def shape_checks(kg):
-    """
-
-    @param kg:
-    @return:
-    """
-
-    # types = [
-    #     "schema:SoftwareApplication",
-    #     "schema:CreativeWork",
-    #     "schema:Dataset",
-    #     "schema:ScholarlyArticle",
-    # ]
-    minimal_dataset_properties = [
-        "schema:name",
-        "schema:description",
-        "schema:identifier",
-        "schema:keywords",
-        "schema:url",
-    ]
-    recommended_dataset_properties = [
-        "schema:license",
-        "schema:creator",
-        "schema:citation",
-    ]
-
-    minimal_software_properties = ["schema:name", "schema:description", "schema:url"]
-    recommended_software_properties = [
-        "schema:additionalType",
-        "schema:applicationCategory",
-        "schema:applicationSubCategory",
-        "schema:author",
-        "schema:license",
-        "schema:citation",
-        "schema:featureList",
-        "schema:softwareVersion",
-    ]
-
-    minimal_publication_properties = ["schema:headline", "schema:identifier"]
-    recommended_publication_properties = [
-        "schema:about",
-        "schema:alternateName",
-        "schema:author",
-        "schema:backstory",
-        "schema:citation",
-        "schema:dateCreated",
-        "schema:dateModified",
-        "schema:datePublished",
-        "schema:isBasedOn",
-        "schema:isPartOf",
-        "schema:keywords",
-        "schema:license",
-        "schema:pageEnd",
-        "schema:pageStart",
-        "schema:url",
-    ]
-
-    shape_template = """
-    @prefix dash: <http://datashapes.org/dash#> .
-    @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-    @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-    @prefix schema: <http://schema.org/> .
-    @prefix sh: <http://www.w3.org/ns/shacl#> .
-    @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-    @prefix edam: <http://edamontology.org/> .
-    @prefix biotools: <https://bio.tools/ontology/> .
-
-    schema:SoftwareShape
-        a sh:NodeShape ;
-        sh:targetClass schema:SoftwareApplication ;
-
-        {% for prop_name in data['software_min'] %}
-        sh:property [
-            sh:path {{prop_name}} ;
-            sh:minCount 1 ;
-            sh:severity sh:Violation
-        ] ;
-        {% endfor %}
-    .
-
-    schema:SoftwareShape
-        a sh:NodeShape ;
-        sh:targetClass schema:SoftwareApplication ;
-
-        {% for prop_name in data['software_reco'] %}
-        sh:property [
-            sh:path {{prop_name}} ;
-            sh:minCount 1 ;
-            sh:severity sh:Warning
-        ] ;
-        {% endfor %}
-    .
-
-    schema:DatasetShape
-        a sh:NodeShape ;
-        sh:targetClass schema:Dataset ;
-
-        {% for prop_name in data['dataset_min'] %}
-        sh:property [
-            sh:path {{prop_name}} ;
-            sh:minCount 1 ;
-            sh:severity sh:Violation
-        ] ;
-        {% endfor %}
-    .
-
-    schema:DatasetShape
-        a sh:NodeShape ;
-        sh:targetClass schema:Dataset ;
-
-        {% for prop_name in data['dataset_reco'] %}
-        sh:property [
-            sh:path {{prop_name}} ;
-            sh:minCount 1 ;
-            sh:severity sh:Warning
-        ] ;
-        {% endfor %}
-    .
-
-    schema:PaperShape
-        a sh:NodeShape ;
-        sh:targetClass schema:ScholarlyArticle ;
-
-        {% for prop_name in data['paper_min'] %}
-        sh:property [
-            sh:path {{prop_name}} ;
-            sh:minCount 1 ;
-            sh:severity sh:Violation
-        ] ;
-        {% endfor %}
-    .
-
-    schema:PaperShape
-        a sh:NodeShape ;
-        sh:targetClass schema:ScholarlyArticle ;
-
-        {% for prop_name in data['paper_reco'] %}
-        sh:property [
-            sh:path {{prop_name}} ;
-            sh:minCount 1 ;
-            sh:severity sh:Warning
-        ] ;
-        {% endfor %}
-    .
-
-    """
-
-    data = {
-        "software_min": minimal_software_properties,
-        "software_reco": recommended_software_properties,
-        "dataset_min": minimal_dataset_properties,
-        "dataset_reco": recommended_dataset_properties,
-        "paper_min": minimal_publication_properties,
-        "paper_reco": recommended_publication_properties,
-    }
-
-    template = Template(shape_template)
-    shape = template.render(data=data)
-    # print(shape)
-    g = ConjunctiveGraph()
-    g.parse(data=shape, format="turtle")
-    # print(len(g))
-
-    r = validate(
-        data_graph=kg,
-        data_graph_format="turtle",
-        shacl_graph=shape,
-        # shacl_graph = my_shacl_constraint,
-        shacl_graph_format="turtle",
-        ont_graph=None,
-        inference="rdfs",
-        abort_on_error=False,
-        meta_shacl=False,
-        debug=True,
-    )
-
-    conforms, results_graph, results_text = r
-
-    report_query = """
-        SELECT ?node ?path ?severity WHERE {
-            ?v rdf:type sh:ValidationReport ;
-               sh:result ?r .
-            ?r sh:focusNode ?node ;
-               sh:sourceShape ?s .
-            ?s sh:path ?path ;
-               sh:severity ?severity .
-        }
-    """
-
-    # print("toto")
-    # print(results_graph.serialize(format="turtle"))
-
-    results = results_graph.query(report_query)
-    warnings = []
-    errors = []
-    for r in results:
-        # print(r)
-        if "#Warning" in r["severity"]:
-            warnings.append(
-                f'Property {r["path"]} <span class="has-text-warning has-text-weight-bold">should be</span> provided'
-            )
-        if "#Violation" in r["severity"]:
-            errors.append(
-                f'Property {r["path"]} <span class="has-text-danger has-text-weight-bold">must be</span> provided'
-            )
-
-    return warnings, errors
-
-
 def extract_rdf_from_html(uri):
     page = requests.get(uri)
     html = page.content
@@ -736,19 +513,6 @@ def rdf_to_triple_list(graph):
         tuple_list.append((str(s), str(p), str(o)))
 
     return tuple_list
-    # for s, p, o in graph.triples((None,  RDF.type, None)):
-    #     print("{} => {}".format(p, o))
-
-
-# TODO @Thomas, to be fixed (imports)
-# def download_csv(uri):
-#
-#     client = MongoClient()
-#     db = client.fair_checker
-#     evaluations = db.evaluations
-#
-#     a_day_ago = datetime.now() - timedelta(1)
-#     pass
 
 
 def clean_kg_excluding_ns_prefix(kg) -> ConjunctiveGraph:
@@ -818,6 +582,8 @@ def list_all_instances(kg):
 
 
 ld_eval_prefix = """
+@prefix ftr: <https://w3id.org/ftr#> .
+@prefix fct: <https://w3id.org/fairchecker/test/> .
 @prefix daq: <http://purl.org/eis/vocab/daq#> .
 @prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
@@ -829,8 +595,9 @@ ld_eval_prefix = """
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sio: <http://semanticscience.org/resource/> .
 
-@prefix : <https://fair-checker.france-bioinformatique.fr/data/> .
+@prefix : <$data_url> .
 """
 
 
@@ -928,19 +695,199 @@ def get_ld_FC_spec():
 
 
 ld_FAIR_Checker_template = """
-:$metric_id
-    a dqv:Dimension ;
+fct:$metric_id
+    a ftr:Test ;
     skos:prefLabel "$metric_label"@en ;
     skos:definition "$metric_definition"@en ;
-    dqv:inCategory :$category ;
-    rdfs:seeAlso <$seeAlso> ."""
+    dcterms:description "$metric_definition"@en ;
+    dcterms:identifier <https://w3id.org/fairchecker/test/$metric_id> ;
+    sio:SIO_000233 <$seeAlso> . # sio:is-implementation-of property
+"""
+
+# <https://w3id.org/foops/test/OM1>
+#   a <https://w3id.org/ftr#Test> ;
+#   dcterms:description """This check verifies if the following  minimum metadata are present in the ontology metadata [... definition omitted for simplicity...]""" ;
+#   dcterms:identifier "https://w3id.org/foops/test/OM1" ;
+#   dcterms:title "Ontology minimum metadata is declared" ;
+#   rdfs:isDefinedBy "https://oeg-upm.github.io/fair_ontologies/doc/test/OM1/OM1.ttl"^^xsd:anyURI;
+#   dcat:landingPage <https://oeg-upm.github.io/fair_ontologies/doc/test/OM1/OM1.html> ;
+#   dcat:version "0.0.1";
+#   dcat:endpointDescription <https://w3id.org/foops/api> ;
+#   dcat:endpointURL <https://w3id.org/foops/api/assess/test/OM1> .
 
 ld_metrics_tpl = """
 :$id
     a dqv:QualityMeasurement ;
+    a ftr:TestResult ;
     dqv:computedOn <$url> ;
-    dqv:isMeasurementOf :$dimension ;
+    ftr:assessmentTarget <$url> ;
     dqv:value "$value"^^xsd:integer ;
+    prov:value "$value"^^xsd:integer ;
+    ftr:completion 2 ;
+    ftr:outputFromTest <https://w3id.org/fairchecker/test/$test_id> ;
     prov:generatedAtTime "$date"^^xsd:dateTime ;
     prov:wasAttributedTo <https://github.com/IFB-ElixirFr/fair-checker> ;
+    prov:wasGeneratedBy [
+        a ftr:TestExecutionActivity ;
+        prov:used <$url> ;
+        prov:wasAssociatedWith <https://w3id.org/fairchecker/test/$test_id> ;
+    ] ; 
     rdfs:seeAlso <https://doi.org/10.1186/s13326-023-00289-5> ."""
+
+
+# ---------------------------------------------------------------------------
+# RDF rendering helpers
+# ---------------------------------------------------------------------------
+
+_FORMAT_PARAM = {
+    "json-ld": ("json-ld", "application/ld+json"),
+    "rdf-xml": ("xml", "application/rdf+xml"),
+    "turtle": ("turtle", "text/turtle"),
+}
+_ACCEPT_MAP = {
+    "application/ld+json": ("json-ld", "application/ld+json"),
+    "application/json": ("json-ld", "application/ld+json"),
+    "application/rdf+xml": ("xml", "application/rdf+xml"),
+    "text/turtle": ("turtle", "text/turtle"),
+    "text/n3": ("turtle", "text/turtle"),
+}
+
+
+def _turtle_to_html(ttl: str) -> str:
+    """Return Turtle text as HTML with URIs turned into clickable links."""
+    prefix_map = {
+        m.group(1): m.group(2)
+        for m in re.finditer(r"@prefix\s+(\w*):\s*<([^>]+)>", ttl)
+    }
+    pattern = re.compile(
+        r"<(https?://[^>]+)>"
+        r"|"
+        r"\b([a-zA-Z_][a-zA-Z0-9_-]*):([a-zA-Z0-9_][a-zA-Z0-9_.-]*)"
+        r"|"
+        r"(?<!\w):([a-zA-Z0-9_][a-zA-Z0-9_.-]*)"
+    )
+    _a = '<a href="{}" target="_blank" rel="noopener noreferrer" style="color:#3273dc;">{}</a>'
+    parts = []
+    last = 0
+    for m in pattern.finditer(ttl):
+        parts.append(html.escape(ttl[last : m.start()]))
+        if m.group(1):
+            uri = html.escape(m.group(1))
+            parts.append(_a.format(uri, f"&lt;{uri}&gt;"))
+        elif m.group(2) and m.group(2) in prefix_map:
+            full_uri = html.escape(prefix_map[m.group(2)] + m.group(3))
+            parts.append(_a.format(full_uri, html.escape(m.group(0))))
+        elif m.group(4) is not None and "" in prefix_map:
+            full_uri = html.escape(prefix_map[""] + m.group(4))
+            parts.append(_a.format(full_uri, html.escape(m.group(0))))
+        else:
+            parts.append(html.escape(m.group(0)))
+        last = m.end()
+    parts.append(html.escape(ttl[last:]))
+    return "".join(parts)
+
+
+def _assessment_to_rdf(assess_json) -> str:
+    """Return a Turtle string representing a global FAIR assessment."""
+    prefix = f"""
+@prefix ftr: <https://w3id.org/ftr#> .
+@prefix daq: <http://purl.org/eis/vocab/daq#> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix dqv: <http://www.w3.org/ns/dqv#> .
+@prefix duv: <http://www.w3.org/ns/duv#> .
+@prefix oa: <http://www.w3.org/ns/oa#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix sdmx-attribute: <http://purl.org/linked-data/sdmx/2009/attribute#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+@prefix : <{current_app.config["ASSESSMENT_URL"]}> .
+"""
+    assess_tpl = """:$id
+    a dqv:QualityMeasurement ;
+    dqv:computedOn <$url> ;
+    dqv:value "$value"^^xsd:integer ;
+    prov:value "$value"^^xsd:integer ;
+    ftr:completion 100 ;
+    prov:generatedAtTime "$date"^^xsd:dateTime ;
+    prov:wasAttributedTo <https://github.com/IFB-ElixirFr/fair-checker> ;
+    prov:wasDerivedFrom $evaluations ;
+    rdfs:seeAlso <https://doi.org/10.1186/s13326-023-00289-5> ."""
+    assess_ttl = StringTemplate(assess_tpl).safe_substitute(
+        id=str(assess_json["_id"]),
+        url=assess_json["target_url"],
+        value=assess_json["score"],
+        date=assess_json["generatedAtTime"].isoformat(),
+        evaluations="<" + ">, <".join(assess_json["wasDerivedFrom"]) + ">",
+    )
+    return prefix + assess_ttl
+
+
+def _build_metric_kg(metric, subject_uri: str) -> ConjunctiveGraph:
+    """Build an RDF graph describing a FAIR metric.
+
+    Constructs a Turtle string template for readability, then parses it into
+    an rdflib ConjunctiveGraph using schema: + dcterms: vocabularies.
+    """
+    tag = metric.get_principle_tag()
+    plain_desc = re.sub(r"<[^>]+>", "", metric.get_desc()).strip()
+    github_url = (
+        "https://github.com/IFB-ElixirFr/FAIR-checker/blob/master/metrics/"
+        f"{tag}_Impl.py"
+    )
+
+    ttl_tpl = """\
+@prefix schema: <https://schema.org/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+
+<$subject_uri>
+    a schema:Thing ;
+    schema:name \"\"\"$name\"\"\" ;
+    dcterms:description \"\"\"$desc\"\"\" ;
+    dcterms:identifier "$tag" ;
+    schema:isPartOf <$principle> ;
+    schema:codeRepository <$github_url> .
+"""
+
+    ttl = StringTemplate(ttl_tpl).safe_substitute(
+        subject_uri=subject_uri,
+        name=metric.get_name(),
+        desc=plain_desc,
+        tag=tag,
+        principle=metric.get_principle(),
+        github_url=github_url,
+    )
+
+    kg = ConjunctiveGraph()
+    kg.parse(data=ttl, format="turtle")
+    return kg
+
+
+def _negotiate_rdf_response(kg, record_id, target_uri, base_path):
+    """Handle content negotiation and return the appropriate Flask response."""
+    fmt_param = request.args.get("format", "").lower()
+    if fmt_param in _FORMAT_PARAM:
+        rdf_fmt, mime = _FORMAT_PARAM[fmt_param]
+        return Response(kg.serialize(format=rdf_fmt), mimetype=mime)
+
+    best = request.accept_mimetypes.best_match(
+        ["text/html"] + list(_ACCEPT_MAP.keys()),
+        default="text/turtle",
+    )
+
+    if best == "text/html":
+        return render_template(
+            "data.html",
+            eval_id=record_id,
+            target_uri=target_uri,
+            base_path=base_path,
+            turtle_html=_turtle_to_html(kg.serialize(format="turtle")),
+        )
+
+    if best in _ACCEPT_MAP:
+        rdf_fmt, mime = _ACCEPT_MAP[best]
+        return Response(kg.serialize(format=rdf_fmt), mimetype=mime)
+
+    return Response(kg.serialize(format="turtle"), mimetype="text/turtle")
