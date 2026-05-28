@@ -583,6 +583,7 @@ def list_all_instances(kg):
 
 ld_eval_prefix = """
 @prefix ftr: <https://w3id.org/ftr#> .
+@prefix fct: <https://w3id.org/fairchecker/test/> .
 @prefix daq: <http://purl.org/eis/vocab/daq#> .
 @prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
@@ -594,6 +595,7 @@ ld_eval_prefix = """
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sio: <http://semanticscience.org/resource/> .
 
 @prefix : <$data_url> .
 """
@@ -693,14 +695,13 @@ def get_ld_FC_spec():
 
 
 ld_FAIR_Checker_template = """
-:$metric_id
-    a dqv:Dimension ;
+fct:$metric_id
+    a ftr:Test ;
     skos:prefLabel "$metric_label"@en ;
     skos:definition "$metric_definition"@en ;
     dcterms:description "$metric_definition"@en ;
-    dcterms:identifier "https://w3id.org/fairchecker/test/$metric_id" ;
-    dqv:inCategory :$category ;
-    rdfs:seeAlso <$seeAlso> .
+    dcterms:identifier <https://w3id.org/fairchecker/test/$metric_id> ;
+    sio:SIO_000233 <$seeAlso> . # sio:is-implementation-of property
 """
 
 # <https://w3id.org/foops/test/OM1>
@@ -720,8 +721,8 @@ ld_metrics_tpl = """
     a ftr:TestResult ;
     dqv:computedOn <$url> ;
     ftr:assessmentTarget <$url> ;
-    dqv:isMeasurementOf :$dimension ;
     dqv:value "$value"^^xsd:integer ;
+    prov:value "$value"^^xsd:integer ;
     ftr:completion 2 ;
     ftr:outputFromTest <https://w3id.org/fairchecker/test/$test_id> ;
     prov:generatedAtTime "$date"^^xsd:dateTime ;
@@ -789,6 +790,7 @@ def _turtle_to_html(ttl: str) -> str:
 def _assessment_to_rdf(assess_json) -> str:
     """Return a Turtle string representing a global FAIR assessment."""
     prefix = f"""
+@prefix ftr: <https://w3id.org/ftr#> .
 @prefix daq: <http://purl.org/eis/vocab/daq#> .
 @prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
@@ -807,6 +809,8 @@ def _assessment_to_rdf(assess_json) -> str:
     a dqv:QualityMeasurement ;
     dqv:computedOn <$url> ;
     dqv:value "$value"^^xsd:integer ;
+    prov:value "$value"^^xsd:integer ;
+    ftr:completion 100 ;
     prov:generatedAtTime "$date"^^xsd:dateTime ;
     prov:wasAttributedTo <https://github.com/IFB-ElixirFr/fair-checker> ;
     prov:wasDerivedFrom $evaluations ;
