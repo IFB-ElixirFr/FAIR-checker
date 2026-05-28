@@ -57,6 +57,7 @@ from metrics.F1B_Impl import F1B_Impl
 from metrics.FAIRMetricsFactory import FAIRMetricsFactory
 from metrics.util import SOURCE, inspect_onto_reg
 from metrics.WebResource import WebResource
+from profiles.DataciteProfile import datacite_profile, validate_md
 from profiles.bioschemas_shape_gen import validate_any_from_KG
 from profiles.ProfileFactory import (
     PROFILES,
@@ -97,6 +98,7 @@ for name in (
 ):
     logging.getLogger(name).setLevel(logging.CRITICAL)
 
+logger = logging.getLogger(__name__)
 
 @app.route("/")
 def index():
@@ -459,7 +461,6 @@ for key in METRICS_CUSTOM.keys():
     generate_check_api(METRICS_CUSTOM[key])
 
 
-
 @app.route("/eval/<ID>")
 def deref_eval_LD(ID):
     try:
@@ -496,7 +497,6 @@ def deref_assessment_LD(ID):
         return _negotiate_rdf_response(kg, ID, assess_json["target_url"], "/assessment")
     except InvalidId:
         return Response(f"Invalid ID: {ID}", mimetype="text/plain", status=400)
-
 
 
 @fc_check_namespace.route("/metrics_all")
@@ -1612,7 +1612,7 @@ def evaluate_bioschemas_profiles(kg):
         if result_key not in results:
             results[result_key] = results_type[result_key]
 
-    # TODO Try similarity match her for profiles that are not matched
+    # TODO Try similarity matcher for profiles that are not matched
 
     print(results.keys())
 
@@ -1636,6 +1636,33 @@ def check_kg_shape_2(data):
     # results = validate_any_from_KG(kg)
 
     emit("done_check_shape", results)
+
+def evaluate_datacite_profile(kg):
+
+    
+    datacite_results = validate_md(kg, datacite_profile)
+    #results = {}
+
+    logger.info(kg.serialize(format="turtle"))
+
+    logger.info("datacite validation results: " + json.dumps(datacite_results, indent=4))
+
+    return datacite_results
+
+@socketio.on("check_datacite")
+def check_datacite(data):
+    logger.info("datacite validation started")
+    sid = request.sid
+    kg = KGS[sid]
+
+    if not kg:
+        logger.warning("cannot access current knowledge graph")
+    elif len(kg) == 0:
+        logger.warning("cannot validate an empty knowledge graph")
+
+    results = evaluate_datacite_profile(kg)
+
+    emit("done_check_datacite", results)
 
 
 def update_bioschemas_valid(func):
