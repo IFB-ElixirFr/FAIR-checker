@@ -15,6 +15,7 @@ function validation_datacite_report(data){
     console.log(data);
 
     const valid_container = document.getElementById("block_dc_valid_report");
+    valid_container.innerHTML = "";
     const hvalid_template = document.getElementById('head-dc-valid-template').innerHTML;
     const tvalids_template = document.getElementById("tables-dc-valid-template").innerHTML;
     const rvalid_template = document.getElementById("row-dc-valid-template").innerHTML;
@@ -95,24 +96,15 @@ function validation_datacite_report(data){
 <!-- Template: validation header -->
 <script id="head-dc-valid-template" type="text/html">
     <hr>
-    <h5 class="subtitle" style="line-height: 1.5;">
-        <p>
-            <span class="tag is-dark is-medium">
-                <a target="_blank" href="{% raw %}{{resource}}{% endraw %}">{% raw %}{{resource}}{% endraw %}</a>
-            </span>
-            has type
-            <span class="tag is-dark">
-                <a target="_blank" href="{% raw %}{{type}}{% endraw %}">{% raw %}{{type}}{% endraw %}</a>
-            </span>
+    <div class="has-text-centered" style="margin: 1.5rem 0 2rem 0;">
+        <p class="heading" style="font-size: 1rem; letter-spacing: 0.1em; text-transform: uppercase; color: #555; margin-bottom: 0.25rem;">Completeness Score</p>
+        <p class="title" style="font-size: 4rem; font-weight: 800; line-height: 1; color: #363636;">
+            {% raw %}{{completeness_score}}{% endraw %}<span style="font-size: 2rem;">%</span>
         </p>
-        <p>
-            Validated against the Datacite profile
-            <span class="tag is-dark">
-                <a target="_blank" href="{% raw %}{{profile}}{% endraw %}">{% raw %}{{profile}}{% endraw %}</a>
-            </span>
-            &mdash; completeness score: <strong>{% raw %}{{completeness_score}}{% endraw %}%</strong>
+        <p class="help" style="font-size: 0.95rem; color: #666; margin-top: 0.5rem;">
+            Weighted score: required properties count 3×, recommended 2×, optional 1× &mdash; measuring how many defined properties are actually provided.
         </p>
-    </h5>
+    </div>
 </script>
 
 
@@ -162,5 +154,5 @@ function validation_datacite_report(data){
 </script>
 
 
-<div id="block_dc_valid_report" class="block">
+<div id="block_dc_valid_report" class="block is-hidden">
 </div>

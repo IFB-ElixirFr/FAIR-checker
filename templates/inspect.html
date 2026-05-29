@@ -1,4 +1,11 @@
 <link rel="stylesheet" href="../static/css/bulma-divider.min.css">
+<style>
+    #datacite_tab.is-disabled > a {
+        opacity: 0.4;
+        cursor: not-allowed;
+        pointer-events: none;
+    }
+</style>
 
 {% extends "layout.html" %}
 
@@ -290,6 +297,7 @@
     });
 
     $("#datacite_tab").click(function () {
+        if ($(this).hasClass("is-disabled")) return;
         $("#linkeddata_tab, #bioschemas_tab, #datacite_tab").removeClass("is-active");
         $(this).addClass("is-active");
         $("#section-LinkedData, #section-BioSchemas, #section-Datacite").addClass("is-hidden");
@@ -359,10 +367,19 @@
         $("#btn_kg").removeClass("is-loading");
 
         $("#kgs_len").text("");
+        var hasDataciteProbe = false;
         $.each(value["kgs_len"], function (index, item) {
             elem = '<a class="button is-success is-small">' + index + ': ' + item + ' Triples</a>&nbsp;'
             $("#kgs_len").append(elem);
+            if (String(index).includes("#datacite-probe")) {
+                hasDataciteProbe = true;
+            }
         });
+        if (hasDataciteProbe) {
+            $("#datacite_tab").removeClass("is-disabled");
+        } else {
+            $("#datacite_tab").addClass("is-disabled");
+        }
         // Call Graph display update here
         // socket.emit('get_latest_triples');
     });
@@ -462,6 +479,7 @@
 
     socket.on('done_check_datacite', function (data) {
         console.log("Datacite profiles validated");
+        $("#block_dc_valid_report").removeClass("is-hidden");
         validation_datacite_report(data);
         $("#btn_datacite").removeClass("is-loading");
     });
@@ -641,7 +659,7 @@
                                 <span>Bioschemas</span>
                             </a>
                         </li>
-                        <li id="datacite_tab">
+                        <li id="datacite_tab" class="is-disabled" title="Available only when a Datacite-compatible resource is detected">
                             <a>
                                 <span class="icon is-small"><i class="fa fa-pencil" aria-hidden="true"></i></span>
                                 <span>Datacite</span>
@@ -732,14 +750,37 @@
                 <section id="section-Datacite" class="section  is-hidden">
 
 
-                    <p> Datacite is a community-driven initiative aimed at improving the discoverability and interoperability of research data. 
-                        The Datacite community proposes a metadata profile in https://datacite-metadata-schema.readthedocs.io/en/4.6/properties/overview/#levels-of-obligation. 
-                        It states which metadata fields are mandatory, recommended or optional to describe a research data.
-
-                        By evaluating the Datacite profile, you will get a global completeness score taking
-                        into account the different importance levels, as well as a detailed report on
-                        potential improvements.
-                        <br>
+                    <div class="notification is-light" style="font-size: 0.9rem; line-height: 1.6;">
+                        <p>
+                            <a href="https://datacite-metadata-schema.readthedocs.io/en/4.6/properties/overview/#levels-of-obligation" target="_blank"><strong>Datacite</strong></a>
+                            is a community-driven initiative improving the discoverability and interoperability of research data.
+                            Aligned with Schema.org, its metadata profile <code>schema:CreativeWork</code> and <code>schema:Dataset</code> resources and defines 15 properties across three importance levels: required, recommended, and optional.
+                        </p>
+                        <div style="display: flex; align-items: baseline; flex-wrap: wrap; gap: 0.25rem; margin-top: 0.5rem;">
+                            <span class="tag is-danger is-light">Required</span>
+                            <a href="https://schema.org/identifier" target="_blank"><code>identifier</code></a>,
+                            <a href="https://schema.org/creator" target="_blank"><code>creator</code></a>,
+                            <a href="https://schema.org/name" target="_blank"><code>name</code></a>,
+                            <a href="https://schema.org/publisher" target="_blank"><code>publisher</code></a>,
+                            <a href="https://schema.org/datePublished" target="_blank"><code>datePublished</code></a>
+                        </div>
+                        <div style="display: flex; align-items: baseline; flex-wrap: wrap; gap: 0.25rem; margin-top: 0.35rem;">
+                            <span class="tag is-warning is-light">Recommended</span>
+                            <a href="https://schema.org/about" target="_blank"><code>about</code></a>,
+                            <a href="https://schema.org/contributor" target="_blank"><code>contributor</code></a>,
+                            <a href="https://schema.org/dateCreated" target="_blank"><code>dateCreated</code></a>,
+                            <a href="https://schema.org/isPartOf" target="_blank"><code>isPartOf</code></a>,
+                            <a href="https://schema.org/description" target="_blank"><code>description</code></a>,
+                            <a href="https://schema.org/spatialCoverage" target="_blank"><code>spatialCoverage</code></a>
+                        </div>
+                        <div style="display: flex; align-items: baseline; flex-wrap: wrap; gap: 0.25rem; margin-top: 0.35rem;">
+                            <span class="tag is-info is-light">Optional</span>
+                            <a href="https://schema.org/inLanguage" target="_blank"><code>inLanguage</code></a>,
+                            <a href="https://schema.org/encodingFormat" target="_blank"><code>encodingFormat</code></a>,
+                            <a href="https://schema.org/version" target="_blank"><code>version</code></a>,
+                            <a href="https://schema.org/license" target="_blank"><code>license</code></a>
+                        </div>
+                    </div>
                     <div class="field is-grouped is-grouped-centered">
                         <p class="control"><a id="btn_datacite" class="button is-warning is-large">Check Datacite
                                 profile
