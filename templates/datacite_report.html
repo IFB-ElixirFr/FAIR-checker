@@ -97,6 +97,13 @@ function validation_datacite_report(data){
 <script id="head-dc-valid-template" type="text/html">
     <hr>
     <div class="has-text-centered" style="margin: 1.5rem 0 2rem 0;">
+        <p class="heading"
+           style="font-size: 1rem; letter-spacing: 0.1em; text-transform: uppercase; color: #888; margin-bottom: 0.4rem;">
+            Evaluated resource</p>
+        <p style="margin-bottom: 1.25rem;">
+            <a href="{% raw %}{{resource}}{% endraw %}" target="_blank"
+               style="font-size: 0.95rem; word-break: break-all;">{% raw %}{{resource}}{% endraw %}</a>
+        </p>
         <p class="heading" style="font-size: 1rem; letter-spacing: 0.1em; text-transform: uppercase; color: #555; margin-bottom: 0.25rem;">Completeness Score</p>
         <p class="title" style="font-size: 4rem; font-weight: 800; line-height: 1; color: #363636;">
             {% raw %}{{completeness_score}}{% endraw %}<span style="font-size: 2rem;">%</span>

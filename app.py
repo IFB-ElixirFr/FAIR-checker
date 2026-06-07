@@ -58,6 +58,7 @@ from metrics.FAIRMetricsFactory import FAIRMetricsFactory
 from metrics.util import SOURCE, inspect_onto_reg
 from metrics.WebResource import WebResource
 from profiles.DataciteProfile import datacite_profile, validate_md
+from profiles.BiosampleProfile import ena53_profile, validate_md as validate_md_ena53
 from profiles.bioschemas_shape_gen import validate_any_from_KG
 from profiles.ProfileFactory import (
     PROFILES,
@@ -99,6 +100,7 @@ for name in (
     logging.getLogger(name).setLevel(logging.CRITICAL)
 
 logger = logging.getLogger(__name__)
+
 
 @app.route("/")
 def index():
@@ -467,7 +469,9 @@ def deref_eval_LD(ID):
         db = MongoClient().fair_checker
         eval_json = db.evaluations.find_one({"_id": ObjectId(ID)})
         if eval_json is None:
-            return Response(f"Cannot find evaluation {ID}", mimetype="text/plain", status=404)
+            return Response(
+                f"Cannot find evaluation {ID}", mimetype="text/plain", status=404
+            )
         e = Evaluation()
         e.build_from_json(data=eval_json)
         ttl = e.to_rdf_turtle(id=ID)
@@ -487,7 +491,9 @@ def deref_assessment_LD(ID):
         db = MongoClient().fair_checker
         assess_json = db.assessments.find_one({"_id": ObjectId(ID)})
         if assess_json is None:
-            return Response(f"Cannot find assessment {ID}", mimetype="text/plain", status=404)
+            return Response(
+                f"Cannot find assessment {ID}", mimetype="text/plain", status=404
+            )
         ttl = _assessment_to_rdf(assess_json)
         kg = ConjunctiveGraph()
         try:
@@ -1637,17 +1643,33 @@ def check_kg_shape_2(data):
 
     emit("done_check_shape", results)
 
+
 def evaluate_datacite_profile(kg):
-
-    
     datacite_results = validate_md(kg, datacite_profile)
-    #results = {}
-
-    logger.info(kg.serialize(format="turtle"))
-
-    logger.info("datacite validation results: " + json.dumps(datacite_results, indent=4))
-
     return datacite_results
+
+
+def evaluate_ena53_profile(kg):
+    ena53_results = validate_md_ena53(kg, ena53_profile)
+    return ena53_results
+
+
+@socketio.on("check_ena53")
+def check_ena53(data):
+    logger.info("ENA53 validation started")
+    sid = request.sid
+    kg = KGS[sid]
+
+    if not kg:
+        logger.warning("cannot access current knowledge graph")
+    elif len(kg) == 0:
+        logger.warning("cannot validate an empty knowledge graph")
+
+    results = evaluate_ena53_profile(kg)
+    logger.info("ENA53 validation results: " + json.dumps(results, indent=4))
+
+    emit("done_check_ena53", results)
+
 
 @socketio.on("check_datacite")
 def check_datacite(data):

@@ -1,6 +1,7 @@
 <link rel="stylesheet" href="../static/css/bulma-divider.min.css">
 <style>
-    #datacite_tab.is-disabled > a {
+    #datacite_tab.is-disabled > a,
+    #ena53_tab.is-disabled > a {
         opacity: 0.4;
         cursor: not-allowed;
         pointer-events: none;
@@ -219,6 +220,14 @@
         $('#t_classes').html("");
         $('#t_properties').html("");
         $('#vocab_interpret').hide();
+        $('#block_dc_valid_report').html("").addClass("is-hidden");
+        $('#block_ena53_valid_report').html("").addClass("is-hidden");
+        $("#datacite_tab").addClass("is-disabled");
+        $("#ena53_tab").addClass("is-disabled");
+        $("#linkeddata_tab, #bioschemas_tab, #datacite_tab, #ena53_tab").removeClass("is-active");
+        $("#linkeddata_tab").addClass("is-active");
+        $("#section-LinkedData, #section-BioSchemas, #section-Datacite, #section-ENA53").addClass("is-hidden");
+        $("#section-LinkedData").removeClass("is-hidden");
         socket.emit('retrieve_embedded_annot_2', { url: $("#url").val() });
     });
 
@@ -279,6 +288,13 @@
             socket.emit('check_datacite', { url: $("#url").val(), kg: $("#microdata").val() });
     });
 
+        $("#btn_ena53").click(function () {
+            $(this).addClass("is-loading");
+            $("#section-KG").removeClass("is-hidden");
+            console.log("Emitting check_ena53 event");
+            socket.emit('check_ena53', {url: $("#url").val(), kg: $("#microdata").val()});
+        });
+
     // Change RDF type button
 
     $('[id^="btn_rdf_"]').click(function () {
@@ -290,24 +306,32 @@
     // TABS for Step 3
 
     $("#bioschemas_tab").click(function () {
-        $("#linkeddata_tab, #bioschemas_tab, #datacite_tab").removeClass("is-active");
+        $("#linkeddata_tab, #bioschemas_tab, #datacite_tab, #ena53_tab").removeClass("is-active");
         $(this).addClass("is-active");
-        $("#section-LinkedData, #section-BioSchemas, #section-Datacite").addClass("is-hidden");
+        $("#section-LinkedData, #section-BioSchemas, #section-Datacite, #section-ENA53").addClass("is-hidden");
         $("#section-BioSchemas").removeClass("is-hidden");
     });
 
     $("#datacite_tab").click(function () {
         if ($(this).hasClass("is-disabled")) return;
-        $("#linkeddata_tab, #bioschemas_tab, #datacite_tab").removeClass("is-active");
+        $("#linkeddata_tab, #bioschemas_tab, #datacite_tab, #ena53_tab").removeClass("is-active");
         $(this).addClass("is-active");
-        $("#section-LinkedData, #section-BioSchemas, #section-Datacite").addClass("is-hidden");
+        $("#section-LinkedData, #section-BioSchemas, #section-Datacite, #section-ENA53").addClass("is-hidden");
         $("#section-Datacite").removeClass("is-hidden");
     });
 
+        $("#ena53_tab").click(function () {
+            if ($(this).hasClass("is-disabled")) return;
+            $("#linkeddata_tab, #bioschemas_tab, #datacite_tab, #ena53_tab").removeClass("is-active");
+            $(this).addClass("is-active");
+            $("#section-LinkedData, #section-BioSchemas, #section-Datacite, #section-ENA53").addClass("is-hidden");
+            $("#section-ENA53").removeClass("is-hidden");
+        });
+
     $("#linkeddata_tab").click(function () {
-        $("#linkeddata_tab, #bioschemas_tab, #datacite_tab").removeClass("is-active");
+        $("#linkeddata_tab, #bioschemas_tab, #datacite_tab, #ena53_tab").removeClass("is-active");
         $(this).addClass("is-active");
-        $("#section-LinkedData, #section-BioSchemas, #section-Datacite").addClass("is-hidden");
+        $("#section-LinkedData, #section-BioSchemas, #section-Datacite, #section-ENA53").addClass("is-hidden");
         $("#section-LinkedData").removeClass("is-hidden");
     });
 
@@ -368,11 +392,16 @@
 
         $("#kgs_len").text("");
         var hasDataciteProbe = false;
+        var isBiosampleEntry = false;
+
         $.each(value["kgs_len"], function (index, item) {
             elem = '<a class="button is-success is-small">' + index + ': ' + item + ' Triples</a>&nbsp;'
             $("#kgs_len").append(elem);
             if (String(index).includes("#datacite-probe")) {
                 hasDataciteProbe = true;
+            }
+            if (String(index).includes(".uk/biosamples/")) {
+                isBiosampleEntry = true;
             }
         });
         if (hasDataciteProbe) {
@@ -380,6 +409,12 @@
         } else {
             $("#datacite_tab").addClass("is-disabled");
         }
+        if (isBiosampleEntry) {
+            $("#ena53_tab").removeClass("is-disabled");
+        } else {
+            $("#ena53_tab").addClass("is-disabled");
+        }
+
         // Call Graph display update here
         // socket.emit('get_latest_triples');
     });
@@ -483,6 +518,13 @@
         validation_datacite_report(data);
         $("#btn_datacite").removeClass("is-loading");
     });
+
+        socket.on('done_check_ena53', function (data) {
+            console.log("ENA53 profiles validated");
+            $("#block_ena53_valid_report").removeClass("is-hidden");
+            validation_ena53_report(data);
+            $("#btn_ena53").removeClass("is-loading");
+        });
 
     socket.on('done_check_shape', function (data) {
         console.log("Bioschemas profiles validated");
@@ -604,7 +646,7 @@
 <article class="message">
     <div id="section-describe">
         <div class="message-body is-inspect">
-            <h2 class="subtitle"><b>Step 2: Enrich Graph</b></h2>
+            <h2 class="subtitle"><b>Retrieved Knowledge Graph</b></h2>
             <div class="block is-hidden">
                 <div class="field is-grouped is-grouped-centered">
                     <p class="control"><a id="btn_describe_wikidata" class="button is-warning">... from Wikidata</a></p>
@@ -642,7 +684,7 @@
 <article class="message">
     <div id="article-bioschemas-check">
         <div class="message-body is-inspect">
-            <h1 class="subtitle"><b>Step 3: Metadata quality checks</b></h1>
+            <h1 class="subtitle"><b>Step 2: Metadata quality checks</b></h1>
             <!-- <div class="message-body is-hidden"> -->
             <div class="block is-hidden">
                 <div class="tabs is-boxed">
@@ -663,6 +705,13 @@
                             <a>
                                 <span class="icon is-small"><i class="fa fa-pencil" aria-hidden="true"></i></span>
                                 <span>Datacite</span>
+                            </a>
+                        </li>
+                        <li id="ena53_tab" class="is-disabled"
+                            title="Available only when a BioSamples ENA Checklist 53 resource is detected">
+                            <a>
+                                <span class="icon is-small"><i class="fa fa-flask" aria-hidden="true"></i></span>
+                                <span>ENA53</span>
                             </a>
                         </li>
 
@@ -792,9 +841,55 @@
                     {% include 'datacite_report.html' %}
                     {% endblock %}
 
-                    {# <div id="block_valid" class="block">#}
-                        {##}
-                        {# </div>#}
+                </section>
+
+                <section id="section-ENA53" class="section  is-hidden">
+
+                    <div class="notification is-light" style="font-size: 0.9rem; line-height: 1.6;">
+                        <p>
+                            <a href="https://www.ebi.ac.uk/ena/browser/view/ERC000053" target="_blank"><strong>ENA
+                                Checklist 53</strong></a>
+                            is the EBI Environmental Monitoring for Health checklist for biological sample metadata.
+                            It targets <code>schema:Sample</code> resources and defines properties across three
+                            importance levels: required, recommended, and optional.
+                        </p>
+                        <div style="display: flex; align-items: baseline; flex-wrap: wrap; gap: 0.25rem; margin-top: 0.5rem;">
+                            <span class="tag is-danger is-light">Required</span>
+                            <code>organism part</code>,
+                            <code>lifestage</code>,
+                            <code>project name</code>,
+                            <code>collected_by</code>,
+                            <code>collection date</code>,
+                            <code>geographic location (region and locality)</code>,
+                            <code>habitat</code>,
+                            <code>sex</code>,
+                            <code>geographic location (country and/or sea)</code>,
+                            <code>collecting institution</code>
+                        </div>
+                        <div style="display: flex; align-items: baseline; flex-wrap: wrap; gap: 0.25rem; margin-top: 0.35rem;">
+                            <span class="tag is-warning is-light">Recommended</span>
+                            <code>geographic location (latitude)</code>,
+                            <code>geographic location (longitude)</code>,
+                            <code>specimen_voucher</code>
+                        </div>
+                        <div style="display: flex; align-items: baseline; flex-wrap: wrap; gap: 0.25rem; margin-top: 0.35rem;">
+                            <span class="tag is-info is-light">Optional</span>
+                            <code>tolid</code>, <code>identified_by</code>, <code>elevation</code>, <code>depth</code>,
+                            <code>GAL</code>, <code>GAL_sample_id</code>, <code>specimen_id</code>,
+                            <code>bio_material</code>
+                            and more&hellip;
+                        </div>
+                    </div>
+                    <div class="field is-grouped is-grouped-centered">
+                        <p class="control"><a id="btn_ena53" class="button is-warning is-large">Check ENA53
+                            profile
+                        </a>
+                        </p>
+                    </div>
+
+                    {% block test_ena53 %}
+                        {% include 'ena53_report.html' %}
+                    {% endblock %}
 
                 </section>
 
