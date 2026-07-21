@@ -354,14 +354,18 @@ def ask_LOV(uri):
 
     h = {"Accept": "application/sparql-results+json"}
     p = {"query": "ASK { <" + uri + "> ?p ?o }"}
-    res = requests.get(
-        "https://lov.linkeddata.es/dataset/lov/sparql", headers=h, params=p, verify=True
-    )
+    try:
+        res = requests.get(
+            "https://lov.linkeddata.es/dataset/lov/sparql", headers=h, params=p, verify=True, timeout=10
+        )
+    except requests.exceptions.RequestException as e:
+        app.logger.warning(f"LOV endpoint unreachable: {e}")
+        return None
 
     if res.status_code == 200:
         return res.json()["boolean"]
     else:
-        app.logger.error("Cound not connect to LOV")
+        app.logger.error("Could not connect to LOV")
         app.logger.error(res.text)
         return None
 

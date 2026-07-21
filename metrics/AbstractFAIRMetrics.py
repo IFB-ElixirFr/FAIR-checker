@@ -143,6 +143,9 @@ PREFIX odrl: <http://www.w3.org/ns/odrl/2/>
                 return self.get_evaluation()
         except Exception as err:
             logger.error(err)
+            self.get_evaluation().set_end_time()
+            self.get_evaluation().set_score(0)
+            return self.get_evaluation()
 
     @abstractmethod
     def weak_evaluate(self) -> Evaluation:
