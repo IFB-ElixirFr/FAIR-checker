@@ -327,7 +327,7 @@ def cmd_extract_metadata(urls, url_collection, out_dir):
     # FAIR-Checker as a metadata crawler
 
     # import metrics.util as util
-    # import metrics.statistics as stats
+    # import metrics.usage_stats as stats
     # from metrics import test_metric
     # from metrics.FAIRMetricsFactory import FAIRMetricsFactory
     from metrics.WebResource import WebResource

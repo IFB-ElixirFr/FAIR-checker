@@ -2,7 +2,7 @@
 from SPARQLWrapper import SPARQLWrapper, N3
 from rdflib import ConjunctiveGraph, URIRef, RDF
 import requests
-import metrics.statistics as stats
+import metrics.usage_stats as stats
 
 requests.packages.urllib3.disable_warnings(
     requests.packages.urllib3.exceptions.InsecureRequestWarning
