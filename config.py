@@ -28,12 +28,16 @@ class Config(object):
 
 
 class ProductionConfig(Config):
-    SERVER_IP = environ.get("SERVER_IP")
+    SERVER_URL = environ.get("SERVER_URL")
+    EVAL_URL = "https://fair-checker.france-bioinformatique.fr/eval/"
+    ASSESSMENT_URL = "https://fair-checker.france-bioinformatique.fr/assessment/"
 
 
 class DevelopmentConfig(Config):
     DEBUG = True
-    SERVER_IP = "http://0.0.0.0:5000"
+    SERVER_URL = "http://127.0.0.1:5000"
+    EVAL_URL = "http://127.0.0.1:5000/eval/"
+    ASSESSMENT_URL = "http://127.0.0.1:5000/assessment/"
     CACHE_DEFAULT_TIMEOUT = 30  # timer in seconds
     CACHE_CONTROLLED_VOCAB_TIMER = (
         24  # timer in hours for Vocabularies (OLS, LOV, BioPortal)
@@ -45,7 +49,9 @@ class DevelopmentConfig(Config):
 
 class TestingConfig(Config):
     TESTING = True
-    SERVER_IP = "http://0.0.0.0:5000"
+    SERVER_URL = "http://127.0.0.1:5000"
+    EVAL_URL = "http://127.0.0.1:5000/eval/"
+    ASSESSMENT_URL = "http://127.0.0.1:5000/assessment/"
     # MONGO_HOST = "0.0.0.0"
     # MONGO_PORT = 27017
     # MONGO_DBNAME = "fair_checker"

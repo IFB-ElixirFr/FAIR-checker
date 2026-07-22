@@ -42,7 +42,7 @@ from flask_cors import CORS
 from flask_restx import Api, Resource, fields, reqparse
 from flask_socketio import SocketIO, emit
 from pymongo import MongoClient
-from rdflib import ConjunctiveGraph, URIRef
+from rdflib import BNode, ConjunctiveGraph, Literal, URIRef
 from requests.exceptions import ConnectionError
 from rich.console import Console
 from rich.progress import track
@@ -52,10 +52,13 @@ from rich.text import Text
 import metrics.util as util
 from metrics import test_metric
 from metrics.Evaluation import Evaluation, Result
+from metrics.util import _turtle_to_html, _assessment_to_rdf, _negotiate_rdf_response
 from metrics.F1B_Impl import F1B_Impl
 from metrics.FAIRMetricsFactory import FAIRMetricsFactory
 from metrics.util import SOURCE, inspect_onto_reg
 from metrics.WebResource import WebResource
+from profiles.DataciteProfile import datacite_profile, validate_md
+from profiles.BiosampleProfile import ena53_profile, validate_md as validate_md_ena53
 from profiles.bioschemas_shape_gen import validate_any_from_KG
 from profiles.ProfileFactory import (
     PROFILES,
@@ -96,6 +99,8 @@ for name in (
 ):
     logging.getLogger(name).setLevel(logging.CRITICAL)
 
+logger = logging.getLogger(__name__)
+
 
 @app.route("/")
 def index():
@@ -124,8 +129,8 @@ api = Api(
     title="FAIR-Checker API",
     doc="/swagger",
     base_path="https://fair-checker.france-bioinformatique.fr",
-    # base_url=app.config["SERVER_IP"],
-    description=app.config["SERVER_IP"],
+    # base_url=app.config["SERVER_URL"],
+    description=app.config["SERVER_URL"],
     # url_scheme="https://fair-checker.france-bioinformatique.fr/",
 )
 
@@ -309,7 +314,7 @@ app.logger.info("Background scheduler started")
 # Shut down the scheduler when exiting the app
 atexit.register(lambda: scheduler.shutdown())
 
-util.clean_cache()  # clean cache at server startup
+# util.clean_cache()  # clean cache at server startup
 
 
 @app.context_processor
@@ -362,6 +367,30 @@ def terms():
     return render_template(
         "terms.html",
         title="Terms of use",
+    )
+
+
+@app.route("/test/<tag>")
+def metric_detail(tag):
+    tag = tag.upper()
+    metrics_by_tag = {
+        m.get_principle_tag(): m for m in FAIRMetricsFactory.get_FC_impl()
+    }
+    metric = metrics_by_tag.get(tag)
+    if metric is None:
+        from flask import abort
+
+        abort(404)
+    return render_template(
+        "metric_detail.html",
+        title=metric.get_principle_tag(),
+        subtitle=metric.get_name(),
+        tag=metric.get_principle_tag(),
+        name=metric.get_name(),
+        desc=metric.get_desc(),
+        principle=metric.get_principle(),
+        implem=metric.get_implem(),
+        updated_at=metric.get_update_date(),
     )
 
 
@@ -434,17 +463,15 @@ for key in METRICS_CUSTOM.keys():
     generate_check_api(METRICS_CUSTOM[key])
 
 
-@app.route("/data/<ID>")
-def derefLD(ID):
-    mimetype = None
-    if "Content-Type" in request.headers:
-        mimetype = request.headers["Content-Type"].split(";")[0]
-
+@app.route("/eval/<ID>")
+def deref_eval_LD(ID):
     try:
-        client = MongoClient()
-        db = client.fair_checker
-        evaluations = db.evaluations
-        eval_json = evaluations.find_one({"_id": ObjectId(ID)})
+        db = MongoClient().fair_checker
+        eval_json = db.evaluations.find_one({"_id": ObjectId(ID)})
+        if eval_json is None:
+            return Response(
+                f"Cannot find evaluation {ID}", mimetype="text/plain", status=404
+            )
         e = Evaluation()
         e.build_from_json(data=eval_json)
         ttl = e.to_rdf_turtle(id=ID)
@@ -452,106 +479,30 @@ def derefLD(ID):
         try:
             kg.parse(data=ttl, format="turtle")
         except Exception:
-            return Response(
-                "Error while parsing RDF:\n\n" + e.to_rdf_turtle(id=ID), mimetype="text"
-            )
-        if mimetype == "application/json":
-            return Response(kg.serialize(format="json-ld"), mimetype="application/json")
-        elif mimetype == "application/ld+json":
-            return Response(
-                kg.serialize(format="json-ld"), mimetype="application/ld+json"
-            )
-        elif mimetype == "application/rdf+xml":
-            return Response(kg.serialize(format="xml"), mimetype="application/rdf+xml")
-        elif mimetype == "text/n3":
-            return Response(kg.serialize(format="nt"), mimetype="text/n3")
-        elif mimetype == "text/nt":
-            return Response(kg.serialize(format="nt"), mimetype="text/n3")
-        elif mimetype == "text/turtle":
-            return Response(kg.serialize(format="turtle"), mimetype="text/turtle")
-        else:
-            return Response(kg.serialize(format="turtle"), mimetype="text/turtle")
+            return Response("Error while parsing RDF:\n\n" + ttl, mimetype="text/plain")
+        return _negotiate_rdf_response(kg, ID, e.get_target_uri(), "/eval")
     except InvalidId:
-        return Response(f"Cannot find evaluation {ID}", mimetype="text")
+        return Response(f"Invalid ID: {ID}", mimetype="text/plain", status=400)
 
 
-# Generate machine readable FAIR assessment report
 @app.route("/assessment/<ID>")
 def deref_assessment_LD(ID):
-    mimetype = None
-    if "Content-Type" in request.headers:
-        mimetype = request.headers["Content-Type"].split(";")[0]
     try:
-        client = MongoClient()
-        db = client.fair_checker
-        assessments = db.assessments
-        assess_json = assessments.find_one({"_id": ObjectId(ID)})
-
-        target_url = assess_json["target_url"]
-        score = assess_json["score"]
-        evals = assess_json["wasDerivedFrom"]
-        genAtTime = assess_json["generatedAtTime"]
-
-        print(target_url)
-        print(score)
-        print(evals)
-
-        prefix = """
-@prefix daq: <http://purl.org/eis/vocab/daq#> .
-@prefix dcat: <http://www.w3.org/ns/dcat#> .
-@prefix dcterms: <http://purl.org/dc/terms/> .
-@prefix dqv: <http://www.w3.org/ns/dqv#> .
-@prefix duv: <http://www.w3.org/ns/duv#> .
-@prefix oa: <http://www.w3.org/ns/oa#> .
-@prefix prov: <http://www.w3.org/ns/prov#> .
-@prefix sdmx-attribute: <http://purl.org/linked-data/sdmx/2009/attribute#> .
-@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
-@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-
-@prefix : <https://fair-checker.france-bioinformatique.fr/data/> .
-"""
-        assess_tpl = """
-:$id
-    a dqv:QualityMeasurement ;
-    dqv:computedOn <$url> ;
-    dqv:value "$value"^^xsd:integer ;
-    prov:generatedAtTime "$date"^^xsd:dateTime ;
-    prov:wasAttributedTo <https://github.com/IFB-ElixirFr/fair-checker> ;
-    prov:wasDerivedFrom $evaluations ;
-    rdfs:seeAlso <https://doi.org/10.1186/s13326-023-00289-5> ."""
-
-        assess_ttl = Template(assess_tpl).safe_substitute(
-            id=str(ID),
-            url=target_url,
-            value=score,
-            date=genAtTime.isoformat(),
-            evaluations="<" + ">, <".join(evals) + ">",
-        )
-        ttl = prefix + assess_ttl
-        print(ttl)
-
+        db = MongoClient().fair_checker
+        assess_json = db.assessments.find_one({"_id": ObjectId(ID)})
+        if assess_json is None:
+            return Response(
+                f"Cannot find assessment {ID}", mimetype="text/plain", status=404
+            )
+        ttl = _assessment_to_rdf(assess_json)
         kg = ConjunctiveGraph()
         try:
             kg.parse(data=ttl, format="turtle")
         except Exception:
-            return Response("Error while parsing RDF:\n\n" + ttl, mimetype="text")
-        if mimetype == "application/json":
-            return Response(kg.serialize(format="json-ld"), mimetype="application/json")
-        elif mimetype == "application/ld+json":
-            return Response(
-                kg.serialize(format="json-ld"), mimetype="application/ld+json"
-            )
-        elif mimetype == "application/rdf+xml":
-            return Response(kg.serialize(format="xml"), mimetype="application/rdf+xml")
-        elif mimetype == "text/n3":
-            return Response(kg.serialize(format="n3"), mimetype="text/n3")
-        elif mimetype == "text/turtle":
-            return Response(kg.serialize(format="turtle"), mimetype="text/turtle")
-        else:
-            return Response(kg.serialize(format="turtle"), mimetype="text/turtle")
+            return Response("Error while parsing RDF:\n\n" + ttl, mimetype="text/plain")
+        return _negotiate_rdf_response(kg, ID, assess_json["target_url"], "/assessment")
     except InvalidId:
-        return Response(f"Cannot find evaluation {ID}", mimetype="text")
+        return Response(f"Invalid ID: {ID}", mimetype="text/plain", status=400)
 
 
 @fc_check_namespace.route("/metrics_all")
@@ -1101,12 +1052,7 @@ def evaluate_fc_metrics(metric_name, client_metric_id, url):
         id, name, score, str(evaluation_time), comment
     )
 
-    if app.config.get("APP_ENV") == "production":
-        b_url = app.config["SERVER_IP"] + "/"
-    else:
-        b_url = str(request.base_url)
-        if "socket.io" in str(request.base_url):
-            b_url = str(request.base_url).split("socket.io/")[0]
+    b_url = app.config["EVAL_URL"]
 
     csv_line = {
         "id": id,
@@ -1114,7 +1060,7 @@ def evaluate_fc_metrics(metric_name, client_metric_id, url):
         "score": score,
         "time": str(evaluation_time),
         "comment": comment,
-        "uri": b_url + "data/" + str(r.inserted_id),
+        "uri": b_url + str(r.inserted_id),
         "target_url": url,
     }
     emit_json = {
@@ -1124,7 +1070,7 @@ def evaluate_fc_metrics(metric_name, client_metric_id, url):
         "comment": comment,
         "recommendation": recommendation,
         "csv_line": csv_line,
-        "uri": b_url + "data/" + str(r.inserted_id),
+        "uri": b_url + str(r.inserted_id),
         "name": name,
         "target_url": url,
     }
@@ -1153,19 +1099,12 @@ def handle_done_fair_assessment(data):
         "generatedAtTime": datetime.now(),
     }
 
-    if app.config.get("APP_ENV") == "production":
-        b_url = app.config["SERVER_IP"] + "/"
-    else:
-        b_url = str(request.base_url)
-        if "socket.io" in str(request.base_url):
-            b_url = str(request.base_url).split("socket.io/")[0]
-
     r = db_assessments.insert_one(assessment)
     emit(
         "persisted_assessment",
         {
             "score": assessment["score"],
-            "uri": b_url + "assessment/" + str(r.inserted_id),
+            "uri": app.config["ASSESSMENT_URL"] + str(r.inserted_id),
         },
     )
 
@@ -1679,7 +1618,7 @@ def evaluate_bioschemas_profiles(kg):
         if result_key not in results:
             results[result_key] = results_type[result_key]
 
-    # TODO Try similarity match her for profiles that are not matched
+    # TODO Try similarity matcher for profiles that are not matched
 
     print(results.keys())
 
@@ -1703,6 +1642,49 @@ def check_kg_shape_2(data):
     # results = validate_any_from_KG(kg)
 
     emit("done_check_shape", results)
+
+
+def evaluate_datacite_profile(kg):
+    datacite_results = validate_md(kg, datacite_profile)
+    return datacite_results
+
+
+def evaluate_ena53_profile(kg):
+    ena53_results = validate_md_ena53(kg, ena53_profile)
+    return ena53_results
+
+
+@socketio.on("check_ena53")
+def check_ena53(data):
+    logger.info("ENA53 validation started")
+    sid = request.sid
+    kg = KGS[sid]
+
+    if not kg:
+        logger.warning("cannot access current knowledge graph")
+    elif len(kg) == 0:
+        logger.warning("cannot validate an empty knowledge graph")
+
+    results = evaluate_ena53_profile(kg)
+    logger.info("ENA53 validation results: " + json.dumps(results, indent=4))
+
+    emit("done_check_ena53", results)
+
+
+@socketio.on("check_datacite")
+def check_datacite(data):
+    logger.info("datacite validation started")
+    sid = request.sid
+    kg = KGS[sid]
+
+    if not kg:
+        logger.warning("cannot access current knowledge graph")
+    elif len(kg) == 0:
+        logger.warning("cannot validate an empty knowledge graph")
+
+    results = evaluate_datacite_profile(kg)
+
+    emit("done_check_datacite", results)
 
 
 def update_bioschemas_valid(func):

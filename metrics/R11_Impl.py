@@ -17,7 +17,7 @@ class R11_Impl(AbstractFAIRMetrics):
         self.name = "Metadata includes license"
         self.id = "12"
         self.principle = "https://w3id.org/fair/principles/terms/R1.1"
-        self.principle_tag = "R1.1"
+        self.principle_tag = "R11"
         self.implem = "FAIR-Checker"
         self.desc = """
             Metadata includes license.<br> FAIR-Checker verifies that at least one license property from Schema.org, DCTerms, or DOAP ontologies are found in metadata.

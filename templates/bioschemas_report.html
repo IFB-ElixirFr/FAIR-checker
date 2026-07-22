@@ -3,7 +3,7 @@
 $(document).ready(function () {
 
     // console.log('trying to connect...');
-    // var socket = io.connect({{ config['SERVER_IP'] | tojson }});
+    // var socket = io.connect({{ config['SERVER_URL'] | tojson }});
     // console.log('connected');    
 
     // socket.on('connect', function () {
@@ -31,6 +31,8 @@ $(document).ready(function () {
 });
 
 function validation_report_gen(data, generation){
+    console.log("Generating Bioschemas validation report");
+    console.log(data);
 
     const valid_container = document.getElementById("block_valid_report");
 

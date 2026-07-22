@@ -1,4 +1,12 @@
 <link rel="stylesheet" href="../static/css/bulma-divider.min.css">
+<style>
+    #datacite_tab.is-disabled > a,
+    #ena53_tab.is-disabled > a {
+        opacity: 0.4;
+        cursor: not-allowed;
+        pointer-events: none;
+    }
+</style>
 
 {% extends "layout.html" %}
 
@@ -167,7 +175,7 @@
         $("#notif").addClass("is-hidden");
 
         console.log('trying to connect...');
-        var socket = io.connect({{ config['SERVER_IP']| tojson }});
+        var socket = io.connect({{ config['SERVER_URL']| tojson }});
     //var socket = io();
     console.log('connected');
 
@@ -212,6 +220,14 @@
         $('#t_classes').html("");
         $('#t_properties').html("");
         $('#vocab_interpret').hide();
+        $('#block_dc_valid_report').html("").addClass("is-hidden");
+        $('#block_ena53_valid_report').html("").addClass("is-hidden");
+        $("#datacite_tab").addClass("is-disabled");
+        $("#ena53_tab").addClass("is-disabled");
+        $("#linkeddata_tab, #bioschemas_tab, #datacite_tab, #ena53_tab").removeClass("is-active");
+        $("#linkeddata_tab").addClass("is-active");
+        $("#section-LinkedData, #section-BioSchemas, #section-Datacite, #section-ENA53").addClass("is-hidden");
+        $("#section-LinkedData").removeClass("is-hidden");
         socket.emit('retrieve_embedded_annot_2', { url: $("#url").val() });
     });
 
@@ -263,6 +279,22 @@
         socket.emit('check_kg_shape_2', { url: $("#url").val(), kg: $("#microdata").val() });
     });
 
+    $("#btn_datacite").click(function () {
+            $(this).addClass("is-loading");
+            $("#section-KG").removeClass("is-hidden");
+            // $("#section-LinkedData").addClass("is-hidden");
+            // $("#section-BioSchemas").removeClass("is-hidden");
+            console.log("Emitting check_datacite event");
+            socket.emit('check_datacite', { url: $("#url").val(), kg: $("#microdata").val() });
+    });
+
+        $("#btn_ena53").click(function () {
+            $(this).addClass("is-loading");
+            $("#section-KG").removeClass("is-hidden");
+            console.log("Emitting check_ena53 event");
+            socket.emit('check_ena53', {url: $("#url").val(), kg: $("#microdata").val()});
+        });
+
     // Change RDF type button
 
     $('[id^="btn_rdf_"]').click(function () {
@@ -274,19 +306,33 @@
     // TABS for Step 3
 
     $("#bioschemas_tab").click(function () {
+        $("#linkeddata_tab, #bioschemas_tab, #datacite_tab, #ena53_tab").removeClass("is-active");
         $(this).addClass("is-active");
-        $("#linkeddata_tab").removeClass("is-active");
-
-        $("#section-LinkedData").addClass("is-hidden");
+        $("#section-LinkedData, #section-BioSchemas, #section-Datacite, #section-ENA53").addClass("is-hidden");
         $("#section-BioSchemas").removeClass("is-hidden");
     });
 
-    $("#linkeddata_tab").click(function () {
+    $("#datacite_tab").click(function () {
+        if ($(this).hasClass("is-disabled")) return;
+        $("#linkeddata_tab, #bioschemas_tab, #datacite_tab, #ena53_tab").removeClass("is-active");
         $(this).addClass("is-active");
-        $("#bioschemas_tab").removeClass("is-active");
+        $("#section-LinkedData, #section-BioSchemas, #section-Datacite, #section-ENA53").addClass("is-hidden");
+        $("#section-Datacite").removeClass("is-hidden");
+    });
 
+        $("#ena53_tab").click(function () {
+            if ($(this).hasClass("is-disabled")) return;
+            $("#linkeddata_tab, #bioschemas_tab, #datacite_tab, #ena53_tab").removeClass("is-active");
+            $(this).addClass("is-active");
+            $("#section-LinkedData, #section-BioSchemas, #section-Datacite, #section-ENA53").addClass("is-hidden");
+            $("#section-ENA53").removeClass("is-hidden");
+        });
+
+    $("#linkeddata_tab").click(function () {
+        $("#linkeddata_tab, #bioschemas_tab, #datacite_tab, #ena53_tab").removeClass("is-active");
+        $(this).addClass("is-active");
+        $("#section-LinkedData, #section-BioSchemas, #section-Datacite, #section-ENA53").addClass("is-hidden");
         $("#section-LinkedData").removeClass("is-hidden");
-        $("#section-BioSchemas").addClass("is-hidden");
     });
 
 
@@ -345,10 +391,30 @@
         $("#btn_kg").removeClass("is-loading");
 
         $("#kgs_len").text("");
+        var hasDataciteProbe = false;
+        var isBiosampleEntry = false;
+
         $.each(value["kgs_len"], function (index, item) {
             elem = '<a class="button is-success is-small">' + index + ': ' + item + ' Triples</a>&nbsp;'
             $("#kgs_len").append(elem);
+            if (String(index).includes("#datacite-probe")) {
+                hasDataciteProbe = true;
+            }
+            if (String(index).includes(".uk/biosamples/")) {
+                isBiosampleEntry = true;
+            }
         });
+        if (hasDataciteProbe) {
+            $("#datacite_tab").removeClass("is-disabled");
+        } else {
+            $("#datacite_tab").addClass("is-disabled");
+        }
+        if (isBiosampleEntry) {
+            $("#ena53_tab").removeClass("is-disabled");
+        } else {
+            $("#ena53_tab").addClass("is-disabled");
+        }
+
         // Call Graph display update here
         // socket.emit('get_latest_triples');
     });
@@ -408,7 +474,7 @@
 
             if (!(value['classes_false'].length === 0)) {
                 banner_message += 'The following classes are not found in registries: <br><ul>';
-                for (c in value['classes_false']){
+                for (c in value['classes_false']) {
                     banner_message += '<li>' + value['classes_false'][c] + '</li>'
                 }
                 banner_message += '</ul> <br>'
@@ -418,8 +484,8 @@
             }
             if (!(value['properties_false'].length === 0)) {
                 banner_message += 'The following properties are not found in registries: <br><ul>';
-                for (p in value['properties_false']){
-                    banner_message += '<li>' + value['properties_false'][p] +  '</li>'
+                for (p in value['properties_false']) {
+                    banner_message += '<li>' + value['properties_false'][p] + '</li>'
                 }
                 banner_message += '</ul><br>'
                 $banner_vocab.html(banner_message);
@@ -440,89 +506,29 @@
                 $banner_vocab.parent('article').removeClass('is-warning');
                 $banner_vocab.parent('article').addClass('is-success');
             }
-            
-            
+
+
         }
 
     });
 
+    socket.on('done_check_datacite', function (data) {
+        console.log("Datacite profiles validated");
+        $("#block_dc_valid_report").removeClass("is-hidden");
+        validation_datacite_report(data);
+        $("#btn_datacite").removeClass("is-loading");
+    });
+
+        socket.on('done_check_ena53', function (data) {
+            console.log("ENA53 profiles validated");
+            $("#block_ena53_valid_report").removeClass("is-hidden");
+            validation_ena53_report(data);
+            $("#btn_ena53").removeClass("is-loading");
+        });
+
     socket.on('done_check_shape', function (data) {
         console.log("Bioschemas profiles validated");
         validation_report_gen(data, "dynamic");
-        // var valid_html = "";
-        // $.each(data, function (key, value) {
-        //     var resource = key
-        //     var type = data[key]['type']
-        //     var profile = data[key]['ref_profile']
-        //     var conforms = data[key]['conforms']
-        //     valid_html += '<div class="block">'
-        //     valid_html += '<h5 class="subtitle"> <span class="tag is-info is-light"><a target=_blank href=' + resource + '></h5'
-        //     valid_html += '<p>' + resource + '</a></span> has type <span class="tag is-dark"><a target=_blank href=' + type + '>' + type + '</a></span> </p>'
-        //     valid_html += '<p>should be conform to profile <span class="tag is-dark"><a target=_blank href=' + profile + '>' + profile + '</a></span></p><br>'
-
-        //     if (conforms == true) {
-        //         valid_html += '<p> has a <span class="has-text-success has-text-weight-bold">valid</span> Bioschemas profile</p>'
-        //     } else {
-        //         valid_html += '<div class="columns is-multiline is-mobile">'
-        //         valid_html += '<div class="column is-one-half">'
-        //         valid_html += '<table class="table is-striped is-fullwidth">'
-        //         valid_html += '<thead><tr><th>Required missing properties</th></tr></thead>'
-        //         valid_html += '<tbody>'
-        //         $.each(data[key]['errors'], function (index, item) {
-        //             var row = '<tr>';
-        //             row += '<td> <span class="tag is-light"><a target=_blank href=' + item + '>' + item + '</a></span> <span class="has-text-danger has-text-weight-bold">must be</span> provided</td>';
-        //             valid_html += row + '</tr>';
-        //         });
-        //         valid_html += '</tbody></table></div>'
-        //         valid_html += '<div class="column is-one-half">'
-        //         valid_html += '<table class="table is-striped is-fullwidth">'
-        //         valid_html += '<thead><tr><th>Improvements</th></tr></thead>'
-        //         valid_html += '<tbody>'
-        //         $.each(data[key]['warnings'], function (index, item) {
-        //             var row = '<tr>';
-        //             row += '<td><span class="tag is-light"><a target=_blank href=' + item + '>' + item + '</a></span> <span class="has-text-warning has-text-weight-bold">should be</span> provided</td>';
-        //             valid_html += row + '</tr>';
-        //         });
-        //         valid_html += '</tbody></table></div>'
-        //         valid_html += '</div>'
-        //     }
-        //     valid_html += '</div>'
-
-        // });
-        // $('#block_valid').html(valid_html);
-
-        // annot table
-        // var rows = '';
-        // $.each(value['errors'], function (index, item) {
-        //     item = item.match(/\bhttps?:\/\/\S+/gi);
-        //     var row = '<tr>';
-        //     row += '<td>';
-        //     row += '<div class="field">';
-        //     row += '<label class="label"><a href="' + item + '" target="_blank">' + item + '</a></label>';
-        //     row += '<div class="control">';
-        //     row += '<input id="bs_err_annot_' + index + '" class="input" type="text">';
-        //     row += '</div>';
-        //     row += '</div>';
-        //     rows += row + '</tr>';
-
-        // });
-        // $('#t_errors_annot').html(rows);
-
-        // var rows = '';
-        // $.each(value['warnings'], function (index, item) {
-        //     item = item.match(/\bhttps?:\/\/\S+/gi);
-        //     var row = '<tr>';
-        //     row += '<td>';
-        //     row += '<div class="field">';
-        //     row += '<label class="label"><a href="' + item + '" target="_blank">' + item + '</a></label>';
-        //     row += '<div class="control">';
-        //     row += '<input id="bs_warn_annot_' + index + '" class="input" type="text">';
-        //     row += '</div>';
-        //     row += '</div>';
-        //     rows += row + '</tr>';
-        // });
-        // $('#t_warnings_annot').html(rows);
-
 
         $("#btn_bioschemas").removeClass("is-loading");
         $("#btn_annot_bioschemas").removeClass("is-hidden");
@@ -604,42 +610,6 @@
 
 
 
-<!-- <div id="section-build-KG" class="section"> -->
-
-<!-- <article id="article-build-KG" class="message is-info">
-    <div class="message-header">
-        <p>Step 1: Build Graph from resource identifier (URL/DOI)</p>
-    </div>
-    <div class="message-body">
-        <div class="field is-grouped">
-            <p class="control is-expanded">
-                <input id="url" name="url" class="input" type="text" placeholder="Resource URL"
-                    value="https://bio.tools/bwa">
-            </p>
-            <p class="control"><a id="btn_kg" class="button is-info">Build Knowledge Graph</a></p>
-        </div>
-
-        {% for k in sample_data.keys() %}
-        <p class="button is-info is-small">{{k}}<i class="fa fa-chevron-down fa-fw"></i></p>
-
-        <div class="panel">
-            <div class="panel-block is-centered">
-                <div class="field is-grouped is-grouped-centered">
-                    <p class="button is-info is-small">{{k}}&nbsp;<i class="fa fa-chevron-right fa-fw"></i></p>
-                    {% for s in sample_data[k] %}
-                    <p id="resource_{{k}}_{{loop.index}}" class="control"><a class="button is-small is-text"
-                            data-url="{{ s.url }}">{{ s.text }}</a></p>
-                    {% endfor %}
-                </div>
-            </div>
-        </div>
-        {% endfor %}
-    </div>
-</article> -->
-
-
-
-
 <article class="message">
     <div class="message-body is-inspect">
         <h2 class="subtitle"><b>Step 1: fetch RDF metadata from the resource URL</b></h2>
@@ -676,7 +646,7 @@
 <article class="message">
     <div id="section-describe">
         <div class="message-body is-inspect">
-            <h2 class="subtitle"><b>Step 2: Enrich Graph</b></h2>
+            <h2 class="subtitle"><b>Retrieved Knowledge Graph</b></h2>
             <div class="block is-hidden">
                 <div class="field is-grouped is-grouped-centered">
                     <p class="control"><a id="btn_describe_wikidata" class="button is-warning">... from Wikidata</a></p>
@@ -714,7 +684,7 @@
 <article class="message">
     <div id="article-bioschemas-check">
         <div class="message-body is-inspect">
-            <h1 class="subtitle"><b>Step 3: Metadata quality checks</b></h1>
+            <h1 class="subtitle"><b>Step 2: Metadata quality checks</b></h1>
             <!-- <div class="message-body is-hidden"> -->
             <div class="block is-hidden">
                 <div class="tabs is-boxed">
@@ -731,6 +701,19 @@
                                 <span>Bioschemas</span>
                             </a>
                         </li>
+                        <li id="datacite_tab" class="is-disabled" title="Available only when a Datacite-compatible resource is detected">
+                            <a>
+                                <span class="icon is-small"><i class="fa fa-pencil" aria-hidden="true"></i></span>
+                                <span>Datacite</span>
+                            </a>
+                        </li>
+                        <li id="ena53_tab" class="is-disabled"
+                            title="Available only when a BioSamples ENA Checklist 53 resource is detected">
+                            <a>
+                                <span class="icon is-small"><i class="fa fa-flask" aria-hidden="true"></i></span>
+                                <span>ENA53</span>
+                            </a>
+                        </li>
 
                     </ul>
                 </div>
@@ -739,10 +722,11 @@
                     <!-- <h3 class="title is-3">Controlled vocabulary checks</h3> -->
 
                     <p>We now have a Knowledge Graph grounded to ontology concepts (classes) and relations (properties).
-                        Are these classes and properties already known in reference ontology registries such as 
-                        <a href="https://lov.linkeddata.es/dataset/lov/" target="_blank">LOV</a>, 
-                        <a href="https://www.ebi.ac.uk/ols/index" target="_blank">OLS</a>  
-                        or <a href="https://bioportal.bioontology.org/" target="_blank">BioPortal</a> ? </p>
+                        Are these classes and properties already known in reference ontology registries such as
+                        <a href="https://lov.linkeddata.es/dataset/lov/" target="_blank">LOV</a>,
+                        <a href="https://www.ebi.ac.uk/ols/index" target="_blank">OLS</a>
+                        or <a href="https://bioportal.bioontology.org/" target="_blank">BioPortal</a> ?
+                    </p>
                     <br>
                     <div class="field is-grouped is-grouped-centered">
                         <p class="control"><a id="btn_fairness" class="button is-primary is-large">Check
@@ -755,7 +739,7 @@
 
                         </div>
                     </article>
-                    
+
                     <div class="columns is-multiline is-mobile">
                         <div class="column is-one-half">
                             <table class="table is-striped is-fullwidth is-hoverable">
@@ -793,6 +777,7 @@
                     <div class="field is-grouped is-grouped-centered">
                         <!-- <p class="control"><a id="btn_fairness" class="button is-primary">Vocab. checks</a></p> -->
                         <p class="control"><a id="btn_bioschemas" class="button is-warning is-large">Check BioSchemas
+                                profiles
                             </a>
                         </p>
                     </div>
@@ -801,14 +786,110 @@
                     {% include 'bioschemas_report.html' %}
                     {% endblock %}
 
-{#                    <div id="block_valid" class="block">#}
-{##}
-{#                    </div>#}
+                    {# <div id="block_valid" class="block">#}
+                        {##}
+                        {# </div>#}
 
                     <!-- <div class="field is-grouped is-grouped-centered">
                     <p class="control"><a id="btn_annot_bioschemas" class="button is-warning is-hidden">Annotate missing
                             BioSchemas properties</a></p>
                 </div> -->
+                </section>
+
+                <section id="section-Datacite" class="section  is-hidden">
+
+
+                    <div class="notification is-light" style="font-size: 0.9rem; line-height: 1.6;">
+                        <p>
+                            <a href="https://datacite-metadata-schema.readthedocs.io/en/4.6/properties/overview/#levels-of-obligation" target="_blank"><strong>Datacite</strong></a>
+                            is a community-driven initiative improving the discoverability and interoperability of research data.
+                            Aligned with Schema.org, its metadata profile <code>schema:CreativeWork</code> and <code>schema:Dataset</code> resources and defines 15 properties across three importance levels: required, recommended, and optional.
+                        </p>
+                        <div style="display: flex; align-items: baseline; flex-wrap: wrap; gap: 0.25rem; margin-top: 0.5rem;">
+                            <span class="tag is-danger is-light">Required</span>
+                            <a href="https://schema.org/identifier" target="_blank"><code>identifier</code></a>,
+                            <a href="https://schema.org/creator" target="_blank"><code>creator</code></a>,
+                            <a href="https://schema.org/name" target="_blank"><code>name</code></a>,
+                            <a href="https://schema.org/publisher" target="_blank"><code>publisher</code></a>,
+                            <a href="https://schema.org/datePublished" target="_blank"><code>datePublished</code></a>
+                        </div>
+                        <div style="display: flex; align-items: baseline; flex-wrap: wrap; gap: 0.25rem; margin-top: 0.35rem;">
+                            <span class="tag is-warning is-light">Recommended</span>
+                            <a href="https://schema.org/about" target="_blank"><code>about</code></a>,
+                            <a href="https://schema.org/contributor" target="_blank"><code>contributor</code></a>,
+                            <a href="https://schema.org/dateCreated" target="_blank"><code>dateCreated</code></a>,
+                            <a href="https://schema.org/isPartOf" target="_blank"><code>isPartOf</code></a>,
+                            <a href="https://schema.org/description" target="_blank"><code>description</code></a>,
+                            <a href="https://schema.org/spatialCoverage" target="_blank"><code>spatialCoverage</code></a>
+                        </div>
+                        <div style="display: flex; align-items: baseline; flex-wrap: wrap; gap: 0.25rem; margin-top: 0.35rem;">
+                            <span class="tag is-info is-light">Optional</span>
+                            <a href="https://schema.org/inLanguage" target="_blank"><code>inLanguage</code></a>,
+                            <a href="https://schema.org/encodingFormat" target="_blank"><code>encodingFormat</code></a>,
+                            <a href="https://schema.org/version" target="_blank"><code>version</code></a>,
+                            <a href="https://schema.org/license" target="_blank"><code>license</code></a>
+                        </div>
+                    </div>
+                    <div class="field is-grouped is-grouped-centered">
+                        <p class="control"><a id="btn_datacite" class="button is-warning is-large">Check Datacite
+                                profile
+                            </a>
+                        </p>
+                    </div>
+
+                    {% block test_datacite %}
+                    {% include 'datacite_report.html' %}
+                    {% endblock %}
+
+                </section>
+
+                <section id="section-ENA53" class="section  is-hidden">
+
+                    <div class="notification is-light" style="font-size: 0.9rem; line-height: 1.6;">
+                        <p>
+                            <a href="https://www.ebi.ac.uk/ena/browser/view/ERC000053" target="_blank"><strong>ENA
+                                Checklist 53</strong></a>
+                            is the minimum information required for reporting samples associated with the Tree of Life
+                            Programme (https://www.sanger.ac.uk/programme/tree-of-life/).
+                        </p>
+                        <div style="display: flex; align-items: baseline; flex-wrap: wrap; gap: 0.25rem; margin-top: 0.5rem;">
+                            <span class="tag is-danger is-light">Required</span>
+                            <code>organism part</code>,
+                            <code>lifestage</code>,
+                            <code>project name</code>,
+                            <code>collected_by</code>,
+                            <code>collection date</code>,
+                            <code>geographic location (region and locality)</code>,
+                            <code>habitat</code>,
+                            <code>sex</code>,
+                            <code>geographic location (country and/or sea)</code>,
+                            <code>collecting institution</code>
+                        </div>
+                        <div style="display: flex; align-items: baseline; flex-wrap: wrap; gap: 0.25rem; margin-top: 0.35rem;">
+                            <span class="tag is-warning is-light">Recommended</span>
+                            <code>geographic location (latitude)</code>,
+                            <code>geographic location (longitude)</code>,
+                            <code>specimen_voucher</code>
+                        </div>
+                        <div style="display: flex; align-items: baseline; flex-wrap: wrap; gap: 0.25rem; margin-top: 0.35rem;">
+                            <span class="tag is-info is-light">Optional</span>
+                            <code>tolid</code>, <code>identified_by</code>, <code>elevation</code>, <code>depth</code>,
+                            <code>GAL</code>, <code>GAL_sample_id</code>, <code>specimen_id</code>,
+                            <code>bio_material</code>
+                            and more&hellip;
+                        </div>
+                    </div>
+                    <div class="field is-grouped is-grouped-centered">
+                        <p class="control"><a id="btn_ena53" class="button is-warning is-large">Check ENA53
+                            profile
+                        </a>
+                        </p>
+                    </div>
+
+                    {% block test_ena53 %}
+                        {% include 'ena53_report.html' %}
+                    {% endblock %}
+
                 </section>
 
             </div>
@@ -905,9 +986,9 @@
 
     var force = d3.layout.force().size([800, 600]);
 
-  	// var graph = triplesToGraph(triples);
+    // var graph = triplesToGraph(triples);
 
-  	// update();
+    // update();
 
 
 </script>
