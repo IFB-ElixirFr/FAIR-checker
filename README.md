@@ -37,20 +37,96 @@ Main contributors are:
 ## Contribute
 Please submit GitHub issues to provide feedback or ask for new features, and contact us for any related question.
 
+## Installation and Deployment
 
-## Install
-### With Conda 
+The deployment process can be done localy on your computer or on a production environment via a virtual machine.
+To install Fair-Checker you need to have some programs installed on your computer: 
+
+- git
+- micromamba
+- poetry
+
+### Local installation
+
 ```
+bash
 git clone https://github.com/IFB-ElixirFr/fair-checker.git
 cd fair-checker
-conda env create --file environment.yml
-conda activate fair-checker-env
+```
 
-./launch_dev.sh
+To run Fair-Checker you first have to create an environment for Fair-Checker mongo database
+
+```
+bash
+micromamba env create --name fc-mongodb --file fc-mongodb-environment.yaml
+micromamba activate fc-mongodb
+mongod --dbpath data
+```
+
+The database should display logs and wait for the Fair-Checker app to connect
+
+In an other terminal, create the environment for the Fair-Checker application itself
+
+```
+micromamba env create --name fc-p311 python=3.11
+micromamba activate fc-p311
+poetry install 
+poetry run playwright install chromium
+```
+
+To run the Fair-Checker application run the following command:
+
+```
+bash
+poetry run python app.py --web
+```
+
+The application should be accessible localy on your browser at [http://localhost:5000](http://localhost:5000)
+
+> [!NOTE]
+> A know bug can occur when using the development version of **Fair-Checker** on Firefox. We advise to use an other 
+> browser to use the application, such as **Google Chrome** or **Safari**
+
+### Deployment in a production environment
+
+In a production environment the process is similar but Python 3.12 has to be used for the Fair-Checker application. Moreover the ```FLASK_ENV``` envrionment variable needs to be defined as well in the terminal. The environment variable such as the ```SERVER_IP``` also need to be editied from ```.env.sample``` file to fit the url of your deployment server. The ```.env.sample``` file also has to be renamed ```.env```
+
+```
+bash
+git clone https://github.com/IFB-ElixirFr/fair-checker.git
+cd fair-checker
+```
+
+To run Fair-Checker you first have to create an environment for Fair-Checker mongo database
+
+```
+bash
+micromamba env create --name fc-mongodb --file fc-mongodb-environment.yaml
+micromamba activate fc-mongodb
+mongod --dbpath data
+```
+
+The database should display logs and wait for the Fair-Checker app to connect
+
+In an other terminal, create the environment for the Fair-Checker application itself
+
+```
+micromamba env create --name fc-p312 python=3.12
+micromamba activate fc-p312
+poetry install 
+poetry run playwright install chromium
+```
+
+To run the Fair-Checker application run the following command:
+
+```
+bash
+export FLASK_ENV=production
+poetry run python app.py --web
 ```
 
 ## License
 FAIR-Checker is released under the [MIT License](LICENSE). Some third-party components are included. They are subject to their own licenses. All of the license information can be found in the included [LICENSE](LICENSE) file.
 
 ## Funding
-This project is funded by the [French institute for Bioinformatics (IFB)](https://france-bioinformatique.fr/) through the [PIA2 11-INBS-0013 grant](https://anr.fr/ProjetIA-11-INBS-0013).
+This project is developed by the [French institute for Bioinformatics (IFB)](https://france-bioinformatique.fr/) ([PIA2 11-INBS-0013 grant](https://anr.fr/ProjetIA-11-INBS-0013)), the French Node of [ELIXIR](https://www.ifb-elixir.fr/en/).

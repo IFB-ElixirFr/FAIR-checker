@@ -23,10 +23,12 @@ class Config(object):
     CACHE_CONTROLLED_VOCAB_MAXSIZE = (
         20000  # Number of element stored for Vocabularies (OLS, LOV, BioPortal)
     )
+    CACHE_DEFAULT_MD_TTL = 600  # in seconds
+    CACHE_DEFAULT_EVAL_TTL = 600  # in seconds
 
 
 class ProductionConfig(Config):
-    SERVER_IP = "https://fair-checker.france-bioinformatique.fr"
+    SERVER_IP = environ.get("SERVER_IP")
 
 
 class DevelopmentConfig(Config):

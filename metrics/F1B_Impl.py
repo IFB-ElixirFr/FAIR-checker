@@ -7,8 +7,14 @@ from metrics.AbstractFAIRMetrics import AbstractFAIRMetrics
 from metrics.FairCheckerExceptions import FairCheckerException
 from metrics.recommendation import json_rec
 
+logger = logging.getLogger(__name__)
+
 
 class F1B_Impl(AbstractFAIRMetrics):
+
+    # private member for the list of url authorities
+    _known_url_authorities = ["doi.", "w3id.", "purl."]
+
     @staticmethod
     def update_identifiers_org_dump():
         api_url = (
@@ -22,7 +28,7 @@ class F1B_Impl(AbstractFAIRMetrics):
         id_org_file = Path(static_file_path)
         mod_time_before = id_org_file.stat().st_mtime
 
-        logging.info("Downloading Identifiers.org dump")
+        logger.info("Downloading Identifiers.org dump")
         id_org_resp = requests.get(api_url)
         id_org = id_org_resp.json()
 
@@ -39,7 +45,7 @@ class F1B_Impl(AbstractFAIRMetrics):
             raise FairCheckerException(
                 f"Could not download dump from Identifiers.org API at {api_url}, \nHTTP error {id_org_resp.status_code}"
             )
-        logging.info("Identifiers.org updated")
+        logger.info("Identifiers.org updated")
 
     @staticmethod
     def get_known_namespaces():
@@ -56,19 +62,37 @@ class F1B_Impl(AbstractFAIRMetrics):
 
     @staticmethod
     def is_known_pid_scheme(identifier, list_of_known_namespaces) -> bool:
-        logging.debug(f"Testing ID scheme for {identifier}, ({type(identifier)})")
+        logger.debug(f"Testing ID scheme for {identifier}, ({type(identifier)})")
         parsed_url = urlparse(str(identifier))
         if not parsed_url.scheme:
             prefix = parsed_url.path.split(":")[0]
             check = prefix in list_of_known_namespaces
-            logging.debug(f"{prefix} known in Identifiers.org: {check}")
+            logger.debug(f"{prefix} known in Identifiers.org: {check}")
         elif parsed_url.scheme in ["http", "https"]:
             check = parsed_url.netloc in list_of_known_namespaces
-            logging.debug(f"{parsed_url.netloc} known in Identifiers.org: {check}")
+            logger.debug(f"{parsed_url.netloc} known in Identifiers.org: {check}")
         else:
             check = parsed_url.scheme in list_of_known_namespaces
 
         return check
+
+    @staticmethod
+    def is_known_purl(url, known_url_authorities) -> bool:
+        """
+        Extracts the URL authority and check whether it is a known authority such as doi.org, w3id.org or purl.org.
+        """
+        logger.debug(f"Testing URL scheme for {url}, ({type(url)})")
+
+        # extract url authority
+        url = urlparse(str(url))
+        authority = url.netloc
+
+        for pid_pattern in known_url_authorities:
+            if pid_pattern in url.netloc:
+                logger.info(f"{pid_pattern} found in URL authority {authority}")
+                return True
+
+        return False
 
     """
     GOAL :
@@ -89,32 +113,27 @@ Weak : FAIR-Checker verifies that at least one namespace from identifiers.org is
     def weak_evaluate(self):
         """
         at least one of the RDF term (subject, predicate, or object) reuse one of the Identifiers.org namespaces
+        or uses a known authority (doi.org, w3id.org, purl.org).
         """
         eval = self.get_evaluation()
         eval.set_implem(self.implem)
         eval.set_metrics(self.principle_tag)
 
-        # kgs = self.get_web_resource().get_wr_kg_dataset()
         kg = self.get_web_resource().get_rdf()
 
-        # print(kg.serialize(format="trig"))
-
-        # for kg in self.get_web_resource().get_wr_kg_dataset().graphs():
-        #     print(kg.serialize(format="json-ld"))
-
         namespaces = F1B_Impl.get_known_namespaces()
-        eval.log_info("Weak evaluation:")
-        eval.log_info(
-            "Checking that at least one namespace from identifiers.org is in metadata"
+
+        logger.info(
+            "[WEAK] Checking that at least one namespace from identifiers.org is in metadata"
         )
         # for kg in kgs:
         for s, p, o in kg:
             for term in [s, o]:
                 if F1B_Impl.is_known_pid_scheme(str(term), namespaces):
-                    eval.log_info(f"Found an Identifiers.org namespace for {str(term)}")
+                    logger.info(f"Found an Identifiers.org namespace for {str(term)}")
                     eval.set_score(1)
                     return eval
-        eval.log_info("No namespace from identifiers.org found")
+        logger.info("No namespace from identifiers.org found")
         eval.set_recommendations(json_rec["F1B"]["reco1"])
         eval.set_score(0)
         return eval
@@ -136,11 +155,18 @@ ASK {
 }
             """
         )
-        # eval.log_info(f"Running query:" + f"\n{query_identifiers}")
-        eval.log_info("Strong evaluation:")
-        eval.log_info(
-            "Checking if there is either schema:identifier or dct:identifier property in metadata"
+        logger.info(
+            "[STRONG] Checking if there is either schema:identifier or dct:identifier property in metadata"
         )
+
+        if F1B_Impl.is_known_purl(
+            self.get_web_resource().url, F1B_Impl._known_url_authorities
+        ):
+            logger.info(
+                f"use of permanent a URL authority: {F1B_Impl._known_url_authorities}"
+            )
+            eval.set_score(2)
+            return eval
 
         kg = self.get_web_resource().get_rdf()
         # for kg in self.get_web_resource().get_wr_kg_dataset().graphs():
@@ -148,11 +174,11 @@ ASK {
         res = kg.query(query_identifiers)
         for bool_res in res:
             if bool_res:
-                eval.log_info("Found at least one of those property in metadata")
+                logger.info("Found at least one of those property in metadata")
                 eval.set_score(2)
                 return eval
             else:
-                eval.log_info("None of those property were found in metadata")
+                logger.info("None of those property were found in metadata")
                 eval.log_info("Trying weaker evaluation")
                 eval.set_score(0)
         return eval
