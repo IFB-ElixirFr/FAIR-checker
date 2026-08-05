@@ -5,19 +5,12 @@ export default defineNuxtConfig({
   ssr: true,
   compatibilityDate: '2024-11-01',
   devtools: { enabled: true },
-  modules: ["@nuxtjs/tailwindcss", "@nuxt/icon", "nuxt-shiki"],
-  shiki: {
-    bundleThemes: ["ayu-dark"]
-  },
+  modules: ["@nuxtjs/tailwindcss", "@nuxt/icon"],
+  css: ['bulma/css/bulma.css'],
   runtimeConfig: {
     public: {
-        appName: "ABRomicsKG",
-        hostUrl: typeof process.env.NUXT_PUBLIC_HOST_URL === "undefined" ? "http://localhost:3000" : process.env.NUXT_PUBLIC_HOST_URL,
-        graphServerUrl: typeof process.env.NUXT_PUBLIC_HOST_URL === "undefined" ? "http://localhost:7200/" : process.env.NUXT_PUBLIC_HOST_URL + '/graphdb/',
+        appName: "FAIR-Checker",
         apiUrl: typeof process.env.NUXT_PUBLIC_API_HOST === "undefined" ? "http://localhost:5000/graph-api" : process.env.NUXT_PUBLIC_HTTP + process.env.NUXT_PUBLIC_API_HOST + ":" + process.env.NUXT_PUBLIC_API_PORT + '/' + process.env.NUXT_PUBLIC_API_BASEPATH
     }
   },
-  routeRules: {
-    '/': { appLayout: 'wide' }    
-  }
 })
