@@ -6,7 +6,14 @@ export default defineNuxtConfig({
   compatibilityDate: '2024-11-01',
   devtools: { enabled: true },
   modules: ["@nuxtjs/tailwindcss", "@nuxt/icon"],
-  css: ['bulma/css/bulma.css'],
+  css: [
+    'bulma/css/bulma.css',
+    '~/css/app.css',
+    '~/css/bulma-divider.min.css',
+    '~/css/bulma-popover.min.css',
+    '~/css/bulma-tooltip.min.css',
+    '~/css/bulma.min.css',
+  ],
   runtimeConfig: {
     public: {
         appName: "FAIR-Checker",

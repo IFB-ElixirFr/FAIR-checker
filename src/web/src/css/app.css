@@ -1,0 +1,322 @@
+html{
+  font-family: 'Raleway', sans-serif;
+
+}
+
+nav.navbar {
+    height: 3.25rem !important;
+    /*height: 4.5rem !important;*/
+    position: absolute;
+}
+
+.navbar-item img {
+    max-height: 100%;
+}
+
+.modal-card, .modal-content {
+    width: 900px;
+}
+
+/* table#summary_table.dataTable tbody tr:hover {
+  background-color: #ffa;
+}
+
+table#summary_table.dataTable thead:hover {
+  background-color: #ffa;
+} */
+
+td.details-control {
+   background: url('http://www.datatables.net/examples/resources/details_open.png') no-repeat center center;
+   cursor: pointer;
+}
+tr.shown td.details-control {
+   background: url('http://www.datatables.net/examples/resources/details_close.png') no-repeat center center;
+}
+
+span.tag.is-success {
+  display: grid;
+  text-align: center;
+}
+
+span.tag.is-danger {
+  display: grid;
+  text-align: center;
+}
+
+article.message.is-success > div:first-child.message-header {
+    background-color: #C9D400;
+}
+
+article.message.is-success .message-body {
+    background-color: #fefff6;
+}
+
+article.message.is-info > div:first-child.message-header {
+    background-color: #0081D8;
+}
+
+.has-text-ifb-green {
+    color: #C9D400;
+}
+
+.has-text-ifb-blue {
+    color: #0081D8;
+}
+
+.message-body.is-check {
+    border-color: #C9D400;
+}
+
+.message-body.is-inspect {
+    border-color: #0081D8;
+}
+
+#landing_check {
+    background-color: #C9D400;
+}
+
+#landing_inspect {
+    background-color: #0081D8;
+}
+
+.hero {
+    background-color: #fafafa;
+}
+
+/* article.message.is-primary > div:first-child.message-header {
+    background-color: #50c3b2;
+} */
+
+/* table#metrics_checkboxes {
+	display: inline-block;
+} */
+
+/* radar chart style */
+.radar-chart .area {
+  fill-opacity: 0.4;
+}
+
+.radar-chart.focus .area {
+  fill-opacity: 0.3;
+}
+
+.radar-chart.focus .area.focused {
+  fill-opacity: 0.9;
+}
+
+.radar-chart .axis .legend {
+  font-size: 16px;
+}
+
+.area.failure,
+.failure .circle {
+  fill: #f13;
+  stroke: none;
+}
+
+.area.success,
+.success .circle {
+
+  fill: #3a4;
+  stroke: none;
+}
+
+img.is-bordered {
+  border: 1px solid #555;
+}
+
+section.sticky {
+    position: sticky;
+    display: inline-block;
+    vertical-align: top;
+    max-height: max-content;
+    overflow-y: auto;
+    top: 0;
+    bottom: 0;
+}
+
+td.vcenter {
+  vertical-align: middle!important;
+}
+
+td.hcenter {
+  text-align: center!important;
+}
+
+.message.is-primary .message-body{
+  border-color: #00d1b2!important;
+  color: #00947e!important;
+}
+
+.message.is-link .message-body{
+  border-color: #3273dc!important;
+  color: #3850b7!important;
+}
+
+
+.progress::-webkit-progress-value {
+  transition: width 0.5s ease;
+}
+
+.message a:not(.button):not(.tag) {
+  text-decoration: none!important;
+}
+
+#section-BioSchemas {
+  padding: 1.5rem!important;
+}
+
+#section-LinkedData {
+  padding: 1.5rem!important;
+}
+
+#section-Annot {
+  padding: 1.5rem!important;
+}
+
+/* GRAPH Display */
+.node {
+  stroke: #fff;
+  fill:#ddd;
+  stroke-width: 1.5px;
+}
+
+.link {
+  stroke: #999;
+  stroke-opacity: .6;
+  stroke-width: 1px;
+}
+
+marker {
+  stroke: #999;
+  fill:rgba(124,240,10,0);
+}
+
+.node-text {
+  font: 11px sans-serif;
+  fill:black;
+}
+
+.link-text {
+  font: 9px sans-serif;
+  fill:grey;
+}
+
+svg{
+  border:1px solid black;
+}
+
+/* END Graph Display */
+
+.content.is-vcentered {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center; /* used this for multiple child */
+  align-items: center; /* if an only child */
+  justify-content: center;
+}
+
+.content.is-vcentered > a {
+    padding-right: 25px;
+}
+
+.help_wrapper {
+    position: absolute!important;
+}
+
+.help {
+    display: inline-block;
+}
+
+#doi_button{
+    height: 20px;
+}
+
+.menu-list a.is-active {
+    background-color: #fafafa;
+    color: #4a4a4a;
+}
+
+
+/*.modal-card-head {*/
+/*    background-color: #417da7;*/
+/*}*/
+
+/*.modal-card-body {*/
+/*    background-color: #ffffff70;*/
+/*}*/
+
+/* START Show more recommendation content */
+div.text-container {
+    margin: 0 auto;
+    width: 50%;
+}
+
+.hide-content {
+    overflow: hidden;
+    line-height: 1em;
+    height: 2em;
+    margin-bottom: 0.5em!important;
+    text-align: left;
+}
+
+.show-content {
+    margin-bottom: 0em;
+    line-height: 1em;
+    height: auto;
+    margin-bottom: 0.5em!important;
+    text-align: left;
+}
+
+[id^=test_row_guideline_].content {
+    margin-bottom: 1em;
+}
+
+td[name="recommendation"]{
+    max-width: 400px;
+}
+
+.show-more {
+    /*padding: 10px 0;*/
+    /*text-align: center;*/
+}
+/* END Show more recommendation content */
+
+tr[id^=metrics_row_] {
+    line-height: 14px;
+}
+
+div[id^=test_row_guideline_FC] {
+  /* display: inline; */
+}
+
+span[id^=show_more_reco] a.button{
+  height: 20px;
+}
+
+.hero.is-warning {
+  background-color: #ffebb3;
+  text-align: center;
+}
+
+.hero.is-warning div.hero-body {
+  padding: 1rem 1rem;
+}
+ul {
+  list-style: disc;
+  margin-left:1em;
+  margin-top:1em;
+}
+
+/* Recolor Link in Check vocabularies */
+#section-LinkedData p a:link { color: #0000EE; }
+#section-LinkedData p a:visited { color: #551A8B; }
+
+#vocab_interpret a:link { color: #0000EE; }
+#vocab_interpret a:visited { color: #551A8B; }
+
+hr[name="bs_report_sep"] {
+  background-color: #dbdbdb!important;
+  width: 50%;
+  margin-inline: auto;
+}
