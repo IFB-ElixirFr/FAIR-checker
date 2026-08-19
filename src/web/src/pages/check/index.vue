@@ -1,12 +1,97 @@
 <script setup>
+    
+    // Necessary Imports
+    import { ref, watch } from 'vue'
 
+    // Icon imports
     import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
     import { faLink } from '@fortawesome/free-solid-svg-icons'
 
-    import { ref, watch } from 'vue'
+    // Chart JS import 
+    import {
+      Chart as ChartJS,
+      RadialLinearScale,
+      PointElement,
+      LineElement,
+      Filler,
+      Tooltip,
+      Legend
+    } from 'chart.js'
+    
+    import { Radar } from 'vue-chartjs'
+    
+    ChartJS.register(
+      RadialLinearScale,
+      PointElement,
+      LineElement,
+      Filler,
+      Tooltip,
+      Legend
+    )
 
+    // States
     const resourceUrl = ref('')
     const isResourceUrlValid = ref()
+    const fairEvaluatedValues = ref([12, 76, 23, 65])
+
+    const chartData = computed(() => ({
+      labels: [
+        'Findable',
+        'Interoperable',
+        'Reusable',
+        'Accessible'
+      ],
+    
+      datasets: [
+        {
+          label: 'Success',
+          data: fairEvaluatedValues.value,
+    
+          borderWidth: 2,
+          borderColor: 'rgba(75, 192, 192, 1)',
+          backgroundColor: 'rgba(219, 242, 242, 0.5)',
+    
+          pointRadius: 5,
+          pointHitRadius: 50,
+          pointHoverRadius: 5,
+          pointHoverBackgroundColor: 'rgba(75, 192, 192, 1)'
+        }
+      ]
+    }))
+
+    const chartOptions = {
+      responsive: true,
+      maintainAspectRatio: false,
+    
+      scales: {
+        r: {
+          min: 0,
+          max: 100,
+    
+          ticks: {
+            stepSize: 20
+          }
+        }
+      },
+    
+      plugins: {
+        tooltip: {
+          callbacks: {
+            title: (tooltipItems) => {
+              return tooltipItems[0].label
+            },
+    
+            label: (tooltipItem) => {
+              return `${tooltipItem.raw} %`
+            }
+          }
+        }
+      },
+    
+      animation: {
+        duration: 500
+      }
+    }
     
     function checkUrlValidity() {
       try {
@@ -96,8 +181,9 @@
                           </p>
                         </div>
                       </div>
-
-                      <!--{% for k in sample_data.keys() %} -->
+                      <!-- This is the small panel with the url that you can use to test quickly -->   
+                      <!-- TODO later when the app will be able to perform checks using the API -->
+                      <!--{% for k in sample_data.keys() %} --> 
                       <!--
                       <div class="columns is-centered">
                         <div class="column is-narrow">
@@ -115,9 +201,52 @@
                       </div>
                       {% endfor %}
                       -->
-
                     </div>
                 </article>
+
+                <article id="radar_chart" class="message">
+                  <div class="message-body is-check">
+                    <h1 class="subtitle"><b>FAIR compliance</b></h1>
+                    <div class="content">
+                        <div class="h-96">
+                            <Radar
+                                :data="chartData"
+                                :options="chartOptions"
+                            />
+                        </div>
+                    </div>
+                    <h1 class="subtitle is-hidden" id="share_title"><b>Share your results</b></h1>
+                    <div class="content" id="fair_badge"></div>
+                    <div class="content has-text-light has-background-dark is-size-7" id="fair_badge_html"></div>
+                    <div class="content has-text-light has-background-dark is-size-7" id="fair_badge_md"></div>
+                  </div>
+                </article>
+                
+                
+                <article id="metrics_details_rec" class="message">
+                  <div class="message-body is-check">
+                    <h1 class="subtitle is-inline-block"><b>Detailed results</b></h1>
+                    <button id="download_csv" data-dl="{{ uuid }}" download="results.csv" class="button is-info is-small is-pulled-right" disabled><i class="fa fa-download fa-fw"></i>&nbsp;Export</button>
+                
+                    <!--<div class="content">{% include 'metrics_table.html' %}</div>-->
+                    <br>
+                    <div class="content">
+                        Did not find your metadata term ?
+                        Please submit a request and let's discuss with the community !
+                        <a href='https://github.com/IFB-ElixirFr/FAIR-checker/issues/new?assignees=albangaignard&labels=new+term&projects=&template=missing-ontology-term.md&title=YYY+ontology+term+should+be+evaluated+by+FAIR-Checker+' target="_blank">
+                            <button id="new_term_button" class="button is-dark is-small is-outlined"><i class="fa fa-github fa-fw"></i>Ask for a new term</button>
+                        </a>
+                    </div>
+                    <div class="content">
+                      For additional tips and recommendations, please look at the FAIR Cookbook:
+                      <a href="https://fairplus.github.io/the-fair-cookbook/content/home.html" target="_blank"
+                        rel="noopener noreferrer">
+                          <button id="fair_cookbook_button" class="button is-dark is-small is-outlined"><i class="fa fa-book fa-fw"></i>FAIR Cookbook</button>
+                      </a>
+                    </div>
+                  </div>
+                </article>
+
             </section>
         </div>
     </div>
