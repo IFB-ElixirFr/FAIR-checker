@@ -69,7 +69,7 @@
           max: 100,
     
           ticks: {
-            stepSize: 20
+            stepSize: 10
           }
         }
       },
@@ -215,10 +215,12 @@
                             />
                         </div>
                     </div>
-                    <h1 class="subtitle is-hidden" id="share_title"><b>Share your results</b></h1>
-                    <div class="content" id="fair_badge"></div>
-                    <div class="content has-text-light has-background-dark is-size-7" id="fair_badge_html"></div>
-                    <div class="content has-text-light has-background-dark is-size-7" id="fair_badge_md"></div>
+                    <div v-if="false">
+                        <h1 class="subtitle is-hidden" id="share_title"><b>Share your results</b></h1>
+                        <div class="content" id="fair_badge"></div>
+                        <div class="content has-text-light has-background-dark is-size-7" id="fair_badge_html"></div>
+                        <div class="content has-text-light has-background-dark is-size-7" id="fair_badge_md"></div>
+                    </div>
                   </div>
                 </article>
                 
