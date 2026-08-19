@@ -10,7 +10,7 @@
       <div class="navbar-brand">
         <div class="navbar-item is-flex is-align-items-center">
           <NuxtLink to="/">
-            <img src="assets/logo-FAIR-Checker.png" width="140"/>
+            <img src="assets/logo-FAIR-Checker.png" width="140" />
           </NuxtLink>
           <NuxtLink href="https://www.ifb-elixir.fr/">
             <img src="assets/by-IFB.png" width="100"/>
