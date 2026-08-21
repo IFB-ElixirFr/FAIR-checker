@@ -34,7 +34,7 @@ CACHE_DIR="cache"
 QUERY_DIR="queries"
 
 
-## API configuration
+## APP configuration
 app = Flask(__name__)
 app.config['secret_key'] = "this is secret"
 
@@ -49,9 +49,15 @@ app.config.from_mapping(config)
 cors = CORS(app, resources={r"/*": {"origins": "*"}}) 
 cache = Cache(app)
 
+
+## API configuration
 api = Api(
     app=app,
     title="FAIR-Checker API",
     base_path="https://fair-checker.france-bioinformatique.fr",
 )
 
+## Swagger configuration
+api.namespace("metrics", description="Metrics assessment")
+api.namespace("/check", description="FAIR Metrics assessment from Check")
+api.namespace("/inspect", description="FAIR improvement from Inspect")

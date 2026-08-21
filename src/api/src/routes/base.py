@@ -16,9 +16,14 @@ from flask import jsonify
 from config.config import *
 
 
-## Home Route
+## Check Route
 @cross_origin()
-@app.route(f"/")
-def home():
+@app.route(f"/check")
+def check():
     return jsonify({"message": "Welcome to the Fair-Checker API"})
 
+## Inspect Route
+@cross_origin()
+@app.route(f"/inspect")
+def inspect():
+    return jsonify({"message": "Welcome to the Fair-Checker API"})
