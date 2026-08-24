@@ -1,3 +1,4 @@
+import sys
 import logging
 from colorlog import ColoredFormatter
 
@@ -7,7 +8,7 @@ logging.basicConfig(
     format="%(log_color)s%(levelname)s: %(message)s",
     handlers=[
         logging.StreamHandler()
-    ]
+    ],
 )
 
 logging.getLogger().handlers[0].setFormatter(
