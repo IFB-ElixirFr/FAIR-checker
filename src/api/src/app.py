@@ -1,4 +1,5 @@
 ## Config imports
+from config.logging import *
 from config.config import *
 
 ## Route imports

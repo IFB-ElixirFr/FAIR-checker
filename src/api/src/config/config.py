@@ -6,6 +6,8 @@
 
 
 import os
+import logging
+
 from flask import Flask
 from flask_restx import Api
 from flask_cors import CORS
@@ -18,13 +20,13 @@ from flask_caching import Cache
 ## present at the root of the repo is the one that docker that is used so Flask gets the the environement variable from the 
 ## .env.dev file instead
 if "IS_API_STANDALONE" in os.environ and os.environ["IS_API_STANDALONE"] == "true":
-    print("Launch in standalone mode detected")
+    logging.info("Launch in standalone mode detected")
     API_PORT = "5000"
     API_ENDPOINT = "http://localhost:5000"
     ADMIN_USERNAME = "admin"
     ADMIN_PASSWORD = "admin"
 else:    
-    print("Launch with docker detected.")
+    logging.info("Launch with docker detected")
     API_PORT = f"{os.environ['API_PORT']}"
     API_ENDPOINT = f"{os.environ['HTTP']}{os.environ['API_HOST']}:{os.environ['API_PORT']}"
     ADMIN_USERNAME = f"{os.environ['API_ADMIN_USERNAME']}"
