@@ -1,43 +1,33 @@
+## Standard imports
 import os
 import sys
 import yaml
 import logging
 
+## Module imports
+from modules.plugin.plugin import Plugin
+from modules.plugin.validator import PluginValidator
 
 
+## PluginLoader class
+##
+## Allows to read the plugin directory and verify if their format, syntax 
+## and the values each plugin contains is compliant with the Fair-Checker
+## plugin standard. Also display verbose error to sdt::out when a 
+## verification step failed
+##
 class PluginLoader:
 
     def __init__(self):
-        self.plugin_directory = "plugins"
+        self.plugin_directory = "plugins/"
+        self.plugin_schema_directory = "modules/plugin/"
+        self.plugin_validator = PluginValidator(plugin_directory=self.plugin_directory, plugin_schema_directory=self.plugin_schema_directory)
 
-    def _verify_plugin_syntax(self, filepath):
-        with open(f"{self.plugin_directory}/{filepath}", "r", encoding="utf-8") as f:
-            try:
-                yaml.safe_load(f)
-                return True
-            except yaml.YAMLError as e:
-                mark = getattr(e, "problem_mark", None)
-                logging.error(
-                    f"Plugin at '{self.plugin_directory}/{filepath}' contains a yaml syntax error: \n"
-                    f"\tInvalid YAML syntax at line {mark.line + 1}, "
-                    f"column {mark.column + 1}"
-                )
-                sys.exit(1)
+    def _verify_plugin_compliance(self):
+        self.plugin_validator.verify_plugins_compliance()
 
-    def verify_plugins_health(self):
-        plugin_files = os.listdir(self.plugin_directory)
-        if len(plugin_files) == 0:
-            logging.error(
-                f"No plugin found in FAIR-Checker plugin directory. Make sure you have at least "
-                f"the default fair checker plugin in '{self.plugin_directory}/{filepath}'"
-            )
-            sys.exit(1)
-        if not "default.yaml" in plugin_files:
-            logging.warning(
-                f"The default FAIR-Checker plugin wasn't found. Only the {len(plugin_files)} found "
-                f"in the plugin directory will be used"
-            )
-        for plugin_file in plugin_files:
-            if self._verify_plugin_syntax(plugin_file):
-                logging.debug(f"Valid Plugin found at: '{self.plugin_directory}/{plugin_file}'")
+    def load(self):
+        self._verify_plugin_compliance()
+        pass
 
+    

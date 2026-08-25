@@ -10,7 +10,7 @@ from modules.plugin.loader import PluginLoader
 
 
 plugin_loader = PluginLoader()
-plugin_loader.verify_plugins_health()
+plugin_loader.load()
 
 
 ## Launch the Flask App (Fair-Checker API)

@@ -1,0 +1,24 @@
+{
+    "type": "object",
+    "properties": {
+        "name": {"type": "string"},
+        "version": {"type": "string"},
+        "author": {"type": "string"},
+        "description": {"type": "string"},
+        "depends_on": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "object",
+                "properties": {
+                    "version": {
+                        "type": "string"
+                    }
+                },
+                "required": ["version"],
+                "additionalProperties": false
+            }
+        }
+    },
+    "required": ["name", "version", "author", "description", "depends_on"],
+    "additionalProperties": false
+}
