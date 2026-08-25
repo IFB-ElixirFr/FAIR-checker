@@ -22,12 +22,24 @@ class PluginLoader:
         self.plugin_directory = "plugins/"
         self.plugin_schema_directory = "modules/plugin/"
         self.plugin_validator = PluginValidator(plugin_directory=self.plugin_directory, plugin_schema_directory=self.plugin_schema_directory)
-
-    def _verify_plugin_compliance(self):
-        self.plugin_validator.verify_plugins_compliance()
+        self.plugins = []
 
     def load(self):
-        self._verify_plugin_compliance()
-        pass
-
-    
+        self.plugin_validator.verify_plugins_compliance()
+        plugin_files = os.listdir(self.plugin_directory)
+        for plugin_file in plugin_files:
+            try:
+                with open(f"{self.plugin_directory}{plugin_file}") as f:
+                    plugin_data = yaml.safe_load(f)
+                    plugin = Plugin(
+                        plugin_data['name'],
+                        plugin_data['api_route'],
+                        plugin_data['version'],
+                        plugin_data['author'],
+                        plugin_data['description']
+                    )
+                    self.plugins.append(plugin)
+            except Exception as e:
+                logging.error(f"Error occured when parsing the plugin file into the Plugin python class:\n\t{e}")
+                sys.exit(1)
+        return self.plugins

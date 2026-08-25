@@ -92,14 +92,4 @@ class PluginValidator:
             self.verify_plugin_values(plugin_file)
         plugin_filenames = "', '".join(plugin_files)
         logging.info(f"Plugins '{plugin_filenames}' detected and compliant with Fair-Checker plugin schema")
-
-
-
-
-
-
-
-
-
-
-
+    
