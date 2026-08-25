@@ -44,7 +44,7 @@ class PluginValidator:
         if not "default.yaml" in plugin_files:
             plugin_filenames = "', '".join(plugin_files)
             logging.warning(
-                f"The default FAIR-Checker plugin wasn't found. Only the {plugin_filenames} found "
+                f"The default FAIR-Checker plugin wasn't found. Only the '{plugin_filenames}' found "
                 f"in the plugin directory will be used"
             ) 
 
@@ -73,12 +73,13 @@ class PluginValidator:
             validate(data, self.plugin_schema)
             logging.debug(f"Plugin '{self.plugin_directory}{filename}' is compliant with Fair-Checker plugin schema")
         except ValidationError as e:
-            loggig.error(
+            logging.error(
                 f"Plugin '{self.plugin_directory}{filename}' is not compliant with the Fair-Checker plugin schema:\n\t{e}"
             )
+            sys.exit(1)
         
 
-    def verify_plugin_values(self):
+    def verify_plugin_values(self, filename):
         pass
 
 
@@ -88,6 +89,9 @@ class PluginValidator:
         for plugin_file in plugin_files:
             self.verify_yaml_syntax(plugin_file)
             self.verify_plugin_format(plugin_file)
+            self.verify_plugin_values(plugin_file)
+        plugin_filenames = "', '".join(plugin_files)
+        logging.info(f"Plugins '{plugin_filenames}' detected and compliant with Fair-Checker plugin schema")
 
 
 
