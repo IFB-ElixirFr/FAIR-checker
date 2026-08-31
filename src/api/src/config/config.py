@@ -61,5 +61,5 @@ api = Api(
 
 ## Swagger configuration
 api.namespace("metrics", description="Metrics assessment")
-api.namespace("/check", description="FAIR Metrics assessment from Check")
-api.namespace("/inspect", description="FAIR improvement from Inspect")
+swagger_check_api_namespace = api.namespace("/check", description="FAIR Metrics assessment from Check")
+swagger_inspect_api_namespace = api.namespace("/inspect", description="FAIR improvement from Inspect")

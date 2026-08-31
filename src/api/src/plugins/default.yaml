@@ -11,3 +11,28 @@ description: "The default FAIR-Checker plugin allows to evaluate the general FAI
 depends_on:
   fair_checker:
     version: "v1.4.0"
+
+metrics:
+  a11:
+    name: "A1.1"
+    principle: "Accessibility"
+    description: "FAIR-Checker verifies that the resource is accessible via an open protocol, for instance the protocol needs to be HTTP"
+    ontologies: ""
+
+resource_examples:
+  dataverse:
+    name: "Dataset Dataverse"
+    url: "https://data.inrae.fr/dataset.xhtml?persistentId=doi:10.15454/P27LDX"
+  workflow:
+    name: "Workflow"
+    url: "https://workflowhub.eu/workflows/18"
+  datacite:
+    name: "Publication Datacite"
+    url: "https://api.datacite.org/application/vnd.schemaorg.ld+json/10.7892/boris.108387"
+  dataset:
+    name: "Dataset"
+    url: "https://doi.pangaea.de/10.1594/PANGAEA.914331"
+  tool:
+    name: "Tool"
+    url: "https://bio.tools/jaspar"
+

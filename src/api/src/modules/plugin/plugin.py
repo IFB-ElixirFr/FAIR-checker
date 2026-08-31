@@ -10,6 +10,6 @@ class Plugin:
         self.depends_on = []
 
         self.metrics = []
-        self.ressource_examples = []
+        self.resource_examples = []
 
 

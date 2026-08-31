@@ -77,8 +77,15 @@ class PluginValidator:
                 f"Plugin '{self.plugin_directory}{filename}' is not compliant with the Fair-Checker plugin schema:\n\t{e}"
             )
             sys.exit(1)
+
+
+    ## Todo: verify if there is no values that should be unique to a plugin identical
+    ##       as an other loaded plugin. Unique fields includes name and api_route for instance
+    def verify_plugin_mendatory_unique_values(self, filename):
+        pass
         
 
+    ## Todo: verify the values indicated for each key within the plugin
     def verify_plugin_values(self, filename):
         pass
 
