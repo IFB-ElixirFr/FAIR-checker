@@ -7,6 +7,7 @@ import logging
 ## Module imports
 from modules.plugin.plugin import Plugin
 from modules.plugin.validator import PluginValidator
+from modules.evaluator.metric import Metric
 
 
 ## PluginLoader class
@@ -31,12 +32,17 @@ class PluginLoader:
             try:
                 with open(f"{self.plugin_directory}{plugin_file}") as f:
                     plugin_data = yaml.safe_load(f)
+                    metrics = []
+                    for metric in plugin_data['metrics'].values():
+                        metrics.append(Metric.from_plugin_file_data(metric))
+                    logging.debug(f"All metrics listed in the plugin: {plugin_data['name']} were created successfully")
                     plugin = Plugin(
                         plugin_data['name'],
                         plugin_data['api_route'],
                         plugin_data['version'],
                         plugin_data['author'],
-                        plugin_data['description']
+                        plugin_data['description'],
+                        metrics
                     )
                     self.plugins.append(plugin)
             except Exception as e:

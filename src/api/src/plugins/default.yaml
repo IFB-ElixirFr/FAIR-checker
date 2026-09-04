@@ -49,18 +49,21 @@ metrics:
 
   f1a:
     name: "F1A"
+    principle: "Findability"
     description: "Unique IDs: checks if the resource identifier is a reachable URL"
     recommendations:
       weak: "The webpage you are evaluating is not reachable. You should make sure that it can be reached properly with an HTTP request."
 
   f1b:
     name: "F1B"
+    principle: "Findability"
     description: "Persistent IDs : checks if the resource identifier is persistance (DOI, WebId, Purl)"
     recommendations:
       weak: "To ensure that the used identification scheme is persistent, you should build your resource ID with a namespace that can be found in Identifiers.org  (life-science oriented registry). Examples of persistent identifiers for a UniProt entry is: https://identifiers.org/uniprot:P38938 with uniprot as namespace or for a PubMed publication https://identifiers.org/pubmed/23584831 with pubmed as namespace, or DOI. This identifier can be either the URL itself or encoded in the metadata as a dct:identifier or schema:identifier property."
 
   f2a:
     name: "F2A"
+    principle: "Findability"
     description: "Structured metadata: checks if at least one RDF triple can be found in metadata and checks at least one property in dct:title dct:description dct:accessURL dct:downloadURL dcat:endpointURL dcat:endpointDescription is present in the RDF metadata triples"
     recommendations:
       weak: "Structured metadata should be embedded as machine readable content into your HTML file. A variety of RDF-compliant options are available (https://www.w3.org/MarkUp/2009/rdfa-for-html-author, https://www.w3.org/TR/2021/NOTE-microdata-20210128/ and https://www.w3.org/TR/json-ld11/#relationship-to-rdf ). The standard semantic web format RDF (Resource Description Framework) is a W3C standard specification for representing information in the form of (subject, predicate, object) statements known as triples. This structured format, also described as (URI, property, value) for metadata, enable links between multiple data on the web using controlled vocabularies"
@@ -68,6 +71,7 @@ metrics:
 
   f2b:
     name: "F2B"
+    principle: "Findability"
     description: "Ontology reuse: checks if the ontologies present the RDF triples are present in major ontology repositories (such as Bioportal, LOV and OLS)"
     recommendations:
       weak: "You should express all your metadata with classes coming from interoperable ontologies and vocabularies use https://www.ebi.ac.uk/ols/index, https://bioportal.bioontology.org, https://lov.linkeddata.es/dataset/lov/ to find the most suitable classes you want to use. Learn more in the https://faircookbook.elixir-europe.org/content/recipes/interoperability/selecting-ontologies.html"
@@ -75,6 +79,7 @@ metrics:
 
   i1:
     name: "I1"
+    principle: "Interoperability"
     description: "Machine readibility: checks if at least one RDF triple can be found in metadata."
     recommendations:
       weak: "The webpage you are evaluating is not reachable. You should make sure that it can be reached properly with an HTTP request"
@@ -82,6 +87,7 @@ metrics:
 
   i2:
     name: "I2"
+    principle: "Interoperability"
     description: "Use shared ontologies: checks if the ontologies present the RDF triples are present in major ontology repositories (such as Bioportal, LOV and OLS"
     recommendations:
       weak: "Essential metadata are missing to describe your resource in a human-readable way. You should provide at lead one property from the following list: dct:title dct:description dct:accessURL dct:downloadURL dcat:endpointURL dcat:endpointDescription."
@@ -89,24 +95,28 @@ metrics:
 
   i3:
     name: "I3"
+    principle: "Interoperability"
     description: "External links: checks if at least 3 different URL authorities are used in the URIs of RDF metadata."
     recommendations: 
       weak: "You should enrich your metadata with more diversified external links. Here we did not detect more than two distinct URL authorities (= domain name, first part of the URL right after ://) among all URLs referred to in your resource."
 
   r11:
     name: "R1.1"
+    principle: "Reusability"
     description: "Metadata includes license: checks if a license is present in the metadata RDF triple"
     recommendations:
       weak: "You should include information about license in your metadata using one of the properties below: schema:license dct:license doap:license dbpedia-owl:license cc:license xhv:license sto:license nie:license"
 
   r12:
     name: "R1.2"
+    principle: "Reusability"
     description: "Metadata includes provenance: checks if at least one provenance property from PROV, DCTerms, or PAV ontologies are found in metadata."
     recommendations: 
       weak: "You should include information about provenance in your metadata using one of the properties below: schema:license dct:license doap:license dbpedia-owl:license cc:license xhv:license sto:license nie:license"
 
   r13:
     name: "R1.3"
+    principle: "Reusability"
     description: "Community standards: checks if the ontologies present the RDF triples are present in major ontology repositories (such as Bioportal, LOV and OLS)"
     recommendations:
       weak: "You should express all your metadata with classes coming from interoperable ontologies and vocabularies use https://www.ebi.ac.uk/ols/index, https://bioportal.bioontology.org, https://lov.linkeddata.es/dataset/lov/ to find the most suitable classes you want to use. Learn more in the https://faircookbook.elixir-europe.org/content/recipes/interoperability/selecting-ontologies.html"
