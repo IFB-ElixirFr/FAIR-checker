@@ -18,6 +18,137 @@
                 "required": ["version"],
                 "additionalProperties": false
             }
+        },
+        "metrics": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "object",
+                "properties": {
+                    "a11": {
+                        "type": "object",
+                        "properties": {
+                            "name": {"type": "string"},
+                            "principle": {"type": "string"},
+                            "description": {"type": "string"},
+                            "rules": {"type": "object"},
+                            "recommandations": {"type": "object"}
+                        }
+                    },
+                    "a12": {
+                        "type": "object",
+                        "properties": {
+                            "name": {"type": "string"},
+                            "principle": {"type": "string"},
+                            "description": {"type": "string"},
+                            "rules": {"type": "object"},
+                            "recommandations": {"type": "object"}
+                        }
+                    },
+                    "f1a": {
+                        "type": "object",
+                        "properties": {
+                            "name": {"type": "string"},
+                            "principle": {"type": "string"},
+                            "description": {"type": "string"},
+                            "rules": {"type": "object"},
+                            "recommandations": {"type": "object"}
+                        }
+                    },
+                    "f1b": {
+                        "type": "object",
+                        "properties": {
+                            "name": {"type": "string"},
+                            "principle": {"type": "string"},
+                            "description": {"type": "string"},
+                            "rules": {"type": "object"},
+                            "recommandations": {"type": "object"}
+                        }
+                    },
+                    "f2a": {
+                        "type": "object",
+                        "properties": {
+                            "name": {"type": "string"},
+                            "principle": {"type": "string"},
+                            "description": {"type": "string"},
+                            "rules": {"type": "object"},
+                            "recommandations": {"type": "object"}
+                        }
+                    },
+                    "f2b": {
+                        "type": "object",
+                        "properties": {
+                            "name": {"type": "string"},
+                            "principle": {"type": "string"},
+                            "description": {"type": "string"},
+                            "rules": {"type": "object"},
+                            "recommandations": {"type": "object"}
+                        }
+                    },
+                    "i1": {
+                        "type": "object",
+                        "properties": {
+                            "name": {"type": "string"},
+                            "principle": {"type": "string"},
+                            "description": {"type": "string"},
+                            "rules": {"type": "object"},
+                            "recommandations": {"type": "object"}
+                        }
+                    },
+                    "i2": {
+                        "type": "object",
+                        "properties": {
+                            "name": {"type": "string"},
+                            "principle": {"type": "string"},
+                            "description": {"type": "string"},
+                            "rules": {"type": "object"},
+                            "recommandations": {"type": "object"}
+                        }
+                    },
+                    "i3": {
+                        "type": "object",
+                        "properties": {
+                            "name": {"type": "string"},
+                            "principle": {"type": "string"},
+                            "description": {"type": "string"},
+                            "rules": {"type": "object"},
+                            "recommandations": {"type": "object"}
+                        }
+                    },
+                    "r11": {
+                        "type": "object",
+                        "properties": {
+                            "name": {"type": "string"},
+                            "principle": {"type": "string"},
+                            "description": {"type": "string"},
+                            "rules": {"type": "object"},
+                            "recommandations": {"type": "object"}
+                        }
+                    },
+                    "r12": {
+                        "type": "object",
+                        "properties": {
+                            "name": {"type": "string"},
+                            "principle": {"type": "string"},
+                            "description": {"type": "string"},
+                            "rules": {"type": "object"},
+                            "recommandations": {"type": "object"}
+                        }
+                    },
+                    "r13": {
+                        "type": "object",
+                        "properties": {
+                            "name": {"type": "string"},
+                            "principle": {"type": "string"},
+                            "description": {"type": "string"},
+                            "rules": {"type": "object"},
+                            "recommandations": {"type": "object"}
+                        }
+                    }
+                }
+            }
+        },
+        "resource_examples": {
+            "type": "object"
         }
     },
     "required": ["name", "version", "author", "description", "depends_on"],

@@ -17,7 +17,101 @@ metrics:
     name: "A1.1"
     principle: "Accessibility"
     description: "FAIR-Checker verifies that the resource is accessible via an open protocol, for instance the protocol needs to be HTTP"
-    ontologies: ""
+    rules:
+      ## This rule needs improvements. Might not be very clear for someone that doesn't touch to FC code directly
+      rule1:
+        name: "HTTP access verification"
+        types:
+          - "query"
+        values:
+          - "200"
+    recommendations:
+      weak: "You should access your resource through HTTP or HTTPS protocol"
+      strong: "Ensure that the resource is accessible using the provided URL (typos ? dead link ? other reason ?)"
+
+  a12:
+    name: "A1.2"
+    principle: "Accessibility"
+    description: "The protocol allows for an authentification and authorization procedure when necessary. FAIR-Checker verifies if access rights are specified in the metadata through the presence of the terms ordl:hasPolicy, dct:rights, dct:accessRight, schema:license or dct:license"
+    rules:
+      rule1:
+        name: "License presence and acess right verification"
+        types: 
+          - "at_least_one_of"
+        terms:
+          - "odrl:hasPolicy"
+          - "dct:rights"
+          - "dct:accessRights"
+          - "dct:license"
+          - "schema:license"
+    recomendations:
+      weak: "You should describe the access policy in metadata by using at least one of the following properties:  oldl:hasPolicy, dct:rights, dct:accessRights, or dct:license."
+
+  f1a:
+    name: "F1A"
+    description: "Unique IDs: checks if the resource identifier is a reachable URL"
+    recommendations:
+      weak: "The webpage you are evaluating is not reachable. You should make sure that it can be reached properly with an HTTP request."
+
+  f1b:
+    name: "F1B"
+    description: "Persistent IDs : checks if the resource identifier is persistance (DOI, WebId, Purl)"
+    recommendations:
+      weak: "To ensure that the used identification scheme is persistent, you should build your resource ID with a namespace that can be found in Identifiers.org  (life-science oriented registry). Examples of persistent identifiers for a UniProt entry is: https://identifiers.org/uniprot:P38938 with uniprot as namespace or for a PubMed publication https://identifiers.org/pubmed/23584831 with pubmed as namespace, or DOI. This identifier can be either the URL itself or encoded in the metadata as a dct:identifier or schema:identifier property."
+
+  f2a:
+    name: "F2A"
+    description: "Structured metadata: checks if at least one RDF triple can be found in metadata and checks at least one property in dct:title dct:description dct:accessURL dct:downloadURL dcat:endpointURL dcat:endpointDescription is present in the RDF metadata triples"
+    recommendations:
+      weak: "Structured metadata should be embedded as machine readable content into your HTML file. A variety of RDF-compliant options are available (https://www.w3.org/MarkUp/2009/rdfa-for-html-author, https://www.w3.org/TR/2021/NOTE-microdata-20210128/ and https://www.w3.org/TR/json-ld11/#relationship-to-rdf ). The standard semantic web format RDF (Resource Description Framework) is a W3C standard specification for representing information in the form of (subject, predicate, object) statements known as triples. This structured format, also described as (URI, property, value) for metadata, enable links between multiple data on the web using controlled vocabularies"
+      strong: "You should provide discoverability oriented metadata with one of the following properties: dct:title dct:description dct:accessURL dct:downloadURL dcat:endpointURL dcat:endpointDescription."
+
+  f2b:
+    name: "F2B"
+    description: "Ontology reuse: checks if the ontologies present the RDF triples are present in major ontology repositories (such as Bioportal, LOV and OLS)"
+    recommendations:
+      weak: "You should express all your metadata with classes coming from interoperable ontologies and vocabularies use https://www.ebi.ac.uk/ols/index, https://bioportal.bioontology.org, https://lov.linkeddata.es/dataset/lov/ to find the most suitable classes you want to use. Learn more in the https://faircookbook.elixir-europe.org/content/recipes/interoperability/selecting-ontologies.html"
+      strong: "You should express all your metadata with classes and properties coming from interoperable ontologies and vocabularies use https://www.ebi.ac.uk/ols/index, https://bioportal.bioontology.org, https://lov.linkeddata.es/dataset/lov/ to find the most suitable classes you want to use. Learn more in the https://faircookbook.elixir-europe.org/content/recipes/interoperability/selecting-ontologies.html "
+
+  i1:
+    name: "I1"
+    description: "Machine readibility: checks if at least one RDF triple can be found in metadata."
+    recommendations:
+      weak: "The webpage you are evaluating is not reachable. You should make sure that it can be reached properly with an HTTP request"
+      strong: "To ensure that the used identification scheme is persistent, you should build your resource ID with a namespace that can be found in Identifiers.org  (life-science oriented registry). Examples of persistent identifiers for a UniProt entry is: https://identifiers.org/uniprot:P38938 with uniprot as namespace or for a PubMed publication https://identifiers.org/pubmed/23584831 with pubmed as namespace, or DOI. This identifier can be either the URL itself or encoded in the metadata as a dct:identifier or schema:identifier property."
+
+  i2:
+    name: "I2"
+    description: "Use shared ontologies: checks if the ontologies present the RDF triples are present in major ontology repositories (such as Bioportal, LOV and OLS"
+    recommendations:
+      weak: "Essential metadata are missing to describe your resource in a human-readable way. You should provide at lead one property from the following list: dct:title dct:description dct:accessURL dct:downloadURL dcat:endpointURL dcat:endpointDescription."
+      strong: "Your metadata seem to not be conforming to the researched format, which is RDF (Resource Description Framework),  Resource Description Framework a W3C standard specification for representing information in the form of subject / predicate / object statements known as triples. This structured format enable links between multiple data on the web using controlled vocabularies, learn more here: https://www.w3.org/TR/rdf11-primer/"
+
+  i3:
+    name: "I3"
+    description: "External links: checks if at least 3 different URL authorities are used in the URIs of RDF metadata."
+    recommendations: 
+      weak: "You should enrich your metadata with more diversified external links. Here we did not detect more than two distinct URL authorities (= domain name, first part of the URL right after ://) among all URLs referred to in your resource."
+
+  r11:
+    name: "R1.1"
+    description: "Metadata includes license: checks if a license is present in the metadata RDF triple"
+    recommendations:
+      weak: "You should include information about license in your metadata using one of the properties below: schema:license dct:license doap:license dbpedia-owl:license cc:license xhv:license sto:license nie:license"
+
+  r12:
+    name: "R1.2"
+    description: "Metadata includes provenance: checks if at least one provenance property from PROV, DCTerms, or PAV ontologies are found in metadata."
+    recommendations: 
+      weak: "You should include information about provenance in your metadata using one of the properties below: schema:license dct:license doap:license dbpedia-owl:license cc:license xhv:license sto:license nie:license"
+
+  r13:
+    name: "R1.3"
+    description: "Community standards: checks if the ontologies present the RDF triples are present in major ontology repositories (such as Bioportal, LOV and OLS)"
+    recommendations:
+      weak: "You should express all your metadata with classes coming from interoperable ontologies and vocabularies use https://www.ebi.ac.uk/ols/index, https://bioportal.bioontology.org, https://lov.linkeddata.es/dataset/lov/ to find the most suitable classes you want to use. Learn more in the https://faircookbook.elixir-europe.org/content/recipes/interoperability/selecting-ontologies.html"
+      strong: "You should express all your metadata with classes and properties coming from interoperable ontologies and vocabularies use https://www.ebi.ac.uk/ols/index, https://bioportal.bioontology.org, https://lov.linkeddata.es/dataset/lov/ to find the most suitable classes you want to use. Learn more in the https://faircookbook.elixir-europe.org/content/recipes/interoperability/selecting-ontologies.html"
+
 
 resource_examples:
   dataverse:
