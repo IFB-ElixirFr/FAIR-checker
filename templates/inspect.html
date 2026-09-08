@@ -190,7 +190,7 @@
         console.log("Value: " + "{{f.api_url}}");
         $(this).addClass("is-loading");
 
-        socket.emit('retrieve_embedded_annot', {
+        socket.emit('retrieve_embedded_annot', { // this event NO LONGER exists in app.py - replaced by 'retrieve_embedded_annot2'
             url: $("#url").val()
         });
     });
@@ -374,7 +374,7 @@
         console.log('hello message sent');
     });
 
-    socket.on('update_annot_2', function (value) {
+    socket.on('update_annot_2', function (value) { //B This event won't trigger anything inside the backend (app.py)
         console.log("UPDATE ANNOT 2")
         if ("done".includes(value)) {
             $("#p1").attr("value", 4);
