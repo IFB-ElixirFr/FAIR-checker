@@ -80,6 +80,9 @@
       url = $("#url").val();
     }
 
+    // remove any white space inserted before and after the url link input value
+    url = url.trim()
+
     // socket.emit('evaluate_{{f.id}}', {
     socket.emit('evaluate_metric', {
       metric_name: "{{ f.name }}",
