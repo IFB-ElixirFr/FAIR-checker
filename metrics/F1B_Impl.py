@@ -150,7 +150,7 @@ Weak : FAIR-Checker verifies that at least one namespace from identifiers.org is
             self.COMMON_SPARQL_PREFIX
             + """ 
 ASK { 
-    VALUES ?p {dct:identifier schema:identifier} . 
+    VALUES ?p {dct:identifier schema:identifier schema_s:identifier} . 
     ?s ?p ?o .
 }
             """

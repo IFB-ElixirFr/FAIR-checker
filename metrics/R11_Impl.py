@@ -36,6 +36,7 @@ class R11_Impl(AbstractFAIRMetrics):
 
         checked_properties = """
         schema:license
+        schema_s:license
         dct:license
         doap:license
         dbpedia-owl:license
