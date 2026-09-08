@@ -228,7 +228,13 @@
         $("#linkeddata_tab").addClass("is-active");
         $("#section-LinkedData, #section-BioSchemas, #section-Datacite, #section-ENA53").addClass("is-hidden");
         $("#section-LinkedData").removeClass("is-hidden");
-        socket.emit('retrieve_embedded_annot_2', { url: $("#url").val() });
+        
+        let url = $("#url").val()
+        
+        // remove any white space inserted before and after the url link input value
+        url = url.trim()
+
+        socket.emit('retrieve_embedded_annot_2', { url: url });
     });
 
     $("#btn_describe_biotools").click(function () {
