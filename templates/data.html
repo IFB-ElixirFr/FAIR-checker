@@ -1,0 +1,41 @@
+{% extends "layout.html" %}
+
+{% block nav %}
+{% include 'nav.html' %}
+{% endblock %}
+
+{% block body %}
+<section class="section">
+  <div class="container">
+
+    <h1 class="title">Machine-readable evaluation results</h1>
+    <h2 class="subtitle">
+        computed on
+      <a href="{{ target_uri }}" target="_blank" rel="noopener noreferrer">{{ target_uri }}</a>
+    </h2>
+
+  <!-- Turtle serialization -->
+    <article class="message">
+      <div class="message-header"><p> RDF triples (Turtle)</p></div>
+      <div class="message-body" style="padding: 0;">
+        <pre style="background:#fafafa; padding:1rem; margin:0; overflow-x:auto; font-size:0.8rem;">{{ turtle_html | safe }}</pre>
+      </div>
+    </article>
+
+    <div class="buttons are-small">
+      <a class="button is-info is-outlined" href="{{ base_path }}/{{ eval_id }}?format=turtle">
+        <span class="icon"><i class="fa fa-download"></i></span><span>Turtle</span>
+      </a>
+      <a class="button is-info is-outlined" href="{{ base_path }}/{{ eval_id }}?format=json-ld">
+        <span class="icon"><i class="fa fa-download"></i></span><span>JSON-LD</span>
+      </a>
+      <a class="button is-info is-outlined" href="{{ base_path }}/{{ eval_id }}?format=rdf-xml">
+        <span class="icon"><i class="fa fa-download"></i></span><span>RDF/XML</span>
+      </a>
+    </div>
+
+
+
+  </div>
+</section>
+{% endblock %}

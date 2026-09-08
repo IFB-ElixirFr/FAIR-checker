@@ -5,6 +5,7 @@ import logging
 from io import StringIO
 import uuid
 from string import Template
+from flask import current_app
 
 from metrics.util import (
     ld_FAIR_Checker_template,
@@ -223,7 +224,7 @@ class Evaluation:
                 value=self.get_score(),
                 date=d,
             )
-        ttl = ld_eval_prefix + eval_ttl
+        ttl = Template(ld_eval_prefix).safe_substitute(data_url=current_app.config["EVAL_URL"]) + eval_ttl
 
         for spec in get_ld_FC_spec():
             if self.get_metrics() == spec["id"]:

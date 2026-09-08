@@ -13,7 +13,7 @@ class R13_Impl(AbstractFAIRMetrics):
         self.name = "Community standards"
         self.id = "14"
         self.principle = "https://w3id.org/fair/principles/terms/R1.3"
-        self.principle_tag = "R1.3"
+        self.principle_tag = "R13"
         self.implem = "FAIR-Checker"
         self.desc = """
             Weak: FAIR-Checker verifies that at least one used ontology class or property are known in major ontology registries (OLS, BioPortal, LOV)<br> Strong: FAIR-Checker verifies that all used ontology classes or properties are known in major ontology registries (OLS, BioPortal, LOV)

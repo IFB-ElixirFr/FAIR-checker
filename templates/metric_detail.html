@@ -1,0 +1,37 @@
+{% extends "layout.html" %}
+
+{% block body %}
+<section class="section">
+    <div class="container">
+        {#        <h1 class="title">{{ tag }}</h1>#}
+        {#        <h2 class="subtitle">{{ name }}</h2>#}
+
+
+        <div class="content">
+            <p>
+                <strong>FAIR Principle:</strong>
+                <a href="{{ principle }}" target="_blank">{{ principle }}</a>
+            </p>
+        </div>
+
+        <article class="message is-info">
+            <div class="message-header">
+                <p>Description</p>
+            </div>
+            <div class="message-body">
+                {{ desc|safe }}
+            </div>
+        </article>
+
+        <div class="content">
+            <p>
+                <strong>Associated source code</strong>
+
+                <a href="https://github.com/IFB-ElixirFr/FAIR-checker/blob/master/metrics/{{ tag }}_Impl.py"
+                   target="_blank">https://github.com/IFB-ElixirFr/FAIR-checker/blob/master/metrics/{{ tag }}_Impl.py</a>
+            </p>
+        </div>
+
+    </div>
+</section>
+{% endblock %}

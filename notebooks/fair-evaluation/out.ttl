@@ -1,0 +1,1356 @@
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix geo: <http://www.opengis.net/ont/geosparql#> .
+@prefix ns1: <http://schema.org/> .
+@prefix ns2: <http://bioschemas.org/> .
+@prefix ns3: <http://ogp.me/ns#image:> .
+@prefix ns4: <http://ogp.me/ns#> .
+@prefix ns5: <http://www.w3.org/2007/05/powder-s#> .
+@prefix ns6: <http://ogp.me/ns/article#> .
+@prefix ns7: <http://ogp.me/ns/fb#> .
+@prefix ns8: <http://www.w3.org/TR/void/> .
+@prefix ns9: <https://bio.tools/ontology/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://doi.org/10.1594/PANGAEA.908011> ns4:image "https://www.pangaea.de/assets/social-icons/pangaea-share.png" ;
+    ns5:describedby <http://doi.org/10.1594/PANGAEA.908011?format=citation_bibtex>,
+        <http://doi.org/10.1594/PANGAEA.908011?format=citation_ris>,
+        <https://doi.pangaea.de/10.1594/PANGAEA.908011?format=citation_bibtex>,
+        <https://doi.pangaea.de/10.1594/PANGAEA.908011?format=citation_ris>,
+        <https://doi.pangaea.de/10.1594/PANGAEA.908011?format=citation_text>,
+        <https://doi.pangaea.de/10.1594/PANGAEA.908011?format=metadata_datacite4>,
+        <https://doi.pangaea.de/10.1594/PANGAEA.908011?format=metadata_dif>,
+        <https://doi.pangaea.de/10.1594/PANGAEA.908011?format=metadata_iso19139>,
+        <https://doi.pangaea.de/10.1594/PANGAEA.908011?format=metadata_jsonld>,
+        <https://doi.pangaea.de/10.1594/PANGAEA.908011?format=metadata_panmd> .
+
+<https://bio.tools/bwa> a ns1:SoftwareApplication ;
+    ns2:input <https://bio.tools/bwa/op_1/in_1>,
+        <https://bio.tools/bwa/op_2/in_1>,
+        <https://bio.tools/bwa/op_2/in_2>,
+        <https://bio.tools/bwa/op_3/in_1>,
+        <https://bio.tools/bwa/op_3/in_2>,
+        <https://bio.tools/bwa/op_4/in_1>,
+        <https://bio.tools/bwa/op_4/in_2>,
+        <https://bio.tools/bwa/op_4/in_3>,
+        <https://bio.tools/bwa/op_5/in_1>,
+        <https://bio.tools/bwa/op_5/in_2>,
+        <https://bio.tools/bwa/op_5/in_3>,
+        <https://bio.tools/bwa/op_6/in_1>,
+        <https://bio.tools/bwa/op_6/in_2> ;
+    ns2:output <https://bio.tools/bwa/op_1/in_1>,
+        <https://bio.tools/bwa/op_2/in_1>,
+        <https://bio.tools/bwa/op_3/in_1>,
+        <https://bio.tools/bwa/op_4/in_1>,
+        <https://bio.tools/bwa/op_5/in_1>,
+        <https://bio.tools/bwa/op_6/in_1> ;
+    ns4:description "Fast, accurate, memory-efficient aligner for short and long sequencing reads",
+        "{{ngMeta['og:description']}}" ;
+    ns4:image "",
+        "{{ngMeta['og:image']}}" ;
+    ns4:title "BWA",
+        "{{ngMeta['og:title']}}" ;
+    dcterms:conformsTo "https://bioschemas.org/profiles/ComputationalTool/1.0-RELEASE" ;
+    ns1:applicationSubCategory <http://edamontology.org/topic_0102> ;
+    ns1:citation <https://doi.org/10.1016/j.ygeno.2017.03.001>,
+        <https://doi.org/10.1093/bioinformatics/btp324>,
+        <https://doi.org/10.1093/bioinformatics/btp698>,
+        <https://doi.org/10.1093/bioinformatics/btu146>,
+        <https://doi.org/10.1186/1471-2105-14-184>,
+        <https://doi.org/10.1186/1471-2164-15-264>,
+        "pmcid:PMC2705234",
+        "pmcid:PMC3694458",
+        "pmcid:PMC4051166",
+        "pubmed:19451168",
+        "pubmed:20080505",
+        "pubmed:23758764",
+        "pubmed:24626854",
+        "pubmed:24708189",
+        "pubmed:28286147" ;
+    ns1:contributor <http://orcid.org/0000-0003-4874-2874> ;
+    ns1:featureList <http://edamontology.org/operation_0292>,
+        <http://edamontology.org/operation_3198>,
+        <http://edamontology.org/operation_3211>,
+        <http://edamontology.org/operation_3429> ;
+    ns1:softwareHelp <http://bio-bwa.sourceforge.net/bwa.shtml> ;
+    ns9:primaryContact "bwa team" .
+
+<https://data.opendatasoft.com/explore/dataset/donnees-hospitalieres-covid-19-dep-france%40public/table/?disjunctive.countrycode_iso_3166_1_alpha3&disjunctive.nom_dep_min> ns4:description "Santé publique France a pour mission d'améliorer et de protéger la santé des populations. Durant la crise sanitaire liée à l'épidémie du COVID-19, Santé publique France se charge de surveiller et comprendre la dynamique de l'épidémie, d'anticiper les différents scénarii et de mettre en place des actions pour prévenir et limiter la transmission de ce virus sur le territoire national.     Les données hospitalières quotidiennes relatives à l'épidémie du COVID-19 par département et sexe du patient : nombre de patients hospitalisés, nombre de personnes actuellement en réanimation ou soins intensifs, nombre cumulé de personnes retournées à domicile, nombre cumulé de personnes décédées.Pour certains patients, le sexe n'a pas été identifié dans la base de données. Ce qui peut induire un décalage entre la somme H/F d'un indicateur et le nombre total de cet indicateur.Les code régions et iso 3166-1 des zones ont été rajoutés.Attention : données en cours de constitution. Peut comporter des anomalies ou des donnés manquantes." ;
+    ns4:image "https://data.opendatasoft.com/static/ods/imgv4/social-images/social_media_image_table.png" ;
+    ns3:height "200" ;
+    ns3:width "200" ;
+    ns4:title "Données hospitalières relatives à l'épidémie de COVID-19 en France" ;
+    ns4:type "website" ;
+    ns4:url "https://data.opendatasoft.com/explore/dataset/donnees-hospitalieres-covid-19-dep-france@public/table/?disjunctive.countrycode_iso_3166_1_alpha3&disjunctive.nom_dep_min" .
+
+<https://data.rivm.nl/meta/srv/resources/catalogs/06adf1ec-5e49-4741-8279-f26b1dd5b5dc> a dcat:Catalog ;
+    rdfs:label """RIVMdata (RIVM)
+      """@en ;
+    dcterms:description "" ;
+    dcterms:language "eng" ;
+    dcterms:publisher <https://data.rivm.nl/meta/srv/resources/organizations/RIVM> ;
+    dcterms:title "RIVMdata"@en ;
+    ns8:openSearchDescription "https://data.rivm.nl/meta/srv/eng/portal.opensearch" ;
+    ns8:uriLookupEndpoint "https://data.rivm.nl/meta/srv/eng/rdf.search?any=" ;
+    dcat:dataset <https://data.rivm.nl/meta/srv/resources/4e1af1a5-d602-4425-b799-6ada8549fe0d> ;
+    dcat:record <https://data.rivm.nl/meta/records/1c0fcd57-1102-4620-9cfa-441e93ea5604> ;
+    dcat:themes <https://data.rivm.nl/meta/srv/resources/registries/vocabularies/external.place.regions>,
+        <https://data.rivm.nl/meta/srv/resources/registries/vocabularies/external.theme.UniformeProductnaam>,
+        <https://data.rivm.nl/meta/srv/resources/registries/vocabularies/external.theme.access-right>,
+        <https://data.rivm.nl/meta/srv/resources/registries/vocabularies/external.theme.data-theme>,
+        <https://data.rivm.nl/meta/srv/resources/registries/vocabularies/external.theme.file-type>,
+        <https://data.rivm.nl/meta/srv/resources/registries/vocabularies/external.theme.frequency>,
+        <https://data.rivm.nl/meta/srv/resources/registries/vocabularies/external.theme.grondslag-bewaring>,
+        <https://data.rivm.nl/meta/srv/resources/registries/vocabularies/external.theme.language>,
+        <https://data.rivm.nl/meta/srv/resources/registries/vocabularies/external.theme.licence-type>,
+        <https://data.rivm.nl/meta/srv/resources/registries/vocabularies/external.theme.media-types>,
+        <https://data.rivm.nl/meta/srv/resources/registries/vocabularies/external.theme.publisher>,
+        <https://data.rivm.nl/meta/srv/resources/registries/vocabularies/external.theme.publisher-type>,
+        <https://data.rivm.nl/meta/srv/resources/registries/vocabularies/external.theme.resource-type>,
+        <https://data.rivm.nl/meta/srv/resources/registries/vocabularies/external.theme.status>,
+        <https://data.rivm.nl/meta/srv/resources/registries/vocabularies/external.theme.terms> ;
+    foaf:homepage "https://data.rivm.nl/meta/srv/" .
+
+<https://data.rivm.nl/meta/srv/resources/datasets/4e1af1a5-d602-4425-b799-6ada8549fe0d> a dcat:Dataset ;
+    dcterms:abstract """For English, see below
+
+
+Nederland heeft voor het SARS-CoV-2 virus (coronavirus) een endemische fase bereikt en de GGD teststraten zijn per 17 maart 2023 gesloten. Daardoor wordt de data vanaf 1 april 2023 niet meer bijgewerkt.
+
+Dit bestand bevat de volgende cumulatieve aantallen:
+- positief geteste personen naar gemeente, per datum waarop de gegevens zijn gepubliceerd door het RIVM (vanaf publicatiedatum 13 maart 2020)
+- ziekenhuisopnames (tot 18 januari 2022) naar gemeente, per datum waarop de gegevens zijn gepubliceerd door het RIVM (vanaf publicatiedatum 13 maart 2020)
+- aantal sterfgevallen naar gemeente (tot 1 januari 2023), per datum waarop de gegevens zijn gepubliceerd door het RIVM (vanaf publicatiedatum 13 maart 2020)
+De aantallen betreffen COVID-19 meldingen sinds de eerste melding in Nederland (27 februari 2020).
+
+Het bestand is als volgt opgebouwd:
+- Een set records per publicatiedatum met voor elke publicatiedatum:
+- Een record voor elke gemeente van Nederland, ook als voor de betreffende gemeente geen meldingen zijn. De aantallen zijn dan 0 (nul). Ook is een kolom voor provincie toegevoegd. Indien gemeente niet bekend is, is de provincie afgeleid van de meldende GGD zodat provincie voor elk record gevuld is.
+
+Beschrijving van de variabelen:
+Version: Versienummer van de dataset. Wanneer de inhoud van de dataset structureel wordt gewijzigd (dus niet de dagelijkse update of een correctie op record niveau), zal het versienummer aangepast worden (+1) en ook de corresponderende metadata in RIVM data (https://data.rivm.nl).
+Update (16 juli 2021): 
+-	Door een correctie in de verwerking door het RIVM heeft een kleine set meldingen een herziene ziekenhuisopname publicatiedatum en overlijdens publicatiedatum gekregen per 16 juli 2021 (betreft kolommen: Hospital_admission per Date_of_report en Deceased per Date_of_report). 
+Versie 2 update (18 januari 2022): 
+-	In versie 2 van deze dataset is de variabele ‘hospital_admission’ niet meer geüpdatet en heeft deze variabele voor records met [Date_of_report] vanaf 18 januari 2022 de waarde 9999 gekregen. Voor het aantal ziekenhuisopnames wordt verwezen naar de geregistreerde ziekenhuisopnames van Stichting NICE (https://data.rivm.nl/covid-19/COVID-19_ziekenhuisopnames.html).
+Versie 3 update (20 januari 2022): 
+-	In versie 3 van de dataset zijn records met [Date_of_report] vanaf 20 januari 2022 samengesteld volgens de gemeente herindeling van 1 januari 2022. Records met [Date_of_report] vóór 20 januari 2022 zijn samengesteld volgens de gemeente indelingen die door het RIVM werd gebruikt op de [Date_of_report]. Zie beschrijving van de variabele Municipality_code voor meer informatie.
+Versie 4 update (8 februari 2022)
+-	Vanaf 8 februari 2022 worden de positieve SARS-CoV-2 testuitslagen rechtstreeks vanuit CoronIT aan het RIVM gemeld. Ook worden de testuitslagen van andere testaanbieders (zoals Testen voor Toegang) en zorginstellingen (zoals ziekenhuizen, verpleeghuizen en huisartsen) die hun positieve SARS-CoV-2 testuitslagen via het Meldportaal van GGD GHOR invoeren rechtstreeks aan het RIVM gemeld. Meldingen die onderdeel zijn van de bron- en contactonderzoek steekproef en positieve SARS-CoV-2 testuitslagen van zorginstellingen die via zorgmail aan de GGD worden gemeld worden wel via HPZone aan het RIVM gemeld. 
+Versie 5 update (24 maart 2022): 
+-	In versie 5 van deze dataset zijn records met [Date_of_report] vanaf 24 maart 2022 samengesteld volgens de gemeente herindeling van 24 maart 2022. Records met [Date_of_report] vóór 24 maart 2022 zijn samengesteld volgens de gemeente indelingen die door het RIVM werd gebruikt op de [Date_of_report]. Zie beschrijving van de variabele Municipality_code voor meer informatie.
+Versie 6 update (6 april 2022):
+-	Vanaf 9 april 2022 is er in de weekenden en op feestdagen* (vrije dagen) geen open data publicatie meer. Dit heeft invloed op diverse variabelen in de open data bestanden. De nieuwe variabele [Date_of_publication] wordt op de eerstvolgende werkdag met terugwerkende kracht bijgewerkt voor de vrije dagen. Hiermee wordt voorkomen dat na een vrije dag een piek ontstaat door opgestapelde meldingen.
+*Officiële feestdagen waarop niet gerapporteerd wordt zijn: Nieuwjaarsdag, Eerste en Tweede Paasdag, Koningsdag, Bevrijdingsdag, Hemelvaartsdag, Eerste en Tweede Pinksterdag, Eerste en Tweede Kerstdag.
+Versie 7 update (1 september 2022):
+-	Vanaf 1 september 2022 wordt de open data op dinsdagen en vrijdagen bijgewerkt. Dit heeft invloed op diverse variabelen in de open data bestanden. De variabele [Date_of_publication] wordt op de dinsdagen met terugwerkende kracht bijgewerkt voor de zaterdagen, zondagen en maandagen. Op de vrijdagen wordt de variabele [Date_of_publication] op vrijdagen bijgewerkt voor de woensdagen en donderdagen. 
+Versie 8 update (3 januari 2023): 
+-	In versie 8 van de dataset zijn records met [Date_of_report] vanaf 1 januari 2023 samengesteld volgens de gemeente herindeling van 1 januari 2023. Records met [Date_of_report] vóór 1 januari 2023 zijn samengesteld volgens de gemeente indelingen die door het RIVM werd gebruikt op de [Date_of_report]. Zie beschrijving van de variabele Municipality_code voor meer informatie.
+-	Per 1 januari 2023 verzamelt het RIVM geen aanvullende informatie meer. Dit heeft als gevolg dat we vanaf 1 januari 2023 geen overlijdens meer rapporteren. Om deze reden wordt de kolom [Deceased] vanaf 1 januari 2023 op 9999 gezet.
+
+Date_of_report: Dit betreft per datum het aantal meldingen dat nieuw binnengekomen is bij het RIVM. De tijdsperiode waarin de melding is doorgegeven loopt van 10.01 uur op de laatste werkdag tot en met 10.00 uur op de eerstvolgende werkdag. De publicatiedatum kan afwijken van de datum van de positieve testuitslag. Dit kan gebeuren als een melding van een positieve SARS-CoV-2 test later is doorgeven door een GGD aan het RIVM. Dit bestand bevat de meest actuele meldingen op basis van het bronbestand Osiris. Als er in Osiris correcties worden gedaan, dan worden deze correcties ook verwerkt in dit bestand.
+
+Date_of_publication: Dit betreft per dag het aantal meldingen dat nieuw binnengekomen is bij het RIVM. De tijdsperiode waarin de melding is doorgegeven valt in blokken van 24 uur van 10.01 uur tot en met 10:00 uur de dag erop. Deze variabele wordt op de eerstvolgende werkdag met terugwerkende kracht bijgewerkt voor de vrije dagen.  
+
+Municipality_code: Gemeentecode. Gemeentelijke indeling gebaseerd op postcode van de woonplaats van de SARS-CoV-2 positief geteste persoon, gecodeerd volgens CBS. 
+Sinds de eerste publicatiedatum van 13 maart 2020 tot de versie 3 update van 20 januari 2022, hebben 3 gemeentelijke herindelingen plaatsgevonden. 
+Records met [Date of report] voor 7 januari 2021 zijn samengesteld volgends de gemeente indeling van 2020. 
+Records met [Date_of_report] vanaf 7 januari 2021 t/m 19 januari 2022 zijn samengesteld volgens de gemeente indeling van 1 januari 2021: Gemeenten Appingedam, Delfzijl en Loppersum zijn samengevoegd tot de nieuwe gemeente Eemsdelta Gr. De gemeente Haaren is opgegaan in de gemeenten Oisterwijk, Tilburg, Vught en Boxtel (https://www.cbs.nl/nl-nl/onze-diensten/methoden/classificaties/overig/gemeentelijke-indelingen-per-jaar/indeling-per-jaar/gemeentelijke-indeling-op-1-januari-2021). Met de opdeling van Haaren is de veiligheidsregio Midden- en West-Brabant iets groter geworden, ten koste van veiligheidsregio Brabant-Noord. 
+Records met [Date_of_report] vanaf 20 januari 2022 t/m 23 maart 2022 zijn samengesteld volgens de gemeente indeling van 1 januari 2022. Gemeente Beemster is opgegaan in gemeente Purmerend. De gemeenten Heerhugowaard en Langedijk zijn samengevoegd tot gemeente Dijk en Waard. Gemeente Landerd is met gemeente Uden samengevoegd tot gemeente Maashorst. De gemeenten Boxmeer, Cuijk, Grave, Mill en Sint Hubert en Sint Anthonis zijn samengevoegd tot de gemeente Land van Cuijk (https://www.cbs.nl/nl-nl/onze-diensten/methoden/classificaties/overig/gemeentelijke-indelingen-per-jaar/indeling-per-jaar/gemeentelijke-indeling-op-1-januari-2021). 
+Records met [Date_of_report] vanaf 24 maart 2022 t/m 31 december 2022 zijn samengesteld volgens de gemeente herindeling van 24 maart 2022. Gemeente Weesp is opgegaan in gemeente Amsterdam. Met deze indeling is de veiligheidsregio Gooi- en Vechtstreek kleiner geworden en de veiligheidsregio Amsterdam-Amstelland groter; GGD Amsterdam is groter geworden en GGD Gooi- en Vechtstreek is kleiner geworden (https://www.cbs.nl/nl-nl/onze-diensten/methoden/classificaties/overig/gemeentelijke-indelingen-per-jaar/indeling-per-jaar/gemeentelijke-indeling-op-1-januari-2021). 
+Records met [Date_of_report] vanaf 1 januari 2023 zijn samengesteld volgens de gemeente herindeling van 1 januari 2023. De gemeenten Brielle, Hellevoetsluis en Westvoorne zijn samen opgegaan in de nieuwe gemeente Voorne aan Zee (Gemeentelijke indeling op 1 januari 2023 (https://www.cbs.nl/nl-nl/onze-diensten/methoden/classificaties/overig/gemeentelijke-indelingen-per-jaar/indeling-per-jaar/gemeentelijke-indeling-op-1-januari-2023)).
+
+Municipality_name: Naam van de gemeente.
+
+Province: Naam van de provincie.
+
+Total_reported: Het aantal aan de GGD’en gemelde personen die positief zijn getest voor SARS-CoV-2 ten tijde van publicatie. Sinds het begin van de COVID-19 epidemie in Nederland is het testbeleid gelijdelijk veranderd. Het huidige testbeleid is hier  te vinden (https://www.rijksoverheid.nl/onderwerpen/coronavirus-covid-19/testen/testbeleid/wijzigingen-testen-vanaf-11-april-2022). Niet alle met SARS-CoV-2 besmette personen worden getest. De werkelijke aantallen in Nederland zijn daarom hoger dan de aantallen die hier genoemd worden.
+
+Hospital_admission: Het aantal door de GGD’en gemelde in het ziekenhuis opgenomen COVID-19 patiënten ten tijde van publicatie. Het werkelijke aantal COVID-19 patiënten opgenomen in het ziekenhuis is hoger dan het aantal opgenomen patiënten gemeld in de surveillance, omdat de GGD niet altijd op de hoogte is van ziekenhuisopname als deze na melding plaatsvindt. Gezien deze onderrapportage is vanaf 18 januari 2022 de variabele ‘hospital_admission’ niet meer geüpdatet, maar op waarde 9999 gezet. 
+Tot 1 juni 2020 werden alleen ernstig zieke mensen met een verdenking op COVID-19 getest. Een groot deel van deze mensen was al, of werd kort daarna opgenomen in het ziekenhuis. Hierdoor waren gedurende de eerste golf de door de GGD geregistreerde ziekenhuisopnames COVID-19 meer volledig. Per 1 juni 2020 kon iedereen zich laten testen en worden meer mensen in een vroeg stadium van de infectie SARS-CoV-2 getest. De GGD wordt niet standaard op de hoogte gebracht van een ziekenhuisopname. Daarom gebruikt het RIVM sinds 6 oktober 2020 actief de geregistreerde ziekenhuisopnames van Stichting NICE (data.rivm.nl/covid-19/COVID-19_ziekenhuisopnames.html ) als leidraad omdat dit een meer volledig beeld geeft dan de door de GGD gemelde ziekenhuisopnames. Klik hier (https://www.rivm.nl/nieuws/aantal-nieuw-gemelde-covid-19-besmettingen-stabiel) voor meer uitleg hierover.
+
+Deceased: Het aantal aan de GGD’en gemelde overleden personen die positief zijn getest voor SARS-CoV-2 ten tijde van publicatie. Het werkelijke aantal overleden personen positief voor SARS-CoV-2 is hoger dan het aantal meldingen in de surveillance, omdat niet alle overleden personen getest worden. Dit komt doordat er geen meldingsplicht geldt voor overlijden van personen met een positieve SARS-CoV-2 testuitslag. Vanaf 1 januari 2023 is deze kolom op 9999 gezet.
+
+--------------------------------------------------------------------------------
+
+Covid-19 cumulative numbers, by municipality
+
+
+The Netherlands has reached an endemic phase for the SARS-CoV-2 virus (coronavirus) and the PHS testing facilities will be closed as of March 17, 2023. As a result, the data will no longer be updated from 1 April 2023.
+
+This file contains the following cumulative numbers:
+- positively tested persons by municipality, per date on which the data were published by the RIVM (from publication date 13 March 2020)
+- hospital admissions (until January 18, 2022) by municipality, per date on which the data were published by the RIVM (from publication date March 13, 2020)
+- number of deaths by municipality (until January 1, 2023), per date on which the data were published by the RIVM (from publication date March 13, 2020)
+The numbers concern COVID-19 reports since the first report in the Netherlands (February 27, 2020).
+
+The file is structured as follows:
+- A set of records by publication date with for each publication date:
+- A record for every municipality in the Netherlands, even if there are no reports for that municipality. The numbers are then 0 (zero). A column for province has also been added. If the municipality is not known, the province is derived from the reporting PHS so that the province is filled for each record.
+
+Description of the variables:
+Version: Version number of the dataset. When the content of the dataset is structurally changed (so not the daily update or a correction at record level), the version number will be adjusted (+1) and also the corresponding metadata in RIVMdata (https://data.rivm.nl).
+Update (16 July 2021):
+- Due to a correction in the processing by the RIVM, a small set of reports has been given a revised hospital admission publication date and death publication date as of 16 July 2021 (concerning columns: Hospital_admission per Date_of_report and Deceased per Date_of_report).
+Version 2 update (January 18, 2022):
+- In version 2 of this dataset, the variable 'hospital_admission' is no longer updated and has been given the value 9999 for records with [Date_of_report] from January 18, 2022. For the number of hospital admissions, reference is made to the registered hospital admissions of the NICE Foundation (https://data.rivm.nl/covid-19/COVID-19_ziekenhuisopnames.html).
+Version 3 update (January 20, 2022):
+- In version 3 of the dataset, records with [Date_of_report] from January 20, 2022 have been compiled according to the municipality reclassification of January 1, 2022. Records with [Date_of_report] before January 20, 2022 have been compiled according to the municipality classifications used by the RIVM on the [Date_of_report]. See description of Municipality_code variable for more information.
+Version 4 update (February 8, 2022)
+- From 8 February 2022, positive SARS-CoV-2 test results will be reported directly from CoronIT to the RIVM. The test results of other test providers (such as Testing for Access) and healthcare institutions (such as hospitals, nursing homes and general practitioners) that enter their positive SARS-CoV-2 test results via the Reporting Portal of GGD GHOR are also reported directly to the RIVM. Reports that are part of the source and contact investigation sample and positive SARS-CoV-2 test results from healthcare institutions that are reported to the PHS via healthcare email are reported to the RIVM via HPZone.
+Version 5 update (March 24, 2022):
+- In version 5 of this dataset, records with [Date_of_report] from March 24, 2022 have been compiled according to the municipality reclassification of March 24, 2022. Records with [Date_of_report] before March 24, 2022 have been compiled according to the municipality classifications used by the RIVM on the [Date_of_report]. See description of Municipality_code variable for more information.
+Version 6 update (April 6, 2022):
+- From April 9, 2022 there will no longer be open data publication on weekends and public holidays* (days off). This affects various variables in the open data files. The new variable [Date_of_publication] is retroactively updated for the holidays on the next business day. This prevents a peak from accumulating reports after a day off.
+*Official holidays that are not reported on are: New Year's Day, Easter Monday, King's Day, Liberation Day, Ascension Day, Whit Monday, Christmas Day and Boxing Day.
+Version 7 update (September 1, 2022):
+- From September 1, 2022, open data will be updated on Tuesdays and Fridays. This affects various variables in the open data files. The [Date_of_publication] variable is retroactively updated on Tuesdays for Saturdays, Sundays, and Mondays. On Fridays, the [Date_of_publication] variable is updated for Wednesdays and Thursdays on Fridays.
+Version 8 update (January 3, 2023):
+- In version 8 of the dataset, records with [Date_of_report] from January 1, 2023 have been compiled according to the municipality reclassification of January 1, 2023. Records with [Date_of_report] before January 1, 2023 have been compiled according to the municipality classifications used by the RIVM on the [Date_of_report]. See description of Municipality_code variable for more information.
+- As of 1 January 2023, the RIVM will no longer collect additional information. As a result, we will no longer report deaths from 1 January 2023. For this reason, the [Deceased] column will be set to 9999 from January 1, 2023.
+
+Date_of_report: This concerns the number of new reports received by the RIVM per date. The time period in which the report is passed on runs from 10:01 a.m. on the last working day to 10:00 a.m. on the next working day. The publication date may differ from the date of the positive test result. This can happen if a report of a positive SARS-CoV-2 test is passed on later by a PHS to the RIVM. This file contains the most up-to-date notifications based on the OSIRS source file. If corrections are made in OSIRIS, these corrections will also be processed in this file.
+
+Date_of_publication: This concerns the number of new reports that have been received by the RIVM per day. The time period in which the report was transferred falls in blocks of 24 hours from 10:01 am to 10:00 am the following day. This variable is retroactively updated for the holidays on the next business day.
+
+Municipality_code: Municipality code. Municipal classification based on the postal code of the place of residence of the person who tested positive for SARS-CoV-2, coded according to Statistics Netherlands (CBS).
+Since the first publication date of March 13, 2020 until the version 3 update of January 20, 2022, 3 municipal reorganizations have taken place.
+Records with [Date of report] for January 7, 2021 are compiled according to the municipality classification of 2020.
+Records with [Date_of_report] from January 7, 2021 to January 19, 2022 are compiled according to the municipality division of January 1, 2021: Municipalities of Appingedam, Delfzijl and Loppersum have been merged into the new municipality of Eemsdelta Gr. The municipality of Haaren has merged into the municipalities of Oisterwijk, Tilburg, Vught and Boxtel (https://www.cbs.nl/nl-nl/onze-diensten/methoden/classificaties/overig/gemeentelijke-indelingen-per-jaar/indeling-per-jaar/gemeentelijke-indeling-op-1-januari-2021). With the division of Haaren, the Midden- en West Brabant security region has become slightly larger, at the expense of the North Brabant security region.
+Records with [Date_of_report] from January 20, 2022 to March 23, 2022 are compiled according to the municipality classification of January 1, 2022. The municipality of Beemster has been merged into the municipality of Purmerend. The municipalities of Heerhugowaard and Langedijk have been merged into the municipality of Dijk en Waard. The municipality of Landerd has been merged with the municipality of Uden to form the municipality of Maashorst. The municipalities of Boxmeer, Cuijk, Grave, Mill and Sint Hubert and Sint Anthonis have been merged into the municipality of Land van Cuijk (https://www.cbs.nl/nl-nl/onze-diensten/methoden/classificaties/overig/gemeentelijke-indelingen-per-jaar/indeling-per-jaar/gemeentelijke-indeling-op-1-januari-2021).
+Records with [Date_of_report] from March 24, 2022 to December 31, 2022 are compiled according to the municipality reclassification of March 24, 2022. The municipality of Weesp has been merged into the municipality of Amsterdam. With this merger, the Gooi- en Vechtstreek security region has become smaller and the Amsterdam-Amstelland security region larger; GGD Amsterdam has become larger and GGD Gooi- en Vechtstreek has become smaller (https://www.cbs.nl/nl-nl/onze-diensten/methoden/classificaties/overig/gemeentelijke-indelingen-per-jaar/indeling-per-jaar/gemeentelijke-indeling-op-1-januari-2021).
+Records with [Date_of_report] from January 1, 2023 have been compiled according to the municipality reorganization of January 1, 2023. The municipalities of Brielle, Hellevoetsluis and Westvoorne have merged into the new municipality of Voorne aan Zee (Municipal division on January 1, 2023 (https://www.cbs.nl/nl-nl/onze-diensten/methoden/classificaties/overig/gemeentelijke-indelingen-per-jaar/indeling-per-jaar/gemeentelijke-indeling-op-1-januari-2023)).
+
+Municipality_name: Name of the municipality.
+
+Province: Name of the province.
+
+Total_reported: The number of persons reported to the PHSs who tested positive for SARS-CoV-2 at the time of publication. Since the start of the COVID-19 epidemic in the Netherlands, testing policy has gradually changed. The current testing policy can be found here (https://www.rijksoverheid.nl/onderwerpen/coronavirus-covid-19/testen/testbeleid/wijzigingen-testen-vanaf-11-april-2022). Not all persons infected with SARS-CoV-2 are tested. The actual numbers in the Netherlands are therefore higher than the numbers reported here.
+
+Hospital_admission: The number of COVID-19 patients admitted to hospital reported by the PHSs at the time of publication. The actual number of COVID-19 patients admitted to hospital is higher than the number of admitted patients reported in the surveillance, because the PHS is not always aware of hospitalization if it occurs after notification. Given this underreporting, the variable 'hospital_admission' has not been updated since January 18, 2022, but has been set to the value 9999.
+Until June 1, 2020, only seriously ill people with suspected COVID-19 were tested. A large proportion of these people had already been or were admitted to the hospital shortly afterwards. As a result, hospital admissions for COVID-19 registered by the PHS were more complete during the first wave. As of June 1, 2020, everyone could get tested and more people were being tested at an early stage of the SARS-CoV-2 infection. The PHS is not routinely informed of a hospital admission. That is why, since October 6, 2020, the RIVM has been actively using the registered hospital admissions of the NICE Foundation (data.rivm.nl/covid-19/COVID-19_ziekenhuisschoten.html ) as a guideline because this provides a more complete picture than the hospital admissions reported by the PHS. Click here (https://www.rivm.nl/nieuws/aantal-nieuw-gemelde-covid-19-besmettingen-stabiel) for more information on this.
+
+Deceased: The number of deceased persons reported to the PHSs who tested positive for SARS-CoV-2 at the time of publication. The actual number of deceased persons positive for SARS-CoV-2 is higher than the number of reports in the surveillance, because not all deceased persons are tested. This is because there is no obligation to report the death of persons with a positive SARS-CoV-2 test result. From January 1, 2023, this column is set to 9999.""" ;
+    dcterms:identifier "4e1af1a5-d602-4425-b799-6ada8549fe0d" ;
+    dcterms:issued "2020-04-30" ;
+    dcterms:language "dut" ;
+    dcterms:license "Geen beperkingen",
+        "http://creativecommons.org/publicdomain/mark/1.0/deed.nl" ;
+    dcterms:publisher <https://data.rivm.nl/meta/srv/resources/organizations/RIVM%2FI%26V%2FEPI> ;
+    dcterms:spatial [ a <http://www.opengis.net/rdf#Polygon> ;
+            geo:asWKT """
+            Polygon((3.37 50.75, 3.37 53.47, 7.21 53.47, 7.21 50.75, 3.37 50.75))
+          """^^<http://www.opengis.net/rdf#wktLiteral> ] ;
+    dcterms:title "Covid-19 cumulatieve aantallen per gemeente" ;
+    dcterms:updated "2021-01-06" ;
+    dcat:dataQuality "OSIRIS Algemene Infectieziekten (AIZ)" ;
+    dcat:distribution <https://data.rivm.nl/meta/records/1c0fcd57-1102-4620-9cfa-441e93ea5604#download-COVID-19_aantallen_gemeente_cumulatief.csv>,
+        <https://data.rivm.nl/meta/records/1c0fcd57-1102-4620-9cfa-441e93ea5604#download-COVID-19_aantallen_gemeente_cumulatief.json> ;
+    dcat:granularity "10000" ;
+    dcat:keyword "Coronavirus",
+        "SARS-CoV-2",
+        "coronavirus",
+        "covid-19",
+        "cumulatieve aantallen",
+        "cumulative",
+        "gezondheid",
+        "health",
+        "hospital admissions",
+        "infectieziekten",
+        "infectious diseases",
+        "number of deaths",
+        "positief geteste personen",
+        "positively tested persons",
+        "sars-cov-2",
+        "sterfgevallen",
+        "ziekenhuisopnames" ;
+    dcat:theme <https://inspire.ec.europa.eu/metadata-codelist/TopicCategory/health> .
+
+<https://data.who.int/dashboards/covid19/data> ns4:description "<p>Updated quarterly</p>" ;
+    ns4:locale "en_US" ;
+    ns4:site_name "datadot" ;
+    ns4:title "COVID-19 data | WHO COVID-19 dashboard" ;
+    ns4:type "website" ;
+    ns4:url "https://data.who.int/dashboards/covid19/data" .
+
+<https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/JGO6VI> ns4:description "Supernovae are dying stars whose light curves change in certain special patterns, which helps astronomers infer the expansion coefficient of the Un..."@en ;
+    ns4:image "https://dataverse.harvard.edu/jakarta.faces.resource/images/dataverse-icon-1200.png.xhtml"@en ;
+    ns4:site_name "Harvard Dataverse"@en ;
+    ns4:title "Supernova Detection Datasets"@en ;
+    ns4:type "article"@en ;
+    ns4:url "https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/JGO6VI"@en ;
+    ns6:author "Yin, Kai"@en ;
+    ns6:published_time "2020-11-16"@en .
+
+<https://doi.org/10.1594/PANGAEA.908011> a ns1:Dataset ;
+    ns1:abstract "This data set contains unpublished measurements of the maximum diameter of shells of the planktic foraminifer Neogloboquadrina pachyderma sin. carried out on surface sediment samples from the Norwegian-Greenland Sea." ;
+    ns1:conditionsOfAccess "unrestricted" ;
+    ns1:creator <https://orcid.org/0000-0003-3000-0020> ;
+    ns1:datePublished "2019-11-01"^^ns1:Date ;
+    ns1:description "This data set contains unpublished measurements of the maximum diameter of shells of the planktic foraminifer Neogloboquadrina pachyderma sin. carried out on surface sediment samples from the Norwegian-Greenland Sea." ;
+    ns1:distribution [ a ns1:DataDownload ;
+            ns1:contentUrl <https://doi.pangaea.de/10.1594/PANGAEA.908011?format=html> ;
+            ns1:encodingFormat "text/html" ],
+        [ a ns1:DataDownload ;
+            ns1:contentUrl <https://doi.pangaea.de/10.1594/PANGAEA.908011?format=html> ;
+            ns1:encodingFormat "text/html" ],
+        [ a ns1:DataDownload ;
+            ns1:contentUrl <https://doi.pangaea.de/10.1594/PANGAEA.908011?format=textfile> ;
+            ns1:encodingFormat "text/tab-separated-values" ],
+        [ a ns1:DataDownload ;
+            ns1:contentUrl <https://doi.pangaea.de/10.1594/PANGAEA.908011?format=textfile> ;
+            ns1:encodingFormat "text/tab-separated-values" ],
+        [ a ns1:DataDownload ;
+            ns1:contentUrl <https://doi.pangaea.de/10.1594/PANGAEA.908011?format=html> ;
+            ns1:encodingFormat "text/html" ],
+        [ a ns1:DataDownload ;
+            ns1:contentUrl <https://doi.pangaea.de/10.1594/PANGAEA.908011?format=textfile> ;
+            ns1:encodingFormat "text/tab-separated-values" ] ;
+    ns1:identifier "https://doi.org/10.1594/PANGAEA.908011" ;
+    ns1:inLanguage "en" ;
+    ns1:includedInDataCatalog [ a ns1:DataCatalog ;
+            ns1:disambiguatingDescription "Data Publisher for Earth & Environmental Science" ;
+            ns1:name "PANGAEA" ;
+            ns1:url <https://www.pangaea.de/> ],
+        [ a ns1:DataCatalog ;
+            ns1:disambiguatingDescription "Data Publisher for Earth & Environmental Science" ;
+            ns1:name "PANGAEA" ;
+            ns1:url <https://www.pangaea.de/> ],
+        [ a ns1:DataCatalog ;
+            ns1:disambiguatingDescription "Data Publisher for Earth & Environmental Science" ;
+            ns1:name "PANGAEA" ;
+            ns1:url <https://www.pangaea.de/> ] ;
+    ns1:isAccessibleForFree true ;
+    ns1:license <https://creativecommons.org/licenses/by/4.0/> ;
+    ns1:name "Maximum diameter of Neogloboquadrina pachyderma sinistral from surface sediment samples from the Norwegian-Greenland Sea" ;
+    ns1:publisher [ a ns1:Organization ;
+            ns1:disambiguatingDescription "Data Publisher for Earth & Environmental Science" ;
+            ns1:name "PANGAEA" ;
+            ns1:url <https://www.pangaea.de/> ],
+        [ a ns1:Organization ;
+            ns1:disambiguatingDescription "Data Publisher for Earth & Environmental Science" ;
+            ns1:name "PANGAEA" ;
+            ns1:url <https://www.pangaea.de/> ],
+        [ a ns1:Organization ;
+            ns1:disambiguatingDescription "Data Publisher for Earth & Environmental Science" ;
+            ns1:name "PANGAEA" ;
+            ns1:url <https://www.pangaea.de/> ] ;
+    ns1:size [ a ns1:QuantitativeValue ;
+            ns1:unitText "data points" ;
+            ns1:value 9.02e+02 ],
+        [ a ns1:QuantitativeValue ;
+            ns1:unitText "data points" ;
+            ns1:value 9.02e+02 ],
+        [ a ns1:QuantitativeValue ;
+            ns1:unitText "data points" ;
+            ns1:value 9.02e+02 ] ;
+    ns1:spatialCoverage [ a ns1:Place ;
+            ns1:geo [ a ns1:GeoShape ;
+                    ns1:box "53.538333333333 -31.086333333333 85.3277 15.74933" ;
+                    ns1:elevation "-4457.0m/-898.0m" ] ],
+        [ a ns1:Place ;
+            ns1:geo [ a ns1:GeoShape ;
+                    ns1:box "53.538333333333 -31.086333333333 85.3277 15.74933" ;
+                    ns1:elevation "-4457.0m/-898.0m" ] ],
+        [ a ns1:Place ;
+            ns1:geo [ a ns1:GeoShape ;
+                    ns1:box "53.538333333333 -31.086333333333 85.3277 15.74933" ;
+                    ns1:elevation "-4457.0m/-898.0m" ] ] ;
+    ns1:temporalCoverage "1984-08-10T00:00:00/1993-09-09T00:00:00" ;
+    ns1:url <https://doi.pangaea.de/10.1594/PANGAEA.908011> ;
+    ns1:variableMeasured [ a ns1:PropertyValue ;
+            ns1:measurementTechnique "Scanning electron microscope (SEM)" ;
+            ns1:name "Neogloboquadrina pachyderma sinistral, maximum diameter" ;
+            ns1:subjectOf [ a ns1:DefinedTermSet ;
+                    ns1:hasDefinedTerm [ a ns1:DefinedTerm ;
+                            ns1:name "maximum" ],
+                        <http://qudt.org/1.1/vocab/quantity#Length>,
+                        <urn:obo:pato:term:0001334> ] ;
+            ns1:unitText "µm" ],
+        [ a ns1:PropertyValue ;
+            ns1:name "Event label" ],
+        [ a ns1:PropertyValue ;
+            ns1:measurementTechnique "Scanning electron microscope (SEM)" ;
+            ns1:name "Neogloboquadrina pachyderma sinistral, maximum diameter" ;
+            ns1:subjectOf [ a ns1:DefinedTermSet ;
+                    ns1:hasDefinedTerm [ a ns1:DefinedTerm ;
+                            ns1:name "maximum" ],
+                        <http://qudt.org/1.1/vocab/quantity#Length>,
+                        <urn:obo:pato:term:0001334> ] ;
+            ns1:unitText "µm" ],
+        [ a ns1:PropertyValue ;
+            ns1:measurementTechnique "Scanning electron microscope (SEM)" ;
+            ns1:name "Neogloboquadrina pachyderma sinistral, maximum diameter" ;
+            ns1:subjectOf [ a ns1:DefinedTermSet ;
+                    ns1:hasDefinedTerm [ a ns1:DefinedTerm ;
+                            ns1:name "maximum" ],
+                        <http://qudt.org/1.1/vocab/quantity#Length>,
+                        <urn:obo:pato:term:0001334> ] ;
+            ns1:unitText "µm" ],
+        [ a ns1:PropertyValue ;
+            ns1:name "Event label" ],
+        [ a ns1:PropertyValue ;
+            ns1:name "Event label" ] .
+
+<https://doi.org/10.7910/DVN/JGO6VI> a ns1:Dataset ;
+    ns1:author <https://orcid.org/0000-0002-9248-6858> ;
+    ns1:creator <https://orcid.org/0000-0002-9248-6858> ;
+    ns1:dateModified "2020-11-16"^^ns1:Date ;
+    ns1:datePublished "2020-11-15"^^ns1:Date ;
+    ns1:description "Supernovae are dying stars whose light curves change in certain special patterns, which helps astronomers infer the expansion coefficient of the Universe. A series of sky surveys were launched in search of supernovae and generated tremendous amount of data, which pushed astronomy into a new era of big data. While the traditional machine learning methods performs well to deal with such data, the deep learning methods such as convolutional neural networks demonstrate more powerful adaptability for big data in this area. However, most data in the existing works are either simulated or without generality. To address these problems, we collected and sorted all the known objectives of the Pan-STARRS and the Popular Supernova Project (PSP) and produced two datasets and then compared the YOLOv3 and the FCOS algorithm on them." ;
+    ns1:distribution [ a ns1:DataDownload ;
+            ns1:contentSize 524288000 ;
+            ns1:contentUrl <https://dataverse.harvard.edu/api/access/datafile/4174486> ;
+            ns1:fileFormat "application/octet-stream" ;
+            ns1:name "Panstarrs.z02" ],
+        [ a ns1:DataDownload ;
+            ns1:contentSize 120612836 ;
+            ns1:contentUrl <https://dataverse.harvard.edu/api/access/datafile/4174452> ;
+            ns1:fileFormat "application/zip" ;
+            ns1:name "PSP_ori.zip" ],
+        [ a ns1:DataDownload ;
+            ns1:contentSize 1057126833 ;
+            ns1:contentUrl <https://dataverse.harvard.edu/api/access/datafile/4174522> ;
+            ns1:fileFormat "application/zip" ;
+            ns1:name "hybrid1-1.zip" ],
+        [ a ns1:DataDownload ;
+            ns1:contentSize 524288000 ;
+            ns1:contentUrl <https://dataverse.harvard.edu/api/access/datafile/4174486> ;
+            ns1:fileFormat "application/octet-stream" ;
+            ns1:name "Panstarrs.z02" ],
+        [ a ns1:DataDownload ;
+            ns1:contentSize 524288000 ;
+            ns1:contentUrl <https://dataverse.harvard.edu/api/access/datafile/4174488> ;
+            ns1:fileFormat "application/octet-stream" ;
+            ns1:name "Panstarrs.z01" ],
+        [ a ns1:DataDownload ;
+            ns1:contentSize 586235600 ;
+            ns1:contentUrl <https://dataverse.harvard.edu/api/access/datafile/4174458> ;
+            ns1:fileFormat "application/zip" ;
+            ns1:name "PSP_aug.zip" ],
+        [ a ns1:DataDownload ;
+            ns1:contentSize 468155563 ;
+            ns1:contentUrl <https://dataverse.harvard.edu/api/access/datafile/4174464> ;
+            ns1:description "Panstarrs Dataset" ;
+            ns1:fileFormat "application/zip" ;
+            ns1:name "Panstarrs.zip" ],
+        [ a ns1:DataDownload ;
+            ns1:contentSize 524288000 ;
+            ns1:contentUrl <https://dataverse.harvard.edu/api/access/datafile/4174488> ;
+            ns1:fileFormat "application/octet-stream" ;
+            ns1:name "Panstarrs.z01" ],
+        [ a ns1:DataDownload ;
+            ns1:contentSize 120612836 ;
+            ns1:contentUrl <https://dataverse.harvard.edu/api/access/datafile/4174452> ;
+            ns1:fileFormat "application/zip" ;
+            ns1:name "PSP_ori.zip" ],
+        [ a ns1:DataDownload ;
+            ns1:contentSize 586235600 ;
+            ns1:contentUrl <https://dataverse.harvard.edu/api/access/datafile/4174458> ;
+            ns1:fileFormat "application/zip" ;
+            ns1:name "PSP_aug.zip" ],
+        [ a ns1:DataDownload ;
+            ns1:contentSize 524288000 ;
+            ns1:contentUrl <https://dataverse.harvard.edu/api/access/datafile/4174487> ;
+            ns1:fileFormat "application/octet-stream" ;
+            ns1:name "Panstarrs.z03" ],
+        [ a ns1:DataDownload ;
+            ns1:contentSize 524288000 ;
+            ns1:contentUrl <https://dataverse.harvard.edu/api/access/datafile/4174487> ;
+            ns1:fileFormat "application/octet-stream" ;
+            ns1:name "Panstarrs.z03" ],
+        [ a ns1:DataDownload ;
+            ns1:contentSize 468155563 ;
+            ns1:contentUrl <https://dataverse.harvard.edu/api/access/datafile/4174464> ;
+            ns1:description "Panstarrs Dataset" ;
+            ns1:fileFormat "application/zip" ;
+            ns1:name "Panstarrs.zip" ],
+        [ a ns1:DataDownload ;
+            ns1:contentSize 1057126833 ;
+            ns1:contentUrl <https://dataverse.harvard.edu/api/access/datafile/4174522> ;
+            ns1:fileFormat "application/zip" ;
+            ns1:name "hybrid1-1.zip" ] ;
+    ns1:identifier "https://doi.org/10.7910/DVN/JGO6VI" ;
+    ns1:includedInDataCatalog [ a ns1:DataCatalog ;
+            ns1:name "Harvard Dataverse" ;
+            ns1:url <https://dataverse.harvard.edu> ],
+        [ a ns1:DataCatalog ;
+            ns1:name "Harvard Dataverse" ;
+            ns1:url <https://dataverse.harvard.edu> ] ;
+    ns1:keywords "Astronomy and Astrophysics",
+        "Computer and Information Science" ;
+    ns1:license [ a ns1:Dataset ;
+            ns1:text "CC0" ;
+            ns1:url <https://creativecommons.org/publicdomain/zero/1.0/> ],
+        [ a ns1:Dataset ;
+            ns1:text "CC0" ;
+            ns1:url <https://creativecommons.org/publicdomain/zero/1.0/> ] ;
+    ns1:name "Supernova Detection Datasets" ;
+    ns1:provider [ a ns1:Organization ;
+            ns1:name "Harvard Dataverse" ],
+        [ a ns1:Organization ;
+            ns1:name "Harvard Dataverse" ] ;
+    ns1:publisher [ a ns1:Organization ;
+            ns1:name "Harvard Dataverse" ],
+        [ a ns1:Organization ;
+            ns1:name "Harvard Dataverse" ] ;
+    ns1:version "4" .
+
+<https://tess.elixir-europe.org/materials/make-your-research-fairer-with-quarto-github-and-zenodo> a ns1:LearningResource ;
+    ns4:description """<h1>Overview</h1>
+
+<p>The FAIR (Findable, Accessible, Interoperable and Reusable) principles provide guidelines for making research data and other resources more easily discoverable and reusable, which can help increase your research's impact and exposure. Adhering to these principles also ensures that your research is more reliable and reproducible, as others can more easily access and provide feedback. In addition, making your research FAIR can promote the principles of open science and make it easier for others to contribute to and build upon your work. Finally, many funding agencies and journals now expect that your research outputs be made FAIR as a condition of funding or publication, so adhering to these principles can help to ensure that your research meets these requirements.</p>
+
+<p>Sharing and reusing data, software, and documentation is essential to the FAIR principles and should be a routine task for scientists. Researchers can achieve this by providing all necessary information (data, software and parameters used, scripts for the analysis, databases and their versions) and using markdown to create a single file that can be easily shared as a web page.</p>
+
+<h1>Audience</h1>
+
+<p>This course is addressed to computational biologists, bioinformaticians, researchers, scientists and trainers working in the life sciences who want to learn how to make their research and training FAIRer with reproducible notebooks and websites.</p>
+
+<h1>Learning outcomes</h1>
+
+<p>In this course, participants will learn tools and concepts to take significant steps towards adhering to the FAIR principles, which will enhance the benefits of sharing and collaboration in research. More specifically, at the end of the course, the participants are expected to:<br>
+* Create notebooks and websites based on Markdown, and Python or R with Quarto<br>
+* Use Git and GitHub to version control the generated content<br>
+* Host a website by making use of GitHub actions and GitHub pages<br>
+*  Link the GitHub repository to Zenodo and give it a unique identiﬁer (DOI)</p>
+
+<h1>Prerequisites</h1>
+
+<h5>Knowledge / competencies</h5>
+
+<p>Participants are expected to have an introductory level in programming with R or Python. </p>
+
+<h5>Technical</h5>
+
+<p>Participants should have a GitHub account and bring their laptops with either the latest versions of RStudio or VSCode pre-installed.</p>
+
+<h1>Schedule - CET time zone</h1>
+
+<h1>Application</h1>
+
+<p>The registration fees for academics are 100 CHF and 500 CHF for for-profit companies.</p>
+
+<p>While participants are registered on a first come, first served basis, exceptions may be made to ensure diversity and equity, which may increase the time before your registration is confirmed.</p>
+
+<p>You will be informed by email of your registration confirmation. Upon reception of the confirmation email, participants will be asked to confirm attendance by paying the fees within 5 days.</p>
+
+<p>Applications close on 28.06.2024 or as soon as the maximum capacity has been reached. Deadline for free-of-charge cancellation is set to 28.06.2024. Cancellation after this date will not be reimbursed. Please note that participation in SIB courses is subject to our <a href="https://www.sib.swiss/training/terms-and-conditions" target="_blank" rel="noopener">general conditions</a>.</p>
+
+<h1>Venue and Time</h1>
+
+<p>This course will be streamed. </p>
+
+<p>The course will start at 9:00 and end around 17:00. </p>
+
+<p>Precise information will be provided to the participants in due time.</p>
+
+<h1>Additional information</h1>
+
+<p>Coordination: Grégoire Rossier</p>
+
+<p>We will recommend 0.25 ECTS credits for this course (given a passed exam at the end of the course).</p>
+
+<p>You are welcome to register to the SIB courses mailing list to be informed of all future courses and workshops, as well as all important deadlines using the form <a href="https://lists.sib.swiss/mailman/listinfo/courses" target="_blank" rel="noopener">here</a>.</p>
+
+<p>Please note that participation in SIB courses is subject to our <a href="https://www.sib.swiss/training/terms-and-conditions" target="_blank" rel="noopener">general conditions</a>.</p>
+
+<p>SIB abides by the <a href="https://elixir-europe.org/events/code-of-conduct" target="_blank" rel="noopener">ELIXIR Code of Conduct</a>. Participants of SIB courses are also required to abide by the same code.</p>
+
+<p>For more information, please contact <a href="mailto://training@sib.swiss" target="_blank" rel="noopener">training@sib.swiss</a>.</p>
+""" ;
+    ns4:image "https://tess.elixir-europe.org/assets/elixir/elixir-tess-219b707c4912e9c46c917a24ce72b464ec9f2fd56ce03dbcee8b2f6b9ac98a44.svg" ;
+    ns4:title "Make your research FAIRer with Quarto, GitHub and Zenodo" ;
+    ns4:url "https://tess.elixir-europe.org/materials/make-your-research-fairer-with-quarto-github-and-zenodo" ;
+    dcterms:conformsTo <https://bioschemas.org/profiles/TrainingMaterial/1.0-RELEASE> ;
+    ns1:author [ a ns1:Person ;
+            ns1:name "SIB Swiss Institute of Bioinformatics" ],
+        [ a ns1:Person ;
+            ns1:name "Geert van Geest and Wandrille Duchemin" ],
+        [ a ns1:Person ;
+            ns1:name "SIB Swiss Institute of Bioinformatics" ],
+        [ a ns1:Person ;
+            ns1:name "Geert van Geest and Wandrille Duchemin" ] ;
+    ns1:description """# Overview
+The FAIR (Findable, Accessible, Interoperable and Reusable) principles provide guidelines for making research data and other resources more easily discoverable and reusable, which can help increase your research's impact and exposure. Adhering to these principles also ensures that your research is more reliable and reproducible, as others can more easily access and provide feedback. In addition, making your research FAIR can promote the principles of open science and make it easier for others to contribute to and build upon your work. Finally, many funding agencies and journals now expect that your research outputs be made FAIR as a condition of funding or publication, so adhering to these principles can help to ensure that your research meets these requirements.
+
+Sharing and reusing data, software, and documentation is essential to the FAIR principles and should be a routine task for scientists. Researchers can achieve this by providing all necessary information (data, software and parameters used, scripts for the analysis, databases and their versions) and using markdown to create a single file that can be easily shared as a web page.
+
+# Audience
+This course is addressed to computational biologists, bioinformaticians, researchers, scientists and trainers working in the life sciences who want to learn how to make their research and training FAIRer with reproducible notebooks and websites.
+
+# Learning outcomes
+In this course, participants will learn tools and concepts to take significant steps towards adhering to the FAIR principles, which will enhance the benefits of sharing and collaboration in research. More specifically, at the end of the course, the participants are expected to:
+* Create notebooks and websites based on Markdown, and Python or R with Quarto
+* Use Git and GitHub to version control the generated content
+* Host a website by making use of GitHub actions and GitHub pages
+*  Link the GitHub repository to Zenodo and give it a unique identiﬁer (DOI)
+
+# Prerequisites
+##### Knowledge / competencies
+Participants are expected to have an introductory level in programming with R or Python. 
+##### Technical
+Participants should have a GitHub account and bring their laptops with either the latest versions of RStudio or VSCode pre-installed.
+
+# Schedule - CET time zone
+
+# Application
+The registration fees for academics are 100 CHF and 500 CHF for for-profit companies.
+
+While participants are registered on a first come, first served basis, exceptions may be made to ensure diversity and equity, which may increase the time before your registration is confirmed.
+
+You will be informed by email of your registration confirmation. Upon reception of the confirmation email, participants will be asked to confirm attendance by paying the fees within 5 days.
+
+Applications close on 28.06.2024 or as soon as the maximum capacity has been reached. Deadline for free-of-charge cancellation is set to 28.06.2024. Cancellation after this date will not be reimbursed. Please note that participation in SIB courses is subject to our [general conditions](https://www.sib.swiss/training/terms-and-conditions).
+
+# Venue and Time
+This course will be streamed. 
+
+The course will start at 9:00 and end around 17:00. 
+
+Precise information will be provided to the participants in due time.
+
+
+#  Additional information
+Coordination: Grégoire Rossier
+
+We will recommend 0.25 ECTS credits for this course (given a passed exam at the end of the course).
+
+You are welcome to register to the SIB courses mailing list to be informed of all future courses and workshops, as well as all important deadlines using the form [here](https://lists.sib.swiss/mailman/listinfo/courses).
+
+Please note that participation in SIB courses is subject to our [general conditions](https://www.sib.swiss/training/terms-and-conditions).
+
+SIB abides by the [ELIXIR Code of Conduct](https://elixir-europe.org/events/code-of-conduct). Participants of SIB courses are also required to abide by the same code.
+
+For more information, please contact [training@sib.swiss](mailto://training@sib.swiss).""" ;
+    ns1:educationalLevel "beginner" ;
+    ns1:keywords "FAIR",
+        "data management",
+        "reproducible research" ;
+    ns1:license <https://tess.elixir-europe.org/materials/notspecified> ;
+    ns1:name "Make your research FAIRer with Quarto, GitHub and Zenodo" ;
+    ns1:url <https://sib-swiss.github.io/reproducible-analysis-training/> .
+
+<https://www.data.gouv.fr/en/datasets/donnees-relatives-a-lepidemie-de-covid-19-en-france-vue-densemble/5f69ecb155c43420918410b8> a ns1:Dataset ;
+    ns1:alternateName "donnees-relatives-a-lepidemie-de-covid-19-en-france-vue-densemble" ;
+    ns1:author <https://www.data.gouv.fr/en/datasets/donnees-relatives-a-lepidemie-de-covid-19-en-france-vue-densemble/534fff94a3a7292c64a77fc1> ;
+    ns1:dateCreated "2020-09-22T14:23:13.380000"^^ns1:Date ;
+    ns1:dateModified "2023-09-13T15:44:12.982000"^^ns1:Date ;
+    ns1:description "Point d&apos;attention : les données sont désormais disponibles sur ce jeu de données. Tableau de bord de suivi de l&apos;épidémie Les données sont exposées sur l&apos;onglet vue d&apos;ensemble du tableau de bord de suivi de l&apos;épidémie disponible sur gouvernement.fr. Ce dernier présente depuis le 28 mars 2020 les données relatives à l’épidémie de COVID-19 en France. Cet outil dont le code source est libre, a été développé sous l’impulsion d’Etalab et avec la collaboration de la société civile. Il propose une vision consolidée des données officielles disponibles. Description du jeu de données Les données contenue dans le jeu de données sont publiées quotidiennement. Données sur le nombre de cas confirmés Cas confirmés : nombre cumulé de cas COVID-19 confirmé par un test positif. Données relatives à la situation hospitalière Hospitalisations : nombre de patients actuellement hospitalisés pour COVID-19. Nouveaux patients hospitalisés : nombre de nouveaux patients hospitalisés au cours des dernières 24 h. Retours à domicile : nombre cumulé de patients ayant été hospitalisés pour COVID-19 et de retour à domicile en raison de l&apos;amélioration de leur état de santé. Réanimation : nombre de patients actuellement en réanimation ou soins intensifs. Nouveaux patients en réanimation : nombre de nouveaux patients admis en réanimation au cours des dernières 24 h. Données relatives au décès pour cause de COVID-19 Cumul des décès : cumul des décès constaté à l&apos;hôpital et en EPHAD et EMS. Décès à l&apos;hôpital : nombre cumulé de décès de patients hospitalisés pour COVID-19 depuis le 1er mars 2020. Cas confirmés en EHPAD et EMS : nombre de cas confirmés par test PCR en EHPAD et EMS. Ce chiffre est inclus dans le nombre total de cas confirmés. Décès en EHPAD : nombre cumulé de décès en EHPAD et EMS (Établissements médico-sociaux). Points d&apos;attentions : Les méthodes de collecte des données ont évoluées dans le temps ; Au cours de l&apos;été 2020, les données n&apos;ont pas été publiées durant les week-end et jours fériés. Ressources Consulter le tableau de bord Consulter l&apos;inventaire des données relatives au COVID-19 sur data.gouv.fr Consulter les données de Santé publique France Consulter les données du ministère des Solidarités et de la Santé" ;
+    ns1:distribution <https://www.data.gouv.fr/en/datasets/donnees-relatives-a-lepidemie-de-covid-19-en-france-vue-densemble/d2671c6c-c0eb-4e12-b69a-8e8f87fc224c>,
+        <https://www.data.gouv.fr/en/datasets/donnees-relatives-a-lepidemie-de-covid-19-en-france-vue-densemble/d3a98a30-893f-47f7-96c5-2f4bcaaa0d71> ;
+    ns1:keywords "corona,coronavirus,covid,covid19,deces,ehpad,ems,hospitalisation,mort,mortalite,reanimation,test" ;
+    ns1:license <https://www.etalab.gouv.fr/licence-ouverte-open-licence> ;
+    ns1:name "Données relatives à l’épidémie de COVID-19 en France : vue d’ensemble" ;
+    ns1:url <https://www.data.gouv.fr/en/datasets/donnees-relatives-a-lepidemie-de-covid-19-en-france-vue-densemble/> .
+
+<http://orcid.org/0000-0003-4874-2874> a <schema:Person> .
+
+<https://bio.tools/bwa/op_2/in_2> a <http://bioschemas.org/types/FormalParameter> ;
+    ns1:identifier "http://edamontology.org/data_2044" ;
+    ns1:name "Sequence" ;
+    ns1:sameAs "http://edamontology.org/data_2044" .
+
+<https://bio.tools/bwa/op_3/in_2> a <http://bioschemas.org/types/FormalParameter> ;
+    ns1:identifier "http://edamontology.org/data_2044" ;
+    ns1:name "Sequence" ;
+    ns1:sameAs "http://edamontology.org/data_2044" .
+
+<https://bio.tools/bwa/op_4/in_2> a <http://bioschemas.org/types/FormalParameter> ;
+    ns1:identifier "http://edamontology.org/data_2044" ;
+    ns1:name "Sequence" ;
+    ns1:sameAs "http://edamontology.org/data_2044" .
+
+<https://bio.tools/bwa/op_4/in_3> a <http://bioschemas.org/types/FormalParameter> ;
+    ns1:identifier "http://edamontology.org/data_2044" ;
+    ns1:name "Sequence" ;
+    ns1:sameAs "http://edamontology.org/data_2044" .
+
+<https://bio.tools/bwa/op_5/in_2> a <http://bioschemas.org/types/FormalParameter> ;
+    ns1:identifier "http://edamontology.org/data_2044" ;
+    ns1:name "Sequence" ;
+    ns1:sameAs "http://edamontology.org/data_2044" .
+
+<https://bio.tools/bwa/op_5/in_3> a <http://bioschemas.org/types/FormalParameter> ;
+    ns1:identifier "http://edamontology.org/data_2044" ;
+    ns1:name "Sequence" ;
+    ns1:sameAs "http://edamontology.org/data_2044" .
+
+<https://bio.tools/bwa/op_6/in_2> a <http://bioschemas.org/types/FormalParameter> ;
+    ns1:identifier "http://edamontology.org/data_2044" ;
+    ns1:name "Sequence" ;
+    ns1:sameAs "http://edamontology.org/data_2044" .
+
+<https://bioschemas.org/profiles/TrainingMaterial/1.0-RELEASE> a ns1:CreativeWork .
+
+<https://data.rivm.nl/meta/records/1c0fcd57-1102-4620-9cfa-441e93ea5604> a dcat:CatalogRecord ;
+    dcterms:conformsTo <https://www.iso.org/standard/32557.html> ;
+    dcterms:issued "" ;
+    dcterms:modified "" ;
+    foaf:primaryTopic <https://data.rivm.nl/meta/srv/resources/4e1af1a5-d602-4425-b799-6ada8549fe0d> .
+
+<https://data.rivm.nl/meta/records/1c0fcd57-1102-4620-9cfa-441e93ea5604#download-COVID-19_aantallen_gemeente_cumulatief.csv> a dcat:Distribution ;
+    dcterms:format "download" ;
+    dcterms:title "COVID-19_aantallen_gemeente_cumulatief.csv" ;
+    dcat:accessURL "https://data.rivm.nl/covid-19/COVID-19_aantallen_gemeente_cumulatief.csv" .
+
+<https://data.rivm.nl/meta/records/1c0fcd57-1102-4620-9cfa-441e93ea5604#download-COVID-19_aantallen_gemeente_cumulatief.json> a dcat:Distribution ;
+    dcterms:format "download" ;
+    dcterms:title "COVID-19_aantallen_gemeente_cumulatief.json" ;
+    dcat:accessURL "https://data.rivm.nl/covid-19/COVID-19_aantallen_gemeente_cumulatief.json" .
+
+<https://data.rivm.nl/meta/srv/resources/organizations/RIVM> a foaf:Organization ;
+    foaf:name "RIVM" .
+
+<https://data.rivm.nl/meta/srv/resources/organizations/RIVM%2FI%26V%2FEPI> a foaf:Organization ;
+    foaf:member <https://data.rivm.nl/meta/srv/resources/persons/EPI-datamanagement%40rivm.nl> ;
+    foaf:name "RIVM/I&V/EPI" .
+
+<https://data.rivm.nl/meta/srv/resources/persons/EPI-datamanagement%40rivm.nl> a foaf:Agent ;
+    foaf:mbox <mailto:EPI-datamanagement@rivm.nl> ;
+    foaf:name "" ;
+    foaf:phone "" .
+
+<https://data.rivm.nl/meta/srv/resources/registries/vocabularies/external.place.regions> a skos:ConceptScheme ;
+    dcterms:title "Continents, countries, sea regions of the world." ;
+    dcterms:uri "https://data.rivm.nl/meta/srv/eng/thesaurus.download?ref=external.place.regions" .
+
+<https://data.rivm.nl/meta/srv/resources/registries/vocabularies/external.theme.UniformeProductnaam> a skos:ConceptScheme ;
+    dcterms:title "theme.UniformeProductnaam.rdf" ;
+    dcterms:uri "https://data.rivm.nl/meta/srv/eng/thesaurus.download?ref=external.theme.UniformeProductnaam" .
+
+<https://data.rivm.nl/meta/srv/resources/registries/vocabularies/external.theme.access-right> a skos:ConceptScheme ;
+    dcterms:title "Access Rights" ;
+    dcterms:uri "https://data.rivm.nl/meta/srv/eng/thesaurus.download?ref=external.theme.access-right" .
+
+<https://data.rivm.nl/meta/srv/resources/registries/vocabularies/external.theme.data-theme> a skos:ConceptScheme ;
+    dcterms:title "theme.data-theme.rdf" ;
+    dcterms:uri "https://data.rivm.nl/meta/srv/eng/thesaurus.download?ref=external.theme.data-theme" .
+
+<https://data.rivm.nl/meta/srv/resources/registries/vocabularies/external.theme.file-type> a skos:ConceptScheme ;
+    dcterms:title "theme.file-type.rdf" ;
+    dcterms:uri "https://data.rivm.nl/meta/srv/eng/thesaurus.download?ref=external.theme.file-type" .
+
+<https://data.rivm.nl/meta/srv/resources/registries/vocabularies/external.theme.frequency> a skos:ConceptScheme ;
+    dcterms:title "theme.frequency.rdf" ;
+    dcterms:uri "https://data.rivm.nl/meta/srv/eng/thesaurus.download?ref=external.theme.frequency" .
+
+<https://data.rivm.nl/meta/srv/resources/registries/vocabularies/external.theme.grondslag-bewaring> a skos:ConceptScheme ;
+    dcterms:title "theme.grondslag-bewaring.rdf" ;
+    dcterms:uri "https://data.rivm.nl/meta/srv/eng/thesaurus.download?ref=external.theme.grondslag-bewaring" .
+
+<https://data.rivm.nl/meta/srv/resources/registries/vocabularies/external.theme.language> a skos:ConceptScheme ;
+    dcterms:title "theme.language.rdf" ;
+    dcterms:uri "https://data.rivm.nl/meta/srv/eng/thesaurus.download?ref=external.theme.language" .
+
+<https://data.rivm.nl/meta/srv/resources/registries/vocabularies/external.theme.licence-type> a skos:ConceptScheme ;
+    dcterms:title "Licence Type" ;
+    dcterms:uri "https://data.rivm.nl/meta/srv/eng/thesaurus.download?ref=external.theme.licence-type" .
+
+<https://data.rivm.nl/meta/srv/resources/registries/vocabularies/external.theme.media-types> a skos:ConceptScheme ;
+    dcterms:title "media types" ;
+    dcterms:uri "https://data.rivm.nl/meta/srv/eng/thesaurus.download?ref=external.theme.media-types" .
+
+<https://data.rivm.nl/meta/srv/resources/registries/vocabularies/external.theme.publisher> a skos:ConceptScheme ;
+    dcterms:title "theme.publisher.rdf" ;
+    dcterms:uri "https://data.rivm.nl/meta/srv/eng/thesaurus.download?ref=external.theme.publisher" .
+
+<https://data.rivm.nl/meta/srv/resources/registries/vocabularies/external.theme.publisher-type> a skos:ConceptScheme ;
+    dcterms:title "Publisher Type" ;
+    dcterms:uri "https://data.rivm.nl/meta/srv/eng/thesaurus.download?ref=external.theme.publisher-type" .
+
+<https://data.rivm.nl/meta/srv/resources/registries/vocabularies/external.theme.resource-type> a skos:ConceptScheme ;
+    dcterms:title "theme.resource-type.rdf" ;
+    dcterms:uri "https://data.rivm.nl/meta/srv/eng/thesaurus.download?ref=external.theme.resource-type" .
+
+<https://data.rivm.nl/meta/srv/resources/registries/vocabularies/external.theme.status> a skos:ConceptScheme ;
+    dcterms:title "Status" ;
+    dcterms:uri "https://data.rivm.nl/meta/srv/eng/thesaurus.download?ref=external.theme.status" .
+
+<https://data.rivm.nl/meta/srv/resources/registries/vocabularies/external.theme.terms> a skos:ConceptScheme ;
+    dcterms:title "theme.terms.rdf" ;
+    dcterms:uri "https://data.rivm.nl/meta/srv/eng/thesaurus.download?ref=external.theme.terms" .
+
+<https://doi.org/10.1016/j.ygeno.2017.03.001> a ns1:CreativeWork .
+
+<https://doi.org/10.1093/bioinformatics/btp324> a ns1:CreativeWork .
+
+<https://doi.org/10.1093/bioinformatics/btp698> a ns1:CreativeWork .
+
+<https://doi.org/10.1093/bioinformatics/btu146> a ns1:CreativeWork .
+
+<https://doi.org/10.1186/1471-2105-14-184> a ns1:CreativeWork .
+
+<https://doi.org/10.1186/1471-2164-15-264> a ns1:CreativeWork .
+
+<https://orcid.org/0000-0003-3000-0020> a ns1:Person ;
+    ns1:email "rhuber@uni-bremen.de" ;
+    ns1:familyName "Huber" ;
+    ns1:givenName "Robert" ;
+    ns1:identifier "https://orcid.org/0000-0003-3000-0020" ;
+    ns1:name "Robert Huber" .
+
+<https://www.data.gouv.fr/en/datasets/donnees-relatives-a-lepidemie-de-covid-19-en-france-vue-densemble/> ns4:description "Point d'attention : les données sont désormais disponibles…" ;
+    ns4:image "https://static.data.gouv.fr/avatars/3c/2a35d973814c2681b6941e11810ff3-100.png" ;
+    ns4:title "Données relatives à l’épidémie de COVID-19 en France : vue d’ensemble - data.gouv.fr" ;
+    ns4:type "website" .
+
+<https://www.data.gouv.fr/en/datasets/donnees-relatives-a-lepidemie-de-covid-19-en-france-vue-densemble/534fff94a3a7292c64a77fc1> a ns1:GovernmentOrganization ;
+    ns1:alternateName "ministere-des-solidarites-et-de-la-sante" ;
+    ns1:dateCreated "2014-04-17T18:21:40.735000"^^ns1:Date ;
+    ns1:dateModified "2024-07-15T09:05:19.332000"^^ns1:Date ;
+    ns1:description "Le ministère des solidarités et de la santé prépare et met en œuvre la politique du Gouvernement dans les domaines des affaires sociales, de la solidarité et de la cohésion sociale, de la santé publique et de l&apos;organisation du système de soins. Sous réserve des compétences du ministre de l&apos;économie et des finances, il prépare et met en œuvre la politique du Gouvernement dans le domaine de la protection sociale." ;
+    ns1:logo <https://static.data.gouv.fr/avatars/3c/2a35d973814c2681b6941e11810ff3-100.png> ;
+    ns1:name "Ministère des Solidarités et de la Santé" ;
+    ns1:url <https://www.data.gouv.fr/en/organizations/ministere-des-solidarites-et-de-la-sante/> .
+
+<https://www.data.gouv.fr/en/datasets/donnees-relatives-a-lepidemie-de-covid-19-en-france-vue-densemble/d2671c6c-c0eb-4e12-b69a-8e8f87fc224c> a ns1:DataDownload ;
+    ns1:contentSize 501241 ;
+    ns1:contentUrl <https://static.data.gouv.fr/resources/donnees-relatives-a-lepidemie-de-covid-19-en-france-vue-densemble/20220517-222618/synthese-fra.json> ;
+    ns1:dateCreated "2020-10-13T13:31:04.228000"^^ns1:Date ;
+    ns1:dateModified "2022-05-17T22:26:19.088000"^^ns1:Date ;
+    ns1:encodingFormat "json" ;
+    ns1:extras [ a ns1:PropertyValue ;
+            ns1:name "check:available" ;
+            ns1:value true ],
+        [ a ns1:PropertyValue ;
+            ns1:name "check:status" ;
+            ns1:value 200 ],
+        [ a ns1:PropertyValue ;
+            ns1:name "check:date" ;
+            ns1:value "2023-06-01T13:19:41.832585+00:00" ],
+        [ a ns1:PropertyValue ;
+            ns1:name "analysis:last-modified-detection" ;
+            ns1:value "last-modified-header" ],
+        [ a ns1:PropertyValue ;
+            ns1:name "check:timeout" ;
+            ns1:value false ],
+        [ a ns1:PropertyValue ;
+            ns1:name "analysis:last-modified-detection" ;
+            ns1:value "last-modified-header" ],
+        [ a ns1:PropertyValue ;
+            ns1:name "check:date" ;
+            ns1:value "2023-06-01T13:19:41.832585+00:00" ],
+        [ a ns1:PropertyValue ;
+            ns1:name "check:available" ;
+            ns1:value true ],
+        [ a ns1:PropertyValue ;
+            ns1:name "analysis:last-modified-at" ;
+            ns1:value "2022-05-17T20:26:19+00:00" ],
+        [ a ns1:PropertyValue ;
+            ns1:name "check:status" ;
+            ns1:value 200 ],
+        [ a ns1:PropertyValue ;
+            ns1:name "check:headers:content-type" ;
+            ns1:value "application/json" ],
+        [ a ns1:PropertyValue ;
+            ns1:name "analysis:last-modified-at" ;
+            ns1:value "2022-05-17T20:26:19+00:00" ],
+        [ a ns1:PropertyValue ;
+            ns1:name "check:timeout" ;
+            ns1:value false ],
+        [ a ns1:PropertyValue ;
+            ns1:name "check:headers:content-type" ;
+            ns1:value "application/json" ] ;
+    ns1:fileFormat "application/json" ;
+    ns1:interactionStatistic [ a ns1:InteractionCounter ;
+            ns1:interactionType [ a ns1:DownloadAction ] ;
+            ns1:userInteractionCount 164170 ],
+        [ a ns1:InteractionCounter ;
+            ns1:interactionType [ a ns1:DownloadAction ] ;
+            ns1:userInteractionCount 164170 ] ;
+    ns1:name "synthese-fra.json" ;
+    ns1:url <https://www.data.gouv.fr/en/datasets/r/d2671c6c-c0eb-4e12-b69a-8e8f87fc224c> .
+
+<https://www.data.gouv.fr/en/datasets/donnees-relatives-a-lepidemie-de-covid-19-en-france-vue-densemble/d3a98a30-893f-47f7-96c5-2f4bcaaa0d71> a ns1:DataDownload ;
+    ns1:contentSize 47464 ;
+    ns1:contentUrl <https://static.data.gouv.fr/resources/donnees-relatives-a-lepidemie-de-covid-19-en-france-vue-densemble/20220517-222620/synthese-fra.csv> ;
+    ns1:dateCreated "2020-10-13T23:07:16.038000"^^ns1:Date ;
+    ns1:dateModified "2022-05-17T22:26:20.148000"^^ns1:Date ;
+    ns1:encodingFormat "csv" ;
+    ns1:extras [ a ns1:PropertyValue ;
+            ns1:name "check:status" ;
+            ns1:value 200 ],
+        [ a ns1:PropertyValue ;
+            ns1:name "check:available" ;
+            ns1:value true ],
+        [ a ns1:PropertyValue ;
+            ns1:name "analysis:checksum" ;
+            ns1:value "c58babca9666029179b4da59b4e055883e9aff73" ],
+        [ a ns1:PropertyValue ;
+            ns1:name "analysis:mime-type" ;
+            ns1:value "application/csv" ],
+        [ a ns1:PropertyValue ;
+            ns1:name "check:timeout" ;
+            ns1:value false ],
+        [ a ns1:PropertyValue ;
+            ns1:name "check:headers:content-type" ;
+            ns1:value "text/csv" ],
+        [ a ns1:PropertyValue ;
+            ns1:name "analysis:content-length" ;
+            ns1:value 47464 ],
+        [ a ns1:PropertyValue ;
+            ns1:name "check:timeout" ;
+            ns1:value false ],
+        [ a ns1:PropertyValue ;
+            ns1:name "analysis:content-length" ;
+            ns1:value 47464 ],
+        [ a ns1:PropertyValue ;
+            ns1:name "check:available" ;
+            ns1:value true ],
+        [ a ns1:PropertyValue ;
+            ns1:name "analysis:last-modified-detection" ;
+            ns1:value "last-modified-header" ],
+        [ a ns1:PropertyValue ;
+            ns1:name "check:headers:content-type" ;
+            ns1:value "text/csv" ],
+        [ a ns1:PropertyValue ;
+            ns1:name "analysis:last-modified-detection" ;
+            ns1:value "last-modified-header" ],
+        [ a ns1:PropertyValue ;
+            ns1:name "check:status" ;
+            ns1:value 200 ],
+        [ a ns1:PropertyValue ;
+            ns1:name "analysis:mime-type" ;
+            ns1:value "application/csv" ],
+        [ a ns1:PropertyValue ;
+            ns1:name "check:date" ;
+            ns1:value "2023-08-28T20:20:10.075456+00:00" ],
+        [ a ns1:PropertyValue ;
+            ns1:name "analysis:checksum" ;
+            ns1:value "c58babca9666029179b4da59b4e055883e9aff73" ],
+        [ a ns1:PropertyValue ;
+            ns1:name "analysis:last-modified-at" ;
+            ns1:value "2022-05-17T20:26:20+00:00" ],
+        [ a ns1:PropertyValue ;
+            ns1:name "check:date" ;
+            ns1:value "2023-08-28T20:20:10.075456+00:00" ],
+        [ a ns1:PropertyValue ;
+            ns1:name "analysis:last-modified-at" ;
+            ns1:value "2022-05-17T20:26:20+00:00" ] ;
+    ns1:fileFormat "text/csv" ;
+    ns1:interactionStatistic [ a ns1:InteractionCounter ;
+            ns1:interactionType [ a ns1:DownloadAction ] ;
+            ns1:userInteractionCount 62427 ],
+        [ a ns1:InteractionCounter ;
+            ns1:interactionType [ a ns1:DownloadAction ] ;
+            ns1:userInteractionCount 62427 ] ;
+    ns1:name "synthese-fra.csv" ;
+    ns1:url <https://www.data.gouv.fr/en/datasets/r/d3a98a30-893f-47f7-96c5-2f4bcaaa0d71> .
+
+<http://www.kaggle.com/allen-institute-for-ai/CORD-19-research-challenge> ns4:description "An AI challenge with AI2, CZI, MSR, Georgetown, NIH & The White House" ;
+    ns4:image "https://storage.googleapis.com/kaggle-datasets-images/551982/1008364/5cde9da345ce9deab89b6dfdfc201c49/dataset-card.png?t=2020-03-14-01-34-32" ;
+    ns4:title "COVID-19 Open Research Dataset Challenge (CORD-19)" ;
+    ns4:type "website" ;
+    ns4:url "https://www.kaggle.com/datasets/allen-institute-for-ai/CORD-19-research-challenge" ;
+    ns7:app_id "2665027677054710" .
+
+<https://bio.tools/bwa/op_1/in_1> a <http://bioschemas.org/types/FormalParameter> ;
+    ns1:identifier "http://edamontology.org/data_2044",
+        "http://edamontology.org/data_3210" ;
+    ns1:name "Genome index",
+        "Sequence" ;
+    ns1:sameAs "http://edamontology.org/data_2044",
+        "http://edamontology.org/data_3210" .
+
+<https://bio.tools/bwa/op_2/in_1> a <http://bioschemas.org/types/FormalParameter> ;
+    ns1:identifier "http://edamontology.org/data_1916",
+        "http://edamontology.org/data_3210" ;
+    ns1:name "Alignment",
+        "Genome index" ;
+    ns1:sameAs "http://edamontology.org/data_1916",
+        "http://edamontology.org/data_3210" .
+
+<https://bio.tools/bwa/op_3/in_1> a <http://bioschemas.org/types/FormalParameter> ;
+    ns1:identifier "http://edamontology.org/data_2012",
+        "http://edamontology.org/data_2044" ;
+    ns1:name "Sequence",
+        "Sequence coordinates" ;
+    ns1:sameAs "http://edamontology.org/data_2012",
+        "http://edamontology.org/data_2044" .
+
+<https://bio.tools/bwa/op_4/in_1> a <http://bioschemas.org/types/FormalParameter> ;
+    ns1:identifier "http://edamontology.org/data_0863",
+        "http://edamontology.org/data_2044" ;
+    ns1:name "Sequence",
+        "Sequence alignment" ;
+    ns1:sameAs "http://edamontology.org/data_0863",
+        "http://edamontology.org/data_2044" .
+
+<https://bio.tools/bwa/op_5/in_1> a <http://bioschemas.org/types/FormalParameter> ;
+    ns1:identifier "http://edamontology.org/data_0863",
+        "http://edamontology.org/data_2044" ;
+    ns1:name "Sequence",
+        "Sequence alignment" ;
+    ns1:sameAs "http://edamontology.org/data_0863",
+        "http://edamontology.org/data_2044" .
+
+<https://bio.tools/bwa/op_6/in_1> a <http://bioschemas.org/types/FormalParameter> ;
+    ns1:identifier "http://edamontology.org/data_0863",
+        "http://edamontology.org/data_2044" ;
+    ns1:name "Sequence",
+        "Sequence alignment" ;
+    ns1:sameAs "http://edamontology.org/data_0863",
+        "http://edamontology.org/data_2044" .
+
+<https://orcid.org/0000-0002-9248-6858> ns1:affiliation "SooChow University" ;
+    ns1:identifier "https://orcid.org/0000-0002-9248-6858" ;
+    ns1:name "Yin, Kai" .
+
+<https://www.kaggle.com/datasets/imdevskp/corona-virus-report> ns4:description "Number of Confirmed, Death and Recovered cases every day across the globe" ;
+    ns4:image "https://storage.googleapis.com/kaggle-datasets-images/494766/948370/d577c5007cd4f761be6485f3e091d4e9/dataset-card.jpg?t=2020-02-16-09-57-57" ;
+    ns4:title "COVID-19 Dataset" ;
+    ns4:type "website" ;
+    ns4:url "https://www.kaggle.com/datasets/imdevskp/corona-virus-report" ;
+    ns7:app_id "2665027677054710" .
+
+<http://qudt.org/1.1/vocab/quantity#Length> a ns1:DefinedTerm ;
+    ns1:alternateName "L" ;
+    ns1:identifier "http://qudt.org/1.1/vocab/quantity#Length" ;
+    ns1:name "Length" ;
+    ns1:url <http://dbpedia.org/resource/Length> .
+
+<urn:obo:pato:term:0001334> a ns1:DefinedTerm ;
+    ns1:identifier "urn:obo:pato:term:0001334" ;
+    ns1:name "diameter" ;
+    ns1:url <http://purl.obolibrary.org/obo/PATO_0001334> .
+
+[] a ns1:Dataset ;
+    ns1:alternateName "An AI challenge with AI2, CZI, MSR, Georgetown, NIH &amp; The White House" ;
+    ns1:commentCount 348 ;
+    ns1:creator [ a ns1:Organization ;
+            ns1:image <https://storage.googleapis.com/kaggle-organizations/3737/thumbnail.png?r=807> ;
+            ns1:name "Allen Institute For AI" ;
+            ns1:url <https://www.kaggle.com/organizations/allen-institute-for-ai> ] ;
+    ns1:dateModified "2022-06-06T19:39:40.923Z"^^ns1:Date ;
+    ns1:description """### Dataset Description
+
+In response to the COVID-19 pandemic, the White House and a coalition of leading research groups have prepared the COVID-19 Open Research Dataset (CORD-19). CORD-19 is a resource of over 1,000,000 scholarly articles, including over 400,000 with full text, about COVID-19, SARS-CoV-2, and related coronaviruses. This freely available dataset is provided to the global research community to apply recent advances in natural language processing and other AI techniques to generate new insights in support of the ongoing fight against this infectious disease. There is a growing urgency for these approaches because of the rapid acceleration in new coronavirus literature, making it difficult for the medical research community to keep up.
+
+### Call to Action
+
+We are issuing a call to action to the world's artificial intelligence experts to develop text and data mining tools that can help the medical community develop answers to high priority scientific questions.  The CORD-19 dataset represents the most extensive machine-readable coronavirus literature collection available for data mining to date. This allows the worldwide AI research community the opportunity to apply text and data mining approaches to find answers to questions within, and connect insights across, this content in support of the ongoing COVID-19 response efforts worldwide. There is a growing urgency for these approaches because of the rapid increase in coronavirus literature, making it difficult for the medical community to keep up.
+
+A list of our initial key questions can be found under the **[Tasks](https://www.kaggle.com/allen-institute-for-ai/CORD-19-research-challenge/tasks)** section of this dataset. These key scientific questions are drawn from the NASEM’s SCIED (National Academies of Sciences, Engineering, and Medicine’s Standing Committee on Emerging Infectious Diseases and 21st Century Health Threats) [research topics](https://www.nationalacademies.org/event/03-11-2020/standing-committee-on-emerging-infectious-diseases-and-21st-century-health-threats-virtual-meeting-1) and the World Health Organization’s [R&amp;D Blueprint](https://www.who.int/blueprint/priority-diseases/key-action/Global_Research_Forum_FINAL_VERSION_for_web_14_feb_2020.pdf?ua=1) for COVID-19.  
+
+Many of these questions are suitable for text mining, and we encourage researchers to develop text mining tools to provide insights on these questions. 
+
+We are maintaining a summary of the [community's contributions](https://www.kaggle.com/covid-19-contributions). For guidance on how to make your contributions useful, we're maintaining a [forum thread](https://www.kaggle.com/allen-institute-for-ai/CORD-19-research-challenge/discussion/138484) with the feedback we're getting from the medical and health policy communities. 
+
+### Prizes
+
+Kaggle is sponsoring a *$1,000 per task* award to the winner whose submission is identified as best meeting the evaluation criteria. The winner may elect to receive this award as a charitable donation to COVID-19 relief/research efforts or as a monetary payment. More details on the prizes and timeline can be found on the [discussion post](https://www.kaggle.com/allen-institute-for-ai/CORD-19-research-challenge/discussion/135826).
+
+### Accessing the Dataset
+
+We have made this dataset available on Kaggle. Watch out for [periodic updates](https://www.kaggle.com/allen-institute-for-ai/CORD-19-research-challenge/discussion/137474). 
+
+The dataset is also hosted on [AI2's Semantic Scholar](https://pages.semanticscholar.org/coronavirus-research). And you can search the dataset using AI2's new [COVID-19 explorer](https://cord-19.apps.allenai.org/).
+
+The licenses for each dataset can be found in the all _ sources _ metadata csv file.
+
+### Acknowledgements
+
+![](https://www.googleapis.com/download/storage/v1/b/kaggle-user-content/o/inbox%2F1314380%2Fae91071ed467eb59eaaaa42f0b7c040d%2Fcovid-19_partners_logos.png?generation=1591119342897058&amp;alt=media)
+
+
+This dataset was created by the Allen Institute for AI in partnership  with the Chan Zuckerberg Initiative, Georgetown University’s Center for Security and Emerging Technology, Microsoft Research, IBM, and the National Library of Medicine - National Institutes of Health, in coordination with The White House Office of Science and Technology Policy.
+
+""" ;
+    ns1:discussionUrl <https://www.kaggle.com/allen-institute-for-ai/CORD-19-research-challenge/discussion> ;
+    ns1:distribution [ a ns1:DataDownload ;
+            ns1:contentSize "19724979450 bytes" ;
+            ns1:contentUrl <https://www.kaggle.com/datasets/allen-institute-for-ai/CORD-19-research-challenge/download?datasetVersionNumber=111> ;
+            ns1:encodingFormat "zip" ;
+            ns1:fileFormat "zip" ;
+            ns1:requiresSubscription true ] ;
+    ns1:identifier "551982" ;
+    ns1:includedInDataCatalog [ a ns1:DataCatalog ;
+            ns1:name "Kaggle" ;
+            ns1:url <https://www.kaggle.com> ] ;
+    ns1:interactionStatistic [ a ns1:InteractionCounter ;
+            ns1:interactionType "http://schema.org/CommentAction" ;
+            ns1:userInteractionCount 348 ],
+        [ a ns1:InteractionCounter ;
+            ns1:interactionType "http://schema.org/LikeAction" ;
+            ns1:userInteractionCount 10859 ],
+        [ a ns1:InteractionCounter ;
+            ns1:interactionType "http://schema.org/ViewAction" ;
+            ns1:userInteractionCount 4617352 ],
+        [ a ns1:InteractionCounter ;
+            ns1:interactionType "http://schema.org/DownloadAction" ;
+            ns1:userInteractionCount 176011 ] ;
+    ns1:isAccessibleForFree true ;
+    ns1:keywords "analysis, nlp",
+        "subject, earth and nature, biology",
+        "subject, health and fitness, health, health conditions, diseases, covid19",
+        "subject, health and fitness, health, public health",
+        "subject, people and society, business",
+        "subject, science and technology, computer science" ;
+    ns1:license [ a ns1:CreativeWork ;
+            ns1:name "Other (specified in description)" ;
+            ns1:url <http://www.kaggle.com/allen-institute-for-ai/CORD-19-research-challenge> ] ;
+    ns1:name "COVID-19 Open Research Dataset Challenge (CORD-19)" ;
+    ns1:thumbnailUrl <https://storage.googleapis.com/kaggle-datasets-images/551982/1008364/5cde9da345ce9deab89b6dfdfc201c49/dataset-card.png?t=2020-03-14-01-34-32> ;
+    ns1:url <https://www.kaggle.com/allen-institute-for-ai/CORD-19-research-challenge> ;
+    ns1:version 111 .
+
+[] a ns1:Dataset ;
+    ns1:alternateName "Number of Confirmed, Death and Recovered cases every day across the globe" ;
+    ns1:commentCount 38 ;
+    ns1:creator [ a ns1:Person ;
+            ns1:image <https://storage.googleapis.com/kaggle-avatars/thumbnails/1302389-kg.jpg> ;
+            ns1:name "Devakumar K. P." ;
+            ns1:url <https://www.kaggle.com/imdevskp> ] ;
+    ns1:dateModified "2020-08-07T03:47:47.907Z"^^ns1:Date ;
+    ns1:description """[![forthebadge](https://forthebadge.com/images/badges/made-with-python.svg)](https://forthebadge.com) [![forthebadge](https://forthebadge.com/images/badges/uses-git.svg)](https://forthebadge.com)
+
+### Context
+
+- A new coronavirus designated 2019-nCoV was first identified in Wuhan, the capital of China's Hubei province
+- People developed pneumonia without a clear cause and for which existing vaccines or treatments were not effective. 
+- The virus has shown evidence of human-to-human transmission
+- Transmission rate (rate of infection) appeared to escalate in mid-January 2020
+- As of 30 January 2020, approximately 8,243 cases have been confirmed
+
+
+### Content
+
+&gt; * **full_grouped.csv** - Day to day country wise no. of cases (Has County/State/Province level data)  
+&gt; * **covid_19_clean_complete.csv** - Day to day country wise no. of cases (Doesn't have County/State/Province level data)  
+&gt; * **country_wise_latest.csv** - Latest country level no. of cases  
+&gt; * **day_wise.csv** - Day wise no. of cases (Doesn't have country level data)  
+&gt; * **usa_county_wise.csv** - Day to day county level no. of cases   
+&gt; * **worldometer_data.csv** - Latest data from https://www.worldometers.info/  
+
+
+### Acknowledgements / Data Source
+
+&gt; https://github.com/CSSEGISandData/COVID-19
+&gt; https://www.worldometers.info/
+
+### Collection methodology
+
+&gt; https://github.com/imdevskp/covid_19_jhu_data_web_scrap_and_cleaning
+
+### Cover Photo
+
+&gt; Photo from National Institutes of Allergy and Infectious Diseases
+&gt; https://www.niaid.nih.gov/news-events/novel-coronavirus-sarscov2-images
+&gt; https://blogs.cdc.gov/publichealthmatters/2019/04/h1n1/
+
+### Similar Datasets
+
+&gt; * COVID-19 - https://www.kaggle.com/imdevskp/corona-virus-report  
+&gt; * MERS - https://www.kaggle.com/imdevskp/mers-outbreak-dataset-20122019
+&gt; * Ebola Western Africa 2014 Outbreak - https://www.kaggle.com/imdevskp/ebola-outbreak-20142016-complete-dataset
+&gt; * H1N1 | Swine Flu 2009 Pandemic Dataset - https://www.kaggle.com/imdevskp/h1n1-swine-flu-2009-pandemic-dataset
+&gt; * SARS 2003 Pandemic - https://www.kaggle.com/imdevskp/sars-outbreak-2003-complete-dataset
+&gt; * HIV AIDS - https://www.kaggle.com/imdevskp/hiv-aids-dataset""" ;
+    ns1:discussionUrl <https://www.kaggle.com/imdevskp/corona-virus-report/discussion> ;
+    ns1:distribution [ a ns1:DataDownload ;
+            ns1:contentSize "19921674 bytes" ;
+            ns1:contentUrl <https://www.kaggle.com/datasets/imdevskp/corona-virus-report/download?datasetVersionNumber=166> ;
+            ns1:encodingFormat "zip" ;
+            ns1:fileFormat "zip" ;
+            ns1:requiresSubscription true ] ;
+    ns1:identifier "494766" ;
+    ns1:includedInDataCatalog [ a ns1:DataCatalog ;
+            ns1:name "Kaggle" ;
+            ns1:url <https://www.kaggle.com> ] ;
+    ns1:interactionStatistic [ a ns1:InteractionCounter ;
+            ns1:interactionType "http://schema.org/DownloadAction" ;
+            ns1:userInteractionCount 324738 ],
+        [ a ns1:InteractionCounter ;
+            ns1:interactionType "http://schema.org/CommentAction" ;
+            ns1:userInteractionCount 38 ],
+        [ a ns1:InteractionCounter ;
+            ns1:interactionType "http://schema.org/LikeAction" ;
+            ns1:userInteractionCount 2359 ],
+        [ a ns1:InteractionCounter ;
+            ns1:interactionType "http://schema.org/ViewAction" ;
+            ns1:userInteractionCount 1223621 ] ;
+    ns1:isAccessibleForFree true ;
+    ns1:keywords "subject, health and fitness, health, health conditions, diseases",
+        "subject, health and fitness, health, health conditions, diseases, covid19",
+        "subject, health and fitness, health, public health",
+        "subject, people and society, law" ;
+    ns1:license [ a ns1:CreativeWork ;
+            ns1:name "Other (specified in description)" ;
+            ns1:url <https://www.kaggle.com/datasets/imdevskp/corona-virus-report> ] ;
+    ns1:name "COVID-19 Dataset" ;
+    ns1:thumbnailUrl <https://storage.googleapis.com/kaggle-datasets-images/494766/948370/d577c5007cd4f761be6485f3e091d4e9/dataset-card.jpg?t=2020-02-16-09-57-57> ;
+    ns1:url <https://www.kaggle.com/imdevskp/corona-virus-report> ;
+    ns1:version 166 .
+
+[] a ns1:Dataset ;
+    ns1:alternateName "Number of Confirmed, Death and Recovered cases every day across the globe" ;
+    ns1:commentCount 38 ;
+    ns1:creator [ a ns1:Person ;
+            ns1:image <https://storage.googleapis.com/kaggle-avatars/thumbnails/1302389-kg.jpg> ;
+            ns1:name "Devakumar K. P." ;
+            ns1:url <https://www.kaggle.com/imdevskp> ] ;
+    ns1:dateModified "2020-08-07T03:47:47.907Z"^^ns1:Date ;
+    ns1:description """[![forthebadge](https://forthebadge.com/images/badges/made-with-python.svg)](https://forthebadge.com) [![forthebadge](https://forthebadge.com/images/badges/uses-git.svg)](https://forthebadge.com)
+
+### Context
+
+- A new coronavirus designated 2019-nCoV was first identified in Wuhan, the capital of China's Hubei province
+- People developed pneumonia without a clear cause and for which existing vaccines or treatments were not effective. 
+- The virus has shown evidence of human-to-human transmission
+- Transmission rate (rate of infection) appeared to escalate in mid-January 2020
+- As of 30 January 2020, approximately 8,243 cases have been confirmed
+
+
+### Content
+
+&gt; * **full_grouped.csv** - Day to day country wise no. of cases (Has County/State/Province level data)  
+&gt; * **covid_19_clean_complete.csv** - Day to day country wise no. of cases (Doesn't have County/State/Province level data)  
+&gt; * **country_wise_latest.csv** - Latest country level no. of cases  
+&gt; * **day_wise.csv** - Day wise no. of cases (Doesn't have country level data)  
+&gt; * **usa_county_wise.csv** - Day to day county level no. of cases   
+&gt; * **worldometer_data.csv** - Latest data from https://www.worldometers.info/  
+
+
+### Acknowledgements / Data Source
+
+&gt; https://github.com/CSSEGISandData/COVID-19
+&gt; https://www.worldometers.info/
+
+### Collection methodology
+
+&gt; https://github.com/imdevskp/covid_19_jhu_data_web_scrap_and_cleaning
+
+### Cover Photo
+
+&gt; Photo from National Institutes of Allergy and Infectious Diseases
+&gt; https://www.niaid.nih.gov/news-events/novel-coronavirus-sarscov2-images
+&gt; https://blogs.cdc.gov/publichealthmatters/2019/04/h1n1/
+
+### Similar Datasets
+
+&gt; * COVID-19 - https://www.kaggle.com/imdevskp/corona-virus-report  
+&gt; * MERS - https://www.kaggle.com/imdevskp/mers-outbreak-dataset-20122019
+&gt; * Ebola Western Africa 2014 Outbreak - https://www.kaggle.com/imdevskp/ebola-outbreak-20142016-complete-dataset
+&gt; * H1N1 | Swine Flu 2009 Pandemic Dataset - https://www.kaggle.com/imdevskp/h1n1-swine-flu-2009-pandemic-dataset
+&gt; * SARS 2003 Pandemic - https://www.kaggle.com/imdevskp/sars-outbreak-2003-complete-dataset
+&gt; * HIV AIDS - https://www.kaggle.com/imdevskp/hiv-aids-dataset""" ;
+    ns1:discussionUrl <https://www.kaggle.com/imdevskp/corona-virus-report/discussion> ;
+    ns1:distribution [ a ns1:DataDownload ;
+            ns1:contentSize "19921674 bytes" ;
+            ns1:contentUrl <https://www.kaggle.com/datasets/imdevskp/corona-virus-report/download?datasetVersionNumber=166> ;
+            ns1:encodingFormat "zip" ;
+            ns1:fileFormat "zip" ;
+            ns1:requiresSubscription true ] ;
+    ns1:identifier "494766" ;
+    ns1:includedInDataCatalog [ a ns1:DataCatalog ;
+            ns1:name "Kaggle" ;
+            ns1:url <https://www.kaggle.com> ] ;
+    ns1:interactionStatistic [ a ns1:InteractionCounter ;
+            ns1:interactionType "http://schema.org/ViewAction" ;
+            ns1:userInteractionCount 1223622 ],
+        [ a ns1:InteractionCounter ;
+            ns1:interactionType "http://schema.org/CommentAction" ;
+            ns1:userInteractionCount 38 ],
+        [ a ns1:InteractionCounter ;
+            ns1:interactionType "http://schema.org/DownloadAction" ;
+            ns1:userInteractionCount 324738 ],
+        [ a ns1:InteractionCounter ;
+            ns1:interactionType "http://schema.org/LikeAction" ;
+            ns1:userInteractionCount 2359 ] ;
+    ns1:isAccessibleForFree true ;
+    ns1:keywords "subject, health and fitness, health, health conditions, diseases",
+        "subject, health and fitness, health, health conditions, diseases, covid19",
+        "subject, health and fitness, health, public health",
+        "subject, people and society, law" ;
+    ns1:license [ a ns1:CreativeWork ;
+            ns1:name "Other (specified in description)" ;
+            ns1:url <https://www.kaggle.com/datasets/imdevskp/corona-virus-report> ] ;
+    ns1:name "COVID-19 Dataset" ;
+    ns1:thumbnailUrl <https://storage.googleapis.com/kaggle-datasets-images/494766/948370/d577c5007cd4f761be6485f3e091d4e9/dataset-card.jpg?t=2020-02-16-09-57-57> ;
+    ns1:url <https://www.kaggle.com/imdevskp/corona-virus-report> ;
+    ns1:version 166 .
+
+[] a ns1:Dataset ;
+    ns1:alternateName "An AI challenge with AI2, CZI, MSR, Georgetown, NIH &amp; The White House" ;
+    ns1:commentCount 348 ;
+    ns1:creator [ a ns1:Organization ;
+            ns1:image <https://storage.googleapis.com/kaggle-organizations/3737/thumbnail.png?r=807> ;
+            ns1:name "Allen Institute For AI" ;
+            ns1:url <https://www.kaggle.com/organizations/allen-institute-for-ai> ] ;
+    ns1:dateModified "2022-06-06T19:39:40.923Z"^^ns1:Date ;
+    ns1:description """### Dataset Description
+
+In response to the COVID-19 pandemic, the White House and a coalition of leading research groups have prepared the COVID-19 Open Research Dataset (CORD-19). CORD-19 is a resource of over 1,000,000 scholarly articles, including over 400,000 with full text, about COVID-19, SARS-CoV-2, and related coronaviruses. This freely available dataset is provided to the global research community to apply recent advances in natural language processing and other AI techniques to generate new insights in support of the ongoing fight against this infectious disease. There is a growing urgency for these approaches because of the rapid acceleration in new coronavirus literature, making it difficult for the medical research community to keep up.
+
+### Call to Action
+
+We are issuing a call to action to the world's artificial intelligence experts to develop text and data mining tools that can help the medical community develop answers to high priority scientific questions.  The CORD-19 dataset represents the most extensive machine-readable coronavirus literature collection available for data mining to date. This allows the worldwide AI research community the opportunity to apply text and data mining approaches to find answers to questions within, and connect insights across, this content in support of the ongoing COVID-19 response efforts worldwide. There is a growing urgency for these approaches because of the rapid increase in coronavirus literature, making it difficult for the medical community to keep up.
+
+A list of our initial key questions can be found under the **[Tasks](https://www.kaggle.com/allen-institute-for-ai/CORD-19-research-challenge/tasks)** section of this dataset. These key scientific questions are drawn from the NASEM’s SCIED (National Academies of Sciences, Engineering, and Medicine’s Standing Committee on Emerging Infectious Diseases and 21st Century Health Threats) [research topics](https://www.nationalacademies.org/event/03-11-2020/standing-committee-on-emerging-infectious-diseases-and-21st-century-health-threats-virtual-meeting-1) and the World Health Organization’s [R&amp;D Blueprint](https://www.who.int/blueprint/priority-diseases/key-action/Global_Research_Forum_FINAL_VERSION_for_web_14_feb_2020.pdf?ua=1) for COVID-19.  
+
+Many of these questions are suitable for text mining, and we encourage researchers to develop text mining tools to provide insights on these questions. 
+
+We are maintaining a summary of the [community's contributions](https://www.kaggle.com/covid-19-contributions). For guidance on how to make your contributions useful, we're maintaining a [forum thread](https://www.kaggle.com/allen-institute-for-ai/CORD-19-research-challenge/discussion/138484) with the feedback we're getting from the medical and health policy communities. 
+
+### Prizes
+
+Kaggle is sponsoring a *$1,000 per task* award to the winner whose submission is identified as best meeting the evaluation criteria. The winner may elect to receive this award as a charitable donation to COVID-19 relief/research efforts or as a monetary payment. More details on the prizes and timeline can be found on the [discussion post](https://www.kaggle.com/allen-institute-for-ai/CORD-19-research-challenge/discussion/135826).
+
+### Accessing the Dataset
+
+We have made this dataset available on Kaggle. Watch out for [periodic updates](https://www.kaggle.com/allen-institute-for-ai/CORD-19-research-challenge/discussion/137474). 
+
+The dataset is also hosted on [AI2's Semantic Scholar](https://pages.semanticscholar.org/coronavirus-research). And you can search the dataset using AI2's new [COVID-19 explorer](https://cord-19.apps.allenai.org/).
+
+The licenses for each dataset can be found in the all _ sources _ metadata csv file.
+
+### Acknowledgements
+
+![](https://www.googleapis.com/download/storage/v1/b/kaggle-user-content/o/inbox%2F1314380%2Fae91071ed467eb59eaaaa42f0b7c040d%2Fcovid-19_partners_logos.png?generation=1591119342897058&amp;alt=media)
+
+
+This dataset was created by the Allen Institute for AI in partnership  with the Chan Zuckerberg Initiative, Georgetown University’s Center for Security and Emerging Technology, Microsoft Research, IBM, and the National Library of Medicine - National Institutes of Health, in coordination with The White House Office of Science and Technology Policy.
+
+""" ;
+    ns1:discussionUrl <https://www.kaggle.com/allen-institute-for-ai/CORD-19-research-challenge/discussion> ;
+    ns1:distribution [ a ns1:DataDownload ;
+            ns1:contentSize "19724979450 bytes" ;
+            ns1:contentUrl <https://www.kaggle.com/datasets/allen-institute-for-ai/CORD-19-research-challenge/download?datasetVersionNumber=111> ;
+            ns1:encodingFormat "zip" ;
+            ns1:fileFormat "zip" ;
+            ns1:requiresSubscription true ] ;
+    ns1:identifier "551982" ;
+    ns1:includedInDataCatalog [ a ns1:DataCatalog ;
+            ns1:name "Kaggle" ;
+            ns1:url <https://www.kaggle.com> ] ;
+    ns1:interactionStatistic [ a ns1:InteractionCounter ;
+            ns1:interactionType "http://schema.org/ViewAction" ;
+            ns1:userInteractionCount 4617351 ],
+        [ a ns1:InteractionCounter ;
+            ns1:interactionType "http://schema.org/DownloadAction" ;
+            ns1:userInteractionCount 176011 ],
+        [ a ns1:InteractionCounter ;
+            ns1:interactionType "http://schema.org/LikeAction" ;
+            ns1:userInteractionCount 10859 ],
+        [ a ns1:InteractionCounter ;
+            ns1:interactionType "http://schema.org/CommentAction" ;
+            ns1:userInteractionCount 348 ] ;
+    ns1:isAccessibleForFree true ;
+    ns1:keywords "analysis, nlp",
+        "subject, earth and nature, biology",
+        "subject, health and fitness, health, health conditions, diseases, covid19",
+        "subject, health and fitness, health, public health",
+        "subject, people and society, business",
+        "subject, science and technology, computer science" ;
+    ns1:license [ a ns1:CreativeWork ;
+            ns1:name "Other (specified in description)" ;
+            ns1:url <http://www.kaggle.com/allen-institute-for-ai/CORD-19-research-challenge> ] ;
+    ns1:name "COVID-19 Open Research Dataset Challenge (CORD-19)" ;
+    ns1:thumbnailUrl <https://storage.googleapis.com/kaggle-datasets-images/551982/1008364/5cde9da345ce9deab89b6dfdfc201c49/dataset-card.png?t=2020-03-14-01-34-32> ;
+    ns1:url <https://www.kaggle.com/allen-institute-for-ai/CORD-19-research-challenge> ;
+    ns1:version 111 .
+
