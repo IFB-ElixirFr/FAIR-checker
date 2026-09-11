@@ -293,20 +293,33 @@ def validate_md(graph, profile):
             n_profile_rec_props = len(profile["recommended_properties"])
             n_profile_opt_props = len(profile["optional_properties"])
 
-            completeness_score = round(
-                (
-                    3 * (n_profile_min_props - n_errors)
-                    + 2 * (n_profile_rec_props - n_warnings)
-                    + 1 * (n_profile_opt_props - n_infos)
+            if n_errors > 0:
+                completeness_score = 0
+            else:
+                completeness_score = round(
+                    (
+                        +2 * (n_profile_rec_props - n_warnings)
+                        + 1 * (n_profile_opt_props - n_infos)
+                    )
+                    * 100
+                    / (+2 * (n_profile_rec_props) + 1 * (n_profile_opt_props)),
+                    2,
                 )
-                * 100
-                / (
-                    3 * (n_profile_min_props)
-                    + 2 * (n_profile_rec_props)
-                    + 1 * (n_profile_opt_props)
-                ),
-                2,
-            )
+
+            # completeness_score = round(
+            #     (
+            #         3 * (n_profile_min_props - n_errors)
+            #         + 2 * (n_profile_rec_props - n_warnings)
+            #         + 1 * (n_profile_opt_props - n_infos)
+            #     )
+            #     * 100
+            #     / (
+            #         3 * (n_profile_min_props)
+            #         + 2 * (n_profile_rec_props)
+            #         + 1 * (n_profile_opt_props)
+            #     ),
+            #     2,
+            # )
 
             results[str(s)]["completeness_score"] = completeness_score
 
