@@ -52,7 +52,14 @@ from rich.text import Text
 import metrics.util as util
 from metrics import test_metric
 from metrics.Evaluation import Evaluation, Result
-from metrics.util import _turtle_to_html, _assessment_to_rdf, _negotiate_rdf_response
+from metrics.util import (
+    _turtle_to_html,
+    _assessment_to_rdf,
+    _negotiate_rdf_response,
+    _build_metric_kg,
+    _ACCEPT_MAP,
+    _FORMAT_PARAM,
+)
 from metrics.F1B_Impl import F1B_Impl
 from metrics.FAIRMetricsFactory import FAIRMetricsFactory
 from metrics.util import SOURCE, inspect_onto_reg
@@ -381,6 +388,17 @@ def metric_detail(tag):
         from flask import abort
 
         abort(404)
+
+    best = request.accept_mimetypes.best_match(
+        ["text/html"] + list(_ACCEPT_MAP.keys()),
+        default="text/html",
+    )
+    fmt_param = request.args.get("format", "").lower()
+
+    if best != "text/html" or fmt_param in _FORMAT_PARAM:
+        kg = _build_metric_kg(metric, request.url)
+        return _negotiate_rdf_response(kg, tag, request.url, "test")
+
     return render_template(
         "metric_detail.html",
         title=metric.get_principle_tag(),
@@ -1571,39 +1589,6 @@ def check_vocabularies(data):
     kg = KGS[sid]
 
     inspect_onto_reg(kg, True)
-
-
-@DeprecationWarning
-@socketio.on("check_kg_shape")
-def check_kg_shape(data):
-    sid = request.sid
-    print(sid)
-    if sid not in KGS.keys():
-        handle_embedded_annot_2(data)
-    elif not KGS[sid]:
-        handle_embedded_annot_2(data)
-    kg = KGS[sid]
-
-    warnings, errors = util.shape_checks(kg)
-    data = {"errors": errors, "warnings": warnings}
-    emit("done_check_shape", data)
-
-
-@DeprecationWarning
-@socketio.on("check_kg_shape_old")
-def check_kg_shape_old(data):
-    print("shape validation started")
-    sid = request.sid
-    print(sid)
-    kg = KGS[sid]
-
-    if not kg:
-        print("cannot access current knowledge graph")
-    elif len(kg) == 0:
-        print("cannot validate an empty knowledge graph")
-
-    results = validate_any_from_KG(kg)
-    emit("done_check_shape", results)
 
 
 def evaluate_bioschemas_profiles(kg):
