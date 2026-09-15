@@ -68,6 +68,10 @@ from profiles.ProfileFactory import (
     update_profiles,
 )
 
+## Module imports
+from modules.plugin.loader import PluginLoader
+
+
 basedir = path.abspath(path.dirname(__file__))
 
 logging.basicConfig(
@@ -100,6 +104,45 @@ for name in (
     logging.getLogger(name).setLevel(logging.CRITICAL)
 
 logger = logging.getLogger(__name__)
+
+
+
+## New plugin architecture implementation
+
+## Load the Fair-Checker plugins
+plugin_loader = PluginLoader()
+plugins = plugin_loader.load()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 @app.route("/")
