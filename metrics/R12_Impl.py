@@ -1,5 +1,4 @@
 from metrics.AbstractFAIRMetrics import AbstractFAIRMetrics
-from metrics.recommendation import json_rec
 
 
 class R12_Impl(AbstractFAIRMetrics):
@@ -17,6 +16,7 @@ class R12_Impl(AbstractFAIRMetrics):
         self.desc = """
             Metadata includes provenance.<br> FAIR-Checker verifies that at least one provenance property from PROV, DCTerms, or PAV ontologies are found in metadata.
         """
+        self.recommendations = {}
 
     def weak_evaluate(self):
         eval = self.get_evaluation()
@@ -99,7 +99,7 @@ ASK {
                     "None of the provenance property were found in metadata !"
                 )
                 eval.set_recommendations(
-                    json_rec["R12"]["reco1"]
+                    self.recommendations['weak']
                     + checked_properties
                     + """
                 """

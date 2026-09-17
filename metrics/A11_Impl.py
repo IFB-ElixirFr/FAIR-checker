@@ -1,5 +1,4 @@
 from metrics.AbstractFAIRMetrics import AbstractFAIRMetrics
-from metrics.recommendation import json_rec
 
 
 class A11_Impl(AbstractFAIRMetrics):
@@ -23,6 +22,7 @@ class A11_Impl(AbstractFAIRMetrics):
             FAIR-Checker verifies that the resource is accessible via an open protocol, for instance the protocol needs 
             to be HTTP.
         """
+        self.recommendations = {}
 
     def weak_evaluate(self):
         eval = self.get_evaluation()
@@ -44,10 +44,10 @@ class A11_Impl(AbstractFAIRMetrics):
         elif status_code == 404:
             eval.log_info("The resource can't be found: 404 error")
             eval.set_score(0)
-            eval.set_recommendations(json_rec["A11"]["reco2"])
+            eval.set_recommendations(self.recommendations['strong'])
             return eval
         else:
             eval.log_info("The resource seems to not be using HTTP protocol")
             eval.set_score(0)
-            eval.set_recommendations(json_rec["A11"]["reco1"])
+            eval.set_recommendations(self.recommendations['weak'])
             return eval

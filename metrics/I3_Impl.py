@@ -21,6 +21,7 @@ class I3_Impl(AbstractFAIRMetrics):
         self.desc = """
             FAIR-Checker verifies that at least 3 different URL authorities are used in the URIs of RDF metadata.
         """
+        self.recommendations = {}
 
     def weak_evaluate(self):
         eval = self.get_evaluation()
@@ -61,6 +62,6 @@ class I3_Impl(AbstractFAIRMetrics):
                 + str(len(domains))
                 + ")"
             )
-            eval.set_recommendations(json_rec["I3"]["reco1"])
+            eval.set_recommendations(self.recommendations['weak'])
             eval.set_score(0)
             return eval

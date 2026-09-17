@@ -107,14 +107,22 @@ logger = logging.getLogger(__name__)
 
 
 
-## New plugin architecture implementation
+## New plugin architecture implementation ############################################################################
 
 ## Load the Fair-Checker plugins
 plugin_loader = PluginLoader()
 plugins = plugin_loader.load()
 
+for plugin in plugins:
+    for metric in plugin.metrics:
+        print(metric.name)
 
 
+factory = FAIRMetricsFactory()
+METRICS_CUSTOM = factory.get_FC_metrics(plugin.metrics)
+
+for i, key in enumerate(METRICS_CUSTOM):
+    METRICS_CUSTOM[key].set_id("FC_" + str(i))
 
 
 
@@ -231,16 +239,6 @@ metrics = [
 load_profiles()
 
 METRICS = {}
-# json_metrics = test_metric.getMetrics()
-factory = FAIRMetricsFactory()
-
-# # A DEPLACER AU LANCEMENT DU SERVEUR ######
-# METRICS_RES = test_metric.getMetrics()
-
-METRICS_CUSTOM = factory.get_FC_metrics()
-
-for i, key in enumerate(METRICS_CUSTOM):
-    METRICS_CUSTOM[key].set_id("FC_" + str(i))
 
 KGS = {}
 
@@ -357,7 +355,7 @@ app.logger.info("Background scheduler started")
 # Shut down the scheduler when exiting the app
 atexit.register(lambda: scheduler.shutdown())
 
-# util.clean_cache()  # clean cache at server startup
+util.clean_cache()  # clean cache at server startup
 
 
 @app.context_processor
@@ -955,6 +953,7 @@ def handle_metric(json):
     metric_name = json["metric_name"]
     client_metric_id = json["id"]
     url = json["url"]
+    print(METRICS_CUSTOM)
     app.logger.info(f"Testing {metric_name} on {url}")
 
     # if implem == "FAIRMetrics":
@@ -1076,49 +1075,84 @@ def evaluate_fc_metrics(metric_name, client_metric_id, url):
     # logger.info("Evaluating: " + metric_name)
     result = METRICS_CUSTOM[metric_name].evaluate()
 
-    score = result.get_score()
-    # Eval time removing microseconds
-    evaluation_time = result.get_test_time() - timedelta(
-        microseconds=result.get_test_time().microseconds
-    )
-    # comment = result.get_reason()
-    comment = result.get_log_html()
+    ##B when the result is None the score will automaticaly be 0
+    ##B Fixing the error from result.get_scrore()
+    ##!B Wierd it seems to be giving a good note when the app should not
+    if result != None and result != "":
+        score = result.get_score()
+        # Eval time removing microseconds
+        evaluation_time = result.get_test_time() - timedelta(
+            microseconds=result.get_test_time().microseconds
+        )
+        # comment = result.get_reason()
+        comment = result.get_log_html()
 
-    recommendation = result.get_recommendation()
-    # print(recommendation)
+        recommendation = result.get_recommendation()
+        # print(recommendation)
 
-    # Persist Evaluation oject in MongoDB
-    r = result.persist(str(SOURCE.UI))
+        # Persist Evaluation oject in MongoDB
+        r = result.persist(str(SOURCE.UI))
 
-    id = METRICS_CUSTOM[metric_name].get_id()
-    csv_line = '"{}"\t"{}"\t"{}"\t"{}"\t"{}"'.format(
-        id, name, score, str(evaluation_time), comment
-    )
+        id = METRICS_CUSTOM[metric_name].get_id()
+        csv_line = '"{}"\t"{}"\t"{}"\t"{}"\t"{}"'.format(
+            id, name, score, str(evaluation_time), comment
+        )
 
-    b_url = app.config["EVAL_URL"]
+        b_url = app.config["EVAL_URL"]
 
-    csv_line = {
-        "id": id,
-        "name": name,
-        "score": score,
-        "time": str(evaluation_time),
-        "comment": comment,
-        "uri": b_url + str(r.inserted_id),
-        "target_url": url,
-    }
-    emit_json = {
-        "id": id,
-        "score": str(score),
-        "time": str(evaluation_time),
-        "comment": comment,
-        "recommendation": recommendation,
-        "csv_line": csv_line,
-        "uri": b_url + str(r.inserted_id),
-        "name": name,
-        "target_url": url,
-    }
-    app.logger.info(f"{str(url)} : {metric_name} = {str(score)}")
-    emit("done_" + client_metric_id, emit_json)
+        csv_line = {
+            "id": id,
+            "name": name,
+            "score": score,
+            "time": str(evaluation_time),
+            "comment": comment,
+            "uri": b_url + str(r.inserted_id),
+            "target_url": url,
+        }
+        emit_json = {
+            "id": id,
+            "score": str(score),
+            "time": str(evaluation_time),
+            "comment": comment,
+            "recommendation": recommendation,
+            "csv_line": csv_line,
+            "uri": b_url + str(r.inserted_id),
+            "name": name,
+            "target_url": url,
+        }
+        app.logger.info(f"{str(url)} : {metric_name} = {str(score)}")
+        emit("done_" + client_metric_id, emit_json)
+    else:
+        id = METRICS_CUSTOM[metric_name].get_id()
+        csv_line = '"{}"\t"{}"\t"{}"\t"{}"\t"{}"'.format(
+            id, name, 0, str(0), "Error occured - Impossible to evaluate this metric"
+        )
+
+        b_url = app.config["EVAL_URL"]
+
+        csv_line = {
+            "id": id,
+            "name": name,
+            "score": score,
+            "time": str(evaluation_time),
+            "comment": comment,
+            "uri": b_url + str(r.inserted_id),
+            "target_url": url,
+        }
+        emit_json = {
+            "id": id,
+            "score": str(0),
+            "time": str(0),
+            "comment": "Error occured - Impossible to evaluate this metric",
+            "recommendation": "Error occured - Impossible to evaluate this metric",
+            "csv_line": csv_line,
+            "uri": b_url + str(r.inserted_id),
+            "name": name,
+            "target_url": url,
+        }
+        app.logger.info(f"{str(url)} : {metric_name} = {str(0)}")
+        emit("done_" + client_metric_id, emit_json)
+
 
 
 @socketio.on("done_fair_assessment")

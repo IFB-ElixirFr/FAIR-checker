@@ -22,6 +22,7 @@ class R11_Impl(AbstractFAIRMetrics):
         self.desc = """
             Metadata includes license.<br> FAIR-Checker verifies that at least one license property from Schema.org, DCTerms, or DOAP ontologies are found in metadata.
         """
+        self.recommendations = {}
 
     def weak_evaluate(self):
         eval = self.get_evaluation()
@@ -74,7 +75,7 @@ ASK {
             else:
                 eval.log_info("None of the licence property were found in metadata")
                 eval.set_recommendations(
-                    json_rec["R11"]["reco1"]
+                    self.recommendations['weak']
                     + checked_properties
                     + """
                 """

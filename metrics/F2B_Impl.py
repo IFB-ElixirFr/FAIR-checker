@@ -30,6 +30,7 @@ class F2B_Impl(AbstractFAIRMetrics):
         self.desc = """
             Weak: FAIR-Checker verifies that at least one used ontology class or property are known in major ontology registries (OLS, BioPortal, LOV)<br> Strong: FAIR-Checker verifies that all used ontology classes or properties are known in major ontology registries (OLS, BioPortal, LOV)
         """
+        self.recommendations = {}
 
     def weak_evaluate(self, eval=None):
         """
@@ -95,7 +96,7 @@ class F2B_Impl(AbstractFAIRMetrics):
         logger.info(
             "No classes nor properties were found in one of the ontology registries"
         )
-        eval.set_recommendations(json_rec["F2B"]["reco3"])
+        eval.set_recommendations(self.recommendations['strong'])
         eval.set_score(0)
         return eval
 
@@ -119,7 +120,7 @@ class F2B_Impl(AbstractFAIRMetrics):
             eval.log_info(
                 "No RDF found in the web page, can't evaluate if classes or properties are known in OLS, LOV, or BioPortal"
             )
-            eval.set_recommendations(json_rec["F2B"]["reco1"])
+            eval.set_recommendations(self.recommendations['weak'])
             eval.set_score(0)
             return eval
 
@@ -143,7 +144,7 @@ class F2B_Impl(AbstractFAIRMetrics):
             logger.info(f"{class_entry} not known in OLS, LOV, or BioPortal")
 
         if results["classes_false"]:
-            eval.set_recommendations(json_rec["F2B"]["reco1"])
+            eval.set_recommendations(self.recommendations['weak'])
         else:
             logger.info("All classes found in those ontology registries")
 
@@ -152,7 +153,7 @@ class F2B_Impl(AbstractFAIRMetrics):
                 f"{property_entry} property not known in OLS, LOV, or BioPortal"
             )
         if results["properties_false"]:
-            eval.set_recommendations(json_rec["F2B"]["reco2"])
+            eval.set_recommendations(self.recommendations['strong'])
         else:
             logger.info("All properties found in those ontology registries")
 

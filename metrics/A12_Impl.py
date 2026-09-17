@@ -19,6 +19,7 @@ class A12_Impl(AbstractFAIRMetrics):
             FAIR-Checker verifies if access rights are specified in metadata through terms 
             odrl:hasPolicy, dct:rights, dct:accessRights, or dct:license. 
         """
+        self.recommendations = {}
 
     def weak_evaluate(self):
         eval = self.get_evaluation()
@@ -67,7 +68,7 @@ ASK {
                     "None of the access policy properties were found in metadata !"
                 )
                 eval.set_recommendations(
-                    json_rec["A12"]["reco1"]
+                    self.recommendations['weak']
                     + checked_properties
                     + """
                 """

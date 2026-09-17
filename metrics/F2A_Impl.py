@@ -1,6 +1,5 @@
 from metrics.AbstractFAIRMetrics import AbstractFAIRMetrics
 from metrics.Evaluation import Evaluation
-from metrics.recommendation import json_rec
 
 
 class F2A_Impl(AbstractFAIRMetrics):
@@ -19,6 +18,7 @@ class F2A_Impl(AbstractFAIRMetrics):
         self.desc = """
             Weak: FAIR-Checker verifies that at least one RDF triple can be found in metadata.<br> Strong: it searches for at least one property in dct:title dct:description dct:accessURL dct:downloadURL dcat:endpointURL dcat:endpointDescription.
         """
+        self.recommendations = {}
 
     def weak_evaluate(self, eval=None) -> Evaluation:
         """
@@ -46,7 +46,7 @@ class F2A_Impl(AbstractFAIRMetrics):
         eval.log_info(
             "No RDF triples found, thus data is probably not structured as needed"
         )
-        eval.set_recommendations(json_rec["F2A"]["reco1"])
+        eval.set_recommendations(self.recommendations['weak'])
         eval.set_score(0)
         return eval
 
@@ -97,7 +97,7 @@ class F2A_Impl(AbstractFAIRMetrics):
                     "None of the discoverability properties were found in metadata !"
                 )
                 eval.set_recommendations(
-                    json_rec["F2A"]["reco2"]
+                    self.recommendations['strong']
                     + checked_properties
                     + """
                         """

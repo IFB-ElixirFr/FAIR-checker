@@ -20,6 +20,7 @@ class I2A_Impl(AbstractFAIRMetrics):
         self.desc = """
             FAIR-Checker verifies that at least one property from SKOS or DCTerms or RDFS aimed at  documenting terms such as dct:title, rdfs:label, skos:definition, etc.
         """
+        self.recommendations = {}
 
     def weak_evaluate(self):
         """ """
@@ -79,7 +80,7 @@ class I2A_Impl(AbstractFAIRMetrics):
             eval.log_info(
                 "No RDF metadata were found, thus with existence of the properties can't be verified"
             )
-            eval.set_recommendations(json_rec["I2A"]["reco2"])
+            eval.set_recommendations(self.recommendations['strong'])
             return eval
         else:
             logging.debug(f"running query:" + f"\n{query_human}")
@@ -97,7 +98,7 @@ class I2A_Impl(AbstractFAIRMetrics):
                     )
                     eval.set_score(0)
                     eval.set_recommendations(
-                        json_rec["I2A"]["reco1"]
+                        self.recommendations['weak']
                         + checked_properties
                         + """
                     """

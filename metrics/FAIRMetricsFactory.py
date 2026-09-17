@@ -36,7 +36,7 @@ class FAIRMetricsFactory:
         )
 
     @staticmethod
-    def get_FC_metrics():
+    def get_FC_metrics(plugin_metrics):
         fc_metrics = {
             F1A_Impl().get_name(): F1A_Impl(),
             F1B_Impl().get_name(): F1B_Impl(),
@@ -51,6 +51,14 @@ class FAIRMetricsFactory:
             R12_Impl().get_name(): R12_Impl(),
             R13_Impl().get_name(): R13_Impl(),
         }
+        print(fc_metrics)
+        for metric in plugin_metrics:
+            for key, value in fc_metrics.items():
+                if metric.tag == value.principle_tag:
+                    fc_metrics[key].name = metric.name
+                    fc_metrics[key].principle_tag = metric.tag
+                    fc_metrics[key].desc = metric.description
+                    fc_metrics[key].recommentations = metric.recommendations
         return fc_metrics
 
     @staticmethod

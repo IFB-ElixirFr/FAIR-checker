@@ -2,7 +2,6 @@ import logging
 
 from metrics.AbstractFAIRMetrics import AbstractFAIRMetrics
 from metrics.Evaluation import Evaluation
-from metrics.recommendation import json_rec
 
 logger = logging.getLogger(__name__)
 
@@ -23,6 +22,7 @@ class F1A_Impl(AbstractFAIRMetrics):
         self.desc = """
 FAIRChecker checks that the resource identifier is a reachable URL. It's better if the URL is persistent (WebID, PURL or DOI).   
         """
+        self.recommendations = {}
 
     def weak_evaluate(self, eval=None) -> Evaluation:
         if not eval:
@@ -49,7 +49,7 @@ FAIRChecker checks that the resource identifier is a reachable URL. It's better 
                 "Status code is different than 200, thus, the resource is not reachable."
             )
             eval.set_score(0)
-            eval.set_recommendations(json_rec["F1A"]["reco1"])
+            eval.set_recommendations(self.recommendations['weak'])
             return eval
 
     def blank_node_evaluate(self) -> Evaluation:

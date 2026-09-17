@@ -5,7 +5,6 @@ from pathlib import Path
 from urllib.parse import urlparse
 from metrics.AbstractFAIRMetrics import AbstractFAIRMetrics
 from metrics.FairCheckerExceptions import FairCheckerException
-from metrics.recommendation import json_rec
 
 logger = logging.getLogger(__name__)
 
@@ -109,6 +108,7 @@ class F1B_Impl(AbstractFAIRMetrics):
         self.desc = """
 Weak : FAIR-Checker verifies that at least one namespace from identifiers.org is used in metadata.<br> Strong : FAIR-Checker verifies that the  “identifier” property from DCTerms or Schema.org vocabularies is present in metadata.
         """
+        self.recommendations = {}
 
     def weak_evaluate(self):
         """
@@ -134,7 +134,7 @@ Weak : FAIR-Checker verifies that at least one namespace from identifiers.org is
                     eval.set_score(1)
                     return eval
         logger.info("No namespace from identifiers.org found")
-        eval.set_recommendations(json_rec["F1B"]["reco1"])
+        eval.set_recommendations(self.recommendations['weak'])
         eval.set_score(0)
         return eval
 

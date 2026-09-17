@@ -19,6 +19,7 @@ class I1A_Impl(AbstractFAIRMetrics):
         self.desc = """
             For the strong assessment, FAIR-Checker verifies that at least one RDF triple can be found in metadata.
         """
+        self.recommendations = {}
 
     def weak_evaluate(self):
         """
