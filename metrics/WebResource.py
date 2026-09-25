@@ -13,7 +13,13 @@ from rdflib import ConjunctiveGraph, URIRef
 
 from playwright.sync_api import sync_playwright, TimeoutError as PlaywrightTimeoutError
 
-from metrics.util import clean_kg_excluding_ns_prefix, is_DOI, get_DOI, get_disk_cache
+from metrics.util import (
+    clean_kg_excluding_ns_prefix,
+    is_DOI,
+    get_DOI,
+    get_disk_cache,
+    USER_AGENT,
+)
 
 logger = logging.getLogger(__name__)
 
@@ -143,6 +149,11 @@ class WebResource:
         self._collect_from_common_accept_headers()
         g1 = self.dataset.get_context(self.graph_uris["mime_probe"])
 
+        # Content negotiation came back empty: fall back to the body of the
+        # initial, un-negotiated response before resorting to the browser.
+        if len(g1) == 0:
+            self._collect_from_base_response(base_response)
+
         # if DOI, try datacite metadata retrieval
         if is_DOI(self.url):
             self._collect_from_datacite()
@@ -163,10 +174,14 @@ class WebResource:
         url: str,
         headers: Optional[Dict[str, str]] = None,
     ) -> Optional[requests.Response]:
+        # Identify ourselves: some endpoints reject the default requests agent.
+        request_headers = {"User-Agent": USER_AGENT}
+        if headers:
+            request_headers.update(headers)
         try:
             response = requests.get(
                 url,
-                headers=headers,
+                headers=request_headers,
                 timeout=self.timeout,
                 verify=False,
             )
@@ -290,6 +305,50 @@ class WebResource:
                 # logger.info(kg.serialize(format="turtle"))
             # merge graph and kg
             graph += kg
+
+    def _collect_from_base_response(self, base_response: requests.Response) -> None:
+        """
+        Parse the body of the initial request, the one sent without any RDF
+        Accept header.
+
+        Some endpoints serve RDF only when no RDF mime type is requested, and
+        answer 406 to every type probed by content negotiation. The Dataverse
+        schema.org export is one: it returns its JSON-LD to a plain GET, so
+        without this the payload already in hand would be thrown away.
+        """
+        if base_response.status_code >= 400:
+            return
+
+        # HTML is left to the embedded-metadata extraction, which is equipped
+        # for it; parsing markup as RDF would only yield noise.
+        if self._normalize_content_type(base_response.headers.get("Content-Type")) in (
+            "text/html",
+            "application/xhtml+xml",
+        ):
+            return
+
+        graph = self.dataset.get_context(self.graph_uris["mime_probe"])
+
+        # The declared content type is a hint, not the truth: bio.tools serves
+        # JSON-LD as text/plain, which maps to ntriples. Try the hint first, then
+        # the remaining formats, rather than trusting it exclusively.
+        candidate_formats = [fmt for _, fmt in self.COMMON_RDF_MIME_TYPES]
+        inferred_format = self._format_from_response_content_type(base_response)
+        if inferred_format:
+            candidate_formats = [inferred_format] + [
+                fmt for fmt in candidate_formats if fmt != inferred_format
+            ]
+
+        if self._parse_response_in_formats(
+            graph,
+            source_url=self.url,
+            response=base_response,
+            candidate_formats=candidate_formats,
+        ):
+            logger.info(
+                f"Parsed RDF triples: {len(graph)} triples from the base response "
+                f"with content-type {self.content_type}"
+            )
 
     def _collect_from_common_accept_headers(self) -> None:
         graph = self.dataset.get_context(self.graph_uris["mime_probe"])
