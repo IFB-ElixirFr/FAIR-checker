@@ -56,6 +56,7 @@ from metrics.util import _turtle_to_html, _assessment_to_rdf, _negotiate_rdf_res
 from metrics.F1B_Impl import F1B_Impl
 from metrics.FAIRMetricsFactory import FAIRMetricsFactory
 from metrics.util import SOURCE, inspect_onto_reg
+from metrics.util import get_LOV_status
 from metrics.WebResource import WebResource
 from profiles.DataciteProfile import datacite_profile, validate_md
 from profiles.BiosampleProfile import ena53_profile, validate_md as validate_md_ena53
@@ -221,9 +222,7 @@ except ConnectionError:
 
 # Get status from LOV external service
 try:
-    STATUS_LOV = requests.head(
-        "https://lov.linkeddata.es/dataset/lov/sparql"
-    ).status_code
+    STATUS_LOV = get_LOV_status()
 except ConnectionError:
     STATUS_LOV = 0
 
@@ -258,9 +257,7 @@ def update_vocab_status():
 
     STATUS_BIOPORTAL = requests.head("https://data.bioontology.org/").status_code
     STATUS_OLS = requests.head("https://www.ebi.ac.uk/ols4/index").status_code
-    STATUS_LOV = requests.head(
-        "https://lov.linkeddata.es/dataset/lov/sparql"
-    ).status_code
+    STATUS_LOV = get_LOV_status()
 
     if STATUS_BIOPORTAL != 200:
         info_bioportal = "BioPortal might not be reachable. Status code: " + str(

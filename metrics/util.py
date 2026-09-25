@@ -29,6 +29,14 @@ from urllib.parse import urlparse, unquote
 
 logger = logging.getLogger(__name__)
 
+# Several public endpoints reject the default python-requests agent. The
+# Wikidata Query Service answers 403 with "Please set a user-agent and respect
+# our robot policy" until one is supplied.
+USER_AGENT = (
+    "FAIR-Checker"
+    "(+https://fair-checker.france-bioinformatique.fr/) python-requests"
+)
+
 _cache = None
 
 
@@ -199,7 +207,7 @@ def describe_wikidata(uri, g):
 
     # print(query)
 
-    h = {"Accept": "application/sparql-results+xml"}
+    h = {"Accept": "application/sparql-results+xml", "User-Agent": USER_AGENT}
     p = {"query": query}
 
     res = requests.get(endpoint, headers=h, params=p, verify=False)
@@ -311,6 +319,29 @@ def ask_BioPortal(uri, type):
         return None
 
 
+# The former https://lov.linkeddata.es/dataset/lov/sparql now 301-redirects here.
+LOV_SPARQL_ENDPOINT = "https://lov.linkeddata.es/dataset/sparql"
+
+
+def get_LOV_status():
+    """
+    Reachability check for the LOV SPARQL endpoint.
+
+    HEAD is not usable: the endpoint answers 400 to a query-less request, so the
+    check issues a trivial ASK instead.
+    :return: the HTTP status code, or 0 if the endpoint could not be reached.
+    """
+    try:
+        return requests.get(
+            LOV_SPARQL_ENDPOINT,
+            headers={"Accept": "application/sparql-results+json"},
+            params={"query": "ASK { ?s ?p ?o }"},
+            verify=True,
+        ).status_code
+    except requests.exceptions.RequestException:
+        return 0
+
+
 # @cached(cache_OLS)
 @dcache.memoize(expire=ttl_cache_seconds)
 def ask_OLS(uri):
@@ -349,15 +380,11 @@ def ask_LOV(uri):
     """
     # remove_key_from_value(cache_LOV, None)
 
-    app.logger.info(
-        f"SPARQL for [ {uri} ] with enpoint [ https://lov.linkeddata.es/dataset/lov/sparql ]"
-    )
+    app.logger.info(f"SPARQL for [ {uri} ] with enpoint [ {LOV_SPARQL_ENDPOINT} ]")
 
     h = {"Accept": "application/sparql-results+json"}
     p = {"query": "ASK { <" + uri + "> ?p ?o }"}
-    res = requests.get(
-        "https://lov.linkeddata.es/dataset/lov/sparql", headers=h, params=p, verify=True
-    )
+    res = requests.get(LOV_SPARQL_ENDPOINT, headers=h, params=p, verify=True)
 
     if res.status_code == 200:
         return res.json()["boolean"]
@@ -752,11 +779,44 @@ def rdf_to_triple_list(graph):
 #     pass
 
 
-def clean_kg_excluding_ns_prefix(kg) -> ConjunctiveGraph:
-    prefixes = [
-        "http://www.w3.org/1999/xhtml/vocab#",
-        "http://ogp.me/ns",
-    ]
+def canonical_type_n3(type_uri, namespace_manager) -> str:
+    """
+    Normalise an rdf:type onto the spelling the Bioschemas profiles are keyed on.
+
+    Two upstream moves broke the naive lookup: schema.org migrated from http://
+    to https:// (so types serialise as scs: rather than sc:), and Bioschemas
+    moved its terms under /terms/ (so bsc:X became the unabbreviated
+    <https://bioschemas.org/terms/X>). Profiles still use the sc:/bsc: forms.
+    """
+    raw = str(type_uri)
+    for prefix, replacement in (
+        ("https://schema.org/", "http://schema.org/"),
+        ("https://bioschemas.org/terms/", "https://bioschemas.org/"),
+        ("http://bioschemas.org/terms/", "https://bioschemas.org/"),
+    ):
+        if raw.startswith(prefix):
+            raw = replacement + raw[len(prefix) :]
+            break
+
+    # Don't depend on the graph's prefix bindings for schema.org: a graph that
+    # never bound sc: would otherwise yield <http://schema.org/X> and miss sc:X.
+    if raw.startswith("http://schema.org/"):
+        return "sc:" + raw[len("http://schema.org/") :]
+
+    return URIRef(raw).n3(namespace_manager).replace("scs:", "sc:")
+
+
+DEFAULT_EXCLUDED_NS_PREFIXES = [
+    "http://www.w3.org/1999/xhtml/vocab#",
+    "http://ogp.me/ns",
+]
+
+
+def clean_kg_excluding_ns_prefix(kg, prefixes=None) -> ConjunctiveGraph:
+    if prefixes is None:
+        prefixes = DEFAULT_EXCLUDED_NS_PREFIXES
+    elif isinstance(prefixes, str):
+        prefixes = [prefixes]
     cleaned_kg = copy.deepcopy(kg)
     for prefix in prefixes:
         q_del = (
