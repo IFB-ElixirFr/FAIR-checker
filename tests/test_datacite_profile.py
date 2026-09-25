@@ -43,18 +43,17 @@ class DataciteProfileCompletenessTestCase(unittest.TestCase):
         low_graph.parse(data=low_ttl, format="turtle")
         low_results = validate_md(low_graph, datacite_profile)
         print(json.dumps(low_results, indent=2))
-        low_score = low_results["https://example.org/low"]["completeness_score"] # type: ignore
+        low_score = low_results["https://example.org/low"]["completeness_score"]  # type: ignore
 
         high_graph = Graph()
         high_graph.parse(data=high_ttl, format="turtle")
         high_results = validate_md(high_graph, datacite_profile)
         print(json.dumps(high_results, indent=2))
-        high_score = high_results["https://example.org/high"]["completeness_score"] # type: ignore
+        high_score = high_results["https://example.org/high"]["completeness_score"]  # type: ignore
 
         self.assertLess(low_score, 40.0)
         self.assertGreater(high_score, 90.0)
         self.assertGreater(high_score, low_score)
-
 
     # def test_datacite_gen(self):
     #     input_url = "http://doi.org/10.57745/8DHEED"
@@ -69,21 +68,18 @@ class DataciteProfileCompletenessTestCase(unittest.TestCase):
 
     #     print(json.dumps(validation, indent=2))
 
-
-
-        # Display errors and warnings for each resource in the results
-        # for resource, result in validation.items():
-        #     print(f"Resource: {resource}")
-        #     print(f"Conforms: {result['conforms']}")
-        #     print(f"Errors: {len(result['errors'])}")
-        #     for error in result["errors"]:
-        #         print(f"  - {error}")
-        #     print(f"Warnings: {len(result['warnings'])}")
-        #     for warning in result["warnings"]:
-        #         print(f"  - {warning}")
-        #     print(f"Completeness Score: {result['completeness_score']:.2f}%")
-        #     print("-" * 40)
-
+    # Display errors and warnings for each resource in the results
+    # for resource, result in validation.items():
+    #     print(f"Resource: {resource}")
+    #     print(f"Conforms: {result['conforms']}")
+    #     print(f"Errors: {len(result['errors'])}")
+    #     for error in result["errors"]:
+    #         print(f"  - {error}")
+    #     print(f"Warnings: {len(result['warnings'])}")
+    #     for warning in result["warnings"]:
+    #         print(f"  - {warning}")
+    #     print(f"Completeness Score: {result['completeness_score']:.2f}%")
+    #     print("-" * 40)
 
 
 if __name__ == "__main__":

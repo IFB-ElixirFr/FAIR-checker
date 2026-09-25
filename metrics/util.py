@@ -33,8 +33,7 @@ logger = logging.getLogger(__name__)
 # Wikidata Query Service answers 403 with "Please set a user-agent and respect
 # our robot policy" until one is supplied.
 USER_AGENT = (
-    "FAIR-Checker"
-    "(+https://fair-checker.france-bioinformatique.fr/) python-requests"
+    "FAIR-Checker" "(+https://fair-checker.france-bioinformatique.fr/) python-requests"
 )
 
 _cache = None

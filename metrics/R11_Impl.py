@@ -74,9 +74,7 @@ ASK {
             else:
                 eval.log_info("None of the licence property were found in metadata")
                 eval.set_recommendations(
-                    json_rec["R11"]["reco1"]
-                    + checked_properties
-                    + """
+                    json_rec["R11"]["reco1"] + checked_properties + """
                 """
                 )
                 eval.set_score(0)

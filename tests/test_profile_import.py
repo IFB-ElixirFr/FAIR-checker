@@ -17,7 +17,6 @@ from dotenv import load_dotenv
 
 from metrics.WebResource import WebResource
 
-
 basedir = path.abspath(path.dirname(__file__))
 load_dotenv(path.join(basedir, ".env"))
 

@@ -1383,8 +1383,8 @@ def handle_get_latest_triples():
     emit("send_triples", {"triples": list_triples})
 
 
-##B Return the length of a KG but you can also get its type by using 
-##B the name that of the graph returned by the ConjuctiveGraph.query() function 
+##B Return the length of a KG but you can also get its type by using
+##B the name that of the graph returned by the ConjuctiveGraph.query() function
 ##B of RDFlib. It's at least used to detect the type of the graph (datacite for instance)
 ##B of the KG produced in the /inspect web page
 def named_kg_len(kgs):
@@ -1433,14 +1433,16 @@ def handle_embedded_annot_2(data):
     """
 
     sid = request.sid
-    RDF_TYPE[sid] = "trig" ##B Not cleaned afterwards - Memory leak incoming
+    RDF_TYPE[sid] = "trig"  ##B Not cleaned afterwards - Memory leak incoming
     uri = str(data["url"])
     app.logger.info("Retrieve KG for uri: " + uri)
 
     web_resource = WebResource(uri)
     kg = web_resource.get_rdf()
 
-    KGS[sid] = kg ##B Not cleaned afterwards - Memory leak incoming + information duplication
+    KGS[sid] = (
+        kg  ##B Not cleaned afterwards - Memory leak incoming + information duplication
+    )
 
     # for kg in kgs.graphs():
     #     print(kg)
@@ -1450,7 +1452,9 @@ def handle_embedded_annot_2(data):
     emit(
         "send_annot_2",
         {
-            "kg": str(kg.serialize(format=RDF_TYPE[sid])), ##B RDF_TYPE[sid] is set before, useless variable so far
+            "kg": str(
+                kg.serialize(format=RDF_TYPE[sid])
+            ),  ##B RDF_TYPE[sid] is set before, useless variable so far
             "kgs_len": kgs_len,
         },
     )
