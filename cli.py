@@ -477,8 +477,7 @@ def cmd_extract_metadata(urls, url_collection, out_dir):
             console.print(f"{url} crawled in {elapsed_time} s")
 
 
-@click.group(
-    help="""
+@click.group(help="""
     \b
     A python tool to retrieve RDF metadata from web pages and evaluate FAIR-ness.
 
@@ -488,8 +487,7 @@ def cmd_extract_metadata(urls, url_collection, out_dir):
         python cli.py extract_metadata --url http://bio.tools/bwa -o metadata_dump
         python cli.py extract_metadata --url-collection input_urls.txt
         python cli.py validate_bioschemas --url http://bio.tools/bwa
-        python cli.py validate_bioschemas --url https://doi.org/10.57745/B3WUEG"""
-)
+        python cli.py validate_bioschemas --url https://doi.org/10.57745/B3WUEG""")
 @click.version_option(version="1.0.0")
 def cli():
     pass

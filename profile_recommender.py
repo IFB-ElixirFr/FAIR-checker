@@ -13,7 +13,6 @@ from profiles.ProfileFactory import ProfileFactory
 import sys
 import time
 
-
 parser = ArgumentParser(
     description="""
 profile_recommender helps you in finding the most relevant Bioschemas profile.   

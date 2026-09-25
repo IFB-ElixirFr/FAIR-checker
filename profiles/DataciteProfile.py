@@ -4,6 +4,7 @@ from rdflib import Graph, RDF
 from pyshacl import validate
 
 import logging
+
 logger = logging.getLogger(__name__)
 
 ### Mapping with  Schema.org
@@ -91,18 +92,21 @@ template = Template(shape_tpl)
 
 
 def validate_shape(knowledge_graph, shacl_shape):
-    r = cast(tuple[bool, Graph, str],validate(
-        data_graph=knowledge_graph,
-        data_graph_format="turtle",
-        shacl_graph=shacl_shape,
-        # shacl_graph = my_shacl_constraint,
-        shacl_graph_format="turtle",
-        ont_graph=None,
-        inference="rdfs",
-        abort_on_first=False,
-        meta_shacl=False,
-        debug=False,
-    ))
+    r = cast(
+        tuple[bool, Graph, str],
+        validate(
+            data_graph=knowledge_graph,
+            data_graph_format="turtle",
+            shacl_graph=shacl_shape,
+            # shacl_graph = my_shacl_constraint,
+            shacl_graph_format="turtle",
+            ont_graph=None,
+            inference="rdfs",
+            abort_on_first=False,
+            meta_shacl=False,
+            debug=False,
+        ),
+    )
 
     conforms, results_graph, results_text = r
 
@@ -129,7 +133,7 @@ def validate_shape(knowledge_graph, shacl_shape):
     errors = []
     infos = []
     for r in results:
-        if "#Warning" in r["severity"]: # type: ignore
+        if "#Warning" in r["severity"]:  # type: ignore
             # print(f'WARNING: Property {r["path"]} should be provided for {r["node"]}')
             warnings.append(f'{r["path"]}')  # type: ignore
         if "#Violation" in r["severity"]:  # type: ignore
@@ -144,11 +148,16 @@ def validate_shape(knowledge_graph, shacl_shape):
 
 def validate_md(graph, profile):
     """
-        Validates the given knowledge graph against the provided profile.
+    Validates the given knowledge graph against the provided profile.
     """
 
     ## ensure that the profile includes "target_class", "mandatory_properties", "recommended_properties" and "optional_properties" keys
-    required_keys = ["target_class", "mandatory_properties", "recommended_properties", "optional_properties"]
+    required_keys = [
+        "target_class",
+        "mandatory_properties",
+        "recommended_properties",
+        "optional_properties",
+    ]
     for key in required_keys:
         if key not in profile:
             logger.error(f"Profile is missing the required key: {key}")

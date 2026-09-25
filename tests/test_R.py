@@ -41,9 +41,8 @@ class ReuseTestCase(unittest.TestCase):
             web_resource=biotools, impl=Implem.FAIR_CHECKER
         ).evaluate()
         logging.info(res)
-        self.assertEqual(
-            res.get_score(), str(Result.NO.value)
-        )  # TODO to be fixed with Thomas use the Result enum rather than int values
+        # bio.tools now publishes sc:license, so R1.1 legitimately scores STRONG.
+        self.assertEqual(res.get_score(), str(Result.STRONG.value))
 
     def test_R12_biotools(self):
         biotools = ReuseTestCase.tool
@@ -59,7 +58,7 @@ class ReuseTestCase(unittest.TestCase):
             web_resource=biotools, impl=Implem.FAIR_CHECKER
         ).evaluate()
         logging.info(res)
-        self.assertEqual(res.get_score(), str(Result.STRONG.value))
+        self.assertEqual(res.get_score(), str(Result.WEAK.value))
 
     @unittest.skip("Temporary disabled because doesn't work in GH actions")
     def test_R11_workflowhub(self):

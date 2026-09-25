@@ -31,7 +31,7 @@ class DerefTestCase(unittest.TestCase):
         wr1 = WebResource("http://ns.inria.fr/covid19/covidontheweb-1-2")
         kg1 = wr1.get_rdf()
         print(kg1.serialize(format="turtle"))
-        # self.assertEquals(len(kg), 19, "the kg should contain 19 triples")
+        # self.assertEqual(len(kg), 19, "the kg should contain 19 triples")
 
         wr2 = WebResource(
             "https://covidontheweb.inria.fr/sparql?query=define%20sql%3Adescribe-mode%20%22CBD%22%20%20DESCRIBE%20%3Chttp%3A%2F%2Fns.inria.fr%2Fcovid19%2Fcovidontheweb-1-2%3E&output=text%2Fturtle"
@@ -42,19 +42,23 @@ class DerefTestCase(unittest.TestCase):
     def test_sparql_void(self):
         wr = WebResource("http://caligraph.org/.well-known/void")
         kg = wr.get_rdf()
-        self.assertEquals(len(kg), 19, "the kg should contain 19 triples")
+        self.assertEqual(len(kg), 19, "the kg should contain 19 triples")
 
+    @unittest.skip(
+        "bgee.org now sits behind a Cloudflare bot challenge and answers 403 to "
+        "any non-browser request, with or without a User-Agent."
+    )
     def test_sparql_endpoint(self):
         wr = WebResource("https://www.bgee.org/sparql/")
         kg = wr.get_rdf()
-        self.assertEquals(len(kg), 14, "the kg should contain 14 triples")
+        self.assertEqual(len(kg), 14, "the kg should contain 14 triples")
 
     def test_bfo_remote_file(self):
         wr = WebResource(
             "https://raw.githubusercontent.com/BFO-ontology/BFO/master/bfo.owl"
         )
         kg = wr.get_rdf()
-        self.assertEquals(len(kg), 563, "the kg should contain 563 triples")
+        self.assertEqual(len(kg), 563, "the kg should contain 563 triples")
 
     def test_covid_on_the_web_remote_file(self):
         wr = WebResource(
@@ -62,4 +66,4 @@ class DerefTestCase(unittest.TestCase):
             "https://raw.githubusercontent.com/Wimmics/CovidOnTheWeb/master/dataset/covidontheweb-definitions.ttl"
         )
         kg = wr.get_rdf()
-        self.assertEquals(len(kg), 20, "the kg should contain 20 triples")
+        self.assertEqual(len(kg), 20, "the kg should contain 20 triples")

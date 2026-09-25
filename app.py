@@ -56,6 +56,7 @@ from metrics.util import _turtle_to_html, _assessment_to_rdf, _negotiate_rdf_res
 from metrics.F1B_Impl import F1B_Impl
 from metrics.FAIRMetricsFactory import FAIRMetricsFactory
 from metrics.util import SOURCE, inspect_onto_reg
+from metrics.util import get_LOV_status
 from metrics.WebResource import WebResource
 from profiles.DataciteProfile import datacite_profile, validate_md
 from profiles.BiosampleProfile import ena53_profile, validate_md as validate_md_ena53
@@ -221,9 +222,7 @@ except ConnectionError:
 
 # Get status from LOV external service
 try:
-    STATUS_LOV = requests.head(
-        "https://lov.linkeddata.es/dataset/lov/sparql"
-    ).status_code
+    STATUS_LOV = get_LOV_status()
 except ConnectionError:
     STATUS_LOV = 0
 
@@ -258,9 +257,7 @@ def update_vocab_status():
 
     STATUS_BIOPORTAL = requests.head("https://data.bioontology.org/").status_code
     STATUS_OLS = requests.head("https://www.ebi.ac.uk/ols4/index").status_code
-    STATUS_LOV = requests.head(
-        "https://lov.linkeddata.es/dataset/lov/sparql"
-    ).status_code
+    STATUS_LOV = get_LOV_status()
 
     if STATUS_BIOPORTAL != 200:
         info_bioportal = "BioPortal might not be reachable. Status code: " + str(
@@ -1386,8 +1383,8 @@ def handle_get_latest_triples():
     emit("send_triples", {"triples": list_triples})
 
 
-##B Return the length of a KG but you can also get its type by using 
-##B the name that of the graph returned by the ConjuctiveGraph.query() function 
+##B Return the length of a KG but you can also get its type by using
+##B the name that of the graph returned by the ConjuctiveGraph.query() function
 ##B of RDFlib. It's at least used to detect the type of the graph (datacite for instance)
 ##B of the KG produced in the /inspect web page
 def named_kg_len(kgs):
@@ -1436,14 +1433,16 @@ def handle_embedded_annot_2(data):
     """
 
     sid = request.sid
-    RDF_TYPE[sid] = "trig" ##B Not cleaned afterwards - Memory leak incoming
+    RDF_TYPE[sid] = "trig"  ##B Not cleaned afterwards - Memory leak incoming
     uri = str(data["url"])
     app.logger.info("Retrieve KG for uri: " + uri)
 
     web_resource = WebResource(uri)
     kg = web_resource.get_rdf()
 
-    KGS[sid] = kg ##B Not cleaned afterwards - Memory leak incoming + information duplication
+    KGS[sid] = (
+        kg  ##B Not cleaned afterwards - Memory leak incoming + information duplication
+    )
 
     # for kg in kgs.graphs():
     #     print(kg)
@@ -1453,7 +1452,9 @@ def handle_embedded_annot_2(data):
     emit(
         "send_annot_2",
         {
-            "kg": str(kg.serialize(format=RDF_TYPE[sid])), ##B RDF_TYPE[sid] is set before, useless variable so far
+            "kg": str(
+                kg.serialize(format=RDF_TYPE[sid])
+            ),  ##B RDF_TYPE[sid] is set before, useless variable so far
             "kgs_len": kgs_len,
         },
     )
