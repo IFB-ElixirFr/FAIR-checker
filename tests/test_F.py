@@ -148,7 +148,7 @@ class FindabilityTestCase(unittest.TestCase):
         )
         res = FAIRMetricsFactory.get_F1B(web_resource=datacite).evaluate()
         print(res)
-        self.assertEqual(res.get_score(), str(Result.NO.value))
+        self.assertEqual(res.get_score(), str(Result.STRONG.value))
 
     def test_identifiers_maser(self):
         datacite = WebResource("https://doi.org/10.25935/6jg4-mk86")
