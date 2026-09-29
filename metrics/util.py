@@ -457,7 +457,6 @@ ASK {
 _INVALID_IRIREF_CHARS = re.compile(r'[\x00-\x20<>"{}|^`\\]')
 
 
-@cache_unless_none(expire=ttl_cache_seconds)
 def _ask_portal(name, endpoint, uri, type):
     """
     ASK query against the SPARQL endpoint of an ontology portal.
@@ -474,6 +473,13 @@ def _ask_portal(name, endpoint, uri, type):
     if _INVALID_IRIREF_CHARS.search(uri):
         return False
 
+    return _run_portal_ask(name, endpoint, query, uri)
+
+
+# The query template is an argument, hence part of the cache key: answers cached
+# with an earlier version of a query are never served for its current version.
+@cache_unless_none(expire=ttl_cache_seconds)
+def _run_portal_ask(name, endpoint, query, uri):
     app.logger.info(f"SPARQL for [ {uri} ] with endpoint [ {endpoint} ]")
     try:
         res = requests.get(
