@@ -23,6 +23,8 @@ from flask import Flask, current_app, request, Response, render_template
 from flask_socketio import emit
 import logging
 import copy
+import functools
+import inspect
 import re
 import validators
 from urllib.parse import urlparse, unquote
@@ -70,6 +72,39 @@ with app.app_context():
     ttl_cache_timer = current_app.config["CACHE_CONTROLLED_VOCAB_TIMER"]
     ttl_cache_maxsize = current_app.config["CACHE_CONTROLLED_VOCAB_MAXSIZE"]
 ttl_cache_seconds = float(timedelta(hours=ttl_cache_timer).total_seconds())
+
+
+_CACHE_MISS = object()
+
+
+def cache_unless_none(expire):
+    """
+    Disk-cache decorator, like dcache.memoize, except that None results are not
+    stored. The registry lookups return None when the registry is unreachable:
+    memoizing that would hide the registry for the whole cache lifetime.
+    Positional and keyword arguments are normalized, so f(x, "a") and
+    f(x, type="a") share one cache entry.
+    """
+
+    def decorator(func):
+        signature = inspect.signature(func)
+
+        @functools.wraps(func)
+        def wrapper(*args, **kwargs):
+            bound = signature.bind(*args, **kwargs)
+            bound.apply_defaults()
+            key = (func.__module__, func.__qualname__, tuple(bound.arguments.items()))
+            result = dcache.get(key, default=_CACHE_MISS)
+            if result is _CACHE_MISS:
+                result = func(*args, **kwargs)
+                if result is not None:
+                    dcache.set(key, result, expire=expire)
+            return result
+
+        return wrapper
+
+    return decorator
+
 
 # # DOI regex
 # regex = r"10.\d{4,9}\/[-._;()\/:A-Z0-9]+"
@@ -280,7 +315,7 @@ def remove_key_from_value(d, val):
 
 
 # @cached(cache_BP)
-@dcache.memoize(expire=ttl_cache_seconds)
+@cache_unless_none(expire=ttl_cache_seconds)
 def ask_BioPortal(uri, type):
     """
     Checks that the URI is registered in one of the ontologies indexed in BioPortal.
@@ -342,7 +377,7 @@ def get_LOV_status():
 
 
 # @cached(cache_OLS)
-@dcache.memoize(expire=ttl_cache_seconds)
+@cache_unless_none(expire=ttl_cache_seconds)
 def ask_OLS(uri):
     """
     Checks that the URI is registered in one of the ontologies indexed in OLS.
@@ -370,7 +405,7 @@ def ask_OLS(uri):
 
 
 # @cached(cache_LOV)
-@dcache.memoize(expire=ttl_cache_seconds)
+@cache_unless_none(expire=ttl_cache_seconds)
 def ask_LOV(uri):
     """
     Checks that the URI is registered in one of the ontologies indexed in LOV (Linked Open Vocabularies).
@@ -393,6 +428,101 @@ def ask_LOV(uri):
         return None
 
 
+AGROPORTAL_SPARQL_ENDPOINT = "https://sparql.agroportal.eu/sparql"
+EARTHPORTAL_SPARQL_ENDPOINT = "https://sparql.earthportal.eu/sparql"
+
+_ASK_CLASS_QUERY = """
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+
+ASK { <%s> rdf:type owl:Class }
+"""
+
+_ASK_PROPERTY_QUERY = """
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+
+ASK {
+  VALUES ?p_spec { owl:ObjectProperty owl:DataProperty }
+  <%s> rdf:type ?p_spec
+}
+"""
+
+# Characters forbidden in a SPARQL IRIREF: such a URI cannot be a registered term
+# and would break out of the <...> of the query.
+_INVALID_IRIREF_CHARS = re.compile(r'[\x00-\x20<>"{}|^`\\]')
+
+
+@cache_unless_none(expire=ttl_cache_seconds)
+def _ask_portal(name, endpoint, uri, type):
+    """
+    ASK query against the SPARQL endpoint of an ontology portal.
+    :return: True or False, and None if the portal is unreachable.
+    """
+    if type == "class":
+        query = _ASK_CLASS_QUERY
+    elif type == "property":
+        query = _ASK_PROPERTY_QUERY
+    else:
+        raise ValueError(f"type must be 'class' or 'property', got {type!r}")
+
+    uri = str(uri)
+    if _INVALID_IRIREF_CHARS.search(uri):
+        return False
+
+    app.logger.info(f"SPARQL for [ {uri} ] with endpoint [ {endpoint} ]")
+    try:
+        res = requests.get(
+            endpoint,
+            headers={
+                "Accept": "application/sparql-results+json",
+                "User-Agent": USER_AGENT,
+            },
+            params={"query": query % uri},
+            verify=True,
+            timeout=60,
+        )
+        res.raise_for_status()
+        return res.json()["boolean"]
+    except (requests.exceptions.RequestException, ValueError, KeyError) as e:
+        app.logger.error(f"Cound not connect to {name}")
+        app.logger.error(e)
+        return None
+
+
+def ask_AgroPortal(uri, type):
+    """
+    Checks that the URI is registered in one of the ontologies indexed in AgroPortal.
+    :param uri:
+    :param type: "class" (owl:Class) or "property" (owl:ObjectProperty or owl:DataProperty)
+    :return: True if the URI is registered in one of the ontologies indexed in AgroPortal, False otherwise, and None if registry is unreachable.
+    """
+    return _ask_portal("AgroPortal", AGROPORTAL_SPARQL_ENDPOINT, uri, type)
+
+
+def ask_EarthPortal(uri, type):
+    """
+    Checks that the URI is registered in one of the ontologies indexed in EarthPortal.
+    :param uri:
+    :param type: "class" (owl:Class) or "property" (owl:ObjectProperty or owl:DataProperty)
+    :return: True if the URI is registered in one of the ontologies indexed in EarthPortal, False otherwise, and None if registry is unreachable.
+    """
+    return _ask_portal("EarthPortal", EARTHPORTAL_SPARQL_ENDPOINT, uri, type)
+
+
+def _initial_registry_tags(uri):
+    tags = {
+        "OLS": None,
+        "LOV": None,
+        "BioPortal": None,
+        "AgroPortal": None,
+        "EarthPortal": None,
+    }
+    if urlparse(uri).netloc == "bioschemas.org":
+        tags["Bioschemas"] = True
+    return tags
+
+
 def inspect_onto_reg(kg, is_inspect_ui):
     query_classes = """
         SELECT DISTINCT ?class WHERE { GRAPH ?g { ?s rdf:type ?class } } ORDER BY ?class
@@ -410,49 +540,15 @@ def inspect_onto_reg(kg, is_inspect_ui):
     }
     qres = kg.query(query_classes)
     for row in qres:
-        namespace = urlparse(row["class"]).netloc
-        class_entry = {}
-
-        if namespace == "bioschemas.org":
-            class_entry = {
-                "name": row["class"],
-                "tag": {
-                    "OLS": None,
-                    "LOV": None,
-                    "BioPortal": None,
-                    "Bioschemas": True,
-                },
-            }
-        else:
-            class_entry = {
-                "name": row["class"],
-                "tag": {"OLS": None, "LOV": None, "BioPortal": None},
-            }
-
-        table_content["classes"].append(class_entry)
+        table_content["classes"].append(
+            {"name": row["class"], "tag": _initial_registry_tags(row["class"])}
+        )
 
     qres = kg.query(query_properties)
     for row in qres:
-        namespace = urlparse(row["prop"]).netloc
-        property_entry = {}
-
-        if namespace == "bioschemas.org":
-            property_entry = {
-                "name": row["prop"],
-                "tag": {
-                    "OLS": None,
-                    "LOV": None,
-                    "BioPortal": None,
-                    "Bioschemas": True,
-                },
-            }
-        else:
-            property_entry = {
-                "name": row["prop"],
-                "tag": {"OLS": None, "LOV": None, "BioPortal": None},
-            }
-
-        table_content["properties"].append(property_entry)
+        table_content["properties"].append(
+            {"name": row["prop"], "tag": _initial_registry_tags(row["prop"])}
+        )
 
     if is_inspect_ui:
         emit("done_check", table_content)
@@ -470,10 +566,20 @@ def inspect_onto_reg(kg, is_inspect_ui):
         if is_inspect_ui:
             emit("done_check", table_content)
 
+        c["tag"]["AgroPortal"] = ask_AgroPortal(c["name"], "class")
+        if is_inspect_ui:
+            emit("done_check", table_content)
+
+        c["tag"]["EarthPortal"] = ask_EarthPortal(c["name"], "class")
+        if is_inspect_ui:
+            emit("done_check", table_content)
+
         all_false_rule = [
             c["tag"]["OLS"] is False,
             c["tag"]["LOV"] is False,
             c["tag"]["BioPortal"] is False,
+            c["tag"]["AgroPortal"] is False,
+            c["tag"]["EarthPortal"] is False,
         ]
 
         if all(all_false_rule) and "Bioschemas" not in c["tag"]:
@@ -492,10 +598,20 @@ def inspect_onto_reg(kg, is_inspect_ui):
         if is_inspect_ui:
             emit("done_check", table_content)
 
+        p["tag"]["AgroPortal"] = ask_AgroPortal(p["name"], "property")
+        if is_inspect_ui:
+            emit("done_check", table_content)
+
+        p["tag"]["EarthPortal"] = ask_EarthPortal(p["name"], "property")
+        if is_inspect_ui:
+            emit("done_check", table_content)
+
         all_false_rule = [
             p["tag"]["OLS"] is False,
             p["tag"]["LOV"] is False,
             p["tag"]["BioPortal"] is False,
+            p["tag"]["AgroPortal"] is False,
+            p["tag"]["EarthPortal"] is False,
         ]
         if all(all_false_rule) and "Bioschemas" not in p["tag"]:
             table_content["properties_false"].append(p["name"])
