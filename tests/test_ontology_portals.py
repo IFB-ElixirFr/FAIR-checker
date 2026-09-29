@@ -118,6 +118,22 @@ class OntologyPortalOfflineTestCase(unittest.TestCase):
         with mock.patch.object(util.requests, "get", return_value=res):
             self.assertIsNone(ask_EarthPortal(self._unique_uri(), "class"))
 
+    def test_cached_answers_are_tied_to_the_query(self):
+        uri = self._unique_uri()
+        endpoint = util.EARTHPORTAL_SPARQL_ENDPOINT
+        with mock.patch.object(
+            util.requests, "get", return_value=self._response(False)
+        ):
+            self.assertFalse(util._run_portal_ask("t", endpoint, "ASK { <%s> a ?t }", uri))
+        # same URI, changed query: the answer cached for the old query is not reused
+        with mock.patch.object(
+            util.requests, "get", return_value=self._response(True)
+        ) as get:
+            self.assertTrue(
+                util._run_portal_ask("t", endpoint, "ASK { <%s> a ?t . }", uri)
+            )
+        get.assert_called_once()
+
     def test_malformed_uri_is_not_sent(self):
         with mock.patch.object(util.requests, "get") as get:
             self.assertFalse(ask_AgroPortal("http://example.org/a> } # ", "class"))
