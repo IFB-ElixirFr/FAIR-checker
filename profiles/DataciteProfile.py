@@ -146,7 +146,7 @@ def validate_shape(knowledge_graph, shacl_shape):
     return conforms, infos, warnings, errors
 
 
-def validate_md(graph, profile):
+def validate_md(graph, profile) -> dict:
     """
     Validates the given knowledge graph against the provided profile.
     """
@@ -161,7 +161,7 @@ def validate_md(graph, profile):
     for key in required_keys:
         if key not in profile:
             logger.error(f"Profile is missing the required key: {key}")
-            return
+            return {}
 
     shape = template.render(
         target_classes=profile["target_class"],
@@ -180,7 +180,7 @@ def validate_md(graph, profile):
         print("Error parsing the SHACL shape:", e)
         print("Shape content was:")
         print(shape)
-        return
+        return {}
 
     results = {}
 
@@ -192,13 +192,13 @@ def validate_md(graph, profile):
         # print(str(o))
 
         # if o.n3(graph.namespace_manager) in profile["target_class"]:
-        logger.info(
-            f"Checking if {str(o)} is in profile target classes: {profile['target_class']}"
-        )
-        logger.info(str(o) in profile["target_class"])
+        # logger.info(
+        #     f"Checking if {str(o)} is in profile target classes: {profile['target_class']}"
+        # )
+        # logger.info(str(o) in profile["target_class"])
 
         if str(o) in profile["target_class"]:
-            logger.info(f"{s} is a {o} and will be validated against the profile")
+            # logger.info(f"{s} is a {o} and will be validated against the profile")
 
             sub_kg = Graph()
             for x, y, z in graph.triples((s, None, None)):
@@ -207,9 +207,9 @@ def validate_md(graph, profile):
             conforms, infos, warnings, errors = validate_shape(
                 knowledge_graph=sub_kg, shacl_shape=shape
             )
-            logger.info(
-                f"Validation result for {s} (type: {o}): conforms={conforms}, infos={infos}, warnings={warnings}, errors={errors}"
-            )
+            # logger.info(
+            #     f"Validation result for {s} (type: {o}): conforms={conforms}, infos={infos}, warnings={warnings}, errors={errors}"
+            # )
 
             results[str(s)] = {
                 "type": str(o),
@@ -219,7 +219,7 @@ def validate_md(graph, profile):
                 "warnings": warnings,
                 "errors": errors,
             }
-            logger.info(f"Results for {s}: {results[str(s)]}")
+            # logger.info(f"Results for {s}: {results[str(s)]}")
 
             n_warnings = len(results[str(s)]["warnings"])
             n_errors = len(results[str(s)]["errors"])
