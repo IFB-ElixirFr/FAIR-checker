@@ -434,8 +434,12 @@ EARTHPORTAL_SPARQL_ENDPOINT = "https://sparql.earthportal.eu/sparql"
 _ASK_CLASS_QUERY = """
 PREFIX owl: <http://www.w3.org/2002/07/owl#>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
 
-ASK { <%s> rdf:type owl:Class }
+ASK {
+    VALUES ?c_spec { owl:Class skos:Concept }
+    <%s> rdf:type ?c_spec 
+}
 """
 
 _ASK_PROPERTY_QUERY = """
@@ -443,7 +447,7 @@ PREFIX owl: <http://www.w3.org/2002/07/owl#>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 
 ASK {
-  VALUES ?p_spec { owl:ObjectProperty owl:DataProperty }
+  VALUES ?p_spec { owl:ObjectProperty owl:DatatypeProperty }
   <%s> rdf:type ?p_spec
 }
 """
