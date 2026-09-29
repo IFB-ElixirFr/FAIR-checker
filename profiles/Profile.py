@@ -5,6 +5,7 @@ from rdflib import ConjunctiveGraph, URIRef
 from rdflib.namespace import RDF
 from jinja2 import Template
 from pyshacl import validate
+from metrics.util import canonical_type_n3
 
 # class AbstractProfile(ABC):
 
@@ -217,7 +218,7 @@ class Profile:
         for s, p, o, g in kg.quads((None, RDF.type, None, None)):
             # print(o)
             # print(o.n3(kg.namespace_manager))
-            if o.n3(kg.namespace_manager).replace("scs:", "sc:") in self.target_classes:
+            if canonical_type_n3(o, kg.namespace_manager) in self.target_classes:
                 print(f"Trying to validate {s} as a(n) {o} resource")
                 sub_kg = ConjunctiveGraph()
                 sub_kg.namespace_manager.bind("sc", URIRef("http://schema.org/"))
@@ -248,7 +249,7 @@ class Profile:
             # print(bs_profiles.keys())
             # print(o.n3(kg.namespace_manager))
             # print(self.target_classes)
-            if o.n3(kg.namespace_manager) in self.target_classes:
+            if canonical_type_n3(o, kg.namespace_manager) in self.target_classes:
                 # print()
                 print(f"Trying to validate {s} as a(n) {o} resource")
                 shacl_shape = self.gen_SHACL_from_profile()
@@ -290,7 +291,7 @@ class Profile:
         # list classes
         for s, p, o in kg.triples((None, RDF.type, None)):
             has_required_rdf_type = 0
-            if o.n3(kg.namespace_manager) in self.target_classes:
+            if canonical_type_n3(o, kg.namespace_manager) in self.target_classes:
                 has_required_rdf_type = 10
 
             # print()

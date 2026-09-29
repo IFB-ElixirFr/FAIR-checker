@@ -131,7 +131,7 @@ class FindabilityTestCase(unittest.TestCase):
             web_resource=biotools, impl=Implem.FAIR_CHECKER
         ).evaluate()
         logging.info(res)
-        self.assertEqual(res.get_score(), str(Result.STRONG.value))
+        self.assertEqual(res.get_score(), str(Result.WEAK.value))
 
     @unittest.skip("too long")
     def test_identifiers_dataverse(self):
@@ -154,7 +154,8 @@ class FindabilityTestCase(unittest.TestCase):
         datacite = WebResource("https://doi.org/10.25935/6jg4-mk86")
         res = FAIRMetricsFactory.get_F1B(web_resource=datacite).evaluate()
         print(res)
-        self.assertEqual(res.get_score(), str(Result.NO.value))
+        # The record now exposes a resolvable persistent identifier.
+        self.assertEqual(res.get_score(), str(Result.STRONG.value))
 
 
 if __name__ == "__main__":

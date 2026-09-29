@@ -146,15 +146,12 @@ Weak : FAIR-Checker verifies that at least one namespace from identifiers.org is
         eval.set_implem(self.implem)
         eval.set_metrics(self.principle_tag)
 
-        query_identifiers = (
-            self.COMMON_SPARQL_PREFIX
-            + """ 
+        query_identifiers = self.COMMON_SPARQL_PREFIX + """ 
 ASK { 
     VALUES ?p {dct:identifier schema:identifier schema_s:identifier} . 
     ?s ?p ?o .
 }
             """
-        )
         logger.info(
             "[STRONG] Checking if there is either schema:identifier or dct:identifier property in metadata"
         )

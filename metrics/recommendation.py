@@ -18,8 +18,7 @@ json_rec = {
             an HTTP request.
         """,
     },
-    "F1B": {
-        "reco1": """
+    "F1B": {"reco1": """
             To ensure that the used identification scheme is persistent, you should build your resource ID with a 
             namespace that can be found in Identifiers.org  (life-science oriented registry). Examples of persistent 
             identifiers for a UniProt entry is: <a href="https://identifiers.org/uniprot:P38938" target=”_blank”><u>https://identifiers.org/uniprot:P38938</u></a> with uniprot as namespace or for 
@@ -29,8 +28,7 @@ json_rec = {
             property. Learn more about persistent identifiers in the identifiers.org documentation or in the 
             <a href="https://faircookbook.elixir-europe.org/content/recipes/findability/identifiers.html" target=”_blank”><b><u>FAIR-CookBook section on identifiers</u></b></a>
              or in <a href="https://rdmkit.elixir-europe.org/identifiers#relevant-tools-and-resources" target=”_blank”><b><u>RDMkit</u></b></a>. 
-        """
-    },
+        """},
     "F2A": {
         "reco1": """
             Structured metadata should be embedded as machine readable content into your HTML file. A variety of RDF-compliant
@@ -92,13 +90,11 @@ json_rec = {
     "I2B": {
         # Calling F2A
     },
-    "I3": {
-        "reco1": """
+    "I3": {"reco1": """
             You should enrich your metadata with more diversified external links. Here we did not detect more than two 
             distinct URL authorities (= domain name, first part of the URL right after ://) among all URLs referred 
             to in your resource.
-        """
-    },
+        """},
     "R11": {
         "reco1": """
             You should include information about license in your metadata using one of the properties below: <br><br>

@@ -224,7 +224,12 @@ class Evaluation:
                 value=self.get_score(),
                 date=d,
             )
-        ttl = Template(ld_eval_prefix).safe_substitute(data_url=current_app.config["EVAL_URL"]) + eval_ttl
+        ttl = (
+            Template(ld_eval_prefix).safe_substitute(
+                data_url=current_app.config["EVAL_URL"]
+            )
+            + eval_ttl
+        )
 
         for spec in get_ld_FC_spec():
             if self.get_metrics() == spec["id"]:

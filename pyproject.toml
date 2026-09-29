@@ -49,6 +49,17 @@ dependencies = [
     "playwright (>=1.58.0,<2.0.0)",
 ]
 
+[tool.pytest.ini_options]
+# Restrict collection to the test suite: metrics/test_metric.py holds helper
+# functions whose arguments pytest would otherwise mistake for fixtures.
+testpaths = ["tests"]
+filterwarnings = [
+    # rdflib's SPARQL parser still calls pyparsing's pre-3.0 camelCase API, which
+    # pyparsing >=3.3 deprecates. Nothing to fix on our side: the warnings are
+    # raised at import time from rdflib.plugins.sparql.parser and drown the run.
+    "ignore::pyparsing.PyparsingDeprecationWarning",
+]
+
 [tool.poetry]
 package-mode = false
 
