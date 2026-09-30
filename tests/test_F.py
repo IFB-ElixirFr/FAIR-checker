@@ -6,6 +6,7 @@ from metrics.FAIRMetricsFactory import FAIRMetricsFactory
 from metrics.FAIRMetricsFactory import Implem
 from metrics.Evaluation import Result
 from metrics.WebResource import WebResource
+from metrics.F1B_Impl import F1B_Impl
 
 logging.basicConfig(
     level=logging.DEBUG,
@@ -116,6 +117,19 @@ class FindabilityTestCase(unittest.TestCase):
             web_resource=wr, impl=Implem.FAIR_CHECKER
         ).evaluate()
         self.assertEqual(res.get_score(), str(Result.STRONG.value))
+
+        wr = WebResource(
+            "https://sextant.ifremer.fr/record/cf5048f6-5bbf-4e44-ba74-e6f429af51ea/"
+        )
+        res = FAIRMetricsFactory.get_F1B(
+            web_resource=wr, impl=Implem.FAIR_CHECKER
+        ).evaluate()
+        # DOI only used as the dataset @id, no dct:identifier / schema:identifier
+        self.assertEqual(res.get_score(), str(Result.WEAK.value))
+        # weak result must guide towards strong (weak_evaluate bypasses the score-only cache)
+        weak = F1B_Impl(wr).weak_evaluate()
+        self.assertEqual(weak.get_score(), str(Result.WEAK.value))
+        self.assertIn("dct:identifier or schema:identifier", weak.recommendation)
 
     def test_F2A_biotools(self):
         biotools = FindabilityTestCase.tool
