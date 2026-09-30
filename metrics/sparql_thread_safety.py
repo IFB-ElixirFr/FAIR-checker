@@ -8,6 +8,7 @@ and stay broken until the process restarts.
 Only the parsing step needs to be serialized, query execution stays concurrent.
 """
 
+import functools
 import threading
 
 import rdflib.plugins.sparql.processor as sparql_processor
@@ -16,11 +17,11 @@ _parse_lock = threading.RLock()
 
 
 def _serialized(parse):
+    @functools.wraps(parse)
     def locked_parse(*args, **kwargs):
         with _parse_lock:
             return parse(*args, **kwargs)
 
-    locked_parse.__wrapped__ = parse
     return locked_parse
 
 

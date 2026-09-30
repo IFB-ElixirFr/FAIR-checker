@@ -30,12 +30,6 @@ class FindabilityTestCase(unittest.TestCase):
         cls.tool = WebResource(cls.uri_tool)
         cls.wf = WebResource(cls.uri_wf)
 
-    @classmethod
-    def tearDownModule(cls) -> None:
-        super().tearDownModule()
-        browser = WebResource.WEB_BROWSER_HEADLESS
-        browser.quit()
-
     def test_F1A_biotools_none(self):
         metric_f1a = FAIRMetricsFactory.get_F1A(impl=Implem.FAIR_CHECKER)
         web_resource = WebResource("https://bio.tools/bwa")

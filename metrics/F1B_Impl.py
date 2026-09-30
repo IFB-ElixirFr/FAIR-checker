@@ -114,7 +114,7 @@ Weak : FAIR-Checker verifies that at least one namespace from identifiers.org is
         eval.set_implem(self.implem)
         eval.set_metrics(self.principle_tag)
 
-        kg = self.get_web_resource().get_rdf()
+        kg = self.require_web_resource().get_rdf()
 
         namespaces = F1B_Impl.get_known_namespaces()
 
@@ -160,7 +160,7 @@ ASK {
         )
 
         if F1B_Impl.is_known_purl(
-            self.get_web_resource().url, F1B_Impl._known_url_authorities
+            self.require_web_resource().url, F1B_Impl._known_url_authorities
         ):
             logger.info(
                 f"use of permanent a URL authority: {F1B_Impl._known_url_authorities}"
@@ -168,7 +168,7 @@ ASK {
             eval.set_score(2)
             return eval
 
-        kg = self.get_web_resource().get_rdf()
+        kg = self.require_web_resource().get_rdf()
         # for kg in self.get_web_resource().get_wr_kg_dataset().graphs():
 
         res = kg.query(query_identifiers)
