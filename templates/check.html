@@ -37,6 +37,13 @@
   });
 
 
+  // "All metrics" button: not usable while metrics are running (it would restart
+  // them), nor without a valid URL/DOI. The spinner only tells it is busy.
+  function set_all_metrics_running(running) {
+    $("#btn_test_all").toggleClass("is-loading", running);
+    $("#btn_test_all").prop("disabled", running || !$("#url").hasClass("is-success"));
+  }
+
   //////////////////
   // click handlers
   //////////////////
@@ -66,9 +73,7 @@
       $(this).css("background-color", "");
     });
 
-    if( !$("#btn_test_all").hasClass("is-loading") ){
-      $("#btn_test_all").addClass("is-loading");
-    }
+    set_all_metrics_running(true);
     if( !$("#download_csv").hasClass("is-loading") ){
       $("#download_csv").prop("disabled", true);
     }
@@ -142,7 +147,7 @@
 
     // check if all metric are done
     is_loading = false
-    $('[id^=test_metric_]').each(function (id) {
+    $('[id^=test_]').each(function (id) {
       if ($(this).hasClass("is-loading")) {
         is_loading = true;
       }
@@ -150,8 +155,7 @@
     if (!is_loading) {
       console.log("all done !!!!");
       $("#btn_test_checked").removeClass("is-loading");
-      $("#btn_test_all").removeClass("is-loading");
-      // $("#btn_test_all").prop("disabled", false);
+      set_all_metrics_running(false);
       $("#btn_test_checked").prop("disabled", false);
     }
 
@@ -163,7 +167,6 @@
     // console.log('DONE {{f.name}}');
     console.log(value);
     $("#test_{{f.id}}").removeClass("is-loading");
-    $("#btn_test_all").removeClass("is-loading");
     // $("#test_{{f.id}}").prop("disabled", true);
     
     let pre_link_ld = '<a href='+value["uri"]+' target="_blank">';
@@ -271,9 +274,9 @@
         is_loading = true;
       }
     });
-
-
-    
+    if (!is_loading) {
+      set_all_metrics_running(false);
+    }
 
     has_pending_assessment = false
     $('[id^=row_status_]').each(function (id) {
@@ -284,8 +287,6 @@
 
     if (! has_pending_assessment) {
       $("#btn_test_checked").removeClass("is-loading");
-      $("#btn_test_all").removeClass("is-loading");
-      // $("#btn_test_all").prop("disabled", false);
       $("#download_csv").prop("disabled", false);
       $("#btn_test_checked").prop("disabled", false);
 
@@ -392,7 +393,7 @@
   $("#btn_test_checked").on('click', function ($e) {
 
     $("#btn_test_checked").addClass("is-loading");
-    $("#btn_test_all").prop('disabled', true);
+    set_all_metrics_running(true);
 
     $('[id^=checkbox_test_]').each(function (id) {
       is_checked = $(this).prop("checked");
@@ -409,6 +410,9 @@
 
   // start all metrics test
   $("#btn_test_all").on('click', function ($e) {
+    if ($(this).prop("disabled") || $(this).hasClass("is-loading")) {
+      return false;
+    }
     if ($(url).val() === "") {
       alert("Please, enter a resource identifier !");
       return false;
@@ -416,7 +420,7 @@
 
     $("#p1").attr("value", 0);
     $("#btn_test_checked").prop('disabled', true);
-    $("#btn_test_all").addClass("is-loading");
+    set_all_metrics_running(true);
     csv_lines = [];
     aggregated_fair_assesment = [];
 
@@ -488,7 +492,7 @@
       helper.text("Valid URL/DOI")
       statut_logo.addClass("fa-check");
       statut_logo.removeClass("fa-exclamation-triangle");
-      $("#btn_test_all").prop("disabled",false)
+      set_all_metrics_running($("#btn_test_all").hasClass("is-loading"))
       {% for f in f_metrics %}
         $("#test_{{f.id}}").prop("disabled", false);
       {% endfor %}
