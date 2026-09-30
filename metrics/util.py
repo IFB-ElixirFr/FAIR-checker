@@ -24,6 +24,7 @@ from flask_socketio import emit
 import logging
 import copy
 import functools
+import time
 import inspect
 import re
 import validators
@@ -44,7 +45,13 @@ _cache = None
 def get_disk_cache():
     global _cache
     if _cache is None:
-        _cache = Cache("cache_dir", size_limit=100 * 1024 * 1024)
+        # least-frequently-used makes diskcache count the hits of each entry
+        # (see list_registry_cache)
+        _cache = Cache(
+            "cache_dir",
+            size_limit=100 * 1024 * 1024,
+            eviction_policy="least-frequently-used",
+        )
     return _cache
 
 
@@ -378,52 +385,38 @@ def get_LOV_status():
 
 # @cached(cache_OLS)
 @cache_unless_none(expire=ttl_cache_seconds)
-def ask_OLS(uri):
+def ask_OLS(uri, type):
     """
     Checks that the URI is registered in one of the ontologies indexed in OLS.
     :param uri:
+    :param type: "class" (OLS terms) or "property"
     :return: True if the URI is registered in one of the ontologies indexed in OLS, False otherwise, and None if registry is unreachable.
     """
-
-    # remove_key_from_value(cache_OLS, None)
+    if type == "class":
+        endpoint = "https://www.ebi.ac.uk/ols4/api/terms"
+    elif type == "property":
+        endpoint = "https://www.ebi.ac.uk/ols4/api/properties"
+    else:
+        raise ValueError(f"type must be 'class' or 'property', got {type!r}")
 
     app.logger.info(f"Call to the OLS REST API for [ {uri} ]")
-    # uri = requests.compat.quote_plus(uri)
-    h = {"Accept": "application/json"}
-    p = {"iri": uri}
-    # TODO we are only checking for properties and not classes, to be fixed.
-    res = requests.get(
-        "https://www.ebi.ac.uk/ols4/api/properties", headers=h, params=p, verify=True
-    )
+    try:
+        res = requests.get(
+            endpoint,
+            headers={"Accept": "application/json", "User-Agent": USER_AGENT},
+            params={"iri": uri},
+            verify=True,
+            timeout=60,
+        )
+    except requests.exceptions.RequestException as e:
+        app.logger.error("Cound not connect to OLS")
+        app.logger.error(e)
+        return None
 
     if res.status_code == 200:
         return res.json()["page"]["totalElements"] > 0
     else:
         app.logger.error("Cound not connect to OLS")
-        app.logger.error(res.text)
-        return None
-
-
-# @cached(cache_LOV)
-@cache_unless_none(expire=ttl_cache_seconds)
-def ask_LOV(uri):
-    """
-    Checks that the URI is registered in one of the ontologies indexed in LOV (Linked Open Vocabularies).
-    :param uri:
-    :return: True if the URI is registered in one of the ontologies indexed in LOV, False otherwise, and None if registry is unreachable.
-    """
-    # remove_key_from_value(cache_LOV, None)
-
-    app.logger.info(f"SPARQL for [ {uri} ] with enpoint [ {LOV_SPARQL_ENDPOINT} ]")
-
-    h = {"Accept": "application/sparql-results+json"}
-    p = {"query": "ASK { <" + uri + "> ?p ?o }"}
-    res = requests.get(LOV_SPARQL_ENDPOINT, headers=h, params=p, verify=True)
-
-    if res.status_code == 200:
-        return res.json()["boolean"]
-    else:
-        app.logger.error("Cound not connect to LOV")
         app.logger.error(res.text)
         return None
 
@@ -520,6 +513,106 @@ def ask_EarthPortal(uri, type):
     return _ask_portal("EarthPortal", EARTHPORTAL_SPARQL_ENDPOINT, uri, type)
 
 
+def ask_LOV(uri, type):
+    """
+    Checks that the URI is registered in one of the vocabularies indexed in LOV (Linked Open Vocabularies).
+    :param uri:
+    :param type: "class" (owl:Class) or "property" (owl:ObjectProperty or owl:DatatypeProperty)
+    :return: True if the URI is registered in one of the vocabularies indexed in LOV, False otherwise, and None if registry is unreachable.
+    """
+    return _ask_portal("LOV", LOV_SPARQL_ENDPOINT, uri, type)
+
+
+_REGISTRY_OF_CACHED_FUNCTION = {
+    "ask_BioPortal": "BioPortal",
+    "ask_OLS": "OLS",
+}
+
+
+def list_registry_cache(cache=None):
+    """
+    Lists the registry lookups held in the disk cache (see cache_unless_none).
+    :return: (entries, others): one dict per lookup with the keys registry, type,
+    uri, answer, expires_in (seconds, None if it does not expire) and hits (times
+    the answer was served from the cache), and the number of cache entries that
+    are not registry lookups.
+    "type" is "class" or "property" for the portals and BioPortal, None for
+    the registries queried by URI only. A portal answer obtained with a query that
+    is not the current one is never served again: it is not listed, and counted
+    with the entries that are not registry lookups.
+    The hits are counted by diskcache under the least-frequently-used eviction
+    policy (see get_disk_cache). They are read from the Cache table: reading
+    entries through cache.get() would increment them.
+    """
+    cache = dcache if cache is None else cache
+    now = time.time()
+    rows = cache._sql(
+        "SELECT key, raw, expire_time, access_count, mode, filename, value"
+        " FROM Cache WHERE expire_time IS NULL OR expire_time > ?",
+        (now,),
+    ).fetchall()
+    entries = []
+    others = 0
+    for key, raw, expire_time, hits, mode, filename, value in rows:
+        key = cache.disk.get(key, raw)
+        if not (isinstance(key, tuple) and len(key) == 3 and key[0] == __name__):
+            others += 1
+            continue
+        _, func, items = key
+        args = dict(items)
+        if func == "_run_portal_ask":
+            registry = args["name"]
+            entry_type = {
+                _ASK_CLASS_QUERY: "class",
+                _ASK_PROPERTY_QUERY: "property",
+            }.get(args["query"])
+            if entry_type is None:  # outdated query
+                others += 1
+                continue
+        elif func in _REGISTRY_OF_CACHED_FUNCTION:
+            registry = _REGISTRY_OF_CACHED_FUNCTION[func]
+            entry_type = args.get("type")
+            if entry_type is None:  # cached before the type argument existed
+                others += 1
+                continue
+        else:
+            others += 1
+            continue
+        entries.append(
+            {
+                "registry": registry,
+                "type": entry_type,
+                "uri": args["uri"],
+                "answer": cache.disk.fetch(mode, filename, value, False),
+                "expires_in": None if expire_time is None else expire_time - now,
+                "hits": hits,
+            }
+        )
+    return entries, others
+
+
+def most_accessed_uris(entries, limit=10):
+    """
+    Most accessed URIs, from the entries of list_registry_cache: one row per URI,
+    whatever the number of registries it was looked up in.
+    hits is the highest number of hits across the registries, not their sum: the
+    same request is answered by several registries. type is the one given by a
+    registry that reports one (None if none does).
+    """
+    by_uri = {}
+    for e in entries:
+        if e["hits"] <= 0:
+            continue
+        # str(): lookups are cached with a str or an rdflib URIRef, which are never equal
+        uri = str(e["uri"])
+        row = by_uri.setdefault(
+            uri, {"uri": uri, "type": None, "hits": 0}
+        )
+        row["hits"] = max(row["hits"], e["hits"])
+        row["type"] = row["type"] or e["type"]
+    return sorted(by_uri.values(), key=lambda r: r["hits"], reverse=True)[:limit]
+
+
 def _initial_registry_tags(uri):
     tags = {
         "OLS": None,
@@ -564,11 +657,11 @@ def inspect_onto_reg(kg, is_inspect_ui):
         emit("done_check", table_content)
 
     for c in table_content["classes"]:
-        c["tag"]["OLS"] = ask_OLS(c["name"])
+        c["tag"]["OLS"] = ask_OLS(c["name"], "class")
         if is_inspect_ui:
             emit("done_check", table_content)
 
-        c["tag"]["LOV"] = ask_LOV(c["name"])
+        c["tag"]["LOV"] = ask_LOV(c["name"], "class")
         if is_inspect_ui:
             emit("done_check", table_content)
 
@@ -596,11 +689,11 @@ def inspect_onto_reg(kg, is_inspect_ui):
             table_content["classes_false"].append(c["name"])
 
     for p in table_content["properties"]:
-        p["tag"]["OLS"] = ask_OLS(p["name"])
+        p["tag"]["OLS"] = ask_OLS(p["name"], "property")
         if is_inspect_ui:
             emit("done_check", table_content)
 
-        p["tag"]["LOV"] = ask_LOV(p["name"])
+        p["tag"]["LOV"] = ask_LOV(p["name"], "property")
         if is_inspect_ui:
             emit("done_check", table_content)
 
