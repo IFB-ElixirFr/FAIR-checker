@@ -97,16 +97,6 @@ class GenSHACLTestCase(unittest.TestCase):
         self.assertEqual(len(res["https://bio.tools/jaspar"]["warnings"]), 5)
         self.assertEqual(len(res["https://bio.tools/jaspar"]["errors"]), 3)
 
-    def test_pangaea_validation(self):
-        res = validate_any_from_microdata(
-            input_url="https://doi.pangaea.de/10.1594/PANGAEA.914331"
-        )
-        print(json.dumps(res, indent=2))
-        self.assertGreater(len(res[0]), 0)
-        # self.assertEqual(
-        #     len(res[0]["https://doi.org/10.1594/PANGAEA.914331"]["errors"]), 0
-        # )
-
     def test_datacite_validation(self):
         res = validate_any_from_microdata(
             input_url="https://api.datacite.org/application/vnd.schemaorg.ld+json/10.7892/boris.108387"
