@@ -55,18 +55,24 @@ class DataciteProfileCompletenessTestCase(unittest.TestCase):
         self.assertGreater(high_score, 90.0)
         self.assertGreater(high_score, low_score)
 
-    # def test_datacite_gen(self):
-    #     input_url = "http://doi.org/10.57745/8DHEED"
-    #     datacite_md = WebResource(input_url)
-    #     kg = datacite_md.get_rdf()
+    def test_datacite_gen(self):
+        input_url = "http://doi.org/10.57745/8DHEED"
+        datacite_md = WebResource(input_url)
+        kg = datacite_md.get_rdf()
 
-    #     print(f"{len(kg)} loaded RDF triples")
-    #     print(kg.serialize(format="turtle"))
+        # print(f"{len(kg)} loaded RDF triples")
+        # print(kg.serialize(format="turtle"))
 
-    #     # Validate the generated RDF against the DataCite profile
-    #     validation = validate_md(kg, datacite_profile)
+        # Validate the generated RDF against the DataCite profile
+        validation = dict()
+        validation = validate_md(kg, datacite_profile)
 
-    #     print(json.dumps(validation, indent=2))
+        print(validation.keys())
+
+        for resource, result in validation.items():
+            if resource.lower() == input_url.lower():
+                print()
+                print(json.dumps(result, indent=2))
 
     # Display errors and warnings for each resource in the results
     # for resource, result in validation.items():

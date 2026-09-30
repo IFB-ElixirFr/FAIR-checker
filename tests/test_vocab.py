@@ -130,12 +130,12 @@ class CommunityVocabTestCase(unittest.TestCase):
         start = datetime.now().timestamp()
         class_or_property_found = False
         for c in table_content["classes"]:
-            if util.ask_OLS(c["name"]):
+            if util.ask_OLS(c["name"], "class"):
                 c["tag"].append("OLS")
                 class_or_property_found = True
             print(c)
         for p in table_content["properties"]:
-            if util.ask_OLS(p["name"]):
+            if util.ask_OLS(p["name"], "property"):
                 p["tag"].append("OLS")
                 class_or_property_found = True
             print(p)
@@ -148,12 +148,12 @@ class CommunityVocabTestCase(unittest.TestCase):
         # check that cache is working --> fast answers
         start = datetime.now().timestamp()
         for c in table_content["classes"]:
-            if util.ask_OLS(c["name"]):
+            if util.ask_OLS(c["name"], "class"):
                 c["tag"].append("OLS")
                 class_or_property_found = True
             print(c)
         for p in table_content["properties"]:
-            if util.ask_OLS(p["name"]):
+            if util.ask_OLS(p["name"], "property"):
                 p["tag"].append("OLS")
                 class_or_property_found = True
             print(p)
@@ -186,11 +186,11 @@ class CommunityVocabTestCase(unittest.TestCase):
 
         class_or_property_found = False
         for c in table_content["classes"]:
-            if util.ask_LOV(c["name"]):
+            if util.ask_LOV(c["name"], "class"):
                 c["tag"].append("LOV")
                 class_or_property_found = True
         for p in table_content["properties"]:
-            if util.ask_LOV(p["name"]):
+            if util.ask_LOV(p["name"], "property"):
                 p["tag"].append("LOV")
                 class_or_property_found = True
 

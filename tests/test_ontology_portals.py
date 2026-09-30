@@ -99,18 +99,90 @@ class OntologyPortalOfflineTestCase(unittest.TestCase):
         with mock.patch.object(util.requests, "get", return_value=self._response(True)):
             self.assertTrue(ask_AgroPortal(uri, "class"))
 
-    def test_existing_registries_do_not_cache_outages(self):
+    def test_lov_uses_the_portal_queries(self):
         uri = self._unique_uri()
+        with mock.patch.object(
+            util.requests, "get", return_value=self._response(True)
+        ) as get:
+            self.assertTrue(util.ask_LOV(uri, "class"))
+        args, kwargs = get.call_args
+        self.assertEqual(args[0], util.LOV_SPARQL_ENDPOINT)
+        self.assertIn("owl:Class skos:Concept", kwargs["params"]["query"])
+        with mock.patch.object(
+            util.requests, "get", return_value=self._response(False)
+        ) as get:
+            self.assertFalse(util.ask_LOV(uri, "property"))
+        self.assertIn("owl:DatatypeProperty", get.call_args.kwargs["params"]["query"])
+
+    def test_lov_does_not_cache_outages(self):
+        uri = self._unique_uri()
+        with mock.patch.object(
+            util.requests, "get", side_effect=requests.exceptions.ConnectionError
+        ):
+            self.assertIsNone(util.ask_LOV(uri, "class"))
+        with mock.patch.object(
+            util.requests, "get", return_value=self._response(True)
+        ) as get:
+            self.assertTrue(util.ask_LOV(uri, "class"))
+            # positive answers are cached
+            self.assertTrue(util.ask_LOV(uri, "class"))
+        self.assertEqual(get.call_count, 1)
+
+    @staticmethod
+    def _ols_response(total):
+        res = mock.Mock(status_code=200)
+        res.json.return_value = {"page": {"totalElements": total}}
+        return res
+
+    def test_ols_class_uses_the_terms_endpoint(self):
+        uri = self._unique_uri()
+        with mock.patch.object(
+            util.requests, "get", return_value=self._ols_response(3)
+        ) as get:
+            self.assertTrue(util.ask_OLS(uri, "class"))
+        args, kwargs = get.call_args
+        self.assertEqual(args[0], "https://www.ebi.ac.uk/ols4/api/terms")
+        self.assertEqual(kwargs["params"], {"iri": uri})
+
+    def test_ols_property_uses_the_properties_endpoint(self):
+        uri = self._unique_uri()
+        with mock.patch.object(
+            util.requests, "get", return_value=self._ols_response(0)
+        ) as get:
+            self.assertFalse(util.ask_OLS(uri, "property"))
+        self.assertEqual(
+            get.call_args.args[0], "https://www.ebi.ac.uk/ols4/api/properties"
+        )
+
+    def test_ols_class_and_property_answers_are_cached_separately(self):
+        uri = self._unique_uri()
+        with mock.patch.object(
+            util.requests, "get", return_value=self._ols_response(1)
+        ):
+            self.assertTrue(util.ask_OLS(uri, "class"))
+        with mock.patch.object(
+            util.requests, "get", return_value=self._ols_response(0)
+        ) as get:
+            self.assertFalse(util.ask_OLS(uri, "property"))
+        get.assert_called_once()
+
+    def test_ols_outage_returns_none_and_is_not_cached(self):
+        uri = self._unique_uri()
+        with mock.patch.object(
+            util.requests, "get", side_effect=requests.exceptions.ConnectionError
+        ):
+            self.assertIsNone(util.ask_OLS(uri, "class"))
         down = mock.Mock(status_code=503, text="down")
         with mock.patch.object(util.requests, "get", return_value=down):
-            self.assertIsNone(util.ask_LOV(uri))
-        up = mock.Mock(status_code=200)
-        up.json.return_value = {"boolean": True}
-        with mock.patch.object(util.requests, "get", return_value=up) as get:
-            self.assertTrue(util.ask_LOV(uri))
-            # positive answers are cached
-            self.assertTrue(util.ask_LOV(uri))
-        self.assertEqual(get.call_count, 1)
+            self.assertIsNone(util.ask_OLS(uri, "class"))
+        with mock.patch.object(
+            util.requests, "get", return_value=self._ols_response(2)
+        ):
+            self.assertTrue(util.ask_OLS(uri, "class"))
+
+    def test_ols_unknown_type_is_rejected(self):
+        with self.assertRaises(ValueError):
+            util.ask_OLS(self._unique_uri(), "individual")
 
     def test_http_error_returns_none(self):
         res = mock.Mock()

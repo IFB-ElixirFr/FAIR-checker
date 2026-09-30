@@ -67,11 +67,11 @@ class F2B_Impl(AbstractFAIRMetrics):
         qres = kg.query(self.query_classes)
         for row in qres:
             logging.debug(f'evaluating class {row["class"]}')
-            if ask_OLS(row["class"]):
+            if ask_OLS(row["class"], type="class"):
                 logger.info((f"{row['class']} known in Ontology Lookup Service (OLS)"))
                 eval.set_score(1)
                 return eval
-            elif ask_LOV(row["class"]):
+            elif ask_LOV(row["class"], type="class"):
                 logger.info((f"{row['class']} known in Linked Open Vocabularies (LOV)"))
                 eval.set_score(1)
                 return eval
@@ -95,11 +95,11 @@ class F2B_Impl(AbstractFAIRMetrics):
         qres = kg.query(self.query_properties)
         for row in qres:
             logging.debug(f'evaluating property {row["prop"]}')
-            if ask_OLS(row["prop"]):
+            if ask_OLS(row["prop"], type="property"):
                 logger.info(f"{row['prop']} known in Ontology Lookup Service (OLS)")
                 eval.set_score(1)
                 return eval
-            elif ask_LOV(row["prop"]):
+            elif ask_LOV(row["prop"], type="property"):
                 logger.info(f"{row['prop']} known in Linked Open Vocabularies (LOV)")
                 eval.set_score(1)
                 return eval
