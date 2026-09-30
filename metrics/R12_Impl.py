@@ -99,9 +99,7 @@ ASK {
                     "None of the provenance property were found in metadata !"
                 )
                 eval.set_recommendations(
-                    json_rec["R12"]["reco1"]
-                    + checked_properties
-                    + """
+                    json_rec["R12"]["reco1"] + checked_properties + """
                 """
                 )
                 eval.set_score(0)

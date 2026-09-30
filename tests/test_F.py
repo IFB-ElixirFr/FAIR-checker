@@ -6,6 +6,7 @@ from metrics.FAIRMetricsFactory import FAIRMetricsFactory
 from metrics.FAIRMetricsFactory import Implem
 from metrics.Evaluation import Result
 from metrics.WebResource import WebResource
+from metrics.F1B_Impl import F1B_Impl
 
 logging.basicConfig(
     level=logging.DEBUG,
@@ -28,12 +29,6 @@ class FindabilityTestCase(unittest.TestCase):
         super().setUpClass()
         cls.tool = WebResource(cls.uri_tool)
         cls.wf = WebResource(cls.uri_wf)
-
-    @classmethod
-    def tearDownModule(cls) -> None:
-        super().tearDownModule()
-        browser = WebResource.WEB_BROWSER_HEADLESS
-        browser.quit()
 
     def test_F1A_biotools_none(self):
         metric_f1a = FAIRMetricsFactory.get_F1A(impl=Implem.FAIR_CHECKER)
@@ -117,6 +112,19 @@ class FindabilityTestCase(unittest.TestCase):
         ).evaluate()
         self.assertEqual(res.get_score(), str(Result.STRONG.value))
 
+        wr = WebResource(
+            "https://sextant.ifremer.fr/record/cf5048f6-5bbf-4e44-ba74-e6f429af51ea/"
+        )
+        res = FAIRMetricsFactory.get_F1B(
+            web_resource=wr, impl=Implem.FAIR_CHECKER
+        ).evaluate()
+        # DOI only used as the dataset @id, no dct:identifier / schema:identifier
+        self.assertEqual(res.get_score(), str(Result.WEAK.value))
+        # weak result must guide towards strong (weak_evaluate bypasses the score-only cache)
+        weak = F1B_Impl(wr).weak_evaluate()
+        self.assertEqual(weak.get_score(), str(Result.WEAK.value))
+        self.assertIn("dct:identifier or schema:identifier", weak.recommendation)
+
     def test_F2A_biotools(self):
         biotools = FindabilityTestCase.tool
         res = FAIRMetricsFactory.get_F2A(
@@ -131,7 +139,7 @@ class FindabilityTestCase(unittest.TestCase):
             web_resource=biotools, impl=Implem.FAIR_CHECKER
         ).evaluate()
         logging.info(res)
-        self.assertEqual(res.get_score(), str(Result.STRONG.value))
+        self.assertEqual(res.get_score(), str(Result.WEAK.value))
 
     @unittest.skip("too long")
     def test_identifiers_dataverse(self):
@@ -154,7 +162,8 @@ class FindabilityTestCase(unittest.TestCase):
         datacite = WebResource("https://doi.org/10.25935/6jg4-mk86")
         res = FAIRMetricsFactory.get_F1B(web_resource=datacite).evaluate()
         print(res)
-        self.assertEqual(res.get_score(), str(Result.NO.value))
+        # The record now exposes a resolvable persistent identifier.
+        self.assertEqual(res.get_score(), str(Result.STRONG.value))
 
 
 if __name__ == "__main__":

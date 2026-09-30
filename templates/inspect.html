@@ -6,6 +6,17 @@
         cursor: not-allowed;
         pointer-events: none;
     }
+
+    /* more vertical space between wrapped lines inside a classes / properties row */
+    #t_classes td,
+    #t_properties td {
+        line-height: 2.2;
+    }
+
+    #t_classes .tags .tag,
+    #t_properties .tags .tag {
+        margin-bottom: 0.4rem;
+    }
 </style>
 
 {% extends "layout.html" %}
@@ -502,7 +513,9 @@
                 banner_message += 'Some terms have not been found in'
                 banner_message += ' <a href="https://lov.linkeddata.es/dataset/lov/" target="_blank">LOV</a>,'
                 banner_message += ' <a href="https://www.ebi.ac.uk/ols/index" target="_blank">OLS</a>,'
-                banner_message += ' nor <a href="https://bioportal.bioontology.org/" target="_blank">BioPortal</a>.'
+                banner_message += ' <a href="https://bioportal.bioontology.org/" target="_blank">BioPortal</a>,'
+                banner_message += ' <a href="https://agroportal.eu/" target="_blank">AgroPortal</a>,'
+                banner_message += ' nor <a href="https://earthportal.eu/" target="_blank">EarthPortal</a>.'
                 banner_message += '<br>You can use these semantics registries to search for already existing synonyms terms, or to propose new terms (Classes or Properties) to the community'
                 $banner_vocab.html(banner_message);
             }
@@ -730,8 +743,10 @@
                     <p>We now have a Knowledge Graph grounded to ontology concepts (classes) and relations (properties).
                         Are these classes and properties already known in reference ontology registries such as
                         <a href="https://lov.linkeddata.es/dataset/lov/" target="_blank">LOV</a>,
-                        <a href="https://www.ebi.ac.uk/ols/index" target="_blank">OLS</a>
-                        or <a href="https://bioportal.bioontology.org/" target="_blank">BioPortal</a> ?
+                        <a href="https://www.ebi.ac.uk/ols/index" target="_blank">OLS</a>,
+                        <a href="https://bioportal.bioontology.org/" target="_blank">BioPortal</a>,
+                        <a href="https://agroportal.eu/" target="_blank">AgroPortal</a>
+                        or <a href="https://earthportal.eu/" target="_blank">EarthPortal</a> ?
                     </p>
                     <br>
                     <div class="field is-grouped is-grouped-centered">
