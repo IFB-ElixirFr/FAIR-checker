@@ -416,6 +416,26 @@ def statistics():
     )
 
 
+@app.route("/cache")
+def cache_inspector():
+    # hidden page: deliberately not linked from the menu
+    entries, others = util.list_registry_cache()
+    registries = {}
+    for e in entries:
+        counts = registries.setdefault(e["registry"], {"true": 0, "false": 0})
+        counts["true" if e["answer"] else "false"] += 1
+    most_accessed = util.most_accessed_uris(entries)
+    return render_template(
+        "cache_inspector.html",
+        title="Cache inspector",
+        subtitle="Registry lookups currently held in the cache",
+        entries=entries,
+        most_accessed=most_accessed,
+        registries=dict(sorted(registries.items())),
+        others=others,
+    )
+
+
 reqparse = reqparse.RequestParser()
 reqparse.add_argument(
     "url",
