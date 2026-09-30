@@ -27,7 +27,13 @@ json_rec = {
             identifier can be either the URL itself or encoded in the metadata as a dct:identifier or schema:identifier 
             property. Learn more about persistent identifiers in the identifiers.org documentation or in the 
             <a href="https://faircookbook.elixir-europe.org/content/recipes/findability/identifiers.html" target=”_blank”><b><u>FAIR-CookBook section on identifiers</u></b></a>
-             or in <a href="https://rdmkit.elixir-europe.org/identifiers#relevant-tools-and-resources" target=”_blank”><b><u>RDMkit</u></b></a>. 
+             or in <a href="https://rdmkit.elixir-europe.org/identifiers#relevant-tools-and-resources" target=”_blank”><b><u>RDMkit</u></b></a>.
+        """,
+        "reco2": """
+            A persistent identifier is used in your metadata, but it is not declared as the identifier of the resource.
+            To reach the strong level, expose it explicitly with a dct:identifier or schema:identifier property, for
+            example <code>"identifier": "https://doi.org/10.12770/xxxx"</code> in your JSON-LD. Learn more in the
+            <a href="https://faircookbook.elixir-europe.org/content/recipes/findability/identifiers.html" target=”_blank”><b><u>FAIR-CookBook section on identifiers</u></b></a>.
         """},
     "F2A": {
         "reco1": """
