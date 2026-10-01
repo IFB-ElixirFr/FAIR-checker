@@ -97,7 +97,7 @@ def animated_loading(message):
     """
 
     # string of char the will be displayed in a loop
-    chars = "/—\|"
+    chars = "/—\\|"
 
     # the loop over the chars
     for char in chars:
