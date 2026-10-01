@@ -1,28 +1,35 @@
-[![Actions Status](https://github.com/IFB-ElixirFr/fair-checker/workflows/Unit%20testing/badge.svg)](https://github.com/IFB-ElixirFr/fair-checker/actions) [![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE) [![Version 1.2.3](https://img.shields.io/badge/version-v1.2.3-blue)]()
+[![Actions Status](https://github.com/IFB-ElixirFr/fair-checker/workflows/Unit%20testing/badge.svg)](https://github.com/IFB-ElixirFr/fair-checker/actions) [![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE) [![Version 1.3.4](https://img.shields.io/badge/version-v1.3.4-blue)]()
 
 # FAIR-checker
 FAIR-Checker is a tool aimed at assessing FAIR principles and empowering data provider to enhance the quality of their digital resources.
 
 Data providers and consumers can check how FAIR are web resources. Developers can explore and inspect metadata exposed in web resources.
 
-FAIR-Checker is a web and command line tool to assess FAIRness of web resources:
+FAIR-Checker is a web tool to assess FAIRness of web resources. The web app is deployed at https://fair-checker.france-bioinformatique.fr. The user documentation is available from its "Documentation" menu (see [User documentation](#user-documentation)).
 
-1. FAIR Checker web app, is deployed at http://fair-checker.france-bioinformatique.fr. 
-1. Command line tool, is a metadata scraper and validator.
+<!--
+The command line tool (metadata scraper and validator) is not maintained anymore.
+
     **Usage examples :**
-        python app.py --url http://bio.tools/bwa
-        python app.py --bioschemas --url http://bio.tools/bwa
-        python app.py --scrapp --urls http://bio.tools/bwa
-        python app.py --scrapp --files file.txt
+        python cli.py evaluate --url http://bio.tools/bwa --url http://bio.tools/jaspar
+        python cli.py extract_metadata --url http://bio.tools/bwa -o metadata_dump
+        python cli.py extract_metadata --url-collection input_urls.txt
+        python cli.py validate_bioschemas --url http://bio.tools/bwa
+-->
 
 Main contributors are: 
-- [Thomas Rosnet](https://github.com/thomasrosnet)
 - [Alban Gaignard](https://github.com/albangaignard)
+- [Frédéric De Lamotte](https://orcid.org/0000-0003-4234-1172)
+- [Brieuc Quemeneur](https://github.com/Phloemus)
+
+Past contributors:
+- [Thomas Rosnet](https://github.com/thomasrosnet)
 - [Marie-Dominique Devignes](https://members.loria.fr/MDDevignes/)
 - [Sahar Frikha](https://github.com/sahar-frikha)
 
 ## Main features
 - extracts embedded metatdata from web pages, currently supporting RDFa, JSON-LD, and microdata formats
+- retrieves metadata through HTTP content negotiation (JSON-LD, RDF/XML, Turtle, N-Triples, N3, TriG, N-Quads) and [FAIR Signposting](https://signposting.org/FAIR/) links
 - evaluates [FAIR metrics](https://www.go-fair.org/fair-principles/) on these metadata (supported by [Identifiers.org](https://identifiers.org/)). 
 - provides a graphical summary on FAIR assesment 
 - provides detailed evaluations for each metric with technical recommendations
@@ -30,6 +37,17 @@ Main contributors are:
 - enrich metadata based on live SPARQL endpoints, currently relying on [Wikidata](https://www.wikidata.org), [OpenAIRE](https://graph.openaire.eu/develop/), and [OpenCitations](https://opencitations.net)
 - evaluate if used controled vocabularies / ontologies are indexed in community registries, currently supported by [OLS](https://www.ebi.ac.uk/ols), [LOV](https://lov.linkeddata.es/dataset/lov/), [BioPortal](https://bioportal.bioontology.org), [AgroPortal](https://agroportal.eu) and [EarthPortal](https://earthportal.eu)
 - evaluate [Bioschemas community profiles](https://bioschemas.org/profiles/) to check if required or recommended metadata is missing
+- evaluate DataCite and ENA Checklist 53 profiles when a compatible resource is detected
+- provides a REST API, documented with Swagger at `/swagger`
+
+## User documentation
+The user documentation (Check and Inspect pages, content negotiation, metadata quality checks) is written with [Sphinx](https://www.sphinx-doc.org) in the `docs` folder. To build it, from the root of the repository:
+
+```bash
+poetry run sphinx-build -b html docs docs/_build/html
+```
+
+When the web application is running, the documentation is served at [http://localhost:5000/docs/index.html](http://localhost:5000/docs/index.html), and from the "Documentation" link of the navigation bar.
 
 ## Known bugs
 - too few results retrieved from external SPARQL endpoints
