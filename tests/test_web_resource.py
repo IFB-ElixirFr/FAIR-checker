@@ -122,6 +122,9 @@ class WebResourceTestCase(unittest.TestCase):
 
         self.assertEqual(74, len(inrae_dataverse_jsonld.get_rdf()))
 
+    @unittest.skip(
+        "Intermittent timeout issue with entrepot.recherche.data.gouv.fr - network instability"
+    )
     def test_dataverse_inrae_html(self):
         inrae_dataverse_html = WebResource(
             "https://data.inrae.fr/dataset.xhtml?persistentId=doi:10.15454/P27LDX"

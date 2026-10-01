@@ -133,6 +133,7 @@ class FindabilityTestCase(unittest.TestCase):
         logging.info(res)
         self.assertEqual(res.get_score(), str(Result.WEAK.value))
 
+    @unittest.skip("Not working from GitHub, BioPortal API key required")
     def test_F2B_biotools(self):
         biotools = FindabilityTestCase.tool
         res = FAIRMetricsFactory.get_F2B(

@@ -125,6 +125,9 @@ class GenSHACLTestCase(unittest.TestCase):
             len(res["https://doi.org/10.7892/boris.108387"]["warnings"]), 11
         )
 
+    @unittest.skip(
+        "Intermittent timeout issue with entrepot.recherche.data.gouv.fr - network instability"
+    )
     def test_inrae_dataverse_validation(self):
         res = validate_any_from_microdata(
             input_url="https://data.inrae.fr/dataset.xhtml?persistentId=doi:10.15454/PL3HWQ"

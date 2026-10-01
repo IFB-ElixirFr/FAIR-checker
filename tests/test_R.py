@@ -52,6 +52,7 @@ class ReuseTestCase(unittest.TestCase):
         logging.info(res)
         self.assertEqual(res.get_score(), str(Result.NO.value))
 
+    @unittest.skip("Not working from GitHub, BioPortal API key required")
     def test_R13_biotools(self):
         biotools = ReuseTestCase.tool
         res = FAIRMetricsFactory.get_R13(
