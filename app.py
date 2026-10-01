@@ -15,7 +15,6 @@ from argparse import RawTextHelpFormatter
 from datetime import datetime, timedelta
 from json import JSONDecodeError
 from os import path
-from string import Template
 
 import git
 import rdflib
@@ -42,7 +41,7 @@ from flask_cors import CORS
 from flask_restx import Api, Resource, fields, reqparse
 from flask_socketio import SocketIO, emit
 from pymongo import MongoClient
-from rdflib import BNode, ConjunctiveGraph, Literal, URIRef
+from rdflib import ConjunctiveGraph, URIRef
 from requests.exceptions import ConnectionError
 from rich.console import Console
 from rich.progress import track
@@ -52,7 +51,7 @@ from rich.text import Text
 import metrics.util as util
 from metrics import test_metric
 from metrics.Evaluation import Evaluation, Result
-from metrics.util import _turtle_to_html, _assessment_to_rdf, _negotiate_rdf_response
+from metrics.util import _assessment_to_rdf, _negotiate_rdf_response
 from metrics.F1B_Impl import F1B_Impl
 from metrics.FAIRMetricsFactory import FAIRMetricsFactory
 from metrics.util import SOURCE, inspect_onto_reg
@@ -1403,10 +1402,10 @@ def handle_get_latest_triples():
     emit("send_triples", {"triples": list_triples})
 
 
-##B Return the length of a KG but you can also get its type by using
-##B the name that of the graph returned by the ConjuctiveGraph.query() function
-##B of RDFlib. It's at least used to detect the type of the graph (datacite for instance)
-##B of the KG produced in the /inspect web page
+# B: Return the length of a KG but you can also get its type by using
+# B: the name that of the graph returned by the ConjuctiveGraph.query() function
+# B: of RDFlib. It's at least used to detect the type of the graph (datacite for instance)
+# B: of the KG produced in the /inspect web page
 def named_kg_len(kgs):
     query_num = """
     SELECT ?g (COUNT(*) AS ?count)
@@ -1453,7 +1452,7 @@ def handle_embedded_annot_2(data):
     """
 
     sid = request.sid
-    RDF_TYPE[sid] = "trig"  ##B Not cleaned afterwards - Memory leak incoming
+    RDF_TYPE[sid] = "trig"  # B: Not cleaned afterwards - Memory leak incoming
     uri = str(data["url"])
     app.logger.info("Retrieve KG for uri: " + uri)
 
@@ -1461,7 +1460,7 @@ def handle_embedded_annot_2(data):
     kg = web_resource.get_rdf()
 
     KGS[sid] = (
-        kg  ##B Not cleaned afterwards - Memory leak incoming + information duplication
+        kg  # B: Not cleaned afterwards - Memory leak incoming + information duplication
     )
 
     # for kg in kgs.graphs():
@@ -1474,7 +1473,7 @@ def handle_embedded_annot_2(data):
         {
             "kg": str(
                 kg.serialize(format=RDF_TYPE[sid])
-            ),  ##B RDF_TYPE[sid] is set before, useless variable so far
+            ),  # B: RDF_TYPE[sid] is set before, useless variable so far
             "kgs_len": kgs_len,
         },
     )
