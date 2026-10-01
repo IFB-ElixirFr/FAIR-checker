@@ -196,7 +196,9 @@ class OntologyPortalOfflineTestCase(unittest.TestCase):
         with mock.patch.object(
             util.requests, "get", return_value=self._response(False)
         ):
-            self.assertFalse(util._run_portal_ask("t", endpoint, "ASK { <%s> a ?t }", uri))
+            self.assertFalse(
+                util._run_portal_ask("t", endpoint, "ASK { <%s> a ?t }", uri)
+            )
         # same URI, changed query: the answer cached for the old query is not reused
         with mock.patch.object(
             util.requests, "get", return_value=self._response(True)

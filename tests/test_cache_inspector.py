@@ -184,9 +184,13 @@ class MostAccessedTestCase(unittest.TestCase):
             _entry("OLS", None, "http://ex.org/n", True, 10),
         ]
         top = util.most_accessed_uris(entries)
-        self.assertEqual([t["uri"] for t in top], ["http://ex.org/t", "http://ex.org/n"])
+        self.assertEqual(
+            [t["uri"] for t in top], ["http://ex.org/t", "http://ex.org/n"]
+        )
         self.assertEqual(top[0]["hits"], 13)  # highest across registries, not the sum
-        self.assertEqual(top[0]["type"], "property")  # a registry that knows the type wins
+        self.assertEqual(
+            top[0]["type"], "property"
+        )  # a registry that knows the type wins
         self.assertIsNone(top[1]["type"])
 
     def test_merges_uriref_and_str(self):

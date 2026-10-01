@@ -18,7 +18,8 @@ json_rec = {
             an HTTP request.
         """,
     },
-    "F1B": {"reco1": """
+    "F1B": {
+        "reco1": """
             To ensure that the used identification scheme is persistent, you should build your resource ID with a 
             namespace that can be found in Identifiers.org  (life-science oriented registry). Examples of persistent 
             identifiers for a UniProt entry is: <a href="https://identifiers.org/uniprot:P38938" target=”_blank”><u>https://identifiers.org/uniprot:P38938</u></a> with uniprot as namespace or for 
@@ -34,7 +35,8 @@ json_rec = {
             To reach the strong level, expose it explicitly with a dct:identifier or schema:identifier property, for
             example <code>"identifier": "https://doi.org/10.12770/xxxx"</code> in your JSON-LD. Learn more in the
             <a href="https://faircookbook.elixir-europe.org/content/recipes/findability/identifiers.html" target=”_blank”><b><u>FAIR-CookBook section on identifiers</u></b></a>.
-        """},
+        """,
+    },
     "F2A": {
         "reco1": """
             Structured metadata should be embedded as machine readable content into your HTML file. A variety of RDF-compliant

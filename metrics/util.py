@@ -605,9 +605,7 @@ def most_accessed_uris(entries, limit=10):
             continue
         # str(): lookups are cached with a str or an rdflib URIRef, which are never equal
         uri = str(e["uri"])
-        row = by_uri.setdefault(
-            uri, {"uri": uri, "type": None, "hits": 0}
-        )
+        row = by_uri.setdefault(uri, {"uri": uri, "type": None, "hits": 0})
         row["hits"] = max(row["hits"], e["hits"])
         row["type"] = row["type"] or e["type"]
     return sorted(by_uri.values(), key=lambda r: r["hits"], reverse=True)[:limit]
