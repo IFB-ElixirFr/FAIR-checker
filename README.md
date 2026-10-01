@@ -28,7 +28,7 @@ Main contributors are:
 - provides detailed evaluations for each metric with technical recommendations
 - explore the content of metadata
 - enrich metadata based on live SPARQL endpoints, currently relying on [Wikidata](https://www.wikidata.org), [OpenAIRE](https://graph.openaire.eu/develop/), and [OpenCitations](https://opencitations.net)
-- evaluate if used controled vocabularies / ontologies are indexed in community registries, currently supported by [OLS](https://www.ebi.ac.uk/ols), [LOV](https://lov.linkeddata.es/dataset/lov/) and [BioPortal](https://bioportal.bioontology.org)
+- evaluate if used controled vocabularies / ontologies are indexed in community registries, currently supported by [OLS](https://www.ebi.ac.uk/ols), [LOV](https://lov.linkeddata.es/dataset/lov/), [BioPortal](https://bioportal.bioontology.org), [AgroPortal](https://agroportal.eu) and [EarthPortal](https://earthportal.eu)
 - evaluate [Bioschemas community profiles](https://bioschemas.org/profiles/) to check if required or recommended metadata is missing
 
 ## Known bugs
