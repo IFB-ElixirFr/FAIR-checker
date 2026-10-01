@@ -97,9 +97,7 @@ class F2A_Impl(AbstractFAIRMetrics):
                     "None of the discoverability properties were found in metadata !"
                 )
                 eval.set_recommendations(
-                    json_rec["F2A"]["reco2"]
-                    + checked_properties
-                    + """
+                    json_rec["F2A"]["reco2"] + checked_properties + """
                         """
                 )
                 eval.set_score(0)
