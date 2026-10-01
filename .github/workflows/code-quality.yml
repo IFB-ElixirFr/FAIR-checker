@@ -52,7 +52,10 @@ jobs:
         run: |
           conda info
           conda activate test
-          # stop the build if there are Python syntax errors or undefined names
-          flake8 . --exclude=.venv,.git,.ipynb_checkpoints,notebooks --count --select=E9,F63,F7,F82,E262,F841,E265,E266,E712,E713,F401,F403,F405,F811 --show-source --statistics
-          # exit-zero treats all errors as warnings. The GitHub editor is 127 chars wide
+          # fail the build if there are Python syntax errors, undefined names, unused imports/variables or comment style issues.
+          # The advisory report below is still printed when this check fails, the failure is reported at the end.
+          gate_status=0
+          flake8 . --exclude=.venv,.git,.ipynb_checkpoints,notebooks --count --select=E9,F63,F7,F82,E262,F841,E265,E266,E712,E713,F401,F403,F405,F811 --show-source --statistics || gate_status=$?
+          # exit-zero treats all errors as warnings (advisory only). The GitHub editor is 127 chars wide
           flake8 . --exclude=.venv,.git,.ipynb_checkpoints,notebooks --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
+          exit $gate_status
