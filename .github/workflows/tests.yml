@@ -22,7 +22,10 @@ jobs:
       BIOPORTAL_APIKEY: ${{ secrets.BIOPORTAL_APIKEY }}
 
     steps:
+      # The full history and the tags are needed: the application reads the latest git tag to display its version
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: Install Poetry
         run: pipx install "poetry>=2.1,<3"
