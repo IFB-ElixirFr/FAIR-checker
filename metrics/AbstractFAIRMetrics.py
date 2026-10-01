@@ -1,5 +1,6 @@
 from abc import ABC, abstractmethod
 import logging
+from typing import Optional, cast
 from metrics.Evaluation import Evaluation
 from metrics.util import get_disk_cache
 
@@ -42,7 +43,8 @@ PREFIX odrl: <http://www.w3.org/ns/odrl/2/>
         self.updated_at = "My update date"
         self.requests_status_code = "Status code for requests"
         self.web_resource = web_resource
-        self.evaluation = "My evaluation"
+        # created on demand, see get_evaluation()
+        self.evaluation: Optional[Evaluation] = None
 
     # name
     def get_name(self):
@@ -80,8 +82,19 @@ PREFIX odrl: <http://www.w3.org/ns/odrl/2/>
     def get_web_resource(self):
         return self.web_resource
 
-    def get_evaluation(self):
-        return self.evaluation
+    def require_web_resource(self):
+        """
+        :return: the web resource to evaluate.
+        :raises ValueError: if none was provided.
+        """
+        if self.web_resource is None:
+            raise ValueError("no web resource was provided to evaluate")
+        return self.web_resource
+
+    def get_evaluation(self) -> Evaluation:
+        if self.evaluation is None:
+            self.set_new_evaluation()
+        return cast(Evaluation, self.evaluation)
 
     def set_id(self, id):
         self.id = id
@@ -108,9 +121,10 @@ PREFIX odrl: <http://www.w3.org/ns/odrl/2/>
         # Check in the cache if the metrics has not been computed yet
         try:
 
-            url = self.get_web_resource().get_url()
+            web_resource = self.require_web_resource()
+            url = web_resource.get_url()
             eval.set_target_uri(url)
-            eval.set_web_resource(self.get_web_resource())
+            eval.set_web_resource(web_resource)
 
             cache_key = self.get_principle_tag() + "_" + url
 
@@ -143,7 +157,24 @@ PREFIX odrl: <http://www.w3.org/ns/odrl/2/>
                 )
                 return self.get_evaluation()
         except Exception as err:
-            logger.error(err)
+            # Never return None: callers expect an Evaluation, a failed one scores 0
+            # and says why. Failures are not cached, so a retry can succeed.
+            logger.exception(
+                f"Evaluation of metric {self.get_principle_tag()} failed: {err}"
+            )
+            reason = (
+                f"Evaluation of metric {self.get_principle_tag()} failed "
+                f"({type(err).__name__}: {err})"
+            )
+            eval.log_error(reason)
+            eval.set_reason(reason)
+            eval.set_recommendations(
+                "The metric could not be evaluated because of an error. "
+                "Check that the resource is reachable and try again."
+            )
+            eval.set_score(0)
+            eval.set_end_time()
+            return eval
 
     @abstractmethod
     def weak_evaluate(self) -> Evaluation:

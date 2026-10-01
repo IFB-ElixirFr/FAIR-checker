@@ -23,11 +23,21 @@ from flask import Flask, current_app, request, Response, render_template
 from flask_socketio import emit
 import logging
 import copy
+import functools
+import time
+import inspect
 import re
 import validators
 from urllib.parse import urlparse, unquote
 
 logger = logging.getLogger(__name__)
+
+# Several public endpoints reject the default python-requests agent. The
+# Wikidata Query Service answers 403 with "Please set a user-agent and respect
+# our robot policy" until one is supplied.
+USER_AGENT = (
+    "FAIR-Checker" "(+https://fair-checker.france-bioinformatique.fr/) python-requests"
+)
 
 _cache = None
 
@@ -35,7 +45,13 @@ _cache = None
 def get_disk_cache():
     global _cache
     if _cache is None:
-        _cache = Cache("cache_dir", size_limit=100 * 1024 * 1024)
+        # least-frequently-used makes diskcache count the hits of each entry
+        # (see list_registry_cache)
+        _cache = Cache(
+            "cache_dir",
+            size_limit=100 * 1024 * 1024,
+            eviction_policy="least-frequently-used",
+        )
     return _cache
 
 
@@ -63,6 +79,39 @@ with app.app_context():
     ttl_cache_timer = current_app.config["CACHE_CONTROLLED_VOCAB_TIMER"]
     ttl_cache_maxsize = current_app.config["CACHE_CONTROLLED_VOCAB_MAXSIZE"]
 ttl_cache_seconds = float(timedelta(hours=ttl_cache_timer).total_seconds())
+
+
+_CACHE_MISS = object()
+
+
+def cache_unless_none(expire):
+    """
+    Disk-cache decorator, like dcache.memoize, except that None results are not
+    stored. The registry lookups return None when the registry is unreachable:
+    memoizing that would hide the registry for the whole cache lifetime.
+    Positional and keyword arguments are normalized, so f(x, "a") and
+    f(x, type="a") share one cache entry.
+    """
+
+    def decorator(func):
+        signature = inspect.signature(func)
+
+        @functools.wraps(func)
+        def wrapper(*args, **kwargs):
+            bound = signature.bind(*args, **kwargs)
+            bound.apply_defaults()
+            key = (func.__module__, func.__qualname__, tuple(bound.arguments.items()))
+            result = dcache.get(key, default=_CACHE_MISS)
+            if result is _CACHE_MISS:
+                result = func(*args, **kwargs)
+                if result is not None:
+                    dcache.set(key, result, expire=expire)
+            return result
+
+        return wrapper
+
+    return decorator
+
 
 # # DOI regex
 # regex = r"10.\d{4,9}\/[-._;()\/:A-Z0-9]+"
@@ -199,7 +248,7 @@ def describe_wikidata(uri, g):
 
     # print(query)
 
-    h = {"Accept": "application/sparql-results+xml"}
+    h = {"Accept": "application/sparql-results+xml", "User-Agent": USER_AGENT}
     p = {"query": query}
 
     res = requests.get(endpoint, headers=h, params=p, verify=False)
@@ -273,7 +322,7 @@ def remove_key_from_value(d, val):
 
 
 # @cached(cache_BP)
-@dcache.memoize(expire=ttl_cache_seconds)
+@cache_unless_none(expire=ttl_cache_seconds)
 def ask_BioPortal(uri, type):
     """
     Checks that the URI is registered in one of the ontologies indexed in BioPortal.
@@ -311,25 +360,58 @@ def ask_BioPortal(uri, type):
         return None
 
 
+# The former https://lov.linkeddata.es/dataset/lov/sparql now 301-redirects here.
+LOV_SPARQL_ENDPOINT = "https://lov.linkeddata.es/dataset/sparql"
+
+
+def get_LOV_status():
+    """
+    Reachability check for the LOV SPARQL endpoint.
+
+    HEAD is not usable: the endpoint answers 400 to a query-less request, so the
+    check issues a trivial ASK instead.
+    :return: the HTTP status code, or 0 if the endpoint could not be reached.
+    """
+    try:
+        return requests.get(
+            LOV_SPARQL_ENDPOINT,
+            headers={"Accept": "application/sparql-results+json"},
+            params={"query": "ASK { ?s ?p ?o }"},
+            verify=True,
+        ).status_code
+    except requests.exceptions.RequestException:
+        return 0
+
+
 # @cached(cache_OLS)
-@dcache.memoize(expire=ttl_cache_seconds)
-def ask_OLS(uri):
+@cache_unless_none(expire=ttl_cache_seconds)
+def ask_OLS(uri, type):
     """
     Checks that the URI is registered in one of the ontologies indexed in OLS.
     :param uri:
+    :param type: "class" (OLS terms) or "property"
     :return: True if the URI is registered in one of the ontologies indexed in OLS, False otherwise, and None if registry is unreachable.
     """
-
-    # remove_key_from_value(cache_OLS, None)
+    if type == "class":
+        endpoint = "https://www.ebi.ac.uk/ols4/api/terms"
+    elif type == "property":
+        endpoint = "https://www.ebi.ac.uk/ols4/api/properties"
+    else:
+        raise ValueError(f"type must be 'class' or 'property', got {type!r}")
 
     app.logger.info(f"Call to the OLS REST API for [ {uri} ]")
-    # uri = requests.compat.quote_plus(uri)
-    h = {"Accept": "application/json"}
-    p = {"iri": uri}
-    # TODO we are only checking for properties and not classes, to be fixed.
-    res = requests.get(
-        "https://www.ebi.ac.uk/ols4/api/properties", headers=h, params=p, verify=True
-    )
+    try:
+        res = requests.get(
+            endpoint,
+            headers={"Accept": "application/json", "User-Agent": USER_AGENT},
+            params={"iri": uri},
+            verify=True,
+            timeout=60,
+        )
+    except requests.exceptions.RequestException as e:
+        app.logger.error("Cound not connect to OLS")
+        app.logger.error(e)
+        return None
 
     if res.status_code == 200:
         return res.json()["page"]["totalElements"] > 0
@@ -339,32 +421,207 @@ def ask_OLS(uri):
         return None
 
 
-# @cached(cache_LOV)
-@dcache.memoize(expire=ttl_cache_seconds)
-def ask_LOV(uri):
+AGROPORTAL_SPARQL_ENDPOINT = "https://sparql.agroportal.eu/sparql"
+EARTHPORTAL_SPARQL_ENDPOINT = "https://sparql.earthportal.eu/sparql"
+
+_ASK_CLASS_QUERY = """
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+
+ASK {
+    VALUES ?c_spec { owl:Class skos:Concept }
+    <%s> rdf:type ?c_spec 
+}
+"""
+
+_ASK_PROPERTY_QUERY = """
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+
+ASK {
+  VALUES ?p_spec { owl:ObjectProperty owl:DatatypeProperty }
+  <%s> rdf:type ?p_spec
+}
+"""
+
+# Characters forbidden in a SPARQL IRIREF: such a URI cannot be a registered term
+# and would break out of the <...> of the query.
+_INVALID_IRIREF_CHARS = re.compile(r'[\x00-\x20<>"{}|^`\\]')
+
+
+def _ask_portal(name, endpoint, uri, type):
     """
-    Checks that the URI is registered in one of the ontologies indexed in LOV (Linked Open Vocabularies).
-    :param uri:
-    :return: True if the URI is registered in one of the ontologies indexed in LOV, False otherwise, and None if registry is unreachable.
+    ASK query against the SPARQL endpoint of an ontology portal.
+    :return: True or False, and None if the portal is unreachable.
     """
-    # remove_key_from_value(cache_LOV, None)
-
-    app.logger.info(
-        f"SPARQL for [ {uri} ] with enpoint [ https://lov.linkeddata.es/dataset/lov/sparql ]"
-    )
-
-    h = {"Accept": "application/sparql-results+json"}
-    p = {"query": "ASK { <" + uri + "> ?p ?o }"}
-    res = requests.get(
-        "https://lov.linkeddata.es/dataset/lov/sparql", headers=h, params=p, verify=True
-    )
-
-    if res.status_code == 200:
-        return res.json()["boolean"]
+    if type == "class":
+        query = _ASK_CLASS_QUERY
+    elif type == "property":
+        query = _ASK_PROPERTY_QUERY
     else:
-        app.logger.error("Cound not connect to LOV")
-        app.logger.error(res.text)
+        raise ValueError(f"type must be 'class' or 'property', got {type!r}")
+
+    uri = str(uri)
+    if _INVALID_IRIREF_CHARS.search(uri):
+        return False
+
+    return _run_portal_ask(name, endpoint, query, uri)
+
+
+# The query template is an argument, hence part of the cache key: answers cached
+# with an earlier version of a query are never served for its current version.
+@cache_unless_none(expire=ttl_cache_seconds)
+def _run_portal_ask(name, endpoint, query, uri):
+    app.logger.info(f"SPARQL for [ {uri} ] with endpoint [ {endpoint} ]")
+    try:
+        res = requests.get(
+            endpoint,
+            headers={
+                "Accept": "application/sparql-results+json",
+                "User-Agent": USER_AGENT,
+            },
+            params={"query": query % uri},
+            verify=True,
+            timeout=60,
+        )
+        res.raise_for_status()
+        return res.json()["boolean"]
+    except (requests.exceptions.RequestException, ValueError, KeyError) as e:
+        app.logger.error(f"Cound not connect to {name}")
+        app.logger.error(e)
         return None
+
+
+def ask_AgroPortal(uri, type):
+    """
+    Checks that the URI is registered in one of the ontologies indexed in AgroPortal.
+    :param uri:
+    :param type: "class" (owl:Class) or "property" (owl:ObjectProperty or owl:DataProperty)
+    :return: True if the URI is registered in one of the ontologies indexed in AgroPortal, False otherwise, and None if registry is unreachable.
+    """
+    return _ask_portal("AgroPortal", AGROPORTAL_SPARQL_ENDPOINT, uri, type)
+
+
+def ask_EarthPortal(uri, type):
+    """
+    Checks that the URI is registered in one of the ontologies indexed in EarthPortal.
+    :param uri:
+    :param type: "class" (owl:Class) or "property" (owl:ObjectProperty or owl:DataProperty)
+    :return: True if the URI is registered in one of the ontologies indexed in EarthPortal, False otherwise, and None if registry is unreachable.
+    """
+    return _ask_portal("EarthPortal", EARTHPORTAL_SPARQL_ENDPOINT, uri, type)
+
+
+def ask_LOV(uri, type):
+    """
+    Checks that the URI is registered in one of the vocabularies indexed in LOV (Linked Open Vocabularies).
+    :param uri:
+    :param type: "class" (owl:Class) or "property" (owl:ObjectProperty or owl:DatatypeProperty)
+    :return: True if the URI is registered in one of the vocabularies indexed in LOV, False otherwise, and None if registry is unreachable.
+    """
+    return _ask_portal("LOV", LOV_SPARQL_ENDPOINT, uri, type)
+
+
+_REGISTRY_OF_CACHED_FUNCTION = {
+    "ask_BioPortal": "BioPortal",
+    "ask_OLS": "OLS",
+}
+
+
+def list_registry_cache(cache=None):
+    """
+    Lists the registry lookups held in the disk cache (see cache_unless_none).
+    :return: (entries, others): one dict per lookup with the keys registry, type,
+    uri, answer, expires_in (seconds, None if it does not expire) and hits (times
+    the answer was served from the cache), and the number of cache entries that
+    are not registry lookups.
+    "type" is "class" or "property" for the portals and BioPortal, None for
+    the registries queried by URI only. A portal answer obtained with a query that
+    is not the current one is never served again: it is not listed, and counted
+    with the entries that are not registry lookups.
+    The hits are counted by diskcache under the least-frequently-used eviction
+    policy (see get_disk_cache). They are read from the Cache table: reading
+    entries through cache.get() would increment them.
+    """
+    cache = dcache if cache is None else cache
+    now = time.time()
+    rows = cache._sql(
+        "SELECT key, raw, expire_time, access_count, mode, filename, value"
+        " FROM Cache WHERE expire_time IS NULL OR expire_time > ?",
+        (now,),
+    ).fetchall()
+    entries = []
+    others = 0
+    for key, raw, expire_time, hits, mode, filename, value in rows:
+        key = cache.disk.get(key, raw)
+        if not (isinstance(key, tuple) and len(key) == 3 and key[0] == __name__):
+            others += 1
+            continue
+        _, func, items = key
+        args = dict(items)
+        if func == "_run_portal_ask":
+            registry = args["name"]
+            entry_type = {
+                _ASK_CLASS_QUERY: "class",
+                _ASK_PROPERTY_QUERY: "property",
+            }.get(args["query"])
+            if entry_type is None:  # outdated query
+                others += 1
+                continue
+        elif func in _REGISTRY_OF_CACHED_FUNCTION:
+            registry = _REGISTRY_OF_CACHED_FUNCTION[func]
+            entry_type = args.get("type")
+            if entry_type is None:  # cached before the type argument existed
+                others += 1
+                continue
+        else:
+            others += 1
+            continue
+        entries.append(
+            {
+                "registry": registry,
+                "type": entry_type,
+                "uri": args["uri"],
+                "answer": cache.disk.fetch(mode, filename, value, False),
+                "expires_in": None if expire_time is None else expire_time - now,
+                "hits": hits,
+            }
+        )
+    return entries, others
+
+
+def most_accessed_uris(entries, limit=10):
+    """
+    Most accessed URIs, from the entries of list_registry_cache: one row per URI,
+    whatever the number of registries it was looked up in.
+    hits is the highest number of hits across the registries, not their sum: the
+    same request is answered by several registries. type is the one given by a
+    registry that reports one (None if none does).
+    """
+    by_uri = {}
+    for e in entries:
+        if e["hits"] <= 0:
+            continue
+        # str(): lookups are cached with a str or an rdflib URIRef, which are never equal
+        uri = str(e["uri"])
+        row = by_uri.setdefault(uri, {"uri": uri, "type": None, "hits": 0})
+        row["hits"] = max(row["hits"], e["hits"])
+        row["type"] = row["type"] or e["type"]
+    return sorted(by_uri.values(), key=lambda r: r["hits"], reverse=True)[:limit]
+
+
+def _initial_registry_tags(uri):
+    tags = {
+        "OLS": None,
+        "LOV": None,
+        "BioPortal": None,
+        "AgroPortal": None,
+        "EarthPortal": None,
+    }
+    if urlparse(uri).netloc == "bioschemas.org":
+        tags["Bioschemas"] = True
+    return tags
 
 
 def inspect_onto_reg(kg, is_inspect_ui):
@@ -384,59 +641,25 @@ def inspect_onto_reg(kg, is_inspect_ui):
     }
     qres = kg.query(query_classes)
     for row in qres:
-        namespace = urlparse(row["class"]).netloc
-        class_entry = {}
-
-        if namespace == "bioschemas.org":
-            class_entry = {
-                "name": row["class"],
-                "tag": {
-                    "OLS": None,
-                    "LOV": None,
-                    "BioPortal": None,
-                    "Bioschemas": True,
-                },
-            }
-        else:
-            class_entry = {
-                "name": row["class"],
-                "tag": {"OLS": None, "LOV": None, "BioPortal": None},
-            }
-
-        table_content["classes"].append(class_entry)
+        table_content["classes"].append(
+            {"name": row["class"], "tag": _initial_registry_tags(row["class"])}
+        )
 
     qres = kg.query(query_properties)
     for row in qres:
-        namespace = urlparse(row["prop"]).netloc
-        property_entry = {}
-
-        if namespace == "bioschemas.org":
-            property_entry = {
-                "name": row["prop"],
-                "tag": {
-                    "OLS": None,
-                    "LOV": None,
-                    "BioPortal": None,
-                    "Bioschemas": True,
-                },
-            }
-        else:
-            property_entry = {
-                "name": row["prop"],
-                "tag": {"OLS": None, "LOV": None, "BioPortal": None},
-            }
-
-        table_content["properties"].append(property_entry)
+        table_content["properties"].append(
+            {"name": row["prop"], "tag": _initial_registry_tags(row["prop"])}
+        )
 
     if is_inspect_ui:
         emit("done_check", table_content)
 
     for c in table_content["classes"]:
-        c["tag"]["OLS"] = ask_OLS(c["name"])
+        c["tag"]["OLS"] = ask_OLS(c["name"], "class")
         if is_inspect_ui:
             emit("done_check", table_content)
 
-        c["tag"]["LOV"] = ask_LOV(c["name"])
+        c["tag"]["LOV"] = ask_LOV(c["name"], "class")
         if is_inspect_ui:
             emit("done_check", table_content)
 
@@ -444,21 +667,31 @@ def inspect_onto_reg(kg, is_inspect_ui):
         if is_inspect_ui:
             emit("done_check", table_content)
 
+        c["tag"]["AgroPortal"] = ask_AgroPortal(c["name"], "class")
+        if is_inspect_ui:
+            emit("done_check", table_content)
+
+        c["tag"]["EarthPortal"] = ask_EarthPortal(c["name"], "class")
+        if is_inspect_ui:
+            emit("done_check", table_content)
+
         all_false_rule = [
             c["tag"]["OLS"] is False,
             c["tag"]["LOV"] is False,
             c["tag"]["BioPortal"] is False,
+            c["tag"]["AgroPortal"] is False,
+            c["tag"]["EarthPortal"] is False,
         ]
 
         if all(all_false_rule) and "Bioschemas" not in c["tag"]:
             table_content["classes_false"].append(c["name"])
 
     for p in table_content["properties"]:
-        p["tag"]["OLS"] = ask_OLS(p["name"])
+        p["tag"]["OLS"] = ask_OLS(p["name"], "property")
         if is_inspect_ui:
             emit("done_check", table_content)
 
-        p["tag"]["LOV"] = ask_LOV(p["name"])
+        p["tag"]["LOV"] = ask_LOV(p["name"], "property")
         if is_inspect_ui:
             emit("done_check", table_content)
 
@@ -466,10 +699,20 @@ def inspect_onto_reg(kg, is_inspect_ui):
         if is_inspect_ui:
             emit("done_check", table_content)
 
+        p["tag"]["AgroPortal"] = ask_AgroPortal(p["name"], "property")
+        if is_inspect_ui:
+            emit("done_check", table_content)
+
+        p["tag"]["EarthPortal"] = ask_EarthPortal(p["name"], "property")
+        if is_inspect_ui:
+            emit("done_check", table_content)
+
         all_false_rule = [
             p["tag"]["OLS"] is False,
             p["tag"]["LOV"] is False,
             p["tag"]["BioPortal"] is False,
+            p["tag"]["AgroPortal"] is False,
+            p["tag"]["EarthPortal"] is False,
         ]
         if all(all_false_rule) and "Bioschemas" not in p["tag"]:
             table_content["properties_false"].append(p["name"])
@@ -752,11 +995,44 @@ def rdf_to_triple_list(graph):
 #     pass
 
 
-def clean_kg_excluding_ns_prefix(kg) -> ConjunctiveGraph:
-    prefixes = [
-        "http://www.w3.org/1999/xhtml/vocab#",
-        "http://ogp.me/ns",
-    ]
+def canonical_type_n3(type_uri, namespace_manager) -> str:
+    """
+    Normalise an rdf:type onto the spelling the Bioschemas profiles are keyed on.
+
+    Two upstream moves broke the naive lookup: schema.org migrated from http://
+    to https:// (so types serialise as scs: rather than sc:), and Bioschemas
+    moved its terms under /terms/ (so bsc:X became the unabbreviated
+    <https://bioschemas.org/terms/X>). Profiles still use the sc:/bsc: forms.
+    """
+    raw = str(type_uri)
+    for prefix, replacement in (
+        ("https://schema.org/", "http://schema.org/"),
+        ("https://bioschemas.org/terms/", "https://bioschemas.org/"),
+        ("http://bioschemas.org/terms/", "https://bioschemas.org/"),
+    ):
+        if raw.startswith(prefix):
+            raw = replacement + raw[len(prefix) :]
+            break
+
+    # Don't depend on the graph's prefix bindings for schema.org: a graph that
+    # never bound sc: would otherwise yield <http://schema.org/X> and miss sc:X.
+    if raw.startswith("http://schema.org/"):
+        return "sc:" + raw[len("http://schema.org/") :]
+
+    return URIRef(raw).n3(namespace_manager).replace("scs:", "sc:")
+
+
+DEFAULT_EXCLUDED_NS_PREFIXES = [
+    "http://www.w3.org/1999/xhtml/vocab#",
+    "http://ogp.me/ns",
+]
+
+
+def clean_kg_excluding_ns_prefix(kg, prefixes=None) -> ConjunctiveGraph:
+    if prefixes is None:
+        prefixes = DEFAULT_EXCLUDED_NS_PREFIXES
+    elif isinstance(prefixes, str):
+        prefixes = [prefixes]
     cleaned_kg = copy.deepcopy(kg)
     for prefix in prefixes:
         q_del = (

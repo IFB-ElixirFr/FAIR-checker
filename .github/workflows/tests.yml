@@ -1,5 +1,5 @@
-# This workflow will install Python dependencies, run tests and lint with a single version of Python
-# For more information see: https://help.github.com/actions/language-and-framework-guides/using-python-with-github-actions
+# Runs the unit test suite. Dependencies are installed with Poetry from pyproject.toml / poetry.lock,
+# the same way as for a local or production installation (see the README).
 
 name: Unit testing
 
@@ -13,34 +13,45 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    env:
+      # Optional credentials read by config.py / profiles: they avoid GitHub API rate limits
+      # and enable the BioPortal checks. When the BIOPORTAL_APIKEY secret is not defined it is just empty.
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      BIOPORTAL_APIKEY: ${{ secrets.BIOPORTAL_APIKEY }}
 
     steps:
-      - uses: actions/checkout@v2
-      - name: Set up Python 3.9
-        uses: actions/setup-python@v2
+      # The full history and the tags are needed: the application reads the latest git tag to display its version
+      - uses: actions/checkout@v4
         with:
-          python-version: 3.9
-      #----------------------------------------------
-      #  -----  install & configure conda
-      #----------------------------------------------
-      - uses: conda-incubator/setup-miniconda@v2
+          fetch-depth: 0
+
+      - name: Install Poetry
+        run: pipx install "poetry>=2.1,<3"
+
+      - name: Set up Python 3.12
+        uses: actions/setup-python@v5
         with:
-          python-version: 3.9
-          conda-build-version: "*"
-          channels: conda-forge,defaults
-          channel-priority: true
+          python-version: "3.12"
 
-      - shell: bash -l {0}
-        run: |
-          conda info
-          conda list
-          conda config --show-sources
-          conda config --show
-          printenv | sort
+      # poetry.lock is not tracked in git (see .gitignore): Poetry resolves the dependencies from
+      # pyproject.toml at each run. Only the downloaded packages are cached, keyed on pyproject.toml.
+      - name: Cache Poetry downloads
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/pypoetry
+          key: poetry-${{ runner.os }}-py3.12-${{ hashFiles('pyproject.toml') }}
+          restore-keys: poetry-${{ runner.os }}-py3.12-
 
-      - shell: bash -l {0}
+      - name: Install dependencies
         run: |
-          conda env update -n test --file environment.yml
+          poetry env use python
+          poetry install --no-interaction --without docs
+
+      - name: Install Playwright browser
+        run: poetry run playwright install --with-deps chromium
+
       - name: Create mongoDB Docker container
         run: sudo docker run -d -p 27017:27017 mongo:latest
 
@@ -48,9 +59,6 @@ jobs:
       #              run test suite
       #----------------------------------------------
       - name: Run tests
-        shell: bash -l {0}
         run: |
-          conda info
-          conda activate test
-          coverage run --omit '.venv/*' -m pytest tests
-          coverage report -m
+          poetry run coverage run --omit '.venv/*' -m pytest tests
+          poetry run coverage report -m

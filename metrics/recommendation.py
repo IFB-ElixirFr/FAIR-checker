@@ -28,8 +28,14 @@ json_rec = {
             identifier can be either the URL itself or encoded in the metadata as a dct:identifier or schema:identifier 
             property. Learn more about persistent identifiers in the identifiers.org documentation or in the 
             <a href="https://faircookbook.elixir-europe.org/content/recipes/findability/identifiers.html" target=”_blank”><b><u>FAIR-CookBook section on identifiers</u></b></a>
-             or in <a href="https://rdmkit.elixir-europe.org/identifiers#relevant-tools-and-resources" target=”_blank”><b><u>RDMkit</u></b></a>. 
-        """
+             or in <a href="https://rdmkit.elixir-europe.org/identifiers#relevant-tools-and-resources" target=”_blank”><b><u>RDMkit</u></b></a>.
+        """,
+        "reco2": """
+            A persistent identifier is used in your metadata, but it is not declared as the identifier of the resource.
+            To reach the strong level, expose it explicitly with a dct:identifier or schema:identifier property, for
+            example <code>"identifier": "https://doi.org/10.12770/xxxx"</code> in your JSON-LD. Learn more in the
+            <a href="https://faircookbook.elixir-europe.org/content/recipes/findability/identifiers.html" target=”_blank”><b><u>FAIR-CookBook section on identifiers</u></b></a>.
+        """,
     },
     "F2A": {
         "reco1": """
@@ -92,13 +98,11 @@ json_rec = {
     "I2B": {
         # Calling F2A
     },
-    "I3": {
-        "reco1": """
+    "I3": {"reco1": """
             You should enrich your metadata with more diversified external links. Here we did not detect more than two 
             distinct URL authorities (= domain name, first part of the URL right after ://) among all URLs referred 
             to in your resource.
-        """
-    },
+        """},
     "R11": {
         "reco1": """
             You should include information about license in your metadata using one of the properties below: <br><br>

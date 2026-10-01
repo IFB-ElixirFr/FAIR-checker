@@ -7,7 +7,7 @@ import logging
 
 logger = logging.getLogger(__name__)
 
-### Mapping with  Schema.org
+# Mapping with  Schema.org
 mandatory_schema_properties = [
     "organism part",
     "lifestage",
@@ -213,7 +213,7 @@ def validate_md(graph, profile):
     Validates the given knowledge graph against the provided profile.
     """
 
-    ## ensure that the profile includes "target_class", "mandatory_properties", "recommended_properties" and "optional_properties" keys
+    # ensure that the profile includes "target_class", "mandatory_properties", "recommended_properties" and "optional_properties" keys
     required_keys = [
         "target_class",
         "mandatory_properties",
