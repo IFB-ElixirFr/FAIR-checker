@@ -1,5 +1,4 @@
 import unittest
-import json
 
 from rdflib import ConjunctiveGraph, URIRef
 
