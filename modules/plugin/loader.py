@@ -8,6 +8,7 @@ import logging
 from modules.plugin.plugin import Plugin
 from modules.plugin.validator import PluginValidator
 from modules.evaluator.metric import Metric
+from modules.evaluator.resource import ResourceExample
 
 
 ## PluginLoader class
@@ -35,13 +36,18 @@ class PluginLoader:
                     for metric in plugin_data['metrics'].values():
                         metrics.append(Metric.from_plugin_file_data(metric))
                     logging.debug(f"All metrics listed in the plugin: {plugin_data['name']} were created successfully")
+                    resource_examples = []
+                    for resource_example in plugin_data['resource_examples'].values():
+                        resource_examples.append(ResourceExample.from_plugin_file_data(resource_example))
+                    logging.debug(f"All example resources listed in the plugin: {plugin_data['name']} were created successfully")
                     plugin = Plugin(
                         plugin_data['name'],
                         plugin_data['api_route'],
                         plugin_data['version'],
                         plugin_data['author'],
                         plugin_data['description'],
-                        metrics
+                        metrics,
+                        resource_examples=resource_examples
                     )
                     self.plugins.append(plugin)
             except Exception as e:

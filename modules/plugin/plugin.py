@@ -1,6 +1,6 @@
 class Plugin:
 
-    def __init__(self, name, api_route, version, author, description, metrics):
+    def __init__(self, name, api_route, version, author, description, metrics, resource_examples = []):
         self.name = name
         self.api_route = api_route
         self.version = version
