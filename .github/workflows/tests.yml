@@ -23,7 +23,7 @@ jobs:
 
     steps:
       # The full history and the tags are needed: the application reads the latest git tag to display its version
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
         with:
           fetch-depth: 0
 
@@ -31,7 +31,7 @@ jobs:
         run: pipx install "poetry>=2.1,<3"
 
       - name: Set up Python 3.12
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v6
         with:
           python-version: "3.12"
 
