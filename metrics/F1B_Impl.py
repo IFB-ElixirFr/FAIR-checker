@@ -94,11 +94,6 @@ class F1B_Impl(AbstractFAIRMetrics):
 
         return False
 
-    """
-    GOAL :
-
-    """
-
     def __init__(self, web_resource=None):
         super().__init__(web_resource)
         self.name = "Persistent IDs"
@@ -119,7 +114,7 @@ Weak : FAIR-Checker verifies that at least one namespace from identifiers.org is
         eval.set_implem(self.implem)
         eval.set_metrics(self.principle_tag)
 
-        kg = self.get_web_resource().get_rdf()
+        kg = self.require_web_resource().get_rdf()
 
         namespaces = F1B_Impl.get_known_namespaces()
 
@@ -129,8 +124,16 @@ Weak : FAIR-Checker verifies that at least one namespace from identifiers.org is
         # for kg in kgs:
         for s, p, o in kg:
             for term in [s, o]:
+                if F1B_Impl.is_known_purl(str(term), F1B_Impl._known_url_authorities):
+                    logger.info(
+                        f"Used permanent URL authority: {F1B_Impl._known_url_authorities}"
+                    )
+                    eval.set_recommendations(json_rec["F1B"]["reco2"])
+                    eval.set_score(1)
+                    return eval
                 if F1B_Impl.is_known_pid_scheme(str(term), namespaces):
                     logger.info(f"Found an Identifiers.org namespace for {str(term)}")
+                    eval.set_recommendations(json_rec["F1B"]["reco2"])
                     eval.set_score(1)
                     return eval
         logger.info("No namespace from identifiers.org found")
@@ -146,21 +149,18 @@ Weak : FAIR-Checker verifies that at least one namespace from identifiers.org is
         eval.set_implem(self.implem)
         eval.set_metrics(self.principle_tag)
 
-        query_identifiers = (
-            self.COMMON_SPARQL_PREFIX
-            + """ 
+        query_identifiers = self.COMMON_SPARQL_PREFIX + """ 
 ASK { 
     VALUES ?p {dct:identifier schema:identifier schema_s:identifier} . 
     ?s ?p ?o .
 }
             """
-        )
         logger.info(
             "[STRONG] Checking if there is either schema:identifier or dct:identifier property in metadata"
         )
 
         if F1B_Impl.is_known_purl(
-            self.get_web_resource().url, F1B_Impl._known_url_authorities
+            self.require_web_resource().url, F1B_Impl._known_url_authorities
         ):
             logger.info(
                 f"use of permanent a URL authority: {F1B_Impl._known_url_authorities}"
@@ -168,7 +168,7 @@ ASK {
             eval.set_score(2)
             return eval
 
-        kg = self.get_web_resource().get_rdf()
+        kg = self.require_web_resource().get_rdf()
         # for kg in self.get_web_resource().get_wr_kg_dataset().graphs():
 
         res = kg.query(query_identifiers)

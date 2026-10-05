@@ -13,6 +13,7 @@ import yaml
 import re
 
 from metrics.WebResource import WebResource
+from metrics.util import canonical_type_n3
 
 basedir = path.abspath(path.dirname(__file__))
 load_dotenv(path.join(basedir, ".env"))
@@ -587,12 +588,11 @@ def validate_any_from_KG(kg):
         # print(f"{s.n3(kg.namespace_manager)} is a {o.n3(kg.namespace_manager)}")
         # print(bs_profiles.keys())
         # print(o.n3(kg.namespace_manager))
-        if o.n3(kg.namespace_manager) in bs_profiles.keys():
+        type_key = canonical_type_n3(o, kg.namespace_manager)
+        if type_key in bs_profiles.keys():
             # print()
             print(f"Trying to validate {s} as a(n) {o} resource")
-            shacl_shape, ref_profile = gen_SHACL_from_target_class(
-                o.n3(kg.namespace_manager)
-            )
+            shacl_shape, ref_profile = gen_SHACL_from_target_class(type_key)
 
             sub_kg = ConjunctiveGraph()
             for x, y, z in kg.triples((s, None, None)):
@@ -625,12 +625,11 @@ def validate_any_from_RDF(input_url, rdf_syntax):
     for s, p, o in kg.triples((None, RDF.type, None)):
         # print()
         # print(f"{s.n3(kg.namespace_manager)} is a {o.n3(kg.namespace_manager)}")
-        if o.n3(kg.namespace_manager) in bs_profiles.keys():
+        type_key = canonical_type_n3(o, kg.namespace_manager)
+        if type_key in bs_profiles.keys():
             # print()
             print(f"Trying to validate {s} as a(n) {o} resource")
-            shacl_shape, ref_profile = gen_SHACL_from_target_class(
-                o.n3(kg.namespace_manager)
-            )
+            shacl_shape, ref_profile = gen_SHACL_from_target_class(type_key)
 
             sub_kg = ConjunctiveGraph()
             for x, y, z in kg.triples((s, None, None)):
@@ -666,12 +665,11 @@ def validate_any_from_microdata(input_url):
         # print(o.n3(kg.namespace_manager))
         # print(bs_profiles.keys())
 
-        if o.n3(kg.namespace_manager) in bs_profiles.keys():
+        type_key = canonical_type_n3(o, kg.namespace_manager)
+        if type_key in bs_profiles.keys():
             # print()
             print(f"Trying to validate {s} as a(n) {o} resource")
-            shacl_shape, ref_profile = gen_SHACL_from_target_class(
-                o.n3(kg.namespace_manager)
-            )
+            shacl_shape, ref_profile = gen_SHACL_from_target_class(type_key)
 
             sub_kg = ConjunctiveGraph()
             for x, y, z in kg.triples((s, None, None)):

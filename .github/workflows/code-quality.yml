@@ -1,7 +1,11 @@
-# This workflow will install Python dependencies, run tests and lint with a single version of Python
-# For more information see: https://help.github.com/actions/language-and-framework-guides/using-python-with-github-actions
+# Static code quality checks with flake8.
+# flake8 only parses the source code, it does not import it, so the project dependencies
+# (and the MongoDB container) are not needed here.
 
 name: Code quality
+
+env: 
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
 
 on:
   workflow_dispatch:
@@ -13,46 +17,29 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-
+    
     steps:
-      - uses: actions/checkout@v2
-      - name: Set up Python 3.9
-        uses: actions/setup-python@v2
+      - uses: actions/checkout@v5
+      - name: Set up Python 3.12
+        uses: actions/setup-python@v6
         with:
-          python-version: 3.9
-      #----------------------------------------------
-      #  -----  install & configure conda
-      #----------------------------------------------
-      - uses: conda-incubator/setup-miniconda@v2
-        with:
-          python-version: 3.9
-          conda-build-version: "*"
-          channels: conda-forge,defaults
-          channel-priority: true
+          python-version: "3.12"
 
-      - shell: bash -l {0}
+      - name: Install flake8
         run: |
-          conda info
-          conda list
-          conda config --show-sources
-          conda config --show
-          printenv | sort
-
-      - shell: bash -l {0}
-        run: |
-          conda env update -n test --file environment.yml
-      - name: Create mongoDB Docker container
-        run: sudo docker run -d -p 27017:27017 mongo:latest
+          python -m pip install --upgrade pip
+          python -m pip install "flake8>=7.0,<8"
+          flake8 --version
 
       #----------------------------------------------
       # Code quality check
       #----------------------------------------------
       - name: Lint with flake8
-        shell: bash -l {0}
         run: |
-          conda info
-          conda activate test
-          # stop the build if there are Python syntax errors or undefined names
-          flake8 . --exclude=.venv,.git,.ipynb_checkpoints,notebooks --count --select=E9,F63,F7,F82,E262,F841,E265,E266,E712,E713,F401,F403,F405,F811 --show-source --statistics
-          # exit-zero treats all errors as warnings. The GitHub editor is 127 chars wide
+          # fail the build if there are Python syntax errors, undefined names, unused imports/variables or comment style issues.
+          # The advisory report below is still printed when this check fails, the failure is reported at the end.
+          gate_status=0
+          flake8 . --exclude=.venv,.git,.ipynb_checkpoints,notebooks --count --select=E9,F63,F7,F82,E262,F841,E265,E266,E712,E713,F401,F403,F405,F811 --show-source --statistics || gate_status=$?
+          # exit-zero treats all errors as warnings (advisory only). The GitHub editor is 127 chars wide
           flake8 . --exclude=.venv,.git,.ipynb_checkpoints,notebooks --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
+          exit $gate_status

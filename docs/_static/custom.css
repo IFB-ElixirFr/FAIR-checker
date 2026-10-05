@@ -1,0 +1,11 @@
+/* sphinx_rtd_theme forces table cells on one line (white-space: nowrap), which
+   makes tables with long text scroll horizontally. Let the text wrap instead. */
+.wy-table-responsive table td,
+.wy-table-responsive table th {
+    white-space: normal;
+}
+
+/* keep the first column of the comparison tables compact and readable */
+.wy-table-responsive table td:first-child {
+    font-weight: 600;
+}
