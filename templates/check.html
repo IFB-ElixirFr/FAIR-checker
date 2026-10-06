@@ -643,15 +643,13 @@
   <div class="message-body is-check">
     <h2 class="subtitle"><b>Select a plugin for custom FAIR resource assessment</b></h2>
     <div class="is-flex">
-      <button class="button is-info mb-4 mr-2">Default</button>
-      <button class="button is-text mb-4 mr-2">Biodiversity</button>
+      {% for plugin in plugins %}
+        <button class="button is-info mb-4 mr-2">{{ plugin.name }}</button>
+      {% endfor %}
     </div>
-    <p class="content">
-      The default FAIR-Checker plugin allows to evaluate the general FAIRness of a web ressources.
-      It gives a useful general overview but its generic FAIR overview can lack FAIR improvement 
-      recommandations. If your data is from a specific community database, other pluings might 
-      be more useful for you.
-    </p>
+    {% for plugin in plugins %}
+      <p class="content">{{ plugin.description }}</p>
+    {% endfor %}
   </div>
 </article>
 
