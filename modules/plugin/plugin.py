@@ -10,3 +10,13 @@ class Plugin:
 
         self.metrics = metrics
         self.resource_examples = resource_examples
+
+    def to_json(self):
+        return {
+            "name": self.name,
+            "api_route": self.api_route,
+            "version": self.version,
+            "author": self.author,
+            "description": self.description,
+            "depends_on": self.depends_on
+        }

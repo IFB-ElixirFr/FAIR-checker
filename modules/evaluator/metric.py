@@ -20,3 +20,13 @@ class Metric:
         recommendations = metric['recommendations']
 
         return cls(tag, name, principle, description, recommendations)
+
+    def to_json(self):
+        return {
+            "tag": self.tag,
+            "name": self.name,
+            "principle": self.principle,
+            "description": self.description,
+            "recommendations": self.recommendations,
+            "rules": self.rules
+        }

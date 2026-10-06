@@ -1957,7 +1957,7 @@ def base_metrics():
     return make_response(
         render_template(
             "check.html",
-            plugins=plugins,
+            plugins=[plugin.to_json() for plugin in plugins],
             f_metrics=metrics,
             sample_data=SAMPLE_RESOURCES["FAIR-Checker default plugin"],
             jld=raw_jld,

@@ -18,3 +18,9 @@ class ResourceExample:
         url = example_resource['url']
 
         return cls(name, url)
+
+    def to_json(self):
+        return {
+            "name": self.name,
+            "url": self.url
+        }
