@@ -20,12 +20,12 @@
   //////////////////
   // select url to test
   //////////////////
-  {% for k in sample_data.keys() %}
-  $("#sample_{{k}}").on("click", function () {
+  {% for k in sample_data %}
+  $("#sample_{{k.name}}").on("click", function () {
     console.log(this.value);
     $("#url").val(this.value);
     $("#url").trigger('input');
-    $('#sample_{{k}} option[value="{{ k }}"]').attr("selected", "selected");
+    $('#sample_{{k.name}} option[value="{{ k.name }}"]').attr("selected", "selected");
   });
   {% endfor %}
 
@@ -638,6 +638,23 @@
 
 {#<h1 class="title">How FAIR is my resource ?</h1>#}
 
+<!-- plugin section -->
+<article id="plugin_selection" class="message">
+  <div class="message-body is-check">
+    <h2 class="subtitle"><b>Select a plugin for custom FAIR resource assessment</b></h2>
+    <div class="is-flex">
+      <button class="button is-info mb-4 mr-2">Default</button>
+      <button class="button is-text mb-4 mr-2">Biodiversity</button>
+    </div>
+    <p class="content">
+      The default FAIR-Checker plugin allows to evaluate the general FAIRness of a web ressources.
+      It gives a useful general overview but its generic FAIR overview can lack FAIR improvement 
+      recommandations. If your data is from a specific community database, other pluings might 
+      be more useful for you.
+    </p>
+  </div>
+</article>
+
 <!-- input uri section -->
 <article id="url_selection" class="message">
   {# <div class="subtitle">#}
@@ -669,37 +686,7 @@
         </p>
       </div>
     </div>
-
     <br>
-
-    <!-- <button class="button is-info is-small" id="show_examples">Example<i class="fa fa-chevron-down fa-fw" aria-hidden="true"></i></button> -->
-    <!-- <div id="url_examples" style="display: none;">
-          <br>
-          <article class="message is-info" >
-            <div class="message-body">
-              <div class="columns is-multiline is-mobile">
-                {% for k in sample_data.keys() %}
-                    <div class="column is-4">
-                        <div class="field">
-                            <label class="label">{{k}}</label>
-                            <div class="control">
-
-                                <div class="select">
-                                    <select id="sample_{{k}}">
-                                        {% for s in sample_data[k] %}
-                                        <option>{{ s }}</option>
-                                        {% endfor %}
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                {% endfor %}
-                </div>
-              </div>
-          </article>
-        </div> -->
-    <!-- <div class="section"> -->
     <div class="columns is-centered is-vcentered">
       <div class="column is-half">
         <progress id="p1" class="progress is-primary is-centered" value="0" max="12"></progress>
@@ -718,23 +705,21 @@
     </div>
 
 
-    {% for k in sample_data.keys() %}
 
     <div class="columns is-centered">
       <div class="column is-narrow">
         <div class="panel">
           <div class="panel-block is-centered is-vcentered">
             <div class="field is-grouped ">
-              {% for s in sample_data[k] %}
+              {% for s in sample_data %}
               <p id="resource_{{k}}_{{loop.index}}" class="control"><a class="button is-small is-text"
-                  data-url="{{ s.url }}">{{ s.text }}</a></p>
+                  data-url="{{ s.url }}">{{ s.name }}</a></p>
               {% endfor %}
             </div>
           </div>
         </div>
       </div>
     </div>
-    {% endfor %}
 
     <!-- </div> -->
   </div>

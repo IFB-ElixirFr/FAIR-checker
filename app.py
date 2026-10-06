@@ -113,9 +113,14 @@ logger = logging.getLogger(__name__)
 plugin_loader = PluginLoader()
 plugins = plugin_loader.load()
 
+SAMPLE_RESOURCES = {}
+
 for plugin in plugins:
+    SAMPLE_RESOURCES[plugin.name] = plugin.resource_examples
     for metric in plugin.metrics:
         print(metric.name)
+        
+
 
 
 factory = FAIRMetricsFactory()
@@ -123,7 +128,7 @@ METRICS_CUSTOM = factory.get_FC_metrics(plugin.metrics)
 
 for i, key in enumerate(METRICS_CUSTOM):
     METRICS_CUSTOM[key].set_id("FC_" + str(i))
-
+    
 
 
 
@@ -1953,7 +1958,7 @@ def base_metrics():
         render_template(
             "check.html",
             f_metrics=metrics,
-            sample_data=sample_resources,
+            sample_data=SAMPLE_RESOURCES["FAIR-Checker default plugin"],
             jld=raw_jld,
             uuid=content_uuid,
             title="Check",
