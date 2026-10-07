@@ -14,11 +14,30 @@
 
   $(document).ready(function () {
 
+    // Initial state
     $("#activate_plugin_0").removeClass("is-text")
     $("#activate_plugin_0").addClass("is-info")
     $("#plugin_description").text("{{ plugins[0].description }}")
 
+    console.log("{{ plugins[0].resource_examples }}")
+    var exampleResourcesHtml = ""
+    {% for resource_example in plugins[0].resource_examples %}
+      exampleResourcesHtml += ```
+        <p id="resource_{{k}}_{{loop.index}}" class="control">
+          <a class="button is-small is-text" data-url="{{ resource_example.url }}">
+            {{ resource_example.name }}
+          </a>
+        </p>
+      ```
+      console.log(exampleResourcesHtml)
+    {% endfor %}
+    console.log(exampleResourcesHtml)
+    $("#example_resources_tab").innerHTML = exampleResourcesHtml
+
+    // Interactive elements
     {% for plugin in plugins %}
+
+      // plugin selection section
       $("#activate_plugin_{{loop.index0}}").on("click", function () {
         {% for p in plugins %}
           $("#activate_plugin_{{loop.index0}}").removeClass("is-info")
@@ -28,6 +47,8 @@
         $("#activate_plugin_{{loop.index0}}").addClass("is-info")
         $("#plugin_description").text("{{ plugin.description }}")
       })
+
+
     {% endfor %}
 
     console.log("ready!");
@@ -721,11 +742,8 @@
       <div class="column is-narrow">
         <div class="panel">
           <div class="panel-block is-centered is-vcentered">
-            <div class="field is-grouped ">
-              {% for s in sample_data %}
-              <p id="resource_{{k}}_{{loop.index}}" class="control"><a class="button is-small is-text"
-                  data-url="{{ s.url }}">{{ s.name }}</a></p>
-              {% endfor %}
+            <div id="example_resources_tab" class="field is-grouped ">
+                <!-- Filled in with the example resources on page load -->
             </div>
           </div>
         </div>

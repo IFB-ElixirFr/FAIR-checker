@@ -18,5 +18,7 @@ class Plugin:
             "version": self.version,
             "author": self.author,
             "description": self.description,
-            "depends_on": self.depends_on
+            "depends_on": self.depends_on,
+            "metrics": [metric.to_json() for metric in self.metrics],
+            "resource_examples": [resource_example.to_json() for resource_example in self.resource_examples]
         }
