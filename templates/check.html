@@ -14,11 +14,19 @@
 
   $(document).ready(function () {
 
+    $("#activate_plugin_0").removeClass("is-text")
+    $("#activate_plugin_0").addClass("is-info")
+    $("#plugin_description").text("{{ plugins[0].description }}")
+
     {% for plugin in plugins %}
-      console.log({{plugin.description}})
       $("#activate_plugin_{{loop.index0}}").on("click", function () {
-        console.log({{plugin.description}})
-        $("#plugin_description").text({{ plugin.description }})
+        {% for p in plugins %}
+          $("#activate_plugin_{{loop.index0}}").removeClass("is-info")
+          $("#activate_plugin_{{loop.index0}}").addClass("is-text")
+        {% endfor %}
+        $("#activate_plugin_{{loop.index0}}").removeClass("is-text")
+        $("#activate_plugin_{{loop.index0}}").addClass("is-info")
+        $("#plugin_description").text("{{ plugin.description }}")
       })
     {% endfor %}
 
@@ -651,9 +659,8 @@
     <h2 class="subtitle"><b>Select a plugin for custom FAIR resource assessment</b></h2>
     <div class="is-flex">
       {% for plugin in plugins %}
-        <button id="activate_plugin_{{loop.index0}}" class="button is-info mb-4 mr-2">{{ plugin.name }}</button>
+        <button id="activate_plugin_{{loop.index0}}" class="button is-text mb-4 mr-2">{{ plugin.name }}</button>
       {% endfor %}
-      <button class="button is-text mb-4 mr-2">Biodiversity</button>
     </div>
     <p id="plugin_description" class="content"></p>
   </div>
