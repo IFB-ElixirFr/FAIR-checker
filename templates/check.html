@@ -22,17 +22,10 @@
     console.log("{{ plugins[0].resource_examples }}")
     var exampleResourcesHtml = ""
     {% for resource_example in plugins[0].resource_examples %}
-      exampleResourcesHtml += ```
-        <p id="resource_{{k}}_{{loop.index}}" class="control">
-          <a class="button is-small is-text" data-url="{{ resource_example.url }}">
-            {{ resource_example.name }}
-          </a>
-        </p>
-      ```
-      console.log(exampleResourcesHtml)
+      exampleResourcesHtml = exampleResourcesHtml + '<p id="resource_{{k}}_{{loop.index}}" class="control"><a class="button is-small is-text" data-url="{{ resource_example.url }}">{{ resource_example.name }}</a></p>'
     {% endfor %}
     console.log(exampleResourcesHtml)
-    $("#example_resources_tab").innerHTML = exampleResourcesHtml
+    $("#example_resources_tab").html(exampleResourcesHtml)
 
     // Interactive elements
     {% for plugin in plugins %}
@@ -46,6 +39,21 @@
         $("#activate_plugin_{{loop.index0}}").removeClass("is-text")
         $("#activate_plugin_{{loop.index0}}").addClass("is-info")
         $("#plugin_description").text("{{ plugin.description }}")
+
+        // Display the resource example for the activated plugin
+        var exampleResourcesHtml = ""
+        {% for resource_example in plugin.resource_examples %}
+          exampleResourcesHtml = exampleResourcesHtml + '<p id="resource_{{k}}_{{loop.index}}" class="control"><a class="button is-small is-text" data-url="{{ resource_example.url }}">{{ resource_example.name }}</a></p>'
+        {% endfor %}
+        console.log(exampleResourcesHtml)
+        $("#example_resources_tab").html(exampleResourcesHtml)
+
+        // Make the click on the resource links responsive
+        $('[id^="resource_"]').on("click", function () {
+          console.log($(this).children("a").text());
+          $("#url").val($(this).children("a").data("url"));
+          $("#url").trigger("input");
+        });
       })
 
 
