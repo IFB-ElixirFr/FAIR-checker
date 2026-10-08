@@ -8,56 +8,69 @@
 
 <script type="text/javascript" charset="utf-8">
 
-  //var plugins = {{ plugins | tojson }}
-  //var activePlugin = plugins[0]
-
-
   $(document).ready(function () {
 
-    // Initial state
-    $("#activate_plugin_0").removeClass("is-text")
-    $("#activate_plugin_0").addClass("is-info")
-    $("#plugin_description").text("{{ plugins[0].description }}")
+    // States
+    var plugins = {{ plugins | tojson }}
+    var activePlugin = plugins[0]
+    console.log(activePlugin.resource_examples)
 
-    console.log("{{ plugins[0].resource_examples }}")
-    var exampleResourcesHtml = ""
-    {% for resource_example in plugins[0].resource_examples %}
-      exampleResourcesHtml = exampleResourcesHtml + '<p id="resource_{{k}}_{{loop.index}}" class="control"><a class="button is-small is-text" data-url="{{ resource_example.url }}">{{ resource_example.name }}</a></p>'
-    {% endfor %}
-    console.log(exampleResourcesHtml)
-    $("#example_resources_tab").html(exampleResourcesHtml)
 
-    // Interactive elements
-    {% for plugin in plugins %}
+    // State modifier functions
+    function changeActivePluginByName(pluginName) {
+      activePlugin = plugins.find(obj => obj.name === pluginName)
+    }
 
-      // plugin selection section
-      $("#activate_plugin_{{loop.index0}}").on("click", function () {
-        {% for p in plugins %}
-          $("#activate_plugin_{{loop.index0}}").removeClass("is-info")
-          $("#activate_plugin_{{loop.index0}}").addClass("is-text")
-        {% endfor %}
-        $("#activate_plugin_{{loop.index0}}").removeClass("is-text")
-        $("#activate_plugin_{{loop.index0}}").addClass("is-info")
-        $("#plugin_description").text("{{ plugin.description }}")
+    function changeActivePluginById(pluginName) {
+      activePlugin = plugins.find(obj => obj.name === pluginName)
+    }
 
-        // Display the resource example for the activated plugin
-        var exampleResourcesHtml = ""
-        {% for resource_example in plugin.resource_examples %}
-          exampleResourcesHtml = exampleResourcesHtml + '<p id="resource_{{k}}_{{loop.index}}" class="control"><a class="button is-small is-text" data-url="{{ resource_example.url }}">{{ resource_example.name }}</a></p>'
-        {% endfor %}
-        console.log(exampleResourcesHtml)
-        $("#example_resources_tab").html(exampleResourcesHtml)
 
-        // Make the click on the resource links responsive
-        $('[id^="resource_"]').on("click", function () {
-          console.log($(this).children("a").text());
-          $("#url").val($(this).children("a").data("url"));
-          $("#url").trigger("input");
-        });
+    // Main state modifier function
+    function reload() {
+      $("#plugin_description").text(activePlugin.description)
+
+      $("#example_resources_tab").empty()
+      activePlugin.resource_examples.forEach((resource_example, index) => {
+        $("#example_resources_tab").append(`<p id="resource_${index}" class="control"><a class="button is-small is-text" data-url="${resource_example.url}">${resource_example.name}</a></p>`) 
       })
 
+      $('[id^="resource_"]').on("click", function () {
+        console.log($(this).children("a").text());
+        $("#url").val($(this).children("a").data("url"));
+        $("#url").trigger("input");
+      });
+    }
 
-    {% endfor %}
+
+    // Listeners
+    $("#plugin_selectbox").on("change", function () {
+      const value = $(this).val()
+      changeActivePluginByName(value)
+      reload()
+    })
+
+
+    // On first page render
+    plugins.forEach(plugin => {
+      console.log(plugin.name)
+      $("#plugin_selectbox").append(`<option value="${plugin.name}">${plugin.name}</option>`)
+    })
+
+    // plugin description
+    $("#plugin_description").text(activePlugin.description)
+
+    // resource examples
+    activePlugin.resource_examples.forEach((resource_example, index) => {
+      $("#example_resources_tab").append(`<p id="resource_${index}" class="control"><a class="button is-small is-text" data-url="${resource_example.url}">${resource_example.name}</a></p>`) 
+    })
+
+
+
+
+
+
+
 
     console.log("ready!");
     $("#notif").addClass("is-hidden");
@@ -686,10 +699,13 @@
 <article id="plugin_selection" class="message">
   <div class="message-body is-check">
     <h2 class="subtitle"><b>Select a plugin for custom FAIR resource assessment</b></h2>
-    <div class="is-flex">
-      {% for plugin in plugins %}
-        <button id="activate_plugin_{{loop.index0}}" class="button is-text mb-4 mr-2">{{ plugin.name }}</button>
-      {% endfor %}
+    <div class="field">
+      <div class="control">
+        <div class="select">
+          <select id="plugin_selectbox">
+          </select>
+        </div>
+      </div>
     </div>
     <p id="plugin_description" class="content"></p>
   </div>
