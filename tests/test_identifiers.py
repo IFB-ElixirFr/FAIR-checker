@@ -72,7 +72,6 @@ class TestingUrlPatterns(unittest.TestCase):
         kg = web_resource.get_rdf()
 
         # kg = ConjunctiveGraph()
-        # kg = describe_biotools(url, kg)
         # print(kg.serialize(format="turtle").decode())
 
         domains = []
