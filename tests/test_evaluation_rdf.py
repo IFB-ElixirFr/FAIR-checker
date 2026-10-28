@@ -12,7 +12,7 @@ import uuid
 from datetime import datetime
 
 from rdflib import ConjunctiveGraph, URIRef, Namespace
-from rdflib.namespace import RDF, SKOS
+from rdflib.namespace import DCTERMS, RDF
 from flask import current_app
 
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), ".."))
@@ -20,7 +20,6 @@ sys.path.insert(0, os.path.join(os.path.dirname(__file__), ".."))
 from app import app
 from metrics.Evaluation import Evaluation
 
-DQV = Namespace("http://www.w3.org/ns/dqv#")
 PROV = Namespace("http://www.w3.org/ns/prov#")
 FTR = Namespace("https://w3id.org/ftr#")
 TEST_BASE = "https://w3id.org/fairchecker/test/"
@@ -85,26 +84,26 @@ class EvaluationRDFTestCase(unittest.TestCase):
 
     # --- core triples on the evaluation node ---
 
-    def test_eval_is_typed_as_quality_measurement(self):
+    def test_eval_is_typed_as_test_result(self):
         ttl = self.ev.to_rdf_turtle(self.eval_id)
         g = self._turtle_to_graph(ttl)
         self.assertIn(
-            DQV.QualityMeasurement,
+            FTR.TestResult,
             set(g.objects(self._eval_uri(), RDF.type)),
         )
 
-    def test_eval_computed_on_target_uri(self):
+    def test_eval_assessment_target_is_target_uri(self):
         ttl = self.ev.to_rdf_turtle(self.eval_id)
         g = self._turtle_to_graph(ttl)
         self.assertIn(
             URIRef("https://bio.tools/jaspar"),
-            set(g.objects(self._eval_uri(), DQV.computedOn)),
+            set(g.objects(self._eval_uri(), FTR.assessmentTarget)),
         )
 
     def test_eval_score_value_is_present(self):
         ttl = self.ev.to_rdf_turtle(self.eval_id)
         g = self._turtle_to_graph(ttl)
-        values = {str(v) for v in g.objects(self._eval_uri(), DQV.value)}
+        values = {str(v) for v in g.objects(self._eval_uri(), PROV.value)}
         self.assertIn("1", values)
 
     def test_eval_attributed_to_fair_checker(self):
@@ -131,12 +130,12 @@ class EvaluationRDFTestCase(unittest.TestCase):
         metric_uri = URIRef(f"{TEST_BASE}F1A")
         self.assertIn(FTR.Test, set(g.objects(metric_uri, RDF.type)))
 
-    def test_metric_spec_has_pref_label(self):
+    def test_metric_spec_has_title(self):
         ttl = self.ev.to_rdf_turtle(self.eval_id)
         g = self._turtle_to_graph(ttl)
         metric_uri = URIRef(f"{TEST_BASE}F1A")
-        labels = {str(v) for v in g.objects(metric_uri, SKOS.prefLabel)}
-        self.assertTrue(len(labels) > 0, "fct:F1A should have at least one skos:prefLabel")
+        labels = {str(v) for v in g.objects(metric_uri, DCTERMS.title)}
+        self.assertTrue(len(labels) > 0, "fct:F1A should have at least one dcterms:title")
 
     # --- score boundary ---
 
@@ -146,7 +145,7 @@ class EvaluationRDFTestCase(unittest.TestCase):
         ttl = ev_fail.to_rdf_turtle(fail_id)
         g = self._turtle_to_graph(ttl)
         eval_uri = self._eval_uri(fail_id)
-        values = {str(v) for v in g.objects(eval_uri, DQV.value)}
+        values = {str(v) for v in g.objects(eval_uri, PROV.value)}
         self.assertIn("0", values)
 
 
