@@ -20,7 +20,6 @@ from multiprocessing import Pool
 
 from tqdm import tqdm
 
-
 # timeout (connect, read) in secondes
 TIMEOUT = (10, 3600)
 PRINT_DETAILS = False
@@ -98,7 +97,7 @@ def animated_loading(message):
     """
 
     # string of char the will be displayed in a loop
-    chars = "/—\|"
+    chars = "/—\\|"
 
     # the loop over the chars
     for char in chars:
@@ -433,13 +432,11 @@ def requestResultSparql(metric_evaluation_result_text, term):
     PREFIX schema:<http://schema.org/>
     PREFIX ss:<http://semanticscience.org/resource/>
     """
-    s = Template(
-        """
+    s = Template("""
         $prefix
         SELECT ?s ?p ?o
         WHERE { ?s $term ?o }
-        """
-    )
+        """)
 
     query_string = s.substitute(prefix=prefix, term=term)
 

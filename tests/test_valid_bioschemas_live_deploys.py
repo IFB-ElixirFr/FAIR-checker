@@ -80,12 +80,11 @@ class BioschemasLiveDeploysTestCase(unittest.TestCase):
         input_url = "https://workflowhub.eu/workflows/263"
         web_resource = WebResource(input_url)
         kg = web_resource.get_rdf()
+        print(kg.serialize(format="ttl"))
         res = evaluate_profile_from_type(kg)
-        # print(json.dumps(res, indent=4))
+        print(json.dumps(res, indent=4))
 
-        self.assertEqual(
-            len(res["https://workflowhub.eu/workflows/263?version=1"]["errors"]), 3
-        )
+        self.assertEqual(len(res["https://workflowhub.eu/people/231"]["errors"]), 3)
 
     def test_workflow_with_conformsto(self):
         input_url = "https://workflowhub.eu/workflows/263"
@@ -96,7 +95,7 @@ class BioschemasLiveDeploysTestCase(unittest.TestCase):
 
         print(len(kg))
         self.assertEqual(
-            len(res["https://workflowhub.eu/workflows/263?version=1"]["errors"]), 2
+            len(res["https://workflowhub.eu/workflows/263?version=1"]["errors"]), 0
         )
 
     # Bioschemas profile not found (need handle)

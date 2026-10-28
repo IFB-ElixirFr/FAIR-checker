@@ -3,7 +3,7 @@ import unittest
 import requests
 
 from metrics.util import describe_openaire
-from metrics.util import describe_wikidata
+from metrics.util import describe_wikidata, USER_AGENT
 from metrics.util import describe_opencitation
 from metrics.util import is_DOI, get_DOI
 from metrics.WebResource import WebResource
@@ -73,7 +73,7 @@ class KGAugmentTestCase(unittest.TestCase):
     def test_wikidata_alive(self):
         endpoint = "https://query.wikidata.org/sparql"
         uri = "wd:Q1684014"
-        h = {"Accept": "application/sparql-results+xml"}
+        h = {"Accept": "application/sparql-results+xml", "User-Agent": USER_AGENT}
         p = {"query": "DESCRIBE " + uri}
 
         res = requests.get(endpoint, headers=h, params=p, verify=True)
@@ -81,10 +81,14 @@ class KGAugmentTestCase(unittest.TestCase):
         print(res)
         print(res.text)
 
+        self.assertEqual(res.status_code, 200)
+
         kg = ConjunctiveGraph()
         kg.parse(data=res.text, format="xml")
         print(f"loaded {len(kg)} triples")
-        self.assertEqual(len(kg), 57)
+        # Wikidata is continuously edited, so the exact count drifts. This test
+        # checks the endpoint is alive and returns a usable description.
+        self.assertGreaterEqual(len(kg), 50)
 
     @unittest.skip("KG augment feature to be revised")
     def test_openaire(self):

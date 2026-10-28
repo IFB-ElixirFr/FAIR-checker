@@ -1,7 +1,15 @@
 import logging
 
 from metrics.AbstractFAIRMetrics import AbstractFAIRMetrics
-from metrics.util import ask_BioPortal, ask_OLS, ask_LOV, inspect_onto_reg
+from metrics.Evaluation import Evaluation
+from metrics.util import (
+    ask_BioPortal,
+    ask_OLS,
+    ask_LOV,
+    ask_AgroPortal,
+    ask_EarthPortal,
+    inspect_onto_reg,
+)
 from metrics.recommendation import json_rec
 
 logger = logging.getLogger(__name__)
@@ -28,19 +36,19 @@ class F2B_Impl(AbstractFAIRMetrics):
         self.principle_tag = "F2B"
         self.implem = "FAIR-Checker"
         self.desc = """
-            Weak: FAIR-Checker verifies that at least one used ontology class or property are known in major ontology registries (OLS, BioPortal, LOV)<br> Strong: FAIR-Checker verifies that all used ontology classes or properties are known in major ontology registries (OLS, BioPortal, LOV)
+            Weak: FAIR-Checker verifies that at least one used ontology class or property are known in major ontology registries (OLS, BioPortal, LOV, AgroPortal, EarthPortal)<br> Strong: FAIR-Checker verifies that all used ontology classes or properties are known in major ontology registries (OLS, BioPortal, LOV, AgroPortal, EarthPortal)
         """
 
-    def weak_evaluate(self, eval=None):
+    def weak_evaluate(self, eval=None) -> Evaluation:
         """
-        at least one used ontology classe or property known in major ontology registries (OLS, BioPortal, LOV)
+        at least one used ontology classe or property known in major ontology registries (OLS, BioPortal, LOV, AgroPortal, EarthPortal)
         """
         if not eval:
             eval = self.get_evaluation()
             eval.set_implem(self.implem)
             eval.set_metrics(self.principle_tag)
         # kgs = self.get_web_resource().get_wr_kg_dataset()
-        kg = self.get_web_resource().get_rdf()
+        kg = self.require_web_resource().get_rdf()
 
         is_kg_empty = True
         # for kg in kgs.graphs():
@@ -53,17 +61,17 @@ class F2B_Impl(AbstractFAIRMetrics):
 
         logger.info("Weak evaluation:")
         logger.info(
-            "Checking if at least one class used in RDF is known in OLS, LOV, or BioPortal"
+            "Checking if at least one class used in RDF is known in OLS, LOV, BioPortal, AgroPortal, or EarthPortal"
         )
 
         qres = kg.query(self.query_classes)
         for row in qres:
             logging.debug(f'evaluating class {row["class"]}')
-            if ask_OLS(row["class"]):
+            if ask_OLS(row["class"], type="class"):
                 logger.info((f"{row['class']} known in Ontology Lookup Service (OLS)"))
                 eval.set_score(1)
                 return eval
-            elif ask_LOV(row["class"]):
+            elif ask_LOV(row["class"], type="class"):
                 logger.info((f"{row['class']} known in Linked Open Vocabularies (LOV)"))
                 eval.set_score(1)
                 return eval
@@ -72,23 +80,39 @@ class F2B_Impl(AbstractFAIRMetrics):
                 logging.debug(f"known in BioPortal")
                 eval.set_score(1)
                 return eval
+            elif ask_AgroPortal(row["class"], type="class"):
+                logger.info(f"{row['class']} known in AgroPortal")
+                eval.set_score(1)
+                return eval
+            elif ask_EarthPortal(row["class"], type="class"):
+                logger.info(f"{row['class']} known in EarthPortal")
+                eval.set_score(1)
+                return eval
 
         logger.info(
-            "Checking if at least one property used in RDF is known in OLS, LOV, or BioPortal"
+            "Checking if at least one property used in RDF is known in OLS, LOV, BioPortal, AgroPortal, or EarthPortal"
         )
         qres = kg.query(self.query_properties)
         for row in qres:
             logging.debug(f'evaluating property {row["prop"]}')
-            if ask_OLS(row["prop"]):
+            if ask_OLS(row["prop"], type="property"):
                 logger.info(f"{row['prop']} known in Ontology Lookup Service (OLS)")
                 eval.set_score(1)
                 return eval
-            elif ask_LOV(row["prop"]):
+            elif ask_LOV(row["prop"], type="property"):
                 logger.info(f"{row['prop']} known in Linked Open Vocabularies (LOV)")
                 eval.set_score(1)
                 return eval
             elif ask_BioPortal(row["prop"], type="property"):
                 logger.info(f"{row['prop']} known in BioPortal")
+                eval.set_score(1)
+                return eval
+            elif ask_AgroPortal(row["prop"], type="property"):
+                logger.info(f"{row['prop']} known in AgroPortal")
+                eval.set_score(1)
+                return eval
+            elif ask_EarthPortal(row["prop"], type="property"):
+                logger.info(f"{row['prop']} known in EarthPortal")
                 eval.set_score(1)
                 return eval
 
@@ -99,16 +123,16 @@ class F2B_Impl(AbstractFAIRMetrics):
         eval.set_score(0)
         return eval
 
-    def strong_evaluate(self, eval=None):
+    def strong_evaluate(self, eval=None) -> Evaluation:
         """
-        all used ontology classes and properties  known in major ontology registries (OLS, BioPortal, LOV)
+        all used ontology classes and properties  known in major ontology registries (OLS, BioPortal, LOV, AgroPortal, EarthPortal)
         """
         if not eval:
             eval = self.get_evaluation()
             eval.set_implem(self.implem)
             eval.set_metrics(self.principle_tag)
         # kgs = self.get_web_resource().get_wr_kg_dataset()
-        kg = self.get_web_resource().get_rdf()
+        kg = self.require_web_resource().get_rdf()
 
         is_kg_empty = True
         # for kg in kgs.graphs():
@@ -117,7 +141,7 @@ class F2B_Impl(AbstractFAIRMetrics):
 
         if is_kg_empty:
             eval.log_info(
-                "No RDF found in the web page, can't evaluate if classes or properties are known in OLS, LOV, or BioPortal"
+                "No RDF found in the web page, can't evaluate if classes or properties are known in OLS, LOV, BioPortal, AgroPortal, or EarthPortal"
             )
             eval.set_recommendations(json_rec["F2B"]["reco1"])
             eval.set_score(0)
@@ -126,7 +150,7 @@ class F2B_Impl(AbstractFAIRMetrics):
         eval.log_info("Strong evaluation:")
 
         eval.log_info(
-            "Checking if all classes used in RDF are known in OLS, LOV, or BioPortal"
+            "Checking if all classes used in RDF are known in OLS, LOV, BioPortal, AgroPortal, or EarthPortal"
         )
 
         results = inspect_onto_reg(kg, False)
@@ -140,7 +164,9 @@ class F2B_Impl(AbstractFAIRMetrics):
         # print(results["properties_false"])
 
         for class_entry in results["classes_false"]:
-            logger.info(f"{class_entry} not known in OLS, LOV, or BioPortal")
+            logger.info(
+                f"{class_entry} not known in OLS, LOV, BioPortal, AgroPortal, or EarthPortal"
+            )
 
         if results["classes_false"]:
             eval.set_recommendations(json_rec["F2B"]["reco1"])
@@ -149,7 +175,7 @@ class F2B_Impl(AbstractFAIRMetrics):
 
         for property_entry in results["properties_false"]:
             logger.info(
-                f"{property_entry} property not known in OLS, LOV, or BioPortal"
+                f"{property_entry} property not known in OLS, LOV, BioPortal, AgroPortal, or EarthPortal"
             )
         if results["properties_false"]:
             eval.set_recommendations(json_rec["F2B"]["reco2"])

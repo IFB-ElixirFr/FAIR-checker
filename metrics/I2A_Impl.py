@@ -97,9 +97,7 @@ class I2A_Impl(AbstractFAIRMetrics):
                     )
                     eval.set_score(0)
                     eval.set_recommendations(
-                        json_rec["I2A"]["reco1"]
-                        + checked_properties
-                        + """
+                        json_rec["I2A"]["reco1"] + checked_properties + """
                     """
                     )
                 return eval

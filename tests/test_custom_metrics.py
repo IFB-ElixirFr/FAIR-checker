@@ -23,19 +23,21 @@ class OlsLovTestCase(unittest.TestCase):
 
     def test_OLS(self):
         uri1 = "https://bio.tools/bwa"
-        self.assertFalse(ask_OLS(uri1))
+        self.assertFalse(ask_OLS(uri1, "class"))
         uri2 = "http://schema.org/Organization"
-        self.assertFalse(ask_OLS(uri2))
+        self.assertTrue(ask_OLS(uri2, "class"))
+        self.assertFalse(ask_OLS(uri2, "property"))
         uri3 = "http://purl.obolibrary.org/obo/RO_0002175"
-        self.assertTrue(ask_OLS(uri3))
+        self.assertTrue(ask_OLS(uri3, "property"))
+        self.assertFalse(ask_OLS(uri3, "class"))
 
     def test_LOV(self):
         uri1 = "https://bio.tools/bwa"
-        self.assertFalse(ask_LOV(uri1))
+        self.assertFalse(ask_LOV(uri1, "class"))
         uri2 = "http://schema.org/Organization"
-        self.assertTrue(ask_LOV(uri2))
+        self.assertTrue(ask_LOV(uri2, "class"))
         uri3 = "http://www.ebi.ac.uk/efo/EFO_0000001"
-        self.assertFalse(ask_LOV(uri3))
+        self.assertFalse(ask_LOV(uri3, "class"))
 
     @unittest.skip("To be done by a CRON")
     def testMetricsAPI(sefl):

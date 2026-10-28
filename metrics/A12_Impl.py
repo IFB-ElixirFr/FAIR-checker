@@ -67,9 +67,7 @@ ASK {
                     "None of the access policy properties were found in metadata !"
                 )
                 eval.set_recommendations(
-                    json_rec["A12"]["reco1"]
-                    + checked_properties
-                    + """
+                    json_rec["A12"]["reco1"] + checked_properties + """
                 """
                 )
                 eval.set_score(0)

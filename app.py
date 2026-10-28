@@ -15,7 +15,6 @@ from argparse import RawTextHelpFormatter
 from datetime import datetime, timedelta
 from json import JSONDecodeError
 from os import path
-from string import Template
 
 import git
 import rdflib
@@ -42,7 +41,7 @@ from flask_cors import CORS
 from flask_restx import Api, Resource, fields, reqparse
 from flask_socketio import SocketIO, emit
 from pymongo import MongoClient
-from rdflib import BNode, ConjunctiveGraph, Literal, URIRef
+from rdflib import ConjunctiveGraph, URIRef
 from requests.exceptions import ConnectionError
 from rich.console import Console
 from rich.progress import track
@@ -63,7 +62,10 @@ from metrics.util import (
 from metrics.F1B_Impl import F1B_Impl
 from metrics.FAIRMetricsFactory import FAIRMetricsFactory
 from metrics.util import SOURCE, inspect_onto_reg
+from metrics.util import get_LOV_status
 from metrics.WebResource import WebResource
+from profiles.DataciteProfile import datacite_profile, validate_md
+from profiles.BiosampleProfile import ena53_profile, validate_md as validate_md_ena53
 from profiles.bioschemas_shape_gen import validate_any_from_KG
 from profiles.ProfileFactory import (
     PROFILES,
@@ -103,6 +105,8 @@ for name in (
     "playwright",
 ):
     logging.getLogger(name).setLevel(logging.CRITICAL)
+
+logger = logging.getLogger(__name__)
 
 
 @app.route("/")
@@ -224,9 +228,7 @@ except ConnectionError:
 
 # Get status from LOV external service
 try:
-    STATUS_LOV = requests.head(
-        "https://lov.linkeddata.es/dataset/lov/sparql"
-    ).status_code
+    STATUS_LOV = get_LOV_status()
 except ConnectionError:
     STATUS_LOV = 0
 
@@ -261,9 +263,7 @@ def update_vocab_status():
 
     STATUS_BIOPORTAL = requests.head("https://data.bioontology.org/").status_code
     STATUS_OLS = requests.head("https://www.ebi.ac.uk/ols4/index").status_code
-    STATUS_LOV = requests.head(
-        "https://lov.linkeddata.es/dataset/lov/sparql"
-    ).status_code
+    STATUS_LOV = get_LOV_status()
 
     if STATUS_BIOPORTAL != 200:
         info_bioportal = "BioPortal might not be reachable. Status code: " + str(
@@ -433,6 +433,26 @@ def statistics():
     )
 
 
+@app.route("/cache")
+def cache_inspector():
+    # hidden page: deliberately not linked from the menu
+    entries, others = util.list_registry_cache()
+    registries = {}
+    for e in entries:
+        counts = registries.setdefault(e["registry"], {"true": 0, "false": 0})
+        counts["true" if e["answer"] else "false"] += 1
+    most_accessed = util.most_accessed_uris(entries)
+    return render_template(
+        "cache_inspector.html",
+        title="Cache inspector",
+        subtitle="Registry lookups currently held in the cache",
+        entries=entries,
+        most_accessed=most_accessed,
+        registries=dict(sorted(registries.items())),
+        others=others,
+    )
+
+
 reqparse = reqparse.RequestParser()
 reqparse.add_argument(
     "url",
@@ -486,6 +506,9 @@ def deref_eval_LD(ID):
             return Response(
                 f"Cannot find evaluation {ID}", mimetype="text/plain", status=404
             )
+            return Response(
+                f"Cannot find evaluation {ID}", mimetype="text/plain", status=404
+            )
         e = Evaluation()
         e.build_from_json(data=eval_json)
         ttl = e.to_rdf_turtle(id=ID)
@@ -505,6 +528,9 @@ def deref_assessment_LD(ID):
         db = MongoClient().fair_checker
         assess_json = db.assessments.find_one({"_id": ObjectId(ID)})
         if assess_json is None:
+            return Response(
+                f"Cannot find assessment {ID}", mimetype="text/plain", status=404
+            )
             return Response(
                 f"Cannot find assessment {ID}", mimetype="text/plain", status=404
             )
@@ -1400,6 +1426,10 @@ def handle_get_latest_triples():
     emit("send_triples", {"triples": list_triples})
 
 
+# B: Return the length of a KG but you can also get its type by using
+# B: the name that of the graph returned by the ConjuctiveGraph.query() function
+# B: of RDFlib. It's at least used to detect the type of the graph (datacite for instance)
+# B: of the KG produced in the /inspect web page
 def named_kg_len(kgs):
     query_num = """
     SELECT ?g (COUNT(*) AS ?count)
@@ -1419,6 +1449,7 @@ def named_kg_len(kgs):
 
 @socketio.on("change_rdf_type")
 def handle_change_rdf_type(data):
+    logging.warning("test 2")
     sid = request.sid
     RDF_TYPE[sid] = data["rdf_type"]
     kgs = KGS[sid]
@@ -1445,14 +1476,16 @@ def handle_embedded_annot_2(data):
     """
 
     sid = request.sid
-    RDF_TYPE[sid] = "trig"
+    RDF_TYPE[sid] = "trig"  # B: Not cleaned afterwards - Memory leak incoming
     uri = str(data["url"])
     app.logger.info("Retrieve KG for uri: " + uri)
 
     web_resource = WebResource(uri)
     kg = web_resource.get_rdf()
 
-    KGS[sid] = kg
+    KGS[sid] = (
+        kg  # B: Not cleaned afterwards - Memory leak incoming + information duplication
+    )
 
     # for kg in kgs.graphs():
     #     print(kg)
@@ -1462,7 +1495,9 @@ def handle_embedded_annot_2(data):
     emit(
         "send_annot_2",
         {
-            "kg": str(kg.serialize(format=RDF_TYPE[sid])),
+            "kg": str(
+                kg.serialize(format=RDF_TYPE[sid])
+            ),  # B: RDF_TYPE[sid] is set before, useless variable so far
             "kgs_len": kgs_len,
         },
     )
@@ -1599,7 +1634,7 @@ def evaluate_bioschemas_profiles(kg):
         if result_key not in results:
             results[result_key] = results_type[result_key]
 
-    # TODO Try similarity match her for profiles that are not matched
+    # TODO Try similarity matcher for profiles that are not matched
 
     print(results.keys())
 
@@ -1623,6 +1658,49 @@ def check_kg_shape_2(data):
     # results = validate_any_from_KG(kg)
 
     emit("done_check_shape", results)
+
+
+def evaluate_datacite_profile(kg):
+    datacite_results = validate_md(kg, datacite_profile)
+    return datacite_results
+
+
+def evaluate_ena53_profile(kg):
+    ena53_results = validate_md_ena53(kg, ena53_profile)
+    return ena53_results
+
+
+@socketio.on("check_ena53")
+def check_ena53(data):
+    logger.info("ENA53 validation started")
+    sid = request.sid
+    kg = KGS[sid]
+
+    if not kg:
+        logger.warning("cannot access current knowledge graph")
+    elif len(kg) == 0:
+        logger.warning("cannot validate an empty knowledge graph")
+
+    results = evaluate_ena53_profile(kg)
+    logger.info("ENA53 validation results: " + json.dumps(results, indent=4))
+
+    emit("done_check_ena53", results)
+
+
+@socketio.on("check_datacite")
+def check_datacite(data):
+    logger.info("datacite validation started")
+    sid = request.sid
+    kg = KGS[sid]
+
+    if not kg:
+        logger.warning("cannot access current knowledge graph")
+    elif len(kg) == 0:
+        logger.warning("cannot validate an empty knowledge graph")
+
+    results = evaluate_datacite_profile(kg)
+
+    emit("done_check_datacite", results)
 
 
 def update_bioschemas_valid(func):

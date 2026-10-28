@@ -1,0 +1,294 @@
+{% extends "layout.html" %}
+
+{% block nav %}
+{% include 'nav.html' %}
+{% endblock %}
+
+{% block body %}
+
+<style>
+    #cache_table th.sortable { cursor: pointer; user-select: none; }
+    #cache_table th.sortable:hover { text-decoration: underline; }
+    #cache_table td.uri { word-break: break-all; }
+    .filter-chip { cursor: pointer; }
+    .pagination-previous, .pagination-next { cursor: pointer; }
+</style>
+
+<script type="text/javascript" charset="utf-8">
+    $(document).ready(function () {
+        $("#notif").addClass("is-hidden");
+
+        var registry = "", answer = "", text = "";
+        var pageSize = 50;  // 0 = all
+        var page = 1;
+        var matched = [];   // rows matching the filters, in the current sort order
+        var totalRows = $("#cache_table tbody tr").length;
+
+        // pages to show: first, last, and the neighbours of the current page
+        function pageItems(pages) {
+            var items = [], last = 0;
+            for (var n = 1; n <= pages; n++) {
+                if (n === 1 || n === pages || Math.abs(n - page) <= 1) {
+                    if (last && n - last > 1) items.push("…");
+                    items.push(n);
+                    last = n;
+                }
+            }
+            return items;
+        }
+
+        function render() {
+            var pages = pageSize === 0 ? 1 : Math.max(1, Math.ceil(matched.length / pageSize));
+            page = Math.min(page, pages);
+            var start = pageSize === 0 ? 0 : (page - 1) * pageSize;
+            var end = pageSize === 0 ? matched.length : Math.min(start + pageSize, matched.length);
+
+            $("#cache_table tbody tr").hide();
+            $(matched.slice(start, end)).show();
+
+            var info = matched.length ? (start + 1) + "–" + end : "0";
+            info += " of " + matched.length + " entries";
+            if (matched.length !== totalRows) info += " (" + totalRows + " in the cache)";
+            $("#range_info").text(info);
+
+            $(".pager").each(function () {
+                var pager = $(this);
+                pager.toggle(pages > 1);
+                pager.find(".pagination-previous").attr("disabled", page <= 1 ? "disabled" : null);
+                pager.find(".pagination-next").attr("disabled", page >= pages ? "disabled" : null);
+                var list = pager.find(".pagination-list").empty();
+                $.each(pageItems(pages), function (i, item) {
+                    var li = $("<li>");
+                    if (item === "…") {
+                        li.append($('<span class="pagination-ellipsis">').text("…"));
+                    } else {
+                        li.append($('<a class="pagination-link">').attr("data-page", item).text(item)
+                            .toggleClass("is-current", item === page));
+                    }
+                    list.append(li);
+                });
+            });
+        }
+
+        // rows are kept in sort order in the DOM: filter them, back to the first page
+        function applyFilters() {
+            matched = $("#cache_table tbody tr").filter(function () {
+                return (!registry || $(this).data("registry") === registry)
+                    && (!answer || String($(this).data("answer")) === answer)
+                    && (!text || String($(this).data("uri")).toLowerCase().indexOf(text) !== -1);
+            }).get();
+            page = 1;
+            render();
+        }
+
+        $(".registry-chip").on("click", function () {
+            registry = $(this).data("registry");
+            $(".registry-chip").removeClass("is-link");
+            $(this).addClass("is-link");
+            applyFilters();
+        });
+        $(".answer-chip").on("click", function () {
+            answer = String($(this).data("answer"));
+            $(".answer-chip").removeClass("is-link");
+            $(this).addClass("is-link");
+            applyFilters();
+        });
+        $("#uri_search").on("input", function () {
+            text = $(this).val().trim().toLowerCase();
+            applyFilters();
+        });
+
+        $("#page_size").on("change", function () {
+            pageSize = parseInt($(this).val(), 10);
+            page = 1;
+            render();
+        });
+        $(".pager").on("click", ".pagination-link", function () {
+            page = parseInt($(this).attr("data-page"), 10);
+            render();
+        });
+        $(".pager").on("click", ".pagination-previous", function () {
+            if (!$(this).attr("disabled")) { page--; render(); }
+        });
+        $(".pager").on("click", ".pagination-next", function () {
+            if (!$(this).attr("disabled")) { page++; render(); }
+        });
+
+        $("#cache_table th.sortable").on("click", function () {
+            var idx = $(this).index();
+            var key = $(this).data("sort");
+            var dir = $(this).data("dir") === "asc" ? "desc" : "asc";
+            $("#cache_table th.sortable").removeData("dir");
+            $(this).data("dir", dir);
+            var rows = $("#cache_table tbody tr").get();
+            rows.sort(function (a, b) {
+                var x = $(a).children().eq(idx).data("sort-value");
+                var y = $(b).children().eq(idx).data("sort-value");
+                if (x === undefined) x = $(a).children().eq(idx).text();
+                if (y === undefined) y = $(b).children().eq(idx).text();
+                var r = (key === "number") ? (x - y) : String(x).localeCompare(String(y));
+                return dir === "asc" ? r : -r;
+            });
+            $("#cache_table tbody").append(rows);
+            applyFilters();
+        });
+
+        applyFilters();
+    });
+</script>
+
+<section class="section">
+    <div class="container">
+
+        <h1 class="title">Cache inspector</h1>
+        <p class="subtitle">Registry lookups currently held in the cache (read-only).</p>
+
+        {% if not entries %}
+        <div class="notification is-light">The cache is empty: no registry lookup is stored yet.</div>
+        {% else %}
+
+        <nav class="level">
+            <div class="level-item has-text-centered">
+                <div>
+                    <p class="heading">Total</p>
+                    <p class="title">{{ entries|length }}</p>
+                </div>
+            </div>
+            {% for name, counts in registries.items() %}
+            <div class="level-item has-text-centered">
+                <div>
+                    <p class="heading">{{ name }}</p>
+                    <p class="title">{{ counts.true + counts.false }}</p>
+                    <p class="is-size-7">
+                        <span class="has-text-success">&#10003; {{ counts.true }}</span> &nbsp;
+                        <span class="has-text-danger">&#10007; {{ counts.false }}</span>
+                    </p>
+                </div>
+            </div>
+            {% endfor %}
+        </nav>
+        {% if others %}
+        <p class="is-size-7 has-text-grey">{{ others }} other cache entr{{ 'y' if others == 1 else 'ies' }} (not current registry lookups) not listed.</p>
+        {% endif %}
+
+        <article class="message is-info is-light">
+            <div class="message-header"><p>Most accessed</p></div>
+            <div class="message-body">
+                {% if most_accessed %}
+                <table class="table is-fullwidth is-narrow" style="background: transparent;">
+                    <thead>
+                        <tr><th>Hits</th><th>Type</th><th>URI</th></tr>
+                    </thead>
+                    <tbody>
+                        {% for e in most_accessed %}
+                        <tr>
+                            <td><strong>{{ e.hits }}</strong></td>
+                            <td>{{ e.type or '—' }}</td>
+                            <td class="uri">{{ e.uri }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+                {% else %}
+                <p>no hits recorded yet</p>
+                {% endif %}
+                <p class="is-size-7 has-text-grey">One row per URI. Hits = times an answer was served from the cache, counted since hit counting was enabled; when a URI was looked up in several registries, the highest count is shown. The first lookup of a URI (registry queried, answer stored) is not a hit.</p>
+            </div>
+        </article>
+
+        <div class="field is-grouped is-grouped-multiline mt-4">
+            <div class="control">
+                <div class="tags has-addons">
+                    <span class="tag">Registry</span>
+                    <a class="tag registry-chip filter-chip is-link" data-registry="">all</a>
+                    {% for name in registries %}
+                    <a class="tag registry-chip filter-chip" data-registry="{{ name }}">{{ name }}</a>
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="control">
+                <div class="tags has-addons">
+                    <span class="tag">Answer</span>
+                    <a class="tag answer-chip filter-chip is-link" data-answer="">all</a>
+                    <a class="tag answer-chip filter-chip" data-answer="True">&#10003; true</a>
+                    <a class="tag answer-chip filter-chip" data-answer="False">&#10007; false</a>
+                </div>
+            </div>
+            <div class="control is-expanded">
+                <input id="uri_search" class="input is-small" type="text" placeholder="Search a URI…">
+            </div>
+        </div>
+
+        <div class="level is-mobile mb-2">
+            <div class="level-left">
+                <p id="range_info" class="level-item is-size-7">{{ entries|length }} entries</p>
+            </div>
+            <div class="level-right">
+                <label class="level-item is-size-7" for="page_size">Rows per page&nbsp;</label>
+                <div class="level-item select is-small">
+                    <select id="page_size">
+                        <option value="25">25</option>
+                        <option value="50" selected>50</option>
+                        <option value="100">100</option>
+                        <option value="0">All</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <nav class="pagination is-small is-centered pager mb-3" role="navigation" aria-label="pagination">
+            <a class="pagination-previous">Previous</a>
+            <a class="pagination-next">Next</a>
+            <ul class="pagination-list"></ul>
+        </nav>
+
+        <table id="cache_table" class="table is-fullwidth is-striped is-hoverable is-narrow">
+            <thead>
+                <tr>
+                    <th class="sortable" data-sort="text">Registry</th>
+                    <th class="sortable" data-sort="text">Type</th>
+                    <th class="sortable" data-sort="text">URI</th>
+                    <th class="sortable" data-sort="text">Answer</th>
+                    <th class="sortable" data-sort="number">Hits</th>
+                    <th class="sortable" data-sort="number">Expires in</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for e in entries %}
+                <tr data-registry="{{ e.registry }}" data-answer="{{ e.answer }}" data-uri="{{ e.uri }}">
+                    <td>{{ e.registry }}</td>
+                    <td>
+                        {{ e.type or '—' }}
+                    </td>
+                    <td class="uri">{{ e.uri }}</td>
+                    <td data-sort-value="{{ 1 if e.answer else 0 }}">
+                        {% if e.answer %}<span class="has-text-success">&#10003; true</span>
+                        {% else %}<span class="has-text-danger">&#10007; false</span>{% endif %}
+                    </td>
+                    <td data-sort-value="{{ e.hits }}">{{ e.hits }}</td>
+                    {% if e.expires_in is none %}
+                    <td data-sort-value="9999999999">never</td>
+                    {% else %}
+                    <td data-sort-value="{{ e.expires_in|int }}">
+                        {% set s = e.expires_in|int %}
+                        {% if s >= 86400 %}{{ s // 86400 }} d {{ (s % 86400) // 3600 }} h
+                        {% elif s >= 3600 %}{{ s // 3600 }} h {{ (s % 3600) // 60 }} min
+                        {% elif s >= 60 %}{{ s // 60 }} min
+                        {% else %}{{ s }} s{% endif %}
+                    </td>
+                    {% endif %}
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <nav class="pagination is-small is-centered pager mt-3" role="navigation" aria-label="pagination">
+            <a class="pagination-previous">Previous</a>
+            <a class="pagination-next">Next</a>
+            <ul class="pagination-list"></ul>
+        </nav>
+        {% endif %}
+    </div>
+</section>
+
+{% endblock %}

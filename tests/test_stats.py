@@ -7,7 +7,7 @@ sys.path.insert(1, "..")
 # from metrics.evaluation import Evaluation
 from pymongo import MongoClient
 from datetime import datetime, timedelta
-import metrics.statistics as stats
+import metrics.usage_stats as stats
 import unittest
 import json
 

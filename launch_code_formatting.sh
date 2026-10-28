@@ -1,4 +1,4 @@
 echo "------------------------------"
 echo "black . --check --diff --color"
 echo "------------------------------"
-black . --check --diff --color
+python -m black . --check --diff --color

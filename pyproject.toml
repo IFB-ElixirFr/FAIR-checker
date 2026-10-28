@@ -4,11 +4,20 @@ version = "1.3.2"
 description = "FAIR-Checker is a tool aimed at assessing FAIR principles and empowering data provider to enhance the quality of their digital resources. Data providers and consumers can check how FAIR are web resources. Developers can explore and inspect metadata exposed in web resources."
 readme = "README.md"
 license = "MIT"
+# authors: everyone who contributed to the code, current team first, then past contributors
 authors = [
-    { name = "Thomas Rosnet" },
     { name = "Alban Gaignard" },
+    { name = "Frédéric De Lamotte" },
+    { name = "Brieuc Quemeneur" },
+    # past contributors
+    { name = "Thomas Rosnet" },
     { name = "Marie-Dominique Devignes" },
     { name = "Sahar Frikha" },
+]
+# maintainers: the current team
+maintainers = [
+    { name = "Alban Gaignard" },
+    { name = "Frédéric De Lamotte" },
     { name = "Brieuc Quemeneur" },
 ]
 requires-python = ">=3.9,<4.0"
@@ -47,6 +56,17 @@ dependencies = [
     "dnspython>=2.0.0",
     "diskcache (>=5.6.3,<6.0.0)",
     "playwright (>=1.58.0,<2.0.0)",
+]
+
+[tool.pytest.ini_options]
+# Restrict collection to the test suite: metrics/test_metric.py holds helper
+# functions whose arguments pytest would otherwise mistake for fixtures.
+testpaths = ["tests"]
+filterwarnings = [
+    # rdflib's SPARQL parser still calls pyparsing's pre-3.0 camelCase API, which
+    # pyparsing >=3.3 deprecates. Nothing to fix on our side: the warnings are
+    # raised at import time from rdflib.plugins.sparql.parser and drown the run.
+    "ignore::pyparsing.PyparsingDeprecationWarning",
 ]
 
 [tool.poetry]

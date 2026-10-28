@@ -5,9 +5,9 @@ on:
   #  workflows: ["Python application"]
   #  types: [completed]
   push:
-    branches: [dev_alban, dev_thomas, master, pre_deploy_1.1]
+    branches: [master]
   pull_request:
-    branches: [dev_alban, dev_thomas, master, pre_deploy_1.1]
+    branches: [master]
 
 jobs:
   build:
@@ -18,4 +18,4 @@ jobs:
       - uses: psf/black@stable
         with:
           options: ". --check --diff --color"
-          version: "24.1.0"
+          version: "26.5.1"
