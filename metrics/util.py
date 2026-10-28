@@ -267,22 +267,6 @@ def describe_wikidata(uri, g):
     return g
 
 
-# Describe a tool based on experimental bio.tools SPARQL endpoint
-def describe_biotools(uri, g):
-    logging.debug(f"SPARQL for [ {uri} ] with enpoint [ https://130.226.25.41/sparql ]")
-
-    h = {"Accept": "text/turtle"}
-    p = {"query": "DESCRIBE <" + uri + ">"}
-    res = requests.get(
-        "https://130.226.25.41/sparql", headers=h, params=p, verify=False
-    )
-
-    g.parse(data=res.text, format="turtle")
-
-    # print(g.serialize(format='turtle').decode())
-    return g
-
-
 def is_URL(any_url):
     if validators.url(any_url):
         return True
@@ -338,11 +322,14 @@ def ask_BioPortal(uri, type):
         api_key = current_app.config["BIOPORTAL_APIKEY"]
     h = {"Accept": "application/json", "Authorization": "apikey token=" + str(api_key)}
 
+    res = None
+
     if type == "property":
         res = requests.get(
             "https://data.bioontology.org/property_search?q=" + uri,
             headers=h,
             verify=True,
+            timeout=20,
         )
     elif type == "class":
         res = requests.get(
@@ -351,7 +338,11 @@ def ask_BioPortal(uri, type):
             + "&require_exact_match=true",
             headers=h,
             verify=True,
+            timeout=20,
         )
+    else:
+        raise ValueError(f"type must be 'class' or 'property', got {type!r}")
+
     # print(res)
     if res.status_code == 200:
         return res.json()["totalCount"] > 0
@@ -379,6 +370,7 @@ def get_LOV_status():
             headers={"Accept": "application/sparql-results+json"},
             params={"query": "ASK { ?s ?p ?o }"},
             verify=True,
+            timeout=20,
         ).status_code
     except requests.exceptions.RequestException:
         return 0
@@ -970,15 +962,27 @@ def get_ld_FC_spec():
     return ld_FC_spec
 
 
-ld_FAIR_Checker_template = """
-fct:$metric_id
-    a ftr:Test ;
-    skos:prefLabel "$metric_label"@en ;
-    skos:definition "$metric_definition"@en ;
-    dcterms:description "$metric_definition"@en ;
-    dcterms:identifier <https://w3id.org/fairchecker/test/$metric_id> ;
-    sio:SIO_000233 <$seeAlso> . # sio:is-implementation-of property
-"""
+# RDF representation of the FAIR assessment results, following the FAIR Test Results (FTR) ontology.
+# https://ostrails.github.io/FAIR_testing_resource_vocabulary/release/1.3.0/index-en.html#
+#
+#
+# <urn:foops:c8e0f7a4-fa0c-432f-b1bc-d63206422e4a>
+#   a <https://w3id.org/ftr#TestResult> ;
+#   dcterms:description "All the minimum metadata were found!" ;
+#   ftr:assessmentTarget <https://w3id.org/example> ;
+#   dcterms:identifier <urn:foops:c8e0f7a4-fa0c-432f-b1bc-d63206422e4a> ;
+#   dcterms:license <http://creativecommons.org/licenses/by/4.0/> ;
+#   dcterms:title "Output from running test: OM1 (https://w3id.org/foops/test/OM1)" ;
+#   prov:generatedAtTime "Wed Aug 13 18:25:34 CEST 2025"^^xsd:date ;
+#   prov:value "pass" ;
+#   prov:wasGeneratedBy [
+#     a <https://w3id.org/ftr#TestExecutionActivity> ;
+#     prov:used <https://w3id.org/example> ;
+#     prov:wasAssociatedWith <https://w3id.org/foops/test/OM1>
+#   ] ;
+#   ftr:completion 100 ;
+#   ftr:log "All the minimum metadata were found!" ;
+#   ftr:outputFromTest <https://w3id.org/foops/test/OM1> .
 
 # <https://w3id.org/foops/test/OM1>
 #   a <https://w3id.org/ftr#Test> ;
@@ -991,15 +995,13 @@ fct:$metric_id
 #   dcat:endpointDescription <https://w3id.org/foops/api> ;
 #   dcat:endpointURL <https://w3id.org/foops/api/assess/test/OM1> .
 
+# TODO missing dcterms:description to help interpreting the result (0, 1, or 2)
 ld_metrics_tpl = """
 :$id
-    a dqv:QualityMeasurement ;
     a ftr:TestResult ;
-    dqv:computedOn <$url> ;
     ftr:assessmentTarget <$url> ;
-    dqv:value "$value"^^xsd:integer ;
+    ftr:completion "$value"^^xsd:integer ;
     prov:value "$value"^^xsd:integer ;
-    ftr:completion 2 ;
     ftr:outputFromTest <https://w3id.org/fairchecker/test/$test_id> ;
     prov:generatedAtTime "$date"^^xsd:dateTime ;
     prov:wasAttributedTo <https://github.com/IFB-ElixirFr/fair-checker> ;
@@ -1010,6 +1012,15 @@ ld_metrics_tpl = """
     ] ; 
     rdfs:seeAlso <https://doi.org/10.1186/s13326-023-00289-5> ."""
 
+ld_FAIR_Checker_template = """
+fct:$metric_id
+    a ftr:Test ;
+    dcterms:title "$metric_label"@en ;
+    dcterms:description "$metric_definition"@en ;
+    dcterms:identifier <https://w3id.org/fairchecker/test/$metric_id> ;
+    dcat:landingPage <https://w3id.org/fairchecker/test/$metric_id> ;
+    sio:SIO_000233 <$seeAlso> . # sio:is-implementation-of property
+"""
 
 # ---------------------------------------------------------------------------
 # RDF rendering helpers
@@ -1082,14 +1093,14 @@ def _assessment_to_rdf(assess_json) -> str:
 @prefix : <{current_app.config["ASSESSMENT_URL"]}> .
 """
     assess_tpl = """:$id
-    a dqv:QualityMeasurement ;
+    a dqv:QualityMeasurement, ftr:TestResultSet ;
     dqv:computedOn <$url> ;
-    dqv:value "$value"^^xsd:integer ;
+    ftr:assessmentTarget <$url> ;
     prov:value "$value"^^xsd:integer ;
-    ftr:completion 100 ;
+    ftr:completion "$value"^^xsd:integer ;
     prov:generatedAtTime "$date"^^xsd:dateTime ;
     prov:wasAttributedTo <https://github.com/IFB-ElixirFr/fair-checker> ;
-    prov:wasDerivedFrom $evaluations ;
+    prov:hadMember $evaluations ;
     rdfs:seeAlso <https://doi.org/10.1186/s13326-023-00289-5> ."""
     assess_ttl = StringTemplate(assess_tpl).safe_substitute(
         id=str(assess_json["_id"]),
