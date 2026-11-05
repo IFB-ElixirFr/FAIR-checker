@@ -129,8 +129,24 @@ if app_env == "production":
     app.config.from_object("config.ProductionConfig")
 elif app_env == "staging":
     app.config.from_object("config.StagingConfig")
+    if not app.config["SERVER_URL"]:
+        raise RuntimeError(
+            "SERVER_URL must be set (in .env or the environment) when "
+            "FAIR_CHECKER_ENV=staging: it is the base of the IRIs of the results."
+        )
 else:
     app.config.from_object("config.DevelopmentConfig")
+    # A public SERVER_URL in development usually means FAIR_CHECKER_ENV was
+    # forgotten on a server: the IRIs of the results would then be built from
+    # SERVER_URL instead of the persistent W3ID ones used in production.
+    _host = urlparse(app.config["SERVER_URL"]).hostname
+    if _host not in ("localhost", "127.0.0.1", "::1", "0.0.0.0"):
+        logging.warning(
+            f"FAIR_CHECKER_ENV is '{app_env}' (development config) but SERVER_URL "
+            f"is not a local address ({app.config['SERVER_URL']}). Result IRIs will "
+            "be built from SERVER_URL; set FAIR_CHECKER_ENV=production or staging "
+            "if this is a public server."
+        )
 
 app.config["APP_ENV"] = app_env
 
@@ -2120,7 +2136,7 @@ if __name__ == "__main__":
         socketio.run(
             app,
             host=server_url.hostname,
-            port=server_url.port or (443 if server_url.scheme == "https" else 80),
+            port=5000,
             debug=True,
             log_output=False,
         )
