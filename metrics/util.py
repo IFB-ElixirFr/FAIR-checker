@@ -851,7 +851,7 @@ def list_all_instances(kg):
 
 ld_eval_prefix = """
 @prefix ftr: <https://w3id.org/ftr#> .
-@prefix fct: <https://w3id.org/fairchecker/test/> .
+@prefix fct: <$test_url> .
 @prefix daq: <http://purl.org/eis/vocab/daq#> .
 @prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
@@ -1002,13 +1002,13 @@ ld_metrics_tpl = """
     ftr:assessmentTarget <$url> ;
     ftr:completion "$value"^^xsd:integer ;
     prov:value "$value"^^xsd:integer ;
-    ftr:outputFromTest <https://w3id.org/fairchecker/test/$test_id> ;
+    ftr:outputFromTest <${test_url}${test_id}> ;
     prov:generatedAtTime "$date"^^xsd:dateTime ;
     prov:wasAttributedTo <https://github.com/IFB-ElixirFr/fair-checker> ;
     prov:wasGeneratedBy [
         a ftr:TestExecutionActivity ;
         prov:used <$url> ;
-        prov:wasAssociatedWith <https://w3id.org/fairchecker/test/$test_id> ;
+        prov:wasAssociatedWith <${test_url}${test_id}> ;
     ] ; 
     rdfs:seeAlso <https://doi.org/10.1186/s13326-023-00289-5> ."""
 
@@ -1017,8 +1017,8 @@ fct:$metric_id
     a ftr:Test ;
     dcterms:title "$metric_label"@en ;
     dcterms:description "$metric_definition"@en ;
-    dcterms:identifier <https://w3id.org/fairchecker/test/$metric_id> ;
-    dcat:landingPage <https://w3id.org/fairchecker/test/$metric_id> ;
+    dcterms:identifier <${test_url}${metric_id}> ;
+    dcat:landingPage <${test_url}${metric_id}> ;
     sio:SIO_000233 <$seeAlso> . # sio:is-implementation-of property
 """
 

@@ -22,7 +22,6 @@ from metrics.Evaluation import Evaluation
 
 PROV = Namespace("http://www.w3.org/ns/prov#")
 FTR = Namespace("https://w3id.org/ftr#")
-TEST_BASE = "https://w3id.org/fairchecker/test/"
 
 
 def _make_fake_evaluation(metric_tag: str = "F1A", score: str = "1") -> tuple:
@@ -117,7 +116,7 @@ class EvaluationRDFTestCase(unittest.TestCase):
     def test_eval_links_to_metric_test(self):
         ttl = self.ev.to_rdf_turtle(self.eval_id)
         g = self._turtle_to_graph(ttl)
-        test_uri = URIRef(f"{TEST_BASE}F1A")
+        test_uri = URIRef(f"{current_app.config['TEST_URL']}F1A")
         ftr_output = FTR.outputFromTest
         self.assertIn(test_uri, set(g.objects(self._eval_uri(), ftr_output)))
 
@@ -127,17 +126,36 @@ class EvaluationRDFTestCase(unittest.TestCase):
         """to_rdf_turtle() appends a fct:F1A block describing the test itself."""
         ttl = self.ev.to_rdf_turtle(self.eval_id)
         g = self._turtle_to_graph(ttl)
-        metric_uri = URIRef(f"{TEST_BASE}F1A")
+        metric_uri = URIRef(f"{current_app.config['TEST_URL']}F1A")
         self.assertIn(FTR.Test, set(g.objects(metric_uri, RDF.type)))
 
     def test_metric_spec_has_title(self):
         ttl = self.ev.to_rdf_turtle(self.eval_id)
         g = self._turtle_to_graph(ttl)
-        metric_uri = URIRef(f"{TEST_BASE}F1A")
+        metric_uri = URIRef(f"{current_app.config['TEST_URL']}F1A")
         labels = {str(v) for v in g.objects(metric_uri, DCTERMS.title)}
         self.assertTrue(len(labels) > 0, "fct:F1A should have at least one dcterms:title")
 
     # --- score boundary ---
+
+    # --- environment-aware test IRIs ---
+
+    def test_test_iris_follow_configured_test_url(self):
+        """On a non-production instance the test IRIs must not point to W3ID."""
+        original = current_app.config["TEST_URL"]
+        dev_base = "https://fair-checker.dev.france-bioinformatique.fr/test/"
+        current_app.config["TEST_URL"] = dev_base
+        try:
+            ttl = self.ev.to_rdf_turtle(self.eval_id)
+        finally:
+            current_app.config["TEST_URL"] = original
+        g = self._turtle_to_graph(ttl)
+        self.assertIn(
+            URIRef(f"{dev_base}F1A"),
+            set(g.objects(self._eval_uri(), FTR.outputFromTest)),
+        )
+        self.assertIn(FTR.Test, set(g.objects(URIRef(f"{dev_base}F1A"), RDF.type)))
+        self.assertNotIn("w3id.org/fairchecker/test", ttl)
 
     def test_score_zero_is_serialised(self):
         """A failing evaluation (score=0) must also produce valid RDF."""

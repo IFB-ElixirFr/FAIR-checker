@@ -11,6 +11,7 @@ import secrets
 import sys
 import time
 import uuid
+from urllib.parse import urlparse
 from argparse import RawTextHelpFormatter
 from datetime import datetime, timedelta
 from json import JSONDecodeError
@@ -126,6 +127,8 @@ app.config["CORS_HEADERS"] = "Content-Type"
 
 if app_env == "production":
     app.config.from_object("config.ProductionConfig")
+elif app_env == "staging":
+    app.config.from_object("config.StagingConfig")
 else:
     app.config.from_object("config.DevelopmentConfig")
 
@@ -2112,4 +2115,12 @@ if __name__ == "__main__":
 
     elif args.web:
         logging.info("Starting webserver")
-        socketio.run(app, host="127.0.0.1", port=5000, debug=True, log_output=False)
+        server_url = urlparse(app.config["SERVER_URL"])
+        logging.info(f"Click on {app.config['SERVER_URL']} to access FAIR-Checker")
+        socketio.run(
+            app,
+            host=server_url.hostname,
+            port=server_url.port or (443 if server_url.scheme == "https" else 80),
+            debug=True,
+            log_output=False,
+        )

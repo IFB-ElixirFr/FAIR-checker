@@ -227,10 +227,12 @@ class Evaluation:
                 value=self.get_score(),
                 date=d,
                 test_id=self.get_metrics(),
+                test_url=current_app.config["TEST_URL"],
             )
         ttl = (
             Template(ld_eval_prefix).safe_substitute(
-                data_url=current_app.config["EVAL_URL"]
+                data_url=current_app.config["EVAL_URL"],
+                test_url=current_app.config["TEST_URL"],
             )
             + eval_ttl
         )
@@ -243,6 +245,7 @@ class Evaluation:
                     metric_definition=spec["definition"],
                     category=spec["category"],
                     seeAlso=spec["seeAlso"],
+                    test_url=current_app.config["TEST_URL"],
                 )
                 ttl += spec_ttl
 
