@@ -2131,12 +2131,21 @@ if __name__ == "__main__":
 
     elif args.web:
         logging.info("Starting webserver")
-        server_url = urlparse(app.config["SERVER_URL"])
+        # SERVER_URL is the public URL (used to build IRIs/links); it must not
+        # be used as the bind address: on staging/production its hostname
+        # resolves to the proxy's public IP, which is not assigned to a local
+        # interface ("Cannot assign requested address"). The reverse proxy runs
+        # on the same VM, so listen on loopback unless FAIR_CHECKER_HOST says
+        # otherwise (e.g. 0.0.0.0 for a proxy on another machine or a container).
+        bind_host = os.getenv("FAIR_CHECKER_HOST", "127.0.0.1")
+        bind_port = int(os.getenv("FAIR_CHECKER_PORT", "5000"))
+        logging.info(f"Listening on {bind_host}:{bind_port}")
         logging.info(f"Click on {app.config['SERVER_URL']} to access FAIR-Checker")
         socketio.run(
             app,
-            host=server_url.hostname,
-            port=5000,
-            debug=True,
+            host=bind_host,
+            port=bind_port,
+            # The Werkzeug debugger allows code execution: development only.
+            debug=app_env not in ("production", "staging"),
             log_output=False,
         )
