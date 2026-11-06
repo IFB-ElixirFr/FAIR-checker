@@ -5,6 +5,7 @@ A fake Evaluation is built entirely in-memory (no MongoDB, no HTTP calls).
 Flask's app context is pushed so current_app.config["EVAL_URL"] is available,
 which to_rdf_turtle() needs to build the subject URI prefix.
 """
+
 import sys
 import os
 import unittest
@@ -134,7 +135,9 @@ class EvaluationRDFTestCase(unittest.TestCase):
         g = self._turtle_to_graph(ttl)
         metric_uri = URIRef(f"{current_app.config['TEST_URL']}F1A")
         labels = {str(v) for v in g.objects(metric_uri, DCTERMS.title)}
-        self.assertTrue(len(labels) > 0, "fct:F1A should have at least one dcterms:title")
+        self.assertTrue(
+            len(labels) > 0, "fct:F1A should have at least one dcterms:title"
+        )
 
     # --- score boundary ---
 
