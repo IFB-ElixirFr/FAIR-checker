@@ -107,7 +107,7 @@ The application should be accessible localy on your browser at [http://localhost
 
 ### Deployment in a production environment
 
-In a production environment the process is similar but Python 3.12 has to be used for the Fair-Checker application. Moreover the ```FLASK_ENV``` envrionment variable needs to be defined as well in the terminal. The environment variable such as the ```SERVER_IP``` also need to be editied from ```.env.sample``` file to fit the url of your deployment server. The ```.env.sample``` file also has to be renamed ```.env```
+In a production environment the process is similar but Python 3.12 has to be used for the Fair-Checker application. Moreover ```FAIR_CHECKER_ENV``` and ```SERVER_URL``` have to be set, as described in [Configuration](#configuration). Copy ```.env.sample``` to ```.env``` and edit it to fit your deployment server.
 
 ```
 bash
@@ -139,9 +139,95 @@ To run the Fair-Checker application run the following command:
 
 ```
 bash
-export FLASK_ENV=production
+export FAIR_CHECKER_ENV=production
 poetry run python app.py --web
 ```
+
+### Configuration
+
+Fair-Checker is configured in three layers. They are easy to mix up, so here is what each one is for:
+
+| Layer | What it holds | Where it lives |
+|---|---|---|
+| `config.py` | Settings that depend on the **kind of instance**: the base URLs minted in the RDF results (`EVAL_URL`, `ASSESSMENT_URL`, `TEST_URL`), debug mode, cache durations. One class per instance kind. | Versioned in git |
+| Environment variables | Which class of `config.py` is used (`FAIR_CHECKER_ENV`), plus settings specific to **your machine or server** (`SERVER_URL`). | The shell, the service definition, or `.env` |
+| `.env` file | A convenient place to store environment variables and secrets. It is loaded at startup by `config.py` (`python-dotenv`). | Local file, **not versioned** (copy it from `.env.sample`) |
+
+In short: `config.py` defines what each kind of instance looks like, the environment variable `FAIR_CHECKER_ENV` picks one, and `.env` is just a file that sets environment variables. A variable that is already set in the real environment takes precedence over the same variable in `.env`.
+
+#### Choosing the instance kind
+
+The instance kind is read at startup from `FAIR_CHECKER_ENV`. If it is not set, the default is `development`.
+
+> [!NOTE]
+> Older deployments set `FLASK_ENV` instead (e.g. in the `Dockerfile`). It is still read when `FAIR_CHECKER_ENV` is not set, but Flask no longer uses it itself: prefer `FAIR_CHECKER_ENV` for new setups.
+
+| `FAIR_CHECKER_ENV` | Class in `config.py` | Use it for | IRIs of results, e.g. `…/eval/<id>`, `…/test/<tag>` |
+|---|---|---|---|
+| `development` (default, or any other value) | `DevelopmentConfig` | Running locally | `SERVER_URL` + `/eval/`, `/assessment/`, `/test/` (default `http://127.0.0.1:5000`) |
+| `staging` | `StagingConfig` | A public dev/test server, such as `https://fair-checker.dev.france-bioinformatique.fr` | `SERVER_URL` + `/eval/`, `/assessment/`, `/test/` |
+| `production` | `ProductionConfig` | The production server | `https://w3id.org/fairchecker/{eval,assessment,test}/…` |
+
+The IRIs matter because the RDF results (`/eval/<id>`, `/assessment/<id>`, `/test/<tag>`) link to each other and to the descriptions of the tests. In production these are persistent [W3ID](https://w3id.org/) IRIs, which must redirect to the production server. A dev or staging server must **not** use them: the W3ID IRIs would point to production, which knows nothing about the evaluations and tests of the dev instance. That is why `staging` and `development` build their IRIs from the address of the server itself.
+
+#### Environment variables
+
+| Variable | Required | Description |
+|---|---|---|
+| `FAIR_CHECKER_ENV` | recommended | `development`, `staging` or `production` (see above). |
+| `SERVER_URL` | production and staging; optional in development | Public URL of the server, without trailing slash, e.g. `https://fair-checker.dev.france-bioinformatique.fr`. It is used by the web pages to open their websocket connection. For `staging` and `development` it is also the base of the IRIs of the results (no default for `staging`, which refuses to start without it; `http://127.0.0.1:5000` for `development`). With `python app.py --web`, the server listens on the host of this URL and on port 5000, so in `development` it must be an address of your machine, e.g. `http://localhost:5000`. |
+| `BIOPORTAL_APIKEY` | optional | Enables the BioPortal checks. |
+| `GITHUB_TOKEN` | optional | Avoids GitHub API rate limits when retrieving the Bioschemas profiles. |
+
+Do not commit `.env`: it can contain secrets (`BIOPORTAL_APIKEY`, `GITHUB_TOKEN`).
+
+#### Development instance (your computer)
+
+Nothing is required: the default is `development`, served on `http://127.0.0.1:5000`. Set `SERVER_URL` (e.g. `SERVER_URL=http://localhost:5000`) to change the host; the port is always 5000.
+
+```
+bash
+cp .env.sample .env        # optional: only needed for BIOPORTAL_APIKEY / GITHUB_TOKEN
+poetry run python app.py --web
+```
+
+Results are served from `http://127.0.0.1:5000`.
+
+#### Dev server (staging)
+
+```
+bash
+# .env
+FAIR_CHECKER_ENV=staging
+SERVER_URL=https://fair-checker.dev.france-bioinformatique.fr
+```
+
+```
+bash
+poetry run python app.py --web
+```
+
+You can instead export the two variables in the shell or in the service definition (systemd, Docker, …) instead of using `.env`. `FAIR_CHECKER_ENV=staging` is required: without it the server falls back to `development`, which still honours `SERVER_URL` but is not meant for a public server. Make sure `SERVER_URL` is the **public** address of the server, and that `/eval/`, `/assessment/` and `/test/` are reachable at this address.
+
+#### Production server
+
+```
+bash
+# .env
+FAIR_CHECKER_ENV=production
+SERVER_URL=https://fair-checker.france-bioinformatique.fr
+```
+
+```
+bash
+poetry run python app.py --web
+```
+
+In production the base IRIs are fixed in `ProductionConfig` to the W3ID namespace (`https://w3id.org/fairchecker/…`), and `SERVER_URL` is only used by the web pages. The W3ID redirections of `eval/`, `assessment/` and `test/` must point to the production server.
+
+#### Adding or changing an instance kind
+
+Edit `config.py`: add a class that extends `Config`, define `SERVER_URL`, `EVAL_URL`, `ASSESSMENT_URL` and `TEST_URL`, and select it in `app.py` according to `FAIR_CHECKER_ENV`.
 
 ## License
 FAIR-Checker is released under the [MIT License](LICENSE). Some third-party components are included. They are subject to their own licenses. All of the license information can be found in the included [LICENSE](LICENSE) file.
