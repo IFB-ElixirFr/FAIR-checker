@@ -10,7 +10,7 @@ Project Authors
 
 ## Contributors:
 * Frédéric De Lamotte - https://orcid.org/0000-0003-4234-1172 - INRAE researcher - UMR AGAP Institut, Univ Montpellier, CIRAD, INRAE, Institut Agro, F-34398 Montpellier, France
-* Vincent Leffort - https://orcid.org/0000-0003-2864-4783 - LIRMM, Univ Montpellier, CNRS, Montpellier, France
+* Vincent Lefort - https://orcid.org/0000-0003-2864-4783 - LIRMM, Univ Montpellier, CNRS, Montpellier, France
 
 ## Former team members:
 * Thomas Rosnet (developer) - https://orcid.org/0000-0003-0676-5461 - CNRS engineer - Institut Français de Bioinformatique, CNRS UAR 3601, France - TAGC/INSERM U1090, Univ Aix-Marseille, Marseille, France
