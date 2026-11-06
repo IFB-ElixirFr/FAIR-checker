@@ -175,7 +175,8 @@ The IRIs matter because the RDF results (`/eval/<id>`, `/assessment/<id>`, `/tes
 | Variable | Required | Description |
 |---|---|---|
 | `FAIR_CHECKER_ENV` | recommended | `development`, `staging` or `production` (see above). |
-| `SERVER_URL` | production and staging; optional in development | Public URL of the server, without trailing slash, e.g. `https://fair-checker.dev.france-bioinformatique.fr`. It is used by the web pages to open their websocket connection. For `staging` and `development` it is also the base of the IRIs of the results (no default for `staging`, which refuses to start without it; `http://127.0.0.1:5000` for `development`). With `python app.py --web`, the server listens on the host of this URL and on port 5000, so in `development` it must be an address of your machine, e.g. `http://localhost:5000`. |
+| `SERVER_URL` | production and staging; optional in development | Public URL of the server, without trailing slash, e.g. `https://fair-checker.dev.france-bioinformatique.fr`. It is used by the web pages to open their websocket connection. For `staging` and `development` it is also the base of the IRIs of the results (no default for `staging`, which refuses to start without it; `http://127.0.0.1:5000` for `development`). It is not used as the listening address. |
+| `FAIR_CHECKER_HOST`, `FAIR_CHECKER_PORT` | optional | Listening address of `python app.py --web` (default `127.0.0.1` and `5000`, suited to a reverse proxy on the same machine). Use `0.0.0.0` if the proxy runs elsewhere. Werkzeug debug mode is only enabled when `FAIR_CHECKER_ENV` is `development`. |
 | `BIOPORTAL_APIKEY` | optional | Enables the BioPortal checks. |
 | `GITHUB_TOKEN` | optional | Avoids GitHub API rate limits when retrieving the Bioschemas profiles. |
 
