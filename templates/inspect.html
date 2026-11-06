@@ -248,13 +248,6 @@
         socket.emit('retrieve_embedded_annot_2', { url: url });
     });
 
-    $("#btn_describe_biotools").click(function () {
-        $(this).addClass("is-loading");
-        graph = $("#microdata").val();
-        url = $("#url").val();
-        socket.emit('describe_biotools', { url: url, graph: graph });
-    });
-
     $("#btn_describe_loa").click(function () {
         $(this).addClass("is-loading");
         graph = $("#microdata").val();
@@ -403,7 +396,6 @@
         // $("#nb_triples").text(value["nb_triples"] + " triples");
         $("#btn_describe_opencitation").removeClass("is-loading");
         $("#btn_describe_wikidata").removeClass("is-loading");
-        $("#btn_describe_biotools").removeClass("is-loading");
         $("#btn_describe_loa").removeClass("is-loading");
         $("#btn_kg").removeClass("is-loading");
 
