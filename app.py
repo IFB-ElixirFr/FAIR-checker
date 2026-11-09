@@ -11,6 +11,7 @@ import secrets
 import sys
 import time
 import uuid
+from urllib.parse import urlparse
 from argparse import RawTextHelpFormatter
 from datetime import datetime, timedelta
 from json import JSONDecodeError
@@ -51,7 +52,13 @@ from rich.text import Text
 import metrics.util as util
 from metrics import test_metric
 from metrics.Evaluation import Evaluation, Result
-from metrics.util import _assessment_to_rdf, _negotiate_rdf_response
+from metrics.util import (
+    _assessment_to_rdf,
+    _negotiate_rdf_response,
+    _build_metric_kg,
+    _ACCEPT_MAP,
+    _FORMAT_PARAM,
+)
 from metrics.F1B_Impl import F1B_Impl
 from metrics.FAIRMetricsFactory import FAIRMetricsFactory
 from metrics.util import SOURCE, inspect_onto_reg
@@ -59,7 +66,6 @@ from metrics.util import get_LOV_status
 from metrics.WebResource import WebResource
 from profiles.DataciteProfile import datacite_profile, validate_md
 from profiles.BiosampleProfile import ena53_profile, validate_md as validate_md_ena53
-from profiles.bioschemas_shape_gen import validate_any_from_KG
 from profiles.ProfileFactory import (
     PROFILES,
     dyn_evaluate_profile_with_conformsto,
@@ -119,8 +125,26 @@ app.config["CORS_HEADERS"] = "Content-Type"
 
 if app_env == "production":
     app.config.from_object("config.ProductionConfig")
+elif app_env == "staging":
+    app.config.from_object("config.StagingConfig")
+    if not app.config["SERVER_URL"]:
+        raise RuntimeError(
+            "SERVER_URL must be set (in .env or the environment) when "
+            "FAIR_CHECKER_ENV=staging: it is the base of the IRIs of the results."
+        )
 else:
     app.config.from_object("config.DevelopmentConfig")
+    # A public SERVER_URL in development usually means FAIR_CHECKER_ENV was
+    # forgotten on a server: the IRIs of the results would then be built from
+    # SERVER_URL instead of the persistent W3ID ones used in production.
+    _host = urlparse(app.config["SERVER_URL"]).hostname
+    if _host not in ("localhost", "127.0.0.1", "::1", "0.0.0.0"):
+        logging.warning(
+            f"FAIR_CHECKER_ENV is '{app_env}' (development config) but SERVER_URL "
+            f"is not a local address ({app.config['SERVER_URL']}). Result IRIs will "
+            "be built from SERVER_URL; set FAIR_CHECKER_ENV=production or staging "
+            "if this is a public server."
+        )
 
 app.config["APP_ENV"] = app_env
 
@@ -377,6 +401,17 @@ def metric_detail(tag):
         from flask import abort
 
         abort(404)
+
+    best = request.accept_mimetypes.best_match(
+        ["text/html"] + list(_ACCEPT_MAP.keys()),
+        default="text/html",
+    )
+    fmt_param = request.args.get("format", "").lower()
+
+    if best != "text/html" or fmt_param in _FORMAT_PARAM:
+        kg = _build_metric_kg(metric, request.url)
+        return _negotiate_rdf_response(kg, tag, request.url, "test")
+
     return render_template(
         "metric_detail.html",
         title=metric.get_principle_tag(),
@@ -488,6 +523,9 @@ def deref_eval_LD(ID):
             return Response(
                 f"Cannot find evaluation {ID}", mimetype="text/plain", status=404
             )
+            return Response(
+                f"Cannot find evaluation {ID}", mimetype="text/plain", status=404
+            )
         e = Evaluation()
         e.build_from_json(data=eval_json)
         ttl = e.to_rdf_turtle(id=ID)
@@ -507,6 +545,9 @@ def deref_assessment_LD(ID):
         db = MongoClient().fair_checker
         assess_json = db.assessments.find_one({"_id": ObjectId(ID)})
         if assess_json is None:
+            return Response(
+                f"Cannot find assessment {ID}", mimetype="text/plain", status=404
+            )
             return Response(
                 f"Cannot find assessment {ID}", mimetype="text/plain", status=404
             )
@@ -1593,39 +1634,6 @@ def check_vocabularies(data):
     inspect_onto_reg(kg, True)
 
 
-@DeprecationWarning
-@socketio.on("check_kg_shape")
-def check_kg_shape(data):
-    sid = request.sid
-    print(sid)
-    if sid not in KGS.keys():
-        handle_embedded_annot_2(data)
-    elif not KGS[sid]:
-        handle_embedded_annot_2(data)
-    kg = KGS[sid]
-
-    warnings, errors = util.shape_checks(kg)
-    data = {"errors": errors, "warnings": warnings}
-    emit("done_check_shape", data)
-
-
-@DeprecationWarning
-@socketio.on("check_kg_shape_old")
-def check_kg_shape_old(data):
-    print("shape validation started")
-    sid = request.sid
-    print(sid)
-    kg = KGS[sid]
-
-    if not kg:
-        print("cannot access current knowledge graph")
-    elif len(kg) == 0:
-        print("cannot validate an empty knowledge graph")
-
-    results = validate_any_from_KG(kg)
-    emit("done_check_shape", results)
-
-
 def evaluate_bioschemas_profiles(kg):
 
     results = {}
@@ -2121,4 +2129,21 @@ if __name__ == "__main__":
 
     elif args.web:
         logging.info("Starting webserver")
-        socketio.run(app, host="127.0.0.1", port=5000, debug=True, log_output=False)
+        # SERVER_URL is the public URL (used to build IRIs/links); it must not
+        # be used as the bind address: on staging/production its hostname
+        # resolves to the proxy's public IP, which is not assigned to a local
+        # interface ("Cannot assign requested address"). The reverse proxy runs
+        # on the same VM, so listen on loopback unless FAIR_CHECKER_HOST says
+        # otherwise (e.g. 0.0.0.0 for a proxy on another machine or a container).
+        bind_host = os.getenv("FAIR_CHECKER_HOST", "127.0.0.1")
+        bind_port = int(os.getenv("FAIR_CHECKER_PORT", "5000"))
+        logging.info(f"Listening on {bind_host}:{bind_port}")
+        logging.info(f"Click on {app.config['SERVER_URL']} to access FAIR-Checker")
+        socketio.run(
+            app,
+            host=bind_host,
+            port=bind_port,
+            # The Werkzeug debugger allows code execution: development only.
+            debug=app_env not in ("production", "staging"),
+            log_output=False,
+        )

@@ -166,6 +166,12 @@ class OntologyPortalOfflineTestCase(unittest.TestCase):
             self.assertFalse(util.ask_OLS(uri, "property"))
         get.assert_called_once()
 
+    def test_bioportal_unknown_type_is_rejected(self):
+        with mock.patch.object(util.requests, "get") as get:
+            with self.assertRaises(ValueError):
+                util.ask_BioPortal(self._unique_uri(), "individual")
+        get.assert_not_called()
+
     def test_ols_outage_returns_none_and_is_not_cached(self):
         uri = self._unique_uri()
         with mock.patch.object(

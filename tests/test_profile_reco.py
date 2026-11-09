@@ -62,8 +62,17 @@ class GenSHACLTestCase(unittest.TestCase):
         self.assertAlmostEqual(sim, 0.32)
 
     def test_list_all_conformsto(self):
+        # profiles/bs_profiles.json is regenerated from the Bioschemas registry, so
+        # the number of profiles drifts: check consistency, not a hardcoded count.
+        profiles = load_profiles()
         list_ct = ProfileFactory.list_all_conformsto()
-        self.assertEqual(len(list_ct), 34)
+        self.assertGreater(len(list_ct), 0)
+        self.assertEqual(len(list_ct), len(profiles))
+        for ref_profile in list_ct:
+            self.assertTrue(
+                ref_profile.startswith("https://bioschemas.org/profiles/"),
+                f"unexpected conformsTo value: {ref_profile}",
+            )
 
     @unittest.skip("Unstable test, needs to be fixed")
     def test_profile_factory_from_specifications(self):
