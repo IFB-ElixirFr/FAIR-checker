@@ -13,8 +13,6 @@ from metrics.util import (
     ld_metrics_tpl,
     ld_eval_prefix,
 )
-import json
-import logging
 
 logger = logging.getLogger(__name__)
 

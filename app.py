@@ -53,7 +53,6 @@ import metrics.util as util
 from metrics import test_metric
 from metrics.Evaluation import Evaluation, Result
 from metrics.util import (
-    _turtle_to_html,
     _assessment_to_rdf,
     _negotiate_rdf_response,
     _build_metric_kg,
@@ -67,7 +66,6 @@ from metrics.util import get_LOV_status
 from metrics.WebResource import WebResource
 from profiles.DataciteProfile import datacite_profile, validate_md
 from profiles.BiosampleProfile import ena53_profile, validate_md as validate_md_ena53
-from profiles.bioschemas_shape_gen import validate_any_from_KG
 from profiles.ProfileFactory import (
     PROFILES,
     dyn_evaluate_profile_with_conformsto,
