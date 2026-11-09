@@ -44,14 +44,6 @@ class MetricDetailPageTestCase(unittest.TestCase):
         self.assertGreater(len(g), 5)
 
     def test_returns_turtle_via_format_param(self):
-        response = self.client.get("/test/F1A?format=turtle")
-        self.assertEqual(response.status_code, 200)
-        self.assertIn("text/turtle", response.content_type)
-        g = ConjunctiveGraph()
-        g.parse(data=response.data, format="turtle")
-        self.assertGreater(len(g), 5)
-
-    def test_returns_turtle_via_format_param(self):
         response = self.client.get("/test/F1A?format=json-ld")
         self.assertEqual(response.status_code, 200)
         self.assertIn("application/ld+json", response.content_type)
