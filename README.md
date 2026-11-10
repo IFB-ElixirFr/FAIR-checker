@@ -64,6 +64,21 @@ To install Fair-Checker you need to have some programs installed on your compute
 - micromamba
 - poetry
 
+### Docker
+
+The Docker image contains both FAIR-Checker and MongoDB. Build and run it with:
+
+```bash
+docker build -t fair-checker .
+docker run --name fair-checker -p 5000:5000 \
+  -e FAIR_CHECKER_ENV=development \
+  -e SERVER_URL=http://localhost:5000 \
+  -v fair-checker-data:/data/db \
+  fair-checker
+```
+
+Open [http://localhost:5000](http://localhost:5000). The named volume keeps MongoDB data when the container is removed. For a public deployment, set `FAIR_CHECKER_ENV` and `SERVER_URL` as described in [Configuration](#configuration).
+
 ### Local installation
 
 ```
