@@ -2146,4 +2146,6 @@ if __name__ == "__main__":
             # The Werkzeug debugger allows code execution: development only.
             debug=app_env not in ("production", "staging"),
             log_output=False,
+            # No production WSGI server is bundled; allow Werkzeug in containers.
+            allow_unsafe_werkzeug=True,
         )
