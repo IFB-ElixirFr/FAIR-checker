@@ -1,4 +1,4 @@
-FROM python:3.12-slim
+FROM python:3.12-slim-bookworm
 
 ENV PYTHONDONTWRITEBYTECODE=1 \
     PYTHONUNBUFFERED=1 \
@@ -8,7 +8,15 @@ ENV PYTHONDONTWRITEBYTECODE=1 \
 WORKDIR /app
 
 RUN apt-get update \
-    && apt-get install -y --no-install-recommends git libatomic1 \
+    && apt-get install -y --no-install-recommends ca-certificates curl git gnupg gosu libatomic1 \
+    && curl -fsSL https://pgp.mongodb.com/server-8.0.asc \
+        | gpg --dearmor -o /usr/share/keyrings/mongodb-server-8.0.gpg \
+    && echo "deb [ signed-by=/usr/share/keyrings/mongodb-server-8.0.gpg ] https://repo.mongodb.org/apt/debian bookworm/mongodb-org/8.0 main" \
+        > /etc/apt/sources.list.d/mongodb-org-8.0.list \
+    && apt-get update \
+    && apt-get install -y --no-install-recommends mongodb-org-server \
+    && mkdir -p /data/db \
+    && chown mongodb:mongodb /data/db \
     && rm -rf /var/lib/apt/lists/*
 
 RUN pip install --no-cache-dir poetry
@@ -24,7 +32,10 @@ COPY profiles/ profiles/
 COPY templates/ templates/
 COPY static/ static/
 COPY data/usage_stats.json data/
+COPY docker-entrypoint.sh /usr/local/bin/docker-entrypoint.sh
 
 EXPOSE 5000
+VOLUME ["/data/db"]
 
+ENTRYPOINT ["sh", "/usr/local/bin/docker-entrypoint.sh"]
 CMD ["poetry", "run", "python", "app.py", "--web"]
