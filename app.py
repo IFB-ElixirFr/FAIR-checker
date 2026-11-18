@@ -124,7 +124,7 @@ for plugin in plugins:
 
 
 factory = FAIRMetricsFactory()
-METRICS_CUSTOM = factory.get_FC_metrics(plugin.metrics)
+METRICS_CUSTOM = factory.get_FC_metrics(plugin.metrics) # Will use the default plugin metrics as a reference
 
 for i, key in enumerate(METRICS_CUSTOM):
     METRICS_CUSTOM[key].set_id("FC_" + str(i))
@@ -1080,83 +1080,163 @@ def evaluate_fc_metrics(metric_name, client_metric_id, url):
     # logger.info("Evaluating: " + metric_name)
     result = METRICS_CUSTOM[metric_name].evaluate()
 
-    ##B when the result is None the score will automaticaly be 0
-    ##B Fixing the error from result.get_scrore()
-    ##!B Wierd it seems to be giving a good note when the app should not
-    if result != None and result != "":
-        score = result.get_score()
-        # Eval time removing microseconds
-        evaluation_time = result.get_test_time() - timedelta(
-            microseconds=result.get_test_time().microseconds
-        )
-        # comment = result.get_reason()
-        comment = result.get_log_html()
+    score = result.get_score()
+    # Eval time removing microseconds
+    evaluation_time = result.get_test_time() - timedelta(
+        microseconds=result.get_test_time().microseconds
+    )
+    # comment = result.get_reason()
+    comment = result.get_log_html()
 
-        recommendation = result.get_recommendation()
-        # print(recommendation)
+    recommendation = result.get_recommendation()
+    # print(recommendation)
 
-        # Persist Evaluation oject in MongoDB
-        r = result.persist(str(SOURCE.UI))
+    # Persist Evaluation oject in MongoDB
+    r = result.persist(str(SOURCE.UI))
 
-        id = METRICS_CUSTOM[metric_name].get_id()
-        csv_line = '"{}"\t"{}"\t"{}"\t"{}"\t"{}"'.format(
-            id, name, score, str(evaluation_time), comment
-        )
+    id = METRICS_CUSTOM[metric_name].get_id()
+    csv_line = '"{}"\t"{}"\t"{}"\t"{}"\t"{}"'.format(
+        id, name, score, str(evaluation_time), comment
+    )
 
-        b_url = app.config["EVAL_URL"]
+    b_url = app.config["EVAL_URL"]
 
-        csv_line = {
-            "id": id,
-            "name": name,
-            "score": score,
-            "time": str(evaluation_time),
-            "comment": comment,
-            "uri": b_url + str(r.inserted_id),
-            "target_url": url,
-        }
-        emit_json = {
-            "id": id,
-            "score": str(score),
-            "time": str(evaluation_time),
-            "comment": comment,
-            "recommendation": recommendation,
-            "csv_line": csv_line,
-            "uri": b_url + str(r.inserted_id),
-            "name": name,
-            "target_url": url,
-        }
-        app.logger.info(f"{str(url)} : {metric_name} = {str(score)}")
-        emit("done_" + client_metric_id, emit_json)
-    else:
-        id = METRICS_CUSTOM[metric_name].get_id()
-        csv_line = '"{}"\t"{}"\t"{}"\t"{}"\t"{}"'.format(
-            id, name, 0, str(0), "Error occured - Impossible to evaluate this metric"
-        )
+    csv_line = {
+        "id": id,
+        "name": name,
+        "score": score,
+        "time": str(evaluation_time),
+        "comment": comment,
+        "uri": b_url + str(r.inserted_id),
+        "target_url": url,
+    }
+    emit_json = {
+        "id": id,
+        "score": str(score),
+        "time": str(evaluation_time),
+        "comment": comment,
+        "recommendation": recommendation,
+        "csv_line": csv_line,
+        "uri": b_url + str(r.inserted_id),
+        "name": name,
+        "target_url": url,
+    }
+    app.logger.info(f"{str(url)} : {metric_name} = {str(score)}")
+    emit("done_" + client_metric_id, emit_json)
 
-        b_url = app.config["EVAL_URL"]
 
-        csv_line = {
-            "id": id,
-            "name": name,
-            "score": score,
-            "time": str(evaluation_time),
-            "comment": comment,
-            "uri": b_url + str(r.inserted_id),
-            "target_url": url,
-        }
-        emit_json = {
-            "id": id,
-            "score": str(0),
-            "time": str(0),
-            "comment": "Error occured - Impossible to evaluate this metric",
-            "recommendation": "Error occured - Impossible to evaluate this metric",
-            "csv_line": csv_line,
-            "uri": b_url + str(r.inserted_id),
-            "name": name,
-            "target_url": url,
-        }
-        app.logger.info(f"{str(url)} : {metric_name} = {str(0)}")
-        emit("done_" + client_metric_id, emit_json)
+##def evaluate_fc_metrics(metric_name, client_metric_id, url):
+##    # print(metric_name)
+##    # print(METRICS_CUSTOM)
+##
+##    app.logger.debug("Evaluating FAIR-Checker metric")
+##    # prod_logger.info("Evaluating FAIR-Checker metric")
+##    id = METRICS_CUSTOM[metric_name].get_id()
+##    app.logger.debug("ID: " + id)
+##    app.logger.debug("Client ID: " + client_metric_id)
+##    # Faire une fonction recursive ?
+##    if cache.get(url) == "pulling":
+##        while True:
+##            time.sleep(0.2)
+##            if not cache.get(url) == "pulling":
+##                webresource = cache.get(url)
+##                break
+##
+##    elif not isinstance(cache.get(url), WebResource):
+##        cache.set(url, "pulling")
+##        webresource = WebResource(url)
+##        cache.set(url, webresource)
+##    elif isinstance(cache.get(url), WebResource):
+##        webresource = cache.get(url)
+##
+##    METRICS_CUSTOM[metric_name].set_web_resource(webresource)
+##    name = METRICS_CUSTOM[metric_name].get_principle_tag()
+##    app.logger.debug("Evaluation: " + metric_name)
+##
+##    # logger.info("Evaluating: " + metric_name)
+##    result = METRICS_CUSTOM[metric_name].evaluate()
+##
+##    print(result.get_score())
+##    exit()
+##    score = result.get_score()
+##
+##    ##B when the result is None the score will automaticaly be 0
+##    ##B Fixing the error from result.get_scrore()
+##    ##!B Wierd it seems to be giving a good note when the app should not
+##    if result != None and result != "":
+##        
+##        # Eval time removing microseconds
+##        evaluation_time = result.get_test_time() - timedelta(
+##            microseconds=result.get_test_time().microseconds
+##        )
+##        # comment = result.get_reason()
+##        comment = result.get_log_html()
+##
+##        recommendation = result.get_recommendation()
+##        # print(recommendation)
+##
+##        # Persist Evaluation oject in MongoDB
+##        r = result.persist(str(SOURCE.UI))
+##
+##        id = METRICS_CUSTOM[metric_name].get_id()
+##        csv_line = '"{}"\t"{}"\t"{}"\t"{}"\t"{}"'.format(
+##            id, name, score, str(evaluation_time), comment
+##        )
+##
+##        b_url = app.config["EVAL_URL"]
+##
+##        csv_line = {
+##            "id": id,
+##            "name": name,
+##            "score": score,
+##            "time": str(evaluation_time),
+##            "comment": comment,
+##            "uri": b_url + str(r.inserted_id),
+##            "target_url": url,
+##        }
+##        emit_json = {
+##            "id": id,
+##            "score": str(score),
+##            "time": str(evaluation_time),
+##            "comment": comment,
+##            "recommendation": recommendation,
+##            "csv_line": csv_line,
+##            "uri": b_url + str(r.inserted_id),
+##            "name": name,
+##            "target_url": url,
+##        }
+##        app.logger.info(f"{str(url)} : {metric_name} = {str(score)}")
+##        emit("done_" + client_metric_id, emit_json)
+##    else:
+##        id = METRICS_CUSTOM[metric_name].get_id()
+##        csv_line = '"{}"\t"{}"\t"{}"\t"{}"\t"{}"'.format(
+##            id, name, 0, str(0), "Error occured - Impossible to evaluate this metric"
+##        )
+##
+##        b_url = app.config["EVAL_URL"]
+##
+##        csv_line = {
+##            "id": id,
+##            "name": name,
+##            "score": score,
+##            "time": str(evaluation_time),
+##            "comment": comment,
+##            "uri": b_url + str(r.inserted_id),
+##            "target_url": url,
+##        }
+##        emit_json = {
+##            "id": id,
+##            "score": str(0),
+##            "time": str(0),
+##            "comment": "Error occured - Impossible to evaluate this metric",
+##            "recommendation": "Error occured - Impossible to evaluate this metric",
+##            "csv_line": csv_line,
+##            "uri": b_url + str(r.inserted_id),
+##            "name": name,
+##            "target_url": url,
+##        }
+##        app.logger.info(f"{str(url)} : {metric_name} = {str(0)}")
+##        emit("done_" + client_metric_id, emit_json)
 
 
 
