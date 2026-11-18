@@ -13,7 +13,7 @@ Test
 
 
         console.log('trying to connect...');
-        var socket = io.connect('http://127.0.0.1:5000');
+        var socket = io.connect({{ config['SERVER_URL']| tojson }});
         //var socket = io();
         console.log('connected');
 
