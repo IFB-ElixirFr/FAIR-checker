@@ -58,7 +58,7 @@ class FAIRMetricsFactory:
                     fc_metrics[key].name = metric.name
                     fc_metrics[key].principle_tag = metric.tag
                     fc_metrics[key].desc = metric.description
-                    fc_metrics[key].recommentations = metric.recommendations
+                    fc_metrics[key].recommendations = metric.recommendations
         return fc_metrics
 
     @staticmethod

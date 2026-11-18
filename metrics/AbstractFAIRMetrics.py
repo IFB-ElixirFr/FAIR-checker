@@ -1,5 +1,6 @@
 from abc import ABC, abstractmethod
 import logging
+from typing import Type
 from metrics.Evaluation import Evaluation
 from metrics.util import get_disk_cache
 
@@ -43,6 +44,8 @@ PREFIX odrl: <http://www.w3.org/ns/odrl/2/>
         self.requests_status_code = "Status code for requests"
         self.web_resource = web_resource
         self.evaluation = "My evaluation"
+        # weak / strong recommendation texts, set from the plugin by FAIRMetricsFactory
+        self.recommendations = {}
 
     # name
     def get_name(self):
@@ -91,6 +94,16 @@ PREFIX odrl: <http://www.w3.org/ns/odrl/2/>
 
     def set_new_evaluation(self):
         self.evaluation = Evaluation()
+
+    def build_delegate(self, metric_cls: Type["AbstractFAIRMetrics"]):
+        """Build the metric this one delegates its evaluation to.
+
+        The delegate shares the web resource and this metric's (plugin)
+        recommendations, otherwise its recommendations are left empty.
+        """
+        delegate = metric_cls(self.get_web_resource())
+        delegate.recommendations = self.recommendations
+        return delegate
 
     def evaluate(self) -> Evaluation:
 

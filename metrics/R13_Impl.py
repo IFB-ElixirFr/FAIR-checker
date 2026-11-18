@@ -27,7 +27,7 @@ class R13_Impl(AbstractFAIRMetrics):
         eval = self.get_evaluation()
         eval.set_implem(self.implem)
         eval.set_metrics(self.principle_tag)
-        eval_from_F2B = F2B_Impl(self.get_web_resource()).weak_evaluate(eval=eval)
+        eval_from_F2B = self.build_delegate(F2B_Impl).weak_evaluate(eval=eval)
         return eval_from_F2B
 
     def strong_evaluate(self):
@@ -37,5 +37,5 @@ class R13_Impl(AbstractFAIRMetrics):
         eval = self.get_evaluation()
         eval.set_implem(self.implem)
         eval.set_metrics(self.principle_tag)
-        eval_from_F2B = F2B_Impl(self.get_web_resource()).strong_evaluate(eval=eval)
+        eval_from_F2B = self.build_delegate(F2B_Impl).strong_evaluate(eval=eval)
         return eval_from_F2B
