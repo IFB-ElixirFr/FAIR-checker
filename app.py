@@ -385,6 +385,12 @@ def favicon():
     )
 
 
+@app.route("/docs/")
+def documentation_index():
+    # /docs redirects here (Flask strict slashes), so relative links resolve under /docs/
+    return documentation("index.html")
+
+
 @app.route("/docs/<path:filename>")
 def documentation(filename):
     return send_from_directory("docs/_build/html", filename)
