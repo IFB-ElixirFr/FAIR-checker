@@ -1,5 +1,4 @@
 ## Standard imports
-import os
 import sys
 import yaml
 import logging
@@ -19,15 +18,15 @@ from modules.evaluator.resource import ResourceExample
 ##
 class PluginLoader:
 
-    def __init__(self):
-        self.plugin_directory = "plugins/"
-        self.plugin_schema_directory = "modules/plugin/"
+    def __init__(self, plugin_directory: str = "plugins/", plugin_schema_directory: str = "modules/plugin/"):
+        self.plugin_directory = plugin_directory
+        self.plugin_schema_directory = plugin_schema_directory
         self.plugin_validator = PluginValidator(plugin_directory=self.plugin_directory, plugin_schema_directory=self.plugin_schema_directory)
         self.plugins = []
 
     def load(self):
         self.plugin_validator.verify_plugins_compliance()
-        plugin_files = os.listdir(self.plugin_directory)
+        plugin_files = self.plugin_validator.list_plugin_files()
         for plugin_file in plugin_files:
             try:
                 with open(f"{self.plugin_directory}{plugin_file}") as f:

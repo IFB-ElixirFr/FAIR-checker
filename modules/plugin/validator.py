@@ -4,8 +4,11 @@ import sys
 import yaml
 import json
 import logging
+from typing import List
 from jsonschema import validate
 from jsonschema.exceptions import ValidationError
+
+PLUGIN_FILE_EXTENSIONS = (".yaml", ".yml")
 
 
 class PluginValidator:
@@ -33,8 +36,23 @@ class PluginValidator:
 
 
 
+    def list_plugin_files(self) -> List[str]:
+        """Return the plugin file names, sorted.
+
+        Skip directories (e.g. __pycache__) and non-YAML files, which would
+        otherwise crash the YAML parsing.
+        """
+        return sorted(
+            name
+            for name in os.listdir(self.plugin_directory)
+            if name.endswith(PLUGIN_FILE_EXTENSIONS)
+            and os.path.isfile(os.path.join(self.plugin_directory, name))
+        )
+
+
+
     def verify_plugin_presence(self):
-        plugin_files = os.listdir(self.plugin_directory)
+        plugin_files = self.list_plugin_files()
         if len(plugin_files) == 0:
             logging.error(
                 f"No plugin found in FAIR-Checker plugin directory. Make sure you have at least "
@@ -92,7 +110,7 @@ class PluginValidator:
 
     def verify_plugins_compliance(self):
         self.verify_plugin_presence()
-        plugin_files = os.listdir(self.plugin_directory)
+        plugin_files = self.list_plugin_files()
         for plugin_file in plugin_files:
             self.verify_yaml_syntax(plugin_file)
             self.verify_plugin_format(plugin_file)
